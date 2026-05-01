@@ -1,0 +1,328 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<title>GNN-PCNA System Map</title>
+<style>
+  * { box-sizing: border-box; margin: 0; padding: 0; }
+  body { background: #0f1117; color: #e2e8f0; font-family: 'Segoe UI', system-ui, sans-serif; overflow: hidden; }
+
+  #header {
+    position: fixed; top: 0; left: 0; right: 0; z-index: 10;
+    padding: 12px 20px; background: #0f1117cc; backdrop-filter: blur(8px);
+    border-bottom: 1px solid #1e293b;
+    display: flex; align-items: center; gap: 16px;
+  }
+  #header h1 { font-size: 15px; font-weight: 600; color: #94a3b8; }
+  #header span { font-size: 12px; color: #475569; }
+
+  #legend {
+    position: fixed; bottom: 16px; left: 16px; z-index: 10;
+    background: #161b27; border: 1px solid #1e293b; border-radius: 8px;
+    padding: 12px 14px; font-size: 11px; line-height: 1.8;
+  }
+  .leg { display: flex; align-items: center; gap: 8px; }
+  .leg-dot { width: 10px; height: 10px; border-radius: 50%; flex-shrink: 0; }
+
+  #tooltip {
+    position: fixed; z-index: 20; pointer-events: none;
+    background: #1e293b; border: 1px solid #334155; border-radius: 6px;
+    padding: 8px 12px; font-size: 12px; line-height: 1.6;
+    max-width: 220px; display: none; color: #e2e8f0;
+  }
+  #tooltip strong { color: #60a5fa; display: block; margin-bottom: 2px; }
+
+  canvas { display: block; }
+
+  #controls {
+    position: fixed; top: 50px; right: 16px; z-index: 10;
+    display: flex; flex-direction: column; gap: 6px;
+  }
+  button {
+    background: #1e293b; border: 1px solid #334155; color: #94a3b8;
+    padding: 6px 10px; border-radius: 5px; cursor: pointer; font-size: 12px;
+  }
+  button:hover { background: #334155; color: #e2e8f0; }
+</style>
+</head>
+<body>
+
+<div id="header">
+  <h1>GNN-PCNA — System Map</h1>
+  <span>Drag to pan · Scroll to zoom · Hover nodes for details</span>
+</div>
+
+<div id="controls">
+  <button onclick="resetView()">Reset View</button>
+  <button onclick="toggleLabels()">Toggle Labels</button>
+</div>
+
+<div id="legend">
+  <div class="leg"><div class="leg-dot" style="background:#a855f7"></div> AI Agents</div>
+  <div class="leg"><div class="leg-dot" style="background:#3b82f6"></div> Input Data</div>
+  <div class="leg"><div class="leg-dot" style="background:#10b981"></div> Graph Construction</div>
+  <div class="leg"><div class="leg-dot" style="background:#f59e0b"></div> GNN Model</div>
+  <div class="leg"><div class="leg-dot" style="background:#8b5cf6"></div> Pocket Prediction</div>
+  <div class="leg"><div class="leg-dot" style="background:#ef4444"></div> MD Validation</div>
+  <div class="leg"><div class="leg-dot" style="background:#06b6d4"></div> Output</div>
+</div>
+
+<div id="tooltip"></div>
+<canvas id="c"></canvas>
+
+<script>
+const canvas = document.getElementById('c');
+const ctx = canvas.getContext('2d');
+const tooltip = document.getElementById('tooltip');
+
+let W, H, dpr;
+let pan = { x: 0, y: 0 };
+let scale = 1;
+let dragging = false, lastMouse = {};
+let showLabels = true;
+
+function resize() {
+  dpr = window.devicePixelRatio || 1;
+  W = window.innerWidth; H = window.innerHeight;
+  canvas.width = W * dpr; canvas.height = H * dpr;
+  canvas.style.width = W + 'px'; canvas.style.height = H + 'px';
+  ctx.scale(dpr, dpr);
+  draw();
+}
+
+// --- DATA ---
+const COLORS = {
+  agent:  '#a855f7',
+  input:  '#3b82f6',
+  graph:  '#10b981',
+  model:  '#f59e0b',
+  pred:   '#8b5cf6',
+  md:     '#ef4444',
+  output: '#06b6d4',
+};
+
+const nodes = [
+  // AI Agents (top row)
+  { id: 'nlm',     label: 'NotebookLM MCP', sub: 'Research extraction',   x: 340, y: 40,  color: COLORS.agent,  detail: 'Source-grounded research extraction.\nReads papers loaded as sources.\nOutputs bullet facts → docs/notebooklm/distilled_notes/\nDo NOT use for coding or repo navigation.' },
+  { id: 'brain',   label: 'Obsidian Brain', sub: 'docs/knowledge/',        x: 580, y: 40,  color: COLORS.agent,  detail: 'Persistent project memory.\nMardown files with [[wikilinks]].\nClaude reads this instead of scanning the repo.\nUpdate after every experiment.' },
+  { id: 'claude',  label: 'Claude Code',    sub: 'Planner + Architect',    x: 820, y: 40,  color: COLORS.agent,  detail: 'Reads brain → creates plan files.\ndocs/plans/YYYY-MM-DD_task.md\nIncludes GEMINI TASK + CHATGPT REVIEW blocks.\nDoes NOT implement unless asked.' },
+  { id: 'gemini',  label: 'Gemini',         sub: 'Implementer',            x: 1060, y: 40, color: COLORS.agent,  detail: 'Implements from Claude plan.\nModifies only listed src/ files.\nReturns complete file + change summary.\nDoes NOT redesign architecture.' },
+  { id: 'chatgpt', label: 'ChatGPT',        sub: 'Reviewer',               x: 1240, y: 40, color: COLORS.agent,  detail: 'Reviews changed files only.\nChecks: bugs, data leakage, scientific logic.\nReturns numbered issue list.\nDoes NOT redesign features.' },
+
+  // Input
+  { id: 'pdb1',    label: 'PDB 1W60',         sub: 'PCNA apo',              x: 120, y: 180, color: COLORS.input,  detail: 'Apo crystal structure of PCNA (2.35 Å).\nNo AOH1996 pocket visible.\nStarting point for graph construction.' },
+  { id: 'pdb2',    label: 'PDB 8GLA',          sub: 'PCNA + AOH1996',        x: 120, y: 300, color: COLORS.input,  detail: 'Holo structure with AOH1996 bound.\nGround truth: residues within 6 Å\nof ligand = positive class.' },
+  { id: 'traj',    label: 'MD Trajectory',     sub: '.xtc / .dcd',           x: 120, y: 420, color: COLORS.input,  detail: '100 ns explicit solvent simulation.\nCHARMM36m + TIP3P.\nUsed for RMSF, DCCM, volume tracking.' },
+
+  // Graph
+  { id: 'parse',   label: 'PDB Parser',        sub: 'BioPython',             x: 340, y: 200, color: COLORS.graph,  detail: 'Strips waters & ligands.\nStandardizes chain IDs (A/B/C).\nExtracts residue coords + properties.' },
+  { id: 'nodes',   label: 'Node Features',     sub: 'AA · SASA · SS · Bfac', x: 340, y: 320, color: COLORS.graph,  detail: '26-dim per residue:\n• AA one-hot (20)\n• SASA (1)\n• Secondary structure (3)\n• B-factor (1)\n• Seq position (1)' },
+  { id: 'edges',   label: 'Edge Features',     sub: 'Cα–Cα < 8 Å',          x: 340, y: 420, color: COLORS.graph,  detail: '2-dim per edge:\n• Euclidean distance (Cα–Cα)\n• Sequence separation |i−j|\nCutoff: 8 Å' },
+  { id: 'pyg',     label: 'PyG Data Object',   sub: 'torch_geometric.data',  x: 340, y: 520, color: COLORS.graph,  detail: 'Packaged graph:\n• x: (N, 26) node features\n• edge_index: (2, E)\n• edge_attr: (E, 2)\n• y: (N,) labels (training only)' },
+
+  // Model
+  { id: 'emb',     label: 'Node Embedding',    sub: 'MLP → 128-dim',         x: 580, y: 200, color: COLORS.model,  detail: 'Linear(26→128) + ReLU + LayerNorm.\nProjects raw features into\nlatent embedding space.' },
+  { id: 'gnn1',    label: 'GATv2Conv L1',      sub: '256-dim, 4 heads',      x: 580, y: 300, color: COLORS.model,  detail: 'Graph Attention v2 layer.\nDynamic attention: score(Wh_i, Wh_j).\nResidual connection added.' },
+  { id: 'gnn2',    label: 'GATv2Conv L2',      sub: '256-dim, 4 heads',      x: 580, y: 380, color: COLORS.model,  detail: 'Layer 2 of 4.\nDropout=0.2 on attention weights.\nEdge features concatenated to messages.' },
+  { id: 'gnn34',   label: 'GATv2Conv L3–4',    sub: '256-dim, 4 heads',      x: 580, y: 460, color: COLORS.model,  detail: 'Layers 3 and 4.\nDeep representations capture\nmulti-hop neighborhood context.' },
+  { id: 'head',    label: 'Scoring Head',      sub: 'MLP 256→64→1 + sigmoid', x: 580, y: 560, color: COLORS.model,  detail: 'Per-residue output.\nSigmoid → P(cryptic pocket) ∈ [0,1].\nTrained with Focal Loss (γ=2, α=0.25).' },
+
+  // Prediction
+  { id: 'scores',  label: 'Pocket Scores',     sub: 'per residue',           x: 800, y: 300, color: COLORS.pred,   detail: 'Shape: (N,) float32.\nThreshold at 0.5 for binary prediction.\nInspect distribution for calibration.' },
+  { id: 'cluster', label: 'Spatial Clustering', sub: 'DBSCAN on high-scores', x: 800, y: 420, color: COLORS.pred,   detail: 'Cluster adjacent residues\nwith score > 0.5.\nε = 6 Å, min_samples = 3.' },
+  { id: 'rank',    label: 'Ranked Pockets',    sub: 'by mean score + size',  x: 800, y: 540, color: COLORS.pred,   detail: 'Rank by: mean score × cluster size.\nExport: JSON + scored .pdb\n(B-factors replaced by pocket score).' },
+
+  // MD Validation
+  { id: 'rmsf',    label: 'RMSF Analysis',     sub: 'flexibility',           x: 1020, y: 280, color: COLORS.md,    detail: 'Per-residue fluctuation over trajectory.\nHigh RMSF (>1.5 Å) in pocket = cryptic.\nMDAnalysis: analysis.rms.RMSF' },
+  { id: 'dccm',    label: 'DCCM',              sub: 'correlated motion',     x: 1020, y: 400, color: COLORS.md,    detail: 'Dynamic Cross-Correlation Matrix.\nNxN, values in [-1, 1].\nPocket residues should be correlated.' },
+  { id: 'vol',     label: 'Volume Tracking',   sub: 'pocket opening',        x: 1020, y: 520, color: COLORS.md,    detail: 'Track pocket volume per MD frame.\nUse fpocket or MDpocket.\nTarget: volume > 100 ų transiently.' },
+
+  // Output
+  { id: 'output',  label: 'Validated Pockets', sub: 'ranked cryptic sites',  x: 1240, y: 400, color: COLORS.output, detail: 'Final output:\n• Residue list per pocket\n• Mean GNN score\n• RMSF evidence\n• DCCM block signature\n• Representative open snapshot' },
+];
+
+const edges = [
+  // AI workflow
+  ['nlm','brain'],['brain','claude'],['claude','gemini'],['gemini','chatgpt'],
+  ['pdb1','parse'],['pdb2','parse'],
+  ['parse','nodes'],['parse','edges'],
+  ['nodes','pyg'],['edges','pyg'],
+  ['pyg','emb'],['emb','gnn1'],['gnn1','gnn2'],['gnn2','gnn34'],['gnn34','head'],
+  ['head','scores'],['scores','cluster'],['cluster','rank'],
+  ['traj','rmsf'],['traj','dccm'],['traj','vol'],
+  ['rank','rmsf'],['rank','dccm'],['rank','vol'],
+  ['rmsf','output'],['dccm','output'],['vol','output'],
+];
+
+// Build lookup
+const nodeMap = {};
+nodes.forEach(n => { nodeMap[n.id] = n; });
+
+// Layout offsets: shift all to center
+const LAYOUT_W = 1360, LAYOUT_H = 700;
+
+function worldToScreen(x, y) {
+  return {
+    sx: (x - LAYOUT_W / 2) * scale + W / 2 + pan.x,
+    sy: (y - LAYOUT_H / 2) * scale + H / 2 + pan.y,
+  };
+}
+
+function screenToWorld(sx, sy) {
+  return {
+    x: (sx - W / 2 - pan.x) / scale + LAYOUT_W / 2,
+    y: (sy - H / 2 - pan.y) / scale + LAYOUT_H / 2,
+  };
+}
+
+function draw() {
+  ctx.clearRect(0, 0, W, H);
+
+  // Background grid
+  ctx.strokeStyle = '#1e293b44';
+  ctx.lineWidth = 0.5;
+  const step = 40 * scale;
+  const ox = (W / 2 + pan.x) % step;
+  const oy = (H / 2 + pan.y) % step;
+  for (let x = ox; x < W; x += step) { ctx.beginPath(); ctx.moveTo(x, 0); ctx.lineTo(x, H); ctx.stroke(); }
+  for (let y = oy; y < H; y += step) { ctx.beginPath(); ctx.moveTo(0, y); ctx.lineTo(W, y); ctx.stroke(); }
+
+  // Draw edges
+  edges.forEach(([aid, bid]) => {
+    const a = nodeMap[aid], b = nodeMap[bid];
+    const { sx: ax, sy: ay } = worldToScreen(a.x, a.y);
+    const { sx: bx, sy: by } = worldToScreen(b.x, b.y);
+
+    const dx = bx - ax, dy = by - ay;
+    const len = Math.sqrt(dx * dx + dy * dy);
+    const ux = dx / len, uy = dy / len;
+
+    const r = 28 * scale;
+    const sx2 = ax + ux * r, sy2 = ay + uy * r;
+    const ex2 = bx - ux * r, ey2 = by - uy * r;
+
+    ctx.beginPath();
+    ctx.moveTo(sx2, sy2);
+    ctx.lineTo(ex2, ey2);
+
+    const grad = ctx.createLinearGradient(sx2, sy2, ex2, ey2);
+    grad.addColorStop(0, a.color + '88');
+    grad.addColorStop(1, b.color + '88');
+    ctx.strokeStyle = grad;
+    ctx.lineWidth = 1.5 * scale;
+    ctx.stroke();
+
+    // Arrow
+    const headLen = 8 * scale;
+    const angle = Math.atan2(ey2 - sy2, ex2 - sx2);
+    ctx.beginPath();
+    ctx.moveTo(ex2, ey2);
+    ctx.lineTo(ex2 - headLen * Math.cos(angle - 0.4), ey2 - headLen * Math.sin(angle - 0.4));
+    ctx.lineTo(ex2 - headLen * Math.cos(angle + 0.4), ey2 - headLen * Math.sin(angle + 0.4));
+    ctx.closePath();
+    ctx.fillStyle = b.color + 'cc';
+    ctx.fill();
+  });
+
+  // Draw nodes
+  nodes.forEach(n => {
+    const { sx, sy } = worldToScreen(n.x, n.y);
+    const r = 28 * scale;
+
+    // Glow
+    const glow = ctx.createRadialGradient(sx, sy, r * 0.3, sx, sy, r * 1.8);
+    glow.addColorStop(0, n.color + '30');
+    glow.addColorStop(1, 'transparent');
+    ctx.beginPath(); ctx.arc(sx, sy, r * 1.8, 0, Math.PI * 2);
+    ctx.fillStyle = glow; ctx.fill();
+
+    // Circle
+    ctx.beginPath(); ctx.arc(sx, sy, r, 0, Math.PI * 2);
+    const grad = ctx.createRadialGradient(sx - r * 0.3, sy - r * 0.3, r * 0.1, sx, sy, r);
+    grad.addColorStop(0, n.color + 'ff');
+    grad.addColorStop(1, n.color + '66');
+    ctx.fillStyle = grad; ctx.fill();
+    ctx.strokeStyle = n.color + 'cc';
+    ctx.lineWidth = 1.5 * scale;
+    ctx.stroke();
+
+    if (!showLabels) return;
+    const fs = Math.max(8, 11 * scale);
+    const fsSub = Math.max(7, 9 * scale);
+
+    ctx.textAlign = 'center';
+    ctx.fillStyle = '#f8fafc';
+    ctx.font = `600 ${fs}px 'Segoe UI', sans-serif`;
+    ctx.fillText(n.label, sx, sy + r + fs + 2 * scale);
+
+    ctx.fillStyle = '#94a3b8';
+    ctx.font = `${fsSub}px 'Segoe UI', sans-serif`;
+    ctx.fillText(n.sub, sx, sy + r + fs + fsSub + 4 * scale);
+  });
+}
+
+// --- Interaction ---
+function getHoveredNode(mx, my) {
+  for (const n of nodes) {
+    const { sx, sy } = worldToScreen(n.x, n.y);
+    const r = 28 * scale;
+    if ((mx - sx) ** 2 + (my - sy) ** 2 < r * r) return n;
+  }
+  return null;
+}
+
+canvas.addEventListener('mousemove', e => {
+  const rect = canvas.getBoundingClientRect();
+  const mx = e.clientX - rect.left, my = e.clientY - rect.top;
+
+  if (dragging) {
+    pan.x += mx - lastMouse.x;
+    pan.y += my - lastMouse.y;
+    lastMouse = { x: mx, y: my };
+    draw();
+    return;
+  }
+
+  const n = getHoveredNode(mx, my);
+  if (n) {
+    tooltip.style.display = 'block';
+    tooltip.style.left = (e.clientX + 14) + 'px';
+    tooltip.style.top = (e.clientY - 10) + 'px';
+    tooltip.innerHTML = `<strong>${n.label}</strong>${n.detail.replace(/\n/g, '<br>')}`;
+    canvas.style.cursor = 'pointer';
+  } else {
+    tooltip.style.display = 'none';
+    canvas.style.cursor = 'grab';
+  }
+});
+
+canvas.addEventListener('mousedown', e => {
+  const rect = canvas.getBoundingClientRect();
+  dragging = true;
+  lastMouse = { x: e.clientX - rect.left, y: e.clientY - rect.top };
+  canvas.style.cursor = 'grabbing';
+});
+
+canvas.addEventListener('mouseup', () => { dragging = false; canvas.style.cursor = 'grab'; });
+canvas.addEventListener('mouseleave', () => { dragging = false; tooltip.style.display = 'none'; });
+
+canvas.addEventListener('wheel', e => {
+  e.preventDefault();
+  const rect = canvas.getBoundingClientRect();
+  const mx = e.clientX - rect.left, my = e.clientY - rect.top;
+  const zoomFactor = e.deltaY < 0 ? 1.1 : 0.9;
+  pan.x = mx - (mx - pan.x) * zoomFactor;
+  pan.y = my - (my - pan.y) * zoomFactor;
+  scale *= zoomFactor;
+  scale = Math.min(Math.max(scale, 0.2), 4);
+  draw();
+}, { passive: false });
+
+function resetView() { pan = { x: 0, y: 0 }; scale = 1; draw(); }
+function toggleLabels() { showLabels = !showLabels; draw(); }
+
+window.addEventListener('resize', resize);
+resize();
+</script>
+</body>
+</html>

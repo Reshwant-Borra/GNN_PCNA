@@ -1,0 +1,218 @@
+{
+  "main": {
+    "id": "a9e3a2575ca4bafb",
+    "type": "split",
+    "children": [
+      {
+        "id": "8bb581820ef72f74",
+        "type": "tabs",
+        "children": [
+          {
+            "id": "af6e8d80c99161b2",
+            "type": "leaf",
+            "state": {
+              "type": "graph",
+              "state": {},
+              "icon": "lucide-git-fork",
+              "title": "Graph view"
+            }
+          }
+        ]
+      }
+    ],
+    "direction": "vertical"
+  },
+  "left": {
+    "id": "bab4aac75a7098c2",
+    "type": "split",
+    "children": [
+      {
+        "id": "ecc4193ab60b27dd",
+        "type": "tabs",
+        "children": [
+          {
+            "id": "2c3f6d9eb34e6431",
+            "type": "leaf",
+            "state": {
+              "type": "file-explorer",
+              "state": {
+                "sortOrder": "alphabetical",
+                "autoReveal": false
+              },
+              "icon": "lucide-folder-closed",
+              "title": "Files"
+            }
+          },
+          {
+            "id": "7bdb4d877013fbc8",
+            "type": "leaf",
+            "state": {
+              "type": "search",
+              "state": {
+                "query": "",
+                "matchingCase": false,
+                "explainSearch": false,
+                "collapseAll": false,
+                "extraContext": false,
+                "sortOrder": "alphabetical"
+              },
+              "icon": "lucide-search",
+              "title": "Search"
+            }
+          },
+          {
+            "id": "710e70a3c37754d9",
+            "type": "leaf",
+            "state": {
+              "type": "bookmarks",
+              "state": {},
+              "icon": "lucide-bookmark",
+              "title": "Bookmarks"
+            }
+          }
+        ]
+      }
+    ],
+    "direction": "horizontal",
+    "width": 300
+  },
+  "right": {
+    "id": "708287e541ae2b7c",
+    "type": "split",
+    "children": [
+      {
+        "id": "888897819165aa71",
+        "type": "tabs",
+        "children": [
+          {
+            "id": "c4084ba8a026e65e",
+            "type": "leaf",
+            "state": {
+              "type": "backlink",
+              "state": {
+                "collapseAll": false,
+                "extraContext": false,
+                "sortOrder": "alphabetical",
+                "showSearch": false,
+                "searchQuery": "",
+                "backlinkCollapsed": false,
+                "unlinkedCollapsed": true
+              },
+              "icon": "links-coming-in",
+              "title": "Backlinks"
+            }
+          },
+          {
+            "id": "fffb72c108610ada",
+            "type": "leaf",
+            "state": {
+              "type": "outgoing-link",
+              "state": {
+                "linksCollapsed": false,
+                "unlinkedCollapsed": true
+              },
+              "icon": "links-going-out",
+              "title": "Outgoing links"
+            }
+          },
+          {
+            "id": "2fc1009220e54433",
+            "type": "leaf",
+            "state": {
+              "type": "tag",
+              "state": {
+                "sortOrder": "frequency",
+                "useHierarchy": true,
+                "showSearch": false,
+                "searchQuery": ""
+              },
+              "icon": "lucide-tags",
+              "title": "Tags"
+            }
+          },
+          {
+            "id": "a0ffe18edb7589bc",
+            "type": "leaf",
+            "state": {
+              "type": "all-properties",
+              "state": {
+                "sortOrder": "frequency",
+                "showSearch": false,
+                "searchQuery": ""
+              },
+              "icon": "lucide-archive",
+              "title": "All properties"
+            }
+          },
+          {
+            "id": "a61fe61c2661f312",
+            "type": "leaf",
+            "state": {
+              "type": "outline",
+              "state": {
+                "followCursor": false,
+                "showSearch": false,
+                "searchQuery": ""
+              },
+              "icon": "lucide-list",
+              "title": "Outline"
+            }
+          }
+        ]
+      }
+    ],
+    "direction": "horizontal",
+    "width": 300,
+    "collapsed": true
+  },
+  "left-ribbon": {
+    "hiddenItems": {
+      "switcher:Open quick switcher": false,
+      "graph:Open graph view": false,
+      "canvas:Create new canvas": false,
+      "daily-notes:Open today's daily note": false,
+      "templates:Insert template": false,
+      "command-palette:Open command palette": false,
+      "bases:Create new base": false
+    }
+  },
+  "active": "af6e8d80c99161b2",
+  "lastOpenFiles": [
+    "docs/knowledge/SYSTEM_OVERVIEW.md",
+    "docs/knowledge/INDEX.md",
+    "docs/visuals/README.md",
+    "docs/visuals/README.md.tmp.12260.1777596781014",
+    "docs/visuals/knowledge_graph_map.mmd",
+    "docs/visuals/experiment_flow.mmd",
+    "docs/logs/RESEARCH_NOTES_LOG.md",
+    "docs/logs/CHANGELOG.md",
+    "docs/logs/BUG_LOG.md",
+    "docs/logs/BUG_LOG.md.tmp.12260.1777596679537",
+    "docs/logs/DECISIONS.md",
+    "docs/prompts/NOTEBOOKLM_EXTRACTION_PROMPTS.md",
+    "docs/prompts/CHATGPT_REVIEW_PROMPTS.md",
+    "docs/prompts/GEMINI_IMPLEMENTER_PROMPTS.md",
+    "docs/prompts/CLAUDE_PLANNER_PROMPTS.md",
+    "docs/plans/plan_template.md",
+    "docs/plans/README.md",
+    "docs/notebooklm/distilled_notes/md_validation_notes.md",
+    "docs/notebooklm/distilled_notes/pcna_biology_notes.md",
+    "docs/notebooklm/distilled_notes/deepallo_notes.md",
+    "docs/notebooklm/distilled_notes/pocketminer_notes.md",
+    "docs/notebooklm/extraction_template.md",
+    "docs/notebooklm/README.md",
+    "docs/implementation/TESTING.md",
+    "docs/implementation/TESTING.md.tmp.12260.1777596451389",
+    "docs/implementation/ENVIRONMENT.md",
+    "docs/implementation/COMMANDS.md",
+    "docs/implementation/COMMANDS.md.tmp.12260.1777596413065",
+    "docs/implementation/FILE_GUIDE.md",
+    "docs/implementation/ARCHITECTURE.md",
+    "docs/data/DATA_PROVENANCE.md",
+    "docs/data/DATA_PROVENANCE.md.tmp.12260.1777596347213",
+    "docs/data/PROCESSED_DATA.md",
+    "docs/data/DATA_INVENTORY.md.tmp.12260.1777596269709",
+    "docs/experiments/E002_pcna_pocket_prediction.md.tmp.12260.1777596235530",
+    "docs/knowledge/NOTEBOOKLM_WORKFLOW.md.tmp.12260.1777596152608"
+  ]
+}

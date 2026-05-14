@@ -1,13 +1,17 @@
 """
 Training loop for CrypticGNN.
 Pre-train on CryptoSite, fine-tune on PCNA (8GLA labels).
+
+eval_epoch implementation contributed by Advay (advay.awesomer@gmail.com).
 """
 from __future__ import annotations
 import argparse
 from pathlib import Path
 
 import torch
+import numpy as np
 from torch_geometric.loader import DataLoader
+from sklearn.metrics import roc_auc_score
 
 from src.models import CrypticGNN
 from .loss import focal_loss
@@ -32,7 +36,32 @@ def train_epoch(model: CrypticGNN, loader: DataLoader, optimizer: torch.optim.Op
 @torch.no_grad()
 def eval_epoch(model: CrypticGNN, loader: DataLoader, device: str) -> dict:
     """Evaluate on loader. Returns dict with loss and AUROC."""
-    raise NotImplementedError
+    model.eval()
+    total_loss = 0.0
+    all_scores: list[np.ndarray] = []
+    all_labels: list[np.ndarray] = []
+
+    for batch in loader:
+        batch = batch.to(device)
+        scores = model(batch.x, batch.edge_index, batch.edge_attr)
+        loss = focal_loss(scores, batch.y.float())
+        total_loss += loss.item()
+        all_scores.append(scores.cpu().numpy())
+        all_labels.append(batch.y.cpu().numpy())
+
+    y_score = np.concatenate(all_scores)
+    y_true  = np.concatenate(all_labels)
+
+    # AUROC requires at least one positive and one negative sample
+    if len(np.unique(y_true)) < 2:
+        auroc = float('nan')
+    else:
+        auroc = roc_auc_score(y_true, y_score)
+
+    return {
+        'loss':  total_loss / len(loader),
+        'auroc': auroc,
+    }
 
 
 def main(args: argparse.Namespace) -> None:

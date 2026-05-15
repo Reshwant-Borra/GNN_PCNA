@@ -1,40 +1,7 @@
 {
   "generated_at": "2026-05-15T15:57:27.343381+00:00",
   "crawler_version": "2.0-multidomain",
-  "sources_queried": [
-    "rcsb",
-    "pdbe",
-    "alphafold",
-    "sifts",
-    "uniprot",
-    "ncbi",
-    "interpro",
-    "zenodo",
-    "github",
-    "pubmed",
-    "biorxiv",
-    "pubchem",
-    "chembl"
-  ],
-  "stats": {
-    "total_collected": 160,
-    "passed_validation": 95,
-    "failed_validation": 65,
-    "by_type": {
-      "pdb_structure": 72,
-      "paper": 19,
-      "dataset": 4
-    },
-    "by_source": {
-      "uniprot": 65,
-      "ncbi": 17,
-      "rcsb": 7,
-      "chembl": 3,
-      "pubmed": 2,
-      "pubchem": 1
-    }
-  },
-  "passed": [
+  "all_records": [
     {
       "uid": "1AXC",
       "record_type": "pdb_structure",
@@ -5416,398 +5383,2684 @@
       "relevance": 0.12,
       "checksum": "4f47f058f6733316aabab17eeee4aa7fa0fdd85bddde34feb3679d821a97db77",
       "fetched_at": "2026-05-15T15:55:39.367071+00:00"
-    }
-  ],
-  "failed_summary": [
-    {
-      "uid": "7QO1",
-      "source": "uniprot",
-      "fail_layer": "l3",
-      "reason": "resolution 4.4A > 3.5A"
-    },
-    {
-      "uid": "8YJZ",
-      "source": "uniprot",
-      "fail_layer": "l3",
-      "reason": "resolution 5.15A > 3.5A"
-    },
-    {
-      "uid": "9NE9",
-      "source": "uniprot",
-      "fail_layer": "l3",
-      "reason": "resolution 3.88A > 3.5A"
-    },
-    {
-      "uid": "8YJU",
-      "source": "uniprot",
-      "fail_layer": "l3",
-      "reason": "resolution 3.78A > 3.5A"
-    },
-    {
-      "uid": "9B8S",
-      "source": "uniprot",
-      "fail_layer": "l3",
-      "reason": "resolution 5.01A > 3.5A"
-    },
-    {
-      "uid": "9F6D",
-      "source": "uniprot",
-      "fail_layer": "l3",
-      "reason": "resolution 3.6A > 3.5A"
-    },
-    {
-      "uid": "8YJW",
-      "source": "uniprot",
-      "fail_layer": "l3",
-      "reason": "resolution 3.55A > 3.5A"
-    },
-    {
-      "uid": "9CMA",
-      "source": "uniprot",
-      "fail_layer": "l3",
-      "reason": "resolution 3.97A > 3.5A"
-    },
-    {
-      "uid": "6TNZ",
-      "source": "uniprot",
-      "fail_layer": "l3",
-      "reason": "resolution 4.05A > 3.5A"
-    },
-    {
-      "uid": "8UMV",
-      "source": "uniprot",
-      "fail_layer": "l1",
-      "reason": "request failed/timeout"
-    },
-    {
-      "uid": "8YJV",
-      "source": "uniprot",
-      "fail_layer": "l3",
-      "reason": "resolution 3.51A > 3.5A"
-    },
-    {
-      "uid": "7QNZ",
-      "source": "uniprot",
-      "fail_layer": "l3",
-      "reason": "resolution 4.58A > 3.5A"
-    },
-    {
-      "uid": "8UMW",
-      "source": "uniprot",
-      "fail_layer": "l1",
-      "reason": "request failed/timeout"
-    },
-    {
-      "uid": "8B8T",
-      "source": "uniprot",
-      "fail_layer": "l3",
-      "reason": "resolution 4.2A > 3.5A"
-    },
-    {
-      "uid": "9F6E",
-      "source": "uniprot",
-      "fail_layer": "l3",
-      "reason": "resolution 3.74A > 3.5A"
-    },
-    {
-      "uid": "7NV1",
-      "source": "uniprot",
-      "fail_layer": "l3",
-      "reason": "resolution 6.4A > 3.5A"
-    },
-    {
-      "uid": "6S1O",
-      "source": "uniprot",
-      "fail_layer": "l3",
-      "reason": "resolution 8.1A > 3.5A"
-    },
-    {
-      "uid": "8YJQ",
-      "source": "uniprot",
-      "fail_layer": "l3",
-      "reason": "resolution 3.51A > 3.5A"
-    },
-    {
-      "uid": "6S1N",
-      "source": "uniprot",
-      "fail_layer": "l3",
-      "reason": "resolution 4.86A > 3.5A"
-    },
-    {
-      "uid": "8YJH",
-      "source": "uniprot",
-      "fail_layer": "l3",
-      "reason": "resolution 3.68A > 3.5A"
-    },
-    {
-      "uid": "9CL7",
-      "source": "uniprot",
-      "fail_layer": "l1",
-      "reason": "request failed/timeout"
-    },
-    {
-      "uid": "8UI7",
-      "source": "uniprot",
-      "fail_layer": "l3",
-      "reason": "resolution 4.2A > 3.5A"
-    },
-    {
-      "uid": "8YJS",
-      "source": "uniprot",
-      "fail_layer": "l3",
-      "reason": "resolution 3.55A > 3.5A"
-    },
-    {
-      "uid": "9NE8",
-      "source": "uniprot",
-      "fail_layer": "l3",
-      "reason": "resolution 3.6A > 3.5A"
-    },
-    {
-      "uid": "3JA9",
-      "source": "uniprot",
-      "fail_layer": "l3",
-      "reason": "resolution 22.0A > 3.5A"
-    },
-    {
-      "uid": "6S1M",
-      "source": "uniprot",
-      "fail_layer": "l3",
-      "reason": "resolution 4.27A > 3.5A"
-    },
-    {
-      "uid": "9NE7",
-      "source": "uniprot",
-      "fail_layer": "l3",
-      "reason": "resolution 3.53A > 3.5A"
-    },
-    {
-      "uid": "9NEA",
-      "source": "uniprot",
-      "fail_layer": "l3",
-      "reason": "resolution 3.81A > 3.5A"
-    },
-    {
-      "uid": "8YJL",
-      "source": "uniprot",
-      "fail_layer": "l3",
-      "reason": "resolution 3.51A > 3.5A"
-    },
-    {
-      "uid": "8YJR",
-      "source": "uniprot",
-      "fail_layer": "l3",
-      "reason": "resolution 3.51A > 3.5A"
-    },
-    {
-      "uid": "9F6F",
-      "source": "uniprot",
-      "fail_layer": "l3",
-      "reason": "resolution 3.75A > 3.5A"
-    },
-    {
-      "uid": "PCNA:bioassay",
-      "source": "pubchem",
-      "fail_layer": "l1",
-      "reason": "request failed/timeout"
     },
     {
       "uid": "10.5281/zenodo.20209985",
+      "record_type": "dataset",
       "source": "zenodo",
-      "fail_layer": "l4",
-      "reason": "relevance 0.04 < 0.05"
+      "url": "",
+      "title": "A Six-Gene Transcriptomic Signature Linked to Extracellular Vesicle-Associated Features in Paediatric Severe Malarial Anaemia",
+      "description": "<p>Extracellular vesicles (EVs) have emerged as important mediators of intercellular communication in systemic diseases; however, their role in severe malarial anaemia (SMA) remains poorly defined. In",
+      "metadata": {
+        "doi": "10.5281/zenodo.20209985",
+        "query": "cryptosite cryptic pocket protein",
+        "keywords": [
+          "Severe Malarial Anemia (SMA)",
+          "Transcriptomics",
+          "Gene signature",
+          "Pathogenesis"
+        ],
+        "source": "zenodo"
+      },
+      "download_url": "https://zenodo.org/api/records/20209985/files/Figure%201.tif/content",
+      "validation": {
+        "l1": {
+          "status_code": 200,
+          "content_type": "image/tiff, image/tiff",
+          "size_bytes": 2175408,
+          "ok": true
+        },
+        "l2": {
+          "ok": true
+        },
+        "l3": {
+          "skipped": "not a PDB structure"
+        },
+        "l4": {
+          "score": 0.04,
+          "reason": "no keyword match",
+          "fail": "relevance 0.04 < 0.05"
+        }
+      },
+      "passed": false,
+      "relevance": 0.04,
+      "checksum": "",
+      "fetched_at": ""
     },
     {
       "uid": "10.5281/zenodo.20210231",
+      "record_type": "dataset",
       "source": "zenodo",
-      "fail_layer": "l4",
-      "reason": "relevance 0.04 < 0.05"
+      "url": "",
+      "title": "Figure 4 in Anti-Toxoplasma gondii effect of lupane-type triterpenes from the bark of black alder (Alnus glutinosa) and identification of a potential target by reverse docking",
+      "description": "Figure 4. (a) PyMol visualization of the binding site of BAME (yellow) with PDB ID 3HZT (a); betulone (orange) in protein with PDB ID 3HZT (b); betulone (orange) with PDB ID 2O50 (c). Yellow dotted li",
+      "metadata": {
+        "doi": "10.5281/zenodo.20210231",
+        "query": "cryptosite cryptic pocket protein",
+        "keywords": [
+          "Biodiversity",
+          "Taxonomy"
+        ],
+        "source": "zenodo"
+      },
+      "download_url": "https://zenodo.org/api/records/20210231/files/figure.png/content",
+      "validation": {
+        "l1": {
+          "status_code": 200,
+          "content_type": "image/png, image/png",
+          "size_bytes": 5762628,
+          "ok": true
+        },
+        "l2": {
+          "ok": true
+        },
+        "l3": {
+          "skipped": "not a PDB structure"
+        },
+        "l4": {
+          "score": 0.04,
+          "reason": "no keyword match",
+          "fail": "relevance 0.04 < 0.05"
+        }
+      },
+      "passed": false,
+      "relevance": 0.04,
+      "checksum": "",
+      "fetched_at": ""
     },
     {
       "uid": "10.1051/parasite/2022008",
+      "record_type": "dataset",
       "source": "zenodo",
-      "fail_layer": "l4",
-      "reason": "relevance 0.04 < 0.05"
+      "url": "",
+      "title": "Anti-Toxoplasma gondii effect of lupane-type triterpenes from the bark of black alder (Alnus glutinosa) and identification of a potential target by reverse docking",
+      "description": "Darme, Pierre, Escotte-Binet, Sandie, Cordonnier, Julien, Remy, Simon, Hubert, Jane, Sayagh, Charlotte, Borie, Nicolas, Villena, Isabelle, Voutquenne-Nazabadioko, Laurence, Dauchez, Manuel, Baud, St\u00e9p",
+      "metadata": {
+        "doi": "10.1051/parasite/2022008",
+        "query": "cryptosite cryptic pocket protein",
+        "keywords": [
+          "Biodiversity",
+          "Taxonomy"
+        ],
+        "source": "zenodo"
+      },
+      "download_url": "https://zenodo.org/api/records/20210220/files/source.pdf/content",
+      "validation": {
+        "l1": {
+          "status_code": 200,
+          "content_type": "application/octet-stream, application/octet-stream",
+          "size_bytes": 1416488,
+          "ok": true
+        },
+        "l2": {
+          "ok": true
+        },
+        "l3": {
+          "skipped": "not a PDB structure"
+        },
+        "l4": {
+          "score": 0.04,
+          "reason": "no keyword match",
+          "fail": "relevance 0.04 < 0.05"
+        }
+      },
+      "passed": false,
+      "relevance": 0.04,
+      "checksum": "",
+      "fetched_at": ""
     },
     {
       "uid": "10.1051/parasite/2025007",
+      "record_type": "dataset",
       "source": "zenodo",
-      "fail_layer": "l4",
-      "reason": "relevance 0.04 < 0.05"
+      "url": "",
+      "title": "Leucocytozoon infections in tits (Aves, Paridae): blood and tissue stages investigated using an integrative approach",
+      "description": "Guti\u00e9rrez-Liberato, Germ\u00e1n Alfredo, Duc, M\u00e9lanie, Eigirdas, Vytautas, Chagas, Carolina Romeiro Fernandes (2025): Leucocytozoon infections in tits (Aves, Paridae): blood and tissue stages investigated ",
+      "metadata": {
+        "doi": "10.1051/parasite/2025007",
+        "query": "cryptosite cryptic pocket protein",
+        "keywords": [
+          "Biodiversity",
+          "Taxonomy"
+        ],
+        "source": "zenodo"
+      },
+      "download_url": "https://zenodo.org/api/records/20210205/files/source.pdf/content",
+      "validation": {
+        "l1": {
+          "status_code": 200,
+          "content_type": "application/octet-stream, application/octet-stream",
+          "size_bytes": 965610,
+          "ok": true
+        },
+        "l2": {
+          "ok": true
+        },
+        "l3": {
+          "skipped": "not a PDB structure"
+        },
+        "l4": {
+          "score": 0.04,
+          "reason": "no keyword match",
+          "fail": "relevance 0.04 < 0.05"
+        }
+      },
+      "passed": false,
+      "relevance": 0.04,
+      "checksum": "",
+      "fetched_at": ""
     },
     {
       "uid": "10.1051/parasite/2014051",
+      "record_type": "dataset",
       "source": "zenodo",
-      "fail_layer": "l4",
-      "reason": "relevance 0.04 < 0.05"
+      "url": "",
+      "title": "Immune modulation by helminth parasites of ruminants: implications for vaccine development and host immune competence",
+      "description": "McNeilly, Tom N., Nisbet, Alasdair J. (2014): Immune modulation by helminth parasites of ruminants: implications for vaccine development and host immune competence. Parasite (Paris, France) 21: 1-11, ",
+      "metadata": {
+        "doi": "10.1051/parasite/2014051",
+        "query": "cryptosite cryptic pocket protein",
+        "keywords": [
+          "Biodiversity",
+          "Taxonomy",
+          "Animalia",
+          "Nematoda",
+          "Chromadorea",
+          "Rhabditida",
+          "Trichostrongylidae",
+          "Platyhelminthes",
+          "Trematoda",
+          "Plagiorchiida",
+          "Fasciolidae"
+        ],
+        "source": "zenodo"
+      },
+      "download_url": "https://zenodo.org/api/records/20210142/files/source.pdf/content",
+      "validation": {
+        "l1": {
+          "status_code": 200,
+          "content_type": "application/octet-stream, application/octet-stream",
+          "size_bytes": 302624,
+          "ok": true
+        },
+        "l2": {
+          "ok": true
+        },
+        "l3": {
+          "skipped": "not a PDB structure"
+        },
+        "l4": {
+          "score": 0.04,
+          "reason": "no keyword match",
+          "fail": "relevance 0.04 < 0.05"
+        }
+      },
+      "passed": false,
+      "relevance": 0.04,
+      "checksum": "",
+      "fetched_at": ""
     },
     {
       "uid": "10.5281/zenodo.20209745",
+      "record_type": "dataset",
       "source": "zenodo",
-      "fail_layer": "l4",
-      "reason": "relevance 0.04 < 0.05"
+      "url": "",
+      "title": "Figure 4 in Morphological and molecular characterization of Onchocerca fasciata (Nematoda, Onchocercidae) from dromedary camels (Camelus dromedarius) in Iran",
+      "description": "Figure 4. Phylogeny of the Onchocerca genus based on partitioned concatenated datasets of seven markers. Analysis is based on 12S rDNA, cytochrome oxidase subunit I (cox1), RNA polymerase II large sub",
+      "metadata": {
+        "doi": "10.5281/zenodo.20209745",
+        "query": "cryptosite cryptic pocket protein",
+        "keywords": [
+          "Biodiversity",
+          "Taxonomy"
+        ],
+        "source": "zenodo"
+      },
+      "download_url": "https://zenodo.org/api/records/20209745/files/figure.png/content",
+      "validation": {
+        "l1": {
+          "status_code": 200,
+          "content_type": "image/png, image/png",
+          "size_bytes": 641635,
+          "ok": true
+        },
+        "l2": {
+          "ok": true
+        },
+        "l3": {
+          "skipped": "not a PDB structure"
+        },
+        "l4": {
+          "score": 0.04,
+          "reason": "no keyword match",
+          "fail": "relevance 0.04 < 0.05"
+        }
+      },
+      "passed": false,
+      "relevance": 0.04,
+      "checksum": "",
+      "fetched_at": ""
     },
     {
       "uid": "10.5281/zenodo.20209743",
+      "record_type": "dataset",
       "source": "zenodo",
-      "fail_layer": "l4",
-      "reason": "relevance 0.04 < 0.05"
+      "url": "",
+      "title": "Figure 3 in Morphological and molecular characterization of Onchocerca fasciata (Nematoda, Onchocercidae) from dromedary camels (Camelus dromedarius) in Iran",
+      "description": "Figure 3. Phylogeny of filarial nematodes based on partitioned concatenated datasets of seven markers. Analysis is based on 12S rDNA, cytochrome oxidase subunit I (cox1), RNA polymerase II large subun",
+      "metadata": {
+        "doi": "10.5281/zenodo.20209743",
+        "query": "cryptosite cryptic pocket protein",
+        "keywords": [
+          "Biodiversity",
+          "Taxonomy"
+        ],
+        "source": "zenodo"
+      },
+      "download_url": "https://zenodo.org/api/records/20209743/files/figure.png/content",
+      "validation": {
+        "l1": {
+          "status_code": 200,
+          "content_type": "image/png, image/png",
+          "size_bytes": 454076,
+          "ok": true
+        },
+        "l2": {
+          "ok": true
+        },
+        "l3": {
+          "skipped": "not a PDB structure"
+        },
+        "l4": {
+          "score": 0.04,
+          "reason": "no keyword match",
+          "fail": "relevance 0.04 < 0.05"
+        }
+      },
+      "passed": false,
+      "relevance": 0.04,
+      "checksum": "",
+      "fetched_at": ""
     },
     {
       "uid": "10.1051/parasite/2020021",
+      "record_type": "dataset",
       "source": "zenodo",
-      "fail_layer": "l4",
-      "reason": "relevance 0.04 < 0.05"
+      "url": "",
+      "title": "Adjuvantic cytokine IL-33 improves the protective immunity of cocktailed DNA vaccine of ROP5 and ROP18 against toxoplasma gondii infection in mice",
+      "description": "Zhu, Yu-Chao, He, Yong, Liu, Jian-Fa, Chen, Jia (2020): Adjuvantic cytokine IL-33 improves the protective immunity of cocktailed DNA vaccine of ROP5 and ROP18 against toxoplasma gondii infection in mi",
+      "metadata": {
+        "doi": "10.1051/parasite/2020021",
+        "query": "cryptosite cryptic pocket protein",
+        "keywords": [
+          "Biodiversity",
+          "Taxonomy",
+          "Chromista",
+          "Miozoa",
+          "Eucoccidiida",
+          "Sarcocystidae"
+        ],
+        "source": "zenodo"
+      },
+      "download_url": "https://zenodo.org/api/records/20209061/files/source.pdf/content",
+      "validation": {
+        "l1": {
+          "status_code": 200,
+          "content_type": "application/octet-stream, application/octet-stream",
+          "size_bytes": 933189,
+          "ok": true
+        },
+        "l2": {
+          "ok": true
+        },
+        "l3": {
+          "skipped": "not a PDB structure"
+        },
+        "l4": {
+          "score": 0.04,
+          "reason": "no keyword match",
+          "fail": "relevance 0.04 < 0.05"
+        }
+      },
+      "passed": false,
+      "relevance": 0.04,
+      "checksum": "",
+      "fetched_at": ""
     },
     {
       "uid": "10.1051/parasite/2016069",
+      "record_type": "dataset",
       "source": "zenodo",
-      "fail_layer": "l4",
-      "reason": "relevance 0.04 < 0.05"
+      "url": "",
+      "title": "Polymorphisms in K13, pfcrt, pfmdr1, pfdhfr, and pfdhps in parasites isolated from symptomatic malaria patients in Burkina Faso",
+      "description": "Som\u00e9, Anyir\u00e9kun Fabrice, Sorgho, Hermann, Zongo, Issaka, Bazi\u00e9, Thomas, Niki\u00e9ma, Fr\u00e9d\u00e9ric, Sawadogo, Amad\u00e9, Zongo, Moussa, Compaor\u00e9, Yves-Daniel, Ou\u00e9draogo, Jean-Bosco (2016): Polymorphisms in K13, pf",
+      "metadata": {
+        "doi": "10.1051/parasite/2016069",
+        "query": "cryptosite cryptic pocket protein",
+        "keywords": [
+          "Biodiversity",
+          "Taxonomy"
+        ],
+        "source": "zenodo"
+      },
+      "download_url": "https://zenodo.org/api/records/20208890/files/source.pdf/content",
+      "validation": {
+        "l1": {
+          "status_code": 200,
+          "content_type": "application/octet-stream, application/octet-stream",
+          "size_bytes": 1144861,
+          "ok": true
+        },
+        "l2": {
+          "ok": true
+        },
+        "l3": {
+          "skipped": "not a PDB structure"
+        },
+        "l4": {
+          "score": 0.04,
+          "reason": "no keyword match",
+          "fail": "relevance 0.04 < 0.05"
+        }
+      },
+      "passed": false,
+      "relevance": 0.04,
+      "checksum": "",
+      "fetched_at": ""
     },
     {
       "uid": "10.5281/zenodo.20208787",
+      "record_type": "dataset",
       "source": "zenodo",
-      "fail_layer": "l4",
-      "reason": "relevance 0.04 < 0.05"
+      "url": "",
+      "title": "Fibroin Secondary Structure, Mechanical Performance, and Sericin Composition of Silk Produced by Indigenous Uzbek Bombyx mori Strains Under Variable Rearing Temperature Regimes: A Comparative FTIR, XRD, and Tensile Study",
+      "description": "<p class=\"MsoNormal\"><strong>Background: </strong>Uzbekistan holds one of the world's oldest and most productive sericulture traditions, yet the physicochemical and mechanical properties of silk produ",
+      "metadata": {
+        "doi": "10.5281/zenodo.20208787",
+        "query": "cryptosite cryptic pocket protein",
+        "keywords": [],
+        "source": "zenodo"
+      },
+      "download_url": "https://zenodo.org/api/records/20208787/files/1091-1098.pdf/content",
+      "validation": {
+        "l1": {
+          "status_code": 200,
+          "content_type": "application/octet-stream, application/octet-stream",
+          "size_bytes": 254819,
+          "ok": true
+        },
+        "l2": {
+          "ok": true
+        },
+        "l3": {
+          "skipped": "not a PDB structure"
+        },
+        "l4": {
+          "score": 0.04,
+          "reason": "no keyword match",
+          "fail": "relevance 0.04 < 0.05"
+        }
+      },
+      "passed": false,
+      "relevance": 0.04,
+      "checksum": "",
+      "fetched_at": ""
     },
     {
       "uid": "10.5281/zenodo.20210111",
+      "record_type": "dataset",
       "source": "zenodo",
-      "fail_layer": "l4",
-      "reason": "relevance 0.04 < 0.05"
+      "url": "",
+      "title": "Hub Architecture: A Layered Approach to Evidence-Based AI Reasoning",
+      "description": "<p>Large language models (LLMs) have achieved remarkable fluency but remain unreliable as reasoning systems. Their tendency to hallucinate, misattribute sources, and produce unstable conclusions limit",
+      "metadata": {
+        "doi": "10.5281/zenodo.20210111",
+        "query": "pocketminer graph neural network protein",
+        "keywords": [
+          "Artificial Intelligence Large Language Models (LLMs) AI Safety Evidence-Based Reasoning Hub Architecture Hallucination Mitigation Automated Auditing"
+        ],
+        "source": "zenodo"
+      },
+      "download_url": "https://zenodo.org/api/records/20210111/files/THE%20FULL%20UPDATED%20MASTER%20PAPER.pdf/content",
+      "validation": {
+        "l1": {
+          "status_code": 200,
+          "content_type": "application/octet-stream, application/octet-stream",
+          "size_bytes": 121214,
+          "ok": true
+        },
+        "l2": {
+          "ok": true
+        },
+        "l3": {
+          "skipped": "not a PDB structure"
+        },
+        "l4": {
+          "score": 0.04,
+          "reason": "no keyword match",
+          "fail": "relevance 0.04 < 0.05"
+        }
+      },
+      "passed": false,
+      "relevance": 0.04,
+      "checksum": "",
+      "fetched_at": ""
     },
     {
       "uid": "10.1051/parasite/2017031",
+      "record_type": "dataset",
       "source": "zenodo",
-      "fail_layer": "l4",
-      "reason": "relevance 0.04 < 0.05"
+      "url": "",
+      "title": "Detection of Echinococcus multilocularis and other foodborne parasites in fox, cat and dog faeces collected in kitchen gardens in a highly endemic area for alveolar echinococcosis",
+      "description": "Poulle, Marie-Lazarine, Bastien, Matthieu, Richard, Yolan, Josse-Dupuis, \u00c9milie, Aubert, Dominique, Villena, Isabelle, Knapp, Jenny (2017): Detection of Echinococcus multilocularis and other foodborne",
+      "metadata": {
+        "doi": "10.1051/parasite/2017031",
+        "query": "pocketminer graph neural network protein",
+        "keywords": [
+          "Biodiversity",
+          "Taxonomy",
+          "Animalia",
+          "Arthropoda",
+          "Insecta",
+          "Hemiptera",
+          "Pseudococcidae",
+          "Chromista",
+          "Miozoa",
+          "Eucoccidiida",
+          "Sarcocystidae"
+        ],
+        "source": "zenodo"
+      },
+      "download_url": "https://zenodo.org/api/records/20210125/files/source.pdf/content",
+      "validation": {
+        "l1": {
+          "status_code": 200,
+          "content_type": "application/octet-stream, application/octet-stream",
+          "size_bytes": 2680107,
+          "ok": true
+        },
+        "l2": {
+          "ok": true
+        },
+        "l3": {
+          "skipped": "not a PDB structure"
+        },
+        "l4": {
+          "score": 0.04,
+          "reason": "no keyword match",
+          "fail": "relevance 0.04 < 0.05"
+        }
+      },
+      "passed": false,
+      "relevance": 0.04,
+      "checksum": "",
+      "fetched_at": ""
     },
     {
       "uid": "10.5281/zenodo.20209246",
+      "record_type": "dataset",
       "source": "zenodo",
-      "fail_layer": "l4",
-      "reason": "relevance 0.04 < 0.05"
+      "url": "",
+      "title": "Figure 2 in Molecular survey of coccidian infections of the side-blotched lizard Uta stansburiana on San Benito Oeste Island, Mexico",
+      "description": "Figure 2. Median-joining haplotype network of parasite DNA sequences (18S rRNA gene). Details of the reference sequences, including blood parasite and host species identity and code and location, are ",
+      "metadata": {
+        "doi": "10.5281/zenodo.20209246",
+        "query": "pocketminer graph neural network protein",
+        "keywords": [
+          "Biodiversity",
+          "Taxonomy"
+        ],
+        "source": "zenodo"
+      },
+      "download_url": "https://zenodo.org/api/records/20209246/files/figure.png/content",
+      "validation": {
+        "l1": {
+          "status_code": 200,
+          "content_type": "image/png, image/png",
+          "size_bytes": 425381,
+          "ok": true
+        },
+        "l2": {
+          "ok": true
+        },
+        "l3": {
+          "skipped": "not a PDB structure"
+        },
+        "l4": {
+          "score": 0.04,
+          "reason": "no keyword match",
+          "fail": "relevance 0.04 < 0.05"
+        }
+      },
+      "passed": false,
+      "relevance": 0.04,
+      "checksum": "",
+      "fetched_at": ""
     },
     {
       "uid": "10.5194/se-15-1087-2024",
+      "record_type": "dataset",
       "source": "zenodo",
-      "fail_layer": "l4",
-      "reason": "relevance 0.04 < 0.05"
+      "url": "",
+      "title": "Selection and Characterisation of the Target Fault for Fluid-Induced Activation and Earthquake Rupture Experiments",
+      "description": "<p>Structural geological mapping, remote sensing, exploration drilling and borehole logging, ground-penetration radar, and laboratory investigations were employed to identify and characterize the targ",
+      "metadata": {
+        "doi": "10.5194/se-15-1087-2024",
+        "query": "pocketminer graph neural network protein",
+        "keywords": [],
+        "source": "zenodo"
+      },
+      "download_url": "https://zenodo.org/api/records/20209164/files/se-15-1087-2024.pdf/content",
+      "validation": {
+        "l1": {
+          "status_code": 200,
+          "content_type": "application/octet-stream, application/octet-stream",
+          "size_bytes": 15030656,
+          "ok": true
+        },
+        "l2": {
+          "ok": true
+        },
+        "l3": {
+          "skipped": "not a PDB structure"
+        },
+        "l4": {
+          "score": 0.04,
+          "reason": "no keyword match",
+          "fail": "relevance 0.04 < 0.05"
+        }
+      },
+      "passed": false,
+      "relevance": 0.04,
+      "checksum": "",
+      "fetched_at": ""
     },
     {
       "uid": "10.5281/zenodo.20207559",
+      "record_type": "dataset",
       "source": "zenodo",
-      "fail_layer": "l4",
-      "reason": "relevance 0.04 < 0.05"
+      "url": "",
+      "title": "Woman and child at Lausanne, Switzerland",
+      "description": "This is an abstract sculpture of a woman with a child by Nicolas Del\u00e9mont. He is a Swiss sculptor who resides in Prilly VD.  This dataset has been acquired and processed by the students of the Digital",
+      "metadata": {
+        "doi": "10.5281/zenodo.20207559",
+        "query": "PCNA training dataset",
+        "keywords": [],
+        "source": "zenodo"
+      },
+      "download_url": "https://zenodo.org/api/records/20207559/files/80903aad080bb88b92f07f67c4f78304_r270.png/content",
+      "validation": {
+        "l1": {
+          "status_code": 200,
+          "content_type": "image/png, image/png",
+          "size_bytes": 180559,
+          "ok": true
+        },
+        "l2": {
+          "ok": true
+        },
+        "l3": {
+          "skipped": "not a PDB structure"
+        },
+        "l4": {
+          "score": 0.04,
+          "reason": "no keyword match",
+          "fail": "relevance 0.04 < 0.05"
+        }
+      },
+      "passed": false,
+      "relevance": 0.04,
+      "checksum": "",
+      "fetched_at": ""
     },
     {
       "uid": "10.5281/zenodo.20207478",
+      "record_type": "dataset",
       "source": "zenodo",
-      "fail_layer": "l4",
-      "reason": "relevance 0.04 < 0.05"
+      "url": "",
+      "title": "The Power of Will at The Mus\u00e9e des Beaux-Arts, Lyon",
+      "description": "3D model from the ScanTheWorld dataset: The Power of Will at The Mus\u00e9e des Beaux-Arts, Lyon.",
+      "metadata": {
+        "doi": "10.5281/zenodo.20207478",
+        "query": "PCNA training dataset",
+        "keywords": [],
+        "source": "zenodo"
+      },
+      "download_url": "https://zenodo.org/api/records/20207478/files/800bc60efcbd2d35b837552e978e834a_r270.png/content",
+      "validation": {
+        "l1": {
+          "status_code": 200,
+          "content_type": "image/png, image/png",
+          "size_bytes": 166771,
+          "ok": true
+        },
+        "l2": {
+          "ok": true
+        },
+        "l3": {
+          "skipped": "not a PDB structure"
+        },
+        "l4": {
+          "score": 0.04,
+          "reason": "no keyword match",
+          "fail": "relevance 0.04 < 0.05"
+        }
+      },
+      "passed": false,
+      "relevance": 0.04,
+      "checksum": "",
+      "fetched_at": ""
     },
     {
       "uid": "10.5281/zenodo.20201362",
+      "record_type": "dataset",
       "source": "zenodo",
-      "fail_layer": "l4",
-      "reason": "relevance 0.04 < 0.05"
+      "url": "",
+      "title": "A list of alien taxa for South Africa: references used",
+      "description": "<p>A reference list for the list of alien taxa for South Africa produced as part of the report series &lsquo;The status of biological invasions and their management in South Africa&rsquo;. For the lat",
+      "metadata": {
+        "doi": "10.5281/zenodo.20201362",
+        "query": "PCNA training dataset",
+        "keywords": [],
+        "source": "zenodo"
+      },
+      "download_url": "https://zenodo.org/api/records/20201362/files/A_list_of_alien_taxa_for_South%20Africa_references_used_v20260512.xlsx/content",
+      "validation": {
+        "l1": {
+          "status_code": 200,
+          "content_type": "application/octet-stream, application/octet-stream",
+          "size_bytes": 241091,
+          "ok": true
+        },
+        "l2": {
+          "ok": true
+        },
+        "l3": {
+          "skipped": "not a PDB structure"
+        },
+        "l4": {
+          "score": 0.04,
+          "reason": "no keyword match",
+          "fail": "relevance 0.04 < 0.05"
+        }
+      },
+      "passed": false,
+      "relevance": 0.04,
+      "checksum": "",
+      "fetched_at": ""
     },
     {
       "uid": "10.5281/zenodo.20207452",
+      "record_type": "dataset",
       "source": "zenodo",
-      "fail_layer": "l4",
-      "reason": "relevance 0.04 < 0.05"
+      "url": "",
+      "title": "Katherine Munro",
+      "description": "3D model from the ScanTheWorld dataset: Katherine Munro.",
+      "metadata": {
+        "doi": "10.5281/zenodo.20207452",
+        "query": "PCNA training dataset",
+        "keywords": [
+          "head",
+          "portrait"
+        ],
+        "source": "zenodo"
+      },
+      "download_url": "https://zenodo.org/api/records/20207452/files/7fe4b12087013f109456819954707966_r180.png/content",
+      "validation": {
+        "l1": {
+          "status_code": 200,
+          "content_type": "image/png, image/png",
+          "size_bytes": 200194,
+          "ok": true
+        },
+        "l2": {
+          "ok": true
+        },
+        "l3": {
+          "skipped": "not a PDB structure"
+        },
+        "l4": {
+          "score": 0.04,
+          "reason": "no keyword match",
+          "fail": "relevance 0.04 < 0.05"
+        }
+      },
+      "passed": false,
+      "relevance": 0.04,
+      "checksum": "",
+      "fetched_at": ""
     },
     {
       "uid": "10.5281/zenodo.20207424",
+      "record_type": "dataset",
       "source": "zenodo",
-      "fail_layer": "l4",
-      "reason": "relevance 0.04 < 0.05"
+      "url": "",
+      "title": "Two Pregnant Women at The Middelheim Museum, Antwerp",
+      "description": "3D model from the ScanTheWorld dataset: Two Pregnant Women at The Middelheim Museum, Antwerp.",
+      "metadata": {
+        "doi": "10.5281/zenodo.20207424",
+        "query": "PCNA training dataset",
+        "keywords": [],
+        "source": "zenodo"
+      },
+      "download_url": "https://zenodo.org/api/records/20207424/files/edm.xml/content",
+      "validation": {
+        "l1": {
+          "status_code": 200,
+          "content_type": "application/octet-stream, application/octet-stream",
+          "size_bytes": 4836,
+          "ok": true
+        },
+        "l2": {
+          "ok": true
+        },
+        "l3": {
+          "skipped": "not a PDB structure"
+        },
+        "l4": {
+          "score": 0.04,
+          "reason": "no keyword match",
+          "fail": "relevance 0.04 < 0.05"
+        }
+      },
+      "passed": false,
+      "relevance": 0.04,
+      "checksum": "",
+      "fetched_at": ""
     },
     {
       "uid": "10.5281/zenodo.20207422",
+      "record_type": "dataset",
       "source": "zenodo",
-      "fail_layer": "l4",
-      "reason": "relevance 0.04 < 0.05"
+      "url": "",
+      "title": "Personification of Liberty or Generosity",
+      "description": "3D model from the ScanTheWorld dataset: Personification of Liberty or Generosity.",
+      "metadata": {
+        "doi": "10.5281/zenodo.20207422",
+        "query": "PCNA training dataset",
+        "keywords": [
+          "sculpture",
+          "Liberty",
+          "Relief",
+          "generosity"
+        ],
+        "source": "zenodo"
+      },
+      "download_url": "https://zenodo.org/api/records/20207422/files/7faad88adf9ff5881e460a93a25fcbd5_top.png/content",
+      "validation": {
+        "l1": {
+          "status_code": 200,
+          "content_type": "image/png, image/png",
+          "size_bytes": 202820,
+          "ok": true
+        },
+        "l2": {
+          "ok": true
+        },
+        "l3": {
+          "skipped": "not a PDB structure"
+        },
+        "l4": {
+          "score": 0.04,
+          "reason": "no keyword match",
+          "fail": "relevance 0.04 < 0.05"
+        }
+      },
+      "passed": false,
+      "relevance": 0.04,
+      "checksum": "",
+      "fetched_at": ""
     },
     {
       "uid": "10.5281/zenodo.20201087",
+      "record_type": "dataset",
       "source": "zenodo",
-      "fail_layer": "l4",
-      "reason": "relevance 0.04 < 0.05"
-    },
-    {
-      "uid": "10.5281/zenodo.20202674",
-      "source": "zenodo",
-      "fail_layer": "l1",
-      "reason": "request failed/timeout"
-    },
-    {
-      "uid": "10.5281/zenodo.20207319",
-      "source": "zenodo",
-      "fail_layer": "l1",
-      "reason": "request failed/timeout"
-    },
-    {
-      "uid": "10.5281/zenodo.20207567",
-      "source": "zenodo",
-      "fail_layer": "l1",
-      "reason": "request failed/timeout"
+      "url": "",
+      "title": "A list of alien taxa for South Africa",
+      "description": "<p>A list of alien taxa for South Africa produced as part of the report series &lsquo;The status of biological invasions and their management in South Africa&rsquo;. For the latest version of the repo",
+      "metadata": {
+        "doi": "10.5281/zenodo.20201087",
+        "query": "PCNA training dataset",
+        "keywords": [],
+        "source": "zenodo"
+      },
+      "download_url": "https://zenodo.org/api/records/20201087/files/A_list_of_alien_taxa_for_South%20Africa_v20260512.xlsx/content",
+      "validation": {
+        "l1": {
+          "status_code": 200,
+          "content_type": "application/octet-stream, application/octet-stream",
+          "size_bytes": 3003231,
+          "ok": true
+        },
+        "l2": {
+          "ok": true
+        },
+        "l3": {
+          "skipped": "not a PDB structure"
+        },
+        "l4": {
+          "score": 0.04,
+          "reason": "no keyword match",
+          "fail": "relevance 0.04 < 0.05"
+        }
+      },
+      "passed": false,
+      "relevance": 0.04,
+      "checksum": "",
+      "fetched_at": ""
     },
     {
       "uid": "10.5281/zenodo.20207550",
+      "record_type": "dataset",
       "source": "zenodo",
-      "fail_layer": "l4",
-      "reason": "relevance 0.04 < 0.05"
+      "url": "",
+      "title": "Bust of Gerardus Mercator in Sint-Niklaas, Belgium",
+      "description": "Gerardus Mercator\u00a0was born 5 March 1512 in\u00a0Rupelmonde,\u00a0County of Flanders\u00a0(in modern-day\u00a0Belgium). He died 2 December 1594 in\u00a0Duisburg,\u00a0Duchy of Cleves\u00a0(in modern-day\u00a0Germany). He is renowned as the\u00a0c",
+      "metadata": {
+        "doi": "10.5281/zenodo.20207550",
+        "query": "sc-pdb binding site",
+        "keywords": [],
+        "source": "zenodo"
+      },
+      "download_url": "https://zenodo.org/api/records/20207550/files/80782751b075b0fd4c8fce3e669d2e02_top.png/content",
+      "validation": {
+        "l1": {
+          "status_code": 200,
+          "content_type": "image/png, image/png",
+          "size_bytes": 151198,
+          "ok": true
+        },
+        "l2": {
+          "ok": true
+        },
+        "l3": {
+          "skipped": "not a PDB structure"
+        },
+        "l4": {
+          "score": 0.04,
+          "reason": "no keyword match",
+          "fail": "relevance 0.04 < 0.05"
+        }
+      },
+      "passed": false,
+      "relevance": 0.04,
+      "checksum": "",
+      "fetched_at": ""
     },
     {
       "uid": "10.5281/zenodo.20207462",
+      "record_type": "dataset",
       "source": "zenodo",
-      "fail_layer": "l4",
-      "reason": "relevance 0.04 < 0.05"
+      "url": "",
+      "title": "Warrior 3 - Terracotta Army at Emperor Qinshihuang's Mausoleum Site Museum, China",
+      "description": "The\u00a0Terracotta Army\u00a0or the Terracotta Warriors and Horses is a collection of\u00a0terracotta\u00a0sculptures depicting the armies of\u00a0Qin Shi Huang, the first\u00a0Emperor of China. It is a form of\u00a0funerary art\u00a0burie",
+      "metadata": {
+        "doi": "10.5281/zenodo.20207462",
+        "query": "sc-pdb binding site",
+        "keywords": [],
+        "source": "zenodo"
+      },
+      "download_url": "https://zenodo.org/api/records/20207462/files/7fe75e7da1dadad9cc6794c0b345dd1d_r270.png/content",
+      "validation": {
+        "l1": {
+          "status_code": 200,
+          "content_type": "image/png, image/png",
+          "size_bytes": 178842,
+          "ok": true
+        },
+        "l2": {
+          "ok": true
+        },
+        "l3": {
+          "skipped": "not a PDB structure"
+        },
+        "l4": {
+          "score": 0.04,
+          "reason": "no keyword match",
+          "fail": "relevance 0.04 < 0.05"
+        }
+      },
+      "passed": false,
+      "relevance": 0.04,
+      "checksum": "",
+      "fetched_at": ""
     },
     {
       "uid": "10.5281/zenodo.20210112",
+      "record_type": "dataset",
       "source": "zenodo",
-      "fail_layer": "l4",
-      "reason": "relevance 0.04 < 0.05"
+      "url": "",
+      "title": "github.com/broadinstitute/warp/WholeGenomeGermlineSingleSample",
+      "description": "<h2>Announcing a new site for WARP documentation!</h2>\n<p>WARP documentation has moved! Read more about our pipelines and repository on the new <a href=\"https://broadinstitute.github.io/warp/\">WARP do",
+      "metadata": {
+        "doi": "10.5281/zenodo.20210112",
+        "query": "sc-pdb binding site",
+        "keywords": [],
+        "source": "zenodo"
+      },
+      "download_url": "https://zenodo.org/api/records/20210112/files/github.com-broadinstitute-warp-WholeGenomeGermlineSingleSample_Glimpse2LowPassImputationQuotaConsumed_v0.0.2.zip/content",
+      "validation": {
+        "l1": {
+          "status_code": 200,
+          "content_type": "application/octet-stream, application/octet-stream",
+          "size_bytes": 40393,
+          "ok": true
+        },
+        "l2": {
+          "ok": true
+        },
+        "l3": {
+          "skipped": "not a PDB structure"
+        },
+        "l4": {
+          "score": 0.04,
+          "reason": "no keyword match",
+          "fail": "relevance 0.04 < 0.05"
+        }
+      },
+      "passed": false,
+      "relevance": 0.04,
+      "checksum": "",
+      "fetched_at": ""
     },
     {
       "uid": "10.5281/zenodo.20210036",
+      "record_type": "dataset",
       "source": "zenodo",
-      "fail_layer": "l4",
-      "reason": "relevance 0.04 < 0.05"
+      "url": "",
+      "title": "Figure 3 in Human spiruridiasis due to Physaloptera spp. (Nematoda: Physalopteridae) in a grave of the Shahr-e Sukhteh archeological site of the Bronze Age (2800-2500 BC) in Iran",
+      "description": "Figure 3. The six Physaloptera spp. eggs found in the soil sample. Note the embryos in A, B, D. Arrows in (B) show the considerable thickness of the egg shell. The diagnosis cannot be made with certai",
+      "metadata": {
+        "doi": "10.5281/zenodo.20210036",
+        "query": "sc-pdb binding site",
+        "keywords": [
+          "Biodiversity",
+          "Taxonomy"
+        ],
+        "source": "zenodo"
+      },
+      "download_url": "https://zenodo.org/api/records/20210036/files/figure.png/content",
+      "validation": {
+        "l1": {
+          "status_code": 200,
+          "content_type": "image/png, image/png",
+          "size_bytes": 4522807,
+          "ok": true
+        },
+        "l2": {
+          "ok": true
+        },
+        "l3": {
+          "skipped": "not a PDB structure"
+        },
+        "l4": {
+          "score": 0.04,
+          "reason": "no keyword match",
+          "fail": "relevance 0.04 < 0.05"
+        }
+      },
+      "passed": false,
+      "relevance": 0.04,
+      "checksum": "",
+      "fetched_at": ""
     },
     {
       "uid": "10.5281/zenodo.20210216",
+      "record_type": "dataset",
       "source": "zenodo",
-      "fail_layer": "l4",
-      "reason": "relevance 0.04 < 0.05"
+      "url": "",
+      "title": "System of Eternity (SOE): A Non-Terminal Civilizational Governance Framework (V4.2)",
+      "description": "<p>The System of Eternity (SOE) is a non-terminal civilizational governance framework designed to maintain long-term institutional stability while enabling continuous self-adjustment, upgrade, and pea",
+      "metadata": {
+        "doi": "10.5281/zenodo.20210216",
+        "query": "molecular dynamics PCNA",
+        "keywords": [
+          "civilizational governance, institutional stability, trust dynamics, non-terminal governance, dynamic systems, meta-governance, civilizational architecture, governance framework, system of eternity"
+        ],
+        "source": "zenodo"
+      },
+      "download_url": "https://zenodo.org/api/records/20210216/files/System_of_Eternity_-_Version_4_3_final.docx/content",
+      "validation": {
+        "l1": {
+          "status_code": 200,
+          "content_type": "application/octet-stream, application/octet-stream",
+          "size_bytes": 3090486,
+          "ok": true
+        },
+        "l2": {
+          "ok": true
+        },
+        "l3": {
+          "skipped": "not a PDB structure"
+        },
+        "l4": {
+          "score": 0.04,
+          "reason": "no keyword match",
+          "fail": "relevance 0.04 < 0.05"
+        }
+      },
+      "passed": false,
+      "relevance": 0.04,
+      "checksum": "",
+      "fetched_at": ""
     },
     {
       "uid": "10.5281/zenodo.20210211",
+      "record_type": "dataset",
       "source": "zenodo",
-      "fail_layer": "l4",
-      "reason": "relevance 0.04 < 0.05"
+      "url": "",
+      "title": "Figure 3 in Leucocytozoon infections in tits (Aves, Paridae): blood and tissue stages investigated using an integrative approach",
+      "description": "Figure 3. Leucocytozoon spp. exo-erythrocytic and blood stages in naturally infected Great tits Parus major. Individual H44/21R with Leucocytozoon spp. (molecular co-infection) (A\u2013C) presented blood s",
+      "metadata": {
+        "doi": "10.5281/zenodo.20210211",
+        "query": "molecular dynamics PCNA",
+        "keywords": [
+          "Biodiversity",
+          "Taxonomy"
+        ],
+        "source": "zenodo"
+      },
+      "download_url": "https://zenodo.org/api/records/20210211/files/figure.png/content",
+      "validation": {
+        "l1": {
+          "status_code": 200,
+          "content_type": "image/png, image/png",
+          "size_bytes": 8206679,
+          "ok": true
+        },
+        "l2": {
+          "ok": true
+        },
+        "l3": {
+          "skipped": "not a PDB structure"
+        },
+        "l4": {
+          "score": 0.04,
+          "reason": "no keyword match",
+          "fail": "relevance 0.04 < 0.05"
+        }
+      },
+      "passed": false,
+      "relevance": 0.04,
+      "checksum": "",
+      "fetched_at": ""
     },
     {
       "uid": "10.5281/zenodo.20210065",
+      "record_type": "dataset",
       "source": "zenodo",
-      "fail_layer": "l4",
-      "reason": "relevance 0.04 < 0.05"
+      "url": "",
+      "title": "Nigrochaete tenuis Q. Yuan & C. L. Zhao 2026, sp. nov.",
+      "description": "<p><i>Nigrochaete tenuis</i> Q. Yuan &amp; C. L. Zhao, sp. nov.</p><p>Figs 10, 11, 12</p><p><b>Diagnosis.</b></p><p>It is characterized by its hard membranaceous basidiomata with smooth hymenial surfa",
+      "metadata": {
+        "doi": "10.5281/zenodo.20210065",
+        "query": "molecular dynamics PCNA",
+        "keywords": [
+          "Biodiversity",
+          "Taxonomy",
+          "Fungi",
+          "Basidiomycota",
+          "Tremellomycetes",
+          "Auriculariales",
+          "Hyaloriaceae",
+          "Nigrochaete",
+          "Nigrochaete tenuis"
+        ],
+        "source": "zenodo"
+      },
+      "download_url": "https://zenodo.org/api/records/20210065/files/treatment.html/content",
+      "validation": {
+        "l1": {
+          "status_code": 200,
+          "content_type": "text/plain; charset=utf-8, text/plain; charset=utf-8",
+          "size_bytes": 2538,
+          "ok": true
+        },
+        "l2": {
+          "ok": true
+        },
+        "l3": {
+          "skipped": "not a PDB structure"
+        },
+        "l4": {
+          "score": 0.04,
+          "reason": "no keyword match",
+          "fail": "relevance 0.04 < 0.05"
+        }
+      },
+      "passed": false,
+      "relevance": 0.04,
+      "checksum": "",
+      "fetched_at": ""
     },
     {
       "uid": "10.5281/zenodo.20210060",
+      "record_type": "dataset",
       "source": "zenodo",
-      "fail_layer": "l4",
-      "reason": "relevance 0.04 < 0.05"
+      "url": "",
+      "title": "Nigrochaete ellipsoidea Q. Yuan & C. L. Zhao 2026, sp. nov.",
+      "description": "<p><i>Nigrochaete ellipsoidea</i> Q. Yuan &amp; C. L. Zhao sp. nov.</p><p>Figs 7, 8, 9</p><p><b>Diagnosis.</b></p><p>It is characterized by its soft membranaceous basidiomata with slightly odontioid h",
+      "metadata": {
+        "doi": "10.5281/zenodo.20210060",
+        "query": "molecular dynamics PCNA",
+        "keywords": [
+          "Biodiversity",
+          "Taxonomy",
+          "Fungi",
+          "Basidiomycota",
+          "Tremellomycetes",
+          "Auriculariales",
+          "Hyaloriaceae",
+          "Nigrochaete",
+          "Nigrochaete ellipsoidea"
+        ],
+        "source": "zenodo"
+      },
+      "download_url": "https://zenodo.org/api/records/20210060/files/treatment.html/content",
+      "validation": {
+        "l1": {
+          "status_code": 200,
+          "content_type": "text/plain; charset=utf-8, text/plain; charset=utf-8",
+          "size_bytes": 2271,
+          "ok": true
+        },
+        "l2": {
+          "ok": true
+        },
+        "l3": {
+          "skipped": "not a PDB structure"
+        },
+        "l4": {
+          "score": 0.04,
+          "reason": "no keyword match",
+          "fail": "relevance 0.04 < 0.05"
+        }
+      },
+      "passed": false,
+      "relevance": 0.04,
+      "checksum": "",
+      "fetched_at": ""
     },
     {
       "uid": "10.5281/zenodo.20210057",
+      "record_type": "dataset",
       "source": "zenodo",
-      "fail_layer": "l4",
-      "reason": "relevance 0.04 < 0.05"
+      "url": "",
+      "title": "Nigrochaete albobadia Q. Yuan & C. L. Zhao 2026, sp. nov.",
+      "description": "<p><i>Nigrochaete albobadia</i> Q. Yuan &amp; C. L. Zhao sp. nov.</p><p>Figs 4, 5, 6</p><p><b>Diagnosis.</b></p><p>It is characterized by its membranaceous, thin basidiomata with white, smooth hymenia",
+      "metadata": {
+        "doi": "10.5281/zenodo.20210057",
+        "query": "molecular dynamics PCNA",
+        "keywords": [
+          "Biodiversity",
+          "Taxonomy",
+          "Fungi",
+          "Basidiomycota",
+          "Tremellomycetes",
+          "Auriculariales",
+          "Hyaloriaceae",
+          "Nigrochaete",
+          "Nigrochaete albobadia"
+        ],
+        "source": "zenodo"
+      },
+      "download_url": "https://zenodo.org/api/records/20210057/files/treatment.html/content",
+      "validation": {
+        "l1": {
+          "status_code": 200,
+          "content_type": "text/plain; charset=utf-8, text/plain; charset=utf-8",
+          "size_bytes": 2552,
+          "ok": true
+        },
+        "l2": {
+          "ok": true
+        },
+        "l3": {
+          "skipped": "not a PDB structure"
+        },
+        "l4": {
+          "score": 0.04,
+          "reason": "no keyword match",
+          "fail": "relevance 0.04 < 0.05"
+        }
+      },
+      "passed": false,
+      "relevance": 0.04,
+      "checksum": "",
+      "fetched_at": ""
+    },
+    {
+      "uid": "7QO1",
+      "record_type": "pdb_structure",
+      "source": "uniprot",
+      "url": "https://www.rcsb.org/structure/7QO1",
+      "title": "",
+      "description": "",
+      "metadata": {
+        "uniprot_confirmed": true,
+        "uniprot": "P12004",
+        "source": "uniprot"
+      },
+      "download_url": "https://files.rcsb.org/download/7QO1.pdb",
+      "validation": {
+        "l1": {
+          "status_code": 200,
+          "content_type": "text/plain",
+          "size_bytes": 1237518,
+          "ok": true
+        },
+        "l2": {
+          "atom_record_count": 14138,
+          "hetatm_record_count": 41,
+          "ok": true
+        },
+        "l3": {
+          "chains": [
+            "A",
+            "B",
+            "F",
+            "G",
+            "H",
+            "I",
+            "J",
+            "Y"
+          ],
+          "chain_count": 8,
+          "resolution_angstrom": 4.4,
+          "fail": "resolution 4.4A > 3.5A"
+        }
+      },
+      "passed": false,
+      "relevance": 0.0,
+      "checksum": "",
+      "fetched_at": ""
+    },
+    {
+      "uid": "8YJZ",
+      "record_type": "pdb_structure",
+      "source": "uniprot",
+      "url": "https://www.rcsb.org/structure/8YJZ",
+      "title": "",
+      "description": "",
+      "metadata": {
+        "uniprot_confirmed": true,
+        "uniprot": "P12004",
+        "source": "uniprot"
+      },
+      "download_url": "https://files.rcsb.org/download/8YJZ.pdb",
+      "validation": {
+        "l1": {
+          "status_code": 200,
+          "content_type": "text/plain",
+          "size_bytes": 1298349,
+          "ok": true
+        },
+        "l2": {
+          "atom_record_count": 14948,
+          "hetatm_record_count": 0,
+          "ok": true
+        },
+        "l3": {
+          "chains": [
+            "A",
+            "B",
+            "C",
+            "D",
+            "E",
+            "F",
+            "G",
+            "H",
+            "I",
+            "J"
+          ],
+          "chain_count": 10,
+          "resolution_angstrom": 5.15,
+          "fail": "resolution 5.15A > 3.5A"
+        }
+      },
+      "passed": false,
+      "relevance": 0.0,
+      "checksum": "",
+      "fetched_at": ""
+    },
+    {
+      "uid": "9NE9",
+      "record_type": "pdb_structure",
+      "source": "uniprot",
+      "url": "https://www.rcsb.org/structure/9NE9",
+      "title": "",
+      "description": "",
+      "metadata": {
+        "uniprot_confirmed": true,
+        "uniprot": "P12004",
+        "source": "uniprot"
+      },
+      "download_url": "https://files.rcsb.org/download/9NE9.pdb",
+      "validation": {
+        "l1": {
+          "status_code": 200,
+          "content_type": "text/plain",
+          "size_bytes": 1409400,
+          "ok": true
+        },
+        "l2": {
+          "atom_record_count": 16705,
+          "hetatm_record_count": 30,
+          "ok": true
+        },
+        "l3": {
+          "chains": [
+            "A",
+            "B",
+            "C",
+            "D",
+            "P",
+            "T"
+          ],
+          "chain_count": 6,
+          "resolution_angstrom": 3.88,
+          "fail": "resolution 3.88A > 3.5A"
+        }
+      },
+      "passed": false,
+      "relevance": 0.0,
+      "checksum": "",
+      "fetched_at": ""
+    },
+    {
+      "uid": "8YJU",
+      "record_type": "pdb_structure",
+      "source": "uniprot",
+      "url": "https://www.rcsb.org/structure/8YJU",
+      "title": "",
+      "description": "",
+      "metadata": {
+        "uniprot_confirmed": true,
+        "uniprot": "P12004",
+        "source": "uniprot"
+      },
+      "download_url": "https://files.rcsb.org/download/8YJU.pdb",
+      "validation": {
+        "l1": {
+          "status_code": 200,
+          "content_type": "text/plain",
+          "size_bytes": 874638,
+          "ok": true
+        },
+        "l2": {
+          "atom_record_count": 9939,
+          "hetatm_record_count": 0,
+          "ok": true
+        },
+        "l3": {
+          "chains": [
+            "A",
+            "B",
+            "C",
+            "D",
+            "E",
+            "F",
+            "H",
+            "J"
+          ],
+          "chain_count": 8,
+          "resolution_angstrom": 3.78,
+          "fail": "resolution 3.78A > 3.5A"
+        }
+      },
+      "passed": false,
+      "relevance": 0.0,
+      "checksum": "",
+      "fetched_at": ""
+    },
+    {
+      "uid": "9B8S",
+      "record_type": "pdb_structure",
+      "source": "uniprot",
+      "url": "https://www.rcsb.org/structure/9B8S",
+      "title": "",
+      "description": "",
+      "metadata": {
+        "uniprot_confirmed": true,
+        "uniprot": "P12004",
+        "source": "uniprot"
+      },
+      "download_url": "https://files.rcsb.org/download/9B8S.pdb",
+      "validation": {
+        "l1": {
+          "status_code": 200,
+          "content_type": "text/plain",
+          "size_bytes": 1479789,
+          "ok": true
+        },
+        "l2": {
+          "atom_record_count": 16356,
+          "hetatm_record_count": 8,
+          "ok": true
+        },
+        "l3": {
+          "chains": [
+            "A",
+            "B",
+            "C",
+            "D",
+            "P",
+            "T"
+          ],
+          "chain_count": 6,
+          "resolution_angstrom": 5.01,
+          "fail": "resolution 5.01A > 3.5A"
+        }
+      },
+      "passed": false,
+      "relevance": 0.0,
+      "checksum": "",
+      "fetched_at": ""
+    },
+    {
+      "uid": "9F6D",
+      "record_type": "pdb_structure",
+      "source": "uniprot",
+      "url": "https://www.rcsb.org/structure/9F6D",
+      "title": "",
+      "description": "",
+      "metadata": {
+        "uniprot_confirmed": true,
+        "uniprot": "P12004",
+        "source": "uniprot"
+      },
+      "download_url": "https://files.rcsb.org/download/9F6D.pdb",
+      "validation": {
+        "l1": {
+          "status_code": 200,
+          "content_type": "text/plain",
+          "size_bytes": 1390203,
+          "ok": true
+        },
+        "l2": {
+          "atom_record_count": 16319,
+          "hetatm_record_count": 58,
+          "ok": true
+        },
+        "l3": {
+          "chains": [
+            "A",
+            "B",
+            "C",
+            "D",
+            "P",
+            "T"
+          ],
+          "chain_count": 6,
+          "resolution_angstrom": 3.6,
+          "fail": "resolution 3.6A > 3.5A"
+        }
+      },
+      "passed": false,
+      "relevance": 0.0,
+      "checksum": "",
+      "fetched_at": ""
+    },
+    {
+      "uid": "8YJW",
+      "record_type": "pdb_structure",
+      "source": "uniprot",
+      "url": "https://www.rcsb.org/structure/8YJW",
+      "title": "",
+      "description": "",
+      "metadata": {
+        "uniprot_confirmed": true,
+        "uniprot": "P12004",
+        "source": "uniprot"
+      },
+      "download_url": "https://files.rcsb.org/download/8YJW.pdb",
+      "validation": {
+        "l1": {
+          "status_code": 200,
+          "content_type": "text/plain",
+          "size_bytes": 858195,
+          "ok": true
+        },
+        "l2": {
+          "atom_record_count": 9946,
+          "hetatm_record_count": 0,
+          "ok": true
+        },
+        "l3": {
+          "chains": [
+            "A",
+            "B",
+            "C",
+            "D",
+            "E",
+            "F",
+            "H",
+            "J"
+          ],
+          "chain_count": 8,
+          "resolution_angstrom": 3.55,
+          "fail": "resolution 3.55A > 3.5A"
+        }
+      },
+      "passed": false,
+      "relevance": 0.0,
+      "checksum": "",
+      "fetched_at": ""
+    },
+    {
+      "uid": "9CMA",
+      "record_type": "pdb_structure",
+      "source": "uniprot",
+      "url": "https://www.rcsb.org/structure/9CMA",
+      "title": "",
+      "description": "",
+      "metadata": {
+        "uniprot_confirmed": true,
+        "uniprot": "P12004",
+        "source": "uniprot"
+      },
+      "download_url": "https://files.rcsb.org/download/9CMA.pdb",
+      "validation": {
+        "l1": {
+          "status_code": 200,
+          "content_type": "text/plain",
+          "size_bytes": 1076085,
+          "ok": true
+        },
+        "l2": {
+          "atom_record_count": 12726,
+          "hetatm_record_count": 0,
+          "ok": true
+        },
+        "l3": {
+          "chains": [
+            "A",
+            "B",
+            "C",
+            "D",
+            "E",
+            "F"
+          ],
+          "chain_count": 6,
+          "resolution_angstrom": 3.97,
+          "fail": "resolution 3.97A > 3.5A"
+        }
+      },
+      "passed": false,
+      "relevance": 0.0,
+      "checksum": "",
+      "fetched_at": ""
+    },
+    {
+      "uid": "6TNZ",
+      "record_type": "pdb_structure",
+      "source": "uniprot",
+      "url": "https://www.rcsb.org/structure/6TNZ",
+      "title": "",
+      "description": "",
+      "metadata": {
+        "uniprot_confirmed": true,
+        "uniprot": "P12004",
+        "source": "uniprot"
+      },
+      "download_url": "https://files.rcsb.org/download/6TNZ.pdb",
+      "validation": {
+        "l1": {
+          "status_code": 200,
+          "content_type": "text/plain",
+          "size_bytes": 1929258,
+          "ok": true
+        },
+        "l2": {
+          "atom_record_count": 21952,
+          "hetatm_record_count": 56,
+          "ok": true
+        },
+        "l3": {
+          "chains": [
+            "A",
+            "B",
+            "C",
+            "D",
+            "E",
+            "F",
+            "G",
+            "H",
+            "P",
+            "T"
+          ],
+          "chain_count": 10,
+          "resolution_angstrom": 4.05,
+          "fail": "resolution 4.05A > 3.5A"
+        }
+      },
+      "passed": false,
+      "relevance": 0.0,
+      "checksum": "",
+      "fetched_at": ""
+    },
+    {
+      "uid": "8UMV",
+      "record_type": "pdb_structure",
+      "source": "uniprot",
+      "url": "https://www.rcsb.org/structure/8UMV",
+      "title": "",
+      "description": "",
+      "metadata": {
+        "uniprot_confirmed": true,
+        "uniprot": "P12004",
+        "source": "uniprot"
+      },
+      "download_url": "https://files.rcsb.org/download/8UMV.pdb",
+      "validation": {
+        "l1": {
+          "fail": "request failed/timeout"
+        }
+      },
+      "passed": false,
+      "relevance": 0.0,
+      "checksum": "",
+      "fetched_at": ""
+    },
+    {
+      "uid": "8YJV",
+      "record_type": "pdb_structure",
+      "source": "uniprot",
+      "url": "https://www.rcsb.org/structure/8YJV",
+      "title": "",
+      "description": "",
+      "metadata": {
+        "uniprot_confirmed": true,
+        "uniprot": "P12004",
+        "source": "uniprot"
+      },
+      "download_url": "https://files.rcsb.org/download/8YJV.pdb",
+      "validation": {
+        "l1": {
+          "status_code": 200,
+          "content_type": "text/plain",
+          "size_bytes": 879174,
+          "ok": true
+        },
+        "l2": {
+          "atom_record_count": 9938,
+          "hetatm_record_count": 0,
+          "ok": true
+        },
+        "l3": {
+          "chains": [
+            "A",
+            "B",
+            "C",
+            "D",
+            "E",
+            "F",
+            "H",
+            "J"
+          ],
+          "chain_count": 8,
+          "resolution_angstrom": 3.51,
+          "fail": "resolution 3.51A > 3.5A"
+        }
+      },
+      "passed": false,
+      "relevance": 0.0,
+      "checksum": "",
+      "fetched_at": ""
+    },
+    {
+      "uid": "7QNZ",
+      "record_type": "pdb_structure",
+      "source": "uniprot",
+      "url": "https://www.rcsb.org/structure/7QNZ",
+      "title": "",
+      "description": "",
+      "metadata": {
+        "uniprot_confirmed": true,
+        "uniprot": "P12004",
+        "source": "uniprot"
+      },
+      "download_url": "https://files.rcsb.org/download/7QNZ.pdb",
+      "validation": {
+        "l1": {
+          "status_code": 200,
+          "content_type": "text/plain",
+          "size_bytes": 1052028,
+          "ok": true
+        },
+        "l2": {
+          "atom_record_count": 11905,
+          "hetatm_record_count": 41,
+          "ok": true
+        },
+        "l3": {
+          "chains": [
+            "A",
+            "B",
+            "C",
+            "D",
+            "H",
+            "I",
+            "J"
+          ],
+          "chain_count": 7,
+          "resolution_angstrom": 4.58,
+          "fail": "resolution 4.58A > 3.5A"
+        }
+      },
+      "passed": false,
+      "relevance": 0.0,
+      "checksum": "",
+      "fetched_at": ""
+    },
+    {
+      "uid": "8UMW",
+      "record_type": "pdb_structure",
+      "source": "uniprot",
+      "url": "https://www.rcsb.org/structure/8UMW",
+      "title": "",
+      "description": "",
+      "metadata": {
+        "uniprot_confirmed": true,
+        "uniprot": "P12004",
+        "source": "uniprot"
+      },
+      "download_url": "https://files.rcsb.org/download/8UMW.pdb",
+      "validation": {
+        "l1": {
+          "fail": "request failed/timeout"
+        }
+      },
+      "passed": false,
+      "relevance": 0.0,
+      "checksum": "",
+      "fetched_at": ""
+    },
+    {
+      "uid": "8B8T",
+      "record_type": "pdb_structure",
+      "source": "uniprot",
+      "url": "https://www.rcsb.org/structure/8B8T",
+      "title": "",
+      "description": "",
+      "metadata": {
+        "uniprot_confirmed": true,
+        "uniprot": "P12004",
+        "source": "uniprot"
+      },
+      "download_url": "https://files.rcsb.org/download/8B8T.pdb",
+      "validation": {
+        "l1": {
+          "status_code": 200,
+          "content_type": "text/plain",
+          "size_bytes": 630018,
+          "ok": true
+        },
+        "l2": {
+          "atom_record_count": 7180,
+          "hetatm_record_count": 0,
+          "ok": true
+        },
+        "l3": {
+          "chains": [
+            "A",
+            "E",
+            "F",
+            "G"
+          ],
+          "chain_count": 4,
+          "resolution_angstrom": 4.2,
+          "fail": "resolution 4.2A > 3.5A"
+        }
+      },
+      "passed": false,
+      "relevance": 0.0,
+      "checksum": "",
+      "fetched_at": ""
+    },
+    {
+      "uid": "9F6E",
+      "record_type": "pdb_structure",
+      "source": "uniprot",
+      "url": "https://www.rcsb.org/structure/9F6E",
+      "title": "",
+      "description": "",
+      "metadata": {
+        "uniprot_confirmed": true,
+        "uniprot": "P12004",
+        "source": "uniprot"
+      },
+      "download_url": "https://files.rcsb.org/download/9F6E.pdb",
+      "validation": {
+        "l1": {
+          "status_code": 200,
+          "content_type": "text/plain",
+          "size_bytes": 1386639,
+          "ok": true
+        },
+        "l2": {
+          "atom_record_count": 16319,
+          "hetatm_record_count": 57,
+          "ok": true
+        },
+        "l3": {
+          "chains": [
+            "A",
+            "B",
+            "C",
+            "D",
+            "P",
+            "T"
+          ],
+          "chain_count": 6,
+          "resolution_angstrom": 3.74,
+          "fail": "resolution 3.74A > 3.5A"
+        }
+      },
+      "passed": false,
+      "relevance": 0.0,
+      "checksum": "",
+      "fetched_at": ""
+    },
+    {
+      "uid": "7NV1",
+      "record_type": "pdb_structure",
+      "source": "uniprot",
+      "url": "https://www.rcsb.org/structure/7NV1",
+      "title": "",
+      "description": "",
+      "metadata": {
+        "uniprot_confirmed": true,
+        "uniprot": "P12004",
+        "source": "uniprot"
+      },
+      "download_url": "https://files.rcsb.org/download/7NV1.pdb",
+      "validation": {
+        "l1": {
+          "status_code": 200,
+          "content_type": "text/plain",
+          "size_bytes": 900882,
+          "ok": true
+        },
+        "l2": {
+          "atom_record_count": 9881,
+          "hetatm_record_count": 47,
+          "ok": true
+        },
+        "l3": {
+          "chains": [
+            "A",
+            "B",
+            "C",
+            "D",
+            "P",
+            "T"
+          ],
+          "chain_count": 6,
+          "resolution_angstrom": 6.4,
+          "fail": "resolution 6.4A > 3.5A"
+        }
+      },
+      "passed": false,
+      "relevance": 0.0,
+      "checksum": "",
+      "fetched_at": ""
+    },
+    {
+      "uid": "6S1O",
+      "record_type": "pdb_structure",
+      "source": "uniprot",
+      "url": "https://www.rcsb.org/structure/6S1O",
+      "title": "",
+      "description": "",
+      "metadata": {
+        "uniprot_confirmed": true,
+        "uniprot": "P12004",
+        "source": "uniprot"
+      },
+      "download_url": "https://files.rcsb.org/download/6S1O.pdb",
+      "validation": {
+        "l1": {
+          "status_code": 200,
+          "content_type": "text/plain",
+          "size_bytes": 1729350,
+          "ok": true
+        },
+        "l2": {
+          "atom_record_count": 19670,
+          "hetatm_record_count": 56,
+          "ok": true
+        },
+        "l3": {
+          "chains": [
+            "A",
+            "B",
+            "C",
+            "D",
+            "E",
+            "F",
+            "G",
+            "P",
+            "T"
+          ],
+          "chain_count": 9,
+          "resolution_angstrom": 8.1,
+          "fail": "resolution 8.1A > 3.5A"
+        }
+      },
+      "passed": false,
+      "relevance": 0.0,
+      "checksum": "",
+      "fetched_at": ""
+    },
+    {
+      "uid": "8YJQ",
+      "record_type": "pdb_structure",
+      "source": "uniprot",
+      "url": "https://www.rcsb.org/structure/8YJQ",
+      "title": "",
+      "description": "",
+      "metadata": {
+        "uniprot_confirmed": true,
+        "uniprot": "P12004",
+        "source": "uniprot"
+      },
+      "download_url": "https://files.rcsb.org/download/8YJQ.pdb",
+      "validation": {
+        "l1": {
+          "status_code": 200,
+          "content_type": "text/plain",
+          "size_bytes": 862569,
+          "ok": true
+        },
+        "l2": {
+          "atom_record_count": 9856,
+          "hetatm_record_count": 0,
+          "ok": true
+        },
+        "l3": {
+          "chains": [
+            "A",
+            "B",
+            "C",
+            "D",
+            "E",
+            "F",
+            "H",
+            "J"
+          ],
+          "chain_count": 8,
+          "resolution_angstrom": 3.51,
+          "fail": "resolution 3.51A > 3.5A"
+        }
+      },
+      "passed": false,
+      "relevance": 0.0,
+      "checksum": "",
+      "fetched_at": ""
+    },
+    {
+      "uid": "6S1N",
+      "record_type": "pdb_structure",
+      "source": "uniprot",
+      "url": "https://www.rcsb.org/structure/6S1N",
+      "title": "",
+      "description": "",
+      "metadata": {
+        "uniprot_confirmed": true,
+        "uniprot": "P12004",
+        "source": "uniprot"
+      },
+      "download_url": "https://files.rcsb.org/download/6S1N.pdb",
+      "validation": {
+        "l1": {
+          "status_code": 200,
+          "content_type": "text/plain",
+          "size_bytes": 1728864,
+          "ok": true
+        },
+        "l2": {
+          "atom_record_count": 19670,
+          "hetatm_record_count": 56,
+          "ok": true
+        },
+        "l3": {
+          "chains": [
+            "A",
+            "B",
+            "C",
+            "D",
+            "E",
+            "F",
+            "G",
+            "P",
+            "T"
+          ],
+          "chain_count": 9,
+          "resolution_angstrom": 4.86,
+          "fail": "resolution 4.86A > 3.5A"
+        }
+      },
+      "passed": false,
+      "relevance": 0.0,
+      "checksum": "",
+      "fetched_at": ""
+    },
+    {
+      "uid": "8YJH",
+      "record_type": "pdb_structure",
+      "source": "uniprot",
+      "url": "https://www.rcsb.org/structure/8YJH",
+      "title": "",
+      "description": "",
+      "metadata": {
+        "uniprot_confirmed": true,
+        "uniprot": "P12004",
+        "source": "uniprot"
+      },
+      "download_url": "https://files.rcsb.org/download/8YJH.pdb",
+      "validation": {
+        "l1": {
+          "status_code": 200,
+          "content_type": "text/plain",
+          "size_bytes": 832680,
+          "ok": true
+        },
+        "l2": {
+          "atom_record_count": 9735,
+          "hetatm_record_count": 0,
+          "ok": true
+        },
+        "l3": {
+          "chains": [
+            "A",
+            "B",
+            "C",
+            "D",
+            "E",
+            "F",
+            "H",
+            "J"
+          ],
+          "chain_count": 8,
+          "resolution_angstrom": 3.68,
+          "fail": "resolution 3.68A > 3.5A"
+        }
+      },
+      "passed": false,
+      "relevance": 0.0,
+      "checksum": "",
+      "fetched_at": ""
+    },
+    {
+      "uid": "9CL7",
+      "record_type": "pdb_structure",
+      "source": "uniprot",
+      "url": "https://www.rcsb.org/structure/9CL7",
+      "title": "",
+      "description": "",
+      "metadata": {
+        "uniprot_confirmed": true,
+        "uniprot": "P12004",
+        "source": "uniprot"
+      },
+      "download_url": "https://files.rcsb.org/download/9CL7.pdb",
+      "validation": {
+        "l1": {
+          "fail": "request failed/timeout"
+        }
+      },
+      "passed": false,
+      "relevance": 0.0,
+      "checksum": "",
+      "fetched_at": ""
+    },
+    {
+      "uid": "8UI7",
+      "record_type": "pdb_structure",
+      "source": "uniprot",
+      "url": "https://www.rcsb.org/structure/8UI7",
+      "title": "",
+      "description": "",
+      "metadata": {
+        "uniprot_confirmed": true,
+        "uniprot": "P12004",
+        "source": "uniprot"
+      },
+      "download_url": "https://files.rcsb.org/download/8UI7.pdb",
+      "validation": {
+        "l1": {
+          "status_code": 200,
+          "content_type": "text/plain",
+          "size_bytes": 1881792,
+          "ok": true
+        },
+        "l2": {
+          "atom_record_count": 21681,
+          "hetatm_record_count": 150,
+          "ok": true
+        },
+        "l3": {
+          "chains": [
+            "A",
+            "B",
+            "C",
+            "D",
+            "E",
+            "F",
+            "G",
+            "H"
+          ],
+          "chain_count": 8,
+          "resolution_angstrom": 4.2,
+          "fail": "resolution 4.2A > 3.5A"
+        }
+      },
+      "passed": false,
+      "relevance": 0.0,
+      "checksum": "",
+      "fetched_at": ""
+    },
+    {
+      "uid": "8YJS",
+      "record_type": "pdb_structure",
+      "source": "uniprot",
+      "url": "https://www.rcsb.org/structure/8YJS",
+      "title": "",
+      "description": "",
+      "metadata": {
+        "uniprot_confirmed": true,
+        "uniprot": "P12004",
+        "source": "uniprot"
+      },
+      "download_url": "https://files.rcsb.org/download/8YJS.pdb",
+      "validation": {
+        "l1": {
+          "status_code": 200,
+          "content_type": "text/plain",
+          "size_bytes": 867348,
+          "ok": true
+        },
+        "l2": {
+          "atom_record_count": 9880,
+          "hetatm_record_count": 0,
+          "ok": true
+        },
+        "l3": {
+          "chains": [
+            "A",
+            "B",
+            "C",
+            "D",
+            "E",
+            "F",
+            "H",
+            "J"
+          ],
+          "chain_count": 8,
+          "resolution_angstrom": 3.55,
+          "fail": "resolution 3.55A > 3.5A"
+        }
+      },
+      "passed": false,
+      "relevance": 0.0,
+      "checksum": "",
+      "fetched_at": ""
+    },
+    {
+      "uid": "9NE8",
+      "record_type": "pdb_structure",
+      "source": "uniprot",
+      "url": "https://www.rcsb.org/structure/9NE8",
+      "title": "",
+      "description": "",
+      "metadata": {
+        "uniprot_confirmed": true,
+        "uniprot": "P12004",
+        "source": "uniprot"
+      },
+      "download_url": "https://files.rcsb.org/download/9NE8.pdb",
+      "validation": {
+        "l1": {
+          "status_code": 200,
+          "content_type": "text/plain",
+          "size_bytes": 1372140,
+          "ok": true
+        },
+        "l2": {
+          "atom_record_count": 16234,
+          "hetatm_record_count": 8,
+          "ok": true
+        },
+        "l3": {
+          "chains": [
+            "A",
+            "B",
+            "C",
+            "D",
+            "P",
+            "T"
+          ],
+          "chain_count": 6,
+          "resolution_angstrom": 3.6,
+          "fail": "resolution 3.6A > 3.5A"
+        }
+      },
+      "passed": false,
+      "relevance": 0.0,
+      "checksum": "",
+      "fetched_at": ""
+    },
+    {
+      "uid": "3JA9",
+      "record_type": "pdb_structure",
+      "source": "uniprot",
+      "url": "https://www.rcsb.org/structure/3JA9",
+      "title": "",
+      "description": "",
+      "metadata": {
+        "uniprot_confirmed": true,
+        "uniprot": "P12004",
+        "source": "uniprot"
+      },
+      "download_url": "https://files.rcsb.org/download/3JA9.pdb",
+      "validation": {
+        "l1": {
+          "status_code": 200,
+          "content_type": "text/plain",
+          "size_bytes": 524880,
+          "ok": true
+        },
+        "l2": {
+          "atom_record_count": 5892,
+          "hetatm_record_count": 141,
+          "ok": true
+        },
+        "l3": {
+          "chains": [
+            "A",
+            "B",
+            "C"
+          ],
+          "chain_count": 3,
+          "resolution_angstrom": 22.0,
+          "fail": "resolution 22.0A > 3.5A"
+        }
+      },
+      "passed": false,
+      "relevance": 0.0,
+      "checksum": "",
+      "fetched_at": ""
+    },
+    {
+      "uid": "6S1M",
+      "record_type": "pdb_structure",
+      "source": "uniprot",
+      "url": "https://www.rcsb.org/structure/6S1M",
+      "title": "",
+      "description": "",
+      "metadata": {
+        "uniprot_confirmed": true,
+        "uniprot": "P12004",
+        "source": "uniprot"
+      },
+      "download_url": "https://files.rcsb.org/download/6S1M.pdb",
+      "validation": {
+        "l1": {
+          "status_code": 200,
+          "content_type": "text/plain",
+          "size_bytes": 1730484,
+          "ok": true
+        },
+        "l2": {
+          "atom_record_count": 19670,
+          "hetatm_record_count": 56,
+          "ok": true
+        },
+        "l3": {
+          "chains": [
+            "A",
+            "B",
+            "C",
+            "D",
+            "E",
+            "F",
+            "G",
+            "P",
+            "T"
+          ],
+          "chain_count": 9,
+          "resolution_angstrom": 4.27,
+          "fail": "resolution 4.27A > 3.5A"
+        }
+      },
+      "passed": false,
+      "relevance": 0.0,
+      "checksum": "",
+      "fetched_at": ""
+    },
+    {
+      "uid": "9NE7",
+      "record_type": "pdb_structure",
+      "source": "uniprot",
+      "url": "https://www.rcsb.org/structure/9NE7",
+      "title": "",
+      "description": "",
+      "metadata": {
+        "uniprot_confirmed": true,
+        "uniprot": "P12004",
+        "source": "uniprot"
+      },
+      "download_url": "https://files.rcsb.org/download/9NE7.pdb",
+      "validation": {
+        "l1": {
+          "status_code": 200,
+          "content_type": "text/plain",
+          "size_bytes": 1364283,
+          "ok": true
+        },
+        "l2": {
+          "atom_record_count": 16130,
+          "hetatm_record_count": 8,
+          "ok": true
+        },
+        "l3": {
+          "chains": [
+            "A",
+            "B",
+            "C",
+            "D",
+            "P",
+            "T"
+          ],
+          "chain_count": 6,
+          "resolution_angstrom": 3.53,
+          "fail": "resolution 3.53A > 3.5A"
+        }
+      },
+      "passed": false,
+      "relevance": 0.0,
+      "checksum": "",
+      "fetched_at": ""
+    },
+    {
+      "uid": "9NEA",
+      "record_type": "pdb_structure",
+      "source": "uniprot",
+      "url": "https://www.rcsb.org/structure/9NEA",
+      "title": "",
+      "description": "",
+      "metadata": {
+        "uniprot_confirmed": true,
+        "uniprot": "P12004",
+        "source": "uniprot"
+      },
+      "download_url": "https://files.rcsb.org/download/9NEA.pdb",
+      "validation": {
+        "l1": {
+          "status_code": 200,
+          "content_type": "text/plain",
+          "size_bytes": 1497204,
+          "ok": true
+        },
+        "l2": {
+          "atom_record_count": 16549,
+          "hetatm_record_count": 29,
+          "ok": true
+        },
+        "l3": {
+          "chains": [
+            "A",
+            "B",
+            "C",
+            "D",
+            "P",
+            "T"
+          ],
+          "chain_count": 6,
+          "resolution_angstrom": 3.81,
+          "fail": "resolution 3.81A > 3.5A"
+        }
+      },
+      "passed": false,
+      "relevance": 0.0,
+      "checksum": "",
+      "fetched_at": ""
+    },
+    {
+      "uid": "8YJL",
+      "record_type": "pdb_structure",
+      "source": "uniprot",
+      "url": "https://www.rcsb.org/structure/8YJL",
+      "title": "",
+      "description": "",
+      "metadata": {
+        "uniprot_confirmed": true,
+        "uniprot": "P12004",
+        "source": "uniprot"
+      },
+      "download_url": "https://files.rcsb.org/download/8YJL.pdb",
+      "validation": {
+        "l1": {
+          "status_code": 200,
+          "content_type": "text/plain",
+          "size_bytes": 858681,
+          "ok": true
+        },
+        "l2": {
+          "atom_record_count": 9853,
+          "hetatm_record_count": 0,
+          "ok": true
+        },
+        "l3": {
+          "chains": [
+            "A",
+            "B",
+            "C",
+            "D",
+            "E",
+            "F",
+            "H",
+            "J"
+          ],
+          "chain_count": 8,
+          "resolution_angstrom": 3.51,
+          "fail": "resolution 3.51A > 3.5A"
+        }
+      },
+      "passed": false,
+      "relevance": 0.0,
+      "checksum": "",
+      "fetched_at": ""
+    },
+    {
+      "uid": "8YJR",
+      "record_type": "pdb_structure",
+      "source": "uniprot",
+      "url": "https://www.rcsb.org/structure/8YJR",
+      "title": "",
+      "description": "",
+      "metadata": {
+        "uniprot_confirmed": true,
+        "uniprot": "P12004",
+        "source": "uniprot"
+      },
+      "download_url": "https://files.rcsb.org/download/8YJR.pdb",
+      "validation": {
+        "l1": {
+          "status_code": 200,
+          "content_type": "text/plain",
+          "size_bytes": 867672,
+          "ok": true
+        },
+        "l2": {
+          "atom_record_count": 9962,
+          "hetatm_record_count": 0,
+          "ok": true
+        },
+        "l3": {
+          "chains": [
+            "A",
+            "B",
+            "C",
+            "D",
+            "E",
+            "F",
+            "H",
+            "J"
+          ],
+          "chain_count": 8,
+          "resolution_angstrom": 3.51,
+          "fail": "resolution 3.51A > 3.5A"
+        }
+      },
+      "passed": false,
+      "relevance": 0.0,
+      "checksum": "",
+      "fetched_at": ""
+    },
+    {
+      "uid": "9F6F",
+      "record_type": "pdb_structure",
+      "source": "uniprot",
+      "url": "https://www.rcsb.org/structure/9F6F",
+      "title": "",
+      "description": "",
+      "metadata": {
+        "uniprot_confirmed": true,
+        "uniprot": "P12004",
+        "source": "uniprot"
+      },
+      "download_url": "https://files.rcsb.org/download/9F6F.pdb",
+      "validation": {
+        "l1": {
+          "status_code": 200,
+          "content_type": "text/plain",
+          "size_bytes": 1388340,
+          "ok": true
+        },
+        "l2": {
+          "atom_record_count": 16319,
+          "hetatm_record_count": 57,
+          "ok": true
+        },
+        "l3": {
+          "chains": [
+            "A",
+            "B",
+            "C",
+            "D",
+            "P",
+            "T"
+          ],
+          "chain_count": 6,
+          "resolution_angstrom": 3.75,
+          "fail": "resolution 3.75A > 3.5A"
+        }
+      },
+      "passed": false,
+      "relevance": 0.0,
+      "checksum": "",
+      "fetched_at": ""
+    },
+    {
+      "uid": "PCNA:bioassay",
+      "record_type": "dataset",
+      "source": "pubchem",
+      "url": "https://pubchem.ncbi.nlm.nih.gov/protein/P12004/bioactivities",
+      "title": "PCNA bioactivity data (PubChem)",
+      "description": "All bioassay records for human PCNA from PubChem",
+      "metadata": {
+        "uniprot": "P12004",
+        "source": "pubchem_bioassay"
+      },
+      "download_url": "",
+      "validation": {
+        "l1": {
+          "fail": "request failed/timeout"
+        }
+      },
+      "passed": false,
+      "relevance": 0.0,
+      "checksum": "",
+      "fetched_at": ""
+    },
+    {
+      "uid": "10.5281/zenodo.20202674",
+      "record_type": "dataset",
+      "source": "zenodo",
+      "url": "",
+      "title": "Dataset for Model-Based Cardiac Field Artefact Correction for OP-MEG",
+      "description": "<p>This repository contains the dataset and code generated for the manuscript \"Model-Based Cardiac Field Artefact Correction for OP-MEG\".</p>\n<p>For the related software code, please refer to: <a href",
+      "metadata": {
+        "doi": "10.5281/zenodo.20202674",
+        "query": "PCNA training dataset",
+        "keywords": [
+          "OP-MEG",
+          "Artefact Removal",
+          "Cardiac Field Artefact",
+          "Interoception"
+        ],
+        "source": "zenodo"
+      },
+      "download_url": "https://zenodo.org/api/records/20202674/files/resting-run-001_array1.lvm/content",
+      "validation": {
+        "l1": {
+          "fail": "request failed/timeout"
+        }
+      },
+      "passed": false,
+      "relevance": 0.0,
+      "checksum": "",
+      "fetched_at": ""
+    },
+    {
+      "uid": "10.5281/zenodo.20207319",
+      "record_type": "dataset",
+      "source": "zenodo",
+      "url": "",
+      "title": "Portrait of a Roman Man, Baltimore, USA",
+      "description": "3D model from the ScanTheWorld dataset: Portrait of a Roman Man, Baltimore, USA.",
+      "metadata": {
+        "doi": "10.5281/zenodo.20207319",
+        "query": "PCNA training dataset",
+        "keywords": [],
+        "source": "zenodo"
+      },
+      "download_url": "https://zenodo.org/api/records/20207319/files/7ef4c697b01d95b854107e073b6579ae_r090.png/content",
+      "validation": {
+        "l1": {
+          "fail": "request failed/timeout"
+        }
+      },
+      "passed": false,
+      "relevance": 0.0,
+      "checksum": "",
+      "fetched_at": ""
+    },
+    {
+      "uid": "10.5281/zenodo.20207567",
+      "record_type": "dataset",
+      "source": "zenodo",
+      "url": "",
+      "title": "Terracotta Archer",
+      "description": "Archer belonging to Qin's Terracotta Army. (IIIth Century BC)\u00a0  One of the 8,099 figures that have so far been unearthed at the site.  The Terracotta Army was discovered in March 1974 by local farmers",
+      "metadata": {
+        "doi": "10.5281/zenodo.20207567",
+        "query": "sc-pdb binding site",
+        "keywords": [],
+        "source": "zenodo"
+      },
+      "download_url": "https://zenodo.org/api/records/20207567/files/edm.validation.json/content",
+      "validation": {
+        "l1": {
+          "fail": "request failed/timeout"
+        }
+      },
+      "passed": false,
+      "relevance": 0.0,
+      "checksum": "",
+      "fetched_at": ""
     }
   ]
 }

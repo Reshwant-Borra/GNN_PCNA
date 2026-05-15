@@ -91,7 +91,7 @@ ALPHAFOLD_DL = "https://alphafold.ebi.ac.uk/files/AF-{}-F1-model_v4.pdb"
 UNIPROT_API  = "https://rest.uniprot.org/uniprotkb/{}.json"
 NCBI_SEARCH  = "https://eutils.ncbi.nlm.nih.gov/entrez/eutils/esearch.fcgi"
 NCBI_FETCH   = "https://eutils.ncbi.nlm.nih.gov/entrez/eutils/efetch.fcgi"
-SIFTS_URL    = "https://www.ebi.ac.uk/pdbe/api/mappings/uniprot/{}"
+SIFTS_URL    = "https://www.ebi.ac.uk/pdbe/graph-api/uniprot/{}/best_structures"
 INTERP_URL   = "https://www.ebi.ac.uk/interpro/api/protein/UniProt/{}"
 ZENODO_API   = "https://zenodo.org/api/records"
 PUBCHEM_CID  = "https://pubchem.ncbi.nlm.nih.gov/rest/pug/compound/name/{}/JSON"
@@ -124,15 +124,17 @@ SESSION.headers.update({"User-Agent": "GNN-PCNA-research/1.0 (academic; advay.aw
 
 def fetch(url: str, domain: str = "", *, method: str = "GET",
           json_body: Any = None, timeout: int = 20,
-          rate_delay: float = POLITE_DELAY) -> Optional[requests.Response]:
+          rate_delay: float = POLITE_DELAY,
+          headers: Optional[dict] = None) -> Optional[requests.Response]:
     """HTTP fetch with rate limiting and exponential-backoff retry."""
     _rate.wait(domain or urllib.parse.urlparse(url).netloc, rate_delay)
     for attempt in range(MAX_RETRIES):
         try:
             if method == "POST":
-                r = SESSION.post(url, json=json_body, timeout=timeout)
+                r = SESSION.post(url, json=json_body, timeout=timeout,
+                                 headers=headers)
             else:
-                r = SESSION.get(url, timeout=timeout)
+                r = SESSION.get(url, timeout=timeout, headers=headers)
             if r.status_code == 429:
                 wait = int(r.headers.get("Retry-After", 5))
                 time.sleep(wait)
@@ -514,7 +516,11 @@ class RCSBSource(BaseSource):
             if not r:
                 print(f"  [{self.name}] {label}: request failed")
                 continue
-            hits = r.json().get("result_set", [])
+            try:
+                hits = r.json().get("result_set", [])
+            except Exception as e:
+                print(f"  [{self.name}] {label}: JSON parse error: {e}")
+                continue
             print(f"  [{self.name}] {label}: {len(hits)} hits")
             for hit in hits:
                 pdb_id = hit.get("identifier", "").split("_")[0].upper()
@@ -672,8 +678,14 @@ class SIFTSSource(BaseSource):
             print(f"  [{self.name}] request failed")
             return []
         try:
-            data    = r.json()
-            pdb_ids = list(data.get(PCNA_UNIPROT, {}).get("PDB", {}).keys())
+            data = r.json()
+            # graph-api returns {uniprot_id: [{pdb_id, ...}, ...]}
+            entries = data.get(PCNA_UNIPROT, [])
+            if isinstance(entries, dict):
+                # fallback: old API shape {uniprot_id: {"PDB": {pdb_id: ...}}}
+                pdb_ids = list(entries.get("PDB", {}).keys())
+            else:
+                pdb_ids = list({e["pdb_id"].upper() for e in entries if "pdb_id" in e})
             print(f"  [{self.name}] {len(pdb_ids)} PDB entries map to P12004")
             records = []
             for pid in pdb_ids:
@@ -1232,6 +1244,18 @@ class CrawlerOrchestrator:
 
         cat_path = CATALOG_DIR / "pcna_data_catalog.json"
         cat_path.write_text(json.dumps(catalog, indent=2), encoding="utf-8")
+
+        # Raw catalog — ALL records (passed + failed) for Obsidian vault export
+        raw_catalog = {
+            "generated_at": now,
+            "crawler_version": "2.0-multidomain",
+            "all_records": sorted(
+                [r.to_dict() for r in passed + failed],
+                key=lambda x: -x.get("relevance", 0),
+            ),
+        }
+        (CATALOG_DIR / "raw_catalog.json").write_text(
+            json.dumps(raw_catalog, indent=2), encoding="utf-8")
 
         # Download queue — only PDB structures that passed
         dl_lines = [

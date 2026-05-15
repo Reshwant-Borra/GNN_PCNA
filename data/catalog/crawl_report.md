@@ -1,48 +1,99 @@
-# PCNA Data Crawl Report
-Generated: 2026-05-15T03:48:51.595796Z
+# PCNA Multi-Domain Crawl Report
+Generated: 2026-05-15T15:57:27.343381+00:00
+Crawler version: 2.0-multidomain
 
-## Summary
-- PDB structures found (verified): 193
-- External dataset links found: 0
+## Validation Summary
+| | Count |
+|---|---|
+| Total collected | 160 |
+| Passed all 5 layers | 95 |
+| Failed validation | 65 |
 
-## Top PDB Structures
-| PDB ID | Score | Title | Resolution |
-|--------|-------|-------|------------|
-| [1AXC](https://www.rcsb.org/structure/1AXC) | 1.00 | HUMAN PCNA | 2.6 Å |
-| [1W60](https://www.rcsb.org/structure/1W60) | 1.00 | NATIVE HUMAN PCNA | 3.15 Å |
-| [1W61](https://www.rcsb.org/structure/1W61) | 1.00 | proline racemase in complex with 2 molecules of py | 2.1 Å |
-| [1AXC](https://www.rcsb.org/structure/1AXC) | 1.00 |  | None Å |
-| [1W60](https://www.rcsb.org/structure/1W60) | 1.00 |  | None Å |
-| [8GLA](https://www.rcsb.org/structure/8GLA) | 1.00 |  | None Å |
-| [8GLA](https://www.rcsb.org/structure/8GLA) | 0.90 | Co-crystal structure of caPCNA bound to the AOH199 | 3.77 Å |
-| [1U7B](https://www.rcsb.org/structure/1U7B) | 0.60 | Crystal structure of hPCNA bound to residues 331-3 | 1.88 Å |
-| [1VYM](https://www.rcsb.org/structure/1VYM) | 0.60 | NATIVE HUMAN PCNA | 2.3 Å |
-| [2ZVL](https://www.rcsb.org/structure/2ZVL) | 0.60 | Crystal structure of PCNA in complex with DNA poly | 2.5 Å |
-| [2ZVM](https://www.rcsb.org/structure/2ZVM) | 0.60 | Crystal structure of PCNA in complex with DNA poly | 2.3 Å |
-| [3VKX](https://www.rcsb.org/structure/3VKX) | 0.60 | Structure of PCNA | 2.1 Å |
-| [4RJF](https://www.rcsb.org/structure/4RJF) | 0.60 | Crystal structure of the human sliding clamp at 2. | 2.0072 Å |
-| [4ZTD](https://www.rcsb.org/structure/4ZTD) | 0.60 | Crystal Structure of Human PCNA in complex with a  | 2.199 Å |
-| [5E0U](https://www.rcsb.org/structure/5E0U) | 0.60 | Human PCNA variant (S228I) complexed with p21 at 1 | 1.93 Å |
-| [5E0V](https://www.rcsb.org/structure/5E0V) | 0.60 | Human PCNA variant (S228I) complexed with FEN1 at  | 2.074 Å |
-| [5MLO](https://www.rcsb.org/structure/5MLO) | 0.60 | Crystal structure of human PCNA in complex with ZR | 1.96 Å |
-| [5MLW](https://www.rcsb.org/structure/5MLW) | 0.60 | Crystal structure of human PCNA in complex with ZR | 2.45 Å |
-| [5MOM](https://www.rcsb.org/structure/5MOM) | 0.60 | Crystal Structure of PCNA encoding the hypomorphic | 2.27 Å |
-| [5YCO](https://www.rcsb.org/structure/5YCO) | 0.60 | Complex structure of PCNA with UHRF2 | 2.199 Å |
-| [5YD8](https://www.rcsb.org/structure/5YD8) | 0.60 | Crystal structure of human PCNA in complex with AP | 2.3 Å |
-| [6HVO](https://www.rcsb.org/structure/6HVO) | 0.60 | Crystal structure of human PCNA in complex with th | 2.1 Å |
-| [6K3A](https://www.rcsb.org/structure/6K3A) | 0.60 | Crystal structure of human PCNA in complex with DN | 2.3 Å |
-| [7KQ0](https://www.rcsb.org/structure/7KQ0) | 0.60 | PCNA bound to peptide mimetic | 2.4 Å |
-| [8F5Q](https://www.rcsb.org/structure/8F5Q) | 0.60 | Crystal structure of human PCNA in complex with th | 1.9 Å |
-| [9N3L](https://www.rcsb.org/structure/9N3L) | 0.60 | Co-crystal structure of PCNA bound to HSP90alpha i | 1.9 Å |
-| [1U76](https://www.rcsb.org/structure/1U76) | 0.50 | Crystal structure of hPCNA bound to residues 452-4 | 2.6 Å |
-| [1UL1](https://www.rcsb.org/structure/1UL1) | 0.50 | Crystal structure of the human FEN1-PCNA complex | 2.9 Å |
-| [1VYJ](https://www.rcsb.org/structure/1VYJ) | 0.50 | Structural and biochemical studies of human PCNA c | 2.8 Å |
-| [2ZVK](https://www.rcsb.org/structure/2ZVK) | 0.50 | Crystal structure of PCNA in complex with DNA poly | 2.7 Å |
+## Records by Source
+| Source | Passed |
+|---|---|
+| uniprot | 65 |
+| ncbi | 17 |
+| rcsb | 7 |
+| chembl | 3 |
+| pubmed | 2 |
+| pubchem | 1 |
 
-## External Dataset Links
+## Records by Type
+| Type | Count |
+|---|---|
+| pdb_structure | 72 |
+| paper | 19 |
+| dataset | 4 |
+
+## Top PDB Structures (72 total)
+| PDB ID | Score | Source | Resolution | UniProt | Notes |
+|---|---|---|---|---|---|
+| [1AXC](https://www.rcsb.org/structure/1AXC) | 1.00 | uniprot | 2.6 A | YES |  |
+| [1W60](https://www.rcsb.org/structure/1W60) | 1.00 | uniprot | 3.15 A | YES |  |
+| [8GLA](https://www.rcsb.org/structure/8GLA) | 1.00 | uniprot | 3.77 A | YES |  |
+| [1W61](https://www.rcsb.org/structure/1W61) | 1.00 | rcsb | 2.1 A | - | proline racemase in complex with 2 molec |
+| [5E0U](https://www.rcsb.org/structure/5E0U) | 0.40 | uniprot | 1.93 A | YES |  |
+| [5MLO](https://www.rcsb.org/structure/5MLO) | 0.40 | uniprot | 1.96 A | YES |  |
+| [8F5Q](https://www.rcsb.org/structure/8F5Q) | 0.40 | uniprot | 1.9 A | YES |  |
+| [1U7B](https://www.rcsb.org/structure/1U7B) | 0.40 | uniprot | 1.88 A | YES |  |
+| [9N3L](https://www.rcsb.org/structure/9N3L) | 0.37 | rcsb | 1.9 A | - | Co-crystal structure of PCNA bound to HS |
+| [4ZTD](https://www.rcsb.org/structure/4ZTD) | 0.32 | uniprot | 2.2 A | YES |  |
+| [5E0V](https://www.rcsb.org/structure/5E0V) | 0.32 | uniprot | 2.07 A | YES |  |
+| [5MLW](https://www.rcsb.org/structure/5MLW) | 0.32 | uniprot | 2.45 A | YES |  |
+| [6HVO](https://www.rcsb.org/structure/6HVO) | 0.32 | uniprot | 2.1 A | YES |  |
+| [3VKX](https://www.rcsb.org/structure/3VKX) | 0.32 | uniprot | 2.1 A | YES |  |
+| [2ZVL](https://www.rcsb.org/structure/2ZVL) | 0.32 | uniprot | 2.5 A | YES |  |
+| [2ZVM](https://www.rcsb.org/structure/2ZVM) | 0.32 | uniprot | 2.3 A | YES |  |
+| [1VYM](https://www.rcsb.org/structure/1VYM) | 0.32 | uniprot | 2.3 A | YES |  |
+| [4RJF](https://www.rcsb.org/structure/4RJF) | 0.32 | uniprot | 2.01 A | YES |  |
+| [5YD8](https://www.rcsb.org/structure/5YD8) | 0.32 | uniprot | 2.3 A | YES |  |
+| [6K3A](https://www.rcsb.org/structure/6K3A) | 0.32 | uniprot | 2.3 A | YES |  |
+| [7KQ0](https://www.rcsb.org/structure/7KQ0) | 0.32 | uniprot | 2.4 A | YES |  |
+| [5MOM](https://www.rcsb.org/structure/5MOM) | 0.32 | uniprot | 2.27 A | YES |  |
+| [5YCO](https://www.rcsb.org/structure/5YCO) | 0.32 | uniprot | 2.2 A | YES |  |
+| [8UMY](https://www.rcsb.org/structure/8UMY) | 0.25 | uniprot | 2.83 A | YES |  |
+| [1UL1](https://www.rcsb.org/structure/1UL1) | 0.25 | uniprot | 2.9 A | YES |  |
+| [8COB](https://www.rcsb.org/structure/8COB) | 0.25 | uniprot | 2.73 A | YES |  |
+| [7NV0](https://www.rcsb.org/structure/7NV0) | 0.25 | uniprot | 3.4 A | YES |  |
+| [9GY0](https://www.rcsb.org/structure/9GY0) | 0.25 | uniprot | 3.42 A | YES |  |
+| [5E0T](https://www.rcsb.org/structure/5E0T) | 0.25 | uniprot | 2.67 A | YES |  |
+| [8UMU](https://www.rcsb.org/structure/8UMU) | 0.25 | uniprot | 3.16 A | YES |  |
+
+## Papers Found (19)
+
+- [NCBI:33239451](https://www.ncbi.nlm.nih.gov/protein/33239451)  (ncbi)
+- [NCBI:4505641](https://www.ncbi.nlm.nih.gov/protein/4505641)  (ncbi)
+- [NCBI:129694](https://www.ncbi.nlm.nih.gov/protein/129694)  (ncbi)
+- [NCBI:31790138](https://www.ncbi.nlm.nih.gov/protein/31790138)  (ncbi)
+- [NCBI:31790136](https://www.ncbi.nlm.nih.gov/protein/31790136)  (ncbi)
+- [NCBI:31790134](https://www.ncbi.nlm.nih.gov/protein/31790134)  (ncbi)
+- [NCBI:119630835](https://www.ncbi.nlm.nih.gov/protein/119630835)  (ncbi)
+- [NCBI:119630834](https://www.ncbi.nlm.nih.gov/protein/119630834)  (ncbi)
+- [NCBI:119630833](https://www.ncbi.nlm.nih.gov/protein/119630833)  (ncbi)
+- [NCBI:38383150](https://www.ncbi.nlm.nih.gov/protein/38383150)  (ncbi)
+- [NCBI:12653441](https://www.ncbi.nlm.nih.gov/protein/12653441)  (ncbi)
+- [NCBI:387005](https://www.ncbi.nlm.nih.gov/protein/387005)  (ncbi)
+- [NCBI:31790295](https://www.ncbi.nlm.nih.gov/protein/31790295)  (ncbi)
+- [NCBI:21902516](https://www.ncbi.nlm.nih.gov/protein/21902516)  (ncbi)
+- [NCBI:49456555](https://www.ncbi.nlm.nih.gov/protein/49456555)  (ncbi)
+
+## Datasets Found (4)
+
+- [Proliferating cell nuclear antigen](https://www.ebi.ac.uk/chembl/target_report_card/CHEMBL2346488/)  (score=0.44)
+- [PCNA-associated factor](https://www.ebi.ac.uk/chembl/target_report_card/CHEMBL5574/)  (score=0.32)
+- [Protein cereblon/PCNA-associated factor](https://www.ebi.ac.uk/chembl/target_report_card/CHEMBL5465218/)  (score=0.32)
+- [AOH1996 (CID 126718388)](https://pubchem.ncbi.nlm.nih.gov/compound/126718388)  (score=0.36)
+
+## Validation Failures by Layer
+| Layer | Failed |
+|---|---|
+| l1 | 7 |
+| l3 | 28 |
+| l4 | 30 |
 
 ## Next Steps
-1. Run `python agents/pcna_crawler.py --download` to fetch top PDB files
-2. Check `data/catalog/download_queue.txt` for full download list
-3. Manually verify CryptoSite/PocketMiner links and download dataset
-4. Run `src/data_processing/parse_pdb.py` on downloaded structures
+1. `python -m src.data_processing.fetch_structures --catalog data/catalog/pcna_data_catalog.json --download`
+2. Review `data/catalog/download_queue.txt` for all verified PDB download URLs
+3. Manually check GitHub/Zenodo dataset links for CryptoSite download
+4. Implement `src/data_processing/parse_pdb.py` — 90 stripped structures waiting

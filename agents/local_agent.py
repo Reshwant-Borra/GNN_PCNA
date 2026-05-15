@@ -21,7 +21,7 @@ client = OpenAI(
     api_key="ollama",  # required by the client, value doesn't matter
 )
 
-MODEL = "qwen2.5:7b"  # change to qwen2.5:4b if RAM < 8 GB
+MODEL = "gemma3:4b"
 
 SYSTEM_IMPLEMENT = """\
 You are a senior Python engineer implementing code for GNN-PCNA, a cryptic pocket \

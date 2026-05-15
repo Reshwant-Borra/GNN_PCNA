@@ -1,0 +1,927 @@
+{
+  "ok": [
+    {
+      "pdb_id": "1BLR",
+      "status": "ok",
+      "raw_path": "C:\\Users\\advay\\GNN_PNCA\\data\\raw\\1BLR.pdb",
+      "reason": "passed all checks",
+      "chains": 1,
+      "resolution": null,
+      "residue_count": 137,
+      "ca_completeness": 1.0
+    },
+    {
+      "pdb_id": "1BU9",
+      "status": "ok",
+      "raw_path": "C:\\Users\\advay\\GNN_PNCA\\data\\raw\\1BU9.pdb",
+      "reason": "passed all checks",
+      "chains": 1,
+      "resolution": null,
+      "residue_count": 168,
+      "ca_completeness": 1.0
+    },
+    {
+      "pdb_id": "1C3I",
+      "status": "ok",
+      "raw_path": "C:\\Users\\advay\\GNN_PNCA\\data\\raw\\1C3I.pdb",
+      "reason": "passed all checks",
+      "chains": 2,
+      "resolution": 1.83,
+      "residue_count": 343,
+      "ca_completeness": 1.0
+    },
+    {
+      "pdb_id": "1C5H",
+      "status": "ok",
+      "raw_path": "C:\\Users\\advay\\GNN_PNCA\\data\\raw\\1C5H.pdb",
+      "reason": "passed all checks",
+      "chains": 1,
+      "resolution": 1.55,
+      "residue_count": 185,
+      "ca_completeness": 1.0
+    },
+    {
+      "pdb_id": "1D09",
+      "status": "ok",
+      "raw_path": "C:\\Users\\advay\\GNN_PNCA\\data\\raw\\1D09.pdb",
+      "reason": "passed all checks",
+      "chains": 4,
+      "resolution": 2.1,
+      "residue_count": 926,
+      "ca_completeness": 1.0
+    },
+    {
+      "pdb_id": "1E2X",
+      "status": "ok",
+      "raw_path": "C:\\Users\\advay\\GNN_PNCA\\data\\raw\\1E2X.pdb",
+      "reason": "passed all checks",
+      "chains": 1,
+      "resolution": 2.0,
+      "residue_count": 222,
+      "ca_completeness": 1.0
+    },
+    {
+      "pdb_id": "1E3V",
+      "status": "ok",
+      "raw_path": "C:\\Users\\advay\\GNN_PNCA\\data\\raw\\1E3V.pdb",
+      "reason": "passed all checks",
+      "chains": 2,
+      "resolution": 2.0,
+      "residue_count": 257,
+      "ca_completeness": 1.0
+    },
+    {
+      "pdb_id": "1FBO",
+      "status": "ok",
+      "raw_path": "C:\\Users\\advay\\GNN_PNCA\\data\\raw\\1FBO.pdb",
+      "reason": "passed all checks",
+      "chains": 1,
+      "resolution": 2.3,
+      "residue_count": 629,
+      "ca_completeness": 1.0
+    },
+    {
+      "pdb_id": "1GBG",
+      "status": "ok",
+      "raw_path": "C:\\Users\\advay\\GNN_PNCA\\data\\raw\\1GBG.pdb",
+      "reason": "passed all checks",
+      "chains": 1,
+      "resolution": 1.8,
+      "residue_count": 214,
+      "ca_completeness": 1.0
+    },
+    {
+      "pdb_id": "1GQY",
+      "status": "ok",
+      "raw_path": "C:\\Users\\advay\\GNN_PNCA\\data\\raw\\1GQY.pdb",
+      "reason": "passed all checks",
+      "chains": 2,
+      "resolution": 1.8,
+      "residue_count": 937,
+      "ca_completeness": 1.0
+    },
+    {
+      "pdb_id": "1HP2",
+      "status": "ok",
+      "raw_path": "C:\\Users\\advay\\GNN_PNCA\\data\\raw\\1HP2.pdb",
+      "reason": "passed all checks",
+      "chains": 1,
+      "resolution": null,
+      "residue_count": 37,
+      "ca_completeness": 1.0
+    },
+    {
+      "pdb_id": "1IQD",
+      "status": "ok",
+      "raw_path": "C:\\Users\\advay\\GNN_PNCA\\data\\raw\\1IQD.pdb",
+      "reason": "passed all checks",
+      "chains": 3,
+      "resolution": 2.0,
+      "residue_count": 561,
+      "ca_completeness": 1.0
+    },
+    {
+      "pdb_id": "1JBP",
+      "status": "ok",
+      "raw_path": "C:\\Users\\advay\\GNN_PNCA\\data\\raw\\1JBP.pdb",
+      "reason": "passed all checks",
+      "chains": 2,
+      "resolution": 2.2,
+      "residue_count": 359,
+      "ca_completeness": 1.0
+    },
+    {
+      "pdb_id": "1JWP",
+      "status": "ok",
+      "raw_path": "C:\\Users\\advay\\GNN_PNCA\\data\\raw\\1JWP.pdb",
+      "reason": "passed all checks",
+      "chains": 1,
+      "resolution": 1.75,
+      "residue_count": 263,
+      "ca_completeness": 1.0
+    },
+    {
+      "pdb_id": "1K3Y",
+      "status": "ok",
+      "raw_path": "C:\\Users\\advay\\GNN_PNCA\\data\\raw\\1K3Y.pdb",
+      "reason": "passed all checks",
+      "chains": 2,
+      "resolution": 1.3,
+      "residue_count": 442,
+      "ca_completeness": 1.0
+    },
+    {
+      "pdb_id": "1LB6",
+      "status": "ok",
+      "raw_path": "C:\\Users\\advay\\GNN_PNCA\\data\\raw\\1LB6.pdb",
+      "reason": "passed all checks",
+      "chains": 2,
+      "resolution": 1.8,
+      "residue_count": 164,
+      "ca_completeness": 1.0
+    },
+    {
+      "pdb_id": "1M17",
+      "status": "ok",
+      "raw_path": "C:\\Users\\advay\\GNN_PNCA\\data\\raw\\1M17.pdb",
+      "reason": "passed all checks",
+      "chains": 1,
+      "resolution": 2.6,
+      "residue_count": 312,
+      "ca_completeness": 1.0
+    },
+    {
+      "pdb_id": "1O3P",
+      "status": "ok",
+      "raw_path": "C:\\Users\\advay\\GNN_PNCA\\data\\raw\\1O3P.pdb",
+      "reason": "passed all checks",
+      "chains": 2,
+      "resolution": 1.81,
+      "residue_count": 235,
+      "ca_completeness": 1.0
+    },
+    {
+      "pdb_id": "1OG2",
+      "status": "ok",
+      "raw_path": "C:\\Users\\advay\\GNN_PNCA\\data\\raw\\1OG2.pdb",
+      "reason": "passed all checks",
+      "chains": 2,
+      "resolution": 2.6,
+      "residue_count": 924,
+      "ca_completeness": 0.9978354978354979
+    },
+    {
+      "pdb_id": "1OIN",
+      "status": "ok",
+      "raw_path": "C:\\Users\\advay\\GNN_PNCA\\data\\raw\\1OIN.pdb",
+      "reason": "passed all checks",
+      "chains": 2,
+      "resolution": 2.15,
+      "residue_count": 885,
+      "ca_completeness": 1.0
+    },
+    {
+      "pdb_id": "1ONE",
+      "status": "ok",
+      "raw_path": "C:\\Users\\advay\\GNN_PNCA\\data\\raw\\1ONE.pdb",
+      "reason": "passed all checks",
+      "chains": 2,
+      "resolution": 1.8,
+      "residue_count": 872,
+      "ca_completeness": 1.0
+    },
+    {
+      "pdb_id": "1P9Y",
+      "status": "ok",
+      "raw_path": "C:\\Users\\advay\\GNN_PNCA\\data\\raw\\1P9Y.pdb",
+      "reason": "passed all checks",
+      "chains": 2,
+      "resolution": 2.15,
+      "residue_count": 234,
+      "ca_completeness": 1.0
+    },
+    {
+      "pdb_id": "1PDZ",
+      "status": "ok",
+      "raw_path": "C:\\Users\\advay\\GNN_PNCA\\data\\raw\\1PDZ.pdb",
+      "reason": "passed all checks",
+      "chains": 1,
+      "resolution": 2.2,
+      "residue_count": 433,
+      "ca_completeness": 1.0
+    },
+    {
+      "pdb_id": "1PZO",
+      "status": "ok",
+      "raw_path": "C:\\Users\\advay\\GNN_PNCA\\data\\raw\\1PZO.pdb",
+      "reason": "passed all checks",
+      "chains": 1,
+      "resolution": 1.9,
+      "residue_count": 263,
+      "ca_completeness": 1.0
+    },
+    {
+      "pdb_id": "1Q5H",
+      "status": "ok",
+      "raw_path": "C:\\Users\\advay\\GNN_PNCA\\data\\raw\\1Q5H.pdb",
+      "reason": "passed all checks",
+      "chains": 3,
+      "resolution": 2.0,
+      "residue_count": 405,
+      "ca_completeness": 1.0
+    },
+    {
+      "pdb_id": "1RJ8",
+      "status": "ok",
+      "raw_path": "C:\\Users\\advay\\GNN_PNCA\\data\\raw\\1RJ8.pdb",
+      "reason": "passed all checks",
+      "chains": 6,
+      "resolution": 2.23,
+      "residue_count": 840,
+      "ca_completeness": 1.0
+    },
+    {
+      "pdb_id": "1SQO",
+      "status": "ok",
+      "raw_path": "C:\\Users\\advay\\GNN_PNCA\\data\\raw\\1SQO.pdb",
+      "reason": "passed all checks",
+      "chains": 1,
+      "resolution": 1.84,
+      "residue_count": 245,
+      "ca_completeness": 1.0
+    },
+    {
+      "pdb_id": "1THJ",
+      "status": "ok",
+      "raw_path": "C:\\Users\\advay\\GNN_PNCA\\data\\raw\\1THJ.pdb",
+      "reason": "passed all checks",
+      "chains": 3,
+      "resolution": 2.8,
+      "residue_count": 639,
+      "ca_completeness": 1.0
+    },
+    {
+      "pdb_id": "1TML",
+      "status": "ok",
+      "raw_path": "C:\\Users\\advay\\GNN_PNCA\\data\\raw\\1TML.pdb",
+      "reason": "passed all checks",
+      "chains": 1,
+      "resolution": 1.8,
+      "residue_count": 286,
+      "ca_completeness": 1.0
+    },
+    {
+      "pdb_id": "1V48",
+      "status": "ok",
+      "raw_path": "C:\\Users\\advay\\GNN_PNCA\\data\\raw\\1V48.pdb",
+      "reason": "passed all checks",
+      "chains": 1,
+      "resolution": 2.2,
+      "residue_count": 261,
+      "ca_completeness": 1.0
+    },
+    {
+      "pdb_id": "1VFB",
+      "status": "ok",
+      "raw_path": "C:\\Users\\advay\\GNN_PNCA\\data\\raw\\1VFB.pdb",
+      "reason": "passed all checks",
+      "chains": 3,
+      "resolution": 1.8,
+      "residue_count": 352,
+      "ca_completeness": 1.0
+    },
+    {
+      "pdb_id": "1W4E",
+      "status": "ok",
+      "raw_path": "C:\\Users\\advay\\GNN_PNCA\\data\\raw\\1W4E.pdb",
+      "reason": "passed all checks",
+      "chains": 1,
+      "resolution": null,
+      "residue_count": 45,
+      "ca_completeness": 1.0
+    },
+    {
+      "pdb_id": "1W9H",
+      "status": "ok",
+      "raw_path": "C:\\Users\\advay\\GNN_PNCA\\data\\raw\\1W9H.pdb",
+      "reason": "passed all checks",
+      "chains": 1,
+      "resolution": 1.95,
+      "residue_count": 398,
+      "ca_completeness": 1.0
+    },
+    {
+      "pdb_id": "1XHY",
+      "status": "ok",
+      "raw_path": "C:\\Users\\advay\\GNN_PNCA\\data\\raw\\1XHY.pdb",
+      "reason": "passed all checks",
+      "chains": 1,
+      "resolution": 1.85,
+      "residue_count": 259,
+      "ca_completeness": 1.0
+    },
+    {
+      "pdb_id": "1XKK",
+      "status": "ok",
+      "raw_path": "C:\\Users\\advay\\GNN_PNCA\\data\\raw\\1XKK.pdb",
+      "reason": "passed all checks",
+      "chains": 1,
+      "resolution": 2.4,
+      "residue_count": 289,
+      "ca_completeness": 1.0
+    },
+    {
+      "pdb_id": "1XQ4",
+      "status": "ok",
+      "raw_path": "C:\\Users\\advay\\GNN_PNCA\\data\\raw\\1XQ4.pdb",
+      "reason": "passed all checks",
+      "chains": 4,
+      "resolution": 2.7,
+      "residue_count": 480,
+      "ca_completeness": 1.0
+    },
+    {
+      "pdb_id": "1YCS",
+      "status": "ok",
+      "raw_path": "C:\\Users\\advay\\GNN_PNCA\\data\\raw\\1YCS.pdb",
+      "reason": "passed all checks",
+      "chains": 2,
+      "resolution": 2.2,
+      "residue_count": 384,
+      "ca_completeness": 1.0
+    },
+    {
+      "pdb_id": "1Z7X",
+      "status": "ok",
+      "raw_path": "C:\\Users\\advay\\GNN_PNCA\\data\\raw\\1Z7X.pdb",
+      "reason": "passed all checks",
+      "chains": 4,
+      "resolution": 1.95,
+      "residue_count": 1172,
+      "ca_completeness": 1.0
+    },
+    {
+      "pdb_id": "1ZC3",
+      "status": "ok",
+      "raw_path": "C:\\Users\\advay\\GNN_PNCA\\data\\raw\\1ZC3.pdb",
+      "reason": "passed all checks",
+      "chains": 4,
+      "resolution": 2.0,
+      "residue_count": 564,
+      "ca_completeness": 1.0
+    },
+    {
+      "pdb_id": "2AM9",
+      "status": "ok",
+      "raw_path": "C:\\Users\\advay\\GNN_PNCA\\data\\raw\\2AM9.pdb",
+      "reason": "passed all checks",
+      "chains": 1,
+      "resolution": 1.64,
+      "residue_count": 250,
+      "ca_completeness": 1.0
+    },
+    {
+      "pdb_id": "2B8H",
+      "status": "ok",
+      "raw_path": "C:\\Users\\advay\\GNN_PNCA\\data\\raw\\2B8H.pdb",
+      "reason": "passed all checks",
+      "chains": 4,
+      "resolution": 2.2,
+      "residue_count": 1552,
+      "ca_completeness": 1.0
+    },
+    {
+      "pdb_id": "2BKM",
+      "status": "ok",
+      "raw_path": "C:\\Users\\advay\\GNN_PNCA\\data\\raw\\2BKM.pdb",
+      "reason": "passed all checks",
+      "chains": 2,
+      "resolution": 1.5,
+      "residue_count": 256,
+      "ca_completeness": 1.0
+    },
+    {
+      "pdb_id": "2BRJ",
+      "status": "ok",
+      "raw_path": "C:\\Users\\advay\\GNN_PNCA\\data\\raw\\2BRJ.pdb",
+      "reason": "passed all checks",
+      "chains": 3,
+      "resolution": 1.5,
+      "residue_count": 519,
+      "ca_completeness": 1.0
+    },
+    {
+      "pdb_id": "2CLR",
+      "status": "ok",
+      "raw_path": "C:\\Users\\advay\\GNN_PNCA\\data\\raw\\2CLR.pdb",
+      "reason": "passed all checks",
+      "chains": 6,
+      "resolution": 2.0,
+      "residue_count": 770,
+      "ca_completeness": 1.0
+    },
+    {
+      "pdb_id": "2CNN",
+      "status": "ok",
+      "raw_path": "C:\\Users\\advay\\GNN_PNCA\\data\\raw\\2CNN.pdb",
+      "reason": "passed all checks",
+      "chains": 3,
+      "resolution": 1.7,
+      "residue_count": 254,
+      "ca_completeness": 0.9960629921259843
+    },
+    {
+      "pdb_id": "2DXX",
+      "status": "ok",
+      "raw_path": "C:\\Users\\advay\\GNN_PNCA\\data\\raw\\2DXX.pdb",
+      "reason": "passed all checks",
+      "chains": 2,
+      "resolution": 1.75,
+      "residue_count": 530,
+      "ca_completeness": 1.0
+    },
+    {
+      "pdb_id": "2EUF",
+      "status": "ok",
+      "raw_path": "C:\\Users\\advay\\GNN_PNCA\\data\\raw\\2EUF.pdb",
+      "reason": "passed all checks",
+      "chains": 2,
+      "resolution": 3.0,
+      "residue_count": 526,
+      "ca_completeness": 1.0
+    },
+    {
+      "pdb_id": "2GV1",
+      "status": "ok",
+      "raw_path": "C:\\Users\\advay\\GNN_PNCA\\data\\raw\\2GV1.pdb",
+      "reason": "passed all checks",
+      "chains": 1,
+      "resolution": null,
+      "residue_count": 92,
+      "ca_completeness": 1.0
+    },
+    {
+      "pdb_id": "2H5C",
+      "status": "ok",
+      "raw_path": "C:\\Users\\advay\\GNN_PNCA\\data\\raw\\2H5C.pdb",
+      "reason": "passed all checks",
+      "chains": 1,
+      "resolution": 0.82,
+      "residue_count": 171,
+      "ca_completeness": 1.0
+    },
+    {
+      "pdb_id": "2HM7",
+      "status": "ok",
+      "raw_path": "C:\\Users\\advay\\GNN_PNCA\\data\\raw\\2HM7.pdb",
+      "reason": "passed all checks",
+      "chains": 1,
+      "resolution": 2.0,
+      "residue_count": 308,
+      "ca_completeness": 1.0
+    },
+    {
+      "pdb_id": "2HNX",
+      "status": "ok",
+      "raw_path": "C:\\Users\\advay\\GNN_PNCA\\data\\raw\\2HNX.pdb",
+      "reason": "passed all checks",
+      "chains": 1,
+      "resolution": 1.5,
+      "residue_count": 136,
+      "ca_completeness": 1.0
+    },
+    {
+      "pdb_id": "2HQS",
+      "status": "ok",
+      "raw_path": "C:\\Users\\advay\\GNN_PNCA\\data\\raw\\2HQS.pdb",
+      "reason": "passed all checks",
+      "chains": 8,
+      "resolution": 1.5,
+      "residue_count": 2072,
+      "ca_completeness": 1.0
+    },
+    {
+      "pdb_id": "2J58",
+      "status": "ok",
+      "raw_path": "C:\\Users\\advay\\GNN_PNCA\\data\\raw\\2J58.pdb",
+      "reason": "passed all checks",
+      "chains": 8,
+      "resolution": 2.25,
+      "residue_count": 2760,
+      "ca_completeness": 1.0
+    },
+    {
+      "pdb_id": "2JA3",
+      "status": "ok",
+      "raw_path": "C:\\Users\\advay\\GNN_PNCA\\data\\raw\\2JA3.pdb",
+      "reason": "passed all checks",
+      "chains": 6,
+      "resolution": 3.05,
+      "residue_count": 1010,
+      "ca_completeness": 1.0
+    },
+    {
+      "pdb_id": "2JGU",
+      "status": "ok",
+      "raw_path": "C:\\Users\\advay\\GNN_PNCA\\data\\raw\\2JGU.pdb",
+      "reason": "passed all checks",
+      "chains": 1,
+      "resolution": 2.6,
+      "residue_count": 712,
+      "ca_completeness": 0.9985955056179775
+    },
+    {
+      "pdb_id": "2K1V",
+      "status": "ok",
+      "raw_path": "C:\\Users\\advay\\GNN_PNCA\\data\\raw\\2K1V.pdb",
+      "reason": "passed all checks",
+      "chains": 2,
+      "resolution": null,
+      "residue_count": 47,
+      "ca_completeness": 1.0
+    },
+    {
+      "pdb_id": "2LZM",
+      "status": "ok",
+      "raw_path": "C:\\Users\\advay\\GNN_PNCA\\data\\raw\\2LZM.pdb",
+      "reason": "passed all checks",
+      "chains": 1,
+      "resolution": 1.7,
+      "residue_count": 164,
+      "ca_completeness": 1.0
+    },
+    {
+      "pdb_id": "2NLZ",
+      "status": "ok",
+      "raw_path": "C:\\Users\\advay\\GNN_PNCA\\data\\raw\\2NLZ.pdb",
+      "reason": "passed all checks",
+      "chains": 4,
+      "resolution": 2.7,
+      "residue_count": 2143,
+      "ca_completeness": 1.0
+    },
+    {
+      "pdb_id": "2NMO",
+      "status": "ok",
+      "raw_path": "C:\\Users\\advay\\GNN_PNCA\\data\\raw\\2NMO.pdb",
+      "reason": "passed all checks",
+      "chains": 1,
+      "resolution": 1.35,
+      "residue_count": 138,
+      "ca_completeness": 1.0
+    },
+    {
+      "pdb_id": "2NWX",
+      "status": "ok",
+      "raw_path": "C:\\Users\\advay\\GNN_PNCA\\data\\raw\\2NWX.pdb",
+      "reason": "passed all checks",
+      "chains": 3,
+      "resolution": 3.29,
+      "residue_count": 1197,
+      "ca_completeness": 1.0
+    },
+    {
+      "pdb_id": "2OQB",
+      "status": "ok",
+      "raw_path": "C:\\Users\\advay\\GNN_PNCA\\data\\raw\\2OQB.pdb",
+      "reason": "passed all checks",
+      "chains": 2,
+      "resolution": 1.69,
+      "residue_count": 214,
+      "ca_completeness": 1.0
+    },
+    {
+      "pdb_id": "2P0R",
+      "status": "ok",
+      "raw_path": "C:\\Users\\advay\\GNN_PNCA\\data\\raw\\2P0R.pdb",
+      "reason": "passed all checks",
+      "chains": 4,
+      "resolution": 2.5,
+      "residue_count": 642,
+      "ca_completeness": 1.0
+    },
+    {
+      "pdb_id": "2P54",
+      "status": "ok",
+      "raw_path": "C:\\Users\\advay\\GNN_PNCA\\data\\raw\\2P54.pdb",
+      "reason": "passed all checks",
+      "chains": 2,
+      "resolution": 1.79,
+      "residue_count": 279,
+      "ca_completeness": 1.0
+    },
+    {
+      "pdb_id": "2PKT",
+      "status": "ok",
+      "raw_path": "C:\\Users\\advay\\GNN_PNCA\\data\\raw\\2PKT.pdb",
+      "reason": "passed all checks",
+      "chains": 1,
+      "resolution": 1.5,
+      "residue_count": 91,
+      "ca_completeness": 1.0
+    },
+    {
+      "pdb_id": "2Q1T",
+      "status": "ok",
+      "raw_path": "C:\\Users\\advay\\GNN_PNCA\\data\\raw\\2Q1T.pdb",
+      "reason": "passed all checks",
+      "chains": 1,
+      "resolution": 1.75,
+      "residue_count": 332,
+      "ca_completeness": 1.0
+    },
+    {
+      "pdb_id": "2QKH",
+      "status": "ok",
+      "raw_path": "C:\\Users\\advay\\GNN_PNCA\\data\\raw\\2QKH.pdb",
+      "reason": "passed all checks",
+      "chains": 2,
+      "resolution": 1.9,
+      "residue_count": 126,
+      "ca_completeness": 1.0
+    },
+    {
+      "pdb_id": "2R8Q",
+      "status": "ok",
+      "raw_path": "C:\\Users\\advay\\GNN_PNCA\\data\\raw\\2R8Q.pdb",
+      "reason": "passed all checks",
+      "chains": 2,
+      "resolution": 1.5,
+      "residue_count": 670,
+      "ca_completeness": 1.0
+    },
+    {
+      "pdb_id": "2VGO",
+      "status": "ok",
+      "raw_path": "C:\\Users\\advay\\GNN_PNCA\\data\\raw\\2VGO.pdb",
+      "reason": "passed all checks",
+      "chains": 4,
+      "resolution": 1.7,
+      "residue_count": 629,
+      "ca_completeness": 1.0
+    },
+    {
+      "pdb_id": "2VO5",
+      "status": "ok",
+      "raw_path": "C:\\Users\\advay\\GNN_PNCA\\data\\raw\\2VO5.pdb",
+      "reason": "passed all checks",
+      "chains": 2,
+      "resolution": 2.3,
+      "residue_count": 1674,
+      "ca_completeness": 1.0
+    },
+    {
+      "pdb_id": "2WER",
+      "status": "ok",
+      "raw_path": "C:\\Users\\advay\\GNN_PNCA\\data\\raw\\2WER.pdb",
+      "reason": "passed all checks",
+      "chains": 2,
+      "resolution": 1.6,
+      "residue_count": 428,
+      "ca_completeness": 1.0
+    },
+    {
+      "pdb_id": "2X6D",
+      "status": "ok",
+      "raw_path": "C:\\Users\\advay\\GNN_PNCA\\data\\raw\\2X6D.pdb",
+      "reason": "passed all checks",
+      "chains": 1,
+      "resolution": 2.8,
+      "residue_count": 255,
+      "ca_completeness": 1.0
+    },
+    {
+      "pdb_id": "2XBP",
+      "status": "ok",
+      "raw_path": "C:\\Users\\advay\\GNN_PNCA\\data\\raw\\2XBP.pdb",
+      "reason": "passed all checks",
+      "chains": 1,
+      "resolution": 1.2,
+      "residue_count": 113,
+      "ca_completeness": 1.0
+    },
+    {
+      "pdb_id": "2XHM",
+      "status": "ok",
+      "raw_path": "C:\\Users\\advay\\GNN_PNCA\\data\\raw\\2XHM.pdb",
+      "reason": "passed all checks",
+      "chains": 1,
+      "resolution": 1.96,
+      "residue_count": 598,
+      "ca_completeness": 1.0
+    },
+    {
+      "pdb_id": "2YHW",
+      "status": "ok",
+      "raw_path": "C:\\Users\\advay\\GNN_PNCA\\data\\raw\\2YHW.pdb",
+      "reason": "passed all checks",
+      "chains": 1,
+      "resolution": 1.64,
+      "residue_count": 308,
+      "ca_completeness": 1.0
+    },
+    {
+      "pdb_id": "3C0I",
+      "status": "ok",
+      "raw_path": "C:\\Users\\advay\\GNN_PNCA\\data\\raw\\3C0I.pdb",
+      "reason": "passed all checks",
+      "chains": 1,
+      "resolution": 1.85,
+      "residue_count": 298,
+      "ca_completeness": 1.0
+    },
+    {
+      "pdb_id": "3CL7",
+      "status": "ok",
+      "raw_path": "C:\\Users\\advay\\GNN_PNCA\\data\\raw\\3CL7.pdb",
+      "reason": "passed all checks",
+      "chains": 2,
+      "resolution": 1.8,
+      "residue_count": 604,
+      "ca_completeness": 1.0
+    },
+    {
+      "pdb_id": "3D0E",
+      "status": "ok",
+      "raw_path": "C:\\Users\\advay\\GNN_PNCA\\data\\raw\\3D0E.pdb",
+      "reason": "passed all checks",
+      "chains": 2,
+      "resolution": 2.0,
+      "residue_count": 644,
+      "ca_completeness": 1.0
+    },
+    {
+      "pdb_id": "3EML",
+      "status": "ok",
+      "raw_path": "C:\\Users\\advay\\GNN_PNCA\\data\\raw\\3EML.pdb",
+      "reason": "passed all checks",
+      "chains": 1,
+      "resolution": 2.6,
+      "residue_count": 448,
+      "ca_completeness": 1.0
+    },
+    {
+      "pdb_id": "3FU8",
+      "status": "ok",
+      "raw_path": "C:\\Users\\advay\\GNN_PNCA\\data\\raw\\3FU8.pdb",
+      "reason": "passed all checks",
+      "chains": 2,
+      "resolution": 1.8,
+      "residue_count": 1116,
+      "ca_completeness": 1.0
+    },
+    {
+      "pdb_id": "3GXD",
+      "status": "ok",
+      "raw_path": "C:\\Users\\advay\\GNN_PNCA\\data\\raw\\3GXD.pdb",
+      "reason": "passed all checks",
+      "chains": 4,
+      "resolution": 2.5,
+      "residue_count": 1988,
+      "ca_completeness": 1.0
+    },
+    {
+      "pdb_id": "3HXM",
+      "status": "ok",
+      "raw_path": "C:\\Users\\advay\\GNN_PNCA\\data\\raw\\3HXM.pdb",
+      "reason": "passed all checks",
+      "chains": 3,
+      "resolution": 3.1,
+      "residue_count": 659,
+      "ca_completeness": 0.9666160849772383
+    },
+    {
+      "pdb_id": "3KCW",
+      "status": "ok",
+      "raw_path": "C:\\Users\\advay\\GNN_PNCA\\data\\raw\\3KCW.pdb",
+      "reason": "passed all checks",
+      "chains": 1,
+      "resolution": 2.0,
+      "residue_count": 110,
+      "ca_completeness": 1.0
+    },
+    {
+      "pdb_id": "3KQ4",
+      "status": "ok",
+      "raw_path": "C:\\Users\\advay\\GNN_PNCA\\data\\raw\\3KQ4.pdb",
+      "reason": "passed all checks",
+      "chains": 6,
+      "resolution": 3.3,
+      "residue_count": 2526,
+      "ca_completeness": 1.0
+    },
+    {
+      "pdb_id": "3L7U",
+      "status": "ok",
+      "raw_path": "C:\\Users\\advay\\GNN_PNCA\\data\\raw\\3L7U.pdb",
+      "reason": "passed all checks",
+      "chains": 3,
+      "resolution": 2.1,
+      "residue_count": 458,
+      "ca_completeness": 1.0
+    },
+    {
+      "pdb_id": "3N86",
+      "status": "ok",
+      "raw_path": "C:\\Users\\advay\\GNN_PNCA\\data\\raw\\3N86.pdb",
+      "reason": "passed all checks",
+      "chains": 24,
+      "resolution": 1.9,
+      "residue_count": 3394,
+      "ca_completeness": 1.0
+    },
+    {
+      "pdb_id": "3PXF",
+      "status": "ok",
+      "raw_path": "C:\\Users\\advay\\GNN_PNCA\\data\\raw\\3PXF.pdb",
+      "reason": "passed all checks",
+      "chains": 1,
+      "resolution": 1.8,
+      "residue_count": 302,
+      "ca_completeness": 1.0
+    }
+  ],
+  "failed": [
+    {
+      "pdb_id": "1DLN",
+      "status": "failed",
+      "raw_path": null,
+      "reason": "404 Client Error: Not Found for url: https://files.rcsb.org/download/1DLN.pdb",
+      "chains": 0,
+      "resolution": null,
+      "residue_count": 0,
+      "ca_completeness": 0.0
+    },
+    {
+      "pdb_id": "1H8A",
+      "status": "failed",
+      "raw_path": "C:\\Users\\advay\\GNN_PNCA\\data\\raw\\1H8A.pdb",
+      "reason": "C\u03b1 completeness 82.2% < 90%",
+      "chains": 5,
+      "resolution": 2.23,
+      "residue_count": 292,
+      "ca_completeness": 0.821917808219178
+    },
+    {
+      "pdb_id": "1NRY",
+      "status": "failed",
+      "raw_path": null,
+      "reason": "404 Client Error: Not Found for url: https://files.rcsb.org/download/1NRY.pdb",
+      "chains": 0,
+      "resolution": null,
+      "residue_count": 0,
+      "ca_completeness": 0.0
+    },
+    {
+      "pdb_id": "2C32",
+      "status": "failed",
+      "raw_path": "C:\\Users\\advay\\GNN_PNCA\\data\\raw\\2C32.pdb",
+      "reason": "resolution 7.01\u00c5 > 3.5\u00c5 threshold",
+      "chains": 1,
+      "resolution": 7.01,
+      "residue_count": 0,
+      "ca_completeness": 0.0
+    },
+    {
+      "pdb_id": "2DR2",
+      "status": "failed",
+      "raw_path": "C:\\Users\\advay\\GNN_PNCA\\data\\raw\\2DR2.pdb",
+      "reason": "C\u03b1 completeness 83.3% < 90%",
+      "chains": 2,
+      "resolution": 3.0,
+      "residue_count": 448,
+      "ca_completeness": 0.8325892857142857
+    },
+    {
+      "pdb_id": "3BYH",
+      "status": "failed",
+      "raw_path": "C:\\Users\\advay\\GNN_PNCA\\data\\raw\\3BYH.pdb",
+      "reason": "resolution 12.0\u00c5 > 3.5\u00c5 threshold",
+      "chains": 2,
+      "resolution": 12.0,
+      "residue_count": 0,
+      "ca_completeness": 0.0
+    }
+  ],
+  "skipped": []
+}

@@ -1,0 +1,2926 @@
+{
+  "generated_at": "2026-05-15T03:48:51.595796Z",
+  "pdb_entries": [
+    {
+      "pdb_id": "1AXC",
+      "title": "HUMAN PCNA",
+      "resolution_angstrom": 2.6,
+      "organisms": [],
+      "polymer_types": [],
+      "experimental_method": "X-RAY DIFFRACTION",
+      "download_url": "https://files.rcsb.org/download/1AXC.pdb",
+      "rcsb_url": "https://www.rcsb.org/structure/1AXC",
+      "source": "rcsb",
+      "verification_passed": true,
+      "verification_reason": "title contains 'pcna'; known ground-truth structure; acceptable resolution 2.6\u00c5",
+      "relevance_score": 1.0
+    },
+    {
+      "pdb_id": "1W60",
+      "title": "NATIVE HUMAN PCNA",
+      "resolution_angstrom": 3.15,
+      "organisms": [],
+      "polymer_types": [],
+      "experimental_method": "X-RAY DIFFRACTION",
+      "download_url": "https://files.rcsb.org/download/1W60.pdb",
+      "rcsb_url": "https://www.rcsb.org/structure/1W60",
+      "source": "rcsb",
+      "verification_passed": true,
+      "verification_reason": "title contains 'pcna'; known ground-truth structure; acceptable resolution 3.15\u00c5",
+      "relevance_score": 1.0
+    },
+    {
+      "pdb_id": "1W61",
+      "title": "proline racemase in complex with 2 molecules of pyrrole-2-carboxylic acid (holo form)",
+      "resolution_angstrom": 2.1,
+      "organisms": [],
+      "polymer_types": [],
+      "experimental_method": "X-RAY DIFFRACTION",
+      "download_url": "https://files.rcsb.org/download/1W61.pdb",
+      "rcsb_url": "https://www.rcsb.org/structure/1W61",
+      "source": "rcsb",
+      "verification_passed": true,
+      "verification_reason": "known ground-truth structure; high resolution 2.1\u00c5",
+      "relevance_score": 1.0
+    },
+    {
+      "pdb_id": "1AXC",
+      "source": "uniprot",
+      "download_url": "https://files.rcsb.org/download/1AXC.pdb",
+      "title": "",
+      "organisms": [
+        "Homo sapiens"
+      ],
+      "polymer_types": [
+        "polypeptide(L)"
+      ],
+      "resolution_angstrom": null,
+      "verification_passed": true,
+      "verification_reason": "human organism; known ground-truth structure",
+      "relevance_score": 1.0
+    },
+    {
+      "pdb_id": "1W60",
+      "source": "uniprot",
+      "download_url": "https://files.rcsb.org/download/1W60.pdb",
+      "title": "",
+      "organisms": [
+        "Homo sapiens"
+      ],
+      "polymer_types": [
+        "polypeptide(L)"
+      ],
+      "resolution_angstrom": null,
+      "verification_passed": true,
+      "verification_reason": "human organism; known ground-truth structure",
+      "relevance_score": 1.0
+    },
+    {
+      "pdb_id": "8GLA",
+      "source": "uniprot",
+      "download_url": "https://files.rcsb.org/download/8GLA.pdb",
+      "title": "",
+      "organisms": [
+        "Homo sapiens"
+      ],
+      "polymer_types": [
+        "polypeptide(L)"
+      ],
+      "resolution_angstrom": null,
+      "verification_passed": true,
+      "verification_reason": "human organism; known ground-truth structure",
+      "relevance_score": 1.0
+    },
+    {
+      "pdb_id": "8GLA",
+      "title": "Co-crystal structure of caPCNA bound to the AOH1996 derivative, AOH1996-1LE",
+      "resolution_angstrom": 3.77,
+      "organisms": [],
+      "polymer_types": [],
+      "experimental_method": "X-RAY DIFFRACTION",
+      "download_url": "https://files.rcsb.org/download/8GLA.pdb",
+      "rcsb_url": "https://www.rcsb.org/structure/8GLA",
+      "source": "rcsb",
+      "verification_passed": true,
+      "verification_reason": "title contains 'pcna'; known ground-truth structure; low resolution 3.77\u00c5",
+      "relevance_score": 0.9
+    },
+    {
+      "pdb_id": "1U7B",
+      "title": "Crystal structure of hPCNA bound to residues 331-350 of the flap endonuclease-1 (FEN1)",
+      "resolution_angstrom": 1.88,
+      "organisms": [],
+      "polymer_types": [],
+      "experimental_method": "X-RAY DIFFRACTION",
+      "download_url": "https://files.rcsb.org/download/1U7B.pdb",
+      "rcsb_url": "https://www.rcsb.org/structure/1U7B",
+      "source": "rcsb",
+      "verification_passed": true,
+      "verification_reason": "title contains 'pcna'; high resolution 1.88\u00c5",
+      "relevance_score": 0.6000000000000001
+    },
+    {
+      "pdb_id": "1VYM",
+      "title": "NATIVE HUMAN PCNA",
+      "resolution_angstrom": 2.3,
+      "organisms": [],
+      "polymer_types": [],
+      "experimental_method": "X-RAY DIFFRACTION",
+      "download_url": "https://files.rcsb.org/download/1VYM.pdb",
+      "rcsb_url": "https://www.rcsb.org/structure/1VYM",
+      "source": "rcsb",
+      "verification_passed": true,
+      "verification_reason": "title contains 'pcna'; high resolution 2.3\u00c5",
+      "relevance_score": 0.6000000000000001
+    },
+    {
+      "pdb_id": "2ZVL",
+      "title": "Crystal structure of PCNA in complex with DNA polymerase kappa fragment",
+      "resolution_angstrom": 2.5,
+      "organisms": [],
+      "polymer_types": [],
+      "experimental_method": "X-RAY DIFFRACTION",
+      "download_url": "https://files.rcsb.org/download/2ZVL.pdb",
+      "rcsb_url": "https://www.rcsb.org/structure/2ZVL",
+      "source": "rcsb",
+      "verification_passed": true,
+      "verification_reason": "title contains 'pcna'; high resolution 2.5\u00c5",
+      "relevance_score": 0.6000000000000001
+    },
+    {
+      "pdb_id": "2ZVM",
+      "title": "Crystal structure of PCNA in complex with DNA polymerase iota fragment",
+      "resolution_angstrom": 2.3,
+      "organisms": [],
+      "polymer_types": [],
+      "experimental_method": "X-RAY DIFFRACTION",
+      "download_url": "https://files.rcsb.org/download/2ZVM.pdb",
+      "rcsb_url": "https://www.rcsb.org/structure/2ZVM",
+      "source": "rcsb",
+      "verification_passed": true,
+      "verification_reason": "title contains 'pcna'; high resolution 2.3\u00c5",
+      "relevance_score": 0.6000000000000001
+    },
+    {
+      "pdb_id": "3VKX",
+      "title": "Structure of PCNA",
+      "resolution_angstrom": 2.1,
+      "organisms": [],
+      "polymer_types": [],
+      "experimental_method": "X-RAY DIFFRACTION",
+      "download_url": "https://files.rcsb.org/download/3VKX.pdb",
+      "rcsb_url": "https://www.rcsb.org/structure/3VKX",
+      "source": "rcsb",
+      "verification_passed": true,
+      "verification_reason": "title contains 'pcna'; high resolution 2.1\u00c5",
+      "relevance_score": 0.6000000000000001
+    },
+    {
+      "pdb_id": "4RJF",
+      "title": "Crystal structure of the human sliding clamp at 2.0 angstrom resolution",
+      "resolution_angstrom": 2.0072,
+      "organisms": [],
+      "polymer_types": [],
+      "experimental_method": "X-RAY DIFFRACTION",
+      "download_url": "https://files.rcsb.org/download/4RJF.pdb",
+      "rcsb_url": "https://www.rcsb.org/structure/4RJF",
+      "source": "rcsb",
+      "verification_passed": true,
+      "verification_reason": "title contains 'sliding clamp'; high resolution 2.0072\u00c5",
+      "relevance_score": 0.6000000000000001
+    },
+    {
+      "pdb_id": "4ZTD",
+      "title": "Crystal Structure of Human PCNA in complex with a TRAIP peptide",
+      "resolution_angstrom": 2.199,
+      "organisms": [],
+      "polymer_types": [],
+      "experimental_method": "X-RAY DIFFRACTION",
+      "download_url": "https://files.rcsb.org/download/4ZTD.pdb",
+      "rcsb_url": "https://www.rcsb.org/structure/4ZTD",
+      "source": "rcsb",
+      "verification_passed": true,
+      "verification_reason": "title contains 'pcna'; high resolution 2.199\u00c5",
+      "relevance_score": 0.6000000000000001
+    },
+    {
+      "pdb_id": "5E0U",
+      "title": "Human PCNA variant (S228I) complexed with p21 at 1.9 Angstroms",
+      "resolution_angstrom": 1.93,
+      "organisms": [],
+      "polymer_types": [],
+      "experimental_method": "X-RAY DIFFRACTION",
+      "download_url": "https://files.rcsb.org/download/5E0U.pdb",
+      "rcsb_url": "https://www.rcsb.org/structure/5E0U",
+      "source": "rcsb",
+      "verification_passed": true,
+      "verification_reason": "title contains 'pcna'; high resolution 1.93\u00c5",
+      "relevance_score": 0.6000000000000001
+    },
+    {
+      "pdb_id": "5E0V",
+      "title": "Human PCNA variant (S228I) complexed with FEN1 at 2.1 Angstroms",
+      "resolution_angstrom": 2.074,
+      "organisms": [],
+      "polymer_types": [],
+      "experimental_method": "X-RAY DIFFRACTION",
+      "download_url": "https://files.rcsb.org/download/5E0V.pdb",
+      "rcsb_url": "https://www.rcsb.org/structure/5E0V",
+      "source": "rcsb",
+      "verification_passed": true,
+      "verification_reason": "title contains 'pcna'; high resolution 2.074\u00c5",
+      "relevance_score": 0.6000000000000001
+    },
+    {
+      "pdb_id": "5MLO",
+      "title": "Crystal structure of human PCNA in complex with ZRANB3 PIP box peptide",
+      "resolution_angstrom": 1.96,
+      "organisms": [],
+      "polymer_types": [],
+      "experimental_method": "X-RAY DIFFRACTION",
+      "download_url": "https://files.rcsb.org/download/5MLO.pdb",
+      "rcsb_url": "https://www.rcsb.org/structure/5MLO",
+      "source": "rcsb",
+      "verification_passed": true,
+      "verification_reason": "title contains 'pcna'; high resolution 1.96\u00c5",
+      "relevance_score": 0.6000000000000001
+    },
+    {
+      "pdb_id": "5MLW",
+      "title": "Crystal structure of human PCNA in complex with ZRANB3 APIM motif peptide",
+      "resolution_angstrom": 2.45,
+      "organisms": [],
+      "polymer_types": [],
+      "experimental_method": "X-RAY DIFFRACTION",
+      "download_url": "https://files.rcsb.org/download/5MLW.pdb",
+      "rcsb_url": "https://www.rcsb.org/structure/5MLW",
+      "source": "rcsb",
+      "verification_passed": true,
+      "verification_reason": "title contains 'pcna'; high resolution 2.45\u00c5",
+      "relevance_score": 0.6000000000000001
+    },
+    {
+      "pdb_id": "5MOM",
+      "title": "Crystal Structure of PCNA encoding the hypomorphic mutation S228I",
+      "resolution_angstrom": 2.27,
+      "organisms": [],
+      "polymer_types": [],
+      "experimental_method": "X-RAY DIFFRACTION",
+      "download_url": "https://files.rcsb.org/download/5MOM.pdb",
+      "rcsb_url": "https://www.rcsb.org/structure/5MOM",
+      "source": "rcsb",
+      "verification_passed": true,
+      "verification_reason": "title contains 'pcna'; high resolution 2.27\u00c5",
+      "relevance_score": 0.6000000000000001
+    },
+    {
+      "pdb_id": "5YCO",
+      "title": "Complex structure of PCNA with UHRF2",
+      "resolution_angstrom": 2.199,
+      "organisms": [],
+      "polymer_types": [],
+      "experimental_method": "X-RAY DIFFRACTION",
+      "download_url": "https://files.rcsb.org/download/5YCO.pdb",
+      "rcsb_url": "https://www.rcsb.org/structure/5YCO",
+      "source": "rcsb",
+      "verification_passed": true,
+      "verification_reason": "title contains 'pcna'; high resolution 2.199\u00c5",
+      "relevance_score": 0.6000000000000001
+    },
+    {
+      "pdb_id": "5YD8",
+      "title": "Crystal structure of human PCNA in complex with APIM of human ZRANB3",
+      "resolution_angstrom": 2.3,
+      "organisms": [],
+      "polymer_types": [],
+      "experimental_method": "X-RAY DIFFRACTION",
+      "download_url": "https://files.rcsb.org/download/5YD8.pdb",
+      "rcsb_url": "https://www.rcsb.org/structure/5YD8",
+      "source": "rcsb",
+      "verification_passed": true,
+      "verification_reason": "title contains 'pcna'; high resolution 2.3\u00c5",
+      "relevance_score": 0.6000000000000001
+    },
+    {
+      "pdb_id": "6HVO",
+      "title": "Crystal structure of human PCNA in complex with three peptides of p12 subunit of human polymerase delta",
+      "resolution_angstrom": 2.1,
+      "organisms": [],
+      "polymer_types": [],
+      "experimental_method": "X-RAY DIFFRACTION",
+      "download_url": "https://files.rcsb.org/download/6HVO.pdb",
+      "rcsb_url": "https://www.rcsb.org/structure/6HVO",
+      "source": "rcsb",
+      "verification_passed": true,
+      "verification_reason": "title contains 'pcna'; high resolution 2.1\u00c5",
+      "relevance_score": 0.6000000000000001
+    },
+    {
+      "pdb_id": "6K3A",
+      "title": "Crystal structure of human PCNA in complex with DNMT1 PIP box motif.",
+      "resolution_angstrom": 2.3,
+      "organisms": [],
+      "polymer_types": [],
+      "experimental_method": "X-RAY DIFFRACTION",
+      "download_url": "https://files.rcsb.org/download/6K3A.pdb",
+      "rcsb_url": "https://www.rcsb.org/structure/6K3A",
+      "source": "rcsb",
+      "verification_passed": true,
+      "verification_reason": "title contains 'pcna'; high resolution 2.3\u00c5",
+      "relevance_score": 0.6000000000000001
+    },
+    {
+      "pdb_id": "7KQ0",
+      "title": "PCNA bound to peptide mimetic",
+      "resolution_angstrom": 2.4,
+      "organisms": [],
+      "polymer_types": [],
+      "experimental_method": "X-RAY DIFFRACTION",
+      "download_url": "https://files.rcsb.org/download/7KQ0.pdb",
+      "rcsb_url": "https://www.rcsb.org/structure/7KQ0",
+      "source": "rcsb",
+      "verification_passed": true,
+      "verification_reason": "title contains 'pcna'; high resolution 2.4\u00c5",
+      "relevance_score": 0.6000000000000001
+    },
+    {
+      "pdb_id": "8F5Q",
+      "title": "Crystal structure of human PCNA in complex with the PIP box of FBH1",
+      "resolution_angstrom": 1.9,
+      "organisms": [],
+      "polymer_types": [],
+      "experimental_method": "X-RAY DIFFRACTION",
+      "download_url": "https://files.rcsb.org/download/8F5Q.pdb",
+      "rcsb_url": "https://www.rcsb.org/structure/8F5Q",
+      "source": "rcsb",
+      "verification_passed": true,
+      "verification_reason": "title contains 'pcna'; high resolution 1.9\u00c5",
+      "relevance_score": 0.6000000000000001
+    },
+    {
+      "pdb_id": "9N3L",
+      "title": "Co-crystal structure of PCNA bound to HSP90alpha inhibitor, SNX2112",
+      "resolution_angstrom": 1.9,
+      "organisms": [],
+      "polymer_types": [],
+      "experimental_method": "X-RAY DIFFRACTION",
+      "download_url": "https://files.rcsb.org/download/9N3L.pdb",
+      "rcsb_url": "https://www.rcsb.org/structure/9N3L",
+      "source": "rcsb",
+      "verification_passed": true,
+      "verification_reason": "title contains 'pcna'; high resolution 1.9\u00c5",
+      "relevance_score": 0.6000000000000001
+    },
+    {
+      "pdb_id": "1U76",
+      "title": "Crystal structure of hPCNA bound to residues 452-466 of the DNA polymerase-delta-p66 subunit",
+      "resolution_angstrom": 2.6,
+      "organisms": [],
+      "polymer_types": [],
+      "experimental_method": "X-RAY DIFFRACTION",
+      "download_url": "https://files.rcsb.org/download/1U76.pdb",
+      "rcsb_url": "https://www.rcsb.org/structure/1U76",
+      "source": "rcsb",
+      "verification_passed": true,
+      "verification_reason": "title contains 'pcna'; acceptable resolution 2.6\u00c5",
+      "relevance_score": 0.5
+    },
+    {
+      "pdb_id": "1UL1",
+      "title": "Crystal structure of the human FEN1-PCNA complex",
+      "resolution_angstrom": 2.9,
+      "organisms": [],
+      "polymer_types": [],
+      "experimental_method": "X-RAY DIFFRACTION",
+      "download_url": "https://files.rcsb.org/download/1UL1.pdb",
+      "rcsb_url": "https://www.rcsb.org/structure/1UL1",
+      "source": "rcsb",
+      "verification_passed": true,
+      "verification_reason": "title contains 'pcna'; acceptable resolution 2.9\u00c5",
+      "relevance_score": 0.5
+    },
+    {
+      "pdb_id": "1VYJ",
+      "title": "Structural and biochemical studies of human PCNA complexes provide the basis for association with CDK/cyclin and rationale for inhibitor design",
+      "resolution_angstrom": 2.8,
+      "organisms": [],
+      "polymer_types": [],
+      "experimental_method": "X-RAY DIFFRACTION",
+      "download_url": "https://files.rcsb.org/download/1VYJ.pdb",
+      "rcsb_url": "https://www.rcsb.org/structure/1VYJ",
+      "source": "rcsb",
+      "verification_passed": true,
+      "verification_reason": "title contains 'pcna'; acceptable resolution 2.8\u00c5",
+      "relevance_score": 0.5
+    },
+    {
+      "pdb_id": "2ZVK",
+      "title": "Crystal structure of PCNA in complex with DNA polymerase eta fragment",
+      "resolution_angstrom": 2.7,
+      "organisms": [],
+      "polymer_types": [],
+      "experimental_method": "X-RAY DIFFRACTION",
+      "download_url": "https://files.rcsb.org/download/2ZVK.pdb",
+      "rcsb_url": "https://www.rcsb.org/structure/2ZVK",
+      "source": "rcsb",
+      "verification_passed": true,
+      "verification_reason": "title contains 'pcna'; acceptable resolution 2.7\u00c5",
+      "relevance_score": 0.5
+    },
+    {
+      "pdb_id": "3P87",
+      "title": "Structure of human PCNA bound to RNASEH2B PIP box peptide",
+      "resolution_angstrom": 2.99,
+      "organisms": [],
+      "polymer_types": [],
+      "experimental_method": "X-RAY DIFFRACTION",
+      "download_url": "https://files.rcsb.org/download/3P87.pdb",
+      "rcsb_url": "https://www.rcsb.org/structure/3P87",
+      "source": "rcsb",
+      "verification_passed": true,
+      "verification_reason": "title contains 'pcna'; acceptable resolution 2.99\u00c5",
+      "relevance_score": 0.5
+    },
+    {
+      "pdb_id": "3TBL",
+      "title": "Structure of Mono-ubiquitinated PCNA: Implications for DNA Polymerase Switching and Okazaki Fragment Maturation",
+      "resolution_angstrom": 2.903,
+      "organisms": [],
+      "polymer_types": [],
+      "experimental_method": "X-RAY DIFFRACTION",
+      "download_url": "https://files.rcsb.org/download/3TBL.pdb",
+      "rcsb_url": "https://www.rcsb.org/structure/3TBL",
+      "source": "rcsb",
+      "verification_passed": true,
+      "verification_reason": "title contains 'pcna'; acceptable resolution 2.903\u00c5",
+      "relevance_score": 0.5
+    },
+    {
+      "pdb_id": "3WGW",
+      "title": "Structure of PCNA bound to a small molecule inhibitor",
+      "resolution_angstrom": 2.8,
+      "organisms": [],
+      "polymer_types": [],
+      "experimental_method": "X-RAY DIFFRACTION",
+      "download_url": "https://files.rcsb.org/download/3WGW.pdb",
+      "rcsb_url": "https://www.rcsb.org/structure/3WGW",
+      "source": "rcsb",
+      "verification_passed": true,
+      "verification_reason": "title contains 'pcna'; acceptable resolution 2.8\u00c5",
+      "relevance_score": 0.5
+    },
+    {
+      "pdb_id": "4D2G",
+      "title": "Crystal structure of human PCNA in complex with p15 peptide",
+      "resolution_angstrom": 2.65,
+      "organisms": [],
+      "polymer_types": [],
+      "experimental_method": "X-RAY DIFFRACTION",
+      "download_url": "https://files.rcsb.org/download/4D2G.pdb",
+      "rcsb_url": "https://www.rcsb.org/structure/4D2G",
+      "source": "rcsb",
+      "verification_passed": true,
+      "verification_reason": "title contains 'pcna'; acceptable resolution 2.65\u00c5",
+      "relevance_score": 0.5
+    },
+    {
+      "pdb_id": "5E0T",
+      "title": "Human PCNA mutant - S228I",
+      "resolution_angstrom": 2.6653,
+      "organisms": [],
+      "polymer_types": [],
+      "experimental_method": "X-RAY DIFFRACTION",
+      "download_url": "https://files.rcsb.org/download/5E0T.pdb",
+      "rcsb_url": "https://www.rcsb.org/structure/5E0T",
+      "source": "rcsb",
+      "verification_passed": true,
+      "verification_reason": "title contains 'pcna'; acceptable resolution 2.6653\u00c5",
+      "relevance_score": 0.5
+    },
+    {
+      "pdb_id": "5IY4",
+      "title": "Crystal structure of human PCNA in complex with the PIP box of DVC1",
+      "resolution_angstrom": 2.945,
+      "organisms": [],
+      "polymer_types": [],
+      "experimental_method": "X-RAY DIFFRACTION",
+      "download_url": "https://files.rcsb.org/download/5IY4.pdb",
+      "rcsb_url": "https://www.rcsb.org/structure/5IY4",
+      "source": "rcsb",
+      "verification_passed": true,
+      "verification_reason": "title contains 'pcna'; acceptable resolution 2.945\u00c5",
+      "relevance_score": 0.5
+    },
+    {
+      "pdb_id": "5MAV",
+      "title": "Crystal structure of human PCNA in complex with PARG (poly(ADP-ribose) glycohydrolase) peptide.",
+      "resolution_angstrom": 2.575,
+      "organisms": [],
+      "polymer_types": [],
+      "experimental_method": "X-RAY DIFFRACTION",
+      "download_url": "https://files.rcsb.org/download/5MAV.pdb",
+      "rcsb_url": "https://www.rcsb.org/structure/5MAV",
+      "source": "rcsb",
+      "verification_passed": true,
+      "verification_reason": "title contains 'pcna'; acceptable resolution 2.575\u00c5",
+      "relevance_score": 0.5
+    },
+    {
+      "pdb_id": "6CBI",
+      "title": "PCNA in complex with inhibitor",
+      "resolution_angstrom": 2.75,
+      "organisms": [],
+      "polymer_types": [],
+      "experimental_method": "X-RAY DIFFRACTION",
+      "download_url": "https://files.rcsb.org/download/6CBI.pdb",
+      "rcsb_url": "https://www.rcsb.org/structure/6CBI",
+      "source": "rcsb",
+      "verification_passed": true,
+      "verification_reason": "title contains 'pcna'; acceptable resolution 2.75\u00c5",
+      "relevance_score": 0.5
+    },
+    {
+      "pdb_id": "6EHT",
+      "title": "Modulation of PCNA sliding surface by p15PAF suggests a suppressive mechanism for cisplatin-induced DNA lesion bypass by pol eta holoenzyme",
+      "resolution_angstrom": 3.2,
+      "organisms": [],
+      "polymer_types": [],
+      "experimental_method": "X-RAY DIFFRACTION",
+      "download_url": "https://files.rcsb.org/download/6EHT.pdb",
+      "rcsb_url": "https://www.rcsb.org/structure/6EHT",
+      "source": "rcsb",
+      "verification_passed": true,
+      "verification_reason": "title contains 'pcna'; acceptable resolution 3.2\u00c5",
+      "relevance_score": 0.5
+    },
+    {
+      "pdb_id": "6FCM",
+      "title": "Crystal structure of human PCNA",
+      "resolution_angstrom": 2.8,
+      "organisms": [],
+      "polymer_types": [],
+      "experimental_method": "X-RAY DIFFRACTION",
+      "download_url": "https://files.rcsb.org/download/6FCM.pdb",
+      "rcsb_url": "https://www.rcsb.org/structure/6FCM",
+      "source": "rcsb",
+      "verification_passed": true,
+      "verification_reason": "title contains 'pcna'; acceptable resolution 2.8\u00c5",
+      "relevance_score": 0.5
+    },
+    {
+      "pdb_id": "6FCN",
+      "title": "Crystal structure of human PCNA soaked with p47phox(106-127) peptide",
+      "resolution_angstrom": 3.22,
+      "organisms": [],
+      "polymer_types": [],
+      "experimental_method": "X-RAY DIFFRACTION",
+      "download_url": "https://files.rcsb.org/download/6FCN.pdb",
+      "rcsb_url": "https://www.rcsb.org/structure/6FCN",
+      "source": "rcsb",
+      "verification_passed": true,
+      "verification_reason": "title contains 'pcna'; acceptable resolution 3.22\u00c5",
+      "relevance_score": 0.5
+    },
+    {
+      "pdb_id": "6GWS",
+      "title": "Crystal structure of human PCNA in complex with three p15 peptides",
+      "resolution_angstrom": 2.9,
+      "organisms": [],
+      "polymer_types": [],
+      "experimental_method": "X-RAY DIFFRACTION",
+      "download_url": "https://files.rcsb.org/download/6GWS.pdb",
+      "rcsb_url": "https://www.rcsb.org/structure/6GWS",
+      "source": "rcsb",
+      "verification_passed": true,
+      "verification_reason": "title contains 'pcna'; acceptable resolution 2.9\u00c5",
+      "relevance_score": 0.5
+    },
+    {
+      "pdb_id": "6QC0",
+      "title": "PCNA complex with Cdt2 C-terminal PIP-box peptide",
+      "resolution_angstrom": 3.5,
+      "organisms": [],
+      "polymer_types": [],
+      "experimental_method": "X-RAY DIFFRACTION",
+      "download_url": "https://files.rcsb.org/download/6QC0.pdb",
+      "rcsb_url": "https://www.rcsb.org/structure/6QC0",
+      "source": "rcsb",
+      "verification_passed": true,
+      "verification_reason": "title contains 'pcna'; acceptable resolution 3.5\u00c5",
+      "relevance_score": 0.5
+    },
+    {
+      "pdb_id": "6QCG",
+      "title": "PCNA complex with Cdt1 N-terminal PIP-box peptide",
+      "resolution_angstrom": 3.4,
+      "organisms": [],
+      "polymer_types": [],
+      "experimental_method": "X-RAY DIFFRACTION",
+      "download_url": "https://files.rcsb.org/download/6QCG.pdb",
+      "rcsb_url": "https://www.rcsb.org/structure/6QCG",
+      "source": "rcsb",
+      "verification_passed": true,
+      "verification_reason": "title contains 'pcna'; acceptable resolution 3.4\u00c5",
+      "relevance_score": 0.5
+    },
+    {
+      "pdb_id": "7EFA",
+      "title": "Crystal structure of the complex between the C-terminal domain of mouse MUTYH and human PCNA",
+      "resolution_angstrom": 2.7,
+      "organisms": [],
+      "polymer_types": [],
+      "experimental_method": "X-RAY DIFFRACTION",
+      "download_url": "https://files.rcsb.org/download/7EFA.pdb",
+      "rcsb_url": "https://www.rcsb.org/structure/7EFA",
+      "source": "rcsb",
+      "verification_passed": true,
+      "verification_reason": "title contains 'pcna'; acceptable resolution 2.7\u00c5",
+      "relevance_score": 0.5
+    },
+    {
+      "pdb_id": "7KQ1",
+      "title": "PCNA bound to truncated peptide mimetic",
+      "resolution_angstrom": 3.3,
+      "organisms": [],
+      "polymer_types": [],
+      "experimental_method": "X-RAY DIFFRACTION",
+      "download_url": "https://files.rcsb.org/download/7KQ1.pdb",
+      "rcsb_url": "https://www.rcsb.org/structure/7KQ1",
+      "source": "rcsb",
+      "verification_passed": true,
+      "verification_reason": "title contains 'pcna'; acceptable resolution 3.3\u00c5",
+      "relevance_score": 0.5
+    },
+    {
+      "pdb_id": "7M5L",
+      "title": "PCNA bound to peptide mimetic with linker",
+      "resolution_angstrom": 3.0,
+      "organisms": [],
+      "polymer_types": [],
+      "experimental_method": "X-RAY DIFFRACTION",
+      "download_url": "https://files.rcsb.org/download/7M5L.pdb",
+      "rcsb_url": "https://www.rcsb.org/structure/7M5L",
+      "source": "rcsb",
+      "verification_passed": true,
+      "verification_reason": "title contains 'pcna'; acceptable resolution 3.0\u00c5",
+      "relevance_score": 0.5
+    },
+    {
+      "pdb_id": "7M5M",
+      "title": "PCNA bound to peptide mimetic",
+      "resolution_angstrom": 3.0,
+      "organisms": [],
+      "polymer_types": [],
+      "experimental_method": "X-RAY DIFFRACTION",
+      "download_url": "https://files.rcsb.org/download/7M5M.pdb",
+      "rcsb_url": "https://www.rcsb.org/structure/7M5M",
+      "source": "rcsb",
+      "verification_passed": true,
+      "verification_reason": "title contains 'pcna'; acceptable resolution 3.0\u00c5",
+      "relevance_score": 0.5
+    },
+    {
+      "pdb_id": "7M5N",
+      "title": "PCNA bound to peptide mimetic with linker",
+      "resolution_angstrom": 3.11,
+      "organisms": [],
+      "polymer_types": [],
+      "experimental_method": "X-RAY DIFFRACTION",
+      "download_url": "https://files.rcsb.org/download/7M5N.pdb",
+      "rcsb_url": "https://www.rcsb.org/structure/7M5N",
+      "source": "rcsb",
+      "verification_passed": true,
+      "verification_reason": "title contains 'pcna'; acceptable resolution 3.11\u00c5",
+      "relevance_score": 0.5
+    },
+    {
+      "pdb_id": "8COB",
+      "title": "Crystal structure of human PCNA in complex with ERCC6L2 PIP box peptide",
+      "resolution_angstrom": 2.73,
+      "organisms": [],
+      "polymer_types": [],
+      "experimental_method": "X-RAY DIFFRACTION",
+      "download_url": "https://files.rcsb.org/download/8COB.pdb",
+      "rcsb_url": "https://www.rcsb.org/structure/8COB",
+      "source": "rcsb",
+      "verification_passed": true,
+      "verification_reason": "title contains 'pcna'; acceptable resolution 2.73\u00c5",
+      "relevance_score": 0.5
+    },
+    {
+      "pdb_id": "8E84",
+      "title": "Human PCNA mutant- C148S",
+      "resolution_angstrom": 3.1,
+      "organisms": [],
+      "polymer_types": [],
+      "experimental_method": "X-RAY DIFFRACTION",
+      "download_url": "https://files.rcsb.org/download/8E84.pdb",
+      "rcsb_url": "https://www.rcsb.org/structure/8E84",
+      "source": "rcsb",
+      "verification_passed": true,
+      "verification_reason": "title contains 'pcna'; acceptable resolution 3.1\u00c5",
+      "relevance_score": 0.5
+    },
+    {
+      "pdb_id": "8GCJ",
+      "title": "PCNA",
+      "resolution_angstrom": 2.85,
+      "organisms": [],
+      "polymer_types": [],
+      "experimental_method": "X-RAY DIFFRACTION",
+      "download_url": "https://files.rcsb.org/download/8GCJ.pdb",
+      "rcsb_url": "https://www.rcsb.org/structure/8GCJ",
+      "source": "rcsb",
+      "verification_passed": true,
+      "verification_reason": "title contains 'pcna'; acceptable resolution 2.85\u00c5",
+      "relevance_score": 0.5
+    },
+    {
+      "pdb_id": "8GL9",
+      "title": "Co-crystal structure of caPCNA bound to AOH1160 derivative 1LE",
+      "resolution_angstrom": 2.81,
+      "organisms": [],
+      "polymer_types": [],
+      "experimental_method": "X-RAY DIFFRACTION",
+      "download_url": "https://files.rcsb.org/download/8GL9.pdb",
+      "rcsb_url": "https://www.rcsb.org/structure/8GL9",
+      "source": "rcsb",
+      "verification_passed": true,
+      "verification_reason": "title contains 'pcna'; acceptable resolution 2.81\u00c5",
+      "relevance_score": 0.5
+    },
+    {
+      "pdb_id": "9VGW",
+      "title": "Crystal structure of human PCNA in complex with REV1 PIP-box",
+      "resolution_angstrom": 2.7,
+      "organisms": [],
+      "polymer_types": [],
+      "experimental_method": "X-RAY DIFFRACTION",
+      "download_url": "https://files.rcsb.org/download/9VGW.pdb",
+      "rcsb_url": "https://www.rcsb.org/structure/9VGW",
+      "source": "rcsb",
+      "verification_passed": true,
+      "verification_reason": "title contains 'pcna'; acceptable resolution 2.7\u00c5",
+      "relevance_score": 0.5
+    },
+    {
+      "pdb_id": "3JA9",
+      "title": "Structure of native human PCNA",
+      "resolution_angstrom": null,
+      "organisms": [],
+      "polymer_types": [],
+      "experimental_method": "ELECTRON MICROSCOPY",
+      "download_url": "https://files.rcsb.org/download/3JA9.pdb",
+      "rcsb_url": "https://www.rcsb.org/structure/3JA9",
+      "source": "rcsb",
+      "verification_passed": true,
+      "verification_reason": "title contains 'pcna'",
+      "relevance_score": 0.4
+    },
+    {
+      "pdb_id": "6TNZ",
+      "title": "Human polymerase delta-FEN1-PCNA toolbelt",
+      "resolution_angstrom": null,
+      "organisms": [],
+      "polymer_types": [],
+      "experimental_method": "ELECTRON MICROSCOPY",
+      "download_url": "https://files.rcsb.org/download/6TNZ.pdb",
+      "rcsb_url": "https://www.rcsb.org/structure/6TNZ",
+      "source": "rcsb",
+      "verification_passed": true,
+      "verification_reason": "title contains 'pcna'",
+      "relevance_score": 0.4
+    },
+    {
+      "pdb_id": "6VVO",
+      "title": "Structure of the human clamp loader (Replication Factor C, RFC) bound to the sliding clamp (Proliferating Cell Nuclear Antigen, PCNA)",
+      "resolution_angstrom": null,
+      "organisms": [],
+      "polymer_types": [],
+      "experimental_method": "ELECTRON MICROSCOPY",
+      "download_url": "https://files.rcsb.org/download/6VVO.pdb",
+      "rcsb_url": "https://www.rcsb.org/structure/6VVO",
+      "source": "rcsb",
+      "verification_passed": true,
+      "verification_reason": "title contains 'pcna'",
+      "relevance_score": 0.4
+    },
+    {
+      "pdb_id": "7NV0",
+      "title": "Human Pol Kappa holoenzyme with wt PCNA",
+      "resolution_angstrom": null,
+      "organisms": [],
+      "polymer_types": [],
+      "experimental_method": "ELECTRON MICROSCOPY",
+      "download_url": "https://files.rcsb.org/download/7NV0.pdb",
+      "rcsb_url": "https://www.rcsb.org/structure/7NV0",
+      "source": "rcsb",
+      "verification_passed": true,
+      "verification_reason": "title contains 'pcna'",
+      "relevance_score": 0.4
+    },
+    {
+      "pdb_id": "7NV1",
+      "title": "Human Pol Kappa holoenzyme with Ub-PCNA",
+      "resolution_angstrom": null,
+      "organisms": [],
+      "polymer_types": [],
+      "experimental_method": "ELECTRON MICROSCOPY",
+      "download_url": "https://files.rcsb.org/download/7NV1.pdb",
+      "rcsb_url": "https://www.rcsb.org/structure/7NV1",
+      "source": "rcsb",
+      "verification_passed": true,
+      "verification_reason": "title contains 'pcna'",
+      "relevance_score": 0.4
+    },
+    {
+      "pdb_id": "7QNZ",
+      "title": "human Lig1-DNA-PCNA complex reconstituted in absence of ATP",
+      "resolution_angstrom": null,
+      "organisms": [],
+      "polymer_types": [],
+      "experimental_method": "ELECTRON MICROSCOPY",
+      "download_url": "https://files.rcsb.org/download/7QNZ.pdb",
+      "rcsb_url": "https://www.rcsb.org/structure/7QNZ",
+      "source": "rcsb",
+      "verification_passed": true,
+      "verification_reason": "title contains 'pcna'",
+      "relevance_score": 0.4
+    },
+    {
+      "pdb_id": "7QO1",
+      "title": "complex of DNA ligase I and FEN1 on PCNA and DNA",
+      "resolution_angstrom": null,
+      "organisms": [],
+      "polymer_types": [],
+      "experimental_method": "ELECTRON MICROSCOPY",
+      "download_url": "https://files.rcsb.org/download/7QO1.pdb",
+      "rcsb_url": "https://www.rcsb.org/structure/7QO1",
+      "source": "rcsb",
+      "verification_passed": true,
+      "verification_reason": "title contains 'pcna'",
+      "relevance_score": 0.4
+    },
+    {
+      "pdb_id": "8B8T",
+      "title": "Open conformation of the complex of DNA ligase I on PCNA and DNA in the presence of ATP",
+      "resolution_angstrom": null,
+      "organisms": [],
+      "polymer_types": [],
+      "experimental_method": "ELECTRON MICROSCOPY",
+      "download_url": "https://files.rcsb.org/download/8B8T.pdb",
+      "rcsb_url": "https://www.rcsb.org/structure/8B8T",
+      "source": "rcsb",
+      "verification_passed": true,
+      "verification_reason": "title contains 'pcna'",
+      "relevance_score": 0.4
+    },
+    {
+      "pdb_id": "8UI7",
+      "title": "Cryo-EM map of human clmap-clamp loader ATAD5-RFC-gapped PCNA complex in intermediate state 3",
+      "resolution_angstrom": null,
+      "organisms": [],
+      "polymer_types": [],
+      "experimental_method": "ELECTRON MICROSCOPY",
+      "download_url": "https://files.rcsb.org/download/8UI7.pdb",
+      "rcsb_url": "https://www.rcsb.org/structure/8UI7",
+      "source": "rcsb",
+      "verification_passed": true,
+      "verification_reason": "title contains 'pcna'",
+      "relevance_score": 0.4
+    },
+    {
+      "pdb_id": "8UI8",
+      "title": "Cryo-EM map of human clamp-clamp loader ATAD5-RFC-two PCNAs complex in intermediate state 3",
+      "resolution_angstrom": null,
+      "organisms": [],
+      "polymer_types": [],
+      "experimental_method": "ELECTRON MICROSCOPY",
+      "download_url": "https://files.rcsb.org/download/8UI8.pdb",
+      "rcsb_url": "https://www.rcsb.org/structure/8UI8",
+      "source": "rcsb",
+      "verification_passed": true,
+      "verification_reason": "title contains 'pcna'",
+      "relevance_score": 0.4
+    },
+    {
+      "pdb_id": "8UI9",
+      "title": "Cryo-EM map of human clamp-clamp loader ATAD5-RFC-cracked PCNA complex in intermediate state 2",
+      "resolution_angstrom": null,
+      "organisms": [],
+      "polymer_types": [],
+      "experimental_method": "ELECTRON MICROSCOPY",
+      "download_url": "https://files.rcsb.org/download/8UI9.pdb",
+      "rcsb_url": "https://www.rcsb.org/structure/8UI9",
+      "source": "rcsb",
+      "verification_passed": true,
+      "verification_reason": "title contains 'pcna'",
+      "relevance_score": 0.4
+    },
+    {
+      "pdb_id": "8UII",
+      "title": "Cryo-EM map of human clamp-clamp loader ATAD5-RFC-closed PCNA complex in intermediate state 1",
+      "resolution_angstrom": null,
+      "organisms": [],
+      "polymer_types": [],
+      "experimental_method": "ELECTRON MICROSCOPY",
+      "download_url": "https://files.rcsb.org/download/8UII.pdb",
+      "rcsb_url": "https://www.rcsb.org/structure/8UII",
+      "source": "rcsb",
+      "verification_passed": true,
+      "verification_reason": "title contains 'pcna'",
+      "relevance_score": 0.4
+    },
+    {
+      "pdb_id": "8UMT",
+      "title": "Atomic model of the human CTF18-RFC-PCNA binary complex in the three-subunit binding state (state 2)",
+      "resolution_angstrom": null,
+      "organisms": [],
+      "polymer_types": [],
+      "experimental_method": "ELECTRON MICROSCOPY",
+      "download_url": "https://files.rcsb.org/download/8UMT.pdb",
+      "rcsb_url": "https://www.rcsb.org/structure/8UMT",
+      "source": "rcsb",
+      "verification_passed": true,
+      "verification_reason": "title contains 'pcna'",
+      "relevance_score": 0.4
+    },
+    {
+      "pdb_id": "8UMU",
+      "title": "Atomic model of the human CTF18-RFC-PCNA binary complex in the four-subunit binding state (state 3)",
+      "resolution_angstrom": null,
+      "organisms": [],
+      "polymer_types": [],
+      "experimental_method": "ELECTRON MICROSCOPY",
+      "download_url": "https://files.rcsb.org/download/8UMU.pdb",
+      "rcsb_url": "https://www.rcsb.org/structure/8UMU",
+      "source": "rcsb",
+      "verification_passed": true,
+      "verification_reason": "title contains 'pcna'",
+      "relevance_score": 0.4
+    },
+    {
+      "pdb_id": "8UMV",
+      "title": "Atomic model of the human CTF18-RFC-PCNA-DNA ternary complex with narrow PCNA opening state I (state 5)",
+      "resolution_angstrom": null,
+      "organisms": [],
+      "polymer_types": [],
+      "experimental_method": "ELECTRON MICROSCOPY",
+      "download_url": "https://files.rcsb.org/download/8UMV.pdb",
+      "rcsb_url": "https://www.rcsb.org/structure/8UMV",
+      "source": "rcsb",
+      "verification_passed": true,
+      "verification_reason": "title contains 'pcna'",
+      "relevance_score": 0.4
+    },
+    {
+      "pdb_id": "8UMW",
+      "title": "Atomic model of the human CTF18-RFC-PCNA-DNA ternary complex in the five-subunit binding state (state 4)",
+      "resolution_angstrom": null,
+      "organisms": [],
+      "polymer_types": [],
+      "experimental_method": "ELECTRON MICROSCOPY",
+      "download_url": "https://files.rcsb.org/download/8UMW.pdb",
+      "rcsb_url": "https://www.rcsb.org/structure/8UMW",
+      "source": "rcsb",
+      "verification_passed": true,
+      "verification_reason": "title contains 'pcna'",
+      "relevance_score": 0.4
+    },
+    {
+      "pdb_id": "8UMY",
+      "title": "Atomic model of the human CTF18-RFC-PCNA-DNA ternary complex with narrow PCNA opening state II (state 6)",
+      "resolution_angstrom": null,
+      "organisms": [],
+      "polymer_types": [],
+      "experimental_method": "ELECTRON MICROSCOPY",
+      "download_url": "https://files.rcsb.org/download/8UMY.pdb",
+      "rcsb_url": "https://www.rcsb.org/structure/8UMY",
+      "source": "rcsb",
+      "verification_passed": true,
+      "verification_reason": "title contains 'pcna'",
+      "relevance_score": 0.4
+    },
+    {
+      "pdb_id": "8UN0",
+      "title": "Atomic model of the human CTF18-RFC-PCNA-DNA ternary complex with cracked and closed PCNA (state 7)",
+      "resolution_angstrom": null,
+      "organisms": [],
+      "polymer_types": [],
+      "experimental_method": "ELECTRON MICROSCOPY",
+      "download_url": "https://files.rcsb.org/download/8UN0.pdb",
+      "rcsb_url": "https://www.rcsb.org/structure/8UN0",
+      "source": "rcsb",
+      "verification_passed": true,
+      "verification_reason": "title contains 'pcna'",
+      "relevance_score": 0.4
+    },
+    {
+      "pdb_id": "8YJH",
+      "title": "Structure of the human endogenous PCNA-FEN1 complex - State A",
+      "resolution_angstrom": null,
+      "organisms": [],
+      "polymer_types": [],
+      "experimental_method": "ELECTRON MICROSCOPY",
+      "download_url": "https://files.rcsb.org/download/8YJH.pdb",
+      "rcsb_url": "https://www.rcsb.org/structure/8YJH",
+      "source": "rcsb",
+      "verification_passed": true,
+      "verification_reason": "title contains 'pcna'",
+      "relevance_score": 0.4
+    },
+    {
+      "pdb_id": "8YJL",
+      "title": "Structure of the human endogenous PCNA-FEN1 complex - State B",
+      "resolution_angstrom": null,
+      "organisms": [],
+      "polymer_types": [],
+      "experimental_method": "ELECTRON MICROSCOPY",
+      "download_url": "https://files.rcsb.org/download/8YJL.pdb",
+      "rcsb_url": "https://www.rcsb.org/structure/8YJL",
+      "source": "rcsb",
+      "verification_passed": true,
+      "verification_reason": "title contains 'pcna'",
+      "relevance_score": 0.4
+    },
+    {
+      "pdb_id": "8YJQ",
+      "title": "Structure of the human endogenous PCNA-FEN1 complex - State C",
+      "resolution_angstrom": null,
+      "organisms": [],
+      "polymer_types": [],
+      "experimental_method": "ELECTRON MICROSCOPY",
+      "download_url": "https://files.rcsb.org/download/8YJQ.pdb",
+      "rcsb_url": "https://www.rcsb.org/structure/8YJQ",
+      "source": "rcsb",
+      "verification_passed": true,
+      "verification_reason": "title contains 'pcna'",
+      "relevance_score": 0.4
+    },
+    {
+      "pdb_id": "8YJR",
+      "title": "Structure of the human endogenous PCNA-FEN1 complex - State D",
+      "resolution_angstrom": null,
+      "organisms": [],
+      "polymer_types": [],
+      "experimental_method": "ELECTRON MICROSCOPY",
+      "download_url": "https://files.rcsb.org/download/8YJR.pdb",
+      "rcsb_url": "https://www.rcsb.org/structure/8YJR",
+      "source": "rcsb",
+      "verification_passed": true,
+      "verification_reason": "title contains 'pcna'",
+      "relevance_score": 0.4
+    },
+    {
+      "pdb_id": "8YJS",
+      "title": "Structure of the human endogenous PCNA-FEN1 complex - State E",
+      "resolution_angstrom": null,
+      "organisms": [],
+      "polymer_types": [],
+      "experimental_method": "ELECTRON MICROSCOPY",
+      "download_url": "https://files.rcsb.org/download/8YJS.pdb",
+      "rcsb_url": "https://www.rcsb.org/structure/8YJS",
+      "source": "rcsb",
+      "verification_passed": true,
+      "verification_reason": "title contains 'pcna'",
+      "relevance_score": 0.4
+    },
+    {
+      "pdb_id": "8YJU",
+      "title": "Structure of the human endogenous PCNA-FEN1 complex - State F",
+      "resolution_angstrom": null,
+      "organisms": [],
+      "polymer_types": [],
+      "experimental_method": "ELECTRON MICROSCOPY",
+      "download_url": "https://files.rcsb.org/download/8YJU.pdb",
+      "rcsb_url": "https://www.rcsb.org/structure/8YJU",
+      "source": "rcsb",
+      "verification_passed": true,
+      "verification_reason": "title contains 'pcna'",
+      "relevance_score": 0.4
+    },
+    {
+      "pdb_id": "8YJV",
+      "title": "Structure of the human endogenous PCNA-FEN1 complex - State G",
+      "resolution_angstrom": null,
+      "organisms": [],
+      "polymer_types": [],
+      "experimental_method": "ELECTRON MICROSCOPY",
+      "download_url": "https://files.rcsb.org/download/8YJV.pdb",
+      "rcsb_url": "https://www.rcsb.org/structure/8YJV",
+      "source": "rcsb",
+      "verification_passed": true,
+      "verification_reason": "title contains 'pcna'",
+      "relevance_score": 0.4
+    },
+    {
+      "pdb_id": "8YJW",
+      "title": "Structure of the human endogenous PCNA-FEN1 complex - State H",
+      "resolution_angstrom": null,
+      "organisms": [],
+      "polymer_types": [],
+      "experimental_method": "ELECTRON MICROSCOPY",
+      "download_url": "https://files.rcsb.org/download/8YJW.pdb",
+      "rcsb_url": "https://www.rcsb.org/structure/8YJW",
+      "source": "rcsb",
+      "verification_passed": true,
+      "verification_reason": "title contains 'pcna'",
+      "relevance_score": 0.4
+    },
+    {
+      "pdb_id": "8YJZ",
+      "title": "Structure of the human endogenous PCNA-FEN1-RNase H2 complex - State D",
+      "resolution_angstrom": null,
+      "organisms": [],
+      "polymer_types": [],
+      "experimental_method": "ELECTRON MICROSCOPY",
+      "download_url": "https://files.rcsb.org/download/8YJZ.pdb",
+      "rcsb_url": "https://www.rcsb.org/structure/8YJZ",
+      "source": "rcsb",
+      "verification_passed": true,
+      "verification_reason": "title contains 'pcna'",
+      "relevance_score": 0.4
+    },
+    {
+      "pdb_id": "8ZWO",
+      "title": "Structure of CTF18-PCNA with ATP",
+      "resolution_angstrom": null,
+      "organisms": [],
+      "polymer_types": [],
+      "experimental_method": "ELECTRON MICROSCOPY",
+      "download_url": "https://files.rcsb.org/download/8ZWO.pdb",
+      "rcsb_url": "https://www.rcsb.org/structure/8ZWO",
+      "source": "rcsb",
+      "verification_passed": true,
+      "verification_reason": "title contains 'pcna'",
+      "relevance_score": 0.4
+    },
+    {
+      "pdb_id": "9B8S",
+      "title": "Human polymerase epsilon bound to PCNA and DNA in the nucleotide exchange state",
+      "resolution_angstrom": null,
+      "organisms": [],
+      "polymer_types": [],
+      "experimental_method": "ELECTRON MICROSCOPY",
+      "download_url": "https://files.rcsb.org/download/9B8S.pdb",
+      "rcsb_url": "https://www.rcsb.org/structure/9B8S",
+      "source": "rcsb",
+      "verification_passed": true,
+      "verification_reason": "title contains 'pcna'",
+      "relevance_score": 0.4
+    },
+    {
+      "pdb_id": "9B8T",
+      "title": "Human polymerase epsilon bound to PCNA and DNA in the nucleotide bound state",
+      "resolution_angstrom": null,
+      "organisms": [],
+      "polymer_types": [],
+      "experimental_method": "ELECTRON MICROSCOPY",
+      "download_url": "https://files.rcsb.org/download/9B8T.pdb",
+      "rcsb_url": "https://www.rcsb.org/structure/9B8T",
+      "source": "rcsb",
+      "verification_passed": true,
+      "verification_reason": "title contains 'pcna'",
+      "relevance_score": 0.4
+    },
+    {
+      "pdb_id": "9CG4",
+      "title": "Cryo-EM structure of FAN1, PCNA and DNA substrate with (CAG)2 extrusion in intermediate state",
+      "resolution_angstrom": null,
+      "organisms": [],
+      "polymer_types": [],
+      "experimental_method": "ELECTRON MICROSCOPY",
+      "download_url": "https://files.rcsb.org/download/9CG4.pdb",
+      "rcsb_url": "https://www.rcsb.org/structure/9CG4",
+      "source": "rcsb",
+      "verification_passed": true,
+      "verification_reason": "title contains 'pcna'",
+      "relevance_score": 0.4
+    },
+    {
+      "pdb_id": "9CHM",
+      "title": "Cryo-EM structure of FAN1 R507H and PCNA in intermediate state",
+      "resolution_angstrom": null,
+      "organisms": [],
+      "polymer_types": [],
+      "experimental_method": "ELECTRON MICROSCOPY",
+      "download_url": "https://files.rcsb.org/download/9CHM.pdb",
+      "rcsb_url": "https://www.rcsb.org/structure/9CHM",
+      "source": "rcsb",
+      "verification_passed": true,
+      "verification_reason": "title contains 'pcna'",
+      "relevance_score": 0.4
+    },
+    {
+      "pdb_id": "9CL7",
+      "title": "Cryo-EM structure of FAN1-PCNA-DNA in final state",
+      "resolution_angstrom": null,
+      "organisms": [],
+      "polymer_types": [],
+      "experimental_method": "ELECTRON MICROSCOPY",
+      "download_url": "https://files.rcsb.org/download/9CL7.pdb",
+      "rcsb_url": "https://www.rcsb.org/structure/9CL7",
+      "source": "rcsb",
+      "verification_passed": true,
+      "verification_reason": "title contains 'pcna'",
+      "relevance_score": 0.4
+    },
+    {
+      "pdb_id": "9CMA",
+      "title": "Cryo-EM structure of FAN1 R507H-PCNA-DNA in final state",
+      "resolution_angstrom": null,
+      "organisms": [],
+      "polymer_types": [],
+      "experimental_method": "ELECTRON MICROSCOPY",
+      "download_url": "https://files.rcsb.org/download/9CMA.pdb",
+      "rcsb_url": "https://www.rcsb.org/structure/9CMA",
+      "source": "rcsb",
+      "verification_passed": true,
+      "verification_reason": "title contains 'pcna'",
+      "relevance_score": 0.4
+    },
+    {
+      "pdb_id": "9EOA",
+      "title": "Cryo_EM structure of human FAN1 in complex with 5' flap DNA substrate and PCNA",
+      "resolution_angstrom": null,
+      "organisms": [],
+      "polymer_types": [],
+      "experimental_method": "ELECTRON MICROSCOPY",
+      "download_url": "https://files.rcsb.org/download/9EOA.pdb",
+      "rcsb_url": "https://www.rcsb.org/structure/9EOA",
+      "source": "rcsb",
+      "verification_passed": true,
+      "verification_reason": "title contains 'pcna'",
+      "relevance_score": 0.4
+    },
+    {
+      "pdb_id": "9F6D",
+      "title": "Human DNA polymerase epsilon bound to DNA and PCNA (open conformation)",
+      "resolution_angstrom": null,
+      "organisms": [],
+      "polymer_types": [],
+      "experimental_method": "ELECTRON MICROSCOPY",
+      "download_url": "https://files.rcsb.org/download/9F6D.pdb",
+      "rcsb_url": "https://www.rcsb.org/structure/9F6D",
+      "source": "rcsb",
+      "verification_passed": true,
+      "verification_reason": "title contains 'pcna'",
+      "relevance_score": 0.4
+    },
+    {
+      "pdb_id": "9F6E",
+      "title": "Human DNA polymerase epsilon bound to DNA and PCNA (ajar conformation)",
+      "resolution_angstrom": null,
+      "organisms": [],
+      "polymer_types": [],
+      "experimental_method": "ELECTRON MICROSCOPY",
+      "download_url": "https://files.rcsb.org/download/9F6E.pdb",
+      "rcsb_url": "https://www.rcsb.org/structure/9F6E",
+      "source": "rcsb",
+      "verification_passed": true,
+      "verification_reason": "title contains 'pcna'",
+      "relevance_score": 0.4
+    },
+    {
+      "pdb_id": "9F6F",
+      "title": "Human DNA polymerase epsilon bound to DNA and PCNA (closed conformation)",
+      "resolution_angstrom": null,
+      "organisms": [],
+      "polymer_types": [],
+      "experimental_method": "ELECTRON MICROSCOPY",
+      "download_url": "https://files.rcsb.org/download/9F6F.pdb",
+      "rcsb_url": "https://www.rcsb.org/structure/9F6F",
+      "source": "rcsb",
+      "verification_passed": true,
+      "verification_reason": "title contains 'pcna'",
+      "relevance_score": 0.4
+    },
+    {
+      "pdb_id": "9GY0",
+      "title": "Cryo_EM structure of human FAN1 R507H mutant in complex with 5' flap DNA substrate and PCNA",
+      "resolution_angstrom": null,
+      "organisms": [],
+      "polymer_types": [],
+      "experimental_method": "ELECTRON MICROSCOPY",
+      "download_url": "https://files.rcsb.org/download/9GY0.pdb",
+      "rcsb_url": "https://www.rcsb.org/structure/9GY0",
+      "source": "rcsb",
+      "verification_passed": true,
+      "verification_reason": "title contains 'pcna'",
+      "relevance_score": 0.4
+    },
+    {
+      "pdb_id": "9IIN",
+      "title": "Structure of CTF18-PCNA with ATP and Mg2+",
+      "resolution_angstrom": null,
+      "organisms": [],
+      "polymer_types": [],
+      "experimental_method": "ELECTRON MICROSCOPY",
+      "download_url": "https://files.rcsb.org/download/9IIN.pdb",
+      "rcsb_url": "https://www.rcsb.org/structure/9IIN",
+      "source": "rcsb",
+      "verification_passed": true,
+      "verification_reason": "title contains 'pcna'",
+      "relevance_score": 0.4
+    },
+    {
+      "pdb_id": "9NE6",
+      "title": "Human polymerase epsilon bound to PCNA and DNA with an in-situ-generated mismatch in the mismatch-editing state",
+      "resolution_angstrom": null,
+      "organisms": [],
+      "polymer_types": [],
+      "experimental_method": "ELECTRON MICROSCOPY",
+      "download_url": "https://files.rcsb.org/download/9NE6.pdb",
+      "rcsb_url": "https://www.rcsb.org/structure/9NE6",
+      "source": "rcsb",
+      "verification_passed": true,
+      "verification_reason": "title contains 'pcna'",
+      "relevance_score": 0.4
+    },
+    {
+      "pdb_id": "9NE7",
+      "title": "Human polymerase epsilon bound to PCNA and DNA with an in-situ-generated mismatch in the Pol-backtracking state",
+      "resolution_angstrom": null,
+      "organisms": [],
+      "polymer_types": [],
+      "experimental_method": "ELECTRON MICROSCOPY",
+      "download_url": "https://files.rcsb.org/download/9NE7.pdb",
+      "rcsb_url": "https://www.rcsb.org/structure/9NE7",
+      "source": "rcsb",
+      "verification_passed": true,
+      "verification_reason": "title contains 'pcna'",
+      "relevance_score": 0.4
+    },
+    {
+      "pdb_id": "9NE8",
+      "title": "Human polymerase epsilon bound to PCNA and DNA with an in-situ-generated mismatch in the mismatch-locking state",
+      "resolution_angstrom": null,
+      "organisms": [],
+      "polymer_types": [],
+      "experimental_method": "ELECTRON MICROSCOPY",
+      "download_url": "https://files.rcsb.org/download/9NE8.pdb",
+      "rcsb_url": "https://www.rcsb.org/structure/9NE8",
+      "source": "rcsb",
+      "verification_passed": true,
+      "verification_reason": "title contains 'pcna'",
+      "relevance_score": 0.4
+    },
+    {
+      "pdb_id": "9NE9",
+      "title": "Human polymerase epsilon bound to PCNA and DNA with a pre-existing mismatch in the blocked conformation I",
+      "resolution_angstrom": null,
+      "organisms": [],
+      "polymer_types": [],
+      "experimental_method": "ELECTRON MICROSCOPY",
+      "download_url": "https://files.rcsb.org/download/9NE9.pdb",
+      "rcsb_url": "https://www.rcsb.org/structure/9NE9",
+      "source": "rcsb",
+      "verification_passed": true,
+      "verification_reason": "title contains 'pcna'",
+      "relevance_score": 0.4
+    },
+    {
+      "pdb_id": "9NEA",
+      "title": "Human polymerase epsilon bound to PCNA and DNA with a pre-existing mismatch in the blocked conformation II",
+      "resolution_angstrom": null,
+      "organisms": [],
+      "polymer_types": [],
+      "experimental_method": "ELECTRON MICROSCOPY",
+      "download_url": "https://files.rcsb.org/download/9NEA.pdb",
+      "rcsb_url": "https://www.rcsb.org/structure/9NEA",
+      "source": "rcsb",
+      "verification_passed": true,
+      "verification_reason": "title contains 'pcna'",
+      "relevance_score": 0.4
+    },
+    {
+      "pdb_id": "9UIQ",
+      "title": "Structure of CTF18-PCNA with ATP",
+      "resolution_angstrom": null,
+      "organisms": [],
+      "polymer_types": [],
+      "experimental_method": "ELECTRON MICROSCOPY",
+      "download_url": "https://files.rcsb.org/download/9UIQ.pdb",
+      "rcsb_url": "https://www.rcsb.org/structure/9UIQ",
+      "source": "rcsb",
+      "verification_passed": true,
+      "verification_reason": "title contains 'pcna'",
+      "relevance_score": 0.4
+    },
+    {
+      "pdb_id": "1U76",
+      "source": "uniprot",
+      "download_url": "https://files.rcsb.org/download/1U76.pdb",
+      "title": "",
+      "organisms": [
+        "Homo sapiens"
+      ],
+      "polymer_types": [
+        "polypeptide(L)"
+      ],
+      "resolution_angstrom": null,
+      "verification_passed": true,
+      "verification_reason": "human organism",
+      "relevance_score": 0.2
+    },
+    {
+      "pdb_id": "1U7B",
+      "source": "uniprot",
+      "download_url": "https://files.rcsb.org/download/1U7B.pdb",
+      "title": "",
+      "organisms": [
+        "Homo sapiens"
+      ],
+      "polymer_types": [
+        "polypeptide(L)"
+      ],
+      "resolution_angstrom": null,
+      "verification_passed": true,
+      "verification_reason": "human organism",
+      "relevance_score": 0.2
+    },
+    {
+      "pdb_id": "1UL1",
+      "source": "uniprot",
+      "download_url": "https://files.rcsb.org/download/1UL1.pdb",
+      "title": "",
+      "organisms": [
+        "Homo sapiens"
+      ],
+      "polymer_types": [
+        "polypeptide(L)"
+      ],
+      "resolution_angstrom": null,
+      "verification_passed": true,
+      "verification_reason": "human organism",
+      "relevance_score": 0.2
+    },
+    {
+      "pdb_id": "1VYJ",
+      "source": "uniprot",
+      "download_url": "https://files.rcsb.org/download/1VYJ.pdb",
+      "title": "",
+      "organisms": [
+        "Homo sapiens"
+      ],
+      "polymer_types": [
+        "polypeptide(L)"
+      ],
+      "resolution_angstrom": null,
+      "verification_passed": true,
+      "verification_reason": "human organism",
+      "relevance_score": 0.2
+    },
+    {
+      "pdb_id": "1VYM",
+      "source": "uniprot",
+      "download_url": "https://files.rcsb.org/download/1VYM.pdb",
+      "title": "",
+      "organisms": [
+        "Homo sapiens"
+      ],
+      "polymer_types": [
+        "polypeptide(L)"
+      ],
+      "resolution_angstrom": null,
+      "verification_passed": true,
+      "verification_reason": "human organism",
+      "relevance_score": 0.2
+    },
+    {
+      "pdb_id": "2ZVK",
+      "source": "uniprot",
+      "download_url": "https://files.rcsb.org/download/2ZVK.pdb",
+      "title": "",
+      "organisms": [
+        "Homo sapiens"
+      ],
+      "polymer_types": [
+        "polypeptide(L)"
+      ],
+      "resolution_angstrom": null,
+      "verification_passed": true,
+      "verification_reason": "human organism",
+      "relevance_score": 0.2
+    },
+    {
+      "pdb_id": "2ZVL",
+      "source": "uniprot",
+      "download_url": "https://files.rcsb.org/download/2ZVL.pdb",
+      "title": "",
+      "organisms": [
+        "Homo sapiens"
+      ],
+      "polymer_types": [
+        "polypeptide(L)"
+      ],
+      "resolution_angstrom": null,
+      "verification_passed": true,
+      "verification_reason": "human organism",
+      "relevance_score": 0.2
+    },
+    {
+      "pdb_id": "2ZVM",
+      "source": "uniprot",
+      "download_url": "https://files.rcsb.org/download/2ZVM.pdb",
+      "title": "",
+      "organisms": [
+        "Homo sapiens"
+      ],
+      "polymer_types": [
+        "polypeptide(L)"
+      ],
+      "resolution_angstrom": null,
+      "verification_passed": true,
+      "verification_reason": "human organism",
+      "relevance_score": 0.2
+    },
+    {
+      "pdb_id": "3JA9",
+      "source": "uniprot",
+      "download_url": "https://files.rcsb.org/download/3JA9.pdb",
+      "title": "",
+      "organisms": [
+        "Homo sapiens"
+      ],
+      "polymer_types": [
+        "polypeptide(L)"
+      ],
+      "resolution_angstrom": null,
+      "verification_passed": true,
+      "verification_reason": "human organism",
+      "relevance_score": 0.2
+    },
+    {
+      "pdb_id": "3P87",
+      "source": "uniprot",
+      "download_url": "https://files.rcsb.org/download/3P87.pdb",
+      "title": "",
+      "organisms": [
+        "Homo sapiens"
+      ],
+      "polymer_types": [
+        "polypeptide(L)"
+      ],
+      "resolution_angstrom": null,
+      "verification_passed": true,
+      "verification_reason": "human organism",
+      "relevance_score": 0.2
+    },
+    {
+      "pdb_id": "3TBL",
+      "source": "uniprot",
+      "download_url": "https://files.rcsb.org/download/3TBL.pdb",
+      "title": "",
+      "organisms": [
+        "Homo sapiens"
+      ],
+      "polymer_types": [
+        "polypeptide(L)"
+      ],
+      "resolution_angstrom": null,
+      "verification_passed": true,
+      "verification_reason": "human organism",
+      "relevance_score": 0.2
+    },
+    {
+      "pdb_id": "3VKX",
+      "source": "uniprot",
+      "download_url": "https://files.rcsb.org/download/3VKX.pdb",
+      "title": "",
+      "organisms": [
+        "Homo sapiens"
+      ],
+      "polymer_types": [
+        "polypeptide(L)"
+      ],
+      "resolution_angstrom": null,
+      "verification_passed": true,
+      "verification_reason": "human organism",
+      "relevance_score": 0.2
+    },
+    {
+      "pdb_id": "3WGW",
+      "source": "uniprot",
+      "download_url": "https://files.rcsb.org/download/3WGW.pdb",
+      "title": "",
+      "organisms": [
+        "Homo sapiens"
+      ],
+      "polymer_types": [
+        "polypeptide(L)"
+      ],
+      "resolution_angstrom": null,
+      "verification_passed": true,
+      "verification_reason": "human organism",
+      "relevance_score": 0.2
+    },
+    {
+      "pdb_id": "4D2G",
+      "source": "uniprot",
+      "download_url": "https://files.rcsb.org/download/4D2G.pdb",
+      "title": "",
+      "organisms": [
+        "Homo sapiens"
+      ],
+      "polymer_types": [
+        "polypeptide(L)"
+      ],
+      "resolution_angstrom": null,
+      "verification_passed": true,
+      "verification_reason": "human organism",
+      "relevance_score": 0.2
+    },
+    {
+      "pdb_id": "4RJF",
+      "source": "uniprot",
+      "download_url": "https://files.rcsb.org/download/4RJF.pdb",
+      "title": "",
+      "organisms": [
+        "Homo sapiens"
+      ],
+      "polymer_types": [
+        "polypeptide(L)"
+      ],
+      "resolution_angstrom": null,
+      "verification_passed": true,
+      "verification_reason": "human organism",
+      "relevance_score": 0.2
+    },
+    {
+      "pdb_id": "4ZTD",
+      "source": "uniprot",
+      "download_url": "https://files.rcsb.org/download/4ZTD.pdb",
+      "title": "",
+      "organisms": [
+        "Homo sapiens"
+      ],
+      "polymer_types": [
+        "polypeptide(L)"
+      ],
+      "resolution_angstrom": null,
+      "verification_passed": true,
+      "verification_reason": "human organism",
+      "relevance_score": 0.2
+    },
+    {
+      "pdb_id": "5E0T",
+      "source": "uniprot",
+      "download_url": "https://files.rcsb.org/download/5E0T.pdb",
+      "title": "",
+      "organisms": [
+        "Homo sapiens"
+      ],
+      "polymer_types": [
+        "polypeptide(L)"
+      ],
+      "resolution_angstrom": null,
+      "verification_passed": true,
+      "verification_reason": "human organism",
+      "relevance_score": 0.2
+    },
+    {
+      "pdb_id": "5E0U",
+      "source": "uniprot",
+      "download_url": "https://files.rcsb.org/download/5E0U.pdb",
+      "title": "",
+      "organisms": [
+        "Homo sapiens"
+      ],
+      "polymer_types": [
+        "polypeptide(L)"
+      ],
+      "resolution_angstrom": null,
+      "verification_passed": true,
+      "verification_reason": "human organism",
+      "relevance_score": 0.2
+    },
+    {
+      "pdb_id": "5E0V",
+      "source": "uniprot",
+      "download_url": "https://files.rcsb.org/download/5E0V.pdb",
+      "title": "",
+      "organisms": [
+        "Homo sapiens"
+      ],
+      "polymer_types": [
+        "polypeptide(L)"
+      ],
+      "resolution_angstrom": null,
+      "verification_passed": true,
+      "verification_reason": "human organism",
+      "relevance_score": 0.2
+    },
+    {
+      "pdb_id": "5IY4",
+      "source": "uniprot",
+      "download_url": "https://files.rcsb.org/download/5IY4.pdb",
+      "title": "",
+      "organisms": [
+        "Homo sapiens"
+      ],
+      "polymer_types": [
+        "polypeptide(L)"
+      ],
+      "resolution_angstrom": null,
+      "verification_passed": true,
+      "verification_reason": "human organism",
+      "relevance_score": 0.2
+    },
+    {
+      "pdb_id": "5MAV",
+      "source": "uniprot",
+      "download_url": "https://files.rcsb.org/download/5MAV.pdb",
+      "title": "",
+      "organisms": [
+        "Homo sapiens"
+      ],
+      "polymer_types": [
+        "polypeptide(L)"
+      ],
+      "resolution_angstrom": null,
+      "verification_passed": true,
+      "verification_reason": "human organism",
+      "relevance_score": 0.2
+    },
+    {
+      "pdb_id": "5MLO",
+      "source": "uniprot",
+      "download_url": "https://files.rcsb.org/download/5MLO.pdb",
+      "title": "",
+      "organisms": [
+        "Homo sapiens"
+      ],
+      "polymer_types": [
+        "polypeptide(L)"
+      ],
+      "resolution_angstrom": null,
+      "verification_passed": true,
+      "verification_reason": "human organism",
+      "relevance_score": 0.2
+    },
+    {
+      "pdb_id": "5MLW",
+      "source": "uniprot",
+      "download_url": "https://files.rcsb.org/download/5MLW.pdb",
+      "title": "",
+      "organisms": [
+        "Homo sapiens"
+      ],
+      "polymer_types": [
+        "polypeptide(L)"
+      ],
+      "resolution_angstrom": null,
+      "verification_passed": true,
+      "verification_reason": "human organism",
+      "relevance_score": 0.2
+    },
+    {
+      "pdb_id": "5MOM",
+      "source": "uniprot",
+      "download_url": "https://files.rcsb.org/download/5MOM.pdb",
+      "title": "",
+      "organisms": [
+        "Homo sapiens"
+      ],
+      "polymer_types": [
+        "polypeptide(L)"
+      ],
+      "resolution_angstrom": null,
+      "verification_passed": true,
+      "verification_reason": "human organism",
+      "relevance_score": 0.2
+    },
+    {
+      "pdb_id": "5YCO",
+      "source": "uniprot",
+      "download_url": "https://files.rcsb.org/download/5YCO.pdb",
+      "title": "",
+      "organisms": [
+        "Homo sapiens"
+      ],
+      "polymer_types": [
+        "polypeptide(L)"
+      ],
+      "resolution_angstrom": null,
+      "verification_passed": true,
+      "verification_reason": "human organism",
+      "relevance_score": 0.2
+    },
+    {
+      "pdb_id": "5YD8",
+      "source": "uniprot",
+      "download_url": "https://files.rcsb.org/download/5YD8.pdb",
+      "title": "",
+      "organisms": [
+        "Homo sapiens"
+      ],
+      "polymer_types": [
+        "polypeptide(L)"
+      ],
+      "resolution_angstrom": null,
+      "verification_passed": true,
+      "verification_reason": "human organism",
+      "relevance_score": 0.2
+    },
+    {
+      "pdb_id": "6CBI",
+      "source": "uniprot",
+      "download_url": "https://files.rcsb.org/download/6CBI.pdb",
+      "title": "",
+      "organisms": [
+        "Homo sapiens"
+      ],
+      "polymer_types": [
+        "polypeptide(L)"
+      ],
+      "resolution_angstrom": null,
+      "verification_passed": true,
+      "verification_reason": "human organism",
+      "relevance_score": 0.2
+    },
+    {
+      "pdb_id": "6EHT",
+      "source": "uniprot",
+      "download_url": "https://files.rcsb.org/download/6EHT.pdb",
+      "title": "",
+      "organisms": [
+        "Homo sapiens"
+      ],
+      "polymer_types": [
+        "polypeptide(L)"
+      ],
+      "resolution_angstrom": null,
+      "verification_passed": true,
+      "verification_reason": "human organism",
+      "relevance_score": 0.2
+    },
+    {
+      "pdb_id": "6FCM",
+      "source": "uniprot",
+      "download_url": "https://files.rcsb.org/download/6FCM.pdb",
+      "title": "",
+      "organisms": [
+        "Homo sapiens"
+      ],
+      "polymer_types": [
+        "polypeptide(L)"
+      ],
+      "resolution_angstrom": null,
+      "verification_passed": true,
+      "verification_reason": "human organism",
+      "relevance_score": 0.2
+    },
+    {
+      "pdb_id": "6FCN",
+      "source": "uniprot",
+      "download_url": "https://files.rcsb.org/download/6FCN.pdb",
+      "title": "",
+      "organisms": [
+        "Homo sapiens"
+      ],
+      "polymer_types": [
+        "polypeptide(L)"
+      ],
+      "resolution_angstrom": null,
+      "verification_passed": true,
+      "verification_reason": "human organism",
+      "relevance_score": 0.2
+    },
+    {
+      "pdb_id": "6GIS",
+      "source": "uniprot",
+      "download_url": "https://files.rcsb.org/download/6GIS.pdb",
+      "title": "",
+      "organisms": [
+        "Homo sapiens"
+      ],
+      "polymer_types": [
+        "polypeptide(L)"
+      ],
+      "resolution_angstrom": null,
+      "verification_passed": true,
+      "verification_reason": "human organism",
+      "relevance_score": 0.2
+    },
+    {
+      "pdb_id": "6GWS",
+      "source": "uniprot",
+      "download_url": "https://files.rcsb.org/download/6GWS.pdb",
+      "title": "",
+      "organisms": [
+        "Homo sapiens"
+      ],
+      "polymer_types": [
+        "polypeptide(L)"
+      ],
+      "resolution_angstrom": null,
+      "verification_passed": true,
+      "verification_reason": "human organism",
+      "relevance_score": 0.2
+    },
+    {
+      "pdb_id": "6HVO",
+      "source": "uniprot",
+      "download_url": "https://files.rcsb.org/download/6HVO.pdb",
+      "title": "",
+      "organisms": [
+        "Homo sapiens"
+      ],
+      "polymer_types": [
+        "polypeptide(L)"
+      ],
+      "resolution_angstrom": null,
+      "verification_passed": true,
+      "verification_reason": "human organism",
+      "relevance_score": 0.2
+    },
+    {
+      "pdb_id": "6K3A",
+      "source": "uniprot",
+      "download_url": "https://files.rcsb.org/download/6K3A.pdb",
+      "title": "",
+      "organisms": [
+        "Homo sapiens"
+      ],
+      "polymer_types": [
+        "polypeptide(L)"
+      ],
+      "resolution_angstrom": null,
+      "verification_passed": true,
+      "verification_reason": "human organism",
+      "relevance_score": 0.2
+    },
+    {
+      "pdb_id": "6QC0",
+      "source": "uniprot",
+      "download_url": "https://files.rcsb.org/download/6QC0.pdb",
+      "title": "",
+      "organisms": [
+        "Homo sapiens"
+      ],
+      "polymer_types": [
+        "polypeptide(L)"
+      ],
+      "resolution_angstrom": null,
+      "verification_passed": true,
+      "verification_reason": "human organism",
+      "relevance_score": 0.2
+    },
+    {
+      "pdb_id": "6QCG",
+      "source": "uniprot",
+      "download_url": "https://files.rcsb.org/download/6QCG.pdb",
+      "title": "",
+      "organisms": [
+        "Homo sapiens"
+      ],
+      "polymer_types": [
+        "polypeptide(L)"
+      ],
+      "resolution_angstrom": null,
+      "verification_passed": true,
+      "verification_reason": "human organism",
+      "relevance_score": 0.2
+    },
+    {
+      "pdb_id": "6S1M",
+      "source": "uniprot",
+      "download_url": "https://files.rcsb.org/download/6S1M.pdb",
+      "title": "",
+      "organisms": [
+        "Homo sapiens"
+      ],
+      "polymer_types": [
+        "polypeptide(L)"
+      ],
+      "resolution_angstrom": null,
+      "verification_passed": true,
+      "verification_reason": "human organism",
+      "relevance_score": 0.2
+    },
+    {
+      "pdb_id": "6S1N",
+      "source": "uniprot",
+      "download_url": "https://files.rcsb.org/download/6S1N.pdb",
+      "title": "",
+      "organisms": [
+        "Homo sapiens"
+      ],
+      "polymer_types": [
+        "polypeptide(L)"
+      ],
+      "resolution_angstrom": null,
+      "verification_passed": true,
+      "verification_reason": "human organism",
+      "relevance_score": 0.2
+    },
+    {
+      "pdb_id": "6S1O",
+      "source": "uniprot",
+      "download_url": "https://files.rcsb.org/download/6S1O.pdb",
+      "title": "",
+      "organisms": [
+        "Homo sapiens"
+      ],
+      "polymer_types": [
+        "polypeptide(L)"
+      ],
+      "resolution_angstrom": null,
+      "verification_passed": true,
+      "verification_reason": "human organism",
+      "relevance_score": 0.2
+    },
+    {
+      "pdb_id": "6TNY",
+      "source": "uniprot",
+      "download_url": "https://files.rcsb.org/download/6TNY.pdb",
+      "title": "",
+      "organisms": [
+        "Homo sapiens"
+      ],
+      "polymer_types": [
+        "polypeptide(L)"
+      ],
+      "resolution_angstrom": null,
+      "verification_passed": true,
+      "verification_reason": "human organism",
+      "relevance_score": 0.2
+    },
+    {
+      "pdb_id": "6TNZ",
+      "source": "uniprot",
+      "download_url": "https://files.rcsb.org/download/6TNZ.pdb",
+      "title": "",
+      "organisms": [
+        "Homo sapiens"
+      ],
+      "polymer_types": [
+        "polypeptide(L)"
+      ],
+      "resolution_angstrom": null,
+      "verification_passed": true,
+      "verification_reason": "human organism",
+      "relevance_score": 0.2
+    },
+    {
+      "pdb_id": "6VVO",
+      "source": "uniprot",
+      "download_url": "https://files.rcsb.org/download/6VVO.pdb",
+      "title": "",
+      "organisms": [
+        "Homo sapiens"
+      ],
+      "polymer_types": [
+        "polypeptide(L)"
+      ],
+      "resolution_angstrom": null,
+      "verification_passed": true,
+      "verification_reason": "human organism",
+      "relevance_score": 0.2
+    },
+    {
+      "pdb_id": "7EFA",
+      "source": "uniprot",
+      "download_url": "https://files.rcsb.org/download/7EFA.pdb",
+      "title": "",
+      "organisms": [
+        "Homo sapiens"
+      ],
+      "polymer_types": [
+        "polypeptide(L)"
+      ],
+      "resolution_angstrom": null,
+      "verification_passed": true,
+      "verification_reason": "human organism",
+      "relevance_score": 0.2
+    },
+    {
+      "pdb_id": "7KQ0",
+      "source": "uniprot",
+      "download_url": "https://files.rcsb.org/download/7KQ0.pdb",
+      "title": "",
+      "organisms": [
+        "Homo sapiens"
+      ],
+      "polymer_types": [
+        "polypeptide(L)"
+      ],
+      "resolution_angstrom": null,
+      "verification_passed": true,
+      "verification_reason": "human organism",
+      "relevance_score": 0.2
+    },
+    {
+      "pdb_id": "7KQ1",
+      "source": "uniprot",
+      "download_url": "https://files.rcsb.org/download/7KQ1.pdb",
+      "title": "",
+      "organisms": [
+        "Homo sapiens"
+      ],
+      "polymer_types": [
+        "polypeptide(L)"
+      ],
+      "resolution_angstrom": null,
+      "verification_passed": true,
+      "verification_reason": "human organism",
+      "relevance_score": 0.2
+    },
+    {
+      "pdb_id": "7M5L",
+      "source": "uniprot",
+      "download_url": "https://files.rcsb.org/download/7M5L.pdb",
+      "title": "",
+      "organisms": [
+        "Homo sapiens"
+      ],
+      "polymer_types": [
+        "polypeptide(L)"
+      ],
+      "resolution_angstrom": null,
+      "verification_passed": true,
+      "verification_reason": "human organism",
+      "relevance_score": 0.2
+    },
+    {
+      "pdb_id": "7M5M",
+      "source": "uniprot",
+      "download_url": "https://files.rcsb.org/download/7M5M.pdb",
+      "title": "",
+      "organisms": [
+        "Homo sapiens"
+      ],
+      "polymer_types": [
+        "polypeptide(L)"
+      ],
+      "resolution_angstrom": null,
+      "verification_passed": true,
+      "verification_reason": "human organism",
+      "relevance_score": 0.2
+    },
+    {
+      "pdb_id": "7M5N",
+      "source": "uniprot",
+      "download_url": "https://files.rcsb.org/download/7M5N.pdb",
+      "title": "",
+      "organisms": [
+        "Homo sapiens"
+      ],
+      "polymer_types": [
+        "polypeptide(L)"
+      ],
+      "resolution_angstrom": null,
+      "verification_passed": true,
+      "verification_reason": "human organism",
+      "relevance_score": 0.2
+    },
+    {
+      "pdb_id": "7NV0",
+      "source": "uniprot",
+      "download_url": "https://files.rcsb.org/download/7NV0.pdb",
+      "title": "",
+      "organisms": [
+        "Homo sapiens"
+      ],
+      "polymer_types": [
+        "polypeptide(L)"
+      ],
+      "resolution_angstrom": null,
+      "verification_passed": true,
+      "verification_reason": "human organism",
+      "relevance_score": 0.2
+    },
+    {
+      "pdb_id": "7NV1",
+      "source": "uniprot",
+      "download_url": "https://files.rcsb.org/download/7NV1.pdb",
+      "title": "",
+      "organisms": [
+        "Homo sapiens"
+      ],
+      "polymer_types": [
+        "polypeptide(L)"
+      ],
+      "resolution_angstrom": null,
+      "verification_passed": true,
+      "verification_reason": "human organism",
+      "relevance_score": 0.2
+    },
+    {
+      "pdb_id": "7QNZ",
+      "source": "uniprot",
+      "download_url": "https://files.rcsb.org/download/7QNZ.pdb",
+      "title": "",
+      "organisms": [
+        "Homo sapiens"
+      ],
+      "polymer_types": [
+        "polypeptide(L)"
+      ],
+      "resolution_angstrom": null,
+      "verification_passed": true,
+      "verification_reason": "human organism",
+      "relevance_score": 0.2
+    },
+    {
+      "pdb_id": "7QO1",
+      "source": "uniprot",
+      "download_url": "https://files.rcsb.org/download/7QO1.pdb",
+      "title": "",
+      "organisms": [
+        "Homo sapiens"
+      ],
+      "polymer_types": [
+        "polypeptide(L)"
+      ],
+      "resolution_angstrom": null,
+      "verification_passed": true,
+      "verification_reason": "human organism",
+      "relevance_score": 0.2
+    },
+    {
+      "pdb_id": "8B8T",
+      "source": "uniprot",
+      "download_url": "https://files.rcsb.org/download/8B8T.pdb",
+      "title": "",
+      "organisms": [
+        "Homo sapiens"
+      ],
+      "polymer_types": [
+        "polypeptide(L)"
+      ],
+      "resolution_angstrom": null,
+      "verification_passed": true,
+      "verification_reason": "human organism",
+      "relevance_score": 0.2
+    },
+    {
+      "pdb_id": "8COB",
+      "source": "uniprot",
+      "download_url": "https://files.rcsb.org/download/8COB.pdb",
+      "title": "",
+      "organisms": [
+        "Homo sapiens"
+      ],
+      "polymer_types": [
+        "polypeptide(L)"
+      ],
+      "resolution_angstrom": null,
+      "verification_passed": true,
+      "verification_reason": "human organism",
+      "relevance_score": 0.2
+    },
+    {
+      "pdb_id": "8E84",
+      "source": "uniprot",
+      "download_url": "https://files.rcsb.org/download/8E84.pdb",
+      "title": "",
+      "organisms": [
+        "Homo sapiens"
+      ],
+      "polymer_types": [
+        "polypeptide(L)"
+      ],
+      "resolution_angstrom": null,
+      "verification_passed": true,
+      "verification_reason": "human organism",
+      "relevance_score": 0.2
+    },
+    {
+      "pdb_id": "8F5Q",
+      "source": "uniprot",
+      "download_url": "https://files.rcsb.org/download/8F5Q.pdb",
+      "title": "",
+      "organisms": [
+        "Homo sapiens"
+      ],
+      "polymer_types": [
+        "polypeptide(L)"
+      ],
+      "resolution_angstrom": null,
+      "verification_passed": true,
+      "verification_reason": "human organism",
+      "relevance_score": 0.2
+    },
+    {
+      "pdb_id": "8GCJ",
+      "source": "uniprot",
+      "download_url": "https://files.rcsb.org/download/8GCJ.pdb",
+      "title": "",
+      "organisms": [
+        "Homo sapiens"
+      ],
+      "polymer_types": [
+        "polypeptide(L)"
+      ],
+      "resolution_angstrom": null,
+      "verification_passed": true,
+      "verification_reason": "human organism",
+      "relevance_score": 0.2
+    },
+    {
+      "pdb_id": "8GL9",
+      "source": "uniprot",
+      "download_url": "https://files.rcsb.org/download/8GL9.pdb",
+      "title": "",
+      "organisms": [
+        "Homo sapiens"
+      ],
+      "polymer_types": [
+        "polypeptide(L)"
+      ],
+      "resolution_angstrom": null,
+      "verification_passed": true,
+      "verification_reason": "human organism",
+      "relevance_score": 0.2
+    },
+    {
+      "pdb_id": "8UI7",
+      "source": "uniprot",
+      "download_url": "https://files.rcsb.org/download/8UI7.pdb",
+      "title": "",
+      "organisms": [
+        "Homo sapiens"
+      ],
+      "polymer_types": [
+        "polypeptide(L)"
+      ],
+      "resolution_angstrom": null,
+      "verification_passed": true,
+      "verification_reason": "human organism",
+      "relevance_score": 0.2
+    },
+    {
+      "pdb_id": "8UI8",
+      "source": "uniprot",
+      "download_url": "https://files.rcsb.org/download/8UI8.pdb",
+      "title": "",
+      "organisms": [
+        "Homo sapiens"
+      ],
+      "polymer_types": [
+        "polypeptide(L)"
+      ],
+      "resolution_angstrom": null,
+      "verification_passed": true,
+      "verification_reason": "human organism",
+      "relevance_score": 0.2
+    },
+    {
+      "pdb_id": "8UI9",
+      "source": "uniprot",
+      "download_url": "https://files.rcsb.org/download/8UI9.pdb",
+      "title": "",
+      "organisms": [
+        "Homo sapiens"
+      ],
+      "polymer_types": [
+        "polypeptide(L)"
+      ],
+      "resolution_angstrom": null,
+      "verification_passed": true,
+      "verification_reason": "human organism",
+      "relevance_score": 0.2
+    },
+    {
+      "pdb_id": "8UII",
+      "source": "uniprot",
+      "download_url": "https://files.rcsb.org/download/8UII.pdb",
+      "title": "",
+      "organisms": [
+        "Homo sapiens"
+      ],
+      "polymer_types": [
+        "polypeptide(L)"
+      ],
+      "resolution_angstrom": null,
+      "verification_passed": true,
+      "verification_reason": "human organism",
+      "relevance_score": 0.2
+    },
+    {
+      "pdb_id": "8UMT",
+      "source": "uniprot",
+      "download_url": "https://files.rcsb.org/download/8UMT.pdb",
+      "title": "",
+      "organisms": [
+        "Homo sapiens"
+      ],
+      "polymer_types": [
+        "polypeptide(L)"
+      ],
+      "resolution_angstrom": null,
+      "verification_passed": true,
+      "verification_reason": "human organism",
+      "relevance_score": 0.2
+    },
+    {
+      "pdb_id": "8UMU",
+      "source": "uniprot",
+      "download_url": "https://files.rcsb.org/download/8UMU.pdb",
+      "title": "",
+      "organisms": [
+        "Homo sapiens"
+      ],
+      "polymer_types": [
+        "polypeptide(L)"
+      ],
+      "resolution_angstrom": null,
+      "verification_passed": true,
+      "verification_reason": "human organism",
+      "relevance_score": 0.2
+    },
+    {
+      "pdb_id": "8UMV",
+      "source": "uniprot",
+      "download_url": "https://files.rcsb.org/download/8UMV.pdb",
+      "title": "",
+      "organisms": [
+        "Homo sapiens"
+      ],
+      "polymer_types": [
+        "polypeptide(L)"
+      ],
+      "resolution_angstrom": null,
+      "verification_passed": true,
+      "verification_reason": "human organism",
+      "relevance_score": 0.2
+    },
+    {
+      "pdb_id": "8UMW",
+      "source": "uniprot",
+      "download_url": "https://files.rcsb.org/download/8UMW.pdb",
+      "title": "",
+      "organisms": [
+        "Homo sapiens"
+      ],
+      "polymer_types": [
+        "polypeptide(L)"
+      ],
+      "resolution_angstrom": null,
+      "verification_passed": true,
+      "verification_reason": "human organism",
+      "relevance_score": 0.2
+    },
+    {
+      "pdb_id": "8UMY",
+      "source": "uniprot",
+      "download_url": "https://files.rcsb.org/download/8UMY.pdb",
+      "title": "",
+      "organisms": [
+        "Homo sapiens"
+      ],
+      "polymer_types": [
+        "polypeptide(L)"
+      ],
+      "resolution_angstrom": null,
+      "verification_passed": true,
+      "verification_reason": "human organism",
+      "relevance_score": 0.2
+    },
+    {
+      "pdb_id": "8UN0",
+      "source": "uniprot",
+      "download_url": "https://files.rcsb.org/download/8UN0.pdb",
+      "title": "",
+      "organisms": [
+        "Homo sapiens"
+      ],
+      "polymer_types": [
+        "polypeptide(L)"
+      ],
+      "resolution_angstrom": null,
+      "verification_passed": true,
+      "verification_reason": "human organism",
+      "relevance_score": 0.2
+    },
+    {
+      "pdb_id": "8YJH",
+      "source": "uniprot",
+      "download_url": "https://files.rcsb.org/download/8YJH.pdb",
+      "title": "",
+      "organisms": [
+        "Homo sapiens"
+      ],
+      "polymer_types": [
+        "polypeptide(L)"
+      ],
+      "resolution_angstrom": null,
+      "verification_passed": true,
+      "verification_reason": "human organism",
+      "relevance_score": 0.2
+    },
+    {
+      "pdb_id": "8YJL",
+      "source": "uniprot",
+      "download_url": "https://files.rcsb.org/download/8YJL.pdb",
+      "title": "",
+      "organisms": [
+        "Homo sapiens"
+      ],
+      "polymer_types": [
+        "polypeptide(L)"
+      ],
+      "resolution_angstrom": null,
+      "verification_passed": true,
+      "verification_reason": "human organism",
+      "relevance_score": 0.2
+    },
+    {
+      "pdb_id": "8YJQ",
+      "source": "uniprot",
+      "download_url": "https://files.rcsb.org/download/8YJQ.pdb",
+      "title": "",
+      "organisms": [
+        "Homo sapiens"
+      ],
+      "polymer_types": [
+        "polypeptide(L)"
+      ],
+      "resolution_angstrom": null,
+      "verification_passed": true,
+      "verification_reason": "human organism",
+      "relevance_score": 0.2
+    },
+    {
+      "pdb_id": "8YJR",
+      "source": "uniprot",
+      "download_url": "https://files.rcsb.org/download/8YJR.pdb",
+      "title": "",
+      "organisms": [
+        "Homo sapiens"
+      ],
+      "polymer_types": [
+        "polypeptide(L)"
+      ],
+      "resolution_angstrom": null,
+      "verification_passed": true,
+      "verification_reason": "human organism",
+      "relevance_score": 0.2
+    },
+    {
+      "pdb_id": "8YJS",
+      "source": "uniprot",
+      "download_url": "https://files.rcsb.org/download/8YJS.pdb",
+      "title": "",
+      "organisms": [
+        "Homo sapiens"
+      ],
+      "polymer_types": [
+        "polypeptide(L)"
+      ],
+      "resolution_angstrom": null,
+      "verification_passed": true,
+      "verification_reason": "human organism",
+      "relevance_score": 0.2
+    },
+    {
+      "pdb_id": "8YJU",
+      "source": "uniprot",
+      "download_url": "https://files.rcsb.org/download/8YJU.pdb",
+      "title": "",
+      "organisms": [
+        "Homo sapiens"
+      ],
+      "polymer_types": [
+        "polypeptide(L)"
+      ],
+      "resolution_angstrom": null,
+      "verification_passed": true,
+      "verification_reason": "human organism",
+      "relevance_score": 0.2
+    },
+    {
+      "pdb_id": "8YJV",
+      "source": "uniprot",
+      "download_url": "https://files.rcsb.org/download/8YJV.pdb",
+      "title": "",
+      "organisms": [
+        "Homo sapiens"
+      ],
+      "polymer_types": [
+        "polypeptide(L)"
+      ],
+      "resolution_angstrom": null,
+      "verification_passed": true,
+      "verification_reason": "human organism",
+      "relevance_score": 0.2
+    },
+    {
+      "pdb_id": "8YJW",
+      "source": "uniprot",
+      "download_url": "https://files.rcsb.org/download/8YJW.pdb",
+      "title": "",
+      "organisms": [
+        "Homo sapiens"
+      ],
+      "polymer_types": [
+        "polypeptide(L)"
+      ],
+      "resolution_angstrom": null,
+      "verification_passed": true,
+      "verification_reason": "human organism",
+      "relevance_score": 0.2
+    },
+    {
+      "pdb_id": "8YJZ",
+      "source": "uniprot",
+      "download_url": "https://files.rcsb.org/download/8YJZ.pdb",
+      "title": "",
+      "organisms": [
+        "Homo sapiens"
+      ],
+      "polymer_types": [
+        "polypeptide(L)"
+      ],
+      "resolution_angstrom": null,
+      "verification_passed": true,
+      "verification_reason": "human organism",
+      "relevance_score": 0.2
+    },
+    {
+      "pdb_id": "9B8S",
+      "source": "uniprot",
+      "download_url": "https://files.rcsb.org/download/9B8S.pdb",
+      "title": "",
+      "organisms": [
+        "Homo sapiens"
+      ],
+      "polymer_types": [
+        "polypeptide(L)"
+      ],
+      "resolution_angstrom": null,
+      "verification_passed": true,
+      "verification_reason": "human organism",
+      "relevance_score": 0.2
+    },
+    {
+      "pdb_id": "9B8T",
+      "source": "uniprot",
+      "download_url": "https://files.rcsb.org/download/9B8T.pdb",
+      "title": "",
+      "organisms": [
+        "Homo sapiens"
+      ],
+      "polymer_types": [
+        "polypeptide(L)"
+      ],
+      "resolution_angstrom": null,
+      "verification_passed": true,
+      "verification_reason": "human organism",
+      "relevance_score": 0.2
+    },
+    {
+      "pdb_id": "9CG4",
+      "source": "uniprot",
+      "download_url": "https://files.rcsb.org/download/9CG4.pdb",
+      "title": "",
+      "organisms": [
+        "Homo sapiens"
+      ],
+      "polymer_types": [
+        "polypeptide(L)"
+      ],
+      "resolution_angstrom": null,
+      "verification_passed": true,
+      "verification_reason": "human organism",
+      "relevance_score": 0.2
+    },
+    {
+      "pdb_id": "9CHM",
+      "source": "uniprot",
+      "download_url": "https://files.rcsb.org/download/9CHM.pdb",
+      "title": "",
+      "organisms": [
+        "Homo sapiens"
+      ],
+      "polymer_types": [
+        "polypeptide(L)"
+      ],
+      "resolution_angstrom": null,
+      "verification_passed": true,
+      "verification_reason": "human organism",
+      "relevance_score": 0.2
+    },
+    {
+      "pdb_id": "9CL7",
+      "source": "uniprot",
+      "download_url": "https://files.rcsb.org/download/9CL7.pdb",
+      "title": "",
+      "organisms": [
+        "Homo sapiens"
+      ],
+      "polymer_types": [
+        "polypeptide(L)"
+      ],
+      "resolution_angstrom": null,
+      "verification_passed": true,
+      "verification_reason": "human organism",
+      "relevance_score": 0.2
+    },
+    {
+      "pdb_id": "9CMA",
+      "source": "uniprot",
+      "download_url": "https://files.rcsb.org/download/9CMA.pdb",
+      "title": "",
+      "organisms": [
+        "Homo sapiens"
+      ],
+      "polymer_types": [
+        "polypeptide(L)"
+      ],
+      "resolution_angstrom": null,
+      "verification_passed": true,
+      "verification_reason": "human organism",
+      "relevance_score": 0.2
+    },
+    {
+      "pdb_id": "9EOA",
+      "source": "uniprot",
+      "download_url": "https://files.rcsb.org/download/9EOA.pdb",
+      "title": "",
+      "organisms": [
+        "Homo sapiens"
+      ],
+      "polymer_types": [
+        "polypeptide(L)"
+      ],
+      "resolution_angstrom": null,
+      "verification_passed": true,
+      "verification_reason": "human organism",
+      "relevance_score": 0.2
+    },
+    {
+      "pdb_id": "9F6D",
+      "source": "uniprot",
+      "download_url": "https://files.rcsb.org/download/9F6D.pdb",
+      "title": "",
+      "organisms": [
+        "Homo sapiens"
+      ],
+      "polymer_types": [
+        "polypeptide(L)"
+      ],
+      "resolution_angstrom": null,
+      "verification_passed": true,
+      "verification_reason": "human organism",
+      "relevance_score": 0.2
+    },
+    {
+      "pdb_id": "9F6E",
+      "source": "uniprot",
+      "download_url": "https://files.rcsb.org/download/9F6E.pdb",
+      "title": "",
+      "organisms": [
+        "Homo sapiens"
+      ],
+      "polymer_types": [
+        "polypeptide(L)"
+      ],
+      "resolution_angstrom": null,
+      "verification_passed": true,
+      "verification_reason": "human organism",
+      "relevance_score": 0.2
+    },
+    {
+      "pdb_id": "9F6F",
+      "source": "uniprot",
+      "download_url": "https://files.rcsb.org/download/9F6F.pdb",
+      "title": "",
+      "organisms": [
+        "Homo sapiens"
+      ],
+      "polymer_types": [
+        "polypeptide(L)"
+      ],
+      "resolution_angstrom": null,
+      "verification_passed": true,
+      "verification_reason": "human organism",
+      "relevance_score": 0.2
+    },
+    {
+      "pdb_id": "9GY0",
+      "source": "uniprot",
+      "download_url": "https://files.rcsb.org/download/9GY0.pdb",
+      "title": "",
+      "organisms": [
+        "Homo sapiens"
+      ],
+      "polymer_types": [
+        "polypeptide(L)"
+      ],
+      "resolution_angstrom": null,
+      "verification_passed": true,
+      "verification_reason": "human organism",
+      "relevance_score": 0.2
+    },
+    {
+      "pdb_id": "9NE6",
+      "source": "uniprot",
+      "download_url": "https://files.rcsb.org/download/9NE6.pdb",
+      "title": "",
+      "organisms": [
+        "Homo sapiens"
+      ],
+      "polymer_types": [
+        "polypeptide(L)"
+      ],
+      "resolution_angstrom": null,
+      "verification_passed": true,
+      "verification_reason": "human organism",
+      "relevance_score": 0.2
+    },
+    {
+      "pdb_id": "9NE7",
+      "source": "uniprot",
+      "download_url": "https://files.rcsb.org/download/9NE7.pdb",
+      "title": "",
+      "organisms": [
+        "Homo sapiens"
+      ],
+      "polymer_types": [
+        "polypeptide(L)"
+      ],
+      "resolution_angstrom": null,
+      "verification_passed": true,
+      "verification_reason": "human organism",
+      "relevance_score": 0.2
+    },
+    {
+      "pdb_id": "9NE8",
+      "source": "uniprot",
+      "download_url": "https://files.rcsb.org/download/9NE8.pdb",
+      "title": "",
+      "organisms": [
+        "Homo sapiens"
+      ],
+      "polymer_types": [
+        "polypeptide(L)"
+      ],
+      "resolution_angstrom": null,
+      "verification_passed": true,
+      "verification_reason": "human organism",
+      "relevance_score": 0.2
+    },
+    {
+      "pdb_id": "9NE9",
+      "source": "uniprot",
+      "download_url": "https://files.rcsb.org/download/9NE9.pdb",
+      "title": "",
+      "organisms": [
+        "Homo sapiens"
+      ],
+      "polymer_types": [
+        "polypeptide(L)"
+      ],
+      "resolution_angstrom": null,
+      "verification_passed": true,
+      "verification_reason": "human organism",
+      "relevance_score": 0.2
+    },
+    {
+      "pdb_id": "9NEA",
+      "source": "uniprot",
+      "download_url": "https://files.rcsb.org/download/9NEA.pdb",
+      "title": "",
+      "organisms": [
+        "Homo sapiens"
+      ],
+      "polymer_types": [
+        "polypeptide(L)"
+      ],
+      "resolution_angstrom": null,
+      "verification_passed": true,
+      "verification_reason": "human organism",
+      "relevance_score": 0.2
+    }
+  ],
+  "dataset_links": [],
+  "stats": {
+    "pdb_count": 193,
+    "dataset_links": 0,
+    "top_pdb_ids": [
+      "1AXC",
+      "1U76",
+      "1U7B",
+      "1UL1",
+      "1VYJ",
+      "1VYM",
+      "1W60",
+      "2ZVK",
+      "2ZVL",
+      "2ZVM",
+      "3JA9",
+      "3P87",
+      "3TBL",
+      "3VKX",
+      "3WGW",
+      "4D2G",
+      "4RJF",
+      "4ZTD",
+      "5E0T",
+      "5E0U"
+    ]
+  }
+}

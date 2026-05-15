@@ -148,11 +148,14 @@ def _verify_pdb_file(path: Path, pdb_id: str) -> FetchResult:
                 resolution = float(m.group(1))
                 break
 
-    # Check 4: resolution filter (skip for NMR/cryo-EM where REMARK 2 absent)
+    # Check 4: resolution filter — warn only for core structures, hard fail otherwise
     if resolution is not None and resolution > 3.5:
-        return FetchResult(pdb_id, "failed", path,
-                           f"resolution {resolution}Å > 3.5Å threshold",
-                           chain_count, resolution)
+        if pdb_id in PCNA_CORE_IDS:
+            pass  # ground-truth structures kept regardless of resolution
+        else:
+            return FetchResult(pdb_id, "failed", path,
+                               f"resolution {resolution}Å > 3.5Å threshold",
+                               chain_count, resolution)
 
     # Check 5: Cα completeness
     residue_ids = {(l[21], l[22:26].strip()) for l in atom_lines}

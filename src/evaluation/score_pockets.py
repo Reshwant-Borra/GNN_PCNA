@@ -94,6 +94,8 @@ def export_pockets_json(pockets: list[dict], output_path: str) -> None:
 
 
 def compute_auroc(scores: np.ndarray, labels: np.ndarray) -> float:
-    """AUROC for evaluating recovery of 8GLA pocket residues."""
+    """AUROC for evaluating recovery of 8GLA pocket residues. Returns nan if single-class."""
     from sklearn.metrics import roc_auc_score
+    if len(np.unique(labels)) < 2:
+        return float('nan')
     return roc_auc_score(labels, scores)

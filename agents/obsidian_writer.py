@@ -263,8 +263,11 @@ def _update_index(new_paths: list[Path], dry_run: bool = False) -> None:
         updated = existing + append_block
     else:
         # Find existing section and append non-duplicate links
-        existing_links = set(existing.split(section_header)[-1].splitlines())
-        new_links = [l for l in links if l not in existing_links]
+        existing_links = set(
+            line.strip()
+            for line in existing.split(section_header)[-1].splitlines()
+        )
+        new_links = [l for l in links if l.strip() not in existing_links]
         if not new_links:
             return
         insert = "\n".join(new_links) + "\n"

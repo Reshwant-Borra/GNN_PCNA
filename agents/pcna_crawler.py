@@ -753,7 +753,6 @@ class NCBISource(BaseSource):
         return records
 
     def _search_protein(self) -> list[SourceRecord]:
-        r = self._get(NCBI_SEARCH, timeout=15)
         params = {
             "db": "protein", "term": "PCNA[Gene Name] AND Homo sapiens[Organism]",
             "retmax": 50, "retmode": "json",
@@ -1377,7 +1376,11 @@ def download_verified(catalog_path: Path, limit: int = 50,
                and r.get("relevance", 0) >= min_relevance][:limit]
     print(f"\nDownloading {len(structs)} verified PDB structures...")
     for r in structs:
-        uid  = r["uid"].split("_")[0].upper()[:4]  # handle AF- prefixes
+        raw_uid = r["uid"]
+        if raw_uid.upper().startswith("AF-"):
+            uid = raw_uid.upper()   # keep full AlphaFold ID (e.g. AF-P12004)
+        else:
+            uid = raw_uid.split("_")[0].upper()[:4]
         dest = RAW_DIR / f"{uid}.pdb"
         if dest.exists():
             print(f"  -- {uid} exists")

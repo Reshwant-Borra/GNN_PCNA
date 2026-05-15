@@ -1,7 +1,8 @@
-"""PyTorch Geometric dataset wrapper for pre-built .pt graph files."""
+"""PyTorch dataset wrapper for pre-built .pt graph files."""
 from __future__ import annotations
 from pathlib import Path
-from torch_geometric.data import Dataset, Data
+from torch.utils.data import Dataset
+from torch_geometric.data import Data
 import torch
 
 
@@ -10,10 +11,9 @@ class PocketDataset(Dataset):
 
     def __init__(self, root: str):
         self.files = sorted(Path(root).glob('*.pt'))
-        super().__init__()
 
-    def len(self) -> int:
+    def __len__(self) -> int:
         return len(self.files)
 
-    def get(self, idx: int) -> Data:
-        return torch.load(self.files[idx])
+    def __getitem__(self, idx: int) -> Data:
+        return torch.load(self.files[idx], weights_only=False)

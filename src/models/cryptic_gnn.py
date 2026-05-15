@@ -210,8 +210,10 @@ def ranking_loss(
     neg_mask = ~pos_mask
     if not pos_mask.any() or not neg_mask.any():
         return scores.new_zeros(1).squeeze()
-    pos_s = scores[pos_mask][:32].unsqueeze(1)
-    neg_s = scores[neg_mask][:max_pairs // 32].unsqueeze(0)
+    n_pos = min(int(pos_mask.sum()), 32)
+    n_neg = min(int(neg_mask.sum()), max(max_pairs // max(n_pos, 1), 1))
+    pos_s = scores[pos_mask][:n_pos].unsqueeze(1)
+    neg_s = scores[neg_mask][:n_neg].unsqueeze(0)
     return F.relu(margin - (pos_s - neg_s)).mean()
 
 

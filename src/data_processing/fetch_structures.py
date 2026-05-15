@@ -320,7 +320,7 @@ def main():
     if args.strip:
         print("\nStripping processed copies...")
         for r in session.ok:
-            ligand = "AOH" if r.pdb_id == "8GLA" else None
+            ligand = "ZQZ" if r.pdb_id == "8GLA" else None  # CCD code in downloaded PDB
             out = strip_processed(r.pdb_id, keep_ligand=ligand)
             if out:
                 print(f"  → {out.name}")

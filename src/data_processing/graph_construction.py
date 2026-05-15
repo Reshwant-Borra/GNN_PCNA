@@ -243,14 +243,17 @@ def _build_edge_attr(
     j_idx: np.ndarray,
     dist_matrix: np.ndarray,
     chain_ids: np.ndarray,
-    resids: np.ndarray,
     cutoff: float,
 ) -> np.ndarray:
-    """Build (E, 6) edge feature matrix."""
+    """Build (E, 6) edge feature matrix.
+
+    Sequential separation uses array-index distance (not PDB resid numbers)
+    so PDB numbering gaps do not produce wrong seq_sep or is_backbone values.
+    """
     dists      = dist_matrix[i_idx, j_idx]
     same_chain = (chain_ids[i_idx] == chain_ids[j_idx]).astype(np.float32)
 
-    raw_sep   = np.abs(resids[i_idx] - resids[j_idx]).astype(np.float32)
+    raw_sep   = np.abs(i_idx - j_idx).astype(np.float32)
     seq_sep   = np.where(same_chain.astype(bool),
                          np.minimum(raw_sep, 20.0) / 20.0, 1.0)
 
@@ -269,17 +272,20 @@ def _build_edge_attr(
 
 def _build_backbone_edges(
     chain_ids: np.ndarray,
-    resids: np.ndarray,
     dist_matrix: np.ndarray,
     max_sep: int = 2,
 ) -> tuple[np.ndarray, np.ndarray]:
     """
     Build backbone sequential edges: residue pairs where |i−j| ≤ max_sep
-    and same chain. Returns (i_idx, j_idx).
+    in array order and same chain. Uses array indices (not PDB resids) so
+    numbering gaps in the PDB file do not create spurious backbone bonds.
+    Returns (i_idx, j_idx).
     """
+    N = len(chain_ids)
+    arr_idx    = np.arange(N)
     same_chain = chain_ids[:, None] == chain_ids[None, :]              # (N, N)
-    seq_sep    = np.abs(resids[:, None].astype(int) - resids[None, :].astype(int))
-    mask = same_chain & (seq_sep >= 1) & (seq_sep <= max_sep)
+    idx_sep    = np.abs(arr_idx[:, None] - arr_idx[None, :])           # (N, N)
+    mask = same_chain & (idx_sep >= 1) & (idx_sep <= max_sep)
     np.fill_diagonal(mask, False)
     i_idx, j_idx = np.where(mask)
     if len(i_idx) == 0:
@@ -370,12 +376,12 @@ def build_graph_v2(
     ci, cj = np.where((dist_matrix < distance_cutoff) & (dist_matrix > 0))
     if len(ci) == 0:
         raise ValueError(f"no spatial edges within {distance_cutoff} Å")
-    contact_attr = _build_edge_attr(ci, cj, dist_matrix, chain_ids, resids, distance_cutoff)
+    contact_attr = _build_edge_attr(ci, cj, dist_matrix, chain_ids, distance_cutoff)
 
     # ── Backbone graph (sequential, |i-j| ≤ 2, same chain) ───────────────
-    bi, bj = _build_backbone_edges(chain_ids, resids, dist_matrix, backbone_max_sep)
+    bi, bj = _build_backbone_edges(chain_ids, dist_matrix, backbone_max_sep)
     if len(bi) > 0:
-        backbone_attr = _build_edge_attr(bi, bj, dist_matrix, chain_ids, resids, distance_cutoff)
+        backbone_attr = _build_edge_attr(bi, bj, dist_matrix, chain_ids, distance_cutoff)
     else:
         backbone_attr = np.empty((0, EDGE_DIM), dtype=np.float32)
 
@@ -405,4 +411,4 @@ def save_graph(data: Data, path: str) -> None:
 
 
 def load_graph(path: str) -> Data:
-    return torch.load(path)
+    return torch.load(path, weights_only=False)

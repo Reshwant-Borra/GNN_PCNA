@@ -97,6 +97,7 @@ def track_pocket_volume(
 
 def summarize_md_validation(
     rmsf_values: np.ndarray,
+    residue_ids: np.ndarray,        # resids returned by compute_rmsf
     pocket_residue_ids: list[int],
     dccm: np.ndarray,
     volumes: np.ndarray,
@@ -104,19 +105,39 @@ def summarize_md_validation(
     """
     Aggregate MD evidence for a predicted pocket.
 
+    Args:
+        rmsf_values        : (N,) from compute_rmsf
+        residue_ids        : (N,) PDB resid array from compute_rmsf
+        pocket_residue_ids : PDB resids of predicted pocket residues
+        dccm               : (N, N) from compute_dccm
+        volumes            : (T,) from track_pocket_volume
+
     Returns dict with:
         mean_rmsf, background_rmsf, rmsf_ratio,
         mean_internal_dccm, max_volume, fraction_open_frames
     """
-    ids = np.array(pocket_residue_ids)
-    pocket_rmsf     = rmsf_values[ids]
+    # Map PDB resid → array index so we index rmsf_values correctly
+    resid_to_idx = {int(rid): i for i, rid in enumerate(residue_ids)}
+    pocket_arr_idx = np.array([
+        resid_to_idx[r] for r in pocket_residue_ids if int(r) in resid_to_idx
+    ])
+
+    if len(pocket_arr_idx) == 0:
+        return {
+            'mean_rmsf': float('nan'), 'background_rmsf': float('nan'),
+            'rmsf_ratio': float('nan'), 'mean_internal_dccm': float('nan'),
+            'max_volume': float(volumes.max()) if len(volumes) > 0 else 0.0,
+            'fraction_open_frames': float((volumes > 100.0).mean()) if len(volumes) > 0 else 0.0,
+        }
+
+    pocket_rmsf     = rmsf_values[pocket_arr_idx]
     all_idx         = np.arange(len(rmsf_values))
-    bg_idx          = np.setdiff1d(all_idx, ids)
+    bg_idx          = np.setdiff1d(all_idx, pocket_arr_idx)
     background_rmsf = rmsf_values[bg_idx].mean() if len(bg_idx) > 0 else 1e-6
 
-    if len(ids) > 1:
-        sub = dccm[np.ix_(ids, ids)]
-        off_diag = sub[~np.eye(len(ids), dtype=bool)]
+    if len(pocket_arr_idx) > 1:
+        sub = dccm[np.ix_(pocket_arr_idx, pocket_arr_idx)]
+        off_diag = sub[~np.eye(len(pocket_arr_idx), dtype=bool)]
         mean_internal_dccm = float(np.abs(off_diag).mean())
     else:
         mean_internal_dccm = float('nan')

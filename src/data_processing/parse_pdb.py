@@ -55,7 +55,8 @@ def _parse_secondary_structure(pdb_path: Path) -> dict[tuple[str, int], str]:
             elif rec == 'SHEET' and len(line) >= 37:
                 chain = line[21]
                 for r in range(int(line[22:26]), int(line[33:37]) + 1):
-                    ss[(chain, r)] = 'E'
+                    if (chain, r) not in ss:   # HELIX takes priority over SHEET
+                        ss[(chain, r)] = 'E'
         except ValueError:
             pass
     return ss

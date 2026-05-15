@@ -1,0 +1,10 @@
+{
+  "mcpServers": {
+    "pcna": {
+      "command": "python",
+      "args": ["agents/mcp_server.py"],
+      "cwd": "C:/Users/advay/GNN_PNCA",
+      "description": "GNN-PCNA knowledge vault + model inference. Tools: list_structures, get_structure, search_vault, list_papers, list_datasets, get_knowledge_graph, run_inference, get_pipeline_status."
+    }
+  }
+}

@@ -86,10 +86,12 @@ def main(args: argparse.Namespace) -> None:
 
     train_set = PocketDataset(args.train_dir)
     val_set   = PocketDataset(args.val_dir)
-    train_loader = DataLoader(train_set, batch_size=args.batch_size, shuffle=True)
-    val_loader   = DataLoader(val_set,   batch_size=args.batch_size)
+    train_loader = DataLoader(train_set, batch_size=args.batch_size, shuffle=True,
+                              follow_batch=['edge_index_seq'])
+    val_loader   = DataLoader(val_set,   batch_size=args.batch_size,
+                              follow_batch=['edge_index_seq'])
 
-    model = CrypticGNN().to(device)
+    model = PocketGNN().to(device)
     optimizer = torch.optim.AdamW(model.parameters(), lr=args.lr, weight_decay=1e-4)
     scheduler = torch.optim.lr_scheduler.CosineAnnealingLR(optimizer, T_max=args.epochs)
 

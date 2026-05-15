@@ -173,11 +173,12 @@ class RCSBSource:
                 "parameters": {
                     "attribute": "rcsb_polymer_entity_container_identifiers.reference_sequence_identifiers.database_accession",
                     "operator": "exact_match",
+                    "negation": False,
                     "value": uniprot_id,
                 }
             },
             "return_type": "entry",
-            "request_options": {"results_slice": {"start": 0, "limit": 200}}
+            "request_options": {"paginate": {"start": 0, "rows": 200}}
         }
         return self._execute_query(query, f"UniProt:{uniprot_id}")
 
@@ -189,7 +190,7 @@ class RCSBSource:
                 "parameters": {"value": keyword}
             },
             "return_type": "entry",
-            "request_options": {"results_slice": {"start": 0, "limit": 50}}
+            "request_options": {"paginate": {"start": 0, "rows": 50}}
         }
         return self._execute_query(query, f"keyword:{keyword}")
 
@@ -272,9 +273,15 @@ class UniProtSource:
             r.raise_for_status()
             data = r.json()
             pdb_ids = []
-            for xref in data.get("dbReferences", []):
-                if xref.get("type") == "PDB":
+            # UniProt REST API v2 structure
+            for xref in data.get("uniProtKBCrossReferences", []):
+                if xref.get("database") == "PDB":
                     pdb_ids.append(xref["id"])
+            # fallback: older dbReferences key
+            if not pdb_ids:
+                for xref in data.get("dbReferences", []):
+                    if xref.get("type") == "PDB":
+                        pdb_ids.append(xref["id"])
             print(f"  UniProt P12004: {len(pdb_ids)} PDB cross-refs")
             return [{"pdb_id": pid, "source": "uniprot",
                      "download_url": RCSB_DOWNLOAD.format(pid),
@@ -492,7 +499,7 @@ class CatalogBuilder:
             }
         }
         catalog_path = CATALOG_DIR / "pcna_data_catalog.json"
-        catalog_path.write_text(json.dumps(catalog, indent=2))
+        catalog_path.write_text(json.dumps(catalog, indent=2), encoding="utf-8")
 
         # Download queue
         queue_lines = []
@@ -502,12 +509,12 @@ class CatalogBuilder:
             if d.get("type") == "download":
                 queue_lines.append(d.get("url", ""))
         queue_path = CATALOG_DIR / "download_queue.txt"
-        queue_path.write_text("\n".join(filter(None, queue_lines)))
+        queue_path.write_text("\n".join(filter(None, queue_lines)), encoding="utf-8")
 
         # Human-readable report
         report = self._build_report(catalog)
         report_path = CATALOG_DIR / "crawl_report.md"
-        report_path.write_text(report)
+        report_path.write_text(report, encoding="utf-8")
 
         return catalog_path
 
@@ -612,9 +619,9 @@ def main():
 
     print("Saving catalog...")
     catalog_path = builder.save()
-    print(f"  → {catalog_path}")
-    print(f"  → {CATALOG_DIR / 'download_queue.txt'}")
-    print(f"  → {CATALOG_DIR / 'crawl_report.md'}")
+    print(f"  -> {catalog_path}")
+    print(f"  -> {CATALOG_DIR / 'download_queue.txt'}")
+    print(f"  -> {CATALOG_DIR / 'crawl_report.md'}")
 
     if args.download:
         download_pdb_files(catalog_path, limit=args.download_limit)

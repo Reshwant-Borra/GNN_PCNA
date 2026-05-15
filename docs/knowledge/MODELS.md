@@ -61,3 +61,9 @@ Pocket Scoring Head
 | Epochs | 100 (early stopping on val loss, patience=10) |
 | Dropout | 0.2 |
 | Distance cutoff | 8 Å |
+
+---
+
+## Related
+
+[[PIPELINE]] · [[VALIDATION]] · [[DATASETS]] · [[BIOLOGY_PCNA]] · [[KNOWN_LIMITATIONS]] · [[pocketminer_notes]] · [[deepallo_notes]] · [[DECISIONS]] · [[ARCHITECTURE]]

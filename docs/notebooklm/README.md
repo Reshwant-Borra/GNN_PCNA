@@ -66,3 +66,9 @@ docs/notebooklm/
 - Make architectural decisions
 
 Use Claude for those.
+
+---
+
+## Related
+
+[[NOTEBOOKLM_WORKFLOW]] · [[extraction_template]] · [[NOTEBOOKLM_EXTRACTION_PROMPTS]] · [[pocketminer_notes]] · [[deepallo_notes]] · [[pcna_biology_notes]] · [[md_validation_notes]] · [[AI_WORKFLOW_RULES]]

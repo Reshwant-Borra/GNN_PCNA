@@ -52,3 +52,9 @@
 ## Merge Target
 
 → Update `docs/knowledge/MODELS.md` baselines section after full NLM extraction
+
+---
+
+## Related
+
+[[MODELS]] · [[VALIDATION]] · [[paper_notes]] · [[deepallo_notes]] · [[extraction_template]]

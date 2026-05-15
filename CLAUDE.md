@@ -162,3 +162,9 @@ Claude
 See `AGENTS.md` for detailed handoff protocol.
 See `docs/knowledge/AI_WORKFLOW_RULES.md` for the full plain-language explanation.
 See `docs/prompts/` for copy-pasteable prompt templates per agent.
+
+---
+
+## Related
+
+[[REPO_MAP]] · [[AGENTS]] · [[INDEX]] · [[KNOWN_BUGS]] · [[EXPERIMENT_INDEX]] · [[plan_template]] · [[AI_WORKFLOW_RULES]]

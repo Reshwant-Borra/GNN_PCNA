@@ -59,3 +59,9 @@
 ## Merge Target
 
 → Update `docs/knowledge/VALIDATION.md` after NLM extraction
+
+---
+
+## Related
+
+[[VALIDATION]] · [[PIPELINE]] · [[paper_notes]] · [[pcna_biology_notes]] · [[extraction_template]] · [[KNOWN_LIMITATIONS]]

@@ -42,3 +42,9 @@
 ## Merge Target
 
 → Update `docs/knowledge/BIOLOGY_PCNA.md` after full NLM extraction
+
+---
+
+## Related
+
+[[BIOLOGY_PCNA]] · [[VALIDATION]] · [[paper_notes]] · [[md_validation_notes]] · [[extraction_template]]

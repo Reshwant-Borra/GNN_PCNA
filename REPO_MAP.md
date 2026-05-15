@@ -170,3 +170,9 @@ GNN_PNCA/
 | `docs/visuals/system_map.html` | `start docs\visuals\system_map.html` (Windows) |
 | Any `.mmd` file | Open in Obsidian with Mermaid plugin |
 | Obsidian graph view | Open vault root in Obsidian, use Graph View |
+
+---
+
+## Related
+
+[[CLAUDE]] · [[AGENTS]] · [[INDEX]] · [[FILE_GUIDE]] · [[VISUALIZATION_SYSTEM]] · [[KNOWN_BUGS]]

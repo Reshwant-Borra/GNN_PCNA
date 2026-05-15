@@ -58,3 +58,9 @@ Do NOT create a plan for:
 ## Template
 
 See `docs/plans/plan_template.md`.
+
+---
+
+## Related
+
+[[CLAUDE]] · [[plan_template]] · [[EXPERIMENT_INDEX]] · [[AGENTS]] · [[CLAUDE_PLANNER_PROMPTS]]

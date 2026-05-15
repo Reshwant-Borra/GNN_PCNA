@@ -19,3 +19,9 @@ _None yet. Add entries as discovered._
 ## Resolved
 
 _None yet._
+
+---
+
+## Related
+
+[[BUG_LOG]] · [[CLAUDE]] · [[EXPERIMENT_INDEX]] · [[CHANGELOG]]

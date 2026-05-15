@@ -71,3 +71,9 @@
 - If 100 ns MD doesn't show pocket opening: use **metadynamics** or **replica exchange MD**
 - Collective variable for metadynamics: pocket volume or distance between key gate residues
 - PLUMED + GROMACS: standard toolchain for this
+
+---
+
+## Related
+
+[[BIOLOGY_PCNA]] · [[MODELS]] · [[VALIDATION]] · [[pocketminer_notes]] · [[deepallo_notes]] · [[pcna_biology_notes]] · [[md_validation_notes]] · [[RESEARCH_NOTES_LOG]]

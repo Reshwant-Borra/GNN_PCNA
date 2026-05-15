@@ -43,3 +43,9 @@
 ## Merge Target
 
 → Update `docs/knowledge/MODELS.md` baselines section after full NLM extraction
+
+---
+
+## Related
+
+[[MODELS]] · [[BIOLOGY_PCNA]] · [[paper_notes]] · [[pocketminer_notes]] · [[extraction_template]]

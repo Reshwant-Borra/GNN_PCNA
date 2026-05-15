@@ -127,3 +127,9 @@ Return:
 - File 2: complete implementation
 - Change summary for both
 ```
+
+---
+
+## Related
+
+[[AI_WORKFLOW_RULES]] · [[AGENTS]] · [[plan_template]] · [[KNOWN_BUGS]] · [[FILE_GUIDE]]

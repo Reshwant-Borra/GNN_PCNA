@@ -25,3 +25,9 @@
 
 - **GPU memory**: Full PCNA trimer graph at 8 Å cutoff is dense (~800 residues × ~10 edges each). Batch size may need to be 1–4 on 16 GB GPUs.
 - **MD cost**: 100 ns explicit solvent PCNA trimer ≈ 3–7 days on a single GPU node (OpenMM).
+
+---
+
+## Related
+
+[[VALIDATION]] · [[MODELS]] · [[BIOLOGY_PCNA]] · [[RESEARCH_QUESTION]] · [[EXPERIMENT_INDEX]] · [[md_validation_notes]]

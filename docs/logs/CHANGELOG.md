@@ -78,3 +78,9 @@
 ### Files changed
 - `path/to/file` — what changed
 ```
+
+---
+
+## Related
+
+[[BUG_LOG]] · [[DECISIONS]] · [[EXPERIMENT_INDEX]] · [[INDEX]]

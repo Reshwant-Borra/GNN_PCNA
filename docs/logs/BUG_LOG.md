@@ -44,3 +44,9 @@ Minimal steps or code snippet.
 **Tests added:**
 (link to test that covers this case)
 ```
+
+---
+
+## Related
+
+[[KNOWN_BUGS]] · [[CHANGELOG]] · [[DECISIONS]] · [[EXPERIMENT_INDEX]]

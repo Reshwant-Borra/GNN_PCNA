@@ -3,6 +3,8 @@
 > Paste these into NotebookLM after loading the relevant paper as a source.
 > Save outputs to docs/notebooklm/distilled_notes/.
 
+<!-- Related: [[NOTEBOOKLM_WORKFLOW]] · [[extraction_template]] · [[AI_WORKFLOW_RULES]] · [[pocketminer_notes]] · [[deepallo_notes]] · [[pcna_biology_notes]] · [[md_validation_notes]] -->
+
 ---
 
 ## Extract Method Architecture

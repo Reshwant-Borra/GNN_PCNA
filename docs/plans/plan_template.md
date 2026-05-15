@@ -150,3 +150,9 @@ For each issue found:
 
 Return: numbered list of issues only. No redesign suggestions.
 ```
+
+---
+
+## Related
+
+[[CLAUDE]] · [[EXPERIMENT_INDEX]] · [[PIPELINE]] · [[MODELS]] · [[KNOWN_BUGS]] · [[GEMINI_IMPLEMENTER_PROMPTS]] · [[CHATGPT_REVIEW_PROMPTS]]

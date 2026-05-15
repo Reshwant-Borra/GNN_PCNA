@@ -52,3 +52,9 @@
 - Ranked list of cryptic pocket candidates
 - Per-pocket: residue list, mean score, RMSF, DCCM signature, representative open snapshot
 - Export: JSON + PDB with B-factors replaced by pocket scores
+
+---
+
+## Related
+
+[[MODELS]] · [[DATASETS]] · [[VALIDATION]] · [[DATA_SCHEMA]] · [[FILE_GUIDE]] · [[EXPERIMENT_INDEX]] · [[SYSTEM_OVERVIEW]]

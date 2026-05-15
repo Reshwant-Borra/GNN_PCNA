@@ -111,3 +111,9 @@ Output:
 4. If new: add entry to KNOWN_BUGS.md and docs/logs/BUG_LOG.md
 5. Does this require a plan file? (only if fix is non-trivial)
 ```
+
+---
+
+## Related
+
+[[CLAUDE]] · [[AI_WORKFLOW_RULES]] · [[AGENTS]] · [[plan_template]] · [[KNOWN_BUGS]]

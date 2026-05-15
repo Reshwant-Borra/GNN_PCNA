@@ -47,3 +47,9 @@ flowchart TD
 - **VS Code**: Install "Markdown Preview Mermaid Support" extension → preview any `.md` with mermaid blocks
 - **CLI**: `mmdc -i system_map.mmd -o system_map.svg` (requires `@mermaid-js/mermaid-cli`)
 - **Browser**: Open `system_map.html` directly — no install needed
+
+---
+
+## Related
+
+[[VISUALIZATION_SYSTEM]] · [[SYSTEM_OVERVIEW]] · [[AI_WORKFLOW_RULES]] · [[PIPELINE]]

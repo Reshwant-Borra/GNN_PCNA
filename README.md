@@ -133,3 +133,9 @@ docs/
 - `docs/experiments/EXPERIMENT_INDEX.md` — all experiments
 - `KNOWN_BUGS.md` — known issues
 - `CLAUDE.md` — AI agent workflow rules
+
+---
+
+## Related
+
+[[INDEX]] · [[SYSTEM_OVERVIEW]] · [[BIOLOGY_PCNA]] · [[PIPELINE]] · [[MODELS]] · [[EXPERIMENT_INDEX]] · [[ARCHITECTURE]] · [[COMMANDS]] · [[ENVIRONMENT]] · [[KNOWN_BUGS]] · [[REPO_MAP]]

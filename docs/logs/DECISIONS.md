@@ -86,3 +86,9 @@
 
 **Source:** {who made this decision and why}
 ```
+
+---
+
+## Related
+
+[[MODELS]] · [[AI_WORKFLOW_RULES]] · [[CHANGELOG]] · [[ARCHITECTURE]] · [[BUG_LOG]]

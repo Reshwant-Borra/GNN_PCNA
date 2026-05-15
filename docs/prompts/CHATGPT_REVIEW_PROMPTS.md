@@ -113,3 +113,9 @@ Check:
 
 Return: numbered issue list.
 ```
+
+---
+
+## Related
+
+[[AI_WORKFLOW_RULES]] · [[AGENTS]] · [[KNOWN_BUGS]] · [[VALIDATION]] · [[md_validation_notes]]

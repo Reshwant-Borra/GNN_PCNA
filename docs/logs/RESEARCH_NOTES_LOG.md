@@ -26,3 +26,9 @@
 - Observation / idea / concern
 - Any action taken or planned
 ```
+
+---
+
+## Related
+
+[[paper_notes]] · [[BIOLOGY_PCNA]] · [[RESEARCH_QUESTION]] · [[EXPERIMENT_INDEX]] · [[KNOWN_LIMITATIONS]]

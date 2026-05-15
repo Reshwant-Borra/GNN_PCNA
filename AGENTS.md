@@ -217,3 +217,9 @@ Review focus:
 Return: numbered list of issues (severity: critical/warning/suggestion) + minimal fixes.
 === END CHATGPT REVIEW TASK ===
 ```
+
+---
+
+## Related
+
+[[AI_WORKFLOW_RULES]] · [[NOTEBOOKLM_WORKFLOW]] · [[CLAUDE]] · [[KNOWN_BUGS]] · [[EXPERIMENT_INDEX]] · [[DECISIONS]] · [[GEMINI_IMPLEMENTER_PROMPTS]] · [[CHATGPT_REVIEW_PROMPTS]] · [[NOTEBOOKLM_EXTRACTION_PROMPTS]] · [[CLAUDE_PLANNER_PROMPTS]]

@@ -38,3 +38,9 @@ data/
 - PCNA is a symmetric homotrimer: chains A/B/C are nearly identical
 - Data augmentation: use all 3 chains as independent training examples
 - Watch for crystal contacts in 1W60 — may mask surface residues
+
+---
+
+## Related
+
+[[PIPELINE]] · [[BIOLOGY_PCNA]] · [[DATA_INVENTORY]] · [[PDB_STRUCTURES]] · [[DATA_PROVENANCE]] · [[MODELS]] · [[KNOWN_LIMITATIONS]]

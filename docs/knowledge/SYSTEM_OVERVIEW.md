@@ -30,3 +30,9 @@ PDB Structure(s)
 - MD parsing: MDAnalysis
 - Structure handling: BioPython / ProDy
 - Visualization: py3Dmol (3D), matplotlib / seaborn (plots)
+
+---
+
+## Related
+
+[[INDEX]] · [[RESEARCH_QUESTION]] · [[BIOLOGY_PCNA]] · [[PIPELINE]] · [[MODELS]] · [[DATASETS]] · [[VALIDATION]]

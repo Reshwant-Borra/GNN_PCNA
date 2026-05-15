@@ -74,3 +74,9 @@ _Where should this go in docs/knowledge/?_
 - [ ] `docs/knowledge/DATASETS.md`
 - [ ] `docs/knowledge/VALIDATION.md`
 - [ ] Other: ...
+
+---
+
+## Related
+
+[[NOTEBOOKLM_WORKFLOW]] · [[NOTEBOOKLM_EXTRACTION_PROMPTS]] · [[pocketminer_notes]] · [[deepallo_notes]] · [[pcna_biology_notes]] · [[md_validation_notes]]

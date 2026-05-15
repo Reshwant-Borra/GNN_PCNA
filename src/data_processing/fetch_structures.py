@@ -228,9 +228,10 @@ def fetch_from_catalog(catalog_path: Path, min_score: float = 0.3,
     Only downloads entries with relevance_score >= min_score.
     """
     catalog  = json.loads(catalog_path.read_text())
-    entries  = [e for e in catalog.get("pdb_entries", [])
-                if e.get("relevance_score", 0) >= min_score][:limit]
-    pdb_ids  = [e["pdb_id"] for e in entries]
+    entries  = [e for e in catalog.get("passed", [])
+                if e.get("record_type") == "pdb_structure"
+                and e.get("relevance", 0) >= min_score][:limit]
+    pdb_ids  = [e["uid"].split("_")[0].upper()[:4] for e in entries]
     print(f"Fetching {len(pdb_ids)} structures from catalog "
           f"(score ≥ {min_score}, limit={limit})")
     return fetch_batch(pdb_ids, force=force)

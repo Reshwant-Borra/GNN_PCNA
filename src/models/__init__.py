@@ -1,1 +1,1 @@
-from .cryptic_gnn import CrypticGNN
+from .cryptic_gnn import CrypticGNN, PocketGNN

@@ -13,20 +13,38 @@ import numpy as np
 from torch_geometric.loader import DataLoader
 from sklearn.metrics import roc_auc_score
 
-from src.models import CrypticGNN
-from .loss import focal_loss
+from src.models import CrypticGNN, PocketGNN
+from src.models.cryptic_gnn import pocket_loss, focal_loss
 from .dataset import PocketDataset
 
 
-def train_epoch(model: CrypticGNN, loader: DataLoader, optimizer: torch.optim.Optimizer, device: str) -> float:
+def _forward(model, batch, use_symmetry: bool = False):
+    """Route forward pass for either v1 (CrypticGNN) or v2 (PocketGNN)."""
+    if isinstance(model, PocketGNN):
+        chain_id = getattr(batch, "chain_id", None)
+        scores = model(
+            batch.x, batch.edge_index, batch.edge_attr,
+            batch.edge_index_seq, batch.edge_attr_seq,
+            chain_id,
+        )
+        resid = getattr(batch, "resid", None)
+        loss = pocket_loss(scores, batch.y.float(), chain_id, resid,
+                           use_symmetry=use_symmetry)
+    else:
+        scores = model(batch.x, batch.edge_index, batch.edge_attr)
+        loss = focal_loss(scores, batch.y.float())
+    return scores, loss
+
+
+def train_epoch(model, loader: DataLoader, optimizer: torch.optim.Optimizer,
+                device: str, use_symmetry: bool = False) -> float:
     """Run one training epoch. Returns mean loss."""
     model.train()
     total_loss = 0.0
     for batch in loader:
         batch = batch.to(device)
         optimizer.zero_grad()
-        scores = model(batch.x, batch.edge_index, batch.edge_attr)
-        loss = focal_loss(scores, batch.y.float())
+        _, loss = _forward(model, batch, use_symmetry)
         loss.backward()
         optimizer.step()
         total_loss += loss.item()
@@ -34,7 +52,7 @@ def train_epoch(model: CrypticGNN, loader: DataLoader, optimizer: torch.optim.Op
 
 
 @torch.no_grad()
-def eval_epoch(model: CrypticGNN, loader: DataLoader, device: str) -> dict:
+def eval_epoch(model, loader: DataLoader, device: str) -> dict:
     """Evaluate on loader. Returns dict with loss and AUROC."""
     model.eval()
     total_loss = 0.0
@@ -43,8 +61,7 @@ def eval_epoch(model: CrypticGNN, loader: DataLoader, device: str) -> dict:
 
     for batch in loader:
         batch = batch.to(device)
-        scores = model(batch.x, batch.edge_index, batch.edge_attr)
-        loss = focal_loss(scores, batch.y.float())
+        scores, loss = _forward(model, batch)
         total_loss += loss.item()
         all_scores.append(scores.cpu().numpy())
         all_labels.append(batch.y.cpu().numpy())

@@ -128,7 +128,10 @@ def export_bfactor_pdb(pdb_bytes: bytes, residues, scores: np.ndarray) -> str:
                 chain = line[21]
                 resid = int(line[22:26].strip())
                 prob  = score_map.get((chain, resid), 0.0)
-                line  = line[:60] + f"{prob:6.2f}" + line[66:]
+                if len(line) >= 66:
+                    line = line[:60] + f"{prob:6.2f}" + line[66:]
+                else:
+                    line = line[:60] + f"{prob:6.2f}"
             except (ValueError, IndexError):
                 pass
         lines_out.append(line)

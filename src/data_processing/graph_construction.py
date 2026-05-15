@@ -184,12 +184,8 @@ def _build_node_matrix_v2(
     density_10_norm = np.clip(density_10 / 30.0, 0, 1).astype(np.float32)
 
     # Interface flag: does this residue have a cross-chain neighbour within 8Å?
-    is_interface = np.zeros(N, dtype=np.float32)
-    for i in range(N):
-        for j in range(N):
-            if chain_ids[i] != chain_ids[j] and dist_matrix[i, j] < 8.0:
-                is_interface[i] = 1.0
-                break
+    cross_chain  = chain_ids[:, None] != chain_ids[None, :]   # (N, N) bool
+    is_interface = (cross_chain & (dist_matrix < 8.0)).any(axis=1).astype(np.float32)
 
     # Chain one-hot (for PCNA A/B/C; for other proteins all zeros)
     unique_chains = sorted(set(chain_ids))
@@ -281,20 +277,14 @@ def _build_backbone_edges(
     Build backbone sequential edges: residue pairs where |i−j| ≤ max_sep
     and same chain. Returns (i_idx, j_idx).
     """
-    N = len(chain_ids)
-    rows, cols = [], []
-    for i in range(N):
-        for j in range(N):
-            if i == j:
-                continue
-            if chain_ids[i] == chain_ids[j]:
-                sep = abs(int(resids[i]) - int(resids[j]))
-                if 1 <= sep <= max_sep:
-                    rows.append(i)
-                    cols.append(j)
-    if not rows:
+    same_chain = chain_ids[:, None] == chain_ids[None, :]              # (N, N)
+    seq_sep    = np.abs(resids[:, None].astype(int) - resids[None, :].astype(int))
+    mask = same_chain & (seq_sep >= 1) & (seq_sep <= max_sep)
+    np.fill_diagonal(mask, False)
+    i_idx, j_idx = np.where(mask)
+    if len(i_idx) == 0:
         return np.empty((0,), dtype=np.int64), np.empty((0,), dtype=np.int64)
-    return np.array(rows, dtype=np.int64), np.array(cols, dtype=np.int64)
+    return i_idx.astype(np.int64), j_idx.astype(np.int64)
 
 
 # ── Public API ────────────────────────────────────────────────────────────────

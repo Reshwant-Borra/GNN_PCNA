@@ -86,43 +86,77 @@ def main(args: argparse.Namespace) -> None:
 
     train_set = PocketDataset(args.train_dir)
     val_set   = PocketDataset(args.val_dir)
-    train_loader = DataLoader(train_set, batch_size=args.batch_size, shuffle=True,
-                              follow_batch=['edge_index_seq'])
-    val_loader   = DataLoader(val_set,   batch_size=args.batch_size,
-                              follow_batch=['edge_index_seq'])
 
-    model = PocketGNN().to(device)
+    use_v2 = args.model_size != 'v1'
+    follow = ['edge_index_seq'] if use_v2 else []
+    train_loader = DataLoader(train_set, batch_size=args.batch_size, shuffle=True,
+                              follow_batch=follow)
+    val_loader   = DataLoader(val_set,   batch_size=args.batch_size,
+                              follow_batch=follow)
+
+    if args.model_size == 'small':
+        model = PocketGNN.small().to(device)
+    elif args.model_size == 'medium':
+        model = PocketGNN.medium().to(device)
+    elif args.model_size == 'v1':
+        model = CrypticGNN().to(device)
+    else:
+        model = PocketGNN().to(device)  # large
+
+    if args.resume:
+        ckpt = Path(args.resume)
+        if ckpt.exists():
+            model.load_state_dict(torch.load(ckpt, map_location=device))
+            print(f"Resumed from {ckpt}")
+
+    use_symmetry = (args.phase == 'finetune')
+
     optimizer = torch.optim.AdamW(model.parameters(), lr=args.lr, weight_decay=1e-4)
     scheduler = torch.optim.lr_scheduler.CosineAnnealingLR(optimizer, T_max=args.epochs)
 
-    best_val_loss = float('inf')
+    ckpt_dir = Path(args.checkpoint_dir)
+    ckpt_dir.mkdir(parents=True, exist_ok=True)
+
+    best_auroc = -1.0
     patience_counter = 0
 
     for epoch in range(1, args.epochs + 1):
-        train_loss = train_epoch(model, train_loader, optimizer, device)
+        train_loss = train_epoch(model, train_loader, optimizer, device, use_symmetry)
         val_metrics = eval_epoch(model, val_loader, device)
         scheduler.step()
 
-        print(f"Epoch {epoch:03d} | train_loss={train_loss:.4f} | val_loss={val_metrics['loss']:.4f} | AUROC={val_metrics['auroc']:.4f}")
+        auroc = val_metrics['auroc']
+        print(f"Epoch {epoch:03d} | train_loss={train_loss:.4f} | "
+              f"val_loss={val_metrics['loss']:.4f} | AUROC={auroc:.4f}")
 
-        if val_metrics['loss'] < best_val_loss:
-            best_val_loss = val_metrics['loss']
+        if np.isnan(auroc) or auroc > best_auroc:
+            if not np.isnan(auroc):
+                best_auroc = auroc
             patience_counter = 0
-            torch.save(model.state_dict(), Path(args.checkpoint_dir) / 'best.ckpt')
+            torch.save(model.state_dict(), ckpt_dir / 'best.ckpt')
         else:
             patience_counter += 1
             if patience_counter >= args.patience:
                 print(f"Early stopping at epoch {epoch}")
                 break
 
+    print(f"Best AUROC: {best_auroc:.4f}")
+
 
 if __name__ == '__main__':
-    parser = argparse.ArgumentParser()
-    parser.add_argument('--train_dir', required=True)
-    parser.add_argument('--val_dir', required=True)
+    parser = argparse.ArgumentParser(description="Train PocketGNN")
+    parser.add_argument('--train_dir',      required=True)
+    parser.add_argument('--val_dir',        required=True)
     parser.add_argument('--checkpoint_dir', default='checkpoints/')
-    parser.add_argument('--epochs', type=int, default=100)
-    parser.add_argument('--batch_size', type=int, default=16)
-    parser.add_argument('--lr', type=float, default=1e-3)
-    parser.add_argument('--patience', type=int, default=10)
+    parser.add_argument('--model_size',     default='large',
+                        choices=['large', 'medium', 'small', 'v1'])
+    parser.add_argument('--phase',          default='pretrain',
+                        choices=['pretrain', 'finetune'],
+                        help='finetune enables symmetry loss (PCNA only)')
+    parser.add_argument('--resume',         default=None,
+                        help='path to checkpoint to resume from')
+    parser.add_argument('--epochs',         type=int,   default=100)
+    parser.add_argument('--batch_size',     type=int,   default=16)
+    parser.add_argument('--lr',             type=float, default=1e-3)
+    parser.add_argument('--patience',       type=int,   default=10)
     main(parser.parse_args())

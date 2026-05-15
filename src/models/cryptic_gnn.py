@@ -46,6 +46,9 @@ class CrypticGNN(nn.Module):
             h = norm(h + conv(h, edge_index, edge_attr))
         return torch.sigmoid(self.head(h).squeeze(-1))
 
+    def param_count(self) -> int:
+        return sum(p.numel() for p in self.parameters())
+
 
 # ── PocketGNN v2 ──────────────────────────────────────────────────────────────
 
@@ -84,7 +87,7 @@ class PocketGNN(nn.Module):
         n_seq       : int   = 3,
         num_heads   : int   = 8,
         dropout     : float = 0.2,
-        sym_weight  : float = 0.1,
+        sym_weight  : float = 0.0,
     ):
         super().__init__()
         assert hidden_dim % num_heads == 0, "hidden_dim must be divisible by num_heads"

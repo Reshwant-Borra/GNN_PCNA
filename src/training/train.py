@@ -96,11 +96,15 @@ def _forward(model, batch, use_symmetry: bool = False):
             batch.edge_index_seq, batch.edge_attr_seq,
             chain_id,
         )
+        if batch.y is None:
+            return scores, scores.new_zeros(1).squeeze()
         resid = getattr(batch, "resid", None)
         loss = pocket_loss(scores, batch.y.float(), chain_id, resid,
                            use_symmetry=use_symmetry)
     else:
         scores = model(batch.x, batch.edge_index, batch.edge_attr)
+        if batch.y is None:
+            return scores, scores.new_zeros(1).squeeze()
         loss = focal_loss(scores, batch.y.float())
     return scores, loss
 

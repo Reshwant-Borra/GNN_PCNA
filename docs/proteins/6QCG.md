@@ -265,12 +265,19 @@ Score distribution:
 
 ## Data Files
 
-| File | Description |
-|------|-------------|
-| `results/per_structure/6QCG/scores.csv` | Per-residue pocket scores |
-| `results/per_structure/6QCG/clusters.csv` | DBSCAN cluster assignments |
-| `results/per_structure/6QCG/report.txt` | Full text analysis report |
-| `results/per_structure/6QCG/summary.json` | Machine-readable summary |
+> **Gitignored** — regenerate locally with `python scripts/per_structure_analysis.py`
+> PDB inputs: `python agents/pcna_crawler.py --download` | Graphs: `python scripts/build_graphs.py`
+
+| File | Description | Tracked in git? |
+|------|-------------|----------------|
+| `results/per_structure/6QCG/scores.csv` | Per-residue pocket scores | No |
+| `results/per_structure/6QCG/clusters.csv` | DBSCAN cluster assignments | No |
+| `results/per_structure/6QCG/report.txt` | Full text analysis report | No |
+| `results/per_structure/6QCG/summary.json` | Machine-readable summary | No |
+| `results/per_structure/summary_table.csv` | All-59 rollup | Yes |
+| `checkpoints/pcna/best_pcna.ckpt` | Trained model weights | Yes |
+| `data/raw/6QCG.pdb` | Raw PDB structure | No |
+| `data/graphs/6QCG.pt` | PyG graph tensor | No |
 
 ---
-*GNN-PCNA v2 | Dual-branch GATv2Conv | Checkpoint: `checkpoints/pcna/best_pcna.ckpt`*
+*GNN-PCNA v2 | Dual-branch GATv2Conv | Checkpoint tracked at `checkpoints/pcna/best_pcna.ckpt`*

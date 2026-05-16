@@ -1,0 +1,3 @@
+# PyG graph .pt files go here (gitignored)
+# Run: python scripts/build_graphs.py
+# Requires data/raw/ to be populated first.

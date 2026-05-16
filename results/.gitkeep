@@ -1,0 +1,3 @@
+# Per-structure results go here (gitignored — large CSV/TXT files)
+# Run: python scripts/per_structure_analysis.py
+# summary_table.csv and full_analysis.png are tracked via git add -f

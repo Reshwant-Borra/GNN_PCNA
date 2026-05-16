@@ -97,14 +97,14 @@ def _forward(model, batch, use_symmetry: bool = False):
             chain_id,
         )
         if batch.y is None:
-            return scores, scores.new_zeros(1).squeeze()
+            return scores, scores.sum() * 0.0
         resid = getattr(batch, "resid", None)
         loss = pocket_loss(scores, batch.y.float(), chain_id, resid,
                            use_symmetry=use_symmetry)
     else:
         scores = model(batch.x, batch.edge_index, batch.edge_attr)
         if batch.y is None:
-            return scores, scores.new_zeros(1).squeeze()
+            return scores, scores.sum() * 0.0
         loss = focal_loss(scores, batch.y.float())
     return scores, loss
 
@@ -140,6 +140,8 @@ def eval_epoch(model, loader: DataLoader, device: str) -> dict:
         batch = batch.to(device)
         scores, loss = _forward(model, batch)
         total_loss += loss.item()
+        if batch.y is None:
+            continue
         all_scores.append(scores.cpu().numpy())
         all_labels.append(batch.y.cpu().numpy())
 

@@ -57,7 +57,7 @@ def sanity_check(model: torch.nn.Module, device: str) -> None:
     was_training = model.training
     model.train()
 
-    if isinstance(model, PocketGNN):
+    if isinstance(model, (PocketGNN, PocketGNNXL)):
         scores = model(data.x, data.edge_index, data.edge_attr,
                        data.edge_index_seq, data.edge_attr_seq)
     else:

@@ -137,7 +137,11 @@ def make_split(
             if not dest_file.exists() or force:
                 shutil.copy2(str(p), str(dest_file))
 
-        print(f"  [{split_name}] {len(paths)} files -> {dest.relative_to(REPO_ROOT)}")
+        try:
+            dest_label = dest.relative_to(REPO_ROOT)
+        except ValueError:
+            dest_label = dest
+        print(f"  [{split_name}] {len(paths)} files -> {dest_label}")
 
     if not dry_run:
         SPLITS_DIR.mkdir(parents=True, exist_ok=True)

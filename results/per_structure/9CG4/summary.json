@@ -1,0 +1,16 @@
+{
+  "pdb": "9CG4",
+  "title": "DNA BINDING PROTEINCRYO-EM STRUCTURE OF FAN1, PCNA AND DNA SUBSTRATE WITH (CAG)2 EXTRUSION IN INTERMEDIATE STATE",
+  "n_residues": 966,
+  "n_chains": 4,
+  "ligands": [],
+  "auroc": null,
+  "n_pocket_labeled": null,
+  "n_clusters": 6,
+  "top_cluster_mean": 0.5411,
+  "top_cluster_n": 67,
+  "top_aoh_overlap": 15,
+  "top_concavity": 0.642,
+  "score_max": 0.7725,
+  "score_mean": 0.1724
+}

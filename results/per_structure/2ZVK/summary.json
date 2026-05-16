@@ -1,0 +1,16 @@
+{
+  "pdb": "2ZVK",
+  "title": "TRANSFERASECRYSTAL STRUCTURE OF PCNA IN COMPLEX WITH DNA POLYMERASE ETA FRAGMENT",
+  "n_residues": 777,
+  "n_chains": 6,
+  "ligands": [],
+  "auroc": null,
+  "n_pocket_labeled": null,
+  "n_clusters": 6,
+  "top_cluster_mean": 0.5491,
+  "top_cluster_n": 56,
+  "top_aoh_overlap": 13,
+  "top_concavity": 0.446,
+  "score_max": 0.7619,
+  "score_mean": 0.2087
+}

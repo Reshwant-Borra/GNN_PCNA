@@ -1,0 +1,16 @@
+{
+  "pdb": "5E0U",
+  "title": "DNA BINDING PROTEINHUMAN PCNA VARIANT (S228I) COMPLEXED WITH P21 AT 1.9 ANGSTROMS",
+  "n_residues": 820,
+  "n_chains": 6,
+  "ligands": [],
+  "auroc": null,
+  "n_pocket_labeled": null,
+  "n_clusters": 6,
+  "top_cluster_mean": 0.5511,
+  "top_cluster_n": 72,
+  "top_aoh_overlap": 15,
+  "top_concavity": 0.597,
+  "score_max": 0.736,
+  "score_mean": 0.2058
+}

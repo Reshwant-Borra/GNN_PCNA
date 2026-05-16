@@ -1,0 +1,16 @@
+{
+  "pdb": "5MLW",
+  "title": "HYDROLASECRYSTAL STRUCTURE OF HUMAN PCNA IN COMPLEX WITH ZRANB3 APIM MOTIF PEPTIDE",
+  "n_residues": 786,
+  "n_chains": 6,
+  "ligands": [],
+  "auroc": null,
+  "n_pocket_labeled": null,
+  "n_clusters": 4,
+  "top_cluster_mean": 0.576,
+  "top_cluster_n": 102,
+  "top_aoh_overlap": 20,
+  "top_concavity": 0.5,
+  "score_max": 0.7201,
+  "score_mean": 0.2015
+}

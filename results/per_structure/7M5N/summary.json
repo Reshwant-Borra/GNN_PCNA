@@ -1,0 +1,18 @@
+{
+  "pdb": "7M5N",
+  "title": "REPLICATIONPCNA BOUND TO PEPTIDE MIMETIC WITH LINKER",
+  "n_residues": 772,
+  "n_chains": 5,
+  "ligands": [
+    "8VH"
+  ],
+  "auroc": 0.54,
+  "n_pocket_labeled": 9,
+  "n_clusters": 9,
+  "top_cluster_mean": 0.5633,
+  "top_cluster_n": 44,
+  "top_aoh_overlap": 9,
+  "top_concavity": 0.841,
+  "score_max": 0.7861,
+  "score_mean": 0.191
+}

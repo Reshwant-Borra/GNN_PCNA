@@ -1,0 +1,19 @@
+{
+  "pdb": "7NV0",
+  "title": "REPLICATIONHUMAN POL KAPPA HOLOENZYME WITH WT PCNA",
+  "n_residues": 1180,
+  "n_chains": 4,
+  "ligands": [
+    "DOC",
+    "TTP"
+  ],
+  "auroc": 0.6388,
+  "n_pocket_labeled": 12,
+  "n_clusters": 7,
+  "top_cluster_mean": 0.5897,
+  "top_cluster_n": 128,
+  "top_aoh_overlap": 21,
+  "top_concavity": 0.578,
+  "score_max": 0.7913,
+  "score_mean": 0.1982
+}

@@ -1,0 +1,16 @@
+{
+  "pdb": "6GWS",
+  "title": "REPLICATIONCRYSTAL STRUCTURE OF HUMAN PCNA IN COMPLEX WITH THREE P15 PEPTIDES",
+  "n_residues": 831,
+  "n_chains": 6,
+  "ligands": [],
+  "auroc": null,
+  "n_pocket_labeled": null,
+  "n_clusters": 5,
+  "top_cluster_mean": 0.5681,
+  "top_cluster_n": 36,
+  "top_aoh_overlap": 9,
+  "top_concavity": 0.611,
+  "score_max": 0.7694,
+  "score_mean": 0.154
+}

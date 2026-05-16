@@ -1,0 +1,18 @@
+{
+  "pdb": "6CBI",
+  "title": "CELL CYCLEPCNA IN COMPLEX WITH INHIBITOR",
+  "n_residues": 1535,
+  "n_chains": 10,
+  "ligands": [
+    "DAB"
+  ],
+  "auroc": 0.4066,
+  "n_pocket_labeled": 39,
+  "n_clusters": 11,
+  "top_cluster_mean": 0.597,
+  "top_cluster_n": 222,
+  "top_aoh_overlap": 24,
+  "top_concavity": 0.523,
+  "score_max": 0.7724,
+  "score_mean": 0.2492
+}

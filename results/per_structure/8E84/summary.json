@@ -1,0 +1,16 @@
+{
+  "pdb": "8E84",
+  "title": "DNA BINDING PROTEINHUMAN PCNA MUTANT- C148S",
+  "n_residues": 738,
+  "n_chains": 3,
+  "ligands": [],
+  "auroc": null,
+  "n_pocket_labeled": null,
+  "n_clusters": 6,
+  "top_cluster_mean": 0.5814,
+  "top_cluster_n": 55,
+  "top_aoh_overlap": 15,
+  "top_concavity": 0.473,
+  "score_max": 0.7777,
+  "score_mean": 0.2037
+}

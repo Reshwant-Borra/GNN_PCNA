@@ -1,0 +1,19 @@
+{
+  "pdb": "8UMU",
+  "title": "REPLICATION/DNAATOMIC MODEL OF THE HUMAN CTF18-RFC-PCNA BINARY COMPLEX IN THE FOUR- SUBUNIT BINDING STATE (STATE 3)",
+  "n_residues": 2603,
+  "n_chains": 8,
+  "ligands": [
+    "AGS",
+    "ADP"
+  ],
+  "auroc": 0.4704,
+  "n_pocket_labeled": 79,
+  "n_clusters": 8,
+  "top_cluster_mean": 0.5847,
+  "top_cluster_n": 115,
+  "top_aoh_overlap": 21,
+  "top_concavity": 0.617,
+  "score_max": 0.7916,
+  "score_mean": 0.1277
+}

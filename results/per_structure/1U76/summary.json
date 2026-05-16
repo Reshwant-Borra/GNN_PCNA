@@ -1,0 +1,16 @@
+{
+  "pdb": "1U76",
+  "title": "REPLICATIONCRYSTAL STRUCTURE OF HPCNA BOUND TO RESIDUES 452-466 OF THE DNA POLYMERASE-DELTA-P66 SUBUNIT",
+  "n_residues": 795,
+  "n_chains": 6,
+  "ligands": [],
+  "auroc": null,
+  "n_pocket_labeled": null,
+  "n_clusters": 5,
+  "top_cluster_mean": 0.5694,
+  "top_cluster_n": 118,
+  "top_aoh_overlap": 22,
+  "top_concavity": 0.525,
+  "score_max": 0.7531,
+  "score_mean": 0.2067
+}

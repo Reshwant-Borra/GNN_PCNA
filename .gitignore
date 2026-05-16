@@ -1,33 +1,16 @@
-# Data — large binary files, do not commit
-data/raw/
-data/processed/
-data/graphs/
-data/labels/
-data/trajectories/
-
-# Catalog outputs are committed (they're small JSON/text)
-!data/catalog/
-
-# Python
+# Python bytecode
 __pycache__/
 *.py[cod]
 *.pyo
-.venv/
-venv/
 *.egg-info/
 
-# Checkpoints
-checkpoints/
-*.pt
-*.pth
-*.ckpt
-
-# Results
-results/
-
-# Jupyter
-.ipynb_checkpoints/
+# Virtual environments
+.venv/
+venv/
 
 # OS
 .DS_Store
 Thumbs.db
+
+# Jupyter
+.ipynb_checkpoints/

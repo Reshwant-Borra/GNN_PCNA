@@ -1,0 +1,16 @@
+{
+  "pdb": "6K3A",
+  "title": "REPLICATIONCRYSTAL STRUCTURE OF HUMAN PCNA IN COMPLEX WITH DNMT1 PIP BOX MOTIF.",
+  "n_residues": 762,
+  "n_chains": 6,
+  "ligands": [],
+  "auroc": null,
+  "n_pocket_labeled": null,
+  "n_clusters": 6,
+  "top_cluster_mean": 0.5915,
+  "top_cluster_n": 112,
+  "top_aoh_overlap": 21,
+  "top_concavity": 0.491,
+  "score_max": 0.7637,
+  "score_mean": 0.2388
+}

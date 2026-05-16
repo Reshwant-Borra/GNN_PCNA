@@ -1,0 +1,16 @@
+{
+  "pdb": "3P87",
+  "title": "HYDROLASE/DNA BINDING PROTEINSTRUCTURE OF HUMAN PCNA BOUND TO RNASEH2B PIP BOX PEPTIDE",
+  "n_residues": 1539,
+  "n_chains": 12,
+  "ligands": [],
+  "auroc": null,
+  "n_pocket_labeled": null,
+  "n_clusters": 8,
+  "top_cluster_mean": 0.5771,
+  "top_cluster_n": 212,
+  "top_aoh_overlap": 22,
+  "top_concavity": 0.509,
+  "score_max": 0.784,
+  "score_mean": 0.2262
+}

@@ -1,0 +1,52 @@
+======================================================================
+PDB: 1U7B
+Title: REPLICATIONCRYSTAL STRUCTURE OF HPCNA BOUND TO RESIDUES 331-350 OF THE FLAP ENDONUCLEASE-1 (FEN1)
+Chains: A, B  |  Residues: 264
+Ligands detected: none (apo)
+Residues above threshold (0.4): 121/264 (45.8%)
+
+Predicted cryptic pockets: 2
+
+  Pocket #1  (PRIMARY)
+  ------------------------------------------------------------
+  Residues: 96  |  Mean score: 0.657  |  Max score: 0.789
+  Center (A): (52.4, -37.5, -18.1)
+  Structural region: Domain 2 core beta sheet
+     58 residues in: Domain 2 core beta sheet
+     20 residues in: C-terminal loop — AOH1996 cryptic pocket region
+      6 residues in: Front-face loop (PIP-box groove)
+      5 residues in: Core beta sheet
+      4 residues in: IDCL — Interdomain Connecting Loop (key interaction hub)
+      2 residues in: N-terminal beta sheet (domain 1)
+      1 residues in: C-terminal tail (protein-protein interface)
+  AOH1996 pocket overlap: 16/24 GT residues
+  --> HIGH overlap: this pocket is the known AOH1996 cryptic site
+  Geometric concavity: 0.53 (concave — geometrically pocket-like)
+  Top residues: A139(MET)=0.789, A138(LYS)=0.784, A137(VAL)=0.778, A140(PRO)=0.764, A141(SER)=0.761, A46(SER)=0.761, A136(VAL)=0.757, A236(VAL)=0.756
+
+  How this pocket was identified:
+    The model assigned high pocket probability to 96 residues that cluster within 6 A of each other in 3D space. These residues have a mean SASA of 30.9 A^2 (65% are partially buried, SASA < 30 A^2), consistent with a recessed binding surface rather than an exposed loop.
+    The GNN assigned high scores here because the dual-branch message-passing identified this neighborhood as chemically similar to known cryptic pocket residues in the training data: the spatial branch detected dense local packing (average 96 close contacts) and the sequential branch detected the loop or beta-strand context typical of induced-fit binding sites.
+    This matches the region where AOH1996 binds in PDB 8GLA, specifically the domain 2 core beta sheet. The prediction is consistent with the known mechanism of cryptic pocket opening.
+
+  Pocket #2  (secondary)
+  ------------------------------------------------------------
+  Residues: 24  |  Mean score: 0.631  |  Max score: 0.765
+  Center (A): (57.2, -65.2, -8.9)
+  Structural region: Core beta sheet
+     14 residues in: Core beta sheet
+      6 residues in: IDCL — Interdomain Connecting Loop (key interaction hub)
+      4 residues in: N-terminal beta sheet (domain 1)
+  AOH1996 pocket overlap: 4/24 GT residues
+  --> LOW overlap: likely a distinct/novel predicted site
+  Geometric concavity: 0.42 (convex — surface protrusion, interpret cautiously)
+  Top residues: A116(MET)=0.765, A117(LYS)=0.761, A118(LEU)=0.760, A26(ALA)=0.747, A27(CYS)=0.721, A119(MET)=0.718, A25(GLU)=0.717, A115(GLU)=0.712
+
+  How this pocket was identified:
+    The model assigned high pocket probability to 24 residues that cluster within 6 A of each other in 3D space. These residues have a mean SASA of 40.5 A^2 (46% are partially buried, SASA < 30 A^2), consistent with a recessed binding surface rather than an exposed loop.
+    The GNN assigned high scores here because the dual-branch message-passing identified this neighborhood as chemically similar to known cryptic pocket residues in the training data: the spatial branch detected dense local packing (average 24 close contacts) and the sequential branch detected the loop or beta-strand context typical of induced-fit binding sites.
+    This does not overlap significantly with the AOH1996 site, suggesting a potentially novel cryptic pocket that may respond to a different small molecule than AOH1996.
+
+Score distribution:
+  Min=0.021  Max=0.789  Mean=0.354  Std=0.291
+  45.8% of residues exceed threshold 0.4 (high diffuse signal — interpret clusters carefully)

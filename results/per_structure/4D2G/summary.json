@@ -1,0 +1,16 @@
+{
+  "pdb": "4D2G",
+  "title": "TRANSCRIPTIONCRYSTAL STRUCTURE OF HUMAN PCNA IN COMPLEX WITH P15 PEPTIDE",
+  "n_residues": 814,
+  "n_chains": 5,
+  "ligands": [],
+  "auroc": null,
+  "n_pocket_labeled": null,
+  "n_clusters": 8,
+  "top_cluster_mean": 0.684,
+  "top_cluster_n": 38,
+  "top_aoh_overlap": 14,
+  "top_concavity": 0.447,
+  "score_max": 0.8122,
+  "score_mean": 0.1987
+}

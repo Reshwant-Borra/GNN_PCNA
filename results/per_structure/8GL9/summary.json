@@ -1,0 +1,18 @@
+{
+  "pdb": "8GL9",
+  "title": "DNA BINDING PROTEINCO-CRYSTAL STRUCTURE OF CAPCNA BOUND TO AOH1160 DERIVATIVE 1LE",
+  "n_residues": 962,
+  "n_chains": 4,
+  "ligands": [
+    "ZQW"
+  ],
+  "auroc": 0.8129,
+  "n_pocket_labeled": 45,
+  "n_clusters": 7,
+  "top_cluster_mean": 0.6114,
+  "top_cluster_n": 97,
+  "top_aoh_overlap": 22,
+  "top_concavity": 0.567,
+  "score_max": 0.8092,
+  "score_mean": 0.2324
+}

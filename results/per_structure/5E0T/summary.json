@@ -1,0 +1,16 @@
+{
+  "pdb": "5E0T",
+  "title": "DNA BINDING PROTEINHUMAN PCNA MUTANT - S228I",
+  "n_residues": 753,
+  "n_chains": 3,
+  "ligands": [],
+  "auroc": null,
+  "n_pocket_labeled": null,
+  "n_clusters": 6,
+  "top_cluster_mean": 0.5705,
+  "top_cluster_n": 96,
+  "top_aoh_overlap": 21,
+  "top_concavity": 0.406,
+  "score_max": 0.8015,
+  "score_mean": 0.234
+}

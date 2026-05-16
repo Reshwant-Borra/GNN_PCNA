@@ -1,0 +1,18 @@
+{
+  "pdb": "9N3L",
+  "title": "DNA BINDING PROTEINCO-CRYSTAL STRUCTURE OF PCNA BOUND TO HSP90ALPHA INHIBITOR, SNX2112",
+  "n_residues": 246,
+  "n_chains": 1,
+  "ligands": [
+    "E0G"
+  ],
+  "auroc": 0.8602,
+  "n_pocket_labeled": 14,
+  "n_clusters": 1,
+  "top_cluster_mean": 0.6702,
+  "top_cluster_n": 123,
+  "top_aoh_overlap": 22,
+  "top_concavity": 0.472,
+  "score_max": 0.7992,
+  "score_mean": 0.3824
+}

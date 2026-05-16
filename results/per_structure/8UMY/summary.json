@@ -1,0 +1,19 @@
+{
+  "pdb": "8UMY",
+  "title": "REPLICATION/DNAATOMIC MODEL OF THE HUMAN CTF18-RFC-PCNA-DNA TERNARY COMPLEX WITH NARROW PCNA OPENING STATE II (STATE 6)",
+  "n_residues": 2647,
+  "n_chains": 8,
+  "ligands": [
+    "AGS",
+    "ADP"
+  ],
+  "auroc": 0.5528,
+  "n_pocket_labeled": 94,
+  "n_clusters": 15,
+  "top_cluster_mean": 0.5814,
+  "top_cluster_n": 73,
+  "top_aoh_overlap": 16,
+  "top_concavity": 0.575,
+  "score_max": 0.7966,
+  "score_mean": 0.1275
+}

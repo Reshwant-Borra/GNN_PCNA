@@ -1,0 +1,2604 @@
+chain,resid,resname,score,sasa,b_factor,secondary_structure,region,gt_aoh,gt_ligand
+A,165,ASN,0.0252,131.16,110.23,C,Domain 2 core beta sheet,0,0
+A,166,PRO,0.025,38.24,98.56,C,Domain 2 core beta sheet,0,0
+A,167,VAL,0.0254,10.85,105.38,E,Domain 2 core beta sheet,0,0
+A,168,LEU,0.025,101.44,110.91,E,Domain 2 core beta sheet,0,0
+A,169,ARG,0.0234,130.6,123.75,C,Domain 2 core beta sheet,0,0
+A,170,ARG,0.0229,188.81,129.26,C,Domain 2 core beta sheet,0,0
+A,171,PRO,0.0212,79.94,125.46,C,Domain 2 core beta sheet,0,0
+A,172,PRO,0.021,30.7,121.23,C,Domain 2 core beta sheet,0,0
+A,173,ILE,0.0206,140.69,129.33,C,Domain 2 core beta sheet,0,0
+A,174,LEU,0.0209,160.82,130.46,C,Domain 2 core beta sheet,0,0
+A,175,GLU,0.0224,86.43,113.25,C,Domain 2 core beta sheet,0,0
+A,176,ASP,0.0256,92.24,92.95,C,Domain 2 core beta sheet,0,0
+A,177,TYR,0.0212,92.34,85.84,E,Domain 2 core beta sheet,0,0
+A,178,VAL,0.0218,15.7,74.38,E,Domain 2 core beta sheet,0,0
+A,179,HIS,0.0213,51.65,83.46,E,Domain 2 core beta sheet,0,0
+A,180,VAL,0.0226,0.0,79.57,E,Domain 2 core beta sheet,0,0
+A,181,THR,0.0224,14.08,74.32,C,Domain 2 core beta sheet,0,0
+A,182,SER,0.0317,12.99,87.58,C,Domain 2 core beta sheet,0,0
+A,183,THR,0.03,93.84,94.99,C,Domain 2 core beta sheet,0,0
+A,184,GLU,0.0272,149.67,102.84,C,Domain 2 core beta sheet,0,0
+A,185,GLY,0.0252,44.22,108.5,C,Domain 2 core beta sheet,0,0
+A,186,VAL,0.0255,48.95,114.02,C,Domain 2 core beta sheet,0,0
+A,187,ARG,0.0237,101.39,104.2,C,Domain 2 core beta sheet,0,0
+A,188,ALA,0.035,2.28,103.66,E,Domain 2 core beta sheet,0,0
+A,189,TYR,0.036,51.04,95.01,E,Domain 2 core beta sheet,0,0
+A,190,LEU,0.0455,0.0,74.05,E,Domain 2 core beta sheet,0,0
+A,191,VAL,0.0323,36.23,65.95,E,Domain 2 core beta sheet,0,0
+A,192,LEU,0.0308,24.93,68.66,C,Domain 2 core beta sheet,0,0
+A,193,ARG,0.0219,96.44,87.76,C,Domain 2 core beta sheet,0,0
+A,276,ALA,0.0231,106.47,111.52,C,Core beta sheet,0,0
+A,277,SER,0.0228,88.89,112.8,C,Core beta sheet,0,0
+A,278,SER,0.0253,26.02,90.97,C,Core beta sheet,0,0
+A,279,HIS,0.0266,64.14,83.64,C,Core beta sheet,0,0
+A,280,CYS,0.0281,35.36,80.01,C,Core beta sheet,0,0
+A,281,LEU,0.0309,9.52,82.41,H,Core beta sheet,0,0
+A,282,TRP,0.0262,7.02,87.84,H,Core beta sheet,0,0
+A,283,VAL,0.0241,13.15,89.48,H,Core beta sheet,0,1
+A,284,ASP,0.0225,51.06,84.78,H,Core beta sheet,0,1
+A,285,GLU,0.0229,61.81,92.76,H,Core beta sheet,0,0
+A,286,PHE,0.0206,15.7,98.93,H,Core beta sheet,0,1
+A,287,ALA,0.0204,34.48,100.03,C,Core beta sheet,0,1
+A,288,PRO,0.0204,7.91,115.01,C,Core beta sheet,0,1
+A,289,ARG,0.0205,200.48,116.3,C,Core beta sheet,0,0
+A,290,HIS,0.0217,98.77,131.42,H,Core beta sheet,0,0
+A,291,TYR,0.0236,40.01,128.96,H,Core beta sheet,0,0
+A,292,THR,0.0218,107.12,132.25,H,Core beta sheet,0,0
+A,293,GLU,0.0239,97.95,133.19,H,Core beta sheet,0,1
+A,294,LEU,0.0256,34.97,127.89,H,Core beta sheet,0,1
+A,295,LEU,0.1196,13.83,111.76,C,Core beta sheet,0,1
+A,296,SER,0.1373,15.41,117.65,C,Core beta sheet,0,0
+A,297,ASP,0.5794,49.01,120.08,H,Core beta sheet,0,0
+A,298,ASP,0.1368,91.83,125.31,H,Core beta sheet,0,0
+A,299,PHE,0.0723,56.28,130.24,H,Core beta sheet,0,0
+A,300,THR,0.0634,2.42,122.89,H,Core beta sheet,0,0
+A,301,ASN,0.0502,6.56,122.14,H,Core beta sheet,0,0
+A,302,ARG,0.0225,118.93,117.44,H,Core beta sheet,0,0
+A,303,CYS,0.0237,6.12,120.96,H,Core beta sheet,0,0
+A,304,LEU,0.0237,6.04,117.04,H,Core beta sheet,0,0
+A,305,LEU,0.0239,31.26,115.59,H,Core beta sheet,0,0
+A,306,LYS,0.0239,114.61,114.04,H,Core beta sheet,0,0
+A,307,TRP,0.0243,2.42,107.63,H,Core beta sheet,0,0
+A,308,LEU,0.0248,7.91,109.01,H,Core beta sheet,0,0
+A,309,LYS,0.0247,114.38,107.66,H,Core beta sheet,0,0
+A,310,LEU,0.0233,48.83,113.2,H,Core beta sheet,0,0
+A,311,TRP,0.023,5.9,107.61,H,Core beta sheet,0,0
+A,312,ASP,0.0223,28.95,111.31,H,Core beta sheet,0,0
+A,313,LEU,0.0222,60.09,112.01,H,Core beta sheet,0,0
+A,314,VAL,0.0354,46.24,105.14,H,Core beta sheet,0,0
+A,315,VAL,0.0343,27.06,106.23,H,Core beta sheet,0,0
+A,316,PHE,0.0267,104.19,111.55,H,Core beta sheet,0,0
+A,317,GLY,0.0281,60.88,120.63,C,Core beta sheet,0,0
+A,318,HIS,0.0394,117.8,125.13,C,Core beta sheet,0,0
+A,319,GLU,0.0244,184.35,150.87,C,Core beta sheet,0,0
+A,346,SER,0.0238,80.44,158.44,C,Core beta sheet,0,0
+A,347,HIS,0.0243,107.79,151.75,H,Core beta sheet,0,0
+A,348,GLU,0.0257,108.13,154.09,H,Core beta sheet,0,0
+A,349,GLN,0.0255,25.75,154.52,H,Core beta sheet,0,0
+A,350,VAL,0.0259,61.45,151.47,H,Core beta sheet,0,0
+A,351,LEU,0.0252,7.13,146.49,H,Core beta sheet,0,0
+A,352,GLU,0.0246,108.12,147.15,H,Core beta sheet,0,0
+A,353,GLU,0.0233,57.52,147.6,H,Core beta sheet,0,0
+A,354,MET,0.0229,52.61,136.47,H,Core beta sheet,0,0
+A,355,LEU,0.0229,29.76,133.22,H,Core beta sheet,0,0
+A,356,GLU,0.0223,155.96,132.84,H,Core beta sheet,0,0
+A,357,ALA,0.0216,51.77,134.58,C,Core beta sheet,0,0
+A,358,GLY,0.0236,46.87,130.07,C,Core beta sheet,0,0
+A,359,LEU,0.0233,83.09,123.77,C,Core beta sheet,0,0
+A,360,ASP,0.0308,49.44,127.74,C,Core beta sheet,0,0
+A,361,PRO,0.025,122.6,121.51,C,Core beta sheet,0,0
+A,362,SER,0.0293,43.34,122.24,C,Core beta sheet,0,0
+A,363,GLN,0.0232,89.78,122.58,C,Core beta sheet,0,0
+A,364,ARG,0.0227,16.75,120.16,C,Core beta sheet,0,0
+A,365,PRO,0.022,9.25,119.83,C,Core beta sheet,0,0
+A,366,LYS,0.0211,138.65,130.93,C,Core beta sheet,0,0
+A,367,GLN,0.0251,34.29,117.89,C,Core beta sheet,0,0
+A,368,LYS,0.031,26.27,98.22,C,Core beta sheet,0,0
+A,369,VAL,0.0378,0.0,83.76,E,Core beta sheet,0,0
+A,370,ALA,0.0367,1.21,85.07,E,Core beta sheet,0,0
+A,371,LEU,0.1306,3.62,91.87,E,Core beta sheet,0,0
+A,372,LEU,0.1697,0.0,96.54,E,Core beta sheet,0,0
+A,373,CYS,0.1473,7.51,100.8,E,Core beta sheet,0,0
+A,374,GLY,0.4207,15.56,107.23,C,Core beta sheet,0,0
+A,375,PRO,0.2342,60.38,101.29,C,Core beta sheet,0,0
+A,376,PRO,0.3067,16.91,99.28,C,Core beta sheet,0,1
+A,377,GLY,0.0458,0.0,93.49,C,Core beta sheet,0,1
+A,378,LEU,0.2287,8.04,91.46,C,Core beta sheet,0,1
+A,379,GLY,0.041,3.35,96.43,H,Core beta sheet,0,1
+A,380,LYS,0.0243,1.07,95.49,H,Core beta sheet,0,1
+A,381,THR,0.0226,5.77,101.3,H,Core beta sheet,0,1
+A,382,THR,0.0211,16.5,101.37,H,Core beta sheet,0,1
+A,383,LEU,0.0219,2.42,106.83,H,Core beta sheet,0,0
+A,384,ALA,0.0213,6.56,101.98,H,Core beta sheet,0,0
+A,385,HIS,0.0219,39.92,101.07,H,Core beta sheet,0,0
+A,386,VAL,0.0223,12.6,106.06,H,Core beta sheet,0,0
+A,387,ILE,0.0222,1.21,110.74,H,Core beta sheet,0,0
+A,388,ALA,0.0224,1.21,107.43,H,Core beta sheet,0,0
+A,389,ARG,0.0278,143.03,109.05,H,Core beta sheet,0,0
+A,390,HIS,0.0323,94.78,104.17,H,Core beta sheet,0,0
+A,391,ALA,0.0521,22.93,96.95,H,Core beta sheet,0,0
+A,392,GLY,0.0571,25.25,98.11,C,Core beta sheet,0,0
+A,393,TYR,0.0451,6.56,95.54,C,Core beta sheet,0,0
+A,394,SER,0.043,20.26,95.44,E,Core beta sheet,0,0
+A,395,VAL,0.0254,60.67,83.57,E,Core beta sheet,0,0
+A,396,VAL,0.0245,18.11,70.49,E,Core beta sheet,0,0
+A,397,GLU,0.0253,77.75,73.0,E,Core beta sheet,0,0
+A,398,MET,0.0256,3.62,84.49,E,Core beta sheet,0,0
+A,399,ASN,0.0262,13.56,88.96,E,Core beta sheet,0,0
+A,400,ALA,0.0348,0.0,100.84,C,Core beta sheet,0,0
+A,401,SER,0.0449,5.9,106.74,C,Core beta sheet,0,0
+A,402,ASP,0.0517,16.21,101.33,C,Core beta sheet,0,0
+A,403,ASP,0.0594,33.22,103.64,C,Core beta sheet,0,0
+A,404,ARG,0.0314,104.22,118.33,C,Core beta sheet,0,0
+A,405,SER,0.043,59.36,120.29,H,Core beta sheet,0,0
+A,406,PRO,0.0279,57.69,115.64,H,Core beta sheet,0,0
+A,407,GLU,0.0238,132.55,111.49,H,Core beta sheet,0,0
+A,408,VAL,0.0226,42.04,109.43,H,Core beta sheet,0,0
+A,409,PHE,0.0223,2.42,100.85,H,Core beta sheet,0,0
+A,410,ARG,0.0222,130.12,98.19,H,Core beta sheet,0,0
+A,411,THR,0.0219,65.7,101.94,H,Core beta sheet,0,0
+A,412,ARG,0.0229,52.81,104.08,H,Core beta sheet,0,0
+A,413,ILE,0.0219,4.42,102.58,H,Core beta sheet,0,0
+A,414,GLU,0.0221,55.6,101.27,H,Core beta sheet,0,0
+A,415,ALA,0.0222,4.83,102.18,H,Core beta sheet,0,0
+A,416,ALA,0.022,2.42,95.03,H,Core beta sheet,0,0
+A,417,THR,0.0239,5.36,100.08,C,Core beta sheet,0,0
+A,418,GLN,0.0244,12.44,105.04,C,Core beta sheet,0,0
+A,419,MET,0.0338,10.06,96.29,C,Core beta sheet,0,0
+A,420,GLU,0.069,67.38,84.81,C,Core beta sheet,0,0
+A,421,SER,0.085,19.58,84.43,C,Core beta sheet,0,0
+A,422,VAL,0.1472,5.36,84.91,C,Core beta sheet,0,0
+A,423,LEU,0.0452,41.99,91.49,C,Core beta sheet,0,0
+A,424,GLY,0.0511,52.73,102.81,C,Core beta sheet,0,0
+A,425,ALA,0.0246,109.86,100.86,C,Core beta sheet,0,0
+A,426,GLY,0.0298,27.98,86.19,C,Core beta sheet,0,0
+A,427,GLY,0.0421,61.97,86.11,C,Core beta sheet,0,0
+A,428,LYS,0.049,102.92,89.02,C,Core beta sheet,0,0
+A,429,PRO,0.0685,21.74,99.04,C,Core beta sheet,0,0
+A,430,ASN,0.0614,2.42,96.25,E,Core beta sheet,0,0
+A,431,CYS,0.0662,0.0,86.13,E,Core beta sheet,0,0
+A,432,LEU,0.0655,0.0,67.52,E,Core beta sheet,0,0
+A,433,VAL,0.0904,4.83,68.91,E,Core beta sheet,0,0
+A,434,ILE,0.1122,0.0,81.93,E,Core beta sheet,0,0
+A,435,ASP,0.1743,3.49,76.85,E,Core beta sheet,0,0
+A,436,GLU,0.1692,9.12,94.04,C,Core beta sheet,0,0
+A,437,ILE,0.099,0.0,104.13,C,Core beta sheet,0,0
+A,438,ASP,0.0965,35.63,116.31,C,Core beta sheet,0,0
+A,439,GLY,0.0499,37.4,114.82,C,Core beta sheet,0,0
+A,440,ALA,0.0476,7.5,109.84,C,Core beta sheet,0,0
+A,441,PRO,0.0534,38.64,111.92,H,Core beta sheet,0,0
+A,442,VAL,0.0509,26.23,114.99,H,Core beta sheet,0,0
+A,443,ALA,0.0283,26.32,111.15,H,Core beta sheet,0,0
+A,444,ALA,0.0288,1.21,108.58,H,Core beta sheet,0,0
+A,445,ILE,0.0226,1.21,104.91,H,Core beta sheet,0,0
+A,446,ASN,0.0228,82.38,106.53,H,Core beta sheet,0,0
+A,447,VAL,0.0239,27.78,107.63,H,Core beta sheet,0,0
+A,448,LEU,0.024,0.0,101.54,H,Core beta sheet,0,0
+A,449,LEU,0.0239,30.05,112.41,H,Core beta sheet,0,0
+A,450,SER,0.0242,72.95,113.41,H,Core beta sheet,0,0
+A,451,ILE,0.0243,14.36,109.93,H,Core beta sheet,0,0
+A,452,LEU,0.0252,1.21,107.44,H,Core beta sheet,0,0
+A,453,ASN,0.0256,91.94,122.33,H,Core beta sheet,0,0
+A,454,ARG,0.0305,66.74,123.37,C,Core beta sheet,0,0
+A,455,LYS,0.0291,216.49,133.13,C,Core beta sheet,0,0
+A,480,GLY,0.035,54.09,115.62,C,Core beta sheet,0,0
+A,481,LEU,0.0413,61.07,106.94,C,Core beta sheet,0,0
+A,482,LEU,0.0336,10.62,101.19,C,Core beta sheet,0,0
+A,483,MET,0.0263,28.41,103.95,C,Core beta sheet,0,0
+A,484,ARG,0.0216,13.12,101.67,C,Core beta sheet,0,0
+A,485,PRO,0.0221,0.0,93.37,C,Core beta sheet,0,0
+A,486,ILE,0.0229,1.21,71.52,E,Core beta sheet,0,0
+A,487,ILE,0.024,8.45,71.46,E,Core beta sheet,0,0
+A,488,CYS,0.0324,0.0,78.95,E,Core beta sheet,0,0
+A,489,ILE,0.0318,1.07,82.11,E,Core beta sheet,0,0
+A,490,CYS,0.1287,0.0,105.6,E,Core beta sheet,0,0
+A,491,ASN,0.1674,31.5,102.63,C,Core beta sheet,0,1
+A,492,ASP,0.2195,82.17,130.92,C,Core beta sheet,0,0
+A,493,GLN,0.1882,39.54,127.21,C,Core beta sheet,0,0
+A,494,PHE,0.0282,39.82,124.83,C,Core beta sheet,0,0
+A,495,ALA,0.0306,8.45,128.21,H,Core beta sheet,0,0
+A,496,PRO,0.0291,88.8,136.12,H,Core beta sheet,0,0
+A,497,SER,0.029,12.51,128.75,H,Core beta sheet,0,0
+A,498,LEU,0.0223,0.0,131.35,H,Core beta sheet,0,0
+A,499,ARG,0.023,49.24,130.4,H,Core beta sheet,0,0
+A,500,GLN,0.024,71.37,136.13,H,Core beta sheet,0,0
+A,501,LEU,0.0229,1.07,129.94,H,Core beta sheet,0,0
+A,502,LYS,0.0224,38.58,132.33,H,Core beta sheet,0,0
+A,503,GLN,0.0221,135.02,136.66,H,Core beta sheet,0,0
+A,504,GLN,0.0209,47.22,129.36,C,Core beta sheet,0,0
+A,505,ALA,0.0203,4.29,120.74,C,Core beta sheet,0,0
+A,506,PHE,0.0227,0.0,106.2,E,Core beta sheet,0,0
+A,507,LEU,0.0876,41.99,113.36,E,Core beta sheet,0,0
+A,508,LEU,0.1047,4.83,112.22,E,Core beta sheet,0,0
+A,509,HIS,0.6139,66.31,114.47,E,Core beta sheet,0,0
+A,510,PHE,0.6549,25.35,109.54,C,Core beta sheet,0,0
+A,511,PRO,0.7312,51.25,108.73,C,Core beta sheet,0,0
+A,512,PRO,0.7668,103.16,109.88,C,Core beta sheet,0,0
+A,513,THR,0.7916,8.57,115.32,C,Core beta sheet,0,0
+A,514,LEU,0.6582,97.82,109.69,H,Core beta sheet,0,0
+A,515,PRO,0.2334,61.59,101.98,H,Core beta sheet,0,0
+A,516,SER,0.022,83.53,112.2,H,Core beta sheet,0,0
+A,517,ARG,0.0519,57.87,112.35,H,Core beta sheet,0,0
+A,518,LEU,0.0507,4.42,110.67,H,Core beta sheet,0,0
+A,519,VAL,0.0233,32.61,113.94,H,Core beta sheet,0,0
+A,520,GLN,0.0233,109.28,120.83,H,Core beta sheet,0,0
+A,521,ARG,0.0235,32.85,115.28,H,Core beta sheet,0,0
+A,522,LEU,0.0239,7.25,113.46,H,Core beta sheet,0,0
+A,523,GLN,0.0236,69.21,119.41,H,Core beta sheet,0,0
+A,524,GLU,0.0224,85.79,124.43,H,Core beta sheet,0,0
+A,525,VAL,0.0214,3.62,117.88,H,Core beta sheet,0,0
+A,526,SER,0.0211,1.07,123.01,H,Core beta sheet,0,0
+A,527,LEU,0.0215,117.9,128.41,H,Core beta sheet,0,0
+A,528,ARG,0.0211,147.08,122.0,H,Core beta sheet,0,0
+A,529,GLN,0.0214,56.1,114.08,H,Core beta sheet,0,0
+A,530,GLY,0.0217,52.3,132.08,C,Core beta sheet,0,0
+A,531,MET,0.0225,48.12,127.69,C,Core beta sheet,0,0
+A,532,ARG,0.0216,200.37,133.28,C,Core beta sheet,0,0
+A,533,ALA,0.0219,63.45,127.69,C,Core beta sheet,0,0
+A,534,ASP,0.0221,90.45,111.86,H,Core beta sheet,0,0
+A,535,PRO,0.0206,62.39,108.42,H,Core beta sheet,0,0
+A,536,GLY,0.0209,48.08,102.56,H,Core beta sheet,0,0
+A,537,VAL,0.0222,90.34,103.4,H,Core beta sheet,0,0
+A,538,LEU,0.0219,10.87,108.33,H,Core beta sheet,0,0
+A,539,ALA,0.0223,39.44,110.78,H,Core beta sheet,0,0
+A,540,ALA,0.0228,48.05,111.33,H,Core beta sheet,0,0
+A,541,LEU,0.0229,31.4,114.13,H,Core beta sheet,0,0
+A,542,CYS,0.0226,3.62,115.32,H,Core beta sheet,0,0
+A,543,GLU,0.0362,64.31,117.37,H,Core beta sheet,0,0
+A,544,LYS,0.0361,80.92,121.1,H,Core beta sheet,0,0
+A,545,THR,0.0996,32.2,123.73,H,Core beta sheet,0,0
+A,546,ASP,0.6951,83.63,123.54,C,Core beta sheet,0,0
+A,547,ASN,0.6907,21.83,122.98,C,Core beta sheet,0,0
+A,548,ASP,0.0436,17.14,110.29,H,Core beta sheet,0,0
+A,549,ILE,0.0449,8.34,93.22,H,Core beta sheet,0,1
+A,550,ARG,0.0211,5.58,88.04,H,Core beta sheet,0,1
+A,551,ALA,0.0214,17.98,97.32,H,Core beta sheet,0,0
+A,552,CYS,0.0217,3.86,98.03,H,Core beta sheet,0,0
+A,553,ILE,0.0218,4.83,81.49,H,Core beta sheet,0,0
+A,554,ASN,0.0222,2.17,85.96,H,Core beta sheet,0,0
+A,555,THR,0.0222,61.42,83.07,H,Core beta sheet,0,0
+A,556,LEU,0.0215,18.11,86.75,H,Core beta sheet,0,0
+A,557,GLN,0.0213,1.21,79.43,H,Core beta sheet,0,0
+A,558,PHE,0.0213,7.25,75.04,H,Core beta sheet,0,0
+A,559,LEU,0.0215,91.08,89.59,H,Core beta sheet,0,0
+A,560,TYR,0.0224,80.6,96.94,H,Core beta sheet,0,0
+A,585,GLY,0.0232,51.11,116.92,C,Core beta sheet,0,0
+A,586,LEU,0.0235,44.68,118.13,H,Core beta sheet,0,0
+A,587,PHE,0.0239,44.68,116.18,H,Core beta sheet,0,0
+A,588,SER,0.0228,70.68,116.92,H,Core beta sheet,0,0
+A,589,VAL,0.023,10.87,112.21,H,Core beta sheet,0,0
+A,590,TRP,0.0224,10.87,105.69,H,Core beta sheet,0,0
+A,591,GLN,0.0214,102.46,116.58,H,Core beta sheet,0,0
+A,592,GLU,0.0213,27.88,105.55,H,Core beta sheet,0,0
+A,593,VAL,0.0263,0.0,95.09,H,Core beta sheet,0,0
+A,594,PHE,0.0305,1.21,92.73,H,Core beta sheet,0,0
+A,595,GLN,0.0298,32.0,107.48,H,Core beta sheet,0,0
+A,596,LEU,0.0351,65.19,116.29,C,Core beta sheet,0,0
+A,597,PRO,0.0319,63.29,130.06,C,Core beta sheet,0,0
+A,598,ARG,0.0303,239.6,135.22,C,Core beta sheet,0,0
+A,627,SER,0.0298,96.32,121.74,C,Core beta sheet,0,0
+A,628,ALA,0.0319,40.19,114.53,H,Core beta sheet,0,0
+A,629,SER,0.0251,32.3,111.92,H,Core beta sheet,0,0
+A,630,GLN,0.0226,90.05,110.27,H,Core beta sheet,0,0
+A,631,ARG,0.0235,74.41,101.03,H,Core beta sheet,0,0
+A,632,PHE,0.0223,15.59,88.5,H,Core beta sheet,0,0
+A,633,TYR,0.0225,70.16,86.15,H,Core beta sheet,0,0
+A,634,ARG,0.0223,94.65,91.9,H,Core beta sheet,0,0
+A,635,VAL,0.0217,2.42,77.0,H,Core beta sheet,0,0
+A,636,LEU,0.0205,18.11,70.27,H,Core beta sheet,0,0
+A,637,HIS,0.0207,102.12,70.9,H,Core beta sheet,0,0
+A,638,ALA,0.0221,22.81,73.66,H,Core beta sheet,0,0
+A,639,ALA,0.0233,1.21,73.87,H,Core beta sheet,0,0
+A,640,ALA,0.024,59.8,69.62,H,Core beta sheet,0,0
+A,641,SER,0.0343,42.1,69.24,H,Core beta sheet,0,0
+A,642,ALA,0.0311,22.52,79.93,H,Core beta sheet,0,0
+A,643,GLY,0.048,28.97,102.23,H,Core beta sheet,0,0
+A,644,GLU,0.0434,41.44,97.92,C,Core beta sheet,0,0
+A,645,HIS,0.0414,38.21,88.22,H,Core beta sheet,0,0
+A,646,GLU,0.0289,101.83,92.75,H,Core beta sheet,0,0
+A,647,LYS,0.0239,84.47,85.32,H,Core beta sheet,0,0
+A,648,VAL,0.0221,4.83,77.91,H,Core beta sheet,0,0
+A,649,VAL,0.0239,13.28,71.43,H,Core beta sheet,0,0
+A,650,GLN,0.0236,18.64,75.3,H,Core beta sheet,0,0
+A,651,GLY,0.0317,0.0,64.37,H,Core beta sheet,0,0
+A,652,LEU,0.0249,3.62,67.02,H,Core beta sheet,0,0
+A,653,PHE,0.0275,0.0,60.2,H,Core beta sheet,0,0
+A,654,ASP,0.0223,6.84,72.02,H,Core beta sheet,0,0
+A,655,ASN,0.0213,5.65,70.76,C,Core beta sheet,0,0
+A,656,PHE,0.0221,0.0,58.36,C,Core beta sheet,0,0
+A,657,LEU,0.0233,1.09,64.68,C,Core beta sheet,0,0
+A,658,ARG,0.0238,117.28,83.73,C,Core beta sheet,0,0
+A,659,LEU,0.025,11.94,98.08,C,Core beta sheet,0,0
+A,660,ARG,0.0234,180.07,111.66,C,Core beta sheet,0,0
+A,661,LEU,0.0239,42.1,107.78,C,Core beta sheet,0,0
+A,662,ARG,0.0303,215.23,115.99,C,Core beta sheet,0,0
+A,663,ASP,0.0701,45.04,108.61,C,Core beta sheet,0,0
+A,664,SER,0.0834,76.6,115.28,C,Core beta sheet,0,0
+A,665,SER,0.1023,69.43,99.8,C,Core beta sheet,0,0
+A,666,LEU,0.097,0.0,68.93,H,Core beta sheet,0,0
+A,667,GLY,0.0962,32.33,49.25,H,Core beta sheet,0,0
+A,668,ALA,0.0457,19.09,44.02,H,Core beta sheet,0,0
+A,669,VAL,0.048,1.21,40.09,H,Core beta sheet,0,0
+A,670,CYS,0.0384,13.23,43.69,H,Core beta sheet,0,0
+A,671,VAL,0.0325,28.98,30.31,H,Core beta sheet,0,0
+A,672,ALA,0.0291,0.0,35.56,H,Core beta sheet,0,0
+A,673,LEU,0.0252,0.0,32.09,H,Core beta sheet,0,0
+A,674,ASP,0.0248,53.59,29.58,H,Core beta sheet,0,0
+A,675,TRP,0.0217,4.49,27.7,H,Core beta sheet,0,0
+A,676,LEU,0.0393,3.49,40.12,H,Core beta sheet,0,0
+A,677,ALA,0.0421,0.0,39.25,H,Core beta sheet,0,0
+A,678,PHE,0.0664,2.42,29.42,H,Core beta sheet,0,0
+A,679,ASP,0.0543,26.12,38.16,H,Core beta sheet,0,0
+A,680,ASP,0.0695,12.33,35.16,H,Core beta sheet,0,0
+A,681,LEU,0.0521,21.06,38.33,H,Core beta sheet,0,0
+A,682,LEU,0.0457,3.62,35.57,H,Core beta sheet,0,0
+A,683,ALA,0.0351,50.97,45.06,H,Core beta sheet,0,0
+A,684,GLY,0.0426,25.11,53.69,H,Core beta sheet,0,0
+A,685,ALA,0.0378,22.56,57.43,H,Core beta sheet,0,0
+A,686,ALA,0.0368,10.99,61.73,H,Core beta sheet,0,0
+A,687,HIS,0.0381,133.95,72.93,H,Core beta sheet,0,0
+A,688,HIS,0.0391,164.2,70.68,H,Core beta sheet,0,0
+A,689,SER,0.0552,40.48,69.32,H,Core beta sheet,0,0
+A,690,GLN,0.0463,138.81,77.1,H,Core beta sheet,0,0
+A,691,SER,0.0387,28.42,51.44,C,Core beta sheet,0,0
+A,692,PHE,0.0232,53.68,48.86,H,Core beta sheet,0,0
+A,693,GLN,0.0223,34.57,35.0,H,Core beta sheet,0,0
+A,694,LEU,0.021,0.0,40.51,H,Core beta sheet,0,0
+A,695,LEU,0.0221,107.31,38.93,H,Core beta sheet,0,0
+A,696,ARG,0.0221,56.65,39.47,H,Core beta sheet,0,0
+A,697,TYR,0.0228,1.07,33.97,H,Core beta sheet,0,0
+A,698,PRO,0.0211,21.74,36.44,H,Core beta sheet,0,0
+A,699,PRO,0.0207,20.53,45.78,H,Core beta sheet,0,0
+A,700,PHE,0.0218,0.0,40.44,H,Core beta sheet,0,0
+A,701,LEU,0.0227,4.83,27.85,H,Core beta sheet,0,0
+A,702,PRO,0.0287,4.83,37.13,H,Core beta sheet,0,0
+A,703,VAL,0.0331,0.0,34.12,H,Core beta sheet,0,0
+A,704,ALA,0.047,0.0,37.31,H,Core beta sheet,0,0
+A,705,PHE,0.0513,0.0,41.16,H,Core beta sheet,0,0
+A,706,HIS,0.0401,13.85,48.58,H,Core beta sheet,0,0
+A,707,VAL,0.033,47.45,43.17,H,Core beta sheet,0,0
+A,708,LEU,0.0252,35.78,41.89,H,Core beta sheet,0,0
+A,709,PHE,0.0252,2.42,57.12,H,Core beta sheet,0,0
+A,710,ALA,0.0205,32.13,77.17,C,Core beta sheet,0,0
+A,711,SER,0.0231,27.94,99.95,C,Core beta sheet,0,0
+A,712,SER,0.0217,93.54,116.76,C,Core beta sheet,0,0
+A,713,HIS,0.0228,68.56,125.76,C,Core beta sheet,0,0
+A,714,THR,0.021,77.51,130.14,C,Core beta sheet,0,0
+A,715,PRO,0.021,28.67,121.4,C,Core beta sheet,0,0
+A,716,ARG,0.0217,219.62,117.93,C,Core beta sheet,0,0
+A,717,ILE,0.022,33.41,105.87,C,Core beta sheet,0,0
+A,718,THR,0.0227,40.38,98.88,C,Core beta sheet,0,0
+A,719,PHE,0.025,96.86,106.4,C,Core beta sheet,0,0
+A,720,PRO,0.0242,73.65,108.91,C,Core beta sheet,0,0
+A,721,SER,0.0274,27.46,107.71,H,Core beta sheet,0,0
+A,722,SER,0.0272,43.31,110.03,H,Core beta sheet,0,0
+A,723,GLN,0.0232,10.98,87.43,H,Core beta sheet,0,0
+A,724,GLN,0.0228,79.96,103.11,H,Core beta sheet,0,0
+A,725,GLU,0.0221,114.17,103.9,H,Core beta sheet,0,0
+A,726,ALA,0.0221,9.55,95.76,H,Core beta sheet,0,0
+A,727,GLN,0.0222,70.06,100.99,H,Core beta sheet,0,0
+A,728,ASN,0.0224,67.72,105.23,H,Core beta sheet,0,0
+A,729,ARG,0.0224,67.37,95.48,H,Core beta sheet,0,0
+A,730,MET,0.0225,53.91,93.63,H,Core beta sheet,0,0
+A,731,SER,0.0229,35.51,100.07,H,Core beta sheet,0,0
+A,732,GLN,0.0224,85.44,106.03,H,Core beta sheet,0,0
+A,733,MET,0.0224,10.81,99.05,H,Core beta sheet,0,0
+A,734,ARG,0.0229,102.53,99.66,H,Core beta sheet,0,0
+A,735,ASN,0.0228,29.15,103.23,H,Core beta sheet,0,0
+A,736,LEU,0.0234,34.91,100.25,H,Core beta sheet,0,0
+A,737,ILE,0.0225,13.28,96.88,H,Core beta sheet,0,0
+A,738,GLN,0.0224,85.72,102.74,H,Core beta sheet,0,0
+A,739,THR,0.022,57.0,99.37,H,Core beta sheet,0,0
+A,740,LEU,0.0219,2.42,98.8,H,Core beta sheet,0,0
+A,741,VAL,0.0221,6.04,104.65,H,Core beta sheet,0,0
+A,742,SER,0.024,84.58,102.1,H,Core beta sheet,0,0
+A,743,GLY,0.0242,34.59,104.72,H,Core beta sheet,0,0
+A,744,ILE,0.0252,7.64,108.05,H,Core beta sheet,0,0
+A,745,ALA,0.0299,47.1,114.51,H,Core beta sheet,0,0
+A,746,PRO,0.027,22.94,115.89,H,Core beta sheet,0,0
+A,747,ALA,0.0221,57.56,103.45,H,Core beta sheet,0,0
+A,748,THR,0.0291,31.11,110.46,H,Core beta sheet,0,0
+A,749,ARG,0.0268,51.74,107.47,H,Core beta sheet,0,0
+A,750,SER,0.0586,8.71,100.43,H,Core beta sheet,0,0
+A,751,ARG,0.0388,92.02,93.04,H,Core beta sheet,0,1
+A,752,ALA,0.0904,22.13,92.15,H,Core beta sheet,0,1
+A,753,THR,0.0976,47.36,84.3,H,Core beta sheet,0,0
+A,754,PRO,0.0588,33.68,85.21,H,Core beta sheet,0,0
+A,755,GLN,0.0336,90.43,83.1,H,Core beta sheet,0,0
+A,756,ALA,0.021,14.38,77.0,H,Core beta sheet,0,0
+A,757,LEU,0.0226,18.11,84.98,H,Core beta sheet,0,0
+A,758,LEU,0.0242,19.03,87.89,H,Core beta sheet,0,0
+A,759,LEU,0.0248,6.04,82.53,H,Core beta sheet,0,0
+A,760,ASP,0.0294,16.21,82.95,H,Core beta sheet,0,0
+A,761,ALA,0.0273,8.04,92.09,H,Core beta sheet,0,0
+A,762,LEU,0.0256,4.72,90.3,H,Core beta sheet,0,0
+A,763,CYS,0.0258,7.02,89.51,H,Core beta sheet,0,0
+A,764,LEU,0.027,0.0,89.28,H,Core beta sheet,0,0
+A,765,LEU,0.0242,18.11,99.03,H,Core beta sheet,0,0
+A,766,LEU,0.0221,27.23,88.92,H,Core beta sheet,0,0
+A,767,ASP,0.0224,23.73,96.29,H,Core beta sheet,0,0
+A,768,ILE,0.023,4.83,83.47,H,Core beta sheet,0,0
+A,769,LEU,0.0271,15.02,100.14,H,Core beta sheet,0,0
+A,770,ALA,0.0294,55.11,93.04,C,Core beta sheet,0,0
+A,771,PRO,0.0326,10.19,105.34,C,Core beta sheet,0,0
+A,772,LYS,0.0265,146.86,124.2,C,Core beta sheet,0,0
+A,773,LEU,0.0316,11.26,137.23,C,Core beta sheet,0,0
+A,774,ARG,0.0239,90.32,144.16,C,Core beta sheet,0,0
+A,775,PRO,0.0257,80.99,149.78,C,Core beta sheet,0,0
+A,776,VAL,0.0509,43.07,149.98,C,Core beta sheet,0,0
+A,777,SER,0.067,55.08,149.35,C,Core beta sheet,0,0
+A,778,THR,0.0674,61.29,147.74,C,Core beta sheet,0,0
+A,779,GLN,0.0508,171.11,145.56,C,Core beta sheet,0,0
+A,780,LEU,0.04,128.38,146.63,C,Core beta sheet,0,0
+A,781,TYR,0.022,15.14,140.37,C,Core beta sheet,0,0
+A,782,SER,0.0233,50.45,123.13,H,Core beta sheet,0,0
+A,783,THR,0.0229,94.65,117.42,H,Core beta sheet,0,0
+A,784,ARG,0.0225,112.87,122.23,H,Core beta sheet,0,0
+A,785,GLU,0.0224,12.86,125.12,H,Core beta sheet,0,0
+A,786,LYS,0.0242,117.37,120.52,H,Core beta sheet,0,0
+A,787,GLN,0.0232,108.86,118.73,H,Core beta sheet,0,0
+A,788,GLN,0.0226,36.65,117.03,H,Core beta sheet,0,0
+A,789,LEU,0.0235,19.32,119.33,H,Core beta sheet,0,0
+A,790,ALA,0.0232,57.56,118.8,H,Core beta sheet,0,0
+A,791,SER,0.0226,41.43,118.23,H,Core beta sheet,0,0
+A,792,LEU,0.0248,14.49,114.55,H,Core beta sheet,0,0
+A,793,VAL,0.0277,17.86,119.11,H,Core beta sheet,0,0
+A,794,GLY,0.0266,24.68,123.33,H,Core beta sheet,0,0
+A,795,THR,0.026,13.01,123.78,H,Core beta sheet,0,0
+A,796,MET,0.0245,10.46,120.34,H,Core beta sheet,0,0
+A,797,LEU,0.0224,77.8,123.74,H,Core beta sheet,0,0
+A,798,ALA,0.0223,49.13,128.98,H,Core beta sheet,0,0
+A,799,TYR,0.0325,19.32,121.01,H,Core beta sheet,0,0
+A,800,SER,0.0356,68.06,127.13,H,Core beta sheet,0,0
+A,801,LEU,0.04,14.08,134.73,C,Core beta sheet,0,0
+A,802,THR,0.0365,35.14,141.98,C,Core beta sheet,0,0
+A,803,TYR,0.035,27.06,131.83,E,Core beta sheet,0,0
+A,804,ARG,0.0224,137.84,141.74,E,Core beta sheet,0,0
+A,805,GLN,0.0213,71.97,146.49,E,Core beta sheet,0,0
+A,806,GLU,0.0222,51.35,149.6,E,Core beta sheet,0,0
+A,807,ARG,0.0205,100.25,145.48,E,Core beta sheet,0,0
+A,808,THR,0.0211,39.03,147.22,C,Core beta sheet,0,0
+A,809,PRO,0.0209,96.81,140.43,C,Core beta sheet,0,0
+A,810,ASP,0.0217,105.8,140.62,C,Core beta sheet,0,0
+A,811,GLY,0.0209,36.6,139.68,C,Core beta sheet,0,0
+A,812,GLN,0.0213,121.48,145.51,C,Core beta sheet,0,0
+A,813,TYR,0.0232,100.9,144.22,E,Core beta sheet,0,0
+A,814,ILE,0.0251,71.25,146.24,E,Core beta sheet,0,0
+A,815,TYR,0.0256,43.56,136.5,E,Core beta sheet,0,0
+A,816,ARG,0.0256,86.94,132.77,E,Core beta sheet,0,0
+A,817,LEU,0.035,33.8,132.5,E,Core beta sheet,0,0
+A,818,GLU,0.0346,111.2,133.49,C,Core beta sheet,0,0
+A,819,PRO,0.036,32.32,121.79,C,Core beta sheet,0,0
+A,820,ASN,0.0362,44.76,119.25,H,Core beta sheet,0,0
+A,821,VAL,0.0323,2.42,117.59,H,Core beta sheet,0,0
+A,822,GLU,0.0246,65.51,114.25,H,Core beta sheet,0,0
+A,823,GLU,0.0241,74.24,109.67,H,Core beta sheet,0,0
+A,824,LEU,0.0233,7.77,99.91,H,Core beta sheet,0,0
+A,825,CYS,0.0223,9.41,93.63,H,Core beta sheet,0,0
+A,826,ARG,0.0223,61.91,84.32,C,Core beta sheet,0,0
+A,827,PHE,0.0233,20.24,77.37,C,Core beta sheet,0,0
+A,828,PRO,0.0217,87.17,88.17,C,Core beta sheet,0,0
+A,829,GLU,0.0222,105.17,90.3,C,Core beta sheet,0,0
+A,830,LEU,0.0245,31.5,97.34,C,Core beta sheet,0,0
+A,831,PRO,0.0229,102.22,102.49,C,Core beta sheet,0,0
+A,832,ALA,0.024,103.69,111.83,C,Core beta sheet,0,0
+A,833,ARG,0.0212,110.22,123.66,C,Core beta sheet,0,0
+A,834,LYS,0.0589,136.54,136.44,C,Core beta sheet,0,0
+A,835,PRO,0.0604,94.72,126.33,C,Core beta sheet,0,0
+A,836,LEU,0.0714,30.77,117.5,C,Core beta sheet,0,0
+A,837,THR,0.0725,39.72,126.55,H,Core beta sheet,0,0
+A,838,TYR,0.0386,79.28,130.49,H,Core beta sheet,0,0
+A,839,GLN,0.0273,85.61,131.87,H,Core beta sheet,0,0
+A,840,THR,0.0273,0.0,130.5,H,Core beta sheet,0,0
+A,841,LYS,0.0235,30.14,126.13,H,Core beta sheet,0,0
+A,842,GLN,0.0238,50.89,133.97,H,Core beta sheet,0,0
+A,843,LEU,0.0229,8.04,137.52,H,Core beta sheet,0,0
+A,844,ILE,0.0229,15.56,136.08,H,Core beta sheet,0,0
+A,845,ALA,0.0236,17.3,136.26,H,Core beta sheet,0,0
+A,846,ARG,0.0235,126.36,134.39,H,Core beta sheet,0,0
+A,847,GLU,0.0236,65.51,137.24,H,Core beta sheet,0,0
+A,848,ILE,0.0235,19.05,141.41,H,Core beta sheet,0,0
+A,849,GLU,0.0238,104.02,138.37,H,Core beta sheet,0,0
+A,850,VAL,0.0238,83.99,136.66,H,Core beta sheet,0,0
+A,851,GLU,0.0244,47.83,137.76,H,Core beta sheet,0,0
+A,852,LYS,0.0245,78.74,138.75,H,Core beta sheet,0,0
+A,853,MET,0.0249,112.92,139.01,H,Core beta sheet,0,0
+A,854,ARG,0.0247,126.36,142.13,H,Core beta sheet,0,0
+A,855,ARG,0.0249,121.1,144.46,H,Core beta sheet,0,0
+A,856,ALA,0.0248,40.38,141.35,H,Core beta sheet,0,0
+A,857,GLU,0.0239,104.39,143.65,H,Core beta sheet,0,0
+A,858,ALA,0.0235,36.09,138.55,H,Core beta sheet,0,0
+A,859,SER,0.0234,47.76,144.07,H,Core beta sheet,0,0
+A,860,ALA,0.0232,68.8,140.41,H,Core beta sheet,0,0
+A,861,ARG,0.0236,203.0,139.35,H,Core beta sheet,0,0
+A,862,VAL,0.0242,124.6,139.21,H,Core beta sheet,0,0
+A,863,GLU,0.0246,181.34,147.11,H,Core beta sheet,0,0
+B,34,TYR,0.023,222.78,85.63,C,N-terminal beta sheet (domain 1),0,0
+B,35,GLU,0.0237,84.55,68.92,C,N-terminal beta sheet (domain 1),0,0
+B,36,LEU,0.0239,72.0,53.33,C,N-terminal beta sheet (domain 1),0,0
+B,37,PRO,0.0252,26.57,44.04,H,N-terminal beta sheet (domain 1),0,0
+B,38,TRP,0.0219,11.05,34.98,H,N-terminal beta sheet (domain 1),1,0
+B,39,VAL,0.0225,16.91,28.89,H,N-terminal beta sheet (domain 1),1,1
+B,40,GLU,0.0215,48.12,53.48,H,N-terminal beta sheet (domain 1),1,1
+B,41,LYS,0.0224,90.08,41.97,H,Front-face loop (PIP-box groove),1,0
+B,42,TYR,0.0226,28.15,31.56,H,Front-face loop (PIP-box groove),1,1
+B,43,ARG,0.0236,101.53,48.33,C,Front-face loop (PIP-box groove),0,1
+B,44,PRO,0.0244,2.14,50.01,C,Front-face loop (PIP-box groove),1,0
+B,45,VAL,0.0252,101.29,48.11,C,Front-face loop (PIP-box groove),1,0
+B,46,LYS,0.023,96.93,58.17,C,Front-face loop (PIP-box groove),1,0
+B,47,LEU,0.023,9.09,56.16,C,Front-face loop (PIP-box groove),1,0
+B,48,ASN,0.0217,99.91,67.69,C,Core beta sheet,0,0
+B,49,GLU,0.0231,57.23,61.35,C,Core beta sheet,0,0
+B,50,ILE,0.0509,2.14,60.74,C,Core beta sheet,0,1
+B,51,VAL,0.074,32.33,65.67,C,Core beta sheet,0,1
+B,52,GLY,0.256,6.43,73.06,C,Core beta sheet,0,1
+B,53,ASN,0.2085,15.65,64.18,H,Core beta sheet,0,0
+B,54,GLU,0.0841,103.33,78.52,H,Core beta sheet,0,0
+B,55,ASP,0.0472,80.87,83.6,H,Core beta sheet,0,0
+B,56,THR,0.0286,14.07,79.96,H,Core beta sheet,0,0
+B,57,VAL,0.031,8.45,76.98,H,Core beta sheet,0,0
+B,58,SER,0.0244,57.66,81.39,H,Core beta sheet,0,0
+B,59,ARG,0.0223,56.8,77.62,H,Core beta sheet,0,0
+B,60,LEU,0.0227,1.21,65.02,H,Core beta sheet,0,0
+B,61,GLU,0.0224,55.34,68.06,H,Core beta sheet,0,0
+B,62,VAL,0.0225,59.04,71.12,H,Core beta sheet,0,0
+B,63,PHE,0.0227,0.0,59.23,H,Core beta sheet,0,0
+B,64,ALA,0.0229,15.95,62.4,H,Core beta sheet,0,0
+B,65,ARG,0.0238,170.96,77.01,H,Core beta sheet,0,0
+B,66,GLU,0.0241,60.6,74.46,H,Core beta sheet,0,0
+B,67,GLY,0.034,0.0,64.17,H,Core beta sheet,0,0
+B,68,ASN,0.0348,4.49,40.83,C,Core beta sheet,0,0
+B,69,VAL,0.0666,4.83,39.24,C,Core beta sheet,0,0
+B,70,PRO,0.0774,0.0,47.89,C,Core beta sheet,0,0
+B,71,ASN,0.1206,4.37,44.53,C,Core beta sheet,0,0
+B,72,ILE,0.1388,2.42,41.86,E,Core beta sheet,0,0
+B,73,ILE,0.1379,3.62,28.42,E,Core beta sheet,0,0
+B,74,ILE,0.1044,0.0,22.68,E,Core beta sheet,0,0
+B,75,ALA,0.0935,1.21,27.38,E,Core beta sheet,0,0
+B,76,GLY,0.1179,9.55,38.21,C,Core beta sheet,0,0
+B,77,PRO,0.2054,46.98,46.96,C,Core beta sheet,0,0
+B,78,PRO,0.1988,17.98,49.36,C,Core beta sheet,0,1
+B,79,GLY,0.2585,0.0,46.37,C,Core beta sheet,0,1
+B,80,THR,0.3373,0.0,44.69,C,Core beta sheet,0,1
+B,81,GLY,0.3413,0.0,36.48,H,Core beta sheet,0,1
+B,82,LYS,0.1876,0.0,28.68,H,Core beta sheet,0,1
+B,83,THR,0.1568,8.45,33.82,H,Core beta sheet,0,1
+B,84,THR,0.0724,2.17,37.31,H,Core beta sheet,0,1
+B,85,SER,0.0654,1.21,38.81,H,Core beta sheet,0,0
+B,86,ILE,0.032,4.83,15.44,H,Core beta sheet,0,0
+B,87,LEU,0.03,44.41,20.9,H,Core beta sheet,0,0
+B,88,CYS,0.024,4.42,19.84,H,Core beta sheet,0,0
+B,89,LEU,0.024,3.62,37.87,H,Core beta sheet,0,0
+B,90,ALA,0.024,0.0,24.82,H,Core beta sheet,0,0
+B,91,ARG,0.0233,88.5,37.72,H,Core beta sheet,0,0
+B,92,ALA,0.0232,64.52,24.89,H,Core beta sheet,0,0
+B,93,LEU,0.0239,8.71,18.22,H,Core beta sheet,0,0
+B,94,LEU,0.0244,15.14,33.21,H,Core beta sheet,0,0
+B,95,GLY,0.0249,35.67,29.41,H,Core beta sheet,0,0
+B,96,PRO,0.0229,113.5,41.73,C,Core beta sheet,0,0
+B,97,ALA,0.023,20.53,34.53,H,Core beta sheet,0,0
+B,98,LEU,0.0222,43.2,26.24,H,Core beta sheet,0,0
+B,99,LYS,0.022,117.52,44.04,H,Core beta sheet,0,0
+B,100,ASP,0.0317,80.94,39.57,H,Core beta sheet,0,0
+B,101,ALA,0.0339,0.0,29.92,H,Core beta sheet,0,0
+B,102,MET,0.0874,38.69,38.26,E,Core beta sheet,0,0
+B,103,LEU,0.1624,21.74,36.07,E,Core beta sheet,0,0
+B,104,GLU,0.2731,83.79,40.81,E,Core beta sheet,0,0
+B,105,LEU,0.2632,4.83,44.88,E,Core beta sheet,0,0
+B,106,ASN,0.3123,9.32,52.0,C,Core beta sheet,0,0
+B,107,ALA,0.1246,6.56,44.9,C,Core beta sheet,0,0
+B,108,SER,0.0487,7.64,59.08,C,Core beta sheet,0,0
+B,109,ASN,0.0465,59.26,60.44,C,Core beta sheet,0,0
+B,110,ASP,0.0355,71.45,67.04,C,Core beta sheet,0,0
+B,111,ARG,0.0303,21.1,58.12,C,Core beta sheet,0,0
+B,112,GLY,0.0335,19.32,86.95,H,Core beta sheet,0,0
+B,113,ILE,0.0297,29.85,97.84,H,Core beta sheet,0,0
+B,114,ASP,0.0279,80.15,86.92,H,Core beta sheet,0,0
+B,115,VAL,0.0256,20.53,82.34,H,Core beta sheet,0,0
+B,116,VAL,0.0242,0.0,75.79,H,Core beta sheet,0,0
+B,117,ARG,0.0224,82.78,75.22,H,Core beta sheet,0,0
+B,118,ASN,0.0227,71.92,61.77,H,Core beta sheet,0,0
+B,119,LYS,0.0233,48.63,38.5,H,IDCL — Interdomain Connecting Loop (key interaction hub),0,0
+B,120,ILE,0.023,0.0,37.89,H,IDCL — Interdomain Connecting Loop (key interaction hub),0,0
+B,121,LYS,0.0233,36.52,40.37,H,IDCL — Interdomain Connecting Loop (key interaction hub),0,0
+B,122,MET,0.024,38.85,47.95,H,IDCL — Interdomain Connecting Loop (key interaction hub),0,0
+B,123,PHE,0.0312,18.0,32.36,H,IDCL — Interdomain Connecting Loop (key interaction hub),1,0
+B,124,ALA,0.027,1.07,37.54,H,IDCL — Interdomain Connecting Loop (key interaction hub),0,0
+B,125,GLN,0.0313,44.46,38.99,H,IDCL — Interdomain Connecting Loop (key interaction hub),1,0
+B,126,GLN,0.0653,25.55,39.99,C,IDCL — Interdomain Connecting Loop (key interaction hub),1,0
+B,127,LYS,0.089,56.26,29.79,C,IDCL — Interdomain Connecting Loop (key interaction hub),0,0
+B,128,VAL,0.0958,31.02,39.13,C,IDCL — Interdomain Connecting Loop (key interaction hub),1,0
+B,129,THR,0.1269,83.0,40.41,C,IDCL — Interdomain Connecting Loop (key interaction hub),0,0
+B,130,LEU,0.0511,53.79,44.54,C,IDCL — Interdomain Connecting Loop (key interaction hub),0,0
+B,131,PRO,0.0541,82.1,51.36,C,IDCL — Interdomain Connecting Loop (key interaction hub),0,0
+B,132,LYS,0.0349,151.7,69.86,C,IDCL — Interdomain Connecting Loop (key interaction hub),0,0
+B,133,GLY,0.0353,8.0,58.64,C,IDCL — Interdomain Connecting Loop (key interaction hub),0,0
+B,134,ARG,0.0323,57.44,40.37,C,IDCL — Interdomain Connecting Loop (key interaction hub),0,0
+B,135,HIS,0.0538,7.25,50.45,C,Domain 2 core beta sheet,0,0
+B,136,LYS,0.0714,5.81,25.43,E,Domain 2 core beta sheet,0,0
+B,137,ILE,0.1208,6.04,14.89,E,Domain 2 core beta sheet,0,0
+B,138,ILE,0.2279,0.0,28.77,E,Domain 2 core beta sheet,0,0
+B,139,ILE,0.2655,3.62,28.98,E,Domain 2 core beta sheet,0,0
+B,140,LEU,0.3866,0.0,41.7,E,Domain 2 core beta sheet,0,0
+B,141,ASP,0.3857,2.14,37.55,C,Domain 2 core beta sheet,0,0
+B,142,GLU,0.2318,7.25,49.97,H,Domain 2 core beta sheet,0,0
+B,143,ALA,0.1806,3.49,54.32,H,Domain 2 core beta sheet,0,0
+B,144,ASP,0.066,25.72,65.4,H,Domain 2 core beta sheet,0,0
+B,145,SER,0.066,38.18,65.88,H,Domain 2 core beta sheet,0,0
+B,146,MET,0.0693,14.34,58.3,H,Domain 2 core beta sheet,0,0
+B,147,THR,0.0531,72.98,89.62,H,Domain 2 core beta sheet,0,0
+B,148,ASP,0.04,101.0,91.18,H,Domain 2 core beta sheet,0,0
+B,149,GLY,0.0338,15.99,103.67,H,Domain 2 core beta sheet,0,0
+B,150,ALA,0.0262,0.0,90.96,H,Domain 2 core beta sheet,0,0
+B,151,GLN,0.0264,1.21,84.0,H,Domain 2 core beta sheet,0,0
+B,152,GLN,0.0261,16.86,96.13,H,Domain 2 core beta sheet,0,0
+B,153,ALA,0.0255,2.28,78.32,H,Domain 2 core beta sheet,0,0
+B,154,LEU,0.0248,2.42,74.66,H,Domain 2 core beta sheet,0,0
+B,155,ARG,0.0242,9.96,73.26,H,Domain 2 core beta sheet,0,0
+B,156,ARG,0.0239,19.73,66.41,H,Domain 2 core beta sheet,0,0
+B,157,THR,0.024,1.21,50.43,H,Domain 2 core beta sheet,0,0
+B,158,MET,0.0248,5.57,43.42,H,Domain 2 core beta sheet,0,0
+B,159,GLU,0.023,52.13,51.03,H,Domain 2 core beta sheet,0,0
+B,160,ILE,0.0233,64.51,48.82,H,Domain 2 core beta sheet,0,0
+B,161,TYR,0.0234,48.93,39.69,H,Domain 2 core beta sheet,0,0
+B,162,SER,0.0317,2.14,41.06,C,Domain 2 core beta sheet,0,0
+B,163,LYS,0.0308,89.93,48.16,C,Domain 2 core beta sheet,0,0
+B,164,THR,0.0518,27.64,34.05,C,Domain 2 core beta sheet,0,0
+B,165,THR,0.0739,0.0,28.77,E,Domain 2 core beta sheet,0,0
+B,166,ARG,0.0843,6.04,32.23,E,Domain 2 core beta sheet,0,0
+B,167,PHE,0.292,1.07,23.98,E,Domain 2 core beta sheet,0,0
+B,168,ALA,0.2979,3.62,26.32,E,Domain 2 core beta sheet,0,0
+B,169,LEU,0.4477,1.21,36.71,E,Domain 2 core beta sheet,0,0
+B,170,ALA,0.3123,1.21,33.17,E,Domain 2 core beta sheet,0,0
+B,171,CYS,0.2531,4.72,46.34,C,Domain 2 core beta sheet,0,0
+B,172,ASN,0.1748,68.98,59.75,C,Domain 2 core beta sheet,0,1
+B,173,ALA,0.0531,41.06,82.52,C,Domain 2 core beta sheet,0,0
+B,174,SER,0.0487,13.33,86.36,C,Domain 2 core beta sheet,0,0
+B,175,ASP,0.0311,101.04,102.51,C,Domain 2 core beta sheet,0,0
+B,176,LYS,0.0273,123.77,101.76,C,Domain 2 core beta sheet,0,0
+B,177,ILE,0.0238,8.84,92.31,C,Domain 2 core beta sheet,0,0
+B,178,ILE,0.0246,42.27,87.03,H,Domain 2 core beta sheet,0,0
+B,179,GLU,0.0245,67.94,80.57,H,Domain 2 core beta sheet,0,0
+B,180,PRO,0.0241,8.45,79.05,H,Domain 2 core beta sheet,0,1
+B,181,ILE,0.0241,0.0,70.16,H,Domain 2 core beta sheet,0,0
+B,182,GLN,0.0255,30.75,76.3,H,Domain 2 core beta sheet,0,0
+B,183,SER,0.0276,8.45,77.22,H,Domain 2 core beta sheet,0,1
+B,184,ARG,0.028,17.93,75.89,H,Domain 2 core beta sheet,0,1
+B,185,CYS,0.0282,4.29,54.52,H,Domain 2 core beta sheet,0,0
+B,186,ALA,0.0321,6.04,41.12,E,Domain 2 core beta sheet,0,0
+B,187,VAL,0.0331,56.16,42.66,E,Domain 2 core beta sheet,0,0
+B,188,LEU,0.034,8.45,43.13,E,Domain 2 core beta sheet,0,0
+B,189,ARG,0.0308,85.24,52.02,E,Domain 2 core beta sheet,0,0
+B,190,TYR,0.1453,5.36,44.59,C,Domain 2 core beta sheet,0,0
+B,191,THR,0.1742,44.26,50.14,C,Domain 2 core beta sheet,0,0
+B,192,LYS,0.4562,88.0,51.0,C,Domain 2 core beta sheet,0,0
+B,193,LEU,0.2897,1.07,53.03,C,Domain 2 core beta sheet,0,0
+B,194,THR,0.2086,79.22,67.52,H,Domain 2 core beta sheet,0,0
+B,195,ASP,0.0818,74.79,62.43,H,Domain 2 core beta sheet,0,0
+B,196,ALA,0.0305,58.67,69.97,H,Domain 2 core beta sheet,0,0
+B,197,GLN,0.0218,39.98,69.05,H,Domain 2 core beta sheet,0,0
+B,198,ILE,0.0229,3.62,55.21,H,Domain 2 core beta sheet,0,0
+B,199,LEU,0.0231,64.0,65.84,H,Domain 2 core beta sheet,0,0
+B,200,THR,0.0234,73.38,72.45,H,Domain 2 core beta sheet,0,0
+B,201,ARG,0.0231,17.09,74.01,H,Domain 2 core beta sheet,0,0
+B,202,LEU,0.0232,0.0,69.2,H,Domain 2 core beta sheet,0,0
+B,203,MET,0.0223,65.38,73.26,H,Domain 2 core beta sheet,0,0
+B,204,ASN,0.0223,73.27,76.58,H,Domain 2 core beta sheet,0,0
+B,205,VAL,0.0221,0.0,64.53,H,Domain 2 core beta sheet,0,0
+B,206,ILE,0.0221,9.66,70.13,H,Domain 2 core beta sheet,0,0
+B,207,GLU,0.0226,131.08,70.37,H,Domain 2 core beta sheet,0,0
+B,208,LYS,0.0228,105.12,69.49,H,Domain 2 core beta sheet,0,0
+B,209,GLU,0.0219,34.19,70.71,H,Domain 2 core beta sheet,0,0
+B,210,ARG,0.0217,191.61,85.86,H,Domain 2 core beta sheet,0,0
+B,211,VAL,0.0666,14.88,96.55,C,Domain 2 core beta sheet,0,0
+B,212,PRO,0.0543,59.17,112.89,C,Domain 2 core beta sheet,0,0
+B,213,TYR,0.0768,98.28,103.59,C,Domain 2 core beta sheet,0,0
+B,214,THR,0.0663,33.81,102.93,H,Domain 2 core beta sheet,0,0
+B,215,ASP,0.0532,102.98,100.65,H,Domain 2 core beta sheet,0,0
+B,216,ASP,0.0249,83.94,96.17,H,Domain 2 core beta sheet,0,0
+B,217,GLY,0.0229,0.0,97.93,H,Domain 2 core beta sheet,0,0
+B,218,LEU,0.0229,9.66,74.83,H,Domain 2 core beta sheet,0,0
+B,219,GLU,0.0227,119.01,84.95,H,Domain 2 core beta sheet,0,0
+B,220,ALA,0.0231,5.92,68.22,H,Domain 2 core beta sheet,0,0
+B,221,ILE,0.0233,0.0,53.13,H,Domain 2 core beta sheet,0,0
+B,222,ILE,0.026,35.55,61.19,H,Domain 2 core beta sheet,0,0
+B,223,PHE,0.0328,55.3,48.38,H,Domain 2 core beta sheet,0,0
+B,224,THR,0.0444,11.92,52.04,H,Domain 2 core beta sheet,0,0
+B,225,ALA,0.1466,6.43,39.83,H,Domain 2 core beta sheet,0,0
+B,226,GLN,0.1738,98.04,49.33,H,Domain 2 core beta sheet,0,0
+B,227,GLY,0.3447,8.73,54.66,C,Domain 2 core beta sheet,0,0
+B,228,ASP,0.1891,4.69,48.92,H,Domain 2 core beta sheet,0,0
+B,229,MET,0.1625,0.0,44.0,H,Domain 2 core beta sheet,0,1
+B,230,ARG,0.0413,3.28,32.9,H,Domain 2 core beta sheet,0,1
+B,231,GLN,0.0381,11.05,29.19,H,C-terminal loop — AOH1996 cryptic pocket region,1,0
+B,232,ALA,0.0368,1.21,20.74,H,C-terminal loop — AOH1996 cryptic pocket region,1,0
+B,233,LEU,0.034,1.21,29.42,H,C-terminal loop — AOH1996 cryptic pocket region,1,0
+B,234,ASN,0.0345,7.54,31.75,H,C-terminal loop — AOH1996 cryptic pocket region,1,0
+B,235,ASN,0.0353,15.82,40.96,H,C-terminal loop — AOH1996 cryptic pocket region,0,0
+B,236,LEU,0.0369,0.0,39.58,H,C-terminal loop — AOH1996 cryptic pocket region,0,0
+B,237,GLN,0.0374,26.61,46.07,H,C-terminal loop — AOH1996 cryptic pocket region,0,0
+B,238,SER,0.0418,19.71,32.33,H,C-terminal loop — AOH1996 cryptic pocket region,0,0
+B,239,THR,0.0431,0.0,53.39,H,C-terminal loop — AOH1996 cryptic pocket region,0,0
+B,240,PHE,0.0441,69.36,51.95,H,C-terminal loop — AOH1996 cryptic pocket region,0,0
+B,241,SER,0.051,32.3,54.37,H,C-terminal loop — AOH1996 cryptic pocket region,0,0
+B,242,GLY,0.0456,5.63,67.06,H,C-terminal loop — AOH1996 cryptic pocket region,0,0
+B,243,PHE,0.0784,68.02,78.74,H,C-terminal loop — AOH1996 cryptic pocket region,0,0
+B,244,GLY,0.1083,43.63,92.25,H,C-terminal loop — AOH1996 cryptic pocket region,0,0
+B,245,PHE,0.095,103.92,97.74,C,C-terminal loop — AOH1996 cryptic pocket region,0,0
+B,246,ILE,0.0809,0.0,90.47,C,C-terminal loop — AOH1996 cryptic pocket region,0,0
+B,247,ASN,0.0605,38.64,80.99,H,C-terminal loop — AOH1996 cryptic pocket region,0,0
+B,248,SER,0.0534,26.73,69.54,H,C-terminal loop — AOH1996 cryptic pocket region,0,0
+B,249,GLU,0.0237,125.66,69.54,H,C-terminal loop — AOH1996 cryptic pocket region,0,0
+B,250,ASN,0.0238,17.23,61.3,H,C-terminal loop — AOH1996 cryptic pocket region,1,0
+B,251,VAL,0.0237,1.21,56.71,H,C-terminal loop — AOH1996 cryptic pocket region,1,0
+B,252,PHE,0.0275,24.27,57.3,H,C-terminal loop — AOH1996 cryptic pocket region,1,0
+B,253,LYS,0.0304,101.08,53.76,H,C-terminal loop — AOH1996 cryptic pocket region,1,0
+B,254,VAL,0.0371,31.24,44.81,H,C-terminal tail (protein-protein interface),0,0
+B,255,CYS,0.0374,2.42,54.57,H,C-terminal tail (protein-protein interface),0,0
+B,256,ASP,0.0443,36.84,49.43,H,C-terminal tail (protein-protein interface),0,0
+B,257,GLU,0.0462,15.27,40.08,C,C-terminal tail (protein-protein interface),0,0
+B,258,PRO,0.0438,1.21,30.45,C,C-terminal tail (protein-protein interface),0,0
+B,259,HIS,0.04,64.71,35.88,H,C-terminal tail (protein-protein interface),0,0
+B,260,PRO,0.0288,24.02,43.45,H,C-terminal tail (protein-protein interface),0,0
+B,261,LEU,0.0259,101.17,37.09,H,C-terminal tail (protein-protein interface),0,0
+B,262,LEU,0.0224,44.68,37.88,H,Core beta sheet,0,0
+B,263,VAL,0.0222,1.21,34.01,H,Core beta sheet,0,0
+B,264,LYS,0.0226,78.17,36.02,H,Core beta sheet,0,0
+B,265,GLU,0.0226,79.87,43.76,H,Core beta sheet,0,0
+B,266,MET,0.0234,2.57,28.11,H,Core beta sheet,0,0
+B,267,ILE,0.0235,2.42,39.98,H,Core beta sheet,0,0
+B,268,GLN,0.0243,88.55,38.66,H,Core beta sheet,0,0
+B,269,HIS,0.024,43.38,42.33,H,Core beta sheet,0,0
+B,270,CYS,0.0263,0.0,42.05,H,Core beta sheet,0,0
+B,271,VAL,0.0295,38.49,48.72,H,Core beta sheet,0,0
+B,272,ASN,0.0299,89.92,55.28,H,Core beta sheet,0,0
+B,273,ALA,0.0361,41.69,49.92,C,Core beta sheet,0,0
+B,274,ASN,0.031,44.91,22.22,H,Core beta sheet,0,0
+B,275,ILE,0.0308,4.72,27.31,H,Core beta sheet,0,0
+B,276,ASP,0.0283,49.44,35.14,H,Core beta sheet,0,0
+B,277,GLU,0.0253,78.78,40.66,H,Core beta sheet,0,0
+B,278,ALA,0.0252,0.0,31.5,H,Core beta sheet,0,0
+B,279,TYR,0.023,24.54,20.84,H,Core beta sheet,0,0
+B,280,LYS,0.0229,96.75,39.49,H,Core beta sheet,0,0
+B,281,ILE,0.0229,7.25,37.3,H,Core beta sheet,0,0
+B,282,LEU,0.0233,1.21,31.81,H,Core beta sheet,0,0
+B,283,ALA,0.0233,27.64,24.72,H,Core beta sheet,0,0
+B,284,HIS,0.0229,87.58,43.79,H,Core beta sheet,0,0
+B,285,LEU,0.0234,2.42,21.9,H,Core beta sheet,0,0
+B,286,TRP,0.0238,69.79,32.27,H,Core beta sheet,0,0
+B,287,HIS,0.0241,138.82,38.96,H,Core beta sheet,0,0
+B,288,LEU,0.0244,65.08,39.45,H,Core beta sheet,0,0
+B,289,GLY,0.03,20.38,39.34,C,Core beta sheet,0,0
+B,290,TYR,0.0276,21.97,40.8,C,Core beta sheet,0,0
+B,291,SER,0.0351,31.79,33.51,H,Core beta sheet,0,0
+B,292,PRO,0.0302,10.87,29.6,H,Core beta sheet,0,0
+B,293,GLU,0.0271,20.78,36.43,H,Core beta sheet,0,0
+B,294,ASP,0.0257,32.03,32.54,H,Core beta sheet,0,0
+B,295,ILE,0.0272,1.21,17.92,H,Core beta sheet,0,0
+B,296,ILE,0.0276,0.0,26.3,H,Core beta sheet,0,0
+B,297,GLY,0.0291,4.83,22.67,H,Core beta sheet,0,0
+B,298,ASN,0.029,1.09,32.44,H,Core beta sheet,0,0
+B,299,ILE,0.0265,4.83,28.36,H,Core beta sheet,0,0
+B,300,PHE,0.0257,0.0,34.28,H,Core beta sheet,0,0
+B,301,ARG,0.0239,50.49,34.02,H,Core beta sheet,0,0
+B,302,VAL,0.0239,14.22,29.31,H,Core beta sheet,0,0
+B,303,CYS,0.0251,0.0,39.79,H,Core beta sheet,0,0
+B,304,LYS,0.0267,61.45,35.08,H,Core beta sheet,0,0
+B,305,THR,0.0283,93.58,53.78,H,Core beta sheet,0,0
+B,306,PHE,0.0296,25.36,47.17,C,Core beta sheet,0,0
+B,307,GLN,0.0298,129.99,64.86,C,Core beta sheet,0,0
+B,308,MET,0.0278,32.04,64.3,C,Core beta sheet,0,0
+B,309,ALA,0.027,57.28,67.8,H,Core beta sheet,0,0
+B,310,GLU,0.0245,66.61,67.24,H,Core beta sheet,0,0
+B,311,TYR,0.0235,92.84,64.11,H,Core beta sheet,0,0
+B,312,LEU,0.0227,39.51,59.49,H,Core beta sheet,0,0
+B,313,LYS,0.0229,9.96,46.6,H,Core beta sheet,0,0
+B,314,LEU,0.0225,0.0,50.44,H,Core beta sheet,0,0
+B,315,GLU,0.0226,29.34,62.49,H,Core beta sheet,0,0
+B,316,PHE,0.0229,0.0,61.02,H,Core beta sheet,0,0
+B,317,ILE,0.0222,0.0,46.63,H,Core beta sheet,0,0
+B,318,LYS,0.0227,25.31,46.25,H,Core beta sheet,0,0
+B,319,GLU,0.0265,29.07,41.1,H,Core beta sheet,0,0
+B,320,ILE,0.0268,0.0,18.48,H,Core beta sheet,0,0
+B,321,GLY,0.0331,0.0,31.93,H,Core beta sheet,0,0
+B,322,TYR,0.0295,63.85,40.03,H,Core beta sheet,0,0
+B,323,THR,0.0349,0.0,23.64,H,Core beta sheet,0,0
+B,324,HIS,0.0292,5.7,15.07,H,Core beta sheet,0,0
+B,325,MET,0.0291,16.77,24.77,H,Core beta sheet,0,0
+B,326,LYS,0.0258,33.04,32.54,H,Core beta sheet,0,0
+B,327,ILE,0.0254,9.92,35.84,H,Core beta sheet,0,0
+B,328,ALA,0.0239,31.23,31.89,H,Core beta sheet,0,0
+B,329,GLU,0.0235,119.12,50.67,H,Core beta sheet,0,0
+B,330,GLY,0.0431,57.89,35.61,H,Core beta sheet,0,0
+B,331,VAL,0.0395,12.08,33.73,C,Core beta sheet,0,0
+B,332,ASN,0.048,51.15,22.19,C,Core beta sheet,0,0
+B,333,SER,0.0455,16.91,32.16,H,Core beta sheet,0,0
+B,334,LEU,0.0427,26.11,16.2,H,Core beta sheet,0,0
+B,335,LEU,0.0304,2.3,37.2,H,Core beta sheet,0,0
+B,336,GLN,0.0311,0.0,64.79,H,Core beta sheet,0,0
+B,337,MET,0.0381,0.0,26.65,H,Core beta sheet,0,0
+B,338,ALA,0.0374,0.0,4.82,H,Core beta sheet,0,0
+B,339,GLY,0.039,0.0,9.9,H,Core beta sheet,0,0
+B,340,LEU,0.0374,2.42,24.73,H,Core beta sheet,0,0
+B,341,LEU,0.0367,3.62,19.69,H,Core beta sheet,0,0
+B,342,ALA,0.0315,0.0,26.22,H,Core beta sheet,0,0
+B,343,ARG,0.0298,25.88,25.76,H,Core beta sheet,0,0
+B,344,LEU,0.0288,1.21,32.76,H,Core beta sheet,0,0
+B,345,CYS,0.0275,1.07,35.14,H,Core beta sheet,0,0
+B,346,GLN,0.0265,92.64,40.81,H,Core beta sheet,0,0
+B,347,LYS,0.0251,56.35,46.44,H,Core beta sheet,0,0
+B,348,THR,0.0266,12.33,59.09,H,Core beta sheet,0,0
+B,349,MET,0.0248,203.09,75.46,C,Core beta sheet,0,0
+C,19,ASN,0.0229,127.48,131.82,C,N-terminal beta sheet (domain 1),0,0
+C,20,LEU,0.023,65.21,119.41,C,N-terminal beta sheet (domain 1),0,0
+C,21,PRO,0.0248,4.83,112.69,H,N-terminal beta sheet (domain 1),0,0
+C,22,TRP,0.0233,20.07,101.96,H,N-terminal beta sheet (domain 1),0,0
+C,23,VAL,0.0232,15.7,106.63,H,N-terminal beta sheet (domain 1),0,1
+C,24,GLU,0.0227,35.65,113.87,H,N-terminal beta sheet (domain 1),0,1
+C,25,LYS,0.022,65.55,117.04,H,N-terminal beta sheet (domain 1),1,0
+C,26,TYR,0.022,21.74,105.94,H,N-terminal beta sheet (domain 1),1,1
+C,27,ARG,0.0215,110.09,96.9,C,N-terminal beta sheet (domain 1),1,1
+C,28,PRO,0.0241,7.5,99.13,C,N-terminal beta sheet (domain 1),0,1
+C,29,GLN,0.0233,133.66,101.88,C,N-terminal beta sheet (domain 1),0,0
+C,30,THR,0.0251,59.12,106.64,C,N-terminal beta sheet (domain 1),0,0
+C,31,LEU,0.0255,26.98,107.91,C,N-terminal beta sheet (domain 1),0,0
+C,32,ASN,0.0239,121.42,109.85,C,N-terminal beta sheet (domain 1),0,0
+C,33,ASP,0.0228,59.88,102.02,C,N-terminal beta sheet (domain 1),0,0
+C,34,LEU,0.022,14.22,89.31,C,N-terminal beta sheet (domain 1),0,1
+C,35,ILE,0.0229,50.72,93.33,C,N-terminal beta sheet (domain 1),0,1
+C,36,SER,0.0225,26.94,84.16,C,N-terminal beta sheet (domain 1),0,1
+C,37,HIS,0.0226,19.8,73.51,H,N-terminal beta sheet (domain 1),0,0
+C,38,GLN,0.0228,87.63,82.04,H,N-terminal beta sheet (domain 1),1,0
+C,39,ASP,0.0231,111.21,81.16,H,N-terminal beta sheet (domain 1),1,0
+C,40,ILE,0.0233,13.17,63.43,H,N-terminal beta sheet (domain 1),1,0
+C,41,LEU,0.0229,40.92,68.13,H,Front-face loop (PIP-box groove),1,0
+C,42,SER,0.0229,68.51,68.04,H,Front-face loop (PIP-box groove),1,0
+C,43,THR,0.0229,12.47,71.15,H,Front-face loop (PIP-box groove),0,0
+C,44,ILE,0.0229,8.45,69.25,H,Front-face loop (PIP-box groove),1,0
+C,45,GLN,0.0231,39.23,69.8,H,Front-face loop (PIP-box groove),1,0
+C,46,LYS,0.0235,88.65,66.42,H,Front-face loop (PIP-box groove),1,0
+C,47,PHE,0.0233,10.87,60.52,H,Front-face loop (PIP-box groove),1,0
+C,48,ILE,0.0235,29.49,67.91,H,Core beta sheet,0,0
+C,49,ASN,0.022,116.21,67.96,H,Core beta sheet,0,0
+C,50,GLU,0.0216,103.19,73.76,H,Core beta sheet,0,0
+C,51,ASP,0.0221,75.31,60.95,C,Core beta sheet,0,0
+C,52,ARG,0.0216,102.48,61.7,C,Core beta sheet,0,0
+C,53,LEU,0.0361,19.46,54.96,C,Core beta sheet,0,0
+C,54,PRO,0.0399,36.23,62.17,C,Core beta sheet,0,0
+C,55,HIS,0.0674,13.17,59.87,C,Core beta sheet,0,0
+C,56,LEU,0.0672,1.21,40.83,E,Core beta sheet,0,0
+C,57,LEU,0.0672,0.0,13.8,E,Core beta sheet,0,0
+C,58,LEU,0.0628,2.42,35.29,E,Core beta sheet,0,0
+C,59,TYR,0.0622,14.36,22.06,E,Core beta sheet,0,0
+C,60,GLY,0.1041,10.73,23.38,C,Core beta sheet,0,0
+C,61,PRO,0.1332,42.27,30.97,C,Core beta sheet,0,0
+C,62,PRO,0.1867,47.9,40.8,C,Core beta sheet,0,1
+C,63,GLY,0.1019,0.0,35.53,C,Core beta sheet,0,1
+C,64,THR,0.1421,0.0,45.28,C,Core beta sheet,0,1
+C,65,GLY,0.1069,3.35,41.25,H,Core beta sheet,0,1
+C,66,LYS,0.054,0.0,32.17,H,Core beta sheet,0,1
+C,67,THR,0.0323,19.32,51.08,H,Core beta sheet,0,1
+C,68,SER,0.0236,17.46,41.94,H,Core beta sheet,0,1
+C,69,THR,0.0218,10.19,59.51,H,Core beta sheet,0,0
+C,70,ILE,0.022,11.96,34.93,H,Core beta sheet,0,0
+C,71,LEU,0.0224,50.72,34.41,H,Core beta sheet,0,0
+C,72,ALA,0.023,7.79,53.76,H,Core beta sheet,0,0
+C,73,CYS,0.0235,11.8,55.55,H,Core beta sheet,0,0
+C,74,ALA,0.0235,0.0,54.19,H,Core beta sheet,0,0
+C,75,LYS,0.0231,101.26,55.75,H,Core beta sheet,0,0
+C,76,GLN,0.0221,78.03,58.06,H,Core beta sheet,0,0
+C,77,LEU,0.0221,60.74,56.9,H,Core beta sheet,0,0
+C,78,TYR,0.0218,22.13,70.38,H,Core beta sheet,0,0
+C,79,LYS,0.0231,120.28,86.19,C,Core beta sheet,0,0
+C,80,ASP,0.0232,91.58,111.43,C,Core beta sheet,0,0
+C,81,LYS,0.0322,133.61,110.02,C,Core beta sheet,0,0
+C,82,GLU,0.0301,23.32,78.95,H,Core beta sheet,0,0
+C,83,PHE,0.0232,10.87,69.19,H,Core beta sheet,0,0
+C,84,GLY,0.0364,3.62,54.86,H,Core beta sheet,0,0
+C,85,SER,0.0293,2.28,60.08,H,Core beta sheet,0,0
+C,86,MET,0.0272,4.91,36.75,C,Core beta sheet,0,0
+C,87,VAL,0.0356,1.07,35.05,E,Core beta sheet,0,0
+C,88,LEU,0.0481,4.83,26.36,E,Core beta sheet,0,0
+C,89,GLU,0.0673,94.21,28.44,E,Core beta sheet,0,0
+C,90,LEU,0.0579,19.32,59.54,E,Core beta sheet,0,0
+C,91,ASN,0.0355,34.22,82.15,C,Core beta sheet,0,0
+C,92,ALA,0.0328,4.69,92.8,C,Core beta sheet,0,0
+C,93,SER,0.0271,14.47,100.37,C,Core beta sheet,0,0
+C,94,ASP,0.0298,64.99,105.06,C,Core beta sheet,0,0
+C,95,ASP,0.0274,111.61,105.5,C,Core beta sheet,0,0
+C,96,ARG,0.0236,55.52,81.56,C,Core beta sheet,0,0
+C,97,GLY,0.0235,16.29,75.78,C,Core beta sheet,0,0
+C,98,ILE,0.0223,59.58,76.55,C,Core beta sheet,0,0
+C,99,ASP,0.0222,113.22,71.67,C,Core beta sheet,0,0
+C,100,ILE,0.023,33.81,68.16,C,Core beta sheet,0,0
+C,101,ILE,0.0221,8.32,53.24,C,Core beta sheet,0,0
+C,102,ARG,0.022,76.23,68.07,C,Core beta sheet,0,0
+C,103,GLY,0.0224,21.6,43.76,H,Core beta sheet,0,0
+C,104,PRO,0.0221,27.78,37.82,H,Core beta sheet,0,0
+C,105,ILE,0.0221,7.25,28.85,H,Core beta sheet,0,0
+C,106,LEU,0.0226,35.02,30.17,H,Core beta sheet,0,0
+C,107,SER,0.0244,9.64,11.97,H,Core beta sheet,0,0
+C,108,PHE,0.0353,0.0,19.45,H,Core beta sheet,0,0
+C,109,ALA,0.0326,0.0,9.6,H,Core beta sheet,0,0
+C,110,SER,0.1144,17.16,30.53,H,Core beta sheet,0,0
+C,111,THR,0.1652,3.62,17.32,C,Core beta sheet,0,0
+C,112,ARG,0.2024,125.58,28.15,C,Core beta sheet,0,0
+C,113,THR,0.2008,17.85,37.25,C,Core beta sheet,0,0
+C,114,ILE,0.1805,10.21,38.41,C,Core beta sheet,0,0
+C,115,PHE,0.0621,20.39,57.04,C,Core beta sheet,0,0
+C,116,LYS,0.0393,120.51,74.04,C,Core beta sheet,0,0
+C,117,LYS,0.0255,152.51,64.76,C,Core beta sheet,0,0
+C,118,GLY,0.0235,46.55,50.78,C,Core beta sheet,0,0
+C,119,PHE,0.0384,25.0,39.87,C,IDCL — Interdomain Connecting Loop (key interaction hub),0,0
+C,120,LYS,0.0408,3.39,32.74,E,IDCL — Interdomain Connecting Loop (key interaction hub),0,0
+C,121,LEU,0.0505,8.45,29.37,E,IDCL — Interdomain Connecting Loop (key interaction hub),0,0
+C,122,VAL,0.0603,0.0,57.79,E,IDCL — Interdomain Connecting Loop (key interaction hub),0,0
+C,123,ILE,0.0852,1.21,27.05,E,IDCL — Interdomain Connecting Loop (key interaction hub),1,0
+C,124,LEU,0.0814,7.25,50.95,E,IDCL — Interdomain Connecting Loop (key interaction hub),0,0
+C,125,ASP,0.0702,23.32,45.19,C,IDCL — Interdomain Connecting Loop (key interaction hub),1,0
+C,126,GLU,0.0412,17.69,64.18,H,IDCL — Interdomain Connecting Loop (key interaction hub),1,1
+C,127,ALA,0.0414,0.0,43.9,H,IDCL — Interdomain Connecting Loop (key interaction hub),0,0
+C,128,ASP,0.0404,23.57,42.25,H,IDCL — Interdomain Connecting Loop (key interaction hub),1,0
+C,129,ALA,0.0369,43.28,60.55,H,IDCL — Interdomain Connecting Loop (key interaction hub),0,0
+C,130,MET,0.0469,23.54,48.33,H,IDCL — Interdomain Connecting Loop (key interaction hub),0,0
+C,131,THR,0.0544,89.37,44.37,H,IDCL — Interdomain Connecting Loop (key interaction hub),0,0
+C,132,GLN,0.0477,71.22,38.54,H,IDCL — Interdomain Connecting Loop (key interaction hub),0,0
+C,133,ASP,0.0316,66.08,46.17,H,IDCL — Interdomain Connecting Loop (key interaction hub),0,0
+C,134,ALA,0.0271,2.28,30.92,H,IDCL — Interdomain Connecting Loop (key interaction hub),0,0
+C,135,GLN,0.023,0.0,5.78,H,Domain 2 core beta sheet,0,0
+C,136,ASN,0.0225,31.7,33.23,H,Domain 2 core beta sheet,0,0
+C,137,ALA,0.0226,1.21,24.66,H,Domain 2 core beta sheet,0,0
+C,138,LEU,0.0225,1.21,34.98,H,Domain 2 core beta sheet,0,0
+C,139,ARG,0.0219,1.09,25.92,H,Domain 2 core beta sheet,0,0
+C,140,ARG,0.0219,30.94,41.38,H,Domain 2 core beta sheet,0,0
+C,141,VAL,0.0219,2.42,41.97,H,Domain 2 core beta sheet,0,0
+C,142,ILE,0.0219,3.62,53.27,H,Domain 2 core beta sheet,0,0
+C,143,GLU,0.0222,40.34,50.87,H,Domain 2 core beta sheet,0,0
+C,144,LYS,0.0218,83.79,37.17,H,Domain 2 core beta sheet,0,0
+C,145,PHE,0.0219,30.19,37.63,H,Domain 2 core beta sheet,0,0
+C,146,THR,0.0219,17.48,48.89,C,Domain 2 core beta sheet,0,0
+C,147,GLU,0.0223,72.7,44.88,C,Domain 2 core beta sheet,0,0
+C,148,ASN,0.0217,12.6,42.28,C,Domain 2 core beta sheet,0,0
+C,149,THR,0.0238,0.0,40.22,E,Domain 2 core beta sheet,0,0
+C,150,ARG,0.0233,18.71,36.93,E,Domain 2 core beta sheet,0,0
+C,151,PHE,0.0289,4.56,63.74,E,Domain 2 core beta sheet,0,0
+C,152,CYS,0.0309,1.07,44.59,E,Domain 2 core beta sheet,0,0
+C,153,LEU,0.0404,2.42,49.34,E,Domain 2 core beta sheet,0,0
+C,154,ILE,0.0382,0.0,45.49,E,Domain 2 core beta sheet,0,0
+C,155,CYS,0.0364,0.0,43.57,E,Domain 2 core beta sheet,0,0
+C,156,ASN,0.0642,19.94,36.62,C,Domain 2 core beta sheet,0,1
+C,157,TYR,0.0325,86.86,38.07,H,Domain 2 core beta sheet,0,0
+C,158,LEU,0.0318,14.26,38.56,H,Domain 2 core beta sheet,0,0
+C,159,SER,0.0254,23.66,36.56,H,Domain 2 core beta sheet,0,0
+C,160,LYS,0.0238,80.96,36.07,H,Domain 2 core beta sheet,0,0
+C,161,ILE,0.0242,0.0,41.55,H,Domain 2 core beta sheet,0,0
+C,162,ILE,0.0264,10.87,27.87,H,Domain 2 core beta sheet,0,0
+C,163,PRO,0.0277,41.06,25.84,H,Domain 2 core beta sheet,0,0
+C,164,ALA,0.0246,5.92,23.41,H,Domain 2 core beta sheet,0,1
+C,165,LEU,0.0231,0.0,20.97,H,Domain 2 core beta sheet,0,0
+C,166,GLN,0.0236,23.66,34.36,H,Domain 2 core beta sheet,0,0
+C,167,SER,0.0252,3.21,18.5,H,Domain 2 core beta sheet,0,0
+C,168,ARG,0.0235,29.63,41.14,C,Domain 2 core beta sheet,0,0
+C,169,CYS,0.0241,1.07,27.53,C,Domain 2 core beta sheet,0,0
+C,170,THR,0.0261,16.91,27.68,E,Domain 2 core beta sheet,0,0
+C,171,ARG,0.0246,26.27,29.21,E,Domain 2 core beta sheet,0,0
+C,172,PHE,0.0254,28.98,35.3,E,Domain 2 core beta sheet,0,0
+C,173,ARG,0.0241,42.91,34.26,E,Domain 2 core beta sheet,0,0
+C,174,PHE,0.0463,18.35,48.09,C,Domain 2 core beta sheet,0,0
+C,175,GLY,0.0683,1.07,40.47,C,Domain 2 core beta sheet,0,0
+C,176,PRO,0.0953,49.49,49.2,C,Domain 2 core beta sheet,0,0
+C,177,LEU,0.0715,13.4,56.77,C,Domain 2 core beta sheet,0,0
+C,178,THR,0.0626,61.57,87.14,H,Domain 2 core beta sheet,0,0
+C,179,PRO,0.0329,63.87,102.14,H,Domain 2 core beta sheet,0,0
+C,180,GLU,0.0307,154.79,115.83,H,Domain 2 core beta sheet,0,0
+C,181,LEU,0.0228,67.08,109.25,H,Domain 2 core beta sheet,0,0
+C,182,MET,0.0241,2.42,97.47,H,Domain 2 core beta sheet,0,0
+C,183,VAL,0.0242,44.68,103.19,H,Domain 2 core beta sheet,0,0
+C,184,PRO,0.0246,60.5,110.41,H,Domain 2 core beta sheet,0,0
+C,185,ARG,0.025,45.43,100.35,H,Domain 2 core beta sheet,0,0
+C,186,LEU,0.025,6.04,106.33,H,Domain 2 core beta sheet,0,0
+C,187,GLU,0.0252,87.5,105.19,H,Domain 2 core beta sheet,0,0
+C,188,HIS,0.0253,58.42,104.34,H,Domain 2 core beta sheet,0,0
+C,189,VAL,0.0245,8.04,99.97,H,Domain 2 core beta sheet,0,0
+C,190,VAL,0.0241,41.86,105.81,H,Domain 2 core beta sheet,0,0
+C,191,GLU,0.0235,134.0,110.94,H,Domain 2 core beta sheet,0,0
+C,192,GLU,0.0231,110.96,115.21,H,Domain 2 core beta sheet,0,0
+C,193,GLU,0.0217,51.72,109.0,H,Domain 2 core beta sheet,0,0
+C,194,LYS,0.0247,167.28,109.27,C,Domain 2 core beta sheet,0,0
+C,195,VAL,0.0245,30.59,103.52,C,Domain 2 core beta sheet,0,0
+C,196,ASP,0.0277,109.48,101.33,E,Domain 2 core beta sheet,0,0
+C,197,ILE,0.0266,49.55,103.09,E,Domain 2 core beta sheet,0,0
+C,198,SER,0.028,44.32,109.17,H,Domain 2 core beta sheet,0,0
+C,199,GLU,0.0248,144.89,108.57,H,Domain 2 core beta sheet,0,0
+C,200,ASP,0.0241,48.14,106.35,H,Domain 2 core beta sheet,0,0
+C,201,GLY,0.0227,2.28,99.63,H,Domain 2 core beta sheet,0,0
+C,202,MET,0.0228,54.92,95.08,H,Domain 2 core beta sheet,0,0
+C,203,LYS,0.0231,131.63,89.98,H,Domain 2 core beta sheet,0,0
+C,204,ALA,0.0236,5.65,76.79,H,Domain 2 core beta sheet,0,0
+C,205,LEU,0.0237,3.62,78.43,H,Domain 2 core beta sheet,0,0
+C,206,VAL,0.0231,21.31,77.42,H,Domain 2 core beta sheet,0,0
+C,207,THR,0.0288,81.09,71.33,H,Domain 2 core beta sheet,0,0
+C,208,LEU,0.0295,21.31,68.95,H,Domain 2 core beta sheet,0,0
+C,209,SER,0.0495,1.21,55.45,H,Domain 2 core beta sheet,0,0
+C,210,SER,0.0627,75.07,55.34,C,Domain 2 core beta sheet,0,0
+C,211,GLY,0.0871,13.56,58.55,C,Domain 2 core beta sheet,0,0
+C,212,ASP,0.0503,14.61,54.8,H,Domain 2 core beta sheet,0,0
+C,213,MET,0.0413,3.7,60.51,H,Domain 2 core beta sheet,0,1
+C,214,ARG,0.0214,15.47,54.79,H,Domain 2 core beta sheet,0,1
+C,215,ARG,0.0214,45.86,59.88,H,Domain 2 core beta sheet,0,0
+C,216,ALA,0.0227,1.21,54.18,H,Domain 2 core beta sheet,0,0
+C,217,LEU,0.0228,7.11,65.59,H,Domain 2 core beta sheet,0,0
+C,218,ASN,0.0232,9.2,62.72,H,Domain 2 core beta sheet,0,0
+C,219,ILE,0.0231,16.91,75.81,H,Domain 2 core beta sheet,0,0
+C,220,LEU,0.0236,3.62,71.47,H,Domain 2 core beta sheet,0,0
+C,221,GLN,0.0237,7.98,82.49,H,Domain 2 core beta sheet,0,0
+C,222,SER,0.0244,0.0,78.51,H,Domain 2 core beta sheet,0,0
+C,223,THR,0.0242,1.07,75.11,H,Domain 2 core beta sheet,0,0
+C,224,ASN,0.0232,47.93,76.86,H,Domain 2 core beta sheet,0,0
+C,225,MET,0.0247,25.3,89.01,H,Domain 2 core beta sheet,0,0
+C,226,ALA,0.0275,0.0,91.28,H,Domain 2 core beta sheet,0,0
+C,227,PHE,0.0349,70.42,82.85,H,Domain 2 core beta sheet,0,0
+C,228,GLY,0.0418,23.74,80.62,C,Domain 2 core beta sheet,0,0
+C,229,LYS,0.0456,105.2,92.3,E,Domain 2 core beta sheet,0,0
+C,230,VAL,0.0519,0.0,92.21,E,Domain 2 core beta sheet,0,0
+C,231,THR,0.0494,31.13,88.81,H,C-terminal loop — AOH1996 cryptic pocket region,1,0
+C,232,GLU,0.0429,69.66,86.98,H,C-terminal loop — AOH1996 cryptic pocket region,1,0
+C,233,GLU,0.0297,124.38,82.34,H,C-terminal loop — AOH1996 cryptic pocket region,1,0
+C,234,THR,0.0247,6.04,81.23,H,C-terminal loop — AOH1996 cryptic pocket region,1,0
+C,235,VAL,0.0229,8.45,73.37,H,C-terminal loop — AOH1996 cryptic pocket region,0,0
+C,236,TYR,0.0229,28.4,72.11,H,C-terminal loop — AOH1996 cryptic pocket region,0,0
+C,237,THR,0.0281,77.51,74.32,H,C-terminal loop — AOH1996 cryptic pocket region,0,0
+C,238,CYS,0.0304,6.14,77.34,H,C-terminal loop — AOH1996 cryptic pocket region,0,0
+C,239,THR,0.0399,35.28,76.7,H,C-terminal loop — AOH1996 cryptic pocket region,0,0
+C,240,GLY,0.0716,11.4,67.98,H,C-terminal loop — AOH1996 cryptic pocket region,0,0
+C,241,HIS,0.0608,43.52,64.98,C,C-terminal loop — AOH1996 cryptic pocket region,0,0
+C,242,PRO,0.0696,1.21,55.08,C,C-terminal loop — AOH1996 cryptic pocket region,0,0
+C,243,LEU,0.0518,56.76,48.85,H,C-terminal loop — AOH1996 cryptic pocket region,0,0
+C,244,LYS,0.0471,87.97,50.86,H,C-terminal loop — AOH1996 cryptic pocket region,0,0
+C,245,SER,0.0245,75.84,47.27,H,C-terminal loop — AOH1996 cryptic pocket region,0,0
+C,246,ASP,0.0213,8.71,50.26,H,C-terminal loop — AOH1996 cryptic pocket region,0,0
+C,247,ILE,0.0226,2.42,45.73,H,C-terminal loop — AOH1996 cryptic pocket region,0,0
+C,248,ALA,0.0226,36.62,43.74,H,C-terminal loop — AOH1996 cryptic pocket region,0,0
+C,249,ASN,0.0234,67.39,49.31,H,C-terminal loop — AOH1996 cryptic pocket region,0,0
+C,250,ILE,0.0227,2.42,39.94,H,C-terminal loop — AOH1996 cryptic pocket region,1,0
+C,251,LEU,0.0226,1.21,27.42,H,C-terminal loop — AOH1996 cryptic pocket region,1,0
+C,252,ASP,0.0224,35.78,53.09,H,C-terminal loop — AOH1996 cryptic pocket region,1,0
+C,253,TRP,0.0223,48.03,45.21,H,C-terminal loop — AOH1996 cryptic pocket region,1,0
+C,254,MET,0.0223,2.57,40.49,H,C-terminal tail (protein-protein interface),0,0
+C,255,LEU,0.0228,0.0,54.92,H,C-terminal tail (protein-protein interface),0,0
+C,256,ASN,0.0225,16.23,58.55,H,C-terminal tail (protein-protein interface),0,0
+C,257,GLN,0.0233,59.52,49.15,H,C-terminal tail (protein-protein interface),0,0
+C,258,ASP,0.0263,60.67,53.96,H,C-terminal tail (protein-protein interface),0,0
+C,259,PHE,0.0274,0.0,32.35,H,C-terminal tail (protein-protein interface),0,0
+C,260,THR,0.0233,46.14,29.1,H,C-terminal tail (protein-protein interface),0,0
+C,261,THR,0.0226,41.16,43.39,H,C-terminal tail (protein-protein interface),0,0
+C,262,ALA,0.0232,0.0,36.23,H,Core beta sheet,0,0
+C,263,TYR,0.0225,29.9,39.15,H,Core beta sheet,0,0
+C,264,ARG,0.0227,115.93,36.49,H,Core beta sheet,0,0
+C,265,ASN,0.0226,30.36,42.19,H,Core beta sheet,0,0
+C,266,ILE,0.0226,6.04,27.02,H,Core beta sheet,0,0
+C,267,THR,0.0224,37.26,43.57,H,Core beta sheet,0,0
+C,268,GLU,0.0226,96.78,45.5,H,Core beta sheet,0,0
+C,269,LEU,0.0225,13.06,44.09,H,Core beta sheet,0,0
+C,270,LYS,0.0224,38.78,42.88,H,Core beta sheet,0,0
+C,271,THR,0.0225,77.12,54.2,H,Core beta sheet,0,0
+C,272,LEU,0.0362,116.21,47.3,H,Core beta sheet,0,0
+C,273,LYS,0.0354,90.31,49.13,H,Core beta sheet,0,0
+C,274,GLY,0.0675,14.61,53.95,H,Core beta sheet,0,0
+C,275,LEU,0.0515,17.82,47.77,C,Core beta sheet,0,0
+C,276,ALA,0.0549,11.85,45.93,H,Core beta sheet,0,0
+C,277,LEU,0.03,0.0,45.21,H,Core beta sheet,0,0
+C,278,HIS,0.0252,32.26,54.73,H,Core beta sheet,0,0
+C,279,ASP,0.022,46.75,48.04,H,Core beta sheet,0,0
+C,280,ILE,0.0222,6.04,39.93,H,Core beta sheet,0,0
+C,281,LEU,0.0224,1.21,41.72,H,Core beta sheet,0,0
+C,282,THR,0.0226,62.23,43.69,H,Core beta sheet,0,0
+C,283,GLU,0.0226,47.55,32.9,H,Core beta sheet,0,0
+C,284,ILE,0.0225,1.21,43.36,H,Core beta sheet,0,0
+C,285,HIS,0.0228,3.49,38.68,H,Core beta sheet,0,0
+C,286,LEU,0.0229,94.57,43.61,H,Core beta sheet,0,0
+C,287,PHE,0.023,7.25,52.46,H,Core beta sheet,0,0
+C,288,VAL,0.0227,0.0,51.19,H,Core beta sheet,0,0
+C,289,HIS,0.0244,36.99,46.77,H,Core beta sheet,0,0
+C,290,ARG,0.0379,117.29,50.98,C,Core beta sheet,0,0
+C,291,VAL,0.0444,1.07,48.9,C,Core beta sheet,0,0
+C,292,ASP,0.0834,59.08,45.9,C,Core beta sheet,0,0
+C,293,PHE,0.092,6.43,35.07,C,Core beta sheet,0,0
+C,294,PRO,0.0922,14.49,49.15,H,Core beta sheet,0,0
+C,295,SER,0.0916,70.29,47.78,H,Core beta sheet,0,0
+C,296,SER,0.0354,79.38,42.81,H,Core beta sheet,0,0
+C,297,VAL,0.0349,10.87,45.35,H,Core beta sheet,0,0
+C,298,ARG,0.0228,12.03,29.7,H,Core beta sheet,0,0
+C,299,ILE,0.0234,26.57,41.07,H,Core beta sheet,0,0
+C,300,HIS,0.0235,47.21,35.05,H,Core beta sheet,0,0
+C,301,LEU,0.0243,0.0,26.39,H,Core beta sheet,0,0
+C,302,LEU,0.0248,0.0,20.52,H,Core beta sheet,0,0
+C,303,THR,0.0261,28.57,30.5,H,Core beta sheet,0,0
+C,304,LYS,0.0247,48.21,37.33,H,Core beta sheet,0,0
+C,305,MET,0.0255,2.42,36.23,H,Core beta sheet,0,0
+C,306,ALA,0.0244,2.14,17.86,H,Core beta sheet,0,0
+C,307,ASP,0.0246,43.81,32.68,H,Core beta sheet,0,0
+C,308,ILE,0.0227,0.0,23.66,H,Core beta sheet,0,0
+C,309,GLU,0.0226,29.61,24.73,H,Core beta sheet,0,0
+C,310,TYR,0.0229,49.75,41.23,H,Core beta sheet,0,0
+C,311,ARG,0.0239,3.51,29.81,H,Core beta sheet,0,0
+C,312,LEU,0.0239,1.07,32.89,H,Core beta sheet,0,0
+C,313,SER,0.0301,60.84,25.59,H,Core beta sheet,0,0
+C,314,VAL,0.0324,63.27,37.66,C,Core beta sheet,0,0
+C,315,GLY,0.0565,37.25,52.49,C,Core beta sheet,0,0
+C,316,THR,0.0564,10.05,48.87,C,Core beta sheet,0,0
+C,317,ASN,0.0672,56.03,42.1,H,Core beta sheet,0,0
+C,318,GLU,0.045,45.95,43.49,H,Core beta sheet,0,0
+C,319,LYS,0.0352,67.83,38.09,H,Core beta sheet,0,0
+C,320,ILE,0.0226,0.0,44.57,H,Core beta sheet,0,0
+C,321,GLN,0.0281,1.07,39.84,H,Core beta sheet,0,0
+C,322,LEU,0.0271,6.04,21.94,H,Core beta sheet,0,0
+C,323,SER,0.0317,0.0,24.87,H,Core beta sheet,0,0
+C,324,SER,0.0297,0.0,21.5,H,Core beta sheet,0,0
+C,325,LEU,0.0271,2.42,25.65,H,Core beta sheet,0,0
+C,326,ILE,0.0241,0.0,34.4,H,Core beta sheet,0,0
+C,327,ALA,0.0237,2.42,40.08,H,Core beta sheet,0,0
+C,328,ALA,0.0246,4.83,37.37,H,Core beta sheet,0,0
+C,329,PHE,0.0243,0.0,26.73,H,Core beta sheet,0,0
+C,330,GLN,0.0253,5.49,37.61,H,Core beta sheet,0,0
+C,331,VAL,0.0246,38.51,37.77,H,Core beta sheet,0,0
+C,332,THR,0.0251,0.0,47.03,H,Core beta sheet,0,0
+C,333,ARG,0.0243,7.88,65.98,H,Core beta sheet,0,0
+C,334,ASP,0.0238,47.43,57.77,H,Core beta sheet,0,0
+C,335,LEU,0.0226,84.4,69.13,H,Core beta sheet,0,0
+C,336,ILE,0.0223,1.21,70.79,H,Core beta sheet,0,0
+C,337,VAL,0.0227,13.27,81.63,H,Core beta sheet,0,0
+C,338,ALA,0.0227,76.69,90.4,H,Core beta sheet,0,0
+C,339,GLU,0.0229,79.22,92.06,H,Core beta sheet,0,0
+C,340,ALA,0.0233,70.87,94.07,H,Core beta sheet,0,0
+D,35,ALA,0.0264,151.92,126.13,C,N-terminal beta sheet (domain 1),0,0
+D,36,LYS,0.0284,156.17,126.69,C,N-terminal beta sheet (domain 1),0,0
+D,37,PRO,0.0352,84.5,129.11,C,N-terminal beta sheet (domain 1),0,0
+D,38,VAL,0.0397,74.54,134.9,C,N-terminal beta sheet (domain 1),1,0
+D,39,PRO,0.0376,59.04,128.96,C,N-terminal beta sheet (domain 1),1,0
+D,40,TRP,0.0271,32.29,123.95,C,N-terminal beta sheet (domain 1),1,0
+D,41,VAL,0.0269,21.19,130.55,C,Front-face loop (PIP-box groove),1,0
+D,42,GLU,0.0224,112.73,138.27,C,Front-face loop (PIP-box groove),1,0
+D,43,LYS,0.022,99.12,133.89,C,Front-face loop (PIP-box groove),0,0
+D,44,TYR,0.0214,42.37,127.03,C,Front-face loop (PIP-box groove),1,0
+D,45,ARG,0.0218,34.52,132.44,C,Front-face loop (PIP-box groove),1,0
+D,46,PRO,0.0234,33.29,135.93,C,Front-face loop (PIP-box groove),1,0
+D,47,LYS,0.0228,148.63,148.13,C,Front-face loop (PIP-box groove),1,0
+D,48,CYS,0.0223,79.45,154.92,C,Core beta sheet,0,0
+D,49,VAL,0.0222,21.62,152.51,C,Core beta sheet,0,0
+D,50,ASP,0.0215,127.32,152.62,C,Core beta sheet,0,0
+D,51,GLU,0.0226,93.95,151.21,C,Core beta sheet,0,0
+D,52,VAL,0.0255,10.46,152.63,C,Core beta sheet,0,0
+D,53,ALA,0.0246,61.87,153.86,C,Core beta sheet,0,0
+D,54,PHE,0.0238,167.07,155.37,C,Core beta sheet,0,0
+D,55,GLN,0.0248,20.05,145.1,H,Core beta sheet,0,0
+D,56,GLU,0.0235,127.07,134.81,H,Core beta sheet,0,0
+D,57,GLU,0.0224,134.82,127.42,H,Core beta sheet,0,0
+D,58,VAL,0.022,25.75,128.86,H,Core beta sheet,0,0
+D,59,VAL,0.0223,17.84,130.53,H,Core beta sheet,0,0
+D,60,ALA,0.0224,34.61,126.05,H,Core beta sheet,0,0
+D,61,VAL,0.0226,8.45,121.97,H,Core beta sheet,0,0
+D,62,LEU,0.0219,42.27,121.51,H,Core beta sheet,0,0
+D,63,LYS,0.0228,117.59,127.7,H,Core beta sheet,0,0
+D,64,LYS,0.0225,99.03,124.59,H,Core beta sheet,0,0
+D,65,SER,0.0227,16.89,120.11,H,Core beta sheet,0,0
+D,66,LEU,0.025,89.72,127.02,H,Core beta sheet,0,0
+D,67,GLU,0.0298,161.2,132.99,H,Core beta sheet,0,0
+D,68,GLY,0.0473,56.61,121.55,H,Core beta sheet,0,0
+D,69,ALA,0.0916,48.95,125.12,H,Core beta sheet,0,0
+D,70,ASP,0.1083,30.74,117.83,C,Core beta sheet,0,0
+D,71,LEU,0.0677,21.74,112.98,C,Core beta sheet,0,0
+D,72,PRO,0.0891,2.42,102.71,C,Core beta sheet,0,0
+D,73,ASN,0.1243,3.26,91.81,E,Core beta sheet,0,0
+D,74,LEU,0.2093,16.91,92.48,E,Core beta sheet,0,0
+D,75,LEU,0.2552,6.04,94.62,E,Core beta sheet,0,0
+D,76,PHE,0.3353,8.45,102.48,E,Core beta sheet,0,0
+D,77,TYR,0.2183,12.6,104.65,E,Core beta sheet,0,0
+D,78,GLY,0.3805,3.62,103.65,C,Core beta sheet,0,0
+D,79,PRO,0.485,33.81,96.31,C,Core beta sheet,0,0
+D,80,PRO,0.1405,30.05,99.3,C,Core beta sheet,0,0
+D,81,GLY,0.2398,24.12,108.01,C,Core beta sheet,0,0
+D,82,THR,0.2777,14.47,110.59,C,Core beta sheet,0,0
+D,83,GLY,0.1043,2.14,119.56,H,Core beta sheet,0,0
+D,84,LYS,0.0714,4.83,113.31,H,Core beta sheet,0,0
+D,85,THR,0.0588,8.32,119.18,H,Core beta sheet,0,0
+D,86,SER,0.0303,22.11,116.63,H,Core beta sheet,0,0
+D,87,THR,0.03,9.39,115.26,H,Core beta sheet,0,0
+D,88,ILE,0.024,19.32,120.52,H,Core beta sheet,0,0
+D,89,LEU,0.0247,45.89,119.17,H,Core beta sheet,0,0
+D,90,ALA,0.023,16.41,119.67,H,Core beta sheet,0,0
+D,91,ALA,0.0231,8.32,116.94,H,Core beta sheet,0,0
+D,92,ALA,0.0232,9.55,120.23,H,Core beta sheet,0,0
+D,93,ARG,0.0231,90.05,123.87,H,Core beta sheet,0,0
+D,94,GLU,0.022,113.61,121.29,H,Core beta sheet,0,0
+D,95,LEU,0.022,43.05,118.7,H,Core beta sheet,0,0
+D,96,PHE,0.022,6.97,125.72,H,Core beta sheet,0,0
+D,97,GLY,0.0223,5.92,140.04,H,Core beta sheet,0,0
+D,98,PRO,0.0217,89.6,147.42,H,Core beta sheet,0,0
+D,99,GLU,0.0218,101.72,148.98,H,Core beta sheet,0,0
+D,100,LEU,0.0215,16.91,141.08,H,Core beta sheet,0,0
+D,101,PHE,0.0218,8.18,131.54,H,Core beta sheet,0,0
+D,102,ARG,0.0212,176.14,133.41,H,Core beta sheet,0,0
+D,103,LEU,0.0212,113.23,134.15,H,Core beta sheet,0,0
+D,104,ARG,0.0286,5.47,118.73,H,Core beta sheet,0,0
+D,105,VAL,0.0528,21.7,118.46,E,Core beta sheet,0,0
+D,106,LEU,0.1022,42.27,113.46,E,Core beta sheet,0,0
+D,107,GLU,0.2887,88.65,116.88,E,Core beta sheet,0,0
+D,108,LEU,0.233,22.94,125.49,E,Core beta sheet,0,0
+D,109,ASN,0.2347,31.76,130.21,E,Core beta sheet,0,0
+D,110,ALA,0.1141,0.0,134.93,C,Core beta sheet,0,0
+D,111,SER,0.0616,0.0,138.85,C,Core beta sheet,0,0
+D,112,ASP,0.0492,34.83,133.93,C,Core beta sheet,0,0
+D,113,GLU,0.0347,37.93,134.51,C,Core beta sheet,0,0
+D,114,ARG,0.0258,53.8,136.89,C,Core beta sheet,0,0
+D,115,GLY,0.0275,35.54,133.4,H,Core beta sheet,0,0
+D,116,ILE,0.024,74.42,126.7,H,Core beta sheet,0,0
+D,117,GLN,0.0236,133.49,119.74,H,Core beta sheet,0,0
+D,118,VAL,0.021,37.3,118.99,H,Core beta sheet,0,0
+D,119,VAL,0.0215,10.87,116.26,H,IDCL — Interdomain Connecting Loop (key interaction hub),0,0
+D,120,ARG,0.0217,57.83,110.43,H,IDCL — Interdomain Connecting Loop (key interaction hub),0,0
+D,121,GLU,0.022,101.98,109.33,H,IDCL — Interdomain Connecting Loop (key interaction hub),0,0
+D,122,LYS,0.0221,92.55,106.91,H,IDCL — Interdomain Connecting Loop (key interaction hub),0,0
+D,123,VAL,0.0224,9.66,99.62,H,IDCL — Interdomain Connecting Loop (key interaction hub),1,0
+D,124,LYS,0.0222,39.03,103.68,H,IDCL — Interdomain Connecting Loop (key interaction hub),0,0
+D,125,ASN,0.022,72.72,111.69,H,IDCL — Interdomain Connecting Loop (key interaction hub),1,0
+D,126,PHE,0.0223,38.39,107.27,H,IDCL — Interdomain Connecting Loop (key interaction hub),1,0
+D,127,ALA,0.0226,10.32,99.57,H,IDCL — Interdomain Connecting Loop (key interaction hub),0,0
+D,128,GLN,0.0232,91.06,102.05,H,IDCL — Interdomain Connecting Loop (key interaction hub),1,0
+D,129,LEU,0.0313,50.18,108.8,H,IDCL — Interdomain Connecting Loop (key interaction hub),0,0
+D,130,THR,0.0543,20.1,108.53,C,IDCL — Interdomain Connecting Loop (key interaction hub),0,0
+D,131,VAL,0.1846,59.3,116.16,C,IDCL — Interdomain Connecting Loop (key interaction hub),0,0
+D,132,SER,0.364,49.46,129.78,C,IDCL — Interdomain Connecting Loop (key interaction hub),0,0
+D,133,GLY,0.3526,25.41,128.52,C,IDCL — Interdomain Connecting Loop (key interaction hub),0,0
+D,134,SER,0.2508,89.78,129.04,C,IDCL — Interdomain Connecting Loop (key interaction hub),0,0
+D,135,ARG,0.1189,45.73,141.18,C,Domain 2 core beta sheet,0,0
+D,136,SER,0.0939,96.36,147.05,C,Domain 2 core beta sheet,0,0
+D,137,ASP,0.06,81.19,149.6,C,Domain 2 core beta sheet,0,0
+D,138,GLY,0.0609,63.27,151.38,C,Domain 2 core beta sheet,0,0
+D,139,LYS,0.0509,135.87,145.21,C,Domain 2 core beta sheet,0,0
+D,140,PRO,0.1225,125.01,137.51,C,Domain 2 core beta sheet,0,0
+D,141,CYS,0.0768,26.59,133.56,C,Domain 2 core beta sheet,0,0
+D,142,PRO,0.1809,21.74,123.25,C,Domain 2 core beta sheet,0,0
+D,143,PRO,0.1429,98.72,126.68,C,Domain 2 core beta sheet,0,0
+D,144,PHE,0.1303,9.66,118.22,C,Domain 2 core beta sheet,0,0
+D,145,LYS,0.1707,14.15,104.95,E,Domain 2 core beta sheet,0,0
+D,146,ILE,0.2578,24.15,105.24,E,Domain 2 core beta sheet,0,0
+D,147,VAL,0.5063,4.83,103.33,E,Domain 2 core beta sheet,0,0
+D,148,ILE,0.4674,0.0,107.12,E,Domain 2 core beta sheet,0,0
+D,149,LEU,0.4292,25.36,111.03,E,Domain 2 core beta sheet,0,0
+D,150,ASP,0.3991,27.06,121.68,E,Domain 2 core beta sheet,0,0
+D,151,GLU,0.2229,49.99,124.59,H,Domain 2 core beta sheet,0,0
+D,152,ALA,0.2437,0.0,114.75,H,Domain 2 core beta sheet,0,0
+D,153,ASP,0.1309,27.47,115.5,H,Domain 2 core beta sheet,0,0
+D,154,SER,0.1492,37.55,115.57,H,Domain 2 core beta sheet,0,0
+D,155,MET,0.1068,14.2,110.1,H,Domain 2 core beta sheet,0,0
+D,156,THR,0.1045,69.62,105.58,H,Domain 2 core beta sheet,0,0
+D,157,SER,0.0862,83.35,101.24,H,Domain 2 core beta sheet,0,0
+D,158,ALA,0.0394,55.55,95.29,H,Domain 2 core beta sheet,0,0
+D,159,ALA,0.0309,11.85,97.22,H,Domain 2 core beta sheet,0,0
+D,160,GLN,0.023,2.14,94.11,H,Domain 2 core beta sheet,0,0
+D,161,ALA,0.023,20.53,94.09,H,Domain 2 core beta sheet,0,0
+D,162,ALA,0.0231,1.21,97.93,H,Domain 2 core beta sheet,0,0
+D,163,LEU,0.0232,4.83,88.58,H,Domain 2 core beta sheet,0,0
+D,164,ARG,0.0242,17.95,80.39,H,Domain 2 core beta sheet,0,0
+D,165,ARG,0.0243,29.98,93.28,H,Domain 2 core beta sheet,0,0
+D,166,THR,0.0252,2.17,89.51,H,Domain 2 core beta sheet,0,0
+D,167,MET,0.0242,1.21,86.76,H,Domain 2 core beta sheet,0,0
+D,168,GLU,0.024,54.0,87.44,H,Domain 2 core beta sheet,0,0
+D,169,LYS,0.0221,114.03,91.97,H,Domain 2 core beta sheet,0,0
+D,170,GLU,0.022,10.73,98.16,H,Domain 2 core beta sheet,0,0
+D,171,SER,0.0276,6.7,103.03,C,Domain 2 core beta sheet,0,0
+D,172,LYS,0.0375,124.71,97.62,C,Domain 2 core beta sheet,0,0
+D,173,THR,0.0546,32.72,106.98,C,Domain 2 core beta sheet,0,0
+D,174,THR,0.139,1.07,102.54,E,Domain 2 core beta sheet,0,0
+D,175,ARG,0.1339,8.11,102.37,E,Domain 2 core beta sheet,0,0
+D,176,PHE,0.2402,15.43,92.38,E,Domain 2 core beta sheet,0,0
+D,177,CYS,0.1981,9.47,94.4,E,Domain 2 core beta sheet,0,0
+D,178,LEU,0.222,6.04,96.88,E,Domain 2 core beta sheet,0,0
+D,179,ILE,0.1633,6.04,110.11,E,Domain 2 core beta sheet,0,0
+D,180,CYS,0.0842,2.49,111.62,E,Domain 2 core beta sheet,0,0
+D,181,ASN,0.078,57.97,113.03,C,Domain 2 core beta sheet,0,0
+D,182,TYR,0.0398,125.1,115.2,C,Domain 2 core beta sheet,0,0
+D,183,VAL,0.0353,31.99,111.81,C,Domain 2 core beta sheet,0,0
+D,184,SER,0.0242,49.26,100.07,C,Domain 2 core beta sheet,0,0
+D,185,ARG,0.0242,75.81,101.1,C,Domain 2 core beta sheet,0,0
+D,186,ILE,0.0232,9.92,94.25,C,Domain 2 core beta sheet,0,0
+D,187,ILE,0.0238,45.89,82.77,H,Domain 2 core beta sheet,0,0
+D,188,GLU,0.0231,119.69,78.48,H,Domain 2 core beta sheet,0,0
+D,189,PRO,0.0274,40.95,79.54,H,Domain 2 core beta sheet,0,0
+D,190,LEU,0.0296,0.0,77.93,H,Domain 2 core beta sheet,0,0
+D,191,THR,0.0345,28.97,75.55,H,Domain 2 core beta sheet,0,0
+D,192,SER,0.0319,8.98,71.92,H,Domain 2 core beta sheet,0,0
+D,193,ARG,0.0311,11.05,79.75,C,Domain 2 core beta sheet,0,0
+D,194,CYS,0.0301,2.14,79.42,E,Domain 2 core beta sheet,0,0
+D,195,SER,0.0334,0.0,96.37,E,Domain 2 core beta sheet,0,0
+D,196,LYS,0.038,23.31,105.59,E,Domain 2 core beta sheet,0,0
+D,197,PHE,0.0458,19.32,110.16,E,Domain 2 core beta sheet,0,0
+D,198,ARG,0.0717,58.34,99.52,E,Domain 2 core beta sheet,0,0
+D,199,PHE,0.3195,2.42,107.75,C,Domain 2 core beta sheet,0,0
+D,200,LYS,0.3159,97.48,107.75,C,Domain 2 core beta sheet,0,0
+D,201,PRO,0.398,38.22,109.47,C,Domain 2 core beta sheet,0,0
+D,202,LEU,0.1414,52.89,111.25,C,Domain 2 core beta sheet,0,0
+D,203,SER,0.2149,96.23,119.69,C,Domain 2 core beta sheet,0,0
+D,204,ASP,0.0316,95.83,125.76,C,Domain 2 core beta sheet,0,0
+D,205,LYS,0.0328,146.53,121.91,C,Domain 2 core beta sheet,0,0
+D,206,ILE,0.0225,81.98,122.73,H,Domain 2 core beta sheet,0,0
+D,207,GLN,0.0226,16.43,119.64,H,Domain 2 core beta sheet,0,0
+D,208,GLN,0.0231,40.65,113.65,H,Domain 2 core beta sheet,0,0
+D,209,GLN,0.023,86.4,121.67,H,Domain 2 core beta sheet,0,0
+D,210,ARG,0.0231,100.86,120.32,H,Domain 2 core beta sheet,0,0
+D,211,LEU,0.0229,4.83,119.81,H,Domain 2 core beta sheet,0,0
+D,212,LEU,0.0229,80.91,115.64,H,Domain 2 core beta sheet,0,0
+D,213,ASP,0.0229,89.24,116.63,H,Domain 2 core beta sheet,0,0
+D,214,ILE,0.0227,6.97,120.45,H,Domain 2 core beta sheet,0,0
+D,215,ALA,0.0223,1.21,118.73,H,Domain 2 core beta sheet,0,0
+D,216,LYS,0.0225,147.95,110.17,H,Domain 2 core beta sheet,0,0
+D,217,LYS,0.0216,130.89,114.25,H,Domain 2 core beta sheet,0,0
+D,218,GLU,0.0215,96.21,113.54,H,Domain 2 core beta sheet,0,0
+D,219,ASN,0.0276,143.39,113.52,C,Domain 2 core beta sheet,0,0
+D,220,VAL,0.0297,28.05,115.1,C,Domain 2 core beta sheet,0,0
+D,221,LYS,0.0314,104.01,116.77,C,Domain 2 core beta sheet,0,0
+D,222,ILE,0.0319,21.9,115.97,C,Domain 2 core beta sheet,0,0
+D,223,SER,0.0285,45.21,123.54,H,Domain 2 core beta sheet,0,0
+D,224,ASP,0.0279,108.68,129.57,H,Domain 2 core beta sheet,0,0
+D,225,GLU,0.0211,111.25,124.66,H,Domain 2 core beta sheet,0,0
+D,226,GLY,0.021,2.42,119.75,H,Domain 2 core beta sheet,0,0
+D,227,ILE,0.0212,3.62,108.48,H,Domain 2 core beta sheet,0,0
+D,228,ALA,0.0215,50.04,111.16,H,Domain 2 core beta sheet,0,0
+D,229,TYR,0.0221,50.83,106.09,H,Domain 2 core beta sheet,0,0
+D,230,LEU,0.0218,1.21,99.31,H,Domain 2 core beta sheet,0,0
+D,231,VAL,0.0278,24.54,102.81,H,C-terminal loop — AOH1996 cryptic pocket region,1,0
+D,232,LYS,0.035,137.56,106.5,H,C-terminal loop — AOH1996 cryptic pocket region,1,0
+D,233,VAL,0.0484,32.16,107.09,H,C-terminal loop — AOH1996 cryptic pocket region,1,0
+D,234,SER,0.4289,7.5,112.84,H,C-terminal loop — AOH1996 cryptic pocket region,1,0
+D,235,GLU,0.3599,141.77,131.69,C,C-terminal loop — AOH1996 cryptic pocket region,0,0
+D,236,GLY,0.5995,37.73,132.67,C,C-terminal loop — AOH1996 cryptic pocket region,0,0
+D,237,ASP,0.15,29.5,115.08,H,C-terminal loop — AOH1996 cryptic pocket region,0,0
+D,238,LEU,0.1361,26.45,106.4,H,C-terminal loop — AOH1996 cryptic pocket region,0,0
+D,239,ARG,0.0223,61.27,109.71,H,C-terminal loop — AOH1996 cryptic pocket region,0,0
+D,240,LYS,0.0215,69.79,101.96,H,C-terminal loop — AOH1996 cryptic pocket region,0,0
+D,241,ALA,0.0237,1.21,99.3,H,C-terminal loop — AOH1996 cryptic pocket region,0,0
+D,242,ILE,0.0234,19.32,102.35,H,C-terminal loop — AOH1996 cryptic pocket region,0,0
+D,243,THR,0.0255,38.24,100.87,H,C-terminal loop — AOH1996 cryptic pocket region,0,0
+D,244,PHE,0.0255,25.36,102.78,H,C-terminal loop — AOH1996 cryptic pocket region,0,0
+D,245,LEU,0.0268,4.83,99.48,H,C-terminal loop — AOH1996 cryptic pocket region,0,0
+D,246,GLN,0.0248,31.01,102.76,H,C-terminal loop — AOH1996 cryptic pocket region,0,0
+D,247,SER,0.0282,8.57,105.63,H,C-terminal loop — AOH1996 cryptic pocket region,0,0
+D,248,ALA,0.0268,0.0,104.26,H,C-terminal loop — AOH1996 cryptic pocket region,0,0
+D,249,THR,0.0298,29.63,110.24,H,C-terminal loop — AOH1996 cryptic pocket region,0,0
+D,250,ARG,0.0328,34.06,110.57,H,C-terminal loop — AOH1996 cryptic pocket region,1,0
+D,251,LEU,0.0382,9.39,107.68,H,C-terminal loop — AOH1996 cryptic pocket region,1,0
+D,252,THR,0.0541,17.57,116.96,H,C-terminal loop — AOH1996 cryptic pocket region,1,0
+D,253,GLY,0.0685,59.1,119.01,H,C-terminal loop — AOH1996 cryptic pocket region,1,0
+D,254,GLY,0.0817,48.88,122.95,C,C-terminal tail (protein-protein interface),0,0
+D,255,LYS,0.0457,112.36,124.24,C,C-terminal tail (protein-protein interface),0,0
+D,256,GLU,0.1017,75.93,122.43,C,C-terminal tail (protein-protein interface),0,0
+D,257,ILE,0.0903,6.43,115.94,C,C-terminal tail (protein-protein interface),0,0
+D,258,THR,0.1094,68.24,110.56,H,C-terminal tail (protein-protein interface),0,0
+D,259,GLU,0.0894,71.64,105.11,H,C-terminal tail (protein-protein interface),0,0
+D,260,LYS,0.0455,90.48,101.37,H,C-terminal tail (protein-protein interface),0,0
+D,261,VAL,0.0418,8.45,98.38,H,C-terminal tail (protein-protein interface),0,0
+D,262,ILE,0.0235,1.21,93.25,H,Core beta sheet,0,0
+D,263,THR,0.025,18.23,88.02,H,Core beta sheet,0,0
+D,264,ASP,0.0255,23.34,90.74,H,Core beta sheet,0,0
+D,265,ILE,0.0256,12.47,90.62,H,Core beta sheet,0,0
+D,266,ALA,0.0278,19.69,90.69,H,Core beta sheet,0,0
+D,267,GLY,0.0589,23.88,71.43,C,Core beta sheet,0,0
+D,268,VAL,0.0528,29.24,64.4,C,Core beta sheet,0,0
+D,269,ILE,0.0596,5.63,46.41,C,Core beta sheet,0,0
+D,270,PRO,0.055,38.64,59.69,H,Core beta sheet,0,0
+D,271,ALA,0.059,66.83,64.44,H,Core beta sheet,0,0
+D,272,GLU,0.0212,124.97,68.83,H,Core beta sheet,0,0
+D,273,LYS,0.021,43.56,62.13,H,Core beta sheet,0,0
+D,274,ILE,0.0214,8.45,56.87,H,Core beta sheet,0,0
+D,275,ASP,0.0214,97.56,70.91,H,Core beta sheet,0,0
+D,276,GLY,0.0219,32.08,67.83,H,Core beta sheet,0,0
+D,277,VAL,0.0218,7.25,57.12,H,Core beta sheet,0,0
+D,278,PHE,0.0221,41.99,60.26,H,Core beta sheet,0,0
+D,279,ALA,0.0224,65.33,69.63,H,Core beta sheet,0,0
+D,280,ALA,0.0228,13.03,60.07,H,Core beta sheet,0,0
+D,281,CYS,0.0248,0.0,50.89,H,Core beta sheet,0,0
+D,282,GLN,0.0243,96.69,66.47,H,Core beta sheet,0,0
+D,283,SER,0.0554,67.81,85.76,H,Core beta sheet,0,0
+D,284,GLY,0.0524,37.97,84.31,C,Core beta sheet,0,0
+D,285,SER,0.0954,37.42,69.01,H,Core beta sheet,0,0
+D,286,PHE,0.0983,15.24,48.25,H,Core beta sheet,0,0
+D,287,ASP,0.059,102.64,56.36,H,Core beta sheet,0,0
+D,288,LYS,0.0472,99.75,55.58,H,Core beta sheet,0,0
+D,289,LEU,0.0275,2.42,47.44,H,Core beta sheet,0,0
+D,290,GLU,0.0221,36.04,47.19,H,Core beta sheet,0,0
+D,291,ALA,0.0227,53.25,42.9,H,Core beta sheet,0,0
+D,292,VAL,0.0228,28.98,47.28,H,Core beta sheet,0,0
+D,293,VAL,0.0237,8.45,38.64,H,Core beta sheet,0,0
+D,294,LYS,0.0232,79.52,57.38,H,Core beta sheet,0,0
+D,295,ASP,0.0234,53.32,46.0,H,Core beta sheet,0,0
+D,296,LEU,0.0243,4.83,49.68,H,Core beta sheet,0,0
+D,297,ILE,0.026,16.77,53.12,H,Core beta sheet,0,0
+D,298,ASP,0.0332,21.57,45.21,H,Core beta sheet,0,0
+D,299,GLU,0.0315,56.12,50.97,C,Core beta sheet,0,0
+D,300,GLY,0.0787,5.49,46.6,C,Core beta sheet,0,0
+D,301,HIS,0.0706,12.88,47.02,C,Core beta sheet,0,0
+D,302,ALA,0.1105,18.84,47.0,H,Core beta sheet,0,0
+D,303,ALA,0.1095,1.09,43.2,H,Core beta sheet,0,0
+D,304,THR,0.0776,23.06,34.45,H,Core beta sheet,0,0
+D,305,GLN,0.0459,56.96,43.13,H,Core beta sheet,0,0
+D,306,LEU,0.0372,1.21,34.62,H,Core beta sheet,0,0
+D,307,VAL,0.0286,0.0,27.52,H,Core beta sheet,0,0
+D,308,ASN,0.0269,20.46,39.07,H,Core beta sheet,0,0
+D,309,GLN,0.0277,25.31,31.2,H,Core beta sheet,0,0
+D,310,LEU,0.028,4.83,37.29,H,Core beta sheet,0,0
+D,311,HIS,0.0298,0.0,44.63,H,Core beta sheet,0,0
+D,312,ASP,0.0294,60.56,38.57,H,Core beta sheet,0,0
+D,313,VAL,0.0304,36.23,40.63,H,Core beta sheet,0,0
+D,314,VAL,0.0292,1.21,41.66,H,Core beta sheet,0,0
+D,315,VAL,0.028,5.9,26.31,H,Core beta sheet,0,0
+D,316,GLU,0.0257,118.97,46.18,H,Core beta sheet,0,0
+D,317,ASN,0.0271,64.31,61.91,C,Core beta sheet,0,0
+D,318,ASN,0.0354,145.92,71.79,C,Core beta sheet,0,0
+D,319,LEU,0.0374,37.15,58.19,C,Core beta sheet,0,0
+D,320,SER,0.0453,51.57,45.1,H,Core beta sheet,0,0
+D,321,ASP,0.0406,19.99,48.77,H,Core beta sheet,0,0
+D,322,LYS,0.0305,86.74,41.33,H,Core beta sheet,0,0
+D,323,GLN,0.0305,43.84,42.21,H,Core beta sheet,0,0
+D,324,LYS,0.0277,5.47,36.94,H,Core beta sheet,0,0
+D,325,SER,0.0278,3.21,34.71,H,Core beta sheet,0,0
+D,326,ILE,0.0263,58.9,28.97,H,Core beta sheet,0,0
+D,327,ILE,0.0272,0.0,7.55,H,Core beta sheet,0,0
+D,328,THR,0.0281,0.0,15.95,H,Core beta sheet,0,0
+D,329,GLU,0.0275,17.84,14.47,H,Core beta sheet,0,0
+D,330,LYS,0.0293,40.62,23.99,H,Core beta sheet,0,0
+D,331,LEU,0.0289,0.0,11.0,H,Core beta sheet,0,0
+D,332,ALA,0.0292,0.0,19.2,H,Core beta sheet,0,0
+D,333,GLU,0.0307,62.2,16.33,H,Core beta sheet,0,0
+D,334,VAL,0.0353,0.0,15.51,H,Core beta sheet,0,0
+D,335,ASP,0.0383,6.43,30.6,H,Core beta sheet,0,0
+D,336,LYS,0.0374,20.42,22.62,H,Core beta sheet,0,0
+D,337,CYS,0.0427,16.73,30.75,H,Core beta sheet,0,0
+D,338,LEU,0.0505,1.21,20.39,H,Core beta sheet,0,0
+D,339,ALA,0.0566,40.36,31.29,H,Core beta sheet,0,0
+D,340,ASP,0.0676,43.15,29.21,H,Core beta sheet,0,0
+D,341,GLY,0.0871,3.62,36.68,C,Core beta sheet,0,0
+D,342,ALA,0.0911,2.17,34.86,C,Core beta sheet,0,0
+D,343,ASP,0.0852,25.05,42.39,H,Core beta sheet,0,0
+D,344,GLU,0.0754,16.48,43.9,H,Core beta sheet,0,0
+D,345,HIS,0.0416,19.5,41.3,H,Core beta sheet,0,0
+D,346,LEU,0.0381,1.21,47.97,H,Core beta sheet,0,0
+D,347,GLN,0.0357,10.85,35.76,H,Core beta sheet,0,0
+D,348,LEU,0.0327,4.83,32.14,H,Core beta sheet,0,0
+D,349,ILE,0.0277,9.39,32.56,H,Core beta sheet,0,0
+D,350,SER,0.0311,0.0,27.22,H,Core beta sheet,0,0
+D,351,LEU,0.0307,0.0,29.06,H,Core beta sheet,0,0
+D,352,CYS,0.034,1.29,33.05,H,Core beta sheet,0,0
+D,353,ALA,0.0346,6.56,32.93,H,Core beta sheet,0,0
+D,354,THR,0.0365,5.36,37.79,H,Core beta sheet,0,0
+D,355,VAL,0.0335,7.25,44.54,H,Core beta sheet,0,0
+D,356,MET,0.0308,28.27,33.06,H,Core beta sheet,0,0
+D,357,GLN,0.0269,93.26,40.42,H,Core beta sheet,0,0
+D,358,GLN,0.0268,9.84,49.6,H,Core beta sheet,0,0
+D,359,LEU,0.0233,15.27,52.09,H,Core beta sheet,0,0
+D,360,SER,0.0234,62.06,70.68,H,Core beta sheet,0,0
+D,361,GLN,0.023,148.44,96.34,C,Core beta sheet,0,0
+E,2,SER,0.0342,54.49,130.36,C,N-terminal beta sheet (domain 1),0,0
+E,3,LEU,0.0397,49.38,109.89,H,N-terminal beta sheet (domain 1),0,0
+E,4,TRP,0.036,24.54,99.92,H,N-terminal beta sheet (domain 1),0,0
+E,5,VAL,0.0429,2.42,98.73,H,N-terminal beta sheet (domain 1),0,1
+E,6,ASP,0.04,26.26,101.24,H,N-terminal beta sheet (domain 1),0,1
+E,7,LYS,0.0283,92.8,110.62,H,N-terminal beta sheet (domain 1),0,0
+E,8,TYR,0.0286,72.68,108.18,H,N-terminal beta sheet (domain 1),0,1
+E,9,ARG,0.0298,24.45,102.75,C,N-terminal beta sheet (domain 1),0,1
+E,10,PRO,0.0478,16.62,101.63,C,N-terminal beta sheet (domain 1),0,1
+E,11,CYS,0.049,41.62,110.68,C,N-terminal beta sheet (domain 1),0,0
+E,12,SER,0.0612,48.95,106.57,H,N-terminal beta sheet (domain 1),0,0
+E,13,LEU,0.0605,2.14,108.69,H,N-terminal beta sheet (domain 1),0,0
+E,14,GLY,0.0422,57.96,104.52,H,N-terminal beta sheet (domain 1),0,0
+E,15,ARG,0.0293,131.99,101.11,H,N-terminal beta sheet (domain 1),0,0
+E,16,LEU,0.0295,5.49,93.92,H,N-terminal beta sheet (domain 1),0,1
+E,17,ASP,0.0356,54.25,85.77,C,N-terminal beta sheet (domain 1),0,1
+E,18,TYR,0.0287,2.42,68.05,C,N-terminal beta sheet (domain 1),0,1
+E,19,HIS,0.0333,53.16,72.93,H,N-terminal beta sheet (domain 1),0,0
+E,20,LYS,0.024,97.61,83.02,H,N-terminal beta sheet (domain 1),0,0
+E,21,GLU,0.0238,126.91,91.98,H,N-terminal beta sheet (domain 1),0,0
+E,22,GLN,0.022,19.67,80.54,H,N-terminal beta sheet (domain 1),0,0
+E,23,ALA,0.0227,1.21,94.56,H,N-terminal beta sheet (domain 1),0,0
+E,24,ALA,0.023,28.98,92.59,H,N-terminal beta sheet (domain 1),0,0
+E,25,GLN,0.0233,25.59,92.67,H,N-terminal beta sheet (domain 1),1,0
+E,26,LEU,0.0233,6.04,91.99,H,N-terminal beta sheet (domain 1),1,0
+E,27,ARG,0.0233,77.05,103.15,H,N-terminal beta sheet (domain 1),1,0
+E,28,ASN,0.0228,76.17,108.85,H,N-terminal beta sheet (domain 1),0,0
+E,29,LEU,0.0226,1.07,103.49,H,N-terminal beta sheet (domain 1),0,0
+E,30,VAL,0.0237,14.2,112.96,H,N-terminal beta sheet (domain 1),0,0
+E,31,GLN,0.0228,136.07,117.54,H,N-terminal beta sheet (domain 1),0,0
+E,32,CYS,0.0241,66.42,118.67,H,N-terminal beta sheet (domain 1),0,0
+E,33,GLY,0.0543,38.6,114.37,C,N-terminal beta sheet (domain 1),0,0
+E,34,ASP,0.0695,61.42,107.75,C,N-terminal beta sheet (domain 1),0,0
+E,35,PHE,0.0971,2.42,93.49,C,N-terminal beta sheet (domain 1),0,0
+E,36,PRO,0.2189,7.25,77.58,C,N-terminal beta sheet (domain 1),0,0
+E,37,HIS,0.3,1.21,82.56,C,N-terminal beta sheet (domain 1),0,0
+E,38,LEU,0.3494,0.0,55.42,E,N-terminal beta sheet (domain 1),1,0
+E,39,LEU,0.1786,3.62,56.23,E,N-terminal beta sheet (domain 1),1,0
+E,40,VAL,0.2596,0.0,54.83,E,N-terminal beta sheet (domain 1),1,0
+E,41,TYR,0.1152,27.08,56.15,E,Front-face loop (PIP-box groove),1,0
+E,42,GLY,0.1402,4.58,68.96,C,Front-face loop (PIP-box groove),1,0
+E,43,PRO,0.1471,18.11,51.78,C,Front-face loop (PIP-box groove),0,1
+E,44,SER,0.2259,51.19,59.7,C,Front-face loop (PIP-box groove),1,1
+E,45,GLY,0.1631,0.0,51.45,C,Front-face loop (PIP-box groove),1,1
+E,46,ALA,0.1108,0.0,54.46,C,Front-face loop (PIP-box groove),1,1
+E,47,GLY,0.079,0.0,66.3,H,Front-face loop (PIP-box groove),1,1
+E,48,LYS,0.0461,7.66,62.34,H,Core beta sheet,0,1
+E,49,LYS,0.0323,10.53,71.09,H,Core beta sheet,0,1
+E,50,THR,0.0297,3.35,75.86,H,Core beta sheet,0,1
+E,51,ARG,0.0241,7.02,67.85,H,Core beta sheet,0,0
+E,52,ILE,0.0237,2.42,69.74,H,Core beta sheet,0,0
+E,53,MET,0.0224,40.67,77.67,H,Core beta sheet,0,0
+E,54,CYS,0.0224,2.49,89.87,H,Core beta sheet,0,0
+E,55,ILE,0.0228,0.0,86.72,H,Core beta sheet,0,0
+E,56,LEU,0.0232,1.21,88.09,H,Core beta sheet,0,0
+E,57,ARG,0.0228,54.82,101.42,H,Core beta sheet,0,0
+E,58,GLU,0.0221,65.24,106.05,H,Core beta sheet,0,0
+E,59,LEU,0.0264,16.48,107.65,H,Core beta sheet,0,0
+E,60,TYR,0.0287,24.93,105.02,H,Core beta sheet,0,0
+E,61,GLY,0.0375,42.27,110.16,C,Core beta sheet,0,0
+E,62,VAL,0.0351,109.55,115.45,C,Core beta sheet,0,0
+E,63,GLY,0.0297,15.13,116.66,C,Core beta sheet,0,0
+E,64,VAL,0.0312,7.11,114.22,C,Core beta sheet,0,0
+E,65,GLU,0.0237,104.16,124.92,C,Core beta sheet,0,0
+E,66,LYS,0.0249,121.33,122.34,C,Core beta sheet,0,0
+E,67,LEU,0.0288,34.33,120.94,C,Core beta sheet,0,0
+E,68,ARG,0.0377,110.64,128.74,E,Core beta sheet,0,0
+E,69,ILE,0.1585,61.19,135.56,E,Core beta sheet,0,0
+E,70,GLU,0.2892,47.47,130.06,E,Core beta sheet,0,0
+E,71,HIS,0.4165,114.19,138.14,E,Core beta sheet,0,0
+E,72,GLN,0.5024,47.23,141.6,E,Core beta sheet,0,0
+E,73,THR,0.5549,82.15,146.49,E,Core beta sheet,0,0
+E,74,ILE,0.3331,3.62,150.65,E,Core beta sheet,0,0
+E,75,THR,0.31,94.95,146.51,E,Core beta sheet,0,0
+E,76,THR,0.0816,26.28,144.39,C,Core beta sheet,0,0
+E,77,PRO,0.0474,120.16,146.46,C,Core beta sheet,0,0
+E,78,SER,0.0277,68.18,153.47,C,Core beta sheet,0,0
+E,79,LYS,0.0278,172.97,153.74,C,Core beta sheet,0,0
+E,80,LYS,0.0273,97.97,154.37,C,Core beta sheet,0,0
+E,81,LYS,0.1396,90.87,157.63,E,Core beta sheet,0,0
+E,82,ILE,0.1939,38.64,152.56,E,Core beta sheet,0,0
+E,83,GLU,0.4022,97.44,148.77,E,Core beta sheet,0,0
+E,84,ILE,0.4475,7.25,136.54,E,Core beta sheet,0,0
+E,85,SER,0.5128,35.9,125.51,E,Core beta sheet,0,0
+E,86,THR,0.4717,1.21,115.94,E,Core beta sheet,0,0
+E,87,ILE,0.1912,12.08,104.2,E,Core beta sheet,0,0
+E,88,ALA,0.1748,6.04,107.41,E,Core beta sheet,0,0
+E,89,SER,0.0507,16.07,107.87,C,Core beta sheet,0,0
+E,90,ASN,0.0437,107.67,109.81,C,Core beta sheet,0,0
+E,91,TYR,0.0286,59.77,103.64,C,Core beta sheet,0,0
+E,92,HIS,0.1178,11.15,101.1,E,Core beta sheet,0,0
+E,93,LEU,0.1451,18.11,87.69,E,Core beta sheet,0,0
+E,94,GLU,0.3937,4.29,94.14,E,Core beta sheet,0,0
+E,95,VAL,0.504,9.66,85.6,E,Core beta sheet,0,0
+E,96,ASN,0.4264,44.23,96.08,C,Core beta sheet,0,0
+E,97,PRO,0.1879,2.42,104.59,C,Core beta sheet,0,0
+E,98,SER,0.1908,31.89,111.26,C,Core beta sheet,0,0
+E,99,ASP,0.2066,89.8,117.58,C,Core beta sheet,0,0
+E,100,ALA,0.137,8.32,119.84,C,Core beta sheet,0,0
+E,101,GLY,0.1151,51.55,127.01,C,Core beta sheet,0,0
+E,102,ASN,0.0537,142.91,130.8,C,Core beta sheet,0,0
+E,103,SER,0.0645,14.13,127.93,H,Core beta sheet,0,0
+E,104,ASP,0.0541,4.29,128.13,H,Core beta sheet,0,0
+E,105,ARG,0.0322,131.08,126.64,H,Core beta sheet,0,0
+E,106,VAL,0.0292,23.88,129.29,H,Core beta sheet,0,0
+E,107,VAL,0.0214,3.62,124.3,H,Core beta sheet,0,0
+E,108,ILE,0.0216,2.42,122.14,H,Core beta sheet,0,0
+E,109,GLN,0.0221,59.11,122.89,H,Core beta sheet,0,0
+E,110,GLU,0.0221,78.78,120.67,H,Core beta sheet,0,0
+E,111,MET,0.0219,13.44,125.07,H,Core beta sheet,0,0
+E,112,LEU,0.0228,13.15,112.94,H,Core beta sheet,0,0
+E,113,LYS,0.0227,87.68,113.95,H,Core beta sheet,0,0
+E,114,THR,0.0228,53.37,119.7,H,Core beta sheet,0,0
+E,115,VAL,0.022,22.94,113.88,H,Core beta sheet,0,0
+E,116,ALA,0.0257,18.35,114.17,H,Core beta sheet,0,0
+E,117,GLN,0.0264,145.77,117.0,H,Core beta sheet,0,0
+E,118,SER,0.0344,51.09,121.32,H,Core beta sheet,0,0
+E,119,GLN,0.0415,138.13,135.67,C,IDCL — Interdomain Connecting Loop (key interaction hub),0,0
+E,120,GLN,0.0439,22.17,138.15,C,IDCL — Interdomain Connecting Loop (key interaction hub),0,0
+E,121,LEU,0.0413,142.09,148.6,C,IDCL — Interdomain Connecting Loop (key interaction hub),0,0
+E,122,GLU,0.0283,125.95,149.79,H,IDCL — Interdomain Connecting Loop (key interaction hub),0,0
+E,123,THR,0.0273,55.67,151.94,H,IDCL — Interdomain Connecting Loop (key interaction hub),1,0
+E,124,ASN,0.0234,130.92,154.83,H,IDCL — Interdomain Connecting Loop (key interaction hub),0,0
+E,125,SER,0.0231,75.29,148.04,H,IDCL — Interdomain Connecting Loop (key interaction hub),1,0
+E,126,GLN,0.0216,64.82,132.95,H,IDCL — Interdomain Connecting Loop (key interaction hub),1,0
+E,127,ARG,0.0553,51.93,130.93,H,IDCL — Interdomain Connecting Loop (key interaction hub),0,0
+E,128,ASP,0.0565,119.24,128.17,C,IDCL — Interdomain Connecting Loop (key interaction hub),1,0
+E,129,PHE,0.0691,15.43,119.89,C,IDCL — Interdomain Connecting Loop (key interaction hub),0,0
+E,130,LYS,0.2604,26.23,113.46,E,IDCL — Interdomain Connecting Loop (key interaction hub),0,0
+E,131,VAL,0.5678,0.0,98.21,E,IDCL — Interdomain Connecting Loop (key interaction hub),0,0
+E,132,VAL,0.5623,1.21,78.93,E,IDCL — Interdomain Connecting Loop (key interaction hub),0,0
+E,133,LEU,0.5272,6.04,77.16,E,IDCL — Interdomain Connecting Loop (key interaction hub),0,0
+E,134,LEU,0.4141,1.21,79.28,E,IDCL — Interdomain Connecting Loop (key interaction hub),0,0
+E,135,THR,0.3854,26.82,93.58,C,Domain 2 core beta sheet,0,0
+E,136,GLU,0.1143,43.15,96.33,C,Domain 2 core beta sheet,0,0
+E,137,VAL,0.1048,1.21,99.66,C,Domain 2 core beta sheet,0,0
+E,138,ASP,0.055,4.29,100.57,C,Domain 2 core beta sheet,0,0
+E,139,LYS,0.0506,103.12,100.92,C,Domain 2 core beta sheet,0,0
+E,140,LEU,0.0484,6.43,110.29,C,Domain 2 core beta sheet,0,0
+E,141,THR,0.0514,50.53,113.28,H,Domain 2 core beta sheet,0,0
+E,142,LYS,0.0433,117.05,111.44,H,Domain 2 core beta sheet,0,0
+E,143,ASP,0.0308,52.54,117.11,H,Domain 2 core beta sheet,0,0
+E,144,ALA,0.0258,0.0,116.89,H,Domain 2 core beta sheet,0,0
+E,145,GLN,0.0232,2.17,114.6,H,Domain 2 core beta sheet,0,0
+E,146,HIS,0.0238,36.07,113.9,H,Domain 2 core beta sheet,0,0
+E,147,ALA,0.0235,3.62,122.36,H,Domain 2 core beta sheet,0,0
+E,148,LEU,0.0239,0.0,111.82,H,Domain 2 core beta sheet,0,0
+E,149,ARG,0.0235,17.95,110.48,H,Domain 2 core beta sheet,0,0
+E,150,ARG,0.0238,47.14,116.95,H,Domain 2 core beta sheet,0,0
+E,151,THR,0.024,3.21,107.92,H,Domain 2 core beta sheet,0,0
+E,152,MET,0.0263,0.0,100.78,H,Domain 2 core beta sheet,0,0
+E,153,GLU,0.0233,59.37,110.41,H,Domain 2 core beta sheet,0,0
+E,154,LYS,0.0229,79.31,112.96,H,Domain 2 core beta sheet,0,0
+E,155,TYR,0.0227,39.97,111.57,H,Domain 2 core beta sheet,0,0
+E,156,MET,0.0258,78.32,106.73,C,Domain 2 core beta sheet,0,0
+E,157,SER,0.0298,81.69,116.1,C,Domain 2 core beta sheet,0,0
+E,158,THR,0.0367,50.82,112.96,C,Domain 2 core beta sheet,0,0
+E,159,CYS,0.0977,2.57,104.62,E,Domain 2 core beta sheet,0,0
+E,160,ARG,0.1629,29.53,92.99,E,Domain 2 core beta sheet,0,0
+E,161,LEU,0.2733,0.0,69.44,E,Domain 2 core beta sheet,0,0
+E,162,ILE,0.3074,0.0,64.89,E,Domain 2 core beta sheet,0,0
+E,163,LEU,0.27,1.21,75.96,E,Domain 2 core beta sheet,0,0
+E,164,CYS,0.1736,11.19,72.39,E,Domain 2 core beta sheet,0,0
+E,165,CYS,0.158,3.62,83.34,E,Domain 2 core beta sheet,0,0
+E,166,ASN,0.1823,58.75,84.98,C,Domain 2 core beta sheet,0,0
+E,167,SER,0.1215,23.86,97.65,H,Domain 2 core beta sheet,0,0
+E,168,THR,0.1164,8.18,94.58,H,Domain 2 core beta sheet,0,0
+E,169,SER,0.0862,20.63,87.73,H,Domain 2 core beta sheet,0,0
+E,170,LYS,0.0646,45.46,100.55,H,Domain 2 core beta sheet,0,0
+E,171,VAL,0.0537,5.63,103.65,H,Domain 2 core beta sheet,0,0
+E,172,ILE,0.0307,16.91,113.52,H,Domain 2 core beta sheet,0,0
+E,173,PRO,0.0293,91.1,111.7,H,Domain 2 core beta sheet,0,0
+E,174,PRO,0.0219,43.34,115.66,H,Domain 2 core beta sheet,0,0
+E,175,ILE,0.0219,1.21,108.88,H,Domain 2 core beta sheet,0,0
+E,176,ARG,0.0224,86.47,99.77,H,Domain 2 core beta sheet,0,0
+E,177,SER,0.0237,74.27,103.26,H,Domain 2 core beta sheet,0,0
+E,178,ARG,0.0246,65.99,96.62,C,Domain 2 core beta sheet,0,0
+E,179,CYS,0.0293,9.78,84.87,C,Domain 2 core beta sheet,0,0
+E,180,LEU,0.0339,5.92,61.64,E,Domain 2 core beta sheet,0,0
+E,181,ALA,0.0378,21.12,56.56,E,Domain 2 core beta sheet,0,0
+E,182,VAL,0.0419,6.04,55.57,E,Domain 2 core beta sheet,0,0
+E,183,ARG,0.0367,34.36,58.29,E,Domain 2 core beta sheet,0,0
+E,184,VAL,0.0859,1.21,50.51,C,Domain 2 core beta sheet,0,0
+E,185,PRO,0.0948,10.87,47.46,C,Domain 2 core beta sheet,0,0
+E,186,ALA,0.1691,3.21,39.56,C,Domain 2 core beta sheet,0,0
+E,187,PRO,0.0978,0.0,54.18,C,Domain 2 core beta sheet,0,0
+E,188,SER,0.0632,45.45,59.42,H,Domain 2 core beta sheet,0,0
+E,189,ILE,0.0468,60.38,58.48,H,Domain 2 core beta sheet,0,0
+E,190,GLU,0.0222,123.05,72.52,H,Domain 2 core beta sheet,0,0
+E,191,ASP,0.0216,49.29,67.48,H,Domain 2 core beta sheet,0,0
+E,192,ILE,0.022,0.0,68.04,H,Domain 2 core beta sheet,0,0
+E,193,CYS,0.0225,25.52,70.17,H,Domain 2 core beta sheet,0,0
+E,194,HIS,0.0225,111.53,81.68,H,Domain 2 core beta sheet,0,0
+E,195,VAL,0.0241,4.83,82.38,H,Domain 2 core beta sheet,0,1
+E,196,LEU,0.0246,0.0,83.61,H,Domain 2 core beta sheet,0,0
+E,197,SER,0.025,49.48,93.43,H,Domain 2 core beta sheet,0,0
+E,198,THR,0.0243,64.12,97.72,H,Domain 2 core beta sheet,0,0
+E,199,VAL,0.0242,12.74,102.54,H,Domain 2 core beta sheet,0,0
+E,200,CYS,0.0228,6.28,109.63,H,Domain 2 core beta sheet,0,0
+E,201,LYS,0.0223,150.94,108.35,H,Domain 2 core beta sheet,0,0
+E,202,LYS,0.0214,137.74,109.86,H,Domain 2 core beta sheet,0,0
+E,203,GLU,0.0214,68.06,115.83,H,Domain 2 core beta sheet,0,0
+E,204,GLY,0.038,56.63,108.46,C,Domain 2 core beta sheet,0,0
+E,205,LEU,0.0405,34.32,112.77,C,Domain 2 core beta sheet,0,0
+E,206,ASN,0.0505,140.83,120.69,C,Domain 2 core beta sheet,0,0
+E,207,LEU,0.0546,38.52,116.74,C,Domain 2 core beta sheet,0,0
+E,208,PRO,0.0451,40.92,114.72,H,Domain 2 core beta sheet,0,0
+E,209,SER,0.0423,71.91,104.99,H,Domain 2 core beta sheet,0,0
+E,210,GLN,0.0233,95.52,99.01,H,Domain 2 core beta sheet,0,0
+E,211,LEU,0.0255,0.0,97.06,H,Domain 2 core beta sheet,0,0
+E,212,ALA,0.0228,2.42,86.82,H,Domain 2 core beta sheet,0,0
+E,213,HIS,0.0227,72.41,88.54,H,Domain 2 core beta sheet,0,0
+E,214,ARG,0.0228,83.05,79.82,H,Domain 2 core beta sheet,0,0
+E,215,LEU,0.0237,2.42,77.77,H,Domain 2 core beta sheet,0,0
+E,216,ALA,0.0227,1.07,70.49,H,Domain 2 core beta sheet,0,0
+E,217,GLU,0.0243,112.83,80.57,H,Domain 2 core beta sheet,0,0
+E,218,LYS,0.0264,59.36,73.95,H,Domain 2 core beta sheet,0,0
+E,219,SER,0.0361,1.07,69.41,H,Domain 2 core beta sheet,0,0
+E,220,CYS,0.04,88.72,70.43,H,Domain 2 core beta sheet,0,0
+E,221,ARG,0.0423,40.31,60.66,C,Domain 2 core beta sheet,0,0
+E,222,ASN,0.0613,9.96,55.31,H,Domain 2 core beta sheet,0,0
+E,223,LEU,0.0464,0.0,53.85,H,Domain 2 core beta sheet,0,1
+E,224,ARG,0.0378,8.34,65.32,H,Domain 2 core beta sheet,0,1
+E,225,LYS,0.0349,12.49,60.07,H,Domain 2 core beta sheet,0,0
+E,226,ALA,0.0289,0.0,59.42,H,Domain 2 core beta sheet,0,0
+E,227,LEU,0.0275,2.42,65.52,H,Domain 2 core beta sheet,0,0
+E,228,LEU,0.0267,7.25,67.0,H,Domain 2 core beta sheet,0,0
+E,229,MET,0.0304,2.42,74.22,H,Domain 2 core beta sheet,0,0
+E,230,CYS,0.0247,6.0,78.21,H,Domain 2 core beta sheet,0,0
+E,231,GLU,0.0242,8.84,85.78,H,C-terminal loop — AOH1996 cryptic pocket region,1,0
+E,232,ALA,0.0251,1.07,76.38,H,C-terminal loop — AOH1996 cryptic pocket region,1,0
+E,233,CYS,0.0265,2.49,84.11,H,C-terminal loop — AOH1996 cryptic pocket region,1,0
+E,234,ARG,0.0228,72.52,86.85,H,C-terminal loop — AOH1996 cryptic pocket region,1,0
+E,235,VAL,0.023,27.08,80.44,H,C-terminal loop — AOH1996 cryptic pocket region,0,0
+E,236,GLN,0.0229,105.15,84.3,H,C-terminal loop — AOH1996 cryptic pocket region,0,0
+E,237,GLN,0.0367,78.2,97.17,H,C-terminal loop — AOH1996 cryptic pocket region,0,0
+E,238,TYR,0.0363,126.47,107.46,C,C-terminal loop — AOH1996 cryptic pocket region,0,0
+E,239,PRO,0.0781,86.95,112.14,C,C-terminal loop — AOH1996 cryptic pocket region,0,0
+E,240,PHE,0.1063,37.24,102.99,C,C-terminal loop — AOH1996 cryptic pocket region,0,0
+E,241,THR,0.1034,58.22,111.91,C,C-terminal loop — AOH1996 cryptic pocket region,0,0
+E,242,ALA,0.1103,44.57,116.24,C,C-terminal loop — AOH1996 cryptic pocket region,0,0
+E,243,ASP,0.311,149.3,122.43,C,C-terminal loop — AOH1996 cryptic pocket region,0,0
+E,244,GLN,0.3158,19.48,108.25,C,C-terminal loop — AOH1996 cryptic pocket region,0,0
+E,245,GLU,0.5035,148.72,102.32,C,C-terminal loop — AOH1996 cryptic pocket region,0,0
+E,246,ILE,0.3338,23.8,92.91,C,C-terminal loop — AOH1996 cryptic pocket region,0,0
+E,247,PRO,0.3536,4.83,85.72,C,C-terminal loop — AOH1996 cryptic pocket region,0,0
+E,248,GLU,0.1125,40.48,72.52,C,C-terminal loop — AOH1996 cryptic pocket region,0,0
+E,249,THR,0.0662,9.39,74.65,H,C-terminal loop — AOH1996 cryptic pocket region,0,0
+E,250,ASP,0.0495,2.14,82.49,H,C-terminal loop — AOH1996 cryptic pocket region,1,0
+E,251,TRP,0.0234,32.61,68.72,H,C-terminal loop — AOH1996 cryptic pocket region,1,0
+E,252,GLU,0.0218,28.15,71.9,H,C-terminal loop — AOH1996 cryptic pocket region,1,0
+E,253,VAL,0.0226,37.44,73.9,H,C-terminal loop — AOH1996 cryptic pocket region,1,0
+E,254,TYR,0.0225,0.0,73.49,H,C-terminal tail (protein-protein interface),0,0
+E,255,LEU,0.0227,0.0,61.64,H,C-terminal tail (protein-protein interface),0,0
+E,256,ARG,0.0245,82.96,63.6,H,C-terminal tail (protein-protein interface),0,0
+E,257,GLU,0.0238,52.26,68.4,H,C-terminal tail (protein-protein interface),0,0
+E,258,THR,0.0261,0.0,72.88,H,C-terminal tail (protein-protein interface),0,0
+E,259,ALA,0.0243,4.69,68.97,H,C-terminal tail (protein-protein interface),0,0
+E,260,ASN,0.0238,80.3,74.81,H,C-terminal tail (protein-protein interface),0,0
+E,261,ALA,0.0217,3.62,73.94,H,C-terminal tail (protein-protein interface),0,0
+E,262,ILE,0.0218,0.0,68.03,H,Core beta sheet,0,0
+E,263,VAL,0.0282,37.95,76.68,H,Core beta sheet,0,0
+E,264,SER,0.0282,65.96,76.58,H,Core beta sheet,0,0
+E,265,GLN,0.0374,94.68,81.71,H,Core beta sheet,0,0
+E,266,GLN,0.0373,42.29,69.59,C,Core beta sheet,0,0
+E,267,THR,0.0395,43.28,79.71,H,Core beta sheet,0,0
+E,268,PRO,0.0419,3.62,70.03,H,Core beta sheet,0,0
+E,269,GLN,0.0291,86.96,79.29,H,Core beta sheet,0,0
+E,270,ARG,0.0284,71.02,70.68,H,Core beta sheet,0,0
+E,271,LEU,0.0232,0.0,70.53,H,Core beta sheet,0,0
+E,272,LEU,0.0219,31.38,64.92,H,Core beta sheet,0,0
+E,273,GLU,0.0218,113.22,63.05,H,Core beta sheet,0,0
+E,274,VAL,0.0241,0.0,59.77,H,Core beta sheet,0,0
+E,275,ARG,0.0238,8.0,51.77,H,Core beta sheet,0,0
+E,276,GLY,0.0246,28.71,66.1,H,Core beta sheet,0,0
+E,277,ARG,0.0245,35.95,61.04,H,Core beta sheet,0,0
+E,278,LEU,0.025,2.42,63.7,H,Core beta sheet,0,0
+E,279,TYR,0.0235,28.98,62.62,H,Core beta sheet,0,0
+E,280,GLU,0.0236,57.51,70.97,H,Core beta sheet,0,0
+E,281,LEU,0.0294,0.0,59.17,H,Core beta sheet,0,0
+E,282,LEU,0.029,20.39,64.53,H,Core beta sheet,0,0
+E,283,THR,0.0346,9.39,77.65,H,Core beta sheet,0,0
+E,284,HIS,0.0336,10.98,83.99,C,Core beta sheet,0,0
+E,285,CYS,0.0365,17.9,94.31,C,Core beta sheet,0,0
+E,286,ILE,0.0315,12.6,75.04,C,Core beta sheet,0,0
+E,287,PRO,0.0353,13.28,61.61,H,Core beta sheet,0,0
+E,288,PRO,0.0301,27.78,45.28,H,Core beta sheet,0,0
+E,289,GLU,0.026,31.23,34.98,H,Core beta sheet,0,0
+E,290,ILE,0.0235,43.2,43.66,H,Core beta sheet,0,0
+E,291,ILE,0.0229,0.0,36.34,H,Core beta sheet,0,0
+E,292,MET,0.0288,2.57,33.79,H,Core beta sheet,0,0
+E,293,LYS,0.0272,73.23,39.57,H,Core beta sheet,0,0
+E,294,GLY,0.031,9.55,25.28,H,Core beta sheet,0,0
+E,295,LEU,0.0279,1.21,41.26,H,Core beta sheet,0,0
+E,296,LEU,0.0278,2.42,38.98,H,Core beta sheet,0,0
+E,297,SER,0.0246,40.79,41.46,H,Core beta sheet,0,0
+E,298,GLU,0.023,43.27,46.94,H,Core beta sheet,0,0
+E,299,LEU,0.0234,4.83,37.09,H,Core beta sheet,0,0
+E,300,LEU,0.0228,11.92,54.86,H,Core beta sheet,0,0
+E,301,HIS,0.0234,155.09,56.51,C,Core beta sheet,0,0
+E,302,ASN,0.0229,74.04,68.47,C,Core beta sheet,0,0
+E,303,CYS,0.0239,10.85,76.53,C,Core beta sheet,0,0
+E,304,ASP,0.0254,66.88,92.28,C,Core beta sheet,0,0
+E,305,GLY,0.0264,56.13,99.14,C,Core beta sheet,0,0
+E,306,GLN,0.0227,124.83,94.43,C,Core beta sheet,0,0
+E,307,LEU,0.0265,21.74,81.26,H,Core beta sheet,0,0
+E,308,LYS,0.0266,28.66,65.73,H,Core beta sheet,0,0
+E,309,GLY,0.0312,18.75,57.07,H,Core beta sheet,0,0
+E,310,GLU,0.0257,107.02,57.3,H,Core beta sheet,0,0
+E,311,VAL,0.0293,3.62,51.15,H,Core beta sheet,0,0
+E,312,ALA,0.0293,0.0,35.12,H,Core beta sheet,0,0
+E,313,GLN,0.0303,51.24,44.69,H,Core beta sheet,0,0
+E,314,MET,0.036,21.62,38.98,H,Core beta sheet,0,0
+E,315,ALA,0.0374,0.0,26.39,H,Core beta sheet,0,0
+E,316,ALA,0.0422,3.49,28.43,H,Core beta sheet,0,0
+E,317,TYR,0.0372,121.35,24.86,H,Core beta sheet,0,0
+E,318,TYR,0.0416,17.42,25.62,H,Core beta sheet,0,0
+E,319,GLU,0.034,2.28,21.76,H,Core beta sheet,0,0
+E,320,HIS,0.0367,28.41,29.97,H,Core beta sheet,0,0
+E,321,ARG,0.036,16.79,27.34,H,Core beta sheet,0,0
+E,322,LEU,0.035,18.1,30.49,H,Core beta sheet,0,0
+E,323,GLN,0.0406,53.06,34.57,H,Core beta sheet,0,0
+E,324,LEU,0.0418,77.37,31.4,H,Core beta sheet,0,0
+E,325,GLY,0.0474,23.84,35.96,H,Core beta sheet,0,0
+E,326,SER,0.054,75.87,45.89,C,Core beta sheet,0,0
+E,327,LYS,0.0418,77.72,35.81,H,Core beta sheet,0,0
+E,328,ALA,0.0411,21.92,21.07,H,Core beta sheet,0,0
+E,329,ILE,0.0292,4.83,42.2,H,Core beta sheet,0,0
+E,330,TYR,0.0311,15.41,21.08,H,Core beta sheet,0,0
+E,331,HIS,0.0325,0.0,26.09,H,Core beta sheet,0,0
+E,332,LEU,0.0312,0.0,32.04,H,Core beta sheet,0,0
+E,333,GLU,0.0312,0.0,38.75,H,Core beta sheet,0,0
+E,334,ALA,0.0418,0.0,15.33,H,Core beta sheet,0,0
+E,335,PHE,0.044,2.42,43.78,H,Core beta sheet,0,0
+E,336,VAL,0.0412,2.42,20.98,H,Core beta sheet,0,0
+E,337,ALA,0.0452,0.0,32.24,H,Core beta sheet,0,0
+E,338,LYS,0.0429,71.4,47.51,H,Core beta sheet,0,0
+E,339,PHE,0.0387,3.62,52.07,H,Core beta sheet,0,0
+E,340,MET,0.0358,0.0,50.82,H,Core beta sheet,0,0
+E,341,ALA,0.0339,16.09,55.49,H,Core beta sheet,0,0
+E,342,LEU,0.0276,37.3,68.52,H,Core beta sheet,0,0
+E,343,TYR,0.0247,25.85,72.06,H,Core beta sheet,0,0
+E,344,LYS,0.0237,24.63,78.73,H,Core beta sheet,0,0
+E,345,LYS,0.0227,130.24,77.75,H,Core beta sheet,0,0
+E,346,PHE,0.0222,70.82,82.32,H,Core beta sheet,0,0
+E,347,MET,0.0223,106.85,87.81,H,Core beta sheet,0,0
+E,348,GLU,0.0227,122.2,96.42,H,Core beta sheet,0,0
+E,349,ASP,0.0231,148.77,108.1,H,Core beta sheet,0,0
+F,1,MET,0.055,41.15,72.67,C,N-terminal beta sheet (domain 1),0,0
+F,2,PHE,0.0804,12.08,52.3,E,N-terminal beta sheet (domain 1),0,0
+F,3,GLU,0.0753,41.92,47.3,E,N-terminal beta sheet (domain 1),0,0
+F,4,ALA,0.0866,6.04,37.8,E,N-terminal beta sheet (domain 1),0,0
+F,5,ARG,0.0984,64.96,65.06,E,N-terminal beta sheet (domain 1),0,0
+F,6,LEU,0.0988,20.53,64.66,E,N-terminal beta sheet (domain 1),0,0
+F,7,VAL,0.0836,84.95,80.91,C,N-terminal beta sheet (domain 1),0,0
+F,8,GLN,0.0573,86.35,86.83,C,N-terminal beta sheet (domain 1),0,0
+F,9,GLY,0.053,1.21,79.81,H,N-terminal beta sheet (domain 1),0,0
+F,10,SER,0.0338,4.29,76.22,H,N-terminal beta sheet (domain 1),0,0
+F,11,ILE,0.025,24.15,75.58,H,N-terminal beta sheet (domain 1),0,0
+F,12,LEU,0.0241,25.36,61.54,H,N-terminal beta sheet (domain 1),0,0
+F,13,LYS,0.0226,35.55,55.72,H,N-terminal beta sheet (domain 1),0,0
+F,14,LYS,0.0226,53.45,66.9,H,N-terminal beta sheet (domain 1),0,0
+F,15,VAL,0.0232,8.18,55.25,H,N-terminal beta sheet (domain 1),0,0
+F,16,LEU,0.0234,7.11,51.11,H,N-terminal beta sheet (domain 1),0,0
+F,17,GLU,0.0235,64.99,59.0,C,N-terminal beta sheet (domain 1),0,0
+F,18,ALA,0.0241,0.0,61.62,H,N-terminal beta sheet (domain 1),0,0
+F,19,LEU,0.0274,0.0,59.5,H,N-terminal beta sheet (domain 1),0,0
+F,20,LYS,0.0274,61.0,66.34,H,N-terminal beta sheet (domain 1),0,0
+F,21,ASP,0.0334,43.71,75.55,H,N-terminal beta sheet (domain 1),0,0
+F,22,LEU,0.0357,25.05,69.23,H,N-terminal beta sheet (domain 1),0,0
+F,23,ILE,0.1152,7.25,70.46,H,N-terminal beta sheet (domain 1),0,0
+F,24,ASN,0.1656,103.61,67.46,C,N-terminal beta sheet (domain 1),0,0
+F,25,GLU,0.3483,48.39,64.72,E,N-terminal beta sheet (domain 1),1,0
+F,26,ALA,0.4852,0.0,61.72,E,N-terminal beta sheet (domain 1),1,0
+F,27,CYS,0.511,43.69,68.92,E,N-terminal beta sheet (domain 1),1,0
+F,28,TRP,0.4179,22.69,65.33,E,N-terminal beta sheet (domain 1),0,0
+F,29,ASP,0.4072,66.21,71.07,E,N-terminal beta sheet (domain 1),0,0
+F,30,ILE,0.2174,2.14,69.56,E,N-terminal beta sheet (domain 1),0,0
+F,31,SER,0.1829,36.19,65.27,E,N-terminal beta sheet (domain 1),0,0
+F,32,SER,0.1552,92.77,68.98,C,N-terminal beta sheet (domain 1),0,0
+F,33,SER,0.2329,79.73,67.57,C,N-terminal beta sheet (domain 1),0,0
+F,34,GLY,0.4761,4.72,57.52,E,N-terminal beta sheet (domain 1),0,0
+F,35,VAL,0.507,12.08,55.83,E,N-terminal beta sheet (domain 1),0,0
+F,36,ASN,0.5745,40.62,66.07,E,N-terminal beta sheet (domain 1),0,0
+F,37,LEU,0.6018,0.0,70.56,E,N-terminal beta sheet (domain 1),0,0
+F,38,GLN,0.6508,41.03,80.96,E,N-terminal beta sheet (domain 1),1,0
+F,39,SER,0.6461,7.91,78.06,E,N-terminal beta sheet (domain 1),1,0
+F,40,MET,0.6085,29.6,85.65,E,N-terminal beta sheet (domain 1),1,0
+F,41,ASP,0.3335,18.9,85.81,C,Front-face loop (PIP-box groove),1,0
+F,42,SER,0.2782,100.37,96.07,C,Front-face loop (PIP-box groove),1,0
+F,43,SER,0.0818,5.9,93.16,C,Front-face loop (PIP-box groove),0,0
+F,44,HIS,0.2726,62.34,76.74,C,Front-face loop (PIP-box groove),1,0
+F,45,VAL,0.2071,2.42,78.89,C,Front-face loop (PIP-box groove),1,0
+F,46,SER,0.4481,4.42,79.3,E,Front-face loop (PIP-box groove),1,0
+F,47,LEU,0.5136,1.21,83.33,E,Front-face loop (PIP-box groove),1,0
+F,48,VAL,0.5809,2.42,81.98,E,Core beta sheet,0,0
+F,49,GLN,0.5423,32.49,75.9,E,Core beta sheet,0,0
+F,50,LEU,0.577,0.0,75.15,E,Core beta sheet,0,0
+F,51,THR,0.5743,16.63,69.63,E,Core beta sheet,0,0
+F,52,LEU,0.568,15.7,61.5,E,Core beta sheet,0,0
+F,53,ARG,0.3093,96.67,58.78,E,Core beta sheet,0,0
+F,54,SER,0.16,40.21,74.47,C,Core beta sheet,0,0
+F,55,GLU,0.0285,103.95,75.3,C,Core beta sheet,0,0
+F,56,GLY,0.0726,23.45,76.4,C,Core beta sheet,0,0
+F,57,PHE,0.0584,20.92,64.03,C,Core beta sheet,0,0
+F,58,ASP,0.0713,119.38,78.86,C,Core beta sheet,0,0
+F,59,THR,0.0874,59.24,62.68,E,Core beta sheet,0,0
+F,60,TYR,0.0617,46.09,47.97,E,Core beta sheet,0,0
+F,61,ARG,0.0278,90.38,63.09,E,Core beta sheet,0,0
+F,62,CYS,0.0246,24.03,69.25,E,Core beta sheet,0,0
+F,63,ASP,0.0233,91.93,82.74,C,Core beta sheet,0,0
+F,64,ARG,0.0233,162.86,85.93,C,Core beta sheet,0,0
+F,65,ASN,0.1324,125.31,78.77,C,Core beta sheet,0,0
+F,66,LEU,0.1701,33.27,68.91,E,Core beta sheet,0,0
+F,67,ALA,0.512,69.0,52.48,E,Core beta sheet,0,0
+F,68,MET,0.5718,8.58,49.33,E,Core beta sheet,0,0
+F,69,GLY,0.619,6.54,37.34,E,Core beta sheet,0,0
+F,70,VAL,0.6088,0.0,45.57,E,Core beta sheet,0,0
+F,71,ASN,0.4841,19.23,46.36,E,Core beta sheet,0,0
+F,72,LEU,0.2798,3.35,36.3,C,Core beta sheet,0,0
+F,73,THR,0.1922,51.21,48.41,C,Core beta sheet,0,0
+F,74,SER,0.2286,9.12,40.38,C,Core beta sheet,0,0
+F,75,MET,0.1529,14.22,41.37,H,Core beta sheet,0,0
+F,76,SER,0.0522,11.8,40.32,H,Core beta sheet,0,0
+F,77,LYS,0.0341,87.22,44.98,H,Core beta sheet,0,0
+F,78,ILE,0.0288,4.56,44.56,H,Core beta sheet,0,0
+F,79,LEU,0.0256,13.28,58.06,H,Core beta sheet,0,0
+F,80,LYS,0.0258,107.4,60.13,H,Core beta sheet,0,0
+F,81,CYS,0.027,17.14,63.04,C,Core beta sheet,0,0
+F,82,ALA,0.0451,17.14,70.67,C,Core beta sheet,0,0
+F,83,GLY,0.0363,24.86,92.06,C,Core beta sheet,0,0
+F,84,ASN,0.0349,86.65,112.68,C,Core beta sheet,0,0
+F,85,GLU,0.0352,118.52,105.7,C,Core beta sheet,0,0
+F,86,ASP,0.1421,16.07,87.42,C,Core beta sheet,0,0
+F,87,ILE,0.1595,38.64,69.4,E,Core beta sheet,0,0
+F,88,ILE,0.2064,0.0,56.94,E,Core beta sheet,0,0
+F,89,THR,0.153,8.32,39.76,E,Core beta sheet,0,0
+F,90,LEU,0.1287,35.02,29.25,E,Core beta sheet,0,0
+F,91,ARG,0.0538,87.95,47.4,E,Core beta sheet,0,0
+F,92,ALA,0.1554,4.83,46.1,E,Core beta sheet,0,0
+F,93,GLU,0.0599,114.78,70.16,C,Core beta sheet,0,0
+F,94,ASP,0.0706,77.59,88.06,C,Core beta sheet,0,0
+F,95,ASN,0.1083,106.46,77.64,C,Core beta sheet,0,0
+F,96,ALA,0.406,15.75,60.23,C,Core beta sheet,0,0
+F,97,ASP,0.5565,39.59,45.1,C,Core beta sheet,0,0
+F,98,THR,0.6192,55.5,33.77,E,Core beta sheet,0,0
+F,99,LEU,0.6448,3.62,29.45,E,Core beta sheet,0,0
+F,100,ALA,0.6795,22.72,19.77,E,Core beta sheet,0,0
+F,101,LEU,0.622,9.66,23.35,E,Core beta sheet,0,0
+F,102,VAL,0.6226,13.28,44.37,E,Core beta sheet,0,0
+F,103,PHE,0.4642,3.62,53.09,E,Core beta sheet,0,0
+F,104,GLU,0.2915,55.33,79.15,E,Core beta sheet,0,0
+F,105,ALA,0.1456,9.66,111.09,C,Core beta sheet,0,0
+F,106,PRO,0.0818,90.11,123.15,C,Core beta sheet,0,0
+F,107,ASN,0.039,137.84,127.01,C,Core beta sheet,0,0
+F,108,GLN,0.0592,125.83,121.82,C,Core beta sheet,0,0
+F,109,GLU,0.0656,84.15,91.94,C,Core beta sheet,0,0
+F,110,LYS,0.1321,34.52,62.77,E,Core beta sheet,0,0
+F,111,VAL,0.2111,61.59,54.5,E,Core beta sheet,0,0
+F,112,SER,0.328,9.64,31.43,E,Core beta sheet,0,0
+F,113,ASP,0.5162,66.58,33.69,E,Core beta sheet,0,0
+F,114,TYR,0.477,1.07,36.6,E,Core beta sheet,0,0
+F,115,GLU,0.6229,52.5,33.85,E,Core beta sheet,0,0
+F,116,MET,0.6341,1.21,41.26,E,Core beta sheet,0,0
+F,117,LYS,0.6065,78.95,38.3,E,Core beta sheet,0,0
+F,118,LEU,0.5838,3.62,32.49,C,Core beta sheet,0,0
+F,119,MET,0.3633,13.46,55.26,C,IDCL — Interdomain Connecting Loop (key interaction hub),0,0
+F,120,ASP,0.2736,50.14,51.86,C,IDCL — Interdomain Connecting Loop (key interaction hub),0,0
+F,121,LEU,0.1562,71.08,75.19,C,IDCL — Interdomain Connecting Loop (key interaction hub),0,0
+F,122,ASP,0.2048,117.81,106.73,C,IDCL — Interdomain Connecting Loop (key interaction hub),0,0
+F,123,VAL,0.1913,107.67,114.75,C,IDCL — Interdomain Connecting Loop (key interaction hub),1,0
+F,124,GLU,0.1869,100.56,117.03,C,IDCL — Interdomain Connecting Loop (key interaction hub),0,0
+F,125,GLN,0.2224,140.85,119.05,C,IDCL — Interdomain Connecting Loop (key interaction hub),1,0
+F,126,LEU,0.1437,40.95,110.03,C,IDCL — Interdomain Connecting Loop (key interaction hub),1,0
+F,127,GLY,0.2313,63.2,121.37,C,IDCL — Interdomain Connecting Loop (key interaction hub),0,0
+F,128,ILE,0.175,49.39,121.23,C,IDCL — Interdomain Connecting Loop (key interaction hub),1,0
+F,129,PRO,0.2956,78.61,137.43,C,IDCL — Interdomain Connecting Loop (key interaction hub),0,0
+F,130,GLU,0.3503,184.65,157.19,C,IDCL — Interdomain Connecting Loop (key interaction hub),0,0
+F,131,GLN,0.3855,64.79,150.79,C,IDCL — Interdomain Connecting Loop (key interaction hub),0,0
+F,132,GLU,0.4664,168.3,151.29,C,IDCL — Interdomain Connecting Loop (key interaction hub),0,0
+F,133,TYR,0.4838,33.36,131.16,C,IDCL — Interdomain Connecting Loop (key interaction hub),0,0
+F,134,SER,0.5058,10.35,135.26,C,IDCL — Interdomain Connecting Loop (key interaction hub),0,0
+F,135,CYS,0.4411,2.42,137.1,E,Domain 2 core beta sheet,0,0
+F,136,VAL,0.5466,43.47,127.54,E,Domain 2 core beta sheet,0,0
+F,137,VAL,0.6266,3.62,118.8,E,Domain 2 core beta sheet,0,0
+F,138,LYS,0.6565,50.61,111.76,E,Domain 2 core beta sheet,0,0
+F,139,MET,0.6503,4.83,110.96,E,Domain 2 core beta sheet,0,0
+F,140,PRO,0.5773,18.11,119.77,E,Domain 2 core beta sheet,0,0
+F,141,SER,0.4356,4.29,107.17,H,Domain 2 core beta sheet,0,0
+F,142,GLY,0.0466,43.14,102.65,H,Domain 2 core beta sheet,0,0
+F,143,GLU,0.0284,77.34,108.79,H,Domain 2 core beta sheet,0,0
+F,144,PHE,0.073,3.62,104.66,H,Domain 2 core beta sheet,0,0
+F,145,ALA,0.0229,1.21,103.07,H,Domain 2 core beta sheet,0,0
+F,146,ARG,0.022,44.98,113.64,H,Domain 2 core beta sheet,0,0
+F,147,ILE,0.0227,3.62,105.6,H,Domain 2 core beta sheet,0,0
+F,148,CYS,0.0236,7.64,105.21,H,Domain 2 core beta sheet,0,0
+F,149,ARG,0.0241,136.02,110.87,H,Domain 2 core beta sheet,0,0
+F,150,ASP,0.0254,7.5,118.76,H,Domain 2 core beta sheet,0,0
+F,151,LEU,0.0255,4.83,109.78,H,Domain 2 core beta sheet,0,0
+F,152,SER,0.0257,31.75,112.93,C,Domain 2 core beta sheet,0,0
+F,153,HIS,0.0242,47.47,114.67,C,Domain 2 core beta sheet,0,0
+F,154,ILE,0.0237,11.53,114.79,C,Domain 2 core beta sheet,0,0
+F,155,GLY,0.0784,7.11,114.46,C,Domain 2 core beta sheet,0,0
+F,156,ASP,0.082,81.01,115.11,C,Domain 2 core beta sheet,0,0
+F,157,ALA,0.2658,30.49,117.38,E,Domain 2 core beta sheet,0,0
+F,158,VAL,0.3713,3.62,111.24,E,Domain 2 core beta sheet,0,0
+F,159,VAL,0.3762,43.47,115.22,E,Domain 2 core beta sheet,0,0
+F,160,ILE,0.345,4.83,130.21,E,Domain 2 core beta sheet,0,0
+F,161,SER,0.2752,21.99,138.27,E,Domain 2 core beta sheet,0,0
+F,162,CYS,0.2402,3.49,135.61,E,Domain 2 core beta sheet,0,0
+F,163,ALA,0.1248,30.19,151.66,E,Domain 2 core beta sheet,0,0
+F,164,LYS,0.1765,189.2,159.45,C,Domain 2 core beta sheet,0,0
+F,165,ASP,0.1879,97.6,152.58,C,Domain 2 core beta sheet,0,0
+F,166,GLY,0.2997,4.69,149.77,E,Domain 2 core beta sheet,0,0
+F,167,VAL,0.3703,4.69,142.17,E,Domain 2 core beta sheet,0,0
+F,168,LYS,0.5598,94.76,142.49,E,Domain 2 core beta sheet,0,0
+F,169,PHE,0.5928,12.08,129.66,E,Domain 2 core beta sheet,0,0
+F,170,SER,0.535,24.0,113.66,E,Domain 2 core beta sheet,0,0
+F,171,ALA,0.2462,4.56,110.52,E,Domain 2 core beta sheet,0,0
+F,172,SER,0.1716,77.36,109.67,E,Domain 2 core beta sheet,0,0
+F,173,GLY,0.069,38.9,122.41,E,Domain 2 core beta sheet,0,0
+F,174,GLU,0.0786,169.21,136.6,C,Domain 2 core beta sheet,0,0
+F,175,LEU,0.0799,49.1,134.58,C,Domain 2 core beta sheet,0,0
+F,176,GLY,0.122,14.49,125.15,E,Domain 2 core beta sheet,0,0
+F,177,ASN,0.1117,62.78,125.27,E,Domain 2 core beta sheet,0,0
+F,178,GLY,0.1061,0.0,128.06,E,Domain 2 core beta sheet,0,0
+F,179,ASN,0.1216,60.55,132.63,E,Domain 2 core beta sheet,0,0
+F,180,ILE,0.1111,10.87,141.28,E,Domain 2 core beta sheet,0,0
+F,181,LYS,0.2388,113.59,141.97,E,Domain 2 core beta sheet,0,0
+F,182,LEU,0.2788,38.64,141.05,E,Domain 2 core beta sheet,0,0
+F,183,SER,0.3275,52.39,139.77,C,Domain 2 core beta sheet,0,0
+F,184,GLN,0.3314,101.7,138.35,C,Domain 2 core beta sheet,0,0
+F,185,THR,0.1682,61.94,136.68,C,Domain 2 core beta sheet,0,0
+F,186,SER,0.1146,106.15,149.11,C,Domain 2 core beta sheet,0,0
+F,187,ASN,0.0343,143.55,153.03,C,Domain 2 core beta sheet,0,0
+F,188,VAL,0.0284,43.33,166.43,C,Domain 2 core beta sheet,0,0
+F,189,ASP,0.0264,160.54,174.67,C,Domain 2 core beta sheet,0,0
+F,190,LYS,0.0248,103.76,167.89,H,Domain 2 core beta sheet,0,0
+F,191,GLU,0.0247,173.75,164.61,H,Domain 2 core beta sheet,0,0
+F,192,GLU,0.0321,75.49,159.18,H,Domain 2 core beta sheet,0,0
+F,193,GLU,0.0352,88.98,159.41,H,Domain 2 core beta sheet,0,0
+F,194,ALA,0.0669,21.46,140.51,H,Domain 2 core beta sheet,0,0
+F,195,VAL,0.2016,14.36,129.34,C,Domain 2 core beta sheet,0,0
+F,196,THR,0.3326,74.68,134.94,E,Domain 2 core beta sheet,0,0
+F,197,ILE,0.3959,23.98,133.55,E,Domain 2 core beta sheet,0,0
+F,198,GLU,0.3922,90.64,135.27,E,Domain 2 core beta sheet,0,0
+F,199,MET,0.2372,73.23,144.12,E,Domain 2 core beta sheet,0,0
+F,200,ASN,0.1772,103.55,143.91,C,Domain 2 core beta sheet,0,0
+F,201,GLU,0.0489,122.06,143.22,C,Domain 2 core beta sheet,0,0
+F,202,PRO,0.1362,92.54,139.96,C,Domain 2 core beta sheet,0,0
+F,203,VAL,0.2119,14.49,132.9,E,Domain 2 core beta sheet,0,0
+F,204,GLN,0.4015,133.93,128.86,E,Domain 2 core beta sheet,0,0
+F,205,LEU,0.466,20.53,116.08,E,Domain 2 core beta sheet,0,0
+F,206,THR,0.4951,17.16,109.85,E,Domain 2 core beta sheet,0,0
+F,207,PHE,0.4524,0.0,103.53,E,Domain 2 core beta sheet,0,0
+F,208,ALA,0.1119,14.49,97.61,E,Domain 2 core beta sheet,0,0
+F,209,LEU,0.0817,4.69,105.29,H,Domain 2 core beta sheet,0,0
+F,210,ARG,0.0229,120.71,97.31,H,Domain 2 core beta sheet,0,0
+F,211,TYR,0.0232,32.18,85.55,H,Domain 2 core beta sheet,0,0
+F,212,LEU,0.0235,3.62,86.18,H,Domain 2 core beta sheet,0,0
+F,213,ASN,0.0258,34.76,97.84,H,Domain 2 core beta sheet,0,0
+F,214,PHE,0.0396,64.0,82.4,H,Domain 2 core beta sheet,0,0
+F,215,PHE,0.142,0.0,86.38,H,Domain 2 core beta sheet,0,0
+F,216,THR,0.0783,8.57,86.55,H,Domain 2 core beta sheet,0,0
+F,217,LYS,0.0611,87.65,75.72,H,Domain 2 core beta sheet,0,0
+F,218,ALA,0.1703,1.21,72.56,H,Domain 2 core beta sheet,0,0
+F,219,THR,0.0881,39.15,77.54,H,Domain 2 core beta sheet,0,0
+F,220,PRO,0.0692,59.55,73.1,C,Domain 2 core beta sheet,0,0
+F,221,LEU,0.0616,13.93,73.89,C,Domain 2 core beta sheet,0,0
+F,222,SER,0.3395,20.1,95.63,C,Domain 2 core beta sheet,0,0
+F,223,SER,0.3273,52.1,121.73,C,Domain 2 core beta sheet,0,0
+F,224,THR,0.5835,24.25,112.69,E,Domain 2 core beta sheet,0,0
+F,225,VAL,0.6399,0.0,106.87,E,Domain 2 core beta sheet,0,0
+F,226,THR,0.6733,11.4,107.29,E,Domain 2 core beta sheet,0,0
+F,227,LEU,0.6592,2.42,107.09,E,Domain 2 core beta sheet,0,0
+F,228,SER,0.6614,7.5,114.98,E,Domain 2 core beta sheet,0,0
+F,229,MET,0.5759,4.83,127.19,E,Domain 2 core beta sheet,0,0
+F,230,SER,0.5654,19.29,115.54,C,Domain 2 core beta sheet,0,0
+F,231,ALA,0.5062,79.12,109.13,C,C-terminal loop — AOH1996 cryptic pocket region,1,0
+F,232,ASP,0.2922,114.84,104.31,C,C-terminal loop — AOH1996 cryptic pocket region,1,0
+F,233,VAL,0.2836,31.13,100.99,C,C-terminal loop — AOH1996 cryptic pocket region,1,0
+F,234,PRO,0.5655,9.66,89.55,C,C-terminal loop — AOH1996 cryptic pocket region,1,0
+F,235,LEU,0.5958,4.83,96.8,E,C-terminal loop — AOH1996 cryptic pocket region,0,0
+F,236,VAL,0.6302,0.0,95.0,E,C-terminal loop — AOH1996 cryptic pocket region,0,0
+F,237,VAL,0.6653,0.0,85.72,E,C-terminal loop — AOH1996 cryptic pocket region,0,0
+F,238,GLU,0.6581,31.07,89.69,E,C-terminal loop — AOH1996 cryptic pocket region,0,0
+F,239,TYR,0.6689,0.0,85.98,E,C-terminal loop — AOH1996 cryptic pocket region,0,0
+F,240,LYS,0.6072,88.22,89.58,E,C-terminal loop — AOH1996 cryptic pocket region,0,0
+F,241,ILE,0.5883,1.21,91.43,E,C-terminal loop — AOH1996 cryptic pocket region,0,0
+F,242,ALA,0.1357,69.73,96.25,C,C-terminal loop — AOH1996 cryptic pocket region,0,0
+F,243,ASP,0.1199,129.9,104.96,C,C-terminal loop — AOH1996 cryptic pocket region,0,0
+F,244,MET,0.044,12.08,93.64,C,C-terminal loop — AOH1996 cryptic pocket region,0,0
+F,245,GLY,0.3753,11.17,90.09,E,C-terminal loop — AOH1996 cryptic pocket region,0,0
+F,246,HIS,0.3174,51.38,90.88,E,C-terminal loop — AOH1996 cryptic pocket region,0,0
+F,247,LEU,0.5516,1.21,81.65,E,C-terminal loop — AOH1996 cryptic pocket region,0,0
+F,248,LYS,0.4491,20.37,79.23,E,C-terminal loop — AOH1996 cryptic pocket region,0,0
+F,249,TYR,0.477,1.07,82.45,E,C-terminal loop — AOH1996 cryptic pocket region,0,0
+F,250,TYR,0.3873,15.68,87.77,E,C-terminal loop — AOH1996 cryptic pocket region,1,0
+F,251,LEU,0.293,2.42,88.09,E,C-terminal loop — AOH1996 cryptic pocket region,1,0
+F,252,ALA,0.2285,0.0,85.86,C,C-terminal loop — AOH1996 cryptic pocket region,1,0
+F,253,PRO,0.2505,19.32,96.65,C,C-terminal loop — AOH1996 cryptic pocket region,1,0
+F,254,LYS,0.0929,34.66,103.23,C,C-terminal tail (protein-protein interface),0,0
+F,255,ILE,0.0606,36.07,98.83,C,C-terminal tail (protein-protein interface),0,0
+F,256,GLU,0.0223,186.17,103.85,C,C-terminal tail (protein-protein interface),0,0
+G,1,MET,0.0577,59.47,119.5,C,N-terminal beta sheet (domain 1),0,0
+G,2,PHE,0.1028,8.34,109.62,E,N-terminal beta sheet (domain 1),0,0
+G,3,GLU,0.1201,78.12,103.62,E,N-terminal beta sheet (domain 1),0,0
+G,4,ALA,0.1552,4.58,105.54,E,N-terminal beta sheet (domain 1),0,0
+G,5,ARG,0.1769,80.56,110.7,E,N-terminal beta sheet (domain 1),0,0
+G,6,LEU,0.1522,10.87,108.4,E,N-terminal beta sheet (domain 1),0,0
+G,7,VAL,0.1515,69.18,109.03,C,N-terminal beta sheet (domain 1),0,0
+G,8,GLN,0.077,124.01,102.25,C,N-terminal beta sheet (domain 1),0,0
+G,9,GLY,0.0652,2.17,93.66,H,N-terminal beta sheet (domain 1),0,0
+G,10,SER,0.0332,26.12,81.34,H,N-terminal beta sheet (domain 1),0,0
+G,11,ILE,0.0259,25.36,75.77,H,N-terminal beta sheet (domain 1),0,0
+G,12,LEU,0.0247,24.15,72.39,H,N-terminal beta sheet (domain 1),0,0
+G,13,LYS,0.0232,45.57,73.59,H,N-terminal beta sheet (domain 1),0,0
+G,14,LYS,0.0232,65.3,67.06,H,N-terminal beta sheet (domain 1),0,0
+G,15,VAL,0.0237,9.66,50.1,H,N-terminal beta sheet (domain 1),0,0
+G,16,LEU,0.0237,14.49,66.02,H,N-terminal beta sheet (domain 1),0,0
+G,17,GLU,0.0239,55.36,62.08,H,N-terminal beta sheet (domain 1),0,0
+G,18,ALA,0.0254,1.07,53.58,H,N-terminal beta sheet (domain 1),0,0
+G,19,LEU,0.0274,6.04,58.77,C,N-terminal beta sheet (domain 1),0,0
+G,20,LYS,0.0267,73.03,63.45,C,N-terminal beta sheet (domain 1),0,0
+G,21,ASP,0.0304,76.37,62.0,C,N-terminal beta sheet (domain 1),0,0
+G,22,LEU,0.0346,4.69,46.32,C,N-terminal beta sheet (domain 1),0,0
+G,23,ILE,0.0981,4.69,66.56,C,N-terminal beta sheet (domain 1),0,0
+G,24,ASN,0.1256,90.14,78.27,C,N-terminal beta sheet (domain 1),0,0
+G,25,GLU,0.2729,89.38,79.59,E,N-terminal beta sheet (domain 1),1,0
+G,26,ALA,0.4525,3.62,86.61,E,N-terminal beta sheet (domain 1),1,0
+G,27,CYS,0.52,11.15,82.07,E,N-terminal beta sheet (domain 1),1,0
+G,28,TRP,0.5385,28.98,74.36,E,N-terminal beta sheet (domain 1),0,0
+G,29,ASP,0.5767,28.42,80.25,E,N-terminal beta sheet (domain 1),0,0
+G,30,ILE,0.5346,4.44,93.95,E,N-terminal beta sheet (domain 1),0,0
+G,31,SER,0.5143,33.52,101.51,E,N-terminal beta sheet (domain 1),0,0
+G,32,SER,0.3561,89.17,103.15,C,N-terminal beta sheet (domain 1),0,0
+G,33,SER,0.5084,53.24,97.53,C,N-terminal beta sheet (domain 1),0,0
+G,34,GLY,0.5676,3.49,84.96,E,N-terminal beta sheet (domain 1),0,0
+G,35,VAL,0.5649,8.18,71.18,E,N-terminal beta sheet (domain 1),0,0
+G,36,ASN,0.5885,52.45,62.89,E,N-terminal beta sheet (domain 1),0,0
+G,37,LEU,0.6175,1.21,59.54,E,N-terminal beta sheet (domain 1),0,0
+G,38,GLN,0.6779,44.35,53.51,E,N-terminal beta sheet (domain 1),1,0
+G,39,SER,0.7015,14.49,45.36,E,N-terminal beta sheet (domain 1),1,0
+G,40,MET,0.7078,35.18,51.08,E,N-terminal beta sheet (domain 1),1,0
+G,41,ASP,0.6461,20.49,44.96,C,Front-face loop (PIP-box groove),1,0
+G,42,SER,0.4684,85.51,41.46,C,Front-face loop (PIP-box groove),1,0
+G,43,SER,0.2964,13.93,49.31,C,Front-face loop (PIP-box groove),0,0
+G,44,HIS,0.6027,40.19,47.09,C,Front-face loop (PIP-box groove),1,0
+G,45,VAL,0.6066,0.0,37.76,C,Front-face loop (PIP-box groove),1,0
+G,46,SER,0.664,1.07,50.66,E,Front-face loop (PIP-box groove),1,0
+G,47,LEU,0.6565,1.21,55.71,E,Front-face loop (PIP-box groove),1,0
+G,48,VAL,0.666,0.0,33.88,E,Core beta sheet,0,0
+G,49,GLN,0.6367,39.21,38.22,E,Core beta sheet,0,0
+G,50,LEU,0.6479,10.87,40.78,E,Core beta sheet,0,0
+G,51,THR,0.6298,8.18,60.35,E,Core beta sheet,0,0
+G,52,LEU,0.621,11.94,66.15,E,Core beta sheet,0,0
+G,53,ARG,0.4661,95.17,88.41,E,Core beta sheet,0,0
+G,54,SER,0.261,33.91,102.57,C,Core beta sheet,0,0
+G,55,GLU,0.0325,129.79,110.85,C,Core beta sheet,0,0
+G,56,GLY,0.0917,32.03,100.98,C,Core beta sheet,0,0
+G,57,PHE,0.0811,28.83,103.68,C,Core beta sheet,0,0
+G,58,ASP,0.111,82.16,115.19,C,Core beta sheet,0,0
+G,59,THR,0.1309,82.08,123.18,C,Core beta sheet,0,0
+G,60,TYR,0.0689,41.23,106.57,E,Core beta sheet,0,0
+G,61,ARG,0.0335,106.77,112.08,E,Core beta sheet,0,0
+G,62,CYS,0.0291,28.8,114.02,C,Core beta sheet,0,0
+G,63,ASP,0.026,88.05,129.56,C,Core beta sheet,0,0
+G,64,ARG,0.0306,166.48,122.65,C,Core beta sheet,0,0
+G,65,ASN,0.2492,119.5,110.41,C,Core beta sheet,0,0
+G,66,LEU,0.3072,26.43,95.45,E,Core beta sheet,0,0
+G,67,ALA,0.5402,77.37,89.9,E,Core beta sheet,0,0
+G,68,MET,0.5909,7.25,85.49,E,Core beta sheet,0,0
+G,69,GLY,0.5852,8.86,88.25,E,Core beta sheet,0,0
+G,70,VAL,0.5149,0.0,84.29,E,Core beta sheet,0,0
+G,71,ASN,0.2636,42.33,89.43,E,Core beta sheet,0,0
+G,72,LEU,0.1268,7.25,85.39,C,Core beta sheet,0,0
+G,73,THR,0.0559,58.48,85.42,H,Core beta sheet,0,0
+G,74,SER,0.0624,9.64,92.12,H,Core beta sheet,0,0
+G,75,MET,0.051,10.29,94.28,H,Core beta sheet,0,0
+G,76,SER,0.0327,6.43,87.73,H,Core beta sheet,0,0
+G,77,LYS,0.0287,55.03,89.04,H,Core beta sheet,0,0
+G,78,ILE,0.0261,1.21,97.43,H,Core beta sheet,0,0
+G,79,LEU,0.0258,4.83,101.49,H,Core beta sheet,0,0
+G,80,LYS,0.0262,88.11,97.91,H,Core beta sheet,0,0
+G,81,CYS,0.0267,5.36,111.06,C,Core beta sheet,0,0
+G,82,ALA,0.0377,2.14,107.71,C,Core beta sheet,0,0
+G,83,GLY,0.0438,12.08,110.11,C,Core beta sheet,0,0
+G,84,ASN,0.0313,105.98,105.2,C,Core beta sheet,0,0
+G,85,GLU,0.0332,133.09,109.89,C,Core beta sheet,0,0
+G,86,ASP,0.1131,18.21,112.83,C,Core beta sheet,0,0
+G,87,ILE,0.1707,20.53,108.83,E,Core beta sheet,0,0
+G,88,ILE,0.2436,3.62,98.32,E,Core beta sheet,0,0
+G,89,THR,0.187,26.16,97.51,E,Core beta sheet,0,0
+G,90,LEU,0.1745,16.5,98.99,E,Core beta sheet,0,0
+G,91,ARG,0.0672,100.77,100.46,E,Core beta sheet,0,0
+G,92,ALA,0.129,1.21,127.95,E,Core beta sheet,0,0
+G,93,GLU,0.1192,76.15,142.92,C,Core beta sheet,0,0
+G,94,ASP,0.0722,66.44,146.99,C,Core beta sheet,0,0
+G,95,ASN,0.0817,140.15,146.82,C,Core beta sheet,0,0
+G,96,ALA,0.2815,26.15,133.71,C,Core beta sheet,0,0
+G,97,ASP,0.4344,43.76,116.93,C,Core beta sheet,0,0
+G,98,THR,0.5428,51.64,107.22,E,Core beta sheet,0,0
+G,99,LEU,0.5334,2.42,99.66,E,Core beta sheet,0,0
+G,100,ALA,0.5547,27.78,97.75,E,Core beta sheet,0,0
+G,101,LEU,0.5374,9.66,96.06,E,Core beta sheet,0,0
+G,102,VAL,0.5825,15.7,102.41,E,Core beta sheet,0,0
+G,103,PHE,0.4315,1.07,106.77,E,Core beta sheet,0,0
+G,104,GLU,0.278,52.4,116.09,E,Core beta sheet,0,0
+G,105,ALA,0.1096,11.67,126.85,C,Core beta sheet,0,0
+G,106,PRO,0.0696,88.77,127.67,C,Core beta sheet,0,0
+G,107,ASN,0.0332,112.48,128.03,C,Core beta sheet,0,0
+G,108,GLN,0.042,153.65,126.38,C,Core beta sheet,0,0
+G,109,GLU,0.0448,52.93,125.04,C,Core beta sheet,0,0
+G,110,LYS,0.1035,38.71,116.58,E,Core beta sheet,0,0
+G,111,VAL,0.1806,41.06,106.27,E,Core beta sheet,0,0
+G,112,SER,0.3136,3.21,102.77,E,Core beta sheet,0,0
+G,113,ASP,0.4316,59.1,103.57,E,Core beta sheet,0,0
+G,114,TYR,0.335,5.67,99.75,E,Core beta sheet,0,0
+G,115,GLU,0.5142,47.47,103.97,E,Core beta sheet,0,0
+G,116,MET,0.481,3.7,99.96,E,Core beta sheet,0,0
+G,117,LYS,0.4281,62.71,103.82,E,Core beta sheet,0,0
+G,118,LEU,0.5396,19.05,98.56,C,Core beta sheet,0,0
+G,119,MET,0.4163,31.49,88.32,C,IDCL — Interdomain Connecting Loop (key interaction hub),0,0
+G,120,ASP,0.4544,84.88,101.66,C,IDCL — Interdomain Connecting Loop (key interaction hub),0,0
+G,121,LEU,0.505,52.76,111.48,C,IDCL — Interdomain Connecting Loop (key interaction hub),0,0
+G,122,ASP,0.4518,139.5,135.7,C,IDCL — Interdomain Connecting Loop (key interaction hub),0,0
+G,123,VAL,0.404,71.13,128.58,C,IDCL — Interdomain Connecting Loop (key interaction hub),1,0
+G,124,GLU,0.1726,65.76,115.73,C,IDCL — Interdomain Connecting Loop (key interaction hub),0,0
+G,125,GLN,0.2465,117.85,108.86,C,IDCL — Interdomain Connecting Loop (key interaction hub),1,0
+G,126,LEU,0.2942,7.25,97.14,C,IDCL — Interdomain Connecting Loop (key interaction hub),1,0
+G,127,GLY,0.5567,39.43,100.65,C,IDCL — Interdomain Connecting Loop (key interaction hub),0,0
+G,128,ILE,0.5622,43.12,90.8,C,IDCL — Interdomain Connecting Loop (key interaction hub),1,0
+G,129,PRO,0.6145,59.02,102.02,C,IDCL — Interdomain Connecting Loop (key interaction hub),0,0
+G,130,GLU,0.5758,195.22,93.71,C,IDCL — Interdomain Connecting Loop (key interaction hub),0,0
+G,131,GLN,0.5982,69.01,81.93,C,IDCL — Interdomain Connecting Loop (key interaction hub),0,0
+G,132,GLU,0.5986,164.42,74.66,C,IDCL — Interdomain Connecting Loop (key interaction hub),0,0
+G,133,TYR,0.6007,48.98,58.41,C,IDCL — Interdomain Connecting Loop (key interaction hub),0,0
+G,134,SER,0.6114,23.71,64.12,C,IDCL — Interdomain Connecting Loop (key interaction hub),0,0
+G,135,CYS,0.5975,0.0,45.51,E,Domain 2 core beta sheet,0,0
+G,136,VAL,0.6183,33.81,41.98,E,Domain 2 core beta sheet,0,0
+G,137,VAL,0.6747,2.42,20.03,E,Domain 2 core beta sheet,0,0
+G,138,LYS,0.7115,65.69,49.79,E,Domain 2 core beta sheet,0,0
+G,139,MET,0.7048,0.0,43.68,E,Domain 2 core beta sheet,0,0
+G,140,PRO,0.6546,14.49,46.26,E,Domain 2 core beta sheet,0,0
+G,141,SER,0.6281,4.69,41.15,H,Domain 2 core beta sheet,0,0
+G,142,GLY,0.1202,40.81,35.04,H,Domain 2 core beta sheet,0,0
+G,143,GLU,0.0462,21.49,48.4,H,Domain 2 core beta sheet,0,0
+G,144,PHE,0.0477,3.62,26.72,H,Domain 2 core beta sheet,0,0
+G,145,ALA,0.036,6.04,30.45,H,Domain 2 core beta sheet,0,0
+G,146,ARG,0.0247,101.37,33.77,H,Domain 2 core beta sheet,0,0
+G,147,ILE,0.0283,3.62,18.98,H,Domain 2 core beta sheet,0,0
+G,148,CYS,0.0333,3.62,32.41,H,Domain 2 core beta sheet,0,0
+G,149,ARG,0.0333,84.78,31.18,H,Domain 2 core beta sheet,0,0
+G,150,ASP,0.0404,6.43,43.27,H,Domain 2 core beta sheet,0,0
+G,151,LEU,0.1003,0.0,19.69,H,Domain 2 core beta sheet,0,0
+G,152,SER,0.1347,36.18,30.43,H,Domain 2 core beta sheet,0,0
+G,153,HIS,0.0497,77.0,29.84,H,Domain 2 core beta sheet,0,0
+G,154,ILE,0.05,7.5,24.7,H,Domain 2 core beta sheet,0,0
+G,155,GLY,0.322,9.52,26.52,H,Domain 2 core beta sheet,0,0
+G,156,ASP,0.3207,112.29,24.18,C,Domain 2 core beta sheet,0,0
+G,157,ALA,0.5626,29.3,24.46,E,Domain 2 core beta sheet,0,0
+G,158,VAL,0.5945,4.83,13.73,E,Domain 2 core beta sheet,0,0
+G,159,VAL,0.5507,38.64,17.13,E,Domain 2 core beta sheet,0,0
+G,160,ILE,0.5019,1.21,35.88,E,Domain 2 core beta sheet,0,0
+G,161,SER,0.4067,11.8,38.71,E,Domain 2 core beta sheet,0,0
+G,162,CYS,0.3384,2.36,65.68,E,Domain 2 core beta sheet,0,0
+G,163,ALA,0.1724,43.47,91.17,E,Domain 2 core beta sheet,0,0
+G,164,LYS,0.2385,177.09,102.84,C,Domain 2 core beta sheet,0,0
+G,165,ASP,0.2402,95.0,86.37,C,Domain 2 core beta sheet,0,0
+G,166,GLY,0.4368,3.49,64.88,E,Domain 2 core beta sheet,0,0
+G,167,VAL,0.5029,3.49,43.65,E,Domain 2 core beta sheet,0,0
+G,168,LYS,0.6408,50.1,30.76,E,Domain 2 core beta sheet,0,0
+G,169,PHE,0.6597,3.62,16.77,E,Domain 2 core beta sheet,0,0
+G,170,SER,0.6914,10.6,22.72,E,Domain 2 core beta sheet,0,0
+G,171,ALA,0.5942,2.28,6.71,E,Domain 2 core beta sheet,0,0
+G,172,SER,0.5517,94.57,19.32,E,Domain 2 core beta sheet,0,0
+G,173,GLY,0.2104,13.67,25.83,E,Domain 2 core beta sheet,0,0
+G,174,GLU,0.1544,97.57,29.76,C,Domain 2 core beta sheet,0,0
+G,175,LEU,0.2286,24.02,30.87,C,Domain 2 core beta sheet,0,0
+G,176,GLY,0.3403,1.21,39.85,E,Domain 2 core beta sheet,0,0
+G,177,ASN,0.3449,59.2,15.08,E,Domain 2 core beta sheet,0,0
+G,178,GLY,0.2986,0.0,21.84,E,Domain 2 core beta sheet,0,0
+G,179,ASN,0.2728,44.07,24.51,E,Domain 2 core beta sheet,0,0
+G,180,ILE,0.2436,1.21,26.19,E,Domain 2 core beta sheet,0,0
+G,181,LYS,0.3127,73.69,49.98,E,Domain 2 core beta sheet,0,0
+G,182,LEU,0.329,2.28,51.6,E,Domain 2 core beta sheet,0,0
+G,183,SER,0.3944,52.01,69.55,E,Domain 2 core beta sheet,0,0
+G,184,GLN,0.5133,87.33,79.24,C,Domain 2 core beta sheet,0,0
+G,185,THR,0.3377,57.78,90.94,C,Domain 2 core beta sheet,0,0
+G,186,SER,0.2483,107.51,106.68,C,Domain 2 core beta sheet,0,0
+G,187,ASN,0.0959,134.32,119.97,C,Domain 2 core beta sheet,0,0
+G,188,VAL,0.0481,55.31,132.53,C,Domain 2 core beta sheet,0,0
+G,189,ASP,0.0363,168.75,147.89,C,Domain 2 core beta sheet,0,0
+G,190,LYS,0.0263,109.55,149.37,C,Domain 2 core beta sheet,0,0
+G,191,GLU,0.0262,178.12,156.62,C,Domain 2 core beta sheet,0,0
+G,192,GLU,0.0399,73.99,131.49,C,Domain 2 core beta sheet,0,0
+G,193,GLU,0.0432,94.87,120.0,C,Domain 2 core beta sheet,0,0
+G,194,ALA,0.1052,19.05,94.83,C,Domain 2 core beta sheet,0,0
+G,195,VAL,0.2609,5.9,55.53,C,Domain 2 core beta sheet,0,0
+G,196,THR,0.4852,45.85,54.55,E,Domain 2 core beta sheet,0,0
+G,197,ILE,0.5251,19.31,54.08,E,Domain 2 core beta sheet,0,0
+G,198,GLU,0.5201,87.29,55.94,E,Domain 2 core beta sheet,0,0
+G,199,MET,0.3519,67.87,68.04,E,Domain 2 core beta sheet,0,0
+G,200,ASN,0.3407,119.99,84.06,C,Domain 2 core beta sheet,0,0
+G,201,GLU,0.0752,106.54,90.68,C,Domain 2 core beta sheet,0,0
+G,202,PRO,0.2434,73.36,90.99,C,Domain 2 core beta sheet,0,0
+G,203,VAL,0.4267,11.67,76.55,E,Domain 2 core beta sheet,0,0
+G,204,GLN,0.5995,124.13,62.51,E,Domain 2 core beta sheet,0,0
+G,205,LEU,0.6415,30.19,40.5,E,Domain 2 core beta sheet,0,0
+G,206,THR,0.6432,11.17,22.84,E,Domain 2 core beta sheet,0,0
+G,207,PHE,0.6229,0.0,33.51,E,Domain 2 core beta sheet,0,0
+G,208,ALA,0.3094,4.6,15.07,E,Domain 2 core beta sheet,0,0
+G,209,LEU,0.1757,7.11,28.0,H,Domain 2 core beta sheet,0,0
+G,210,ARG,0.0343,100.32,36.4,H,Domain 2 core beta sheet,0,0
+G,211,TYR,0.0378,10.32,43.8,H,Domain 2 core beta sheet,0,0
+G,212,LEU,0.0503,3.62,24.32,H,Domain 2 core beta sheet,0,0
+G,213,ASN,0.033,42.24,39.82,H,Domain 2 core beta sheet,0,0
+G,214,PHE,0.0528,65.21,39.98,H,Domain 2 core beta sheet,0,0
+G,215,PHE,0.2288,0.0,36.27,H,Domain 2 core beta sheet,0,0
+G,216,THR,0.1639,4.29,46.42,H,Domain 2 core beta sheet,0,0
+G,217,LYS,0.0747,75.81,46.18,H,Domain 2 core beta sheet,0,0
+G,218,ALA,0.1761,0.0,51.2,H,Domain 2 core beta sheet,0,0
+G,219,THR,0.1124,38.9,46.74,H,Domain 2 core beta sheet,0,0
+G,220,PRO,0.0707,78.32,59.0,H,Domain 2 core beta sheet,0,0
+G,221,LEU,0.0785,16.07,59.98,H,Domain 2 core beta sheet,0,0
+G,222,SER,0.4111,18.9,51.84,H,Domain 2 core beta sheet,0,0
+G,223,SER,0.4516,56.27,56.93,C,Domain 2 core beta sheet,0,0
+G,224,THR,0.6155,35.12,52.35,E,Domain 2 core beta sheet,0,0
+G,225,VAL,0.6569,1.21,29.44,E,Domain 2 core beta sheet,0,0
+G,226,THR,0.7092,22.52,29.27,E,Domain 2 core beta sheet,0,0
+G,227,LEU,0.7033,3.49,27.93,E,Domain 2 core beta sheet,0,0
+G,228,SER,0.7147,7.5,36.56,E,Domain 2 core beta sheet,0,0
+G,229,MET,0.7071,6.2,39.31,E,Domain 2 core beta sheet,0,0
+G,230,SER,0.7091,8.57,40.68,E,Domain 2 core beta sheet,0,0
+G,231,ALA,0.6886,61.43,47.74,C,C-terminal loop — AOH1996 cryptic pocket region,1,0
+G,232,ASP,0.6885,111.62,55.06,C,C-terminal loop — AOH1996 cryptic pocket region,1,0
+G,233,VAL,0.7034,16.63,48.3,E,C-terminal loop — AOH1996 cryptic pocket region,1,0
+G,234,PRO,0.7161,4.72,48.25,E,C-terminal loop — AOH1996 cryptic pocket region,1,0
+G,235,LEU,0.723,1.21,36.17,E,C-terminal loop — AOH1996 cryptic pocket region,0,0
+G,236,VAL,0.7332,0.0,12.51,E,C-terminal loop — AOH1996 cryptic pocket region,0,0
+G,237,VAL,0.7076,2.42,42.43,E,C-terminal loop — AOH1996 cryptic pocket region,0,0
+G,238,GLU,0.6944,38.71,23.99,E,C-terminal loop — AOH1996 cryptic pocket region,0,0
+G,239,TYR,0.7023,3.21,43.87,E,C-terminal loop — AOH1996 cryptic pocket region,0,0
+G,240,LYS,0.6008,122.63,57.48,E,C-terminal loop — AOH1996 cryptic pocket region,0,0
+G,241,ILE,0.5792,0.0,59.66,E,C-terminal loop — AOH1996 cryptic pocket region,0,0
+G,242,ALA,0.2406,66.64,79.19,C,C-terminal loop — AOH1996 cryptic pocket region,0,0
+G,243,ASP,0.1818,120.48,85.73,C,C-terminal loop — AOH1996 cryptic pocket region,0,0
+G,244,MET,0.0636,13.52,71.25,C,C-terminal loop — AOH1996 cryptic pocket region,0,0
+G,245,GLY,0.2863,21.74,42.34,E,C-terminal loop — AOH1996 cryptic pocket region,0,0
+G,246,HIS,0.3904,41.13,47.32,E,C-terminal loop — AOH1996 cryptic pocket region,0,0
+G,247,LEU,0.5742,0.0,47.21,E,C-terminal loop — AOH1996 cryptic pocket region,0,0
+G,248,LYS,0.5548,30.85,26.69,E,C-terminal loop — AOH1996 cryptic pocket region,0,0
+G,249,TYR,0.597,0.0,28.52,E,C-terminal loop — AOH1996 cryptic pocket region,0,0
+G,250,TYR,0.5924,15.68,30.64,E,C-terminal loop — AOH1996 cryptic pocket region,1,0
+G,251,LEU,0.5845,1.21,34.95,E,C-terminal loop — AOH1996 cryptic pocket region,1,0
+G,252,ALA,0.6123,3.21,15.91,C,C-terminal loop — AOH1996 cryptic pocket region,1,0
+G,253,PRO,0.6329,12.08,15.33,C,C-terminal loop — AOH1996 cryptic pocket region,1,0
+G,254,LYS,0.6603,44.28,24.02,C,C-terminal tail (protein-protein interface),0,0
+G,255,ILE,0.6544,38.08,24.29,C,C-terminal tail (protein-protein interface),0,0
+G,256,GLU,0.6499,113.47,64.65,C,C-terminal tail (protein-protein interface),0,0
+G,257,ASP,0.5892,96.17,92.38,C,C-terminal tail (protein-protein interface),0,0
+G,258,GLU,0.4838,182.62,128.61,C,C-terminal tail (protein-protein interface),0,0
+G,259,GLU,0.3162,133.12,135.2,C,C-terminal tail (protein-protein interface),0,0
+G,260,GLY,0.2733,95.74,136.9,C,C-terminal tail (protein-protein interface),0,0
+G,261,SER,0.0404,108.06,132.48,C,C-terminal tail (protein-protein interface),0,0
+H,1,MET,0.0501,53.78,153.78,C,N-terminal beta sheet (domain 1),0,0
+H,2,PHE,0.1059,15.7,145.82,E,N-terminal beta sheet (domain 1),0,0
+H,3,GLU,0.1297,22.93,145.24,E,N-terminal beta sheet (domain 1),0,0
+H,4,ALA,0.18,13.15,143.73,E,N-terminal beta sheet (domain 1),0,0
+H,5,ARG,0.2044,69.86,142.04,E,N-terminal beta sheet (domain 1),0,0
+H,6,LEU,0.2019,8.45,143.66,E,N-terminal beta sheet (domain 1),0,0
+H,7,VAL,0.1654,71.5,144.49,C,N-terminal beta sheet (domain 1),0,0
+H,8,GLN,0.0959,102.73,142.01,C,N-terminal beta sheet (domain 1),0,0
+H,9,GLY,0.0733,4.29,137.07,H,N-terminal beta sheet (domain 1),0,0
+H,10,SER,0.0315,15.56,127.28,H,N-terminal beta sheet (domain 1),0,0
+H,11,ILE,0.0257,44.68,129.15,H,N-terminal beta sheet (domain 1),0,0
+H,12,LEU,0.0237,37.16,130.65,H,N-terminal beta sheet (domain 1),0,0
+H,13,LYS,0.0228,26.96,129.69,H,N-terminal beta sheet (domain 1),0,0
+H,14,LYS,0.023,51.58,128.4,H,N-terminal beta sheet (domain 1),0,0
+H,15,VAL,0.0231,9.66,124.94,H,N-terminal beta sheet (domain 1),0,0
+H,16,LEU,0.0232,9.66,126.73,H,N-terminal beta sheet (domain 1),0,0
+H,17,GLU,0.0235,68.37,126.26,H,N-terminal beta sheet (domain 1),0,0
+H,18,ALA,0.0242,2.14,124.69,H,N-terminal beta sheet (domain 1),0,0
+H,19,LEU,0.0261,3.62,128.2,H,N-terminal beta sheet (domain 1),0,0
+H,20,LYS,0.0252,59.86,127.75,H,N-terminal beta sheet (domain 1),0,0
+H,21,ASP,0.0281,68.05,128.84,C,N-terminal beta sheet (domain 1),0,0
+H,22,LEU,0.0354,19.99,128.22,C,N-terminal beta sheet (domain 1),0,0
+H,23,ILE,0.0757,7.25,131.57,C,N-terminal beta sheet (domain 1),0,0
+H,24,ASN,0.1011,85.61,134.24,C,N-terminal beta sheet (domain 1),0,0
+H,25,GLU,0.274,84.0,133.31,E,N-terminal beta sheet (domain 1),1,0
+H,26,ALA,0.4677,1.21,142.4,E,N-terminal beta sheet (domain 1),1,0
+H,27,CYS,0.5357,13.34,146.78,E,N-terminal beta sheet (domain 1),1,0
+H,28,TRP,0.5293,49.51,141.87,E,N-terminal beta sheet (domain 1),0,0
+H,29,ASP,0.5329,26.28,142.21,E,N-terminal beta sheet (domain 1),0,0
+H,30,ILE,0.4765,10.48,141.73,E,N-terminal beta sheet (domain 1),0,0
+H,31,SER,0.3111,48.27,131.28,E,N-terminal beta sheet (domain 1),0,0
+H,32,SER,0.3428,106.51,133.23,C,N-terminal beta sheet (domain 1),0,0
+H,33,SER,0.2931,63.7,132.76,C,N-terminal beta sheet (domain 1),0,0
+H,34,GLY,0.4976,1.21,133.58,E,N-terminal beta sheet (domain 1),0,0
+H,35,VAL,0.5205,14.49,128.85,E,N-terminal beta sheet (domain 1),0,0
+H,36,ASN,0.5806,40.93,132.89,E,N-terminal beta sheet (domain 1),0,0
+H,37,LEU,0.603,2.42,140.38,E,N-terminal beta sheet (domain 1),0,0
+H,38,GLN,0.6638,50.29,135.8,E,N-terminal beta sheet (domain 1),1,0
+H,39,SER,0.6474,11.4,144.55,E,N-terminal beta sheet (domain 1),1,0
+H,40,MET,0.6162,77.99,131.8,E,N-terminal beta sheet (domain 1),1,0
+H,41,ASP,0.458,12.37,124.0,C,Front-face loop (PIP-box groove),1,0
+H,42,SER,0.3124,96.96,121.46,C,Front-face loop (PIP-box groove),1,0
+H,43,SER,0.2026,79.6,118.61,C,Front-face loop (PIP-box groove),0,0
+H,44,HIS,0.3273,138.13,125.1,C,Front-face loop (PIP-box groove),1,0
+H,45,VAL,0.4967,50.43,127.38,C,Front-face loop (PIP-box groove),1,0
+H,46,SER,0.6033,2.28,137.01,E,Front-face loop (PIP-box groove),1,0
+H,47,LEU,0.6108,48.31,142.68,E,Front-face loop (PIP-box groove),1,0
+H,48,VAL,0.6486,6.97,145.24,E,Core beta sheet,0,0
+H,49,GLN,0.6265,38.32,142.75,E,Core beta sheet,0,0
+H,50,LEU,0.6311,0.0,137.23,E,Core beta sheet,0,0
+H,51,THR,0.6205,7.91,129.53,E,Core beta sheet,0,0
+H,52,LEU,0.6085,12.08,126.62,E,Core beta sheet,0,0
+H,53,ARG,0.3296,101.57,128.13,E,Core beta sheet,0,0
+H,54,SER,0.1893,34.42,137.86,C,Core beta sheet,0,0
+H,55,GLU,0.0289,125.2,135.97,C,Core beta sheet,0,0
+H,56,GLY,0.0517,36.99,134.1,C,Core beta sheet,0,0
+H,57,PHE,0.077,33.11,136.32,C,Core beta sheet,0,0
+H,58,ASP,0.1161,110.26,134.36,C,Core beta sheet,0,0
+H,59,THR,0.1292,49.73,139.25,E,Core beta sheet,0,0
+H,60,TYR,0.0924,54.86,142.35,E,Core beta sheet,0,0
+H,61,ARG,0.0358,132.58,145.22,E,Core beta sheet,0,0
+H,62,CYS,0.0464,42.07,149.21,E,Core beta sheet,0,0
+H,63,ASP,0.0261,107.05,146.76,C,Core beta sheet,0,0
+H,64,ARG,0.0285,162.11,146.11,C,Core beta sheet,0,0
+H,65,ASN,0.2119,131.33,141.93,C,Core beta sheet,0,0
+H,66,LEU,0.2555,32.2,146.81,E,Core beta sheet,0,0
+H,67,ALA,0.5244,67.1,146.68,E,Core beta sheet,0,0
+H,68,MET,0.5785,28.49,147.57,E,Core beta sheet,0,0
+H,69,GLY,0.5987,2.19,146.36,E,Core beta sheet,0,0
+H,70,VAL,0.5303,8.45,140.87,E,Core beta sheet,0,0
+H,71,ASN,0.2566,55.46,137.84,E,Core beta sheet,0,0
+H,72,LEU,0.0997,1.21,130.29,H,Core beta sheet,0,0
+H,73,THR,0.0469,61.03,121.89,H,Core beta sheet,0,0
+H,74,SER,0.0412,21.84,121.57,H,Core beta sheet,0,0
+H,75,MET,0.0511,15.2,124.64,H,Core beta sheet,0,0
+H,76,SER,0.031,8.71,118.28,H,Core beta sheet,0,0
+H,77,LYS,0.0271,60.06,119.12,H,Core beta sheet,0,0
+H,78,ILE,0.0256,4.83,123.84,H,Core beta sheet,0,0
+H,79,LEU,0.0253,14.49,126.85,H,Core beta sheet,0,0
+H,80,LYS,0.0252,106.37,121.85,H,Core beta sheet,0,0
+H,81,CYS,0.0256,20.36,125.69,C,Core beta sheet,0,0
+H,82,ALA,0.0337,8.71,124.39,C,Core beta sheet,0,0
+H,83,GLY,0.0299,27.3,133.14,C,Core beta sheet,0,0
+H,84,ASN,0.0306,90.87,135.3,C,Core beta sheet,0,0
+H,85,GLU,0.0322,107.63,143.48,C,Core beta sheet,0,0
+H,86,ASP,0.1108,4.42,141.09,C,Core beta sheet,0,0
+H,87,ILE,0.1443,35.02,150.62,E,Core beta sheet,0,0
+H,88,ILE,0.2316,6.84,148.1,E,Core beta sheet,0,0
+H,89,THR,0.174,8.45,151.36,E,Core beta sheet,0,0
+H,90,LEU,0.1743,32.61,143.77,E,Core beta sheet,0,0
+H,91,ARG,0.0926,107.81,139.43,E,Core beta sheet,0,0
+H,92,ALA,0.182,1.21,149.81,E,Core beta sheet,0,0
+H,93,GLU,0.0806,84.0,150.13,C,Core beta sheet,0,0
+H,94,ASP,0.0828,47.34,149.58,C,Core beta sheet,0,0
+H,95,ASN,0.1005,126.41,144.78,C,Core beta sheet,0,0
+H,96,ALA,0.3827,29.5,149.3,C,Core beta sheet,0,0
+H,97,ASP,0.5202,117.46,137.67,C,Core beta sheet,0,0
+H,98,THR,0.5842,57.11,134.97,E,Core beta sheet,0,0
+H,99,LEU,0.5974,18.11,134.75,E,Core beta sheet,0,0
+H,100,ALA,0.5853,26.57,139.36,E,Core beta sheet,0,0
+H,101,LEU,0.5269,6.04,142.31,E,Core beta sheet,0,0
+H,102,VAL,0.5525,26.57,154.98,E,Core beta sheet,0,0
+H,103,PHE,0.3364,3.62,151.41,E,Core beta sheet,0,0
+H,104,GLU,0.1793,31.11,153.51,E,Core beta sheet,0,0
+H,105,ALA,0.084,8.18,152.17,C,Core beta sheet,0,0
+H,106,PRO,0.0561,89.04,155.2,C,Core beta sheet,0,0
+H,107,ASN,0.0295,91.27,151.27,C,Core beta sheet,0,0
+H,108,GLN,0.0297,154.45,150.77,C,Core beta sheet,0,0
+H,109,GLU,0.0293,134.94,142.73,C,Core beta sheet,0,0
+H,110,LYS,0.0744,49.06,142.95,C,Core beta sheet,0,0
+H,111,VAL,0.1085,70.71,148.54,E,Core beta sheet,0,0
+H,112,SER,0.2248,4.56,156.78,E,Core beta sheet,0,0
+H,113,ASP,0.2601,70.09,153.2,E,Core beta sheet,0,0
+H,114,TYR,0.2509,14.61,140.89,E,Core beta sheet,0,0
+H,115,GLU,0.4142,72.9,135.01,E,Core beta sheet,0,0
+H,116,MET,0.4849,8.53,124.82,E,Core beta sheet,0,0
+H,117,LYS,0.5582,143.8,128.8,E,Core beta sheet,0,0
+H,118,LEU,0.5727,33.51,135.0,C,Core beta sheet,0,0
+H,119,MET,0.5642,88.9,143.18,C,IDCL — Interdomain Connecting Loop (key interaction hub),0,0
+H,120,ASP,0.5675,156.18,144.63,C,IDCL — Interdomain Connecting Loop (key interaction hub),0,0
+H,121,LEU,0.5394,69.26,150.59,C,IDCL — Interdomain Connecting Loop (key interaction hub),0,0
+H,122,ASP,0.5574,159.99,152.44,C,IDCL — Interdomain Connecting Loop (key interaction hub),0,0
+H,123,VAL,0.5528,72.47,147.5,C,IDCL — Interdomain Connecting Loop (key interaction hub),1,0
+H,124,GLU,0.5652,153.08,145.07,C,IDCL — Interdomain Connecting Loop (key interaction hub),0,0
+H,125,GLN,0.583,137.07,138.11,C,IDCL — Interdomain Connecting Loop (key interaction hub),1,0
+H,126,LEU,0.5813,105.75,131.07,C,IDCL — Interdomain Connecting Loop (key interaction hub),1,0
+H,127,GLY,0.5913,73.79,127.22,C,IDCL — Interdomain Connecting Loop (key interaction hub),0,0
+H,128,ILE,0.5559,73.18,139.03,C,IDCL — Interdomain Connecting Loop (key interaction hub),1,0
+H,129,PRO,0.5224,97.39,146.4,C,IDCL — Interdomain Connecting Loop (key interaction hub),0,0
+H,130,GLU,0.5074,188.5,152.27,C,IDCL — Interdomain Connecting Loop (key interaction hub),0,0
+H,131,GLN,0.495,84.78,150.42,C,IDCL — Interdomain Connecting Loop (key interaction hub),0,0
+H,132,GLU,0.5103,120.54,148.61,C,IDCL — Interdomain Connecting Loop (key interaction hub),0,0
+H,133,TYR,0.5125,44.44,146.63,C,IDCL — Interdomain Connecting Loop (key interaction hub),0,0
+H,134,SER,0.5231,16.07,148.54,C,IDCL — Interdomain Connecting Loop (key interaction hub),0,0
+H,135,CYS,0.5114,2.42,148.8,E,Domain 2 core beta sheet,0,0
+H,136,VAL,0.5663,44.55,146.04,E,Domain 2 core beta sheet,0,0
+H,137,VAL,0.6235,2.42,144.89,E,Domain 2 core beta sheet,0,0
+H,138,LYS,0.6492,43.43,139.45,E,Domain 2 core beta sheet,0,0
+H,139,MET,0.6211,4.99,139.61,E,Domain 2 core beta sheet,0,0
+H,140,PRO,0.5154,28.98,138.63,E,Domain 2 core beta sheet,0,0
+H,141,SER,0.3774,1.07,130.07,H,Domain 2 core beta sheet,0,0
+H,142,GLY,0.0465,46.62,125.37,H,Domain 2 core beta sheet,0,0
+H,143,GLU,0.0294,76.17,124.67,H,Domain 2 core beta sheet,0,0
+H,144,PHE,0.0755,3.62,126.13,H,Domain 2 core beta sheet,0,0
+H,145,ALA,0.0242,22.4,126.83,H,Domain 2 core beta sheet,0,0
+H,146,ARG,0.0233,44.59,118.99,H,Domain 2 core beta sheet,0,0
+H,147,ILE,0.0231,12.08,120.67,H,Domain 2 core beta sheet,0,0
+H,148,CYS,0.026,10.06,116.33,H,Domain 2 core beta sheet,0,0
+H,149,ARG,0.0256,132.97,116.37,H,Domain 2 core beta sheet,0,0
+H,150,ASP,0.0298,8.84,113.74,H,Domain 2 core beta sheet,0,0
+H,151,LEU,0.0367,1.21,113.64,H,Domain 2 core beta sheet,0,0
+H,152,SER,0.0463,33.22,111.8,H,Domain 2 core beta sheet,0,0
+H,153,HIS,0.0278,67.36,100.12,H,Domain 2 core beta sheet,0,0
+H,154,ILE,0.0285,10.71,102.02,C,Domain 2 core beta sheet,0,0
+H,155,GLY,0.0889,11.67,108.44,C,Domain 2 core beta sheet,0,0
+H,156,ASP,0.0916,105.6,124.08,C,Domain 2 core beta sheet,0,0
+H,157,ALA,0.3195,32.63,121.71,E,Domain 2 core beta sheet,0,0
+H,158,VAL,0.3978,1.21,120.61,E,Domain 2 core beta sheet,0,0
+H,159,VAL,0.4282,64.0,122.87,E,Domain 2 core beta sheet,0,0
+H,160,ILE,0.3432,3.62,123.42,E,Domain 2 core beta sheet,0,0
+H,161,SER,0.2558,21.45,123.81,E,Domain 2 core beta sheet,0,0
+H,162,CYS,0.212,3.62,127.44,E,Domain 2 core beta sheet,0,0
+H,163,ALA,0.1135,26.16,127.41,E,Domain 2 core beta sheet,0,0
+H,164,LYS,0.1602,182.18,129.44,C,Domain 2 core beta sheet,0,0
+H,165,ASP,0.1791,92.97,128.29,C,Domain 2 core beta sheet,0,0
+H,166,GLY,0.3611,6.04,127.86,E,Domain 2 core beta sheet,0,0
+H,167,VAL,0.5137,2.42,125.15,E,Domain 2 core beta sheet,0,0
+H,168,LYS,0.5888,61.29,118.56,E,Domain 2 core beta sheet,0,0
+H,169,PHE,0.6126,6.04,114.22,E,Domain 2 core beta sheet,0,0
+H,170,SER,0.5989,24.68,112.79,E,Domain 2 core beta sheet,0,0
+H,171,ALA,0.3077,4.56,105.21,E,Domain 2 core beta sheet,0,0
+H,172,SER,0.2111,76.19,100.93,E,Domain 2 core beta sheet,0,0
+H,173,GLY,0.0956,30.88,102.87,E,Domain 2 core beta sheet,0,0
+H,174,GLU,0.0903,124.47,107.56,C,Domain 2 core beta sheet,0,0
+H,175,LEU,0.09,37.44,99.52,C,Domain 2 core beta sheet,0,0
+H,176,GLY,0.1781,1.21,98.1,E,Domain 2 core beta sheet,0,0
+H,177,ASN,0.1856,61.34,99.85,E,Domain 2 core beta sheet,0,0
+H,178,GLY,0.1819,1.07,108.8,E,Domain 2 core beta sheet,0,0
+H,179,ASN,0.208,41.82,113.65,E,Domain 2 core beta sheet,0,0
+H,180,ILE,0.1681,10.87,116.95,E,Domain 2 core beta sheet,0,0
+H,181,LYS,0.2059,54.86,122.38,E,Domain 2 core beta sheet,0,0
+H,182,LEU,0.2355,18.11,129.23,E,Domain 2 core beta sheet,0,0
+H,183,SER,0.2877,52.81,140.94,C,Domain 2 core beta sheet,0,0
+H,184,GLN,0.3976,104.21,153.26,C,Domain 2 core beta sheet,0,0
+H,185,THR,0.2509,34.32,146.67,C,Domain 2 core beta sheet,0,0
+H,186,SER,0.2013,114.24,153.6,C,Domain 2 core beta sheet,0,0
+H,187,ASN,0.0612,142.43,153.69,C,Domain 2 core beta sheet,0,0
+H,188,VAL,0.0431,64.91,162.2,C,Domain 2 core beta sheet,0,0
+H,189,ASP,0.0308,159.79,165.2,C,Domain 2 core beta sheet,0,0
+H,190,LYS,0.0276,107.41,163.6,H,Domain 2 core beta sheet,0,0
+H,191,GLU,0.0272,153.42,159.07,H,Domain 2 core beta sheet,0,0
+H,192,GLU,0.0311,76.84,153.02,H,Domain 2 core beta sheet,0,0
+H,193,GLU,0.0343,94.07,157.97,H,Domain 2 core beta sheet,0,0
+H,194,ALA,0.0859,13.28,148.75,H,Domain 2 core beta sheet,0,0
+H,195,VAL,0.2527,3.62,143.49,C,Domain 2 core beta sheet,0,0
+H,196,THR,0.3779,59.41,140.74,E,Domain 2 core beta sheet,0,0
+H,197,ILE,0.4671,35.51,141.19,E,Domain 2 core beta sheet,0,0
+H,198,GLU,0.3571,73.08,144.26,E,Domain 2 core beta sheet,0,0
+H,199,MET,0.2716,59.7,150.78,C,Domain 2 core beta sheet,0,0
+H,200,ASN,0.1614,89.83,149.93,C,Domain 2 core beta sheet,0,0
+H,201,GLU,0.0949,94.63,140.56,C,Domain 2 core beta sheet,0,0
+H,202,PRO,0.1784,60.64,133.02,C,Domain 2 core beta sheet,0,0
+H,203,VAL,0.3363,14.49,137.49,E,Domain 2 core beta sheet,0,0
+H,204,GLN,0.4522,108.4,130.59,E,Domain 2 core beta sheet,0,0
+H,205,LEU,0.5398,30.19,130.4,E,Domain 2 core beta sheet,0,0
+H,206,THR,0.5626,37.29,130.6,E,Domain 2 core beta sheet,0,0
+H,207,PHE,0.5673,2.42,128.34,E,Domain 2 core beta sheet,0,0
+H,208,ALA,0.1663,31.17,130.53,E,Domain 2 core beta sheet,0,0
+H,209,LEU,0.1099,0.0,129.02,H,Domain 2 core beta sheet,0,0
+H,210,ARG,0.0236,85.22,127.59,H,Domain 2 core beta sheet,0,0
+H,211,TYR,0.0355,36.21,127.56,H,Domain 2 core beta sheet,0,0
+H,212,LEU,0.0261,15.7,128.78,H,Domain 2 core beta sheet,0,0
+H,213,ASN,0.0308,36.06,127.22,H,Domain 2 core beta sheet,0,0
+H,214,PHE,0.043,76.08,127.01,H,Domain 2 core beta sheet,0,0
+H,215,PHE,0.2218,2.42,133.47,H,Domain 2 core beta sheet,0,0
+H,216,THR,0.0814,12.86,133.96,H,Domain 2 core beta sheet,0,0
+H,217,LYS,0.0635,69.98,131.69,C,Domain 2 core beta sheet,0,0
+H,218,ALA,0.1197,0.0,131.65,C,Domain 2 core beta sheet,0,0
+H,219,THR,0.1649,30.0,135.26,C,Domain 2 core beta sheet,0,0
+H,220,PRO,0.0445,86.49,129.45,C,Domain 2 core beta sheet,0,0
+H,221,LEU,0.0564,23.98,132.4,C,Domain 2 core beta sheet,0,0
+H,222,SER,0.325,7.91,138.64,C,Domain 2 core beta sheet,0,0
+H,223,SER,0.4039,59.94,135.79,C,Domain 2 core beta sheet,0,0
+H,224,THR,0.6116,28.4,138.42,E,Domain 2 core beta sheet,0,0
+H,225,VAL,0.6636,0.0,146.41,E,Domain 2 core beta sheet,0,0
+H,226,THR,0.6768,22.93,150.44,E,Domain 2 core beta sheet,0,0
+H,227,LEU,0.6619,7.25,150.32,E,Domain 2 core beta sheet,0,0
+H,228,SER,0.6605,10.99,151.89,E,Domain 2 core beta sheet,0,0
+H,229,MET,0.61,2.42,145.04,E,Domain 2 core beta sheet,0,0
+H,230,SER,0.5969,13.95,139.93,C,Domain 2 core beta sheet,0,0
+H,231,ALA,0.567,52.73,138.55,C,C-terminal loop — AOH1996 cryptic pocket region,1,0
+H,232,ASP,0.5771,154.95,133.96,C,C-terminal loop — AOH1996 cryptic pocket region,1,0
+H,233,VAL,0.5762,19.32,142.56,C,C-terminal loop — AOH1996 cryptic pocket region,1,0
+H,234,PRO,0.6083,54.34,144.36,C,C-terminal loop — AOH1996 cryptic pocket region,1,0
+H,235,LEU,0.6274,9.66,150.15,E,C-terminal loop — AOH1996 cryptic pocket region,0,0
+H,236,VAL,0.6605,13.28,151.23,E,C-terminal loop — AOH1996 cryptic pocket region,0,0
+H,237,VAL,0.6699,3.62,155.12,E,C-terminal loop — AOH1996 cryptic pocket region,0,0
+H,238,GLU,0.6553,10.6,149.19,E,C-terminal loop — AOH1996 cryptic pocket region,0,0
+H,239,TYR,0.6563,0.0,135.23,E,C-terminal loop — AOH1996 cryptic pocket region,0,0
+H,240,LYS,0.566,105.4,135.84,E,C-terminal loop — AOH1996 cryptic pocket region,0,0
+H,241,ILE,0.5057,1.21,132.13,E,C-terminal loop — AOH1996 cryptic pocket region,0,0
+H,242,ALA,0.1553,77.55,135.08,C,C-terminal loop — AOH1996 cryptic pocket region,0,0
+H,243,ASP,0.1503,142.48,133.04,C,C-terminal loop — AOH1996 cryptic pocket region,0,0
+H,244,MET,0.0728,15.55,128.77,C,C-terminal loop — AOH1996 cryptic pocket region,0,0
+H,245,GLY,0.3164,10.19,132.98,E,C-terminal loop — AOH1996 cryptic pocket region,0,0
+H,246,HIS,0.4116,48.78,134.61,E,C-terminal loop — AOH1996 cryptic pocket region,0,0
+H,247,LEU,0.5855,1.21,147.73,E,C-terminal loop — AOH1996 cryptic pocket region,0,0
+H,248,LYS,0.5929,52.77,152.56,E,C-terminal loop — AOH1996 cryptic pocket region,0,0
+H,249,TYR,0.653,1.07,150.81,E,C-terminal loop — AOH1996 cryptic pocket region,0,0
+H,250,TYR,0.6495,18.64,144.78,E,C-terminal loop — AOH1996 cryptic pocket region,1,0
+H,251,LEU,0.6458,4.83,140.89,E,C-terminal loop — AOH1996 cryptic pocket region,1,0
+H,252,ALA,0.6312,46.83,131.57,C,C-terminal loop — AOH1996 cryptic pocket region,1,0
+H,253,PRO,0.615,34.46,132.32,C,C-terminal loop — AOH1996 cryptic pocket region,1,0
+H,254,LYS,0.5111,99.14,137.28,C,C-terminal tail (protein-protein interface),0,0
+H,255,ILE,0.2668,150.42,145.62,C,C-terminal tail (protein-protein interface),0,0
+H,256,GLU,0.0654,148.21,156.93,C,C-terminal tail (protein-protein interface),0,0
+H,257,ASP,0.036,130.52,172.89,C,C-terminal tail (protein-protein interface),0,0
+H,258,GLU,0.0226,212.79,176.45,C,C-terminal tail (protein-protein interface),0,0

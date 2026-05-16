@@ -1,0 +1,18 @@
+{
+  "pdb": "3VKX",
+  "title": "DNA BINDING PROTEINSTRUCTURE OF PCNA",
+  "n_residues": 248,
+  "n_chains": 1,
+  "ligands": [
+    "T3"
+  ],
+  "auroc": 0.9042,
+  "n_pocket_labeled": 14,
+  "n_clusters": 1,
+  "top_cluster_mean": 0.6737,
+  "top_cluster_n": 128,
+  "top_aoh_overlap": 24,
+  "top_concavity": 0.477,
+  "score_max": 0.8329,
+  "score_mean": 0.3931
+}

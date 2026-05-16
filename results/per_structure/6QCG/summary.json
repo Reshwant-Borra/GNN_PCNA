@@ -1,0 +1,16 @@
+{
+  "pdb": "6QCG",
+  "title": "CELL CYCLEPCNA COMPLEX WITH CDT1 N-TERMINAL PIP-BOX PEPTIDE",
+  "n_residues": 1578,
+  "n_chains": 12,
+  "ligands": [],
+  "auroc": null,
+  "n_pocket_labeled": null,
+  "n_clusters": 13,
+  "top_cluster_mean": 0.5833,
+  "top_cluster_n": 98,
+  "top_aoh_overlap": 19,
+  "top_concavity": 0.531,
+  "score_max": 0.7683,
+  "score_mean": 0.211
+}

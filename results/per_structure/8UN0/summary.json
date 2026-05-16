@@ -1,0 +1,19 @@
+{
+  "pdb": "8UN0",
+  "title": "REPLICATION/DNAATOMIC MODEL OF THE HUMAN CTF18-RFC-PCNA-DNA TERNARY COMPLEX WITH CRACKED AND CLOSED PCNA (STATE 7)",
+  "n_residues": 2647,
+  "n_chains": 8,
+  "ligands": [
+    "AGS",
+    "ADP"
+  ],
+  "auroc": 0.5477,
+  "n_pocket_labeled": 95,
+  "n_clusters": 14,
+  "top_cluster_mean": 0.5986,
+  "top_cluster_n": 80,
+  "top_aoh_overlap": 16,
+  "top_concavity": 0.537,
+  "score_max": 0.7927,
+  "score_mean": 0.1375
+}

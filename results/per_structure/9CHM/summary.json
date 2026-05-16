@@ -1,0 +1,16 @@
+{
+  "pdb": "9CHM",
+  "title": "PROTEIN BINDINGCRYO-EM STRUCTURE OF FAN1 R507H AND PCNA IN INTERMEDIATE STATE",
+  "n_residues": 967,
+  "n_chains": 4,
+  "ligands": [],
+  "auroc": null,
+  "n_pocket_labeled": null,
+  "n_clusters": 7,
+  "top_cluster_mean": 0.6525,
+  "top_cluster_n": 79,
+  "top_aoh_overlap": 23,
+  "top_concavity": 0.456,
+  "score_max": 0.8021,
+  "score_mean": 0.1601
+}

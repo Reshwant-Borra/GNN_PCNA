@@ -1,0 +1,16 @@
+{
+  "pdb": "6FCN",
+  "title": "NUCLEAR PROTEINCRYSTAL STRUCTURE OF HUMAN PCNA SOAKED WITH P47PHOX(106-127) PEPTIDE",
+  "n_residues": 755,
+  "n_chains": 3,
+  "ligands": [],
+  "auroc": null,
+  "n_pocket_labeled": null,
+  "n_clusters": 5,
+  "top_cluster_mean": 0.6878,
+  "top_cluster_n": 57,
+  "top_aoh_overlap": 21,
+  "top_concavity": 0.439,
+  "score_max": 0.798,
+  "score_mean": 0.1962
+}

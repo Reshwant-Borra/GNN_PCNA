@@ -1,0 +1,19 @@
+{
+  "pdb": "6VVO",
+  "title": "DNA BINDING PROTEIN, REPLICATIONSTRUCTURE OF THE HUMAN CLAMP LOADER (REPLICATION FACTOR C, RFC) BOUND TO THE SLIDING CLA",
+  "n_residues": 2493,
+  "n_chains": 8,
+  "ligands": [
+    "AGS",
+    "ADP"
+  ],
+  "auroc": 0.4496,
+  "n_pocket_labeled": 92,
+  "n_clusters": 3,
+  "top_cluster_mean": 0.5868,
+  "top_cluster_n": 376,
+  "top_aoh_overlap": 24,
+  "top_concavity": 0.535,
+  "score_max": 0.7099,
+  "score_mean": 0.1477
+}

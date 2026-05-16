@@ -1,0 +1,16 @@
+{
+  "pdb": "3TBL",
+  "title": "REPLICATIONSTRUCTURE OF MONO-UBIQUITINATED PCNA: IMPLICATIONS FOR DNA POLYMERASE SWITCHING AND OKAZAKI FRAGMENT MATURATI",
+  "n_residues": 897,
+  "n_chains": 5,
+  "ligands": [],
+  "auroc": null,
+  "n_pocket_labeled": null,
+  "n_clusters": 8,
+  "top_cluster_mean": 0.6716,
+  "top_cluster_n": 58,
+  "top_aoh_overlap": 17,
+  "top_concavity": 0.414,
+  "score_max": 0.812,
+  "score_mean": 0.1859
+}

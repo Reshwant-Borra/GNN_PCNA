@@ -63,7 +63,7 @@ class PocketGNN(nn.Module):
     Configs
     -------
     PocketGNN()           — large  (~10.4M) hidden=768, heads=8, 4+3 layers
-    PocketGNN.small()     — small  (~850k)  hidden=256, heads=4, 3+2 layers
+    PocketGNN.small()     — small  (~907k)  hidden=256, heads=4, 3+2 layers
     PocketGNN.medium()    — medium (~3.2M)  hidden=512, heads=8, 3+2 layers
 
     Forward args

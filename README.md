@@ -56,10 +56,10 @@ MD Validation  (src/md/parse_trajectory.py)
 | Fusion | Learned gate per residue: `gate * h_spatial + (1-gate) * h_seq` |
 | Scoring head | Linear(768→384→192→96→1) + ReLU + Dropout at each layer |
 | Output | Per-residue pocket probability ∈ [0, 1] |
-| Parameters | ~10.4M (large) · ~3.6M (medium) · ~907k (small) |
+| Parameters | ~10.4M (large) · ~3.6M (medium) · ~907k (small) — **all results in this repo use the small checkpoint** |
 | Loss | Focal(γ=2, α=0.25) + 0.05×Ranking(margin=0.2) + 0.10×Symmetry (finetune only) |
 
-CrypticGNN v1 (~850k params, single-branch, 26-dim nodes) is preserved for comparison.
+CrypticGNN v1 (~556k params, single-branch, 26-dim nodes) is preserved for comparison.
 
 ---
 

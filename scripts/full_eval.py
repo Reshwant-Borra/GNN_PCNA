@@ -12,24 +12,24 @@ warnings.filterwarnings("ignore")
 REPO = Path(__file__).parent.parent
 sys.path.insert(0, str(REPO))
 
-from src.models import PocketGNN
+from src.models import PocketGNN, PocketGNNXL
 from src.data_processing.graph_construction import load_graph
 from sklearn.metrics import roc_auc_score
 from sklearn.cluster import DBSCAN
 
 # ── config ────────────────────────────────────────────────────────────────────
-CKPT      = REPO / "checkpoints" / "pcna" / "best_pcna.ckpt"
-GRAPH_DIRS = [REPO / "data" / "graphs", REPO / "data" / "pcna"]
+CKPT      = REPO / "checkpoints" / "pcna" / "best_pcna_v3.ckpt"
+GRAPH_DIRS = [REPO / "data" / "graphs_xl", REPO / "data" / "pcna_xl"]
 OUT_DIR   = REPO / "data" / "results"
 THRESHOLD = 0.40
 PCNA_IDS  = {"8GLA", "1W60", "1W61", "1AXC"}
 OUT_DIR.mkdir(parents=True, exist_ok=True)
 
 # ── load model ────────────────────────────────────────────────────────────────
-model = PocketGNN.small()
+model = PocketGNNXL()
 model.load_state_dict(torch.load(CKPT, map_location="cpu", weights_only=True))
 model.eval()
-print(f"Model: PocketGNN small ({model.param_count():,} params)  |  ckpt: {CKPT.name}")
+print(f"Model: PocketGNNXL v3 ({model.param_count():,} params)  |  ckpt: {CKPT.name}")
 
 # ── collect all graphs ────────────────────────────────────────────────────────
 all_files: list[Path] = []
@@ -143,7 +143,7 @@ labeled_cs = [r for r in cs_rows if r["has_labels"] and not np.isnan(r["auroc"])
 
 # ── Figure 1: Score landscape across ALL structures ───────────────────────────
 fig, axes = plt.subplots(2, 2, figsize=(16, 10))
-fig.suptitle("PocketGNN v2 — Full Evaluation Across 90 PCNA & CryptoSite Structures",
+fig.suptitle("PocketGNNXL v3 (ESM2) — Full Evaluation Across 90 PCNA & CryptoSite Structures",
              fontsize=14, fontweight="bold", y=1.01)
 
 ax = axes[0, 0]
@@ -326,8 +326,8 @@ report = f"""# GNN-PCNA Full Evaluation Report
 
 | Item | Value |
 |---|---|
-| Model | PocketGNN v2 small (907,706 params) |
-| Checkpoint | checkpoints/pcna/best_pcna.ckpt |
+| Model | PocketGNNXL v3 (13,364,354 params — ESM2 + virtual node) |
+| Checkpoint | checkpoints/pcna/best_pcna_v3.ckpt |
 | Threshold | {THRESHOLD} |
 | Total structures evaluated | {len(rows)} |
 | Structures with pocket labels | {len(labeled_cs)} |

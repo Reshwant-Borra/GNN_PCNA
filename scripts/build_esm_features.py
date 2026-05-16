@@ -149,18 +149,27 @@ def main() -> None:
 
     esm_dim = _ESM_DIMS[args.model]
     tokenizer, model = _load_esm(args.model)
-    print(f"ESM2 dim={esm_dim}  |  output → {ESM_DIR}\n")
+    print(f"ESM2 dim={esm_dim}  |  output -> {ESM_DIR}\n")
 
-    # Collect all processed PDB files
-    proc_files = sorted(PROC_DIR.glob("*_clean.pdb"))
+    # Collect PDB files: prefer processed (_clean.pdb), fall back to raw/
     if args.ids:
         id_set = {i.upper() for i in args.ids}
-        proc_files = [p for p in proc_files
-                      if p.stem.replace('_clean','').upper() in id_set]
+        proc_files = []
+        for pid in id_set:
+            clean = PROC_DIR / f"{pid}_clean.pdb"
+            raw   = RAW_DIR  / f"{pid}.pdb"
+            if clean.exists():
+                proc_files.append(clean)
+            elif raw.exists():
+                proc_files.append(raw)
+        proc_files = sorted(proc_files)
+    else:
+        proc_files = sorted(PROC_DIR.glob("*_clean.pdb"))
 
     ok = failed = skipped = 0
     for pdb_path in tqdm(proc_files, desc="ESM2", unit="struct"):
-        pdb_id   = pdb_path.stem.replace('_clean', '').upper()
+        stem   = pdb_path.stem
+        pdb_id = stem.replace('_clean', '').upper()
         out_path = ESM_DIR / f"{pdb_id}.npy"
 
         if out_path.exists() and not args.force:

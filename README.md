@@ -76,42 +76,108 @@ CrypticGNN v1 (~850k params, single-branch, 26-dim nodes) is preserved for compa
 
 ---
 
-## Quick Start
+## Setup
+
+> Full instructions with troubleshooting: **[SETUP.md](SETUP.md)**
+
+### 1. Clone & create environment
 
 ```bash
-# 1. Install dependencies
-pip install torch torch_geometric
-pip install -r requirements-ui.txt
-pip install streamlit pandas matplotlib requests mcp scikit-learn
+git clone https://github.com/Reshwant-Borra/GNN_PCNA.git
+cd GNN_PCNA
+python -m venv .venv
+# Windows: .venv\Scripts\activate  |  macOS/Linux: source .venv/bin/activate
+```
 
-# 2. Fetch PCNA structures
-python src/data_processing/fetch_structures.py
+### 2. Install PyTorch (pick your hardware)
 
-# 3. Run the Streamlit UI
+```bash
+# CPU only
+pip install torch==2.1.0 --index-url https://download.pytorch.org/whl/cpu
+
+# NVIDIA GPU — CUDA 11.8
+pip install torch==2.1.0 --index-url https://download.pytorch.org/whl/cu118
+
+# NVIDIA GPU — CUDA 12.1
+pip install torch==2.1.0 --index-url https://download.pytorch.org/whl/cu121
+```
+
+### 3. Install PyTorch Geometric + all dependencies
+
+```bash
+# PyG sparse ops (replace +cpu with +cu118 / +cu121 to match your torch build)
+pip install torch-scatter torch-sparse \
+  -f https://data.pyg.org/whl/torch-2.1.0+cpu.html
+
+pip install torch-geometric
+pip install -r requirements.txt
+```
+
+### 4. Download PDB structures
+
+Raw `.pdb` files are gitignored. Download the 59 PCNA structures via the crawler:
+
+```bash
+python agents/pcna_crawler.py --download --sources rcsb --download-limit 100
+```
+
+Or fetch a single structure manually:
+
+```bash
+curl -o data/raw/8GLA.pdb https://files.rcsb.org/download/8GLA.pdb
+```
+
+### 5. Build graph tensors
+
+```bash
+python scripts/build_graphs.py
+```
+
+### 6. Run inference (pre-trained checkpoint included)
+
+The checkpoint `checkpoints/pcna/best_pcna.ckpt` is tracked in git — no training needed.
+
+```bash
+# Per-structure analysis on all 59 PCNA structures
+python scripts/per_structure_analysis.py
+
+# Generate 5-panel analysis figure
+python scripts/make_final_figure.py
+
+# Launch Streamlit UI
 streamlit run src/ui/app.py
+```
 
-# 4. Train (pre-train on CryptoSite)
+### 7. Train from scratch (optional)
+
+```bash
+# Pre-train on CryptoSite
 python -m src.training.train \
   --train_dir data/cryptosite/train \
   --val_dir   data/cryptosite/val \
-  --model_size large \
-  --phase pretrain \
+  --model_size large --phase pretrain \
   --checkpoint_dir checkpoints/pretrain/ \
   --epochs 100 --lr 1e-3 --patience 15
 
-# 5. Fine-tune on PCNA (enables symmetry loss)
+# Fine-tune on PCNA (enables symmetry loss)
 python -m src.training.train \
   --train_dir data/pcna/train \
   --val_dir   data/pcna/val \
-  --model_size large \
-  --phase finetune \
+  --model_size large --phase finetune \
   --resume checkpoints/pretrain/best.ckpt \
   --checkpoint_dir checkpoints/finetune/ \
   --epochs 50 --lr 3e-4 --patience 10
-
-# 6. Start the MCP server (connects Obsidian vault to Claude)
-python agents/mcp_server.py
 ```
+
+### Troubleshooting
+
+| Error | Fix |
+|---|---|
+| `ModuleNotFoundError: torch_scatter` | Re-run step 3 with the correct CUDA tag |
+| `UnicodeEncodeError: cp1252` | Prefix command with `PYTHONIOENCODING=utf-8` |
+| `FileNotFoundError: best_pcna.ckpt` | Run `git pull` — checkpoint is in git |
+| `FileNotFoundError: data/raw/8GLA.pdb` | Run step 4 |
+| `AUROC = 0.5` | Apo structure — no ligand to label from; expected behaviour |
 
 ---
 
@@ -127,15 +193,21 @@ Add to Claude Code via `.claude/mcp.json` (already configured in this repo).
 
 ## Stack
 
-| Tool | Purpose |
-|---|---|
-| Python 3.10+ | Language |
-| PyTorch Geometric | GNN (GATv2Conv) |
-| MDAnalysis | MD trajectory parsing |
-| BioPython / ProDy | PDB structure parsing |
-| scikit-learn | AUROC evaluation |
-| Streamlit | Interactive UI |
-| FastMCP | Claude Code MCP server |
+| Tool | Version | Purpose |
+|---|---|---|
+| Python | 3.10 – 3.12 | Language |
+| PyTorch | 2.1+ | Tensor ops + autograd |
+| PyTorch Geometric | 2.4+ | GATv2Conv, graph batching |
+| torch-scatter / torch-sparse | 2.1+ / 0.6+ | PyG sparse kernels |
+| BioPython | 1.83+ | PDB parsing, SASA (ShrakeRupley) |
+| scikit-learn | 1.4+ | AUROC, DBSCAN clustering |
+| scipy | 1.11+ | Spatial KD-tree for graph construction |
+| numpy | 1.26+ | Array ops |
+| requests + BeautifulSoup4 | — | 13-domain web crawler |
+| streamlit | 1.35+ | Interactive UI |
+| matplotlib + pandas | — | Figures, CSV I/O |
+| MDAnalysis | 2.7+ (optional) | MD trajectory parsing |
+| FastMCP | — (optional) | Claude Code MCP server |
 
 ---
 

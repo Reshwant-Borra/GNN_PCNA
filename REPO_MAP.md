@@ -85,31 +85,48 @@ GNN_PNCA/
 │       ├── knowledge_graph_map.mmd # Obsidian brain structure
 │       └── system_map.html         # Interactive canvas visualization
 │
+├── agents/                         # Data collection + LLM agents
+│   ├── pcna_crawler.py             # IMPLEMENTED — 13-source parallel crawler + 5-layer validation
+│   ├── gemma_verifier.py           # IMPLEMENTED — Gemma 3:4b L6 credibility scorer
+│   ├── obsidian_writer.py          # IMPLEMENTED — write verified records to docs/knowledge/auto_indexed/
+│   └── local_agent.py              # IMPLEMENTED — Ollama agent (gemma3:4b) for implement/review
+│
+├── scripts/                        # Pipeline runner scripts
+│   ├── run_pipeline.py             # IMPLEMENTED — end-to-end pipeline orchestrator
+│   ├── build_graphs.py             # IMPLEMENTED — PDB → PyG .pt graph files
+│   └── make_split.py               # IMPLEMENTED — protein-level train/val/test split
+│
 ├── src/                            # Python source code
 │   ├── data_processing/
-│   │   ├── parse_pdb.py            # STUB — parse PDB, label residues
-│   │   ├── graph_construction.py   # STUB — build PyG Data objects
+│   │   ├── parse_pdb.py            # IMPLEMENTED — parse PDB, SASA, SS, labels
+│   │   ├── graph_construction.py   # IMPLEMENTED — build PyG Data objects (26-dim nodes, 2-dim edges)
 │   │   └── __init__.py
 │   ├── models/
-│   │   ├── cryptic_gnn.py          # IMPLEMENTED — CrypticGNN model
+│   │   ├── cryptic_gnn.py          # IMPLEMENTED — CrypticGNN (4×GATv2Conv, residual, sigmoid head)
 │   │   └── __init__.py
 │   ├── training/
-│   │   ├── train.py                # STUB — training loop
-│   │   ├── loss.py                 # STUB — focal loss
-│   │   ├── dataset.py              # STUB — dataset loader
+│   │   ├── train.py                # IMPLEMENTED — training loop, early stopping, AUROC eval
+│   │   ├── loss.py                 # IMPLEMENTED — focal loss (γ=2, α=0.25)
+│   │   ├── dataset.py              # IMPLEMENTED — PocketDataset (loads .pt files)
 │   │   └── __init__.py
 │   ├── evaluation/
-│   │   ├── score_pockets.py        # STUB — pocket scoring + clustering
+│   │   ├── score_pockets.py        # IMPLEMENTED — DBSCAN clustering, ranked pockets, scored PDB
 │   │   └── __init__.py
 │   └── md/
-│       ├── parse_trajectory.py     # STUB — RMSF, DCCM, volume tracking
+│       ├── parse_trajectory.py     # IMPLEMENTED — RMSF, DCCM, convex-hull volume (needs MD data)
 │       └── __init__.py
 │
 └── data/                           # DO NOT SCAN — raw/binary data
-    ├── raw/                        # Downloaded PDB files
-    ├── processed/                  # Cleaned PDB (waters stripped)
-    ├── graphs/                     # PyG .pt graph objects (binary)
-    ├── labels/                     # Residue-level labels (.npy)
+    ├── raw/                        # Downloaded PDB files (~100 structures)
+    ├── processed/                  # Cleaned PDB (~90 stripped structures)
+    ├── graphs/                     # PyG .pt graph objects (binary) — build with scripts/build_graphs.py
+    ├── pcna/                       # PCNA-specific graphs (1W60, 8GLA) for inference + validation
+    ├── cryptosite/
+    │   ├── train/                  # Training split .pt files
+    │   ├── val/                    # Validation split .pt files
+    │   └── test/                   # Test split .pt files (held-out)
+    ├── splits/                     # Split manifests (cryptosite_split.json)
+    ├── catalog/                    # Crawler output (pcna_data_catalog.json)
     └── trajectories/               # MD trajectories (.xtc, .gro)
 ```
 
@@ -153,13 +170,18 @@ GNN_PNCA/
 | File | Status | Next Action |
 |---|---|---|
 | `src/models/cryptic_gnn.py` | **Implemented** | Ready for training |
-| `src/data_processing/parse_pdb.py` | **Stub** | HIGH PRIORITY — implement first |
-| `src/data_processing/graph_construction.py` | **Stub** | HIGH PRIORITY — implement second |
-| `src/training/loss.py` | **Stub** | HIGH — focal loss |
-| `src/training/dataset.py` | **Stub** | HIGH — PyG dataset loader |
-| `src/training/train.py` | **Stub** | MEDIUM — training loop |
-| `src/evaluation/score_pockets.py` | **Stub** | MEDIUM — clustering + ranking |
-| `src/md/parse_trajectory.py` | **Stub** | LATER — needs MD data |
+| `src/data_processing/parse_pdb.py` | **Implemented** | Run scripts/build_graphs.py |
+| `src/data_processing/graph_construction.py` | **Implemented** | Run scripts/build_graphs.py |
+| `src/training/loss.py` | **Implemented** | — |
+| `src/training/dataset.py` | **Implemented** | — |
+| `src/training/train.py` | **Implemented** | Run after split |
+| `src/evaluation/score_pockets.py` | **Implemented** | Run after training |
+| `src/md/parse_trajectory.py` | **Implemented** | Needs MD trajectory data |
+| `agents/gemma_verifier.py` | **Implemented** | Run after crawl |
+| `agents/obsidian_writer.py` | **Implemented** | Run after gemma_verifier |
+| `scripts/build_graphs.py` | **Implemented** | Run after fetch |
+| `scripts/make_split.py` | **Implemented** | Run after build_graphs |
+| `scripts/run_pipeline.py` | **Implemented** | Full end-to-end runner |
 
 ---
 

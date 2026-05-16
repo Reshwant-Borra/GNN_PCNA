@@ -93,7 +93,9 @@
       "passed": true,
       "relevance": 1.0,
       "checksum": "acc5259a2b875babc5c76f22144eab959ecd71df313cffe3a831a614446e4d9b",
-      "fetched_at": "2026-05-15T15:54:07.495674+00:00"
+      "fetched_at": "2026-05-15T15:54:07.495674+00:00",
+      "gemma_score": 7,
+      "gemma_reason": "structural data auto-approved (validated by L1-L5)"
     },
     {
       "uid": "1W60",
@@ -149,7 +151,9 @@
       "passed": true,
       "relevance": 1.0,
       "checksum": "3e1f1f0d22a893da67e36042aff4e2ab4b9da267f40fe1a22f7b8be2a32d5e5c",
-      "fetched_at": "2026-05-15T15:54:08.232074+00:00"
+      "fetched_at": "2026-05-15T15:54:08.232074+00:00",
+      "gemma_score": 7,
+      "gemma_reason": "structural data auto-approved (validated by L1-L5)"
     },
     {
       "uid": "8GLA",
@@ -207,7 +211,9 @@
       "passed": true,
       "relevance": 1.0,
       "checksum": "79cc39d2253f0d36728ecfbc2588e751169bfcbc36f4d7e8215663fef87195cd",
-      "fetched_at": "2026-05-15T15:54:40.328282+00:00"
+      "fetched_at": "2026-05-15T15:54:40.328282+00:00",
+      "gemma_score": 7,
+      "gemma_reason": "structural data auto-approved (validated by L1-L5)"
     },
     {
       "uid": "1W61",
@@ -265,7 +271,9 @@
       "passed": true,
       "relevance": 1.0,
       "checksum": "c0e8d21b16c698a029a18f093ebf4620615306655823f5cbc1855b7394a6da15",
-      "fetched_at": "2026-05-15T15:57:27.343381+00:00"
+      "fetched_at": "2026-05-15T15:57:27.343381+00:00",
+      "gemma_score": 7,
+      "gemma_reason": "structural data auto-approved (validated by L1-L5)"
     },
     {
       "uid": "CHEMBL:CHEMBL2346488",
@@ -311,7 +319,9 @@
       "passed": true,
       "relevance": 0.44,
       "checksum": "b1ad2e4ecf6b9cad96ab4ad03f769b43de301e29b7ecf7c69ac7d9582ea917d1",
-      "fetched_at": "2026-05-15T15:55:40.443513+00:00"
+      "fetched_at": "2026-05-15T15:55:40.443513+00:00",
+      "gemma_score": 8,
+      "gemma_reason": "ChEMBL provides PCNA's structure and binding data, making it highly relevant for GNN-based cryptic pocket prediction research."
     },
     {
       "uid": "5E0U",
@@ -371,7 +381,9 @@
       "passed": true,
       "relevance": 0.39999999999999997,
       "checksum": "73210fcb6d856970c7e52b5a2c7970055e7146544cabc10c1abfdbb6f9517699",
-      "fetched_at": "2026-05-15T15:54:01.839325+00:00"
+      "fetched_at": "2026-05-15T15:54:01.839325+00:00",
+      "gemma_score": 7,
+      "gemma_reason": "structural data auto-approved (validated by L1-L5)"
     },
     {
       "uid": "5MLO",
@@ -431,7 +443,9 @@
       "passed": true,
       "relevance": 0.39999999999999997,
       "checksum": "545710aa4bfd574157512c9aea88a9c55fac9a00b13cd48911dccc706b78abac",
-      "fetched_at": "2026-05-15T15:54:15.748635+00:00"
+      "fetched_at": "2026-05-15T15:54:15.748635+00:00",
+      "gemma_score": 7,
+      "gemma_reason": "structural data auto-approved (validated by L1-L5)"
     },
     {
       "uid": "8F5Q",
@@ -491,7 +505,9 @@
       "passed": true,
       "relevance": 0.39999999999999997,
       "checksum": "9c913249421d75c3561c53093e4286396582e4a0d11c8409cfafd3320d50df62",
-      "fetched_at": "2026-05-15T15:54:21.186202+00:00"
+      "fetched_at": "2026-05-15T15:54:21.186202+00:00",
+      "gemma_score": 7,
+      "gemma_reason": "structural data auto-approved (validated by L1-L5)"
     },
     {
       "uid": "1U7B",
@@ -547,7 +563,9 @@
       "passed": true,
       "relevance": 0.39999999999999997,
       "checksum": "f6bd82c1f7f85d5534ed932b8bb1a894d9d59b327dc2dd7e1a7dd87182acdfb2",
-      "fetched_at": "2026-05-15T15:54:32.605143+00:00"
+      "fetched_at": "2026-05-15T15:54:32.605143+00:00",
+      "gemma_score": 7,
+      "gemma_reason": "structural data auto-approved (validated by L1-L5)"
     },
     {
       "uid": "9N3L",
@@ -604,7 +622,9 @@
       "passed": true,
       "relevance": 0.37,
       "checksum": "0ff8835bf168d25ed7640ecda4d77d83151b75b4baf898dc4944bda08d2af416",
-      "fetched_at": "2026-05-15T15:57:25.905541+00:00"
+      "fetched_at": "2026-05-15T15:57:25.905541+00:00",
+      "gemma_score": 7,
+      "gemma_reason": "structural data auto-approved (validated by L1-L5)"
     },
     {
       "uid": "CID:126718388",
@@ -649,7 +669,9 @@
       "passed": true,
       "relevance": 0.36,
       "checksum": "053dedd1e284123c5696b8de6451f9a582f11c8bce3b5e09d64b50afd8116421",
-      "fetched_at": "2026-05-15T15:55:42.147353+00:00"
+      "fetched_at": "2026-05-15T15:55:42.147353+00:00",
+      "gemma_score": 7,
+      "gemma_reason": "The dataset describes a PCNA inhibitor, directly relevant to cryptic pocket prediction and amenable to GNN-based methods."
     },
     {
       "uid": "4ZTD",
@@ -709,7 +731,9 @@
       "passed": true,
       "relevance": 0.32,
       "checksum": "08e90f0507f2ee00ffbdefbdf43f346eedb9a6ff1b35dc968edbb01965b6e3db",
-      "fetched_at": "2026-05-15T15:54:06.081690+00:00"
+      "fetched_at": "2026-05-15T15:54:06.081690+00:00",
+      "gemma_score": 7,
+      "gemma_reason": "structural data auto-approved (validated by L1-L5)"
     },
     {
       "uid": "5E0V",
@@ -767,7 +791,9 @@
       "passed": true,
       "relevance": 0.32,
       "checksum": "4128eb921385044e25cd6b35565d7ca413aecf05f7a54e645ffebc3cf3e4612c",
-      "fetched_at": "2026-05-15T15:54:06.780863+00:00"
+      "fetched_at": "2026-05-15T15:54:06.780863+00:00",
+      "gemma_score": 7,
+      "gemma_reason": "structural data auto-approved (validated by L1-L5)"
     },
     {
       "uid": "5MLW",
@@ -827,7 +853,9 @@
       "passed": true,
       "relevance": 0.32,
       "checksum": "9bac0e940ad57b4e56fd721655a083f1790a9a689bfe5f7543fd22b8f34fcd4b",
-      "fetched_at": "2026-05-15T15:54:10.699738+00:00"
+      "fetched_at": "2026-05-15T15:54:10.699738+00:00",
+      "gemma_score": 7,
+      "gemma_reason": "structural data auto-approved (validated by L1-L5)"
     },
     {
       "uid": "6HVO",
@@ -887,7 +915,9 @@
       "passed": true,
       "relevance": 0.32,
       "checksum": "9f6060589632f0442b811ee495683a9b656979cbaa4e9ded317fc3af27996b19",
-      "fetched_at": "2026-05-15T15:54:20.144598+00:00"
+      "fetched_at": "2026-05-15T15:54:20.144598+00:00",
+      "gemma_score": 7,
+      "gemma_reason": "structural data auto-approved (validated by L1-L5)"
     },
     {
       "uid": "3VKX",
@@ -942,7 +972,9 @@
       "passed": true,
       "relevance": 0.32,
       "checksum": "90de25d15fbfab4cb3d9e87ac25f263cc4eec088f9e755b05dc64f60effe3ccc",
-      "fetched_at": "2026-05-15T15:54:22.575932+00:00"
+      "fetched_at": "2026-05-15T15:54:22.575932+00:00",
+      "gemma_score": 7,
+      "gemma_reason": "structural data auto-approved (validated by L1-L5)"
     },
     {
       "uid": "2ZVL",
@@ -1008,7 +1040,9 @@
       "passed": true,
       "relevance": 0.32,
       "checksum": "9e2b04822d09d2ee13986c834eaa3b96f207ec0fe3d9e1805628fdad34be5297",
-      "fetched_at": "2026-05-15T15:54:22.930436+00:00"
+      "fetched_at": "2026-05-15T15:54:22.930436+00:00",
+      "gemma_score": 7,
+      "gemma_reason": "structural data auto-approved (validated by L1-L5)"
     },
     {
       "uid": "2ZVM",
@@ -1068,7 +1102,9 @@
       "passed": true,
       "relevance": 0.32,
       "checksum": "79f46596ddac71040a99028f4c584af8875978cb090c992e9e54702a8b2360c6",
-      "fetched_at": "2026-05-15T15:54:23.996349+00:00"
+      "fetched_at": "2026-05-15T15:54:23.996349+00:00",
+      "gemma_score": 7,
+      "gemma_reason": "structural data auto-approved (validated by L1-L5)"
     },
     {
       "uid": "1VYM",
@@ -1125,7 +1161,9 @@
       "passed": true,
       "relevance": 0.32,
       "checksum": "f575ac8ca3f3787e115fede22cec890ded4f8f0e4ae145a53d1f3665924402d4",
-      "fetched_at": "2026-05-15T15:54:27.848576+00:00"
+      "fetched_at": "2026-05-15T15:54:27.848576+00:00",
+      "gemma_score": 7,
+      "gemma_reason": "structural data auto-approved (validated by L1-L5)"
     },
     {
       "uid": "4RJF",
@@ -1185,7 +1223,9 @@
       "passed": true,
       "relevance": 0.32,
       "checksum": "de10025cac939dbff8cd40098b651ff4ceb528d4b580a98bba055ba50bb17917",
-      "fetched_at": "2026-05-15T15:54:36.422288+00:00"
+      "fetched_at": "2026-05-15T15:54:36.422288+00:00",
+      "gemma_score": 7,
+      "gemma_reason": "structural data auto-approved (validated by L1-L5)"
     },
     {
       "uid": "5YD8",
@@ -1245,7 +1285,9 @@
       "passed": true,
       "relevance": 0.32,
       "checksum": "a5dd8ed023215342230bea3dbc94b2601a4bffb4bc6dbd7871cdbda3eceb8291",
-      "fetched_at": "2026-05-15T15:54:36.788490+00:00"
+      "fetched_at": "2026-05-15T15:54:36.788490+00:00",
+      "gemma_score": 7,
+      "gemma_reason": "structural data auto-approved (validated by L1-L5)"
     },
     {
       "uid": "6K3A",
@@ -1305,7 +1347,9 @@
       "passed": true,
       "relevance": 0.32,
       "checksum": "133c8a01a389388fec3368aaf8327d76f42de2fe4a5714ac67a1c4f2dba43945",
-      "fetched_at": "2026-05-15T15:54:37.848147+00:00"
+      "fetched_at": "2026-05-15T15:54:37.848147+00:00",
+      "gemma_score": 7,
+      "gemma_reason": "structural data auto-approved (validated by L1-L5)"
     },
     {
       "uid": "7KQ0",
@@ -1365,7 +1409,9 @@
       "passed": true,
       "relevance": 0.32,
       "checksum": "93a6ff90e1356f75dbb04463a22ac7e18c96d15474995326a88f678235f04abb",
-      "fetched_at": "2026-05-15T15:54:39.976422+00:00"
+      "fetched_at": "2026-05-15T15:54:39.976422+00:00",
+      "gemma_score": 7,
+      "gemma_reason": "structural data auto-approved (validated by L1-L5)"
     },
     {
       "uid": "5MOM",
@@ -1422,7 +1468,9 @@
       "passed": true,
       "relevance": 0.32,
       "checksum": "0a7c2fe2f48e8c321ce33934441c28ed3aed79eed077cd66c286be7c8bbbead6",
-      "fetched_at": "2026-05-15T15:54:40.686018+00:00"
+      "fetched_at": "2026-05-15T15:54:40.686018+00:00",
+      "gemma_score": 7,
+      "gemma_reason": "structural data auto-approved (validated by L1-L5)"
     },
     {
       "uid": "5YCO",
@@ -1482,7 +1530,9 @@
       "passed": true,
       "relevance": 0.32,
       "checksum": "280f0950720f0c6233eb2ffe2ed25704deebeef8df671ce84eca5984ec41d1d1",
-      "fetched_at": "2026-05-15T15:54:42.460138+00:00"
+      "fetched_at": "2026-05-15T15:54:42.460138+00:00",
+      "gemma_score": 7,
+      "gemma_reason": "structural data auto-approved (validated by L1-L5)"
     },
     {
       "uid": "CHEMBL:CHEMBL5574",
@@ -1528,7 +1578,9 @@
       "passed": true,
       "relevance": 0.32,
       "checksum": "b332921fe20e09a31cfa0c04ee74ea93a856ef022999f71d0dab29e03e106832",
-      "fetched_at": "2026-05-15T15:55:40.810119+00:00"
+      "fetched_at": "2026-05-15T15:55:40.810119+00:00",
+      "gemma_score": 7,
+      "gemma_reason": "ChEMBL data for PCNA provides binding information and structural context, suitable for GNN training and cryptic pocket prediction."
     },
     {
       "uid": "CHEMBL:CHEMBL5465218",
@@ -1574,7 +1626,9 @@
       "passed": true,
       "relevance": 0.32,
       "checksum": "cb7aa8362beb5d92e8fb881865106924a6fa0a3da5ef324b3ed7a9e58aeb7c3c",
-      "fetched_at": "2026-05-15T15:55:41.201657+00:00"
+      "fetched_at": "2026-05-15T15:55:41.201657+00:00",
+      "gemma_score": 7,
+      "gemma_reason": "ChEMBL data for PCNA includes binding information and structure data, making it applicable for GNN-based cryptic pocket prediction."
     },
     {
       "uid": "PMID:39693053",
@@ -1620,7 +1674,9 @@
       "passed": true,
       "relevance": 0.27,
       "checksum": "751d70f94050cfcfecf483dc3a09101b5486ad103634be25a1a594596176e742",
-      "fetched_at": "2026-05-15T15:57:25.003957+00:00"
+      "fetched_at": "2026-05-15T15:57:25.003957+00:00",
+      "gemma_score": 7,
+      "gemma_reason": "The paper describes a GNN-based method for cryptic binding site prediction, directly applicable to PCNA and relevant to the project's goals."
     },
     {
       "uid": "8UMY",
@@ -1684,7 +1740,9 @@
       "passed": true,
       "relevance": 0.25,
       "checksum": "3be336b9a60df1b2bd920755b0e0981ebf9b5d23c926468fff98b6075d713e67",
-      "fetched_at": "2026-05-15T15:54:01.775804+00:00"
+      "fetched_at": "2026-05-15T15:54:01.775804+00:00",
+      "gemma_score": 7,
+      "gemma_reason": "structural data auto-approved (validated by L1-L5)"
     },
     {
       "uid": "1UL1",
@@ -1744,7 +1802,9 @@
       "passed": true,
       "relevance": 0.25,
       "checksum": "e6a57a9bfdf59c0f49d4e8f8e3b21828c9a94ab060e6b02ac825831d1dba3d18",
-      "fetched_at": "2026-05-15T15:54:02.224687+00:00"
+      "fetched_at": "2026-05-15T15:54:02.224687+00:00",
+      "gemma_score": 7,
+      "gemma_reason": "structural data auto-approved (validated by L1-L5)"
     },
     {
       "uid": "8COB",
@@ -1804,7 +1864,9 @@
       "passed": true,
       "relevance": 0.25,
       "checksum": "682ce2cfde86bbf78121183bcf0d5b19b276fcbe6565a9142b0d9d28c4e341e3",
-      "fetched_at": "2026-05-15T15:54:03.633827+00:00"
+      "fetched_at": "2026-05-15T15:54:03.633827+00:00",
+      "gemma_score": 7,
+      "gemma_reason": "structural data auto-approved (validated by L1-L5)"
     },
     {
       "uid": "7NV0",
@@ -1864,7 +1926,9 @@
       "passed": true,
       "relevance": 0.25,
       "checksum": "1323f25e119fa3ae17f14bb83176ac7ac731aa8c93f5ac0b28cfd2ab0e935a1f",
-      "fetched_at": "2026-05-15T15:54:04.185606+00:00"
+      "fetched_at": "2026-05-15T15:54:04.185606+00:00",
+      "gemma_score": 7,
+      "gemma_reason": "structural data auto-approved (validated by L1-L5)"
     },
     {
       "uid": "9GY0",
@@ -1925,7 +1989,9 @@
       "passed": true,
       "relevance": 0.25,
       "checksum": "f9e5b27c742f6601be81f2e3f9524e6809c1d69b0199af6e641316417bee9b0d",
-      "fetched_at": "2026-05-15T15:54:04.333788+00:00"
+      "fetched_at": "2026-05-15T15:54:04.333788+00:00",
+      "gemma_score": 7,
+      "gemma_reason": "structural data auto-approved (validated by L1-L5)"
     },
     {
       "uid": "5E0T",
@@ -1982,7 +2048,9 @@
       "passed": true,
       "relevance": 0.25,
       "checksum": "5fd48300d9d98b251f5cf82215594a1439d68201211026c4b65d8d5227ae4b18",
-      "fetched_at": "2026-05-15T15:54:05.018057+00:00"
+      "fetched_at": "2026-05-15T15:54:05.018057+00:00",
+      "gemma_score": 7,
+      "gemma_reason": "structural data auto-approved (validated by L1-L5)"
     },
     {
       "uid": "8UMU",
@@ -2044,7 +2112,9 @@
       "passed": true,
       "relevance": 0.25,
       "checksum": "f025e153ad59b4b304055fb2812967d2743a0a088cf2471a5c854ca42214b38c",
-      "fetched_at": "2026-05-15T15:54:05.747121+00:00"
+      "fetched_at": "2026-05-15T15:54:05.747121+00:00",
+      "gemma_score": 7,
+      "gemma_reason": "structural data auto-approved (validated by L1-L5)"
     },
     {
       "uid": "9EOA",
@@ -2105,7 +2175,9 @@
       "passed": true,
       "relevance": 0.25,
       "checksum": "3ee7e6585953253e40eb9da0ad1cdd160bb95c83b4a2dae059129b6dae2397df",
-      "fetched_at": "2026-05-15T15:54:08.937103+00:00"
+      "fetched_at": "2026-05-15T15:54:08.937103+00:00",
+      "gemma_score": 7,
+      "gemma_reason": "structural data auto-approved (validated by L1-L5)"
     },
     {
       "uid": "7M5N",
@@ -2164,7 +2236,9 @@
       "passed": true,
       "relevance": 0.25,
       "checksum": "b0f3017e580c0c2fb679edc63335eff0c08a79510b4ed077943698332aeee65a",
-      "fetched_at": "2026-05-15T15:54:09.289783+00:00"
+      "fetched_at": "2026-05-15T15:54:09.289783+00:00",
+      "gemma_score": 7,
+      "gemma_reason": "structural data auto-approved (validated by L1-L5)"
     },
     {
       "uid": "8UN0",
@@ -2228,7 +2302,9 @@
       "passed": true,
       "relevance": 0.25,
       "checksum": "de0a7e5f6b57e90a14b9279417bf830dce6d41927601a31728cc96113e7d7f1b",
-      "fetched_at": "2026-05-15T15:54:09.647726+00:00"
+      "fetched_at": "2026-05-15T15:54:09.647726+00:00",
+      "gemma_score": 7,
+      "gemma_reason": "structural data auto-approved (validated by L1-L5)"
     },
     {
       "uid": "6FCM",
@@ -2285,7 +2361,9 @@
       "passed": true,
       "relevance": 0.25,
       "checksum": "e32c1ada2935a1dbcde9688d9989f46bbd3660e5031358bdcbd23f6e6ad9d8fa",
-      "fetched_at": "2026-05-15T15:54:10.001913+00:00"
+      "fetched_at": "2026-05-15T15:54:10.001913+00:00",
+      "gemma_score": 7,
+      "gemma_reason": "structural data auto-approved (validated by L1-L5)"
     },
     {
       "uid": "9CG4",
@@ -2345,7 +2423,9 @@
       "passed": true,
       "relevance": 0.25,
       "checksum": "906c5e9888e0029c06ef3031f1c4b572fd76c0707a4596d72118b4b1a96daa81",
-      "fetched_at": "2026-05-15T15:54:10.329595+00:00"
+      "fetched_at": "2026-05-15T15:54:10.329595+00:00",
+      "gemma_score": 7,
+      "gemma_reason": "structural data auto-approved (validated by L1-L5)"
     },
     {
       "uid": "6GIS",
@@ -2404,7 +2484,9 @@
       "passed": true,
       "relevance": 0.25,
       "checksum": "965fc9c1c2180760b0c5773048c3bbf9c606bbddc1e1329cb1829be2d241b2a0",
-      "fetched_at": "2026-05-15T15:54:11.040145+00:00"
+      "fetched_at": "2026-05-15T15:54:11.040145+00:00",
+      "gemma_score": 7,
+      "gemma_reason": "structural data auto-approved (validated by L1-L5)"
     },
     {
       "uid": "8UMT",
@@ -2466,7 +2548,9 @@
       "passed": true,
       "relevance": 0.25,
       "checksum": "5fcef3ea5543ee69f059fd52fa2990f416caf66b7f0d7326f407a8c6f37ec626",
-      "fetched_at": "2026-05-15T15:54:14.385170+00:00"
+      "fetched_at": "2026-05-15T15:54:14.385170+00:00",
+      "gemma_score": 7,
+      "gemma_reason": "structural data auto-approved (validated by L1-L5)"
     },
     {
       "uid": "6CBI",
@@ -2530,7 +2614,9 @@
       "passed": true,
       "relevance": 0.25,
       "checksum": "e3a90e3b4a39263cef4c4cc0cb658d38e558965004a79c234a67fc5ef134231a",
-      "fetched_at": "2026-05-15T15:54:15.045646+00:00"
+      "fetched_at": "2026-05-15T15:54:15.045646+00:00",
+      "gemma_score": 7,
+      "gemma_reason": "structural data auto-approved (validated by L1-L5)"
     },
     {
       "uid": "3TBL",
@@ -2589,7 +2675,9 @@
       "passed": true,
       "relevance": 0.25,
       "checksum": "361c49b91a246e34d466297b19bc403ac5b1e9067b4239c2e648b0c14890a860",
-      "fetched_at": "2026-05-15T15:54:15.388392+00:00"
+      "fetched_at": "2026-05-15T15:54:15.388392+00:00",
+      "gemma_score": 7,
+      "gemma_reason": "structural data auto-approved (validated by L1-L5)"
     },
     {
       "uid": "5MAV",
@@ -2655,7 +2743,9 @@
       "passed": true,
       "relevance": 0.25,
       "checksum": "879947b54e18336abc56743a189907452c0c126a334631b6f11d4ae182326402",
-      "fetched_at": "2026-05-15T15:54:19.784059+00:00"
+      "fetched_at": "2026-05-15T15:54:19.784059+00:00",
+      "gemma_score": 7,
+      "gemma_reason": "structural data auto-approved (validated by L1-L5)"
     },
     {
       "uid": "8GL9",
@@ -2713,7 +2803,9 @@
       "passed": true,
       "relevance": 0.25,
       "checksum": "dba559b1cda6aabce4f7da387cd62722563759a6b221e0c5f7c83e664da7ae6d",
-      "fetched_at": "2026-05-15T15:54:20.498197+00:00"
+      "fetched_at": "2026-05-15T15:54:20.498197+00:00",
+      "gemma_score": 7,
+      "gemma_reason": "structural data auto-approved (validated by L1-L5)"
     },
     {
       "uid": "9B8T",
@@ -2773,7 +2865,9 @@
       "passed": true,
       "relevance": 0.25,
       "checksum": "867d68278c5d72a9c3ddb5a465840c2918bd79d18cd4f814fd8112634e9a95de",
-      "fetched_at": "2026-05-15T15:54:21.898176+00:00"
+      "fetched_at": "2026-05-15T15:54:21.898176+00:00",
+      "gemma_score": 7,
+      "gemma_reason": "structural data auto-approved (validated by L1-L5)"
     },
     {
       "uid": "6QC0",
@@ -2833,7 +2927,9 @@
       "passed": true,
       "relevance": 0.25,
       "checksum": "1aad29bb03a3822b23b00d5d60e425abc828a1da8812edaf814022a82a20ec51",
-      "fetched_at": "2026-05-15T15:54:22.241886+00:00"
+      "fetched_at": "2026-05-15T15:54:22.241886+00:00",
+      "gemma_score": 7,
+      "gemma_reason": "structural data auto-approved (validated by L1-L5)"
     },
     {
       "uid": "4D2G",
@@ -2892,7 +2988,9 @@
       "passed": true,
       "relevance": 0.25,
       "checksum": "2bf3e79c29d8d0dcddec3229ff60f53f835b11c557d421b1683daf6cb95aa475",
-      "fetched_at": "2026-05-15T15:54:23.286026+00:00"
+      "fetched_at": "2026-05-15T15:54:23.286026+00:00",
+      "gemma_score": 7,
+      "gemma_reason": "structural data auto-approved (validated by L1-L5)"
     },
     {
       "uid": "8GCJ",
@@ -2952,7 +3050,9 @@
       "passed": true,
       "relevance": 0.25,
       "checksum": "5a31b2af9d5ca66861a37a690f2cb62765a30aec30cbf9b1fd421e0dacf43122",
-      "fetched_at": "2026-05-15T15:54:23.641568+00:00"
+      "fetched_at": "2026-05-15T15:54:23.641568+00:00",
+      "gemma_score": 7,
+      "gemma_reason": "structural data auto-approved (validated by L1-L5)"
     },
     {
       "uid": "6FCN",
@@ -3009,7 +3109,9 @@
       "passed": true,
       "relevance": 0.25,
       "checksum": "a4e43a8d50e08737334e330db548f0c9ff9e02bf82605c47c9dd59f388751ae3",
-      "fetched_at": "2026-05-15T15:54:24.347276+00:00"
+      "fetched_at": "2026-05-15T15:54:24.347276+00:00",
+      "gemma_score": 7,
+      "gemma_reason": "structural data auto-approved (validated by L1-L5)"
     },
     {
       "uid": "6VVO",
@@ -3071,7 +3173,9 @@
       "passed": true,
       "relevance": 0.25,
       "checksum": "7d6f255548b421e3c4f90771a2594220745710d8dff36da84fb674182a465a34",
-      "fetched_at": "2026-05-15T15:54:24.716139+00:00"
+      "fetched_at": "2026-05-15T15:54:24.716139+00:00",
+      "gemma_score": 7,
+      "gemma_reason": "structural data auto-approved (validated by L1-L5)"
     },
     {
       "uid": "8E84",
@@ -3128,7 +3232,9 @@
       "passed": true,
       "relevance": 0.25,
       "checksum": "a1400b82d727e2a62daa0dfa528804244c2ff276609954517e34069cc420916f",
-      "fetched_at": "2026-05-15T15:54:25.402330+00:00"
+      "fetched_at": "2026-05-15T15:54:25.402330+00:00",
+      "gemma_score": 7,
+      "gemma_reason": "structural data auto-approved (validated by L1-L5)"
     },
     {
       "uid": "6QCG",
@@ -3194,7 +3300,9 @@
       "passed": true,
       "relevance": 0.25,
       "checksum": "77629955655bb298c2602e86eafe962e63efdda0093833dcf4a7065f1b03f8f4",
-      "fetched_at": "2026-05-15T15:54:26.457141+00:00"
+      "fetched_at": "2026-05-15T15:54:26.457141+00:00",
+      "gemma_score": 7,
+      "gemma_reason": "structural data auto-approved (validated by L1-L5)"
     },
     {
       "uid": "6GWS",
@@ -3254,7 +3362,9 @@
       "passed": true,
       "relevance": 0.25,
       "checksum": "3baec99743f21000f79ba60789c6cef404516164e0cf298a9ee78ae544da7bfe",
-      "fetched_at": "2026-05-15T15:54:26.794815+00:00"
+      "fetched_at": "2026-05-15T15:54:26.794815+00:00",
+      "gemma_score": 7,
+      "gemma_reason": "structural data auto-approved (validated by L1-L5)"
     },
     {
       "uid": "9CHM",
@@ -3313,7 +3423,9 @@
       "passed": true,
       "relevance": 0.25,
       "checksum": "2c6386b6701167859953827e5efda53d211c349202a83baf8b68890ecc7a64d6",
-      "fetched_at": "2026-05-15T15:54:27.493820+00:00"
+      "fetched_at": "2026-05-15T15:54:27.493820+00:00",
+      "gemma_score": 7,
+      "gemma_reason": "structural data auto-approved (validated by L1-L5)"
     },
     {
       "uid": "3WGW",
@@ -3369,7 +3481,9 @@
       "passed": true,
       "relevance": 0.25,
       "checksum": "2950f9f9df071168566ca41fc9cabbe68cc55ee95931b758cb9d16df9171328e",
-      "fetched_at": "2026-05-15T15:54:31.544913+00:00"
+      "fetched_at": "2026-05-15T15:54:31.544913+00:00",
+      "gemma_score": 7,
+      "gemma_reason": "structural data auto-approved (validated by L1-L5)"
     },
     {
       "uid": "8UI8",
@@ -3430,7 +3544,9 @@
       "passed": true,
       "relevance": 0.25,
       "checksum": "9f16b0418b803ed5721ac75996d7e21dc9c7213a8789cc47e8f5db88e2785fb3",
-      "fetched_at": "2026-05-15T15:54:31.911602+00:00"
+      "fetched_at": "2026-05-15T15:54:31.911602+00:00",
+      "gemma_score": 7,
+      "gemma_reason": "structural data auto-approved (validated by L1-L5)"
     },
     {
       "uid": "5IY4",
@@ -3490,7 +3606,9 @@
       "passed": true,
       "relevance": 0.25,
       "checksum": "93b20b25f4874d91966acfb2e2648bbbe5d8bd0c47f1b872ee2d7d1253d5194a",
-      "fetched_at": "2026-05-15T15:54:32.960092+00:00"
+      "fetched_at": "2026-05-15T15:54:32.960092+00:00",
+      "gemma_score": 7,
+      "gemma_reason": "structural data auto-approved (validated by L1-L5)"
     },
     {
       "uid": "9NE6",
@@ -3550,7 +3668,9 @@
       "passed": true,
       "relevance": 0.25,
       "checksum": "29a2b53021a32519b7fffd7e976b681002d0cca9928e1d68b00b47d0f62024c8",
-      "fetched_at": "2026-05-15T15:54:33.321685+00:00"
+      "fetched_at": "2026-05-15T15:54:33.321685+00:00",
+      "gemma_score": 7,
+      "gemma_reason": "structural data auto-approved (validated by L1-L5)"
     },
     {
       "uid": "3P87",
@@ -3616,7 +3736,9 @@
       "passed": true,
       "relevance": 0.25,
       "checksum": "308a28a195fdaf8c1301d9da52136668ff2a283b0a9749f4dd3f554ad4d5b73d",
-      "fetched_at": "2026-05-15T15:54:33.996543+00:00"
+      "fetched_at": "2026-05-15T15:54:33.996543+00:00",
+      "gemma_score": 7,
+      "gemma_reason": "structural data auto-approved (validated by L1-L5)"
     },
     {
       "uid": "7M5M",
@@ -3675,7 +3797,9 @@
       "passed": true,
       "relevance": 0.25,
       "checksum": "06d4f249ba56f04d86a8617e6432caf6227366a88341ddf6ac11763a9f66ae81",
-      "fetched_at": "2026-05-15T15:54:34.344051+00:00"
+      "fetched_at": "2026-05-15T15:54:34.344051+00:00",
+      "gemma_score": 7,
+      "gemma_reason": "structural data auto-approved (validated by L1-L5)"
     },
     {
       "uid": "2ZVK",
@@ -3735,7 +3859,9 @@
       "passed": true,
       "relevance": 0.25,
       "checksum": "14f921bdcb9799419171bf3b0586336d1f5c92352f7bb5bb96326bc8f7294c5a",
-      "fetched_at": "2026-05-15T15:54:34.680168+00:00"
+      "fetched_at": "2026-05-15T15:54:34.680168+00:00",
+      "gemma_score": 7,
+      "gemma_reason": "structural data auto-approved (validated by L1-L5)"
     },
     {
       "uid": "7EFA",
@@ -3791,7 +3917,9 @@
       "passed": true,
       "relevance": 0.25,
       "checksum": "2b3e0f431afb4b32c4f13a4556184f17e681b68386b1cef1e616fc24f262bc81",
-      "fetched_at": "2026-05-15T15:54:35.024989+00:00"
+      "fetched_at": "2026-05-15T15:54:35.024989+00:00",
+      "gemma_score": 7,
+      "gemma_reason": "structural data auto-approved (validated by L1-L5)"
     },
     {
       "uid": "7M5L",
@@ -3851,7 +3979,9 @@
       "passed": true,
       "relevance": 0.25,
       "checksum": "ea72f9d0d966afa1647f2e82c6d88d222e8182066189154e0a4afd3bc843edc2",
-      "fetched_at": "2026-05-15T15:54:35.403907+00:00"
+      "fetched_at": "2026-05-15T15:54:35.403907+00:00",
+      "gemma_score": 7,
+      "gemma_reason": "structural data auto-approved (validated by L1-L5)"
     },
     {
       "uid": "1U76",
@@ -3911,7 +4041,9 @@
       "passed": true,
       "relevance": 0.25,
       "checksum": "62ad9404fbf9f478a62567e816ec471b25d4cb8b2d73e86f9397cfb3c55a669e",
-      "fetched_at": "2026-05-15T15:54:36.090372+00:00"
+      "fetched_at": "2026-05-15T15:54:36.090372+00:00",
+      "gemma_score": 7,
+      "gemma_reason": "structural data auto-approved (validated by L1-L5)"
     },
     {
       "uid": "1VYJ",
@@ -3977,7 +4109,9 @@
       "passed": true,
       "relevance": 0.25,
       "checksum": "b49aec8eabc2e4a21da7f518e18181104ceeb1fc3c62c89dd483b7b662ce3dd2",
-      "fetched_at": "2026-05-15T15:54:37.161905+00:00"
+      "fetched_at": "2026-05-15T15:54:37.161905+00:00",
+      "gemma_score": 7,
+      "gemma_reason": "structural data auto-approved (validated by L1-L5)"
     },
     {
       "uid": "8UI9",
@@ -4040,7 +4174,9 @@
       "passed": true,
       "relevance": 0.25,
       "checksum": "e377c3dae0fb016fd1741657ecf631c6cf64d2aeebdb33c9e86e6a61d4c33dc0",
-      "fetched_at": "2026-05-15T15:54:37.520474+00:00"
+      "fetched_at": "2026-05-15T15:54:37.520474+00:00",
+      "gemma_score": 7,
+      "gemma_reason": "structural data auto-approved (validated by L1-L5)"
     },
     {
       "uid": "6TNY",
@@ -4103,7 +4239,9 @@
       "passed": true,
       "relevance": 0.25,
       "checksum": "1f08fda749d23b32f5148ee3f8e0f1bec590d19996f14d6d028f3551b0c00c4d",
-      "fetched_at": "2026-05-15T15:54:39.671707+00:00"
+      "fetched_at": "2026-05-15T15:54:39.671707+00:00",
+      "gemma_score": 7,
+      "gemma_reason": "structural data auto-approved (validated by L1-L5)"
     },
     {
       "uid": "6EHT",
@@ -4164,7 +4302,9 @@
       "passed": true,
       "relevance": 0.25,
       "checksum": "bc65ff32ecb9a2f9610ac66f102bd7a2a01a19dfaf246b32d38ad8af5be5037f",
-      "fetched_at": "2026-05-15T15:54:41.060116+00:00"
+      "fetched_at": "2026-05-15T15:54:41.060116+00:00",
+      "gemma_score": 7,
+      "gemma_reason": "structural data auto-approved (validated by L1-L5)"
     },
     {
       "uid": "8UII",
@@ -4226,7 +4366,9 @@
       "passed": true,
       "relevance": 0.25,
       "checksum": "ba235aff88d4f32a198dfe888acab03e3ae52b7185ed56abcfd03811d6c8fcc2",
-      "fetched_at": "2026-05-15T15:54:41.421046+00:00"
+      "fetched_at": "2026-05-15T15:54:41.421046+00:00",
+      "gemma_score": 7,
+      "gemma_reason": "structural data auto-approved (validated by L1-L5)"
     },
     {
       "uid": "7KQ1",
@@ -4286,7 +4428,9 @@
       "passed": true,
       "relevance": 0.25,
       "checksum": "8e50fa6277a6dc95d6197b566c9b5fcce64962b108fd82085a4645b0f7d5406a",
-      "fetched_at": "2026-05-15T15:54:41.736424+00:00"
+      "fetched_at": "2026-05-15T15:54:41.736424+00:00",
+      "gemma_score": 7,
+      "gemma_reason": "structural data auto-approved (validated by L1-L5)"
     },
     {
       "uid": "8ZWO",
@@ -4350,7 +4494,9 @@
       "passed": true,
       "relevance": 0.21999999999999997,
       "checksum": "c880b74d7117dfe2b0c1d81297b620cabea0f5f4fdb4f0a3d8ffea900d17ad92",
-      "fetched_at": "2026-05-15T15:57:25.456798+00:00"
+      "fetched_at": "2026-05-15T15:57:25.456798+00:00",
+      "gemma_score": 7,
+      "gemma_reason": "structural data auto-approved (validated by L1-L5)"
     },
     {
       "uid": "9IIN",
@@ -4415,7 +4561,9 @@
       "passed": true,
       "relevance": 0.21999999999999997,
       "checksum": "4eadb3530c5420515784b7c08e794e6a32b9c8d8f039d7b38c9fd5759d23b064",
-      "fetched_at": "2026-05-15T15:57:25.595352+00:00"
+      "fetched_at": "2026-05-15T15:57:25.595352+00:00",
+      "gemma_score": 7,
+      "gemma_reason": "structural data auto-approved (validated by L1-L5)"
     },
     {
       "uid": "9SRI",
@@ -4477,7 +4625,9 @@
       "passed": true,
       "relevance": 0.21999999999999997,
       "checksum": "799a9a8ec21aaae3a1ad07baeecb56f9a9602687bc16c4003d866f223b2f0761",
-      "fetched_at": "2026-05-15T15:57:26.295283+00:00"
+      "fetched_at": "2026-05-15T15:57:26.295283+00:00",
+      "gemma_score": 7,
+      "gemma_reason": "structural data auto-approved (validated by L1-L5)"
     },
     {
       "uid": "9UIQ",
@@ -4542,7 +4692,9 @@
       "passed": true,
       "relevance": 0.21999999999999997,
       "checksum": "0ffbd2ddaaac9209e3c78d2c0d28757ce030449b6dab3d5e33903101a9971d45",
-      "fetched_at": "2026-05-15T15:57:26.656333+00:00"
+      "fetched_at": "2026-05-15T15:57:26.656333+00:00",
+      "gemma_score": 7,
+      "gemma_reason": "structural data auto-approved (validated by L1-L5)"
     },
     {
       "uid": "9VGW",
@@ -4604,7 +4756,9 @@
       "passed": true,
       "relevance": 0.21999999999999997,
       "checksum": "478cffc27fea09d65fdd2bcee104b662442a2df39e48ffeb8865f717a33b8cf5",
-      "fetched_at": "2026-05-15T15:57:26.990237+00:00"
+      "fetched_at": "2026-05-15T15:57:26.990237+00:00",
+      "gemma_score": 7,
+      "gemma_reason": "structural data auto-approved (validated by L1-L5)"
     },
     {
       "uid": "PMID:40216579",
@@ -4650,7 +4804,9 @@
       "passed": true,
       "relevance": 0.15,
       "checksum": "521eeb3cce7a53437d6d34d2c6f63eb0552fbf6dbeba8f5d3f7bb814e2f2382a",
-      "fetched_at": "2026-05-15T15:57:25.145169+00:00"
+      "fetched_at": "2026-05-15T15:57:25.145169+00:00",
+      "gemma_score": 8,
+      "gemma_reason": "The dynamics data from PCNA's AlphaFold structure provides crucial information for identifying potential cryptic pockets, aligning well with the GNN a"
     },
     {
       "uid": "NCBI:33239451",
@@ -4695,7 +4851,9 @@
       "passed": true,
       "relevance": 0.12,
       "checksum": "2481762b9bb47e40cd99ee9c38629e2c6bec1d87ceeb9d4666315922c29d50be",
-      "fetched_at": "2026-05-15T15:54:44.757729+00:00"
+      "fetched_at": "2026-05-15T15:54:44.757729+00:00",
+      "gemma_score": 7,
+      "gemma_reason": "The NCBI protein record provides fundamental PCNA information, suitable for GNN training and validation, though it lacks specific cryptic pocket data."
     },
     {
       "uid": "NCBI:4505641",
@@ -4740,7 +4898,9 @@
       "passed": true,
       "relevance": 0.12,
       "checksum": "bad913c764697a6dcc42f060d7d1fbb121528984fc6cdeb1f84782af102e0d0e",
-      "fetched_at": "2026-05-15T15:54:47.607600+00:00"
+      "fetched_at": "2026-05-15T15:54:47.607600+00:00",
+      "gemma_score": 7,
+      "gemma_reason": "The NCBI protein record provides fundamental PCNA information, suitable for GNN training and validation, though it lacks specific cryptic pocket data."
     },
     {
       "uid": "NCBI:129694",
@@ -4785,7 +4945,9 @@
       "passed": true,
       "relevance": 0.12,
       "checksum": "dc80bc0db3c30163f0a06f7abb2a2716dcbe6b1386b1a68997b950d56a2b188e",
-      "fetched_at": "2026-05-15T15:54:50.714194+00:00"
+      "fetched_at": "2026-05-15T15:54:50.714194+00:00",
+      "gemma_score": 7,
+      "gemma_reason": "The NCBI protein record provides fundamental PCNA information, suitable for GNN training and validation, though it lacks specific cryptic pocket data."
     },
     {
       "uid": "NCBI:31790138",
@@ -4830,7 +4992,9 @@
       "passed": true,
       "relevance": 0.12,
       "checksum": "12a9ac542d9068336ca67a336c8b2e613c1279016b95f44244c65919d91b75fc",
-      "fetched_at": "2026-05-15T15:54:54.428867+00:00"
+      "fetched_at": "2026-05-15T15:54:54.428867+00:00",
+      "gemma_score": 7,
+      "gemma_reason": "The NCBI protein record provides fundamental PCNA information, suitable for GNN training and validation, though it lacks specific cryptic pocket data."
     },
     {
       "uid": "NCBI:31790136",
@@ -4875,7 +5039,9 @@
       "passed": true,
       "relevance": 0.12,
       "checksum": "65919ab318e2b2d51458bf4937572ba5d85beab4761b3982f8779d4177945ed9",
-      "fetched_at": "2026-05-15T15:54:59.378470+00:00"
+      "fetched_at": "2026-05-15T15:54:59.378470+00:00",
+      "gemma_score": 7,
+      "gemma_reason": "The NCBI protein record provides fundamental PCNA information, useful for GNN training and validation, but doesn't directly address cryptic pockets."
     },
     {
       "uid": "NCBI:31790134",
@@ -4920,7 +5086,9 @@
       "passed": true,
       "relevance": 0.12,
       "checksum": "9cf78c4b04ca404e07831be827d950bd76632a15f76a0c11861724fad8bca77c",
-      "fetched_at": "2026-05-15T15:55:03.056164+00:00"
+      "fetched_at": "2026-05-15T15:55:03.056164+00:00",
+      "gemma_score": 7,
+      "gemma_reason": "The NCBI protein record provides fundamental PCNA information, suitable for GNN training and validation, though it lacks specific cryptic pocket data."
     },
     {
       "uid": "NCBI:119630835",
@@ -4965,7 +5133,9 @@
       "passed": true,
       "relevance": 0.12,
       "checksum": "06f2678983e15ce6585d68daac45e2b2501f5ddbdda70943fdab04b4f688bc78",
-      "fetched_at": "2026-05-15T15:55:06.133525+00:00"
+      "fetched_at": "2026-05-15T15:55:06.133525+00:00",
+      "gemma_score": 7,
+      "gemma_reason": "The NCBI protein record provides fundamental PCNA information, suitable for GNN training and validation, though it lacks specific cryptic pocket data."
     },
     {
       "uid": "NCBI:119630834",
@@ -5010,7 +5180,9 @@
       "passed": true,
       "relevance": 0.12,
       "checksum": "65727a0946b0920f0ad7b0aa0bc3e7b19db022d3477e846d67b69b1482bd4236",
-      "fetched_at": "2026-05-15T15:55:11.362105+00:00"
+      "fetched_at": "2026-05-15T15:55:11.362105+00:00",
+      "gemma_score": 7,
+      "gemma_reason": "The NCBI protein record provides fundamental PCNA information, useful for GNN training and validation, but doesn't directly address cryptic pockets."
     },
     {
       "uid": "NCBI:119630833",
@@ -5055,7 +5227,9 @@
       "passed": true,
       "relevance": 0.12,
       "checksum": "067ea9d6e71278b64ef6ec5b986d3a52c96feefb69dd3e02f5ab4d7e16c112c1",
-      "fetched_at": "2026-05-15T15:55:16.314139+00:00"
+      "fetched_at": "2026-05-15T15:55:16.314139+00:00",
+      "gemma_score": 7,
+      "gemma_reason": "The NCBI protein record provides fundamental PCNA information, useful for GNN training and validation, but doesn't directly address cryptic pockets."
     },
     {
       "uid": "NCBI:38383150",
@@ -5100,7 +5274,9 @@
       "passed": true,
       "relevance": 0.12,
       "checksum": "c269fc277811e779ed19e436856f10441b79928e968b630796a2487399a8b721",
-      "fetched_at": "2026-05-15T15:55:18.161854+00:00"
+      "fetched_at": "2026-05-15T15:55:18.161854+00:00",
+      "gemma_score": 7,
+      "gemma_reason": "The NCBI protein record provides fundamental PCNA information, suitable for GNN training and validation, though it lacks specific cryptic pocket data."
     },
     {
       "uid": "NCBI:12653441",
@@ -5145,7 +5321,9 @@
       "passed": true,
       "relevance": 0.12,
       "checksum": "b578d9557966cd790ca121f01fd41da5c419788b8a7e0f9decd366cda51f600d",
-      "fetched_at": "2026-05-15T15:55:20.892390+00:00"
+      "fetched_at": "2026-05-15T15:55:20.892390+00:00",
+      "gemma_score": 7,
+      "gemma_reason": "The NCBI protein record provides fundamental PCNA information, suitable for GNN training and validation, though it lacks specific cryptic pocket data."
     },
     {
       "uid": "NCBI:387005",
@@ -5190,7 +5368,9 @@
       "passed": true,
       "relevance": 0.12,
       "checksum": "29108ef6a2a051cb11ea16cfc90c449a1935ac527f6ff83f4a7b38c7451347d7",
-      "fetched_at": "2026-05-15T15:55:23.737853+00:00"
+      "fetched_at": "2026-05-15T15:55:23.737853+00:00",
+      "gemma_score": 7,
+      "gemma_reason": "The NCBI protein record provides fundamental PCNA information, but doesn't directly address cryptic pockets, making it applicable for GNN training."
     },
     {
       "uid": "NCBI:31790295",
@@ -5235,7 +5415,9 @@
       "passed": true,
       "relevance": 0.12,
       "checksum": "5b6bb85c800eb6ca45de01b96a607cb3af58b59dcc2570972f19bf9914808c9a",
-      "fetched_at": "2026-05-15T15:55:28.190913+00:00"
+      "fetched_at": "2026-05-15T15:55:28.190913+00:00",
+      "gemma_score": 7,
+      "gemma_reason": "The NCBI protein record provides fundamental PCNA information, suitable for GNN training and validation, though it lacks specific cryptic pocket data."
     },
     {
       "uid": "NCBI:21902516",
@@ -5280,7 +5462,9 @@
       "passed": true,
       "relevance": 0.12,
       "checksum": "dec14473d6514a54c31f2ac3558eb6a09b285ad7a92df387c153f7b4b7be0d70",
-      "fetched_at": "2026-05-15T15:55:31.080719+00:00"
+      "fetched_at": "2026-05-15T15:55:31.080719+00:00",
+      "gemma_score": 7,
+      "gemma_reason": "The NCBI protein record provides fundamental PCNA information, useful for GNN training and validation, though it doesn't directly contain cryptic pock"
     },
     {
       "uid": "NCBI:49456555",
@@ -5325,7 +5509,9 @@
       "passed": true,
       "relevance": 0.12,
       "checksum": "b71460430b36099707562f70672ce43a91d46d48e42e7e623156e16e670ecec4",
-      "fetched_at": "2026-05-15T15:55:34.813244+00:00"
+      "fetched_at": "2026-05-15T15:55:34.813244+00:00",
+      "gemma_score": 7,
+      "gemma_reason": "The NCBI protein record provides fundamental PCNA information, but doesn't directly address cryptic pockets, making it applicable for GNN research."
     },
     {
       "uid": "NCBI:49168490",
@@ -5370,7 +5556,9 @@
       "passed": true,
       "relevance": 0.12,
       "checksum": "2e74d73f3a9d1d19b8edd2cc71b5bf6c369acff6022389fedc0297113e4c5b65",
-      "fetched_at": "2026-05-15T15:55:38.827094+00:00"
+      "fetched_at": "2026-05-15T15:55:38.827094+00:00",
+      "gemma_score": 7,
+      "gemma_reason": "The NCBI protein record provides fundamental PCNA information, suitable for GNN training and validation, though it lacks specific cryptic pocket data."
     },
     {
       "uid": "PMID:40714812",
@@ -5415,7 +5603,9 @@
       "passed": true,
       "relevance": 0.12,
       "checksum": "4f47f058f6733316aabab17eeee4aa7fa0fdd85bddde34feb3679d821a97db77",
-      "fetched_at": "2026-05-15T15:55:39.367071+00:00"
+      "fetched_at": "2026-05-15T15:55:39.367071+00:00",
+      "gemma_score": 7,
+      "gemma_reason": "The paper investigates allosteric pockets in a sliding clamp, a structurally related protein, potentially informing cryptic pocket identification in P"
     }
   ],
   "failed_summary": [

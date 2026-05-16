@@ -1,0 +1,37 @@
+---
+type: pdb-structure
+uid: 6FCN
+source: uniprot
+resolution: 3.22
+organism: 
+uniprot_confirmed: YES
+relevance_score: 0.250
+gemma_score: 7
+fetched: 2026-05-15T15:54:24.347276+00:00
+auto_indexed: 2026-05-15
+---
+
+# 6FCN — 
+
+| Field | Value |
+|---|---|
+| PDB ID | [6FCN](https://www.rcsb.org/structure/6FCN) |
+| Resolution | 3.22 Å |
+| Organism |  |
+| UniProt P12004 | YES |
+| Chains | A, C, E |
+| Cα completeness | 1.0 |
+| Source | uniprot |
+| Relevance score | 0.250 |
+| Gemma score | 7/10 |
+| Gemma reason | structural data auto-approved (validated by L1-L5) |
+
+## Download
+
+```
+https://files.rcsb.org/download/6FCN.pdb
+```
+
+## Links
+
+[[INDEX]] · [[DATASETS]] · [[PIPELINE]]

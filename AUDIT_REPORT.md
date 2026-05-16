@@ -19,6 +19,7 @@
 | Crawler / validation claims | VERIFIED |
 | Knowledge graph node count | SLIGHTLY OVERSTATED |
 | Biological facts (PCNA, AOH1996) | VERIFIED |
+| **V3 model (best_pcna_v3.ckpt)** | **NOT DOCUMENTED — FINDINGS BELOW** |
 
 ---
 
@@ -149,13 +150,69 @@ Structures like 8UN0, 8UMY (CTF18-RFC complexes with AGS/ADP) have AUROC ~0.47-0
 
 ---
 
+## V3 Model Audit (best_pcna_v3.ckpt — 52 MB)
+
+### What it actually is
+Determined by reading the checkpoint weights directly — no docs existed for this model.
+
+| Property | Value |
+|---|---|
+| Architecture | PocketGNNXL |
+| Parameters | **13,364,354** (~13.4M) |
+| Input node dim | **520** (40 hand-crafted + 480 ESM2 protein LM embeddings) |
+| Hidden dim | 768 |
+| Spatial layers | 5 |
+| Sequential layers | 4 |
+| Heads | 8 |
+| Virtual node | YES (`vnode_proj`, `vnode_gate` layers present) |
+| ESM2 keys in weights | NO — ESM2 features must be pre-computed externally |
+
+The `checkpoints/xl_pretrain/best.ckpt` is an identical architecture (same 13.4M params, same shape) — the v3 file is a fine-tuned version of it.
+
+### What it was trained on
+From `checkpoints/train_log_v2.txt`:
+- Early stopped at epoch 37 (patience=15)
+- Best val AUROC: **0.7005** on CryptoSite validation set
+- Training data: CryptoSite split in `data/xl_splits/` (same structures as v1, XL graph format)
+- The `train_log.txt` (v1 run) peaked at AUROC **0.7065** at epoch 28
+
+### Critical problem: v3 cannot be run without ESM2 features
+- Input dimension is 520 = 40 (hand-crafted) + 480 (ESM2 embeddings)
+- `data/esm_features/` directory exists but contains **0 files**
+- There is no script in the repo to generate ESM2 features for inference
+- `scripts/build_esm_features.py` exists — this is the generator, but it was never run for the PCNA structures
+- **v3 is currently unusable for inference on any structure in this repo**
+
+### AUROC comparison: v3 vs v1 (small)
+| Model | Val AUROC (CryptoSite) | 8GLA AUROC | Runnable? |
+|---|---|---|---|
+| `best_pcna.ckpt` (small, ~907k) | not logged | **0.8661** | YES |
+| `best_pcna_v3.ckpt` (XL, ~13.4M) | **0.7005** | not computable | NO (missing ESM features) |
+
+The v3 model was trained on CryptoSite but its CryptoSite val AUROC (0.70) is **lower** than what the small model achieves on 8GLA (0.87). This does not mean v3 is worse overall — different eval sets — but v3 has no verified AUROC on any PCNA structure.
+
+### What is undocumented / missing
+- No README or doc mentions v3 exists
+- No explanation of what changed between v1 and v3
+- No AUROC for v3 on any PCNA structure
+- `build_esm_features.py` exists but was never run; no instructions for it
+- `checkpoints/xl_pcna/` directory exists but is empty — the XL PCNA fine-tune was never completed
+
+### Conclusion on v3
+The v3 checkpoint is a real, trained 13.4M-parameter model (PocketGNNXL). It is not fabricated. However it is **not usable without running `scripts/build_esm_features.py` first**, it has a lower CryptoSite AUROC than the small model achieves on PCNA, and it is completely absent from all documentation. It should either be documented properly or marked experimental.
+
+---
+
 ## Recommended Fixes
 
-1. Add to README: *"All reported results use `PocketGNN.small()` (~907k params). The large (~10.4M) and medium (~3.6M) configs are defined but not yet trained."*
-2. Fix `cryptic_gnn.py` docstring: change `~850k` → `~907k` for small.
-3. Fix README: change CrypticGNN v1 param count from ~850k → ~556k.
+1. Add to README: *"All reported results use `PocketGNN.small()` (~907k params). The large (~10.4M) and medium (~3.6M) configs are defined but not yet trained."* ✓ Done
+2. Fix `cryptic_gnn.py` docstring: change `~850k` → `~907k` for small. ✓ Done
+3. Fix README: change CrypticGNN v1 param count from ~850k → ~556k. ✓ Done
 4. Add to `aoh1996_candidates.md`: *"Novel site claims (e.g. 9B8T) require MD simulation to confirm transient pocket opening. GNN score + concavity alone is insufficient for experimental validation."*
 5. Clarify training script: `train.py` uses `focal_loss` only. `pocket_loss` (with ranking + symmetry) is available but requires explicit opt-in via `--phase finetune` path.
+6. **[NEW]** Document v3 / PocketGNNXL in README — it exists, it is 13.4M params, it requires ESM2 features, it is not yet runnable on PCNA structures.
+7. **[NEW]** Run `scripts/build_esm_features.py` on the 59 PCNA structures before v3 can be used for inference.
+8. **[NEW]** Mark `checkpoints/xl_pcna/` as incomplete — XL PCNA fine-tune was never finished.
 
 ---
 

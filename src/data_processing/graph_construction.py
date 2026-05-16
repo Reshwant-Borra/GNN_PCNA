@@ -406,6 +406,41 @@ def build_graph_v2(
     return data
 
 
+def build_graph_xl(
+    residues: list[Residue],
+    esm_features: "np.ndarray | None" = None,
+    labels: "np.ndarray | None" = None,
+    distance_cutoff: float = 8.0,
+    backbone_max_sep: int = 2,
+) -> Data:
+    """
+    XL graph for PocketGNNXL: same topology as v2 but with ESM2 embeddings
+    concatenated to hand-crafted node features.
+
+    esm_features : (N, esm_dim) array from build_esm_features.py.
+                   If None, falls back to 40-dim features only (same as v2).
+
+    Returns Data with .x of shape (N, 40 + esm_dim) or (N, 40) if no ESM.
+    """
+    data = build_graph_v2(residues, labels=labels,
+                          distance_cutoff=distance_cutoff,
+                          backbone_max_sep=backbone_max_sep)
+
+    if esm_features is not None:
+        esm_t = torch.from_numpy(esm_features.astype(np.float32))
+        N = data.x.shape[0]
+        if esm_t.shape[0] != N:
+            # Truncate or pad to match residue count
+            if esm_t.shape[0] > N:
+                esm_t = esm_t[:N]
+            else:
+                pad = torch.zeros(N - esm_t.shape[0], esm_t.shape[1])
+                esm_t = torch.cat([esm_t, pad], dim=0)
+        data.x = torch.cat([data.x, esm_t], dim=1)
+
+    return data
+
+
 def save_graph(data: Data, path: str) -> None:
     torch.save(data, path)
 

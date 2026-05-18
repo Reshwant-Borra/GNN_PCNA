@@ -84,7 +84,7 @@
 | 8GLA | YES | 952 | 0.9377 | 0.1324 | 12.7% | 11.9% | 6 | INVALID (training leak) |
 | 2VGO |  | 629 | 0.9364 | 0.0713 | 5.9% | 5.6% | 3 | 0.9941 |
 | 1D09 |  | 926 | 0.9347 | 0.0978 | 6.9% | 5.9% | 6 | 0.9526 |
-| 1W61 | YES | 710 | 0.9332 | 0.0536 | 3.4% | 3.4% | 2 | 1.0000 |
+| ~~1W61~~ | ~~YES~~ | — | — | — | — | — | — | **REMOVED — proline racemase, not PCNA; AUROC 1.0000 was biological false positive** |
 | 2X6D |  | 255 | 0.9308 | 0.0878 | 7.5% | 7.5% | 1 | 0.9958 |
 | 2JGU |  | 711 | 0.9285 | 0.0477 | 1.7% | 1.4% | 2 | — |
 | 2WER |  | 428 | 0.9260 | 0.0853 | 7.5% | 6.8% | 2 | 0.9810 |
@@ -177,7 +177,7 @@
 |---|---|
 | fig1_score_landscape.png | Max score per structure, score distributions, AUROC histogram, coverage vs size |
 | fig2_pcna_deepdive.png | Per-residue profiles for 8GLA/1W60, PCNA comparison bar chart, top AUROC structures |
-| fig3_cryptosite_histograms.png | Per-structure score histograms for all 53 labeled CryptoSite structures |
+| fig3_cryptosite_histograms.png | Per-structure score histograms for all 53 ligand-proximity labeled structures |
 | all_structures_scores.csv | Full tabular results for all 90 structures |
 
 ---
@@ -208,9 +208,10 @@ internal consistency evidence only.
    is produced every time.
 2. The model weights are fixed at inference (eval mode, no dropout).
 3. The split is seeded (seed=42) — reproduce with `python scripts/make_split.py`.
-4. All inputs (PDB files), code, and checkpoints are version-controlled.
-   Reproduce with: `python scripts/build_graphs.py` + `python scripts/make_split.py` +
-   `python scripts/finetune_pcna.py`.
+4. PDB files and graph tensors are **gitignored** (too large) but reproducible on demand.
+   One-command download: `python scripts/download_data.py`
+   Then: `python scripts/make_split.py` + `python scripts/finetune_pcna.py`.
+   Model checkpoints and all code are version-controlled.
 
 ### Scientific usefulness
 - **Drug discovery triage**: Screens all available PCNA structures in under 60 seconds

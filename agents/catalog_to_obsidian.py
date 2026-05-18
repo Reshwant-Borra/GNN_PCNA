@@ -44,13 +44,13 @@ for d in (STRUCT_DIR, PAPER_DIR, DATA_DIR, CMPD_DIR):
     d.mkdir(parents=True, exist_ok=True)
 
 # ── Known PDB ground-truth structures ───────────────────────────────────────
-KNOWN_PCNA_IDS = {"1W60", "8GLA", "1AXC", "1W61"}
+KNOWN_PCNA_IDS = {"1W60", "8GLA", "1AXC"}  # 1W61 removed — proline racemase (T. cruzi), not PCNA
 
 KNOWN_ANNOTATIONS = {
     "1W60": {"role": "apo-baseline", "note": "Apo PCNA — cryptic pocket absent. Primary negative training example."},
     "8GLA": {"role": "ground-truth-holo", "note": "PCNA + AOH1996 — cryptic pocket OPEN. Primary positive training example. Ground truth for pocket labeling."},
     "1AXC": {"role": "pip-box-complex", "note": "PCNA + p21 PIP-box. Interface-bound; not the cryptic AOH1996 site."},
-    "1W61": {"role": "rfc-complex", "note": "PCNA + RFC clamp loader fragment."},
+    # 1W61 REMOVED — it is proline racemase (Trypanosoma cruzi), NOT PCNA. See docs/vault/structures/1W61.md
     "4RJF": {"role": "high-res-apo", "note": "Highest-resolution apo structure (2.0 A). Better node features than 1W60."},
     "1U7B": {"role": "high-res-overall", "note": "1.88 A resolution overall — highest resolution in the PCNA set."},
     "9N3L": {"role": "novel-inhibitor", "note": "HSP90alpha inhibitor bound to PCNA — potential second cryptic pocket. Investigate."},
@@ -593,7 +593,7 @@ def write_knowledge_graph(stats: dict) -> Path:
         "| [[4RJF]] | High-res apo (best features) | 2.0 Å |",
         "| [[1U7B]] | Highest resolution | 1.88 Å |",
         "| [[1AXC]] | PIP-box complex | 2.6 Å |",
-        "| [[1W61]] | RFC complex | 2.1 Å |",
+        "| [[1W61]] | **EXCLUDED** — proline racemase, not PCNA | 2.1 Å |",
         "| [[9N3L]] | Novel inhibitor — investigate | 1.9 Å |",
         "",
         "---",
@@ -736,7 +736,7 @@ def main():
             print(f"  [!] failed to write note for {uid}: {e}")
 
     # Force known PCNA structures even if not in catalog
-    for pid in ("1W60", "8GLA", "1AXC", "1W61", "4RJF", "1U7B", "9N3L", "8F5Q"):
+    for pid in ("1W60", "8GLA", "1AXC", "4RJF", "1U7B", "9N3L", "8F5Q"):  # 1W61 excluded — proline racemase
         if not any(u == pid for u, _, _ in struct_notes):
             stub = {
                 "uid": pid, "record_type": "pdb_structure",

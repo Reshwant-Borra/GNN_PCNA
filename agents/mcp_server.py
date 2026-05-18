@@ -254,7 +254,7 @@ if _MCP_AVAILABLE:
     def run_inference(pdb_id: str, model_size: str = "small") -> dict:
         """
         Run PocketGNN on a local PDB structure and return per-residue scores.
-        model_size: 'small' (~850k), 'medium' (~3.2M), 'large' (~10.4M)
+        model_size: 'small' (~907k), 'medium' (~3.6M), 'large' (~10.4M)
         pdb_id must be present in data/raw/ (fetch first with fetch_structures.py).
         Returns top-20 pocket candidates and summary statistics.
         """

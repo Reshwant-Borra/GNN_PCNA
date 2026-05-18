@@ -54,7 +54,7 @@ RCSB_META_URL   = "https://data.rcsb.org/rest/v1/core/entry/{}"
 POLITE_DELAY    = 0.4   # seconds between RCSB requests
 
 # Ground-truth structures — always fetch, never skip
-PCNA_CORE_IDS = ["1W60", "8GLA", "1AXC", "1W61"]
+PCNA_CORE_IDS = ["1W60", "8GLA", "1AXC"]  # 1W61 removed — proline racemase (T. cruzi), not PCNA
 
 # CryptoSite benchmark PDB IDs (Cimermancic et al. 2016, Table S1)
 # Source: https://github.com/salilab/cryptosite (parsed from paper supplementary)
@@ -291,7 +291,7 @@ def main():
     group.add_argument("--catalog", type=Path,
                        help="Path to crawler catalog JSON")
     group.add_argument("--core", action="store_true",
-                       help="Fetch only PCNA core structures (1W60, 8GLA, 1AXC, 1W61)")
+                       help="Fetch only PCNA core structures (1W60, 8GLA, 1AXC) — 1W61 excluded (proline racemase)")
     parser.add_argument("--force", action="store_true",
                         help="Re-download even if file exists")
     parser.add_argument("--strip", action="store_true",

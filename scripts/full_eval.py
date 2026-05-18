@@ -202,7 +202,7 @@ plt.close(fig)
 print("Figure 1 saved: fig1_score_landscape.png")
 
 # ── Figure 2: PCNA deep-dive ─────────────────────────────────────────────────
-pcna_order = ["8GLA", "1W60", "1W61", "1AXC"]
+pcna_order = ["8GLA", "1W60", "1AXC"]  # 1W61 excluded — proline racemase, not PCNA
 pcna_map   = {r["pdb_id"]: r for r in pcna_rows}
 
 fig = plt.figure(figsize=(16, 12))
@@ -255,7 +255,7 @@ ax.set_ylabel("Score / fraction")
 ax.set_title("PCNA Structure Comparison — Key Metrics")
 ax.legend()
 annots = {"8GLA": "HOLO (AOH1996 bound)", "1W60": "Apo (no ligand)",
-          "1W61": "Apo variant", "1AXC": "PIP-box (p21)"}
+          "1AXC": "PIP-box (p21)"}
 for i, pid in enumerate(pcna_labels):
     ax.text(i + w, -0.07, annots.get(pid, ""), ha="center", fontsize=8,
             style="italic", transform=ax.get_xaxis_transform())
@@ -343,9 +343,8 @@ report = f"""# GNN-PCNA Full Evaluation Report
 |---|---|---|---|---|---|---|---|
 """
 pcna_descs = {
-    "8GLA": "Holo — AOH1996 cryptic pocket OPEN",
+    "8GLA": "Holo — AOH1996 cryptic pocket OPEN (training structure — AUROC invalid)",
     "1W60": "Apo — cryptic pocket ABSENT",
-    "1W61": "Apo variant",
     "1AXC": "PIP-box complex (p21)",
 }
 for pid in pcna_order:
@@ -360,12 +359,13 @@ for pid in pcna_order:
 report += f"""
 ### Key Findings on PCNA
 
-- **8GLA (holo)** scores significantly higher than **1W60 (apo)** — the model correctly
-  identifies that the cryptic pocket is open in the holo state and closed in the apo.
-- The IDCL loop (residues 119–133) and interdomain interface (251–256) are the primary
-  high-score regions, consistent with the known AOH1996 binding site.
-- 8GLA AUROC = {pcna_map.get('8GLA', {}).get('auroc', float('nan')):.4f} — the model recovers the known pocket residues
-  well above chance.
+- **8GLA AUROC is INVALID** — 8GLA was the fine-tuning structure. Do not cite it as a held-out
+  performance result. Use the held-out structures (3VKX, 9N3L, 6CBI, 7M5N, 7M5L) for evaluation.
+- **V3 apo/holo discrimination is weak**: score delta between 8GLA (holo) and 1W60 (apo) is
+  only ~0.015 — below a useful discrimination threshold. This is a known limitation of the V3 model
+  caused by ESM2 sequence memorisation. See `AUDIT_REPORT.md` for full analysis.
+- Use `checkpoints/pcna/best_pcna_v3_fixed.ckpt` (fixed model) for novel predictions.
+  Honest held-out AUROC: **0.891** (mean across 3VKX, 9N3L, 8GL9, 6CBI, 7M5N, 7M5L).
 
 ---
 
@@ -443,13 +443,17 @@ until reproduced with curated labels.
 1. The graph construction is deterministic — given the same PDB file, the same .pt graph
    is produced every time.
 2. The model weights are fixed at inference (eval mode, no dropout).
-3. The CryptoSite split is seeded (seed=42), so the exact same 45/5/5 train/val/test
-   split can be reproduced from scratch with `python scripts/make_split.py`.
-4. All inputs (PDB files), outputs (graphs, scores, checkpoints), and code are version-
-   controlled in the GitHub repository.
-   Any researcher can clone the repo, run fetch_structures.py + build_graphs.py +
-   make_split.py + train.py and reproduce the same checkpoint within normal random-seed
-   variance.
+3. The split is seeded (seed=42), reproducible via `python scripts/make_split.py`.
+4. **Raw PDB files and graph tensors are NOT committed to git** (too large). Run the
+   one-command download workflow to reproduce from scratch:
+   ```
+   python scripts/download_data.py   # downloads all 59 PDBs from RCSB + builds graphs
+   python scripts/make_split.py      # creates train/val/test split
+   python scripts/per_structure_analysis.py
+   python scripts/full_eval.py
+   ```
+5. Labels use Cα–ligand distance (6 Å) — not curated CryptoSite cryptic-pocket annotations.
+   AUROC measures agreement with proximity labels, not validated pocket predictions.
 
 ### Scientific usefulness
 - **Drug discovery triage**: Instead of running microsecond MD simulations on every

@@ -29,7 +29,7 @@ OUT_DIR.mkdir(parents=True, exist_ok=True)
 
 # Known reference structures
 HOLO_IDS = {"8GLA", "8GL9", "8GCJ"}          # AOH1996-bound
-APO_IDS  = {"1W60", "1W61", "4RJF", "1U7B"}  # canonical apo
+APO_IDS  = {"1W60", "4RJF", "1U7B"}  # canonical apo — 1W61 removed (proline racemase, not PCNA)
 
 GT_RESIDS = {25,26,27,38,39,40,41,42,44,45,46,47,
              123,125,126,128,231,232,233,234,250,251,252,253}

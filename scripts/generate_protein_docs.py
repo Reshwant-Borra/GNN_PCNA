@@ -20,6 +20,20 @@ AOH_GT_N = 24   # total ground-truth residues in AOH1996 site
 rows = list(csv.DictReader(
     open(PDIR / "summary_table.csv", encoding="utf-8", errors="replace")))
 
+# Load V3 AUROCs from v3_summary.csv if available (held-out structures only)
+V3_CSV = REPO / "results" / "v3" / "v3_summary.csv"
+TRAINING_STRUCTS = {"8GLA"}  # fine-tuned on these — V3 AUROC is invalid for them
+v3_auroc: dict[str, float] = {}
+if V3_CSV.exists():
+    for row in csv.DictReader(open(V3_CSV, encoding="utf-8")):
+        pdb = row["pdb"]
+        val = row.get("auroc_v3", "")
+        if val and val != "N/A":
+            try:
+                v3_auroc[pdb] = float(val)
+            except ValueError:
+                pass
+
 def category(r):
     p = r["pdb"]
     if p in {"8GLA","8GL9","8GCJ"}: return "AOH1996 holo (confirmed binder)"
@@ -201,11 +215,14 @@ tier2 = [r for r in candidates if r not in tier1]
 
 for r in tier1:
     pdb  = r["pdb"]
-    aur  = auroc_fixed.get(pdb, float(r["auroc"]) if r["auroc"] else 0)
+    aur  = v3_auroc.get(pdb, float(r["auroc"]) if r["auroc"] else float("nan"))
+    aur_str = f"{aur:.4f}" if not (aur != aur) else "N/A"  # nan check
+    if pdb in TRAINING_STRUCTS:
+        aur_str += " [LEAK]"
     desc = r["title"].split("PROTEIN")[0].strip().rstrip(",")[:55]
     extract_lines.append(
         f"| **{pdb}** | {desc} | {r['top_aoh_overlap']}/24 | "
-        f"{float(r['top_cluster_mean']):.3f} | {aur:.4f} | "
+        f"{float(r['top_cluster_mean']):.3f} | {aur_str} | "
         f"{float(r['top_concavity']):.3f} | {category(r)} |"
     )
 
@@ -219,11 +236,14 @@ extract_lines += [
 
 for r in tier2:
     pdb  = r["pdb"]
-    aur  = auroc_fixed.get(pdb, float(r["auroc"]) if r["auroc"] else 0)
+    aur  = v3_auroc.get(pdb, float(r["auroc"]) if r["auroc"] else float("nan"))
+    aur_str = f"{aur:.4f}" if not (aur != aur) else "N/A"
+    if pdb in TRAINING_STRUCTS:
+        aur_str += " [LEAK]"
     desc = r["title"].split("PROTEIN")[0].strip().rstrip(",")[:55]
     extract_lines.append(
         f"| {pdb} | {desc} | {r['top_aoh_overlap']}/24 | "
-        f"{float(r['top_cluster_mean']):.3f} | {f'{aur:.4f}' if aur else 'N/A'} | {category(r)} |"
+        f"{float(r['top_cluster_mean']):.3f} | {aur_str} | {category(r)} |"
     )
 
 extract_lines += [

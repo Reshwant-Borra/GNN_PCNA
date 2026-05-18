@@ -1,13 +1,10 @@
 """
 PocketGNN — dual-branch GNN for cryptic pocket prediction.
 
-v2 (large, ~10.4M params): hidden_dim=768, 4 spatial + 3 seq layers, 8 heads
-v1 (CrypticGNN, ~850k):    original single-branch for comparison
-
-PocketGNNXL: ESM2 protein language model features (480-dim) + virtual node.
-  Node features: 520 dims (40 hand-crafted + 480 ESM2)
-  Edge features: 6 dims
-  ~12M params default config
+v2 small (~907k params):  hidden_dim=256, 3 spatial + 2 seq layers, 4 heads — checkpoint used for all results
+v2 large (~10.4M params): hidden_dim=768, 4 spatial + 3 seq layers, 8 heads
+v1 (CrypticGNN, ~556k):   original single-branch for comparison
+PocketGNNXL (~13.4M):     ESM2 protein language model features (480-dim) + virtual node, 5+4 layers
 """
 from __future__ import annotations
 
@@ -20,7 +17,7 @@ from torch_geometric.nn import GATv2Conv
 # ── CrypticGNN v1 (preserved) ────────────────────────────────────────────────
 
 class CrypticGNN(nn.Module):
-    """Original single-branch GATv2Conv baseline (~850k params)."""
+    """Original single-branch GATv2Conv baseline (~556k params)."""
 
     def __init__(
         self,

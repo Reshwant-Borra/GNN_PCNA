@@ -43,7 +43,7 @@ _PCNA_LIGANDS = {
 }
 
 # Structures to route to data/pcna/ instead of data/graphs/
-_PCNA_IDS = {"1W60", "8GLA", "1AXC", "1W61"}
+_PCNA_IDS = {"1W60", "8GLA", "1AXC"}  # 1W61 removed — proline racemase, not PCNA
 
 
 def build_one(pdb_path: Path, out_dir: Path, cutoff: float = 8.0) -> bool:

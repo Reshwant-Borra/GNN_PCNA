@@ -2,8 +2,9 @@
 Split graph .pt files into train / val / test sets.
 
 Splits at the PROTEIN level (not residue level) to prevent data leakage.
-PCNA structures (1W60, 8GLA, 1AXC, 1W61) are excluded from the split
+PCNA structures (1W60, 8GLA, 1AXC) are excluded from the split
 and stay in data/pcna/ for inference and positive-control validation.
+1W61 is NOT PCNA — it is proline racemase (Trypanosoma cruzi) and is excluded entirely.
 
 Only graphs that have pocket labels (data.y is not None) are included
 in the split — apo structures without labels are excluded.

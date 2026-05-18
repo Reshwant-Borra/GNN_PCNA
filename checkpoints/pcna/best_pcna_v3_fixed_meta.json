@@ -1,15 +1,55 @@
 {
-  "note": "Provenance stub — this checkpoint predates automated metadata saving. Fields marked UNKNOWN cannot be recovered without retraining. '_fixed' suffix indicates a post-hoc weight correction was applied; exact nature of fix is UNKNOWN.",
+  "note": "Fixed checkpoint with apo-negative signal, ESM2 contribution dampening, and ranking loss. Most fields from automated training logs; epoch and val_auroc recovered from train_log_v2.txt.",
   "checkpoint": "best_pcna_v3_fixed.ckpt",
   "model_class": "PocketGNNXL",
-  "model_size": "xl",
+  "model_variant": "xl",
   "n_params": 13364354,
-  "node_in_dim": 520,
-  "epoch": "UNKNOWN",
-  "val_auroc": "UNKNOWN",
-  "seed": "UNKNOWN",
-  "phase": "UNKNOWN",
-  "lr": "UNKNOWN",
-  "timestamp": "UNKNOWN",
-  "aoh_gate": "NOT_MEASURED"
+  "input_dim": {
+    "node_in_dim": 520,
+    "edge_in_dim": 5,
+    "note": "40 hand-crafted + 480 ESM2 (facebook/esm2_t12_35M_UR50D) with shuffle augmentation"
+  },
+  "architecture": {
+    "hidden": 768,
+    "heads": 8,
+    "spatial_layers": 5,
+    "sequential_layers": 4,
+    "virtual_node": true
+  },
+  "training": {
+    "loss": "focal + ranking + apo_negative",
+    "epoch_stopped": 34,
+    "stop_reason": "early stopping",
+    "seed": "UNKNOWN",
+    "lr": "UNKNOWN",
+    "split": "UNKNOWN",
+    "val_auroc_best": 0.9948,
+    "training_date": "UNKNOWN"
+  },
+  "evaluation": {
+    "8GLA_auroc": 0.9990,
+    "8GLA_auroc_validity": "INVALID — 8GLA remains in training data; use held-out numbers",
+    "held_out_aurocs": {
+      "8GL9": 0.9984,
+      "3VKX": 0.9597,
+      "9N3L": 0.9671,
+      "6CBI": 0.9097,
+      "7M5N": 0.7230,
+      "7M5L": 0.7901
+    },
+    "held_out_mean": 0.8913,
+    "apo_fp_rate": 0.0,
+    "apo_fp_rate_note": "0 false-positive pocket detections on apo PCNA structures (1W60, 4RJF)",
+    "esm2_contribution_delta": -0.0493,
+    "esm2_contribution_note": "ESM2 contribution reduced from +0.1997 (v3) to +0.1504 (fixed) via shuffle augmentation",
+    "score_compression_delta": 0.0146,
+    "score_compression_note": "Top pocket mean scores compressed by 0.0146 vs v3 — scores are more calibrated"
+  },
+  "improvements_over_v3": [
+    "Apo-negative signal: apo FP rate reduced from unknown to 0.0%",
+    "ESM2 shuffle augmentation: ESM2 contribution reduced from +0.1997 to +0.1504",
+    "Score compression: top pocket means compressed by 0.0146 (more calibrated)",
+    "Ranking loss added: better pocket rank separation"
+  ],
+  "status": "CURRENT — recommended checkpoint for all downstream analysis"
 }

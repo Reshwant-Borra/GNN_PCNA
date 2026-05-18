@@ -26,7 +26,7 @@
 | Dataset | `src/training/dataset.py` | PyG `Dataset` / `InMemoryDataset` |
 | Trainer | `src/training/train.py` | Training loop, checkpointing, early stopping |
 | Scorer | `src/evaluation/score_pockets.py` | Cluster high-score residues → ranked pockets |
-| MD Parser | `src/md/parse_trajectory.py` | RMSF, DCCM, volume from MD trajectory |
+| MD Parser | `src/md/parse_trajectory.py` | RMSF, DCCM, volume from MD trajectory — **STUB, no trajectory data exists** |
 
 ---
 
@@ -49,9 +49,9 @@ evaluation/score_pockets.py
   → threshold + DBSCAN clustering
   → ranked pocket list + scored .pdb
 
-data/trajectories/1W60_apo.xtc
-  → md/parse_trajectory.py
-  → RMSF, DCCM, volume per pocket
+data/trajectories/1W60_apo.xtc   ← DOES NOT EXIST (MD not yet run)
+  → md/parse_trajectory.py         ← stub only
+  → RMSF, DCCM, volume per pocket  ← no values exist
 ```
 
 ---

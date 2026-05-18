@@ -40,17 +40,25 @@
 - Cluster adjacent high-scoring residues into pocket candidates
 - Rank by: mean score, cluster size, geometric volume estimate
 
-## Stage 6 — MD Validation
-- Run short MD (50–100 ns) on apo PCNA
+## Stage 6 — MD Validation ⚠️ NOT YET RUN
+
+> **Status: PLANNED — no trajectory data exists.**
+> `data/trajectories/` is empty. `src/md/parse_trajectory.py` is a stub. E003 experiment is blocked pending trajectory generation.
+
+**What this stage requires (when eventually run):**
+- Generate a 50–100 ns explicit-solvent MD trajectory of apo PCNA (1W60) using GROMACS or OpenMM
 - For each predicted pocket cluster:
   - Compute **RMSF** of pocket residues (high = flexible = cryptic)
   - Compute **DCCM** (dynamic cross-correlation) — pocket residues should move coherently
-  - Track pocket **volume over time** (fpocket or MDAnalysis-based)
-- A pocket is validated if: RMSF > background + volume opens transiently
+  - Track pocket **volume over time** (MDpocket / fpocket)
+- A pocket is validated if: RMSF > background AND volume opens transiently
+
+**No RMSF, DCCM, or volume values exist in this repository.**
 
 ## Stage 7 — Output
 - Ranked list of cryptic pocket candidates
-- Per-pocket: residue list, mean score, RMSF, DCCM signature, representative open snapshot
+- Per-pocket: residue list, mean score
+- *(RMSF, DCCM, open snapshot fields will populate after Stage 6 is run)*
 - Export: JSON + PDB with B-factors replaced by pocket scores
 
 ---

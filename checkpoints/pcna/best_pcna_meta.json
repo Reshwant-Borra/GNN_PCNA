@@ -2,18 +2,34 @@
   "note": "Provenance stub — this checkpoint predates automated metadata saving. Fields marked UNKNOWN cannot be recovered without retraining.",
   "checkpoint": "best_pcna.ckpt",
   "model_class": "PocketGNN",
-  "model_size": "small",
+  "model_variant": "small",
   "n_params": 907706,
-  "node_in_dim": 40,
-  "epoch": "UNKNOWN",
-  "val_auroc": "UNKNOWN",
-  "seed": "UNKNOWN",
-  "phase": "UNKNOWN",
-  "lr": "UNKNOWN",
-  "timestamp": "UNKNOWN",
-  "aoh_gate": {
-    "mean_score": 0.5998,
-    "gate_pass": false,
-    "verdict": "FAIL (mean 0.5998 < 0.7)"
-  }
+  "input_dim": {
+    "node_in_dim": 40,
+    "edge_in_dim": 5,
+    "note": "Hand-crafted geometric + chemical features; no ESM2"
+  },
+  "architecture": {
+    "hidden": 256,
+    "heads": 4,
+    "spatial_layers": 3,
+    "sequential_layers": 2,
+    "virtual_node": false
+  },
+  "training": {
+    "loss": "focal",
+    "epoch": "UNKNOWN",
+    "seed": "UNKNOWN",
+    "lr": "UNKNOWN",
+    "split": "UNKNOWN",
+    "val_auroc": "UNKNOWN",
+    "training_date": "UNKNOWN"
+  },
+  "evaluation": {
+    "8GLA_top_cluster_mean": 0.5998,
+    "8GLA_aoh_overlap": "UNKNOWN",
+    "aoh_gate_pass": false,
+    "aoh_gate_verdict": "FAIL (mean 0.5998 < 0.7 gate threshold)"
+  },
+  "status": "SUPERSEDED — replaced by best_pcna_v3.ckpt (PocketGNNXL) and best_pcna_v3_fixed.ckpt"
 }

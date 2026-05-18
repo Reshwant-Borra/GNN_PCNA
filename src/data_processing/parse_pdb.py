@@ -189,7 +189,14 @@ def label_pocket_residues(
     ligand_coords: np.ndarray,   # (L, 3)
     cutoff_angstrom: float = 6.0,
 ) -> np.ndarray:
-    """Return binary label array (N,) — 1 if residue Cα within cutoff of any ligand atom."""
+    """Return binary label array (N,) — 1 if residue Cα is within cutoff of any ligand atom.
+
+    KNOWN LIMITATION: Uses Cα distance only, not minimum heavy-atom distance.
+    Cα-based labeling slightly over- or under-labels residues with side chains that
+    extend toward (or away from) the ligand. The standard in the literature is to use
+    any heavy atom of the residue. A future fix would store per-residue heavy-atom coords
+    in the Residue dataclass and use those here.
+    """
     ca_coords = np.stack([r.ca_coord for r in residues])   # (N, 3)
     dists = np.linalg.norm(
         ca_coords[:, None, :] - ligand_coords[None, :, :], axis=-1

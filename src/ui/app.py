@@ -68,29 +68,27 @@ SS_LABELS = {"H": "Helix", "E": "Sheet", "C": "Coil", "": "Unknown"}
 # ── helpers ───────────────────────────────────────────────────────────────────
 
 @st.cache_resource
-def load_model(config: str) -> torch.nn.Module:
+def load_model(config: str) -> tuple[torch.nn.Module, bool, str]:
+    """Returns (model, checkpoint_loaded, checkpoint_path_str)."""
     if config == "v3-xl":
         m = PocketGNNXL().eval()
-        if CKPT_V3.exists():
-            m.load_state_dict(torch.load(CKPT_V3, map_location="cpu", weights_only=True))
-        return m
+        ckpt = CKPT_V3
     elif config == "v2-large":
         m = PocketGNN().eval()
-        if CKPT_V2.exists():
-            m.load_state_dict(torch.load(CKPT_V2, map_location="cpu", weights_only=True))
-        return m
+        ckpt = CKPT_V2
     elif config == "v2-medium":
         m = PocketGNN.medium().eval()
-        if CKPT_V2.exists():
-            m.load_state_dict(torch.load(CKPT_V2, map_location="cpu", weights_only=True))
-        return m
+        ckpt = CKPT_V2
     elif config == "v2-small":
         m = PocketGNN.small().eval()
-        if CKPT_V2.exists():
-            m.load_state_dict(torch.load(CKPT_V2, map_location="cpu", weights_only=True))
-        return m
+        ckpt = CKPT_V2
     else:
-        return CrypticGNN().eval()
+        return CrypticGNN().eval(), False, ""
+
+    if ckpt.exists():
+        m.load_state_dict(torch.load(str(ckpt), map_location="cpu", weights_only=True))
+        return m, True, str(ckpt)
+    return m, False, str(ckpt)
 
 
 @st.cache_resource
@@ -595,15 +593,23 @@ st.title("Cryptic Pocket Predictor")
 v3_note = " · **v3 (ESM2)**" if model_key == "v3-xl" else ""
 st.caption(f"GNN-PCNA{v3_note}  *  PocketGNN v2 + XL  *  Dual-branch GATv2Conv  *  Local inference only")
 
-model = load_model(model_key)
+model, ckpt_loaded, ckpt_path = load_model(model_key)
 if ckpt_file is not None:
     try:
         state = torch.load(io.BytesIO(ckpt_file.read()), map_location="cpu", weights_only=True)
         model.load_state_dict(state)
         model.eval()
-        st.sidebar.success("Checkpoint loaded")
+        st.sidebar.success("Checkpoint loaded from upload")
     except Exception as e:
         st.sidebar.error(f"Checkpoint error: {e}")
+elif ckpt_loaded:
+    st.sidebar.success(f"Checkpoint loaded: {Path(ckpt_path).name}")
+else:
+    st.sidebar.warning(
+        f"No checkpoint found at `{ckpt_path}`. "
+        "Model weights are random — scores are meaningless. "
+        "Train first with `python src/training/train.py` or upload a checkpoint above."
+    )
 
 n_params = sum(p.numel() for p in model.parameters())
 

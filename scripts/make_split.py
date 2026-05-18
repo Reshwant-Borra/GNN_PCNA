@@ -41,7 +41,7 @@ TRAIN_DIR  = REPO_ROOT / "data" / "cryptosite" / "train"
 VAL_DIR    = REPO_ROOT / "data" / "cryptosite" / "val"
 TEST_DIR   = REPO_ROOT / "data" / "cryptosite" / "test"
 
-_PCNA_IDS = {"1W60", "8GLA", "1AXC", "1W61"}
+_PCNA_IDS = {"1W60", "8GLA", "1AXC"}  # 1W61 removed — it is proline racemase, not PCNA
 
 
 def _has_labels(pt_path: Path) -> bool:

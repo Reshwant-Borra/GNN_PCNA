@@ -54,9 +54,16 @@ PCNA_REGIONS = [
     (250, 261, "C-terminal tail (protein-protein interface)"),
 ]
 
-# AOH1996 ground truth residue IDs (from 8GLA chain A)
-AOH_GT = {25,26,27,38,39,40,41,42,44,45,46,47,
-           123,125,126,128,231,232,233,234,250,251,252,253}
+# AOH1996 ground truth residue IDs (from 8GLA chains A and B — both carry ZQZ contacts)
+# Keyed by chain; residues in chain C/D are unlabeled.
+AOH_GT_BY_CHAIN: dict[str, set[int]] = {
+    "A": {25,26,27,38,39,40,41,42,44,45,46,47,
+          123,125,126,128,231,232,233,234,250,251,252,253},
+    "B": {23,25,26,27,38,39,40,41,42,44,45,46,47,
+          123,125,126,128,231,232,233,234,250,251,252},
+}
+# Flat set for non-8GLA structures (used only as a region marker, not a label)
+AOH_GT = set().union(*AOH_GT_BY_CHAIN.values())
 
 SKIP_RESNAMES = {
     'HOH','WAT','SO4','EDO','PEG','GOL','DMS','PO4','MPD',
@@ -143,6 +150,7 @@ def region_label(resid: int) -> str:
 
 
 def aoh_overlap(resids: list[int]) -> int:
+    # Uses residue numbers only (chain-agnostic) — overestimates for non-PCNA structures
     return len(set(resids) & AOH_GT)
 
 
@@ -351,7 +359,7 @@ def main():
                 w.writerow(["chain","resid","resname","score","sasa","b_factor",
                             "secondary_structure","region","gt_aoh","gt_ligand"])
                 for i, (r, sc) in enumerate(zip(residues, scores)):
-                    gt_aoh = 1 if r.resid in AOH_GT else 0
+                    gt_aoh = 1 if r.resid in AOH_GT_BY_CHAIN.get(r.chain, set()) else 0
                     gt_lig = int(labels[i]) if labels is not None else ""
                     w.writerow([r.chain, r.resid, r.resname, round(float(sc), 4),
                                 round(r.sasa, 2), round(r.b_factor, 2),

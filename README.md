@@ -12,9 +12,9 @@ PCNA (Proliferating Cell Nuclear Antigen) is a homotrimeric protein ring essenti
 
 1. Crawls 13 biological databases and builds a 160-node Obsidian knowledge graph
 2. Represents a protein structure as a dual-view graph (spatial contacts + backbone connectivity)
-3. Trains a 10.4M-parameter dual-branch GNN (PocketGNN v2) to score per-residue pocket probability
+3. Trains a dual-branch GNN (PocketGNN v2; ~907k–10.4M params depending on variant) to score per-residue pocket probability
 4. Visualises predictions in a Streamlit UI with PyMOL-ready export
-5. Validates predictions via molecular dynamics (RMSF, DCCM, transient volume)
+5. MD validation infrastructure exists (`src/md/parse_trajectory.py`) but has **not yet been run** — no trajectories, RMSF tables, or DCCM outputs exist in this repository
 
 ---
 
@@ -115,7 +115,7 @@ pip install -r requirements.txt
 
 ### 4. Download PDB structures
 
-Raw `.pdb` files are gitignored. Download the 59 PCNA structures via the crawler:
+Raw `.pdb` files are included in this repository. You can also re-download them via the crawler:
 
 ```bash
 python agents/pcna_crawler.py --download --sources rcsb --download-limit 100

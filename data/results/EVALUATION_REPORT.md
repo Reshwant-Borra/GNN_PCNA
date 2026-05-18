@@ -24,7 +24,7 @@
 |---|---|---|---|---|---|---|---|
 | 8GLA | Holo — AOH1996 cryptic pocket OPEN | 952 | 4 | 0.9377 | 12.7% | 6 | INVALID (training structure — data leak) |
 | 1W60 | Apo — cryptic pocket ABSENT | 510 | 2 | 0.9109 | 12.5% | 4 | n/a |
-| 1W61 | Apo variant | 710 | 2 | 0.9332 | 3.4% | 2 | 1.0000 |
+| ~~1W61~~ | **REMOVED — 1W61 is proline racemase (not PCNA). All results for this entry are biologically invalid.** | — | — | — | — | — | — |
 | 1AXC | PIP-box complex (p21) | 804 | 6 | 0.9128 | 10.9% | 6 | n/a |
 
 ### Key Findings on PCNA

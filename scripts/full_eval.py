@@ -22,7 +22,7 @@ CKPT      = REPO / "checkpoints" / "pcna" / "best_pcna_v3.ckpt"
 GRAPH_DIRS = [REPO / "data" / "graphs_xl", REPO / "data" / "pcna_xl"]
 OUT_DIR   = REPO / "data" / "results"
 THRESHOLD = 0.40
-PCNA_IDS  = {"8GLA", "1W60", "1W61", "1AXC"}
+PCNA_IDS  = {"8GLA", "1W60", "1AXC"}  # 1W61 removed — it is proline racemase, not PCNA
 OUT_DIR.mkdir(parents=True, exist_ok=True)
 
 # ── load model ────────────────────────────────────────────────────────────────
@@ -429,11 +429,15 @@ graph-level patterns from the CryptoSite benchmark (proteins with known cryptic 
 and transferring that knowledge to PCNA.
 
 ### Why AUROC {mean_auroc:.2f} matters
-Random prediction gives AUROC = 0.50. A mean AUROC of {mean_auroc:.2f} across {len(labeled_cs)} unseen
-proteins means the model has genuinely learned structural features that distinguish pocket
-residues from non-pocket residues — without ever being told where to look. The model sees
-only the graph topology and physicochemical features (hydrophobicity, SASA, secondary
-structure, local density), not the ligand.
+Random prediction gives AUROC = 0.50. A mean AUROC of {mean_auroc:.2f} across {len(labeled_cs)} structures
+suggests the model consistently ranks labeled residues higher than background — without
+being shown the ligand at inference time. The model sees only graph topology and
+physicochemical features (hydrophobicity, SASA, secondary structure, local density).
+
+**Caveat:** Labels are derived from ligand-proximity heuristics (6 Å Cα cutoff), not curated
+CryptoSite benchmark labels. AUROC therefore measures agreement with proximity-based
+labels, not validated cryptic-pocket annotations. Results should be treated as preliminary
+until reproduced with curated labels.
 
 ### Replicability
 1. The graph construction is deterministic — given the same PDB file, the same .pt graph

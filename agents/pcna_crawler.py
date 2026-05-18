@@ -77,7 +77,7 @@ PCNA_GENE       = "PCNA"
 AOH1996_NAME    = "AOH1996"
 AOH1996_SMILES  = "CC1=CC2=C(C=C1)N(C(=O)C3=CC=CN=C3)C(=O)N2"
 
-KNOWN_PCNA_IDS  = {"1W60", "8GLA", "1AXC", "1W61"}  # always accept
+KNOWN_PCNA_IDS  = {"1W60", "8GLA", "1AXC"}  # always accept — 1W61 removed (proline racemase, not PCNA)
 POLITE_DELAY    = 0.35    # seconds between calls per domain
 MAX_RETRIES     = 3
 BACKOFF_BASE    = 1.5     # exponential backoff multiplier

@@ -19,9 +19,14 @@ Usage:
 from __future__ import annotations
 
 import argparse
+import io
 import subprocess
 import sys
 from pathlib import Path
+
+# Fix Unicode output on Windows (cp1252 chokes on box-drawing / emoji chars)
+if sys.stdout.encoding and sys.stdout.encoding.lower() not in ("utf-8", "utf8"):
+    sys.stdout = io.TextIOWrapper(sys.stdout.buffer, encoding="utf-8", errors="replace")
 
 REPO_ROOT = Path(__file__).parent.parent
 sys.path.insert(0, str(REPO_ROOT))

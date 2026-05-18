@@ -16,9 +16,11 @@
 
 ## AOH1996 Pocket Assessment
 
-The GNN-PCNA model recovered **21/24 AOH1996 ground-truth residues** in its top predicted cluster. This represents >88% overlap with the experimentally confirmed cryptic pocket from PDB 8GLA. The model is highly confident (0.587 mean score) that this region is druggable.
+The model's top predicted cluster overlaps with **21/24 AOH1996 ground-truth residues** (88% of the confirmed pocket from PDB 8GLA). Top cluster mean score: 0.587.
 
-**Implication:** AOH1996 (or its derivatives AOH1160/AOH1996-1LE) would be predicted to bind this structure with similar affinity to the confirmed holo structure 8GLA.
+**Note:** Mean score 0.587 is below the 0.7 validation gate defined in this project — the AOH1996 pocket is not confidently recovered by the v2-small model. The v3-XL checkpoint (`best_pcna_v3.ckpt`) recovers the pocket at higher confidence. Labels are derived from Cα-to-ligand proximity (6 Å), not curated cryptic-pocket annotations.
+
+**Hypothesis (unvalidated):** This region may be compatible with AOH1996 binding. Molecular docking or MD simulation is required to confirm.
 
 ## Full Analysis Report
 

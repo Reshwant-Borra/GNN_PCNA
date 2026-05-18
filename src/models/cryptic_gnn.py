@@ -386,13 +386,29 @@ def symmetry_loss(
     scores  : torch.Tensor,
     chain_id: torch.Tensor,
     resid   : torch.Tensor,
+    batch   : torch.Tensor | None = None,
 ) -> torch.Tensor:
+    """Penalise score variance among symmetry-equivalent residues (same protein, same resid).
+
+    Uses (batch_index, resid) as the grouping key so residues that share a sequence
+    number but belong to different proteins in a batched DataLoader are never mixed.
+    When batch is None (single graph), all residues are treated as one protein.
+    """
+    if batch is None:
+        batch = scores.new_zeros(scores.shape[0], dtype=torch.long)
+
     loss = scores.new_zeros(1).squeeze()
-    for rid in resid.unique():
-        mask = resid == rid
+    n_groups = 0
+    # Pack (batch_idx, resid) into a single integer key for cheap unique()
+    batch_size = int(batch.max().item()) + 1
+    resid_range = int(resid.max().item()) + 1
+    key = batch * resid_range + resid
+    for k in key.unique():
+        mask = key == k
         if mask.sum() >= 2:
             loss = loss + scores[mask].var()
-    return loss / max(resid.unique().numel(), 1)
+            n_groups += 1
+    return loss / max(n_groups, 1)
 
 
 def pocket_loss(
@@ -400,11 +416,12 @@ def pocket_loss(
     targets     : torch.Tensor,
     chain_id    : torch.Tensor | None = None,
     resid       : torch.Tensor | None = None,
+    batch       : torch.Tensor | None = None,
     use_symmetry: bool  = False,
     w_rank      : float = 0.05,
     w_sym       : float = 0.10,
 ) -> torch.Tensor:
     loss = focal_loss(scores, targets) + w_rank * ranking_loss(scores, targets)
     if use_symmetry and chain_id is not None and resid is not None:
-        loss = loss + w_sym * symmetry_loss(scores, chain_id, resid)
+        loss = loss + w_sym * symmetry_loss(scores, chain_id, resid, batch)
     return loss

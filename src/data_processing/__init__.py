@@ -1,2 +1,3 @@
 from .parse_pdb import parse_pdb, label_pocket_residues
-from .graph_construction import build_graph, save_graph, load_graph
+# graph_construction imports torch_geometric — import it directly where needed
+# to avoid ImportError when PyG is not installed

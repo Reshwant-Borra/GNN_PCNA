@@ -270,10 +270,20 @@ if _MCP_AVAILABLE:
         try:
             if model_size == "large":
                 model = PocketGNN().eval()
+                ckpt_path = REPO_ROOT / "checkpoints" / "pcna" / "best_pcna.ckpt"
             elif model_size == "medium":
                 model = PocketGNN.medium().eval()
+                ckpt_path = REPO_ROOT / "checkpoints" / "pcna" / "best_pcna.ckpt"
             else:
                 model = PocketGNN.small().eval()
+                ckpt_path = REPO_ROOT / "checkpoints" / "pcna" / "best_pcna.ckpt"
+
+            checkpoint_loaded = False
+            if ckpt_path.exists():
+                model.load_state_dict(
+                    torch.load(str(ckpt_path), map_location="cpu", weights_only=True)
+                )
+                checkpoint_loaded = True
 
             residues = parse_pdb(pdb_path)
             data     = build_graph_v2(residues)
@@ -295,16 +305,25 @@ if _MCP_AVAILABLE:
                 for i in top_idx
             ]
 
+            note = (
+                f"Checkpoint loaded: {ckpt_path.name}. Scores are from a trained prototype model "
+                f"using ligand-proximity labels. Treat as preliminary hypotheses, not validated results."
+                if checkpoint_loaded else
+                f"WARNING: checkpoint not found at {ckpt_path}. Scores are random — train first "
+                f"with src/training/train.py."
+            )
+
             return {
                 "pdb_id"         : pdb_id.upper(),
                 "n_residues"     : len(residues),
                 "model_size"     : model_size,
                 "model_params"   : model.param_count(),
+                "checkpoint_loaded": checkpoint_loaded,
                 "mean_score"     : round(float(scores.mean()), 4),
                 "max_score"      : round(float(scores.max()), 4),
                 "pocket_candidates_above_0.4": int((scores >= 0.4).sum()),
                 "top_20_residues": top_residues,
-                "note": "Model is untrained — scores are random. Train first with src/training/train.py.",
+                "note": note,
             }
         except Exception as e:
             return {"error": str(e)}

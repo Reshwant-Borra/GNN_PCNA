@@ -20,11 +20,6 @@ AOH_GT_N = 24   # total ground-truth residues in AOH1996 site
 rows = list(csv.DictReader(
     open(PDIR / "summary_table.csv", encoding="utf-8", errors="replace")))
 
-auroc_fixed = {
-    "3VKX": 0.9042, "9N3L": 0.8602, "8GLA": 0.8661,
-    "8GL9": 0.8129, "6CBI": 0.5219, "7M5N": 0.5833, "7M5L": 0.3005,
-}
-
 def category(r):
     p = r["pdb"]
     if p in {"8GLA","8GL9","8GCJ"}: return "AOH1996 holo (confirmed binder)"
@@ -35,11 +30,9 @@ def category(r):
 
 def auroc_str(r):
     p = r["pdb"]
-    if p in auroc_fixed:
-        return f"{auroc_fixed[p]:.4f} (drug-like ligand, PCNA-chain filtered)"
     raw = r.get("auroc","")
     if raw:
-        note = " (raw — may include co-factor ligands)" if p in COMPLEX_CONTAM else " (raw)"
+        note = " (raw — may include co-factor ligands)" if p in COMPLEX_CONTAM else " (raw, ligand-proximity labels)"
         return f"{float(raw):.4f}{note}"
     return "N/A (apo — no ligand for labeling)"
 
@@ -103,26 +96,34 @@ def write_protein_doc(r):
         f"",
     ]
 
+    threshold_note = (
+        f" **Note: mean score {tc_mean:.3f} is below the 0.7 validation gate — "
+        f"the AOH1996 pocket is not confidently recovered by this model.**"
+        if tc_mean < 0.7 else ""
+    )
+
     if aoh_n >= 20:
         lines += [
-            f"The GNN-PCNA model recovered **{aoh_n}/24 AOH1996 ground-truth residues** in its top "
-            f"predicted cluster. This represents >{aoh_n/AOH_GT_N*100:.0f}% overlap with the experimentally "
-            f"confirmed cryptic pocket from PDB 8GLA. The model is highly confident ({tc_mean:.3f} mean score) "
-            f"that this region is druggable.",
+            f"The model's top predicted cluster overlaps with **{aoh_n}/24 AOH1996 ground-truth residues** "
+            f"({aoh_n/AOH_GT_N*100:.0f}% of the confirmed pocket from PDB 8GLA). "
+            f"Top cluster mean score: {tc_mean:.3f}.{threshold_note}",
             f"",
-            f"**Implication:** AOH1996 (or its derivatives AOH1160/AOH1996-1LE) would be predicted to bind "
-            f"this structure with similar affinity to the confirmed holo structure 8GLA.",
+            f"**Hypothesis (unvalidated):** This region may be compatible with AOH1996 binding. "
+            f"Molecular docking or MD simulation is required to test this hypothesis. "
+            f"Labels are derived from ligand-proximity heuristics, not curated benchmark labels.",
         ]
     elif aoh_n >= 12:
         lines += [
-            f"Moderate overlap: **{aoh_n}/24 AOH1996 GT residues** recovered. Partial pocket opening "
-            f"may be present — this structure could bind AOH1996 in a conformation-dependent manner.",
+            f"Moderate overlap: **{aoh_n}/24 AOH1996 GT residues** found in top cluster "
+            f"(mean score {tc_mean:.3f}).{threshold_note} "
+            f"Partial pocket similarity may be present — requires further investigation.",
         ]
     else:
         lines += [
-            f"Low AOH1996 overlap: **{aoh_n}/24 GT residues**. The top predicted pocket does not "
-            f"coincide with the AOH1996 site. Either a novel pocket is predicted, or the model's "
-            f"top cluster is at a distinct binding interface.",
+            f"Low AOH1996 overlap: **{aoh_n}/24 GT residues** in top cluster "
+            f"(mean score {tc_mean:.3f}). The top predicted region does not coincide with "
+            f"the AOH1996 site. This may indicate a distinct binding interface or a model "
+            f"prediction artefact — not a validated novel pocket.",
         ]
 
     lines += [

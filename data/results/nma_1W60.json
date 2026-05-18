@@ -11,9 +11,9 @@
     "pocket_mean_rmsf_norm": 0.8685,
     "background_mean_rmsf_norm": 1.0137,
     "fold_change_pocket_vs_bg": 0.857,
-    "interpretation": "Pocket residues are 14.3% LESS flexible than structural background (fold-change 0.857) in the apo crystal structure 1W60. This is consistent with a buried, rigidly packed cryptic pocket that is not accessible in the apo state and requires ligand-induced conformational change to open. A fold-change < 1 is expected for true cryptic pockets (vs allosteric pockets, which show elevated apo RMSF).",
+    "interpretation": "Pocket residues show similar or reduced flexibility vs background \u2014 may indicate rigid cryptic pocket or classification artefact.",
     "pocket_internal_dccm": 0.0995,
-    "dccm_interpretation": "Internal DCCM = 0.0995 \u2014 mild positive correlation among AOH1996 pocket residues in the 20 lowest-frequency ANM modes. This indicates the residues move as a somewhat coherent unit despite being rigid, consistent with a concerted opening mechanism."
+    "dccm_interpretation": "Positive internal DCCM among AOH1996 pocket residues \u2014 residues move coherently, consistent with a collective opening motion."
   },
   "eigenvalues": [
     0.000626,
@@ -4109,6 +4109,5 @@
       "anm_rmsf_norm": 0.7398,
       "in_aoh_pocket": false
     }
-  ],
-  "method_note": "ANM is a validated fast alternative to MD for flexibility analysis. ANM RMSF correlates with MD RMSF at r~0.6-0.8 (Eyal et al. 2006, Proteins 63:1072). Absolute RMSF values are in normalized units (mean=1.0). Fold-changes and DCCM are dimensionless."
+  ]
 }

@@ -165,7 +165,8 @@ def run(pdb_path: Path, cutoff: float, n_modes: int) -> dict:
     ])
 
     # Save full DCCM
-    dccm_path = REPO / "data" / "results" / "nma_1W60_dccm.npy"
+    stem = pdb_path.stem.upper()
+    dccm_path = REPO / "data" / "results" / f"nma_{stem}_dccm.npy"
     dccm_path.parent.mkdir(parents=True, exist_ok=True)
     np.save(str(dccm_path), dccm.astype(np.float32))
     print(f"Saved DCCM -> {dccm_path.relative_to(REPO)}")
@@ -233,7 +234,7 @@ def run(pdb_path: Path, cutoff: float, n_modes: int) -> dict:
         "residues": residues_out,
     }
 
-    out_path = REPO / "data" / "results" / "nma_1W60.json"
+    out_path = REPO / "data" / "results" / f"nma_{stem}.json"
     out_path.write_text(json.dumps(result, indent=2), encoding="utf-8")
     print(f"Saved NMA results -> {out_path.relative_to(REPO)}")
     return result

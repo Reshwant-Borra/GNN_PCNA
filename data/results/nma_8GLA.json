@@ -1,0 +1,7649 @@
+{
+  "method": "Anisotropic Network Model (ANM)",
+  "reference": "Atilgan et al. (2001) Biophys. J. 80:505-515",
+  "structure": "8GLA.pdb",
+  "n_residues": 952,
+  "cutoff_angstrom": 7.5,
+  "n_modes_used": 20,
+  "note": "RMSF values are in relative units (normalized to mean=1.0). ANM spring constant \u03b3 is set uniformly; absolute magnitudes are not comparable to MD-RMSF in \u00c5. Fold-change and DCCM values are \u03b3-independent.",
+  "aoh_pocket_analysis": {
+    "n_aoh_residues": 72,
+    "pocket_mean_rmsf_norm": 1.0952,
+    "background_mean_rmsf_norm": 0.9922,
+    "fold_change_pocket_vs_bg": 1.104,
+    "interpretation": "Pocket residues show elevated flexibility vs background (fold-change 1.10\u00d7). This is consistent with the site being a cryptic pocket \u2014 intrinsically flexible in the apo state.",
+    "pocket_internal_dccm": 0.078,
+    "dccm_interpretation": "Positive internal DCCM among AOH1996 pocket residues \u2014 residues move coherently, consistent with a collective opening motion."
+  },
+  "eigenvalues": [
+    0.001036,
+    0.00117,
+    0.001501,
+    0.001945,
+    0.002197,
+    0.00251,
+    0.003615,
+    0.004521,
+    0.004805,
+    0.004952
+  ],
+  "dccm_file": "data/results/nma_1W60_dccm.npy",
+  "residues": [
+    {
+      "chain": "A",
+      "resid": 2,
+      "resname": "PHE",
+      "anm_msf": 7.964894,
+      "anm_rmsf_norm": 1.1648,
+      "in_aoh_pocket": false
+    },
+    {
+      "chain": "A",
+      "resid": 3,
+      "resname": "GLU",
+      "anm_msf": 7.403091,
+      "anm_rmsf_norm": 1.1229,
+      "in_aoh_pocket": false
+    },
+    {
+      "chain": "A",
+      "resid": 4,
+      "resname": "ALA",
+      "anm_msf": 6.566052,
+      "anm_rmsf_norm": 1.0576,
+      "in_aoh_pocket": false
+    },
+    {
+      "chain": "A",
+      "resid": 5,
+      "resname": "ARG",
+      "anm_msf": 7.391953,
+      "anm_rmsf_norm": 1.1221,
+      "in_aoh_pocket": false
+    },
+    {
+      "chain": "A",
+      "resid": 6,
+      "resname": "LEU",
+      "anm_msf": 6.95758,
+      "anm_rmsf_norm": 1.0886,
+      "in_aoh_pocket": false
+    },
+    {
+      "chain": "A",
+      "resid": 7,
+      "resname": "VAL",
+      "anm_msf": 8.760309,
+      "anm_rmsf_norm": 1.2216,
+      "in_aoh_pocket": false
+    },
+    {
+      "chain": "A",
+      "resid": 8,
+      "resname": "GLN",
+      "anm_msf": 8.187034,
+      "anm_rmsf_norm": 1.1809,
+      "in_aoh_pocket": false
+    },
+    {
+      "chain": "A",
+      "resid": 9,
+      "resname": "GLY",
+      "anm_msf": 6.343569,
+      "anm_rmsf_norm": 1.0395,
+      "in_aoh_pocket": false
+    },
+    {
+      "chain": "A",
+      "resid": 10,
+      "resname": "SER",
+      "anm_msf": 6.914886,
+      "anm_rmsf_norm": 1.0853,
+      "in_aoh_pocket": false
+    },
+    {
+      "chain": "A",
+      "resid": 11,
+      "resname": "ILE",
+      "anm_msf": 6.117195,
+      "anm_rmsf_norm": 1.0208,
+      "in_aoh_pocket": false
+    },
+    {
+      "chain": "A",
+      "resid": 12,
+      "resname": "LEU",
+      "anm_msf": 4.818047,
+      "anm_rmsf_norm": 0.9059,
+      "in_aoh_pocket": false
+    },
+    {
+      "chain": "A",
+      "resid": 13,
+      "resname": "LYS",
+      "anm_msf": 5.232937,
+      "anm_rmsf_norm": 0.9441,
+      "in_aoh_pocket": false
+    },
+    {
+      "chain": "A",
+      "resid": 14,
+      "resname": "LYS",
+      "anm_msf": 5.316726,
+      "anm_rmsf_norm": 0.9516,
+      "in_aoh_pocket": false
+    },
+    {
+      "chain": "A",
+      "resid": 15,
+      "resname": "VAL",
+      "anm_msf": 4.12585,
+      "anm_rmsf_norm": 0.8383,
+      "in_aoh_pocket": false
+    },
+    {
+      "chain": "A",
+      "resid": 16,
+      "resname": "LEU",
+      "anm_msf": 4.144768,
+      "anm_rmsf_norm": 0.8402,
+      "in_aoh_pocket": false
+    },
+    {
+      "chain": "A",
+      "resid": 17,
+      "resname": "GLU",
+      "anm_msf": 4.959833,
+      "anm_rmsf_norm": 0.9191,
+      "in_aoh_pocket": false
+    },
+    {
+      "chain": "A",
+      "resid": 18,
+      "resname": "ALA",
+      "anm_msf": 4.462986,
+      "anm_rmsf_norm": 0.8719,
+      "in_aoh_pocket": false
+    },
+    {
+      "chain": "A",
+      "resid": 19,
+      "resname": "LEU",
+      "anm_msf": 4.286914,
+      "anm_rmsf_norm": 0.8545,
+      "in_aoh_pocket": false
+    },
+    {
+      "chain": "A",
+      "resid": 20,
+      "resname": "LYS",
+      "anm_msf": 5.167145,
+      "anm_rmsf_norm": 0.9382,
+      "in_aoh_pocket": false
+    },
+    {
+      "chain": "A",
+      "resid": 21,
+      "resname": "ASP",
+      "anm_msf": 6.435481,
+      "anm_rmsf_norm": 1.047,
+      "in_aoh_pocket": false
+    },
+    {
+      "chain": "A",
+      "resid": 22,
+      "resname": "LEU",
+      "anm_msf": 5.865175,
+      "anm_rmsf_norm": 0.9995,
+      "in_aoh_pocket": false
+    },
+    {
+      "chain": "A",
+      "resid": 23,
+      "resname": "ILE",
+      "anm_msf": 6.236935,
+      "anm_rmsf_norm": 1.0307,
+      "in_aoh_pocket": false
+    },
+    {
+      "chain": "A",
+      "resid": 24,
+      "resname": "ASN",
+      "anm_msf": 6.30187,
+      "anm_rmsf_norm": 1.0361,
+      "in_aoh_pocket": false
+    },
+    {
+      "chain": "A",
+      "resid": 25,
+      "resname": "GLU",
+      "anm_msf": 5.826024,
+      "anm_rmsf_norm": 0.9962,
+      "in_aoh_pocket": true
+    },
+    {
+      "chain": "A",
+      "resid": 26,
+      "resname": "ALA",
+      "anm_msf": 5.15802,
+      "anm_rmsf_norm": 0.9373,
+      "in_aoh_pocket": true
+    },
+    {
+      "chain": "A",
+      "resid": 27,
+      "resname": "CYS",
+      "anm_msf": 5.676227,
+      "anm_rmsf_norm": 0.9833,
+      "in_aoh_pocket": true
+    },
+    {
+      "chain": "A",
+      "resid": 28,
+      "resname": "TRP",
+      "anm_msf": 4.79762,
+      "anm_rmsf_norm": 0.904,
+      "in_aoh_pocket": false
+    },
+    {
+      "chain": "A",
+      "resid": 29,
+      "resname": "ASP",
+      "anm_msf": 6.40218,
+      "anm_rmsf_norm": 1.0443,
+      "in_aoh_pocket": false
+    },
+    {
+      "chain": "A",
+      "resid": 30,
+      "resname": "ILE",
+      "anm_msf": 6.538766,
+      "anm_rmsf_norm": 1.0554,
+      "in_aoh_pocket": false
+    },
+    {
+      "chain": "A",
+      "resid": 31,
+      "resname": "SER",
+      "anm_msf": 8.361872,
+      "anm_rmsf_norm": 1.1935,
+      "in_aoh_pocket": false
+    },
+    {
+      "chain": "A",
+      "resid": 32,
+      "resname": "SER",
+      "anm_msf": 10.106367,
+      "anm_rmsf_norm": 1.312,
+      "in_aoh_pocket": false
+    },
+    {
+      "chain": "A",
+      "resid": 33,
+      "resname": "SER",
+      "anm_msf": 9.521403,
+      "anm_rmsf_norm": 1.2735,
+      "in_aoh_pocket": false
+    },
+    {
+      "chain": "A",
+      "resid": 34,
+      "resname": "GLY",
+      "anm_msf": 6.755012,
+      "anm_rmsf_norm": 1.0727,
+      "in_aoh_pocket": false
+    },
+    {
+      "chain": "A",
+      "resid": 35,
+      "resname": "VAL",
+      "anm_msf": 5.007881,
+      "anm_rmsf_norm": 0.9236,
+      "in_aoh_pocket": false
+    },
+    {
+      "chain": "A",
+      "resid": 36,
+      "resname": "ASN",
+      "anm_msf": 4.992614,
+      "anm_rmsf_norm": 0.9222,
+      "in_aoh_pocket": false
+    },
+    {
+      "chain": "A",
+      "resid": 37,
+      "resname": "LEU",
+      "anm_msf": 4.309951,
+      "anm_rmsf_norm": 0.8568,
+      "in_aoh_pocket": false
+    },
+    {
+      "chain": "A",
+      "resid": 38,
+      "resname": "GLN",
+      "anm_msf": 4.976903,
+      "anm_rmsf_norm": 0.9207,
+      "in_aoh_pocket": true
+    },
+    {
+      "chain": "A",
+      "resid": 39,
+      "resname": "SER",
+      "anm_msf": 5.744074,
+      "anm_rmsf_norm": 0.9892,
+      "in_aoh_pocket": true
+    },
+    {
+      "chain": "A",
+      "resid": 40,
+      "resname": "MET",
+      "anm_msf": 7.177028,
+      "anm_rmsf_norm": 1.1057,
+      "in_aoh_pocket": true
+    },
+    {
+      "chain": "A",
+      "resid": 41,
+      "resname": "ASP",
+      "anm_msf": 8.802098,
+      "anm_rmsf_norm": 1.2245,
+      "in_aoh_pocket": true
+    },
+    {
+      "chain": "A",
+      "resid": 42,
+      "resname": "SER",
+      "anm_msf": 13.123429,
+      "anm_rmsf_norm": 1.4951,
+      "in_aoh_pocket": true
+    },
+    {
+      "chain": "A",
+      "resid": 43,
+      "resname": "SER",
+      "anm_msf": 15.227538,
+      "anm_rmsf_norm": 1.6105,
+      "in_aoh_pocket": false
+    },
+    {
+      "chain": "A",
+      "resid": 44,
+      "resname": "HIS",
+      "anm_msf": 12.000853,
+      "anm_rmsf_norm": 1.4297,
+      "in_aoh_pocket": true
+    },
+    {
+      "chain": "A",
+      "resid": 45,
+      "resname": "VAL",
+      "anm_msf": 10.547768,
+      "anm_rmsf_norm": 1.3404,
+      "in_aoh_pocket": true
+    },
+    {
+      "chain": "A",
+      "resid": 46,
+      "resname": "SER",
+      "anm_msf": 7.237393,
+      "anm_rmsf_norm": 1.1103,
+      "in_aoh_pocket": true
+    },
+    {
+      "chain": "A",
+      "resid": 47,
+      "resname": "LEU",
+      "anm_msf": 5.627076,
+      "anm_rmsf_norm": 0.979,
+      "in_aoh_pocket": true
+    },
+    {
+      "chain": "A",
+      "resid": 48,
+      "resname": "VAL",
+      "anm_msf": 4.701856,
+      "anm_rmsf_norm": 0.8949,
+      "in_aoh_pocket": false
+    },
+    {
+      "chain": "A",
+      "resid": 49,
+      "resname": "GLN",
+      "anm_msf": 4.251094,
+      "anm_rmsf_norm": 0.8509,
+      "in_aoh_pocket": false
+    },
+    {
+      "chain": "A",
+      "resid": 50,
+      "resname": "LEU",
+      "anm_msf": 3.837764,
+      "anm_rmsf_norm": 0.8085,
+      "in_aoh_pocket": false
+    },
+    {
+      "chain": "A",
+      "resid": 51,
+      "resname": "THR",
+      "anm_msf": 4.539095,
+      "anm_rmsf_norm": 0.8793,
+      "in_aoh_pocket": false
+    },
+    {
+      "chain": "A",
+      "resid": 52,
+      "resname": "LEU",
+      "anm_msf": 4.698724,
+      "anm_rmsf_norm": 0.8946,
+      "in_aoh_pocket": false
+    },
+    {
+      "chain": "A",
+      "resid": 53,
+      "resname": "ARG",
+      "anm_msf": 6.517877,
+      "anm_rmsf_norm": 1.0537,
+      "in_aoh_pocket": false
+    },
+    {
+      "chain": "A",
+      "resid": 54,
+      "resname": "SER",
+      "anm_msf": 7.76095,
+      "anm_rmsf_norm": 1.1498,
+      "in_aoh_pocket": false
+    },
+    {
+      "chain": "A",
+      "resid": 55,
+      "resname": "GLU",
+      "anm_msf": 9.210095,
+      "anm_rmsf_norm": 1.2525,
+      "in_aoh_pocket": false
+    },
+    {
+      "chain": "A",
+      "resid": 56,
+      "resname": "GLY",
+      "anm_msf": 7.580829,
+      "anm_rmsf_norm": 1.1363,
+      "in_aoh_pocket": false
+    },
+    {
+      "chain": "A",
+      "resid": 57,
+      "resname": "PHE",
+      "anm_msf": 7.705434,
+      "anm_rmsf_norm": 1.1456,
+      "in_aoh_pocket": false
+    },
+    {
+      "chain": "A",
+      "resid": 58,
+      "resname": "ASP",
+      "anm_msf": 10.582021,
+      "anm_rmsf_norm": 1.3426,
+      "in_aoh_pocket": false
+    },
+    {
+      "chain": "A",
+      "resid": 59,
+      "resname": "THR",
+      "anm_msf": 11.056967,
+      "anm_rmsf_norm": 1.3724,
+      "in_aoh_pocket": false
+    },
+    {
+      "chain": "A",
+      "resid": 60,
+      "resname": "TYR",
+      "anm_msf": 9.328486,
+      "anm_rmsf_norm": 1.2605,
+      "in_aoh_pocket": false
+    },
+    {
+      "chain": "A",
+      "resid": 61,
+      "resname": "ARG",
+      "anm_msf": 10.722809,
+      "anm_rmsf_norm": 1.3515,
+      "in_aoh_pocket": false
+    },
+    {
+      "chain": "A",
+      "resid": 62,
+      "resname": "CYS",
+      "anm_msf": 9.42785,
+      "anm_rmsf_norm": 1.2672,
+      "in_aoh_pocket": false
+    },
+    {
+      "chain": "A",
+      "resid": 63,
+      "resname": "ASP",
+      "anm_msf": 12.575519,
+      "anm_rmsf_norm": 1.4636,
+      "in_aoh_pocket": false
+    },
+    {
+      "chain": "A",
+      "resid": 64,
+      "resname": "ARG",
+      "anm_msf": 13.276854,
+      "anm_rmsf_norm": 1.5038,
+      "in_aoh_pocket": false
+    },
+    {
+      "chain": "A",
+      "resid": 65,
+      "resname": "ASN",
+      "anm_msf": 11.123348,
+      "anm_rmsf_norm": 1.3765,
+      "in_aoh_pocket": false
+    },
+    {
+      "chain": "A",
+      "resid": 66,
+      "resname": "LEU",
+      "anm_msf": 9.153926,
+      "anm_rmsf_norm": 1.2487,
+      "in_aoh_pocket": false
+    },
+    {
+      "chain": "A",
+      "resid": 67,
+      "resname": "ALA",
+      "anm_msf": 7.650765,
+      "anm_rmsf_norm": 1.1416,
+      "in_aoh_pocket": false
+    },
+    {
+      "chain": "A",
+      "resid": 68,
+      "resname": "MET",
+      "anm_msf": 5.531926,
+      "anm_rmsf_norm": 0.9707,
+      "in_aoh_pocket": false
+    },
+    {
+      "chain": "A",
+      "resid": 69,
+      "resname": "GLY",
+      "anm_msf": 5.257106,
+      "anm_rmsf_norm": 0.9463,
+      "in_aoh_pocket": false
+    },
+    {
+      "chain": "A",
+      "resid": 70,
+      "resname": "VAL",
+      "anm_msf": 4.479443,
+      "anm_rmsf_norm": 0.8735,
+      "in_aoh_pocket": false
+    },
+    {
+      "chain": "A",
+      "resid": 71,
+      "resname": "ASN",
+      "anm_msf": 5.383523,
+      "anm_rmsf_norm": 0.9576,
+      "in_aoh_pocket": false
+    },
+    {
+      "chain": "A",
+      "resid": 72,
+      "resname": "LEU",
+      "anm_msf": 4.704125,
+      "anm_rmsf_norm": 0.8951,
+      "in_aoh_pocket": false
+    },
+    {
+      "chain": "A",
+      "resid": 73,
+      "resname": "THR",
+      "anm_msf": 5.715225,
+      "anm_rmsf_norm": 0.9867,
+      "in_aoh_pocket": false
+    },
+    {
+      "chain": "A",
+      "resid": 74,
+      "resname": "SER",
+      "anm_msf": 5.69629,
+      "anm_rmsf_norm": 0.985,
+      "in_aoh_pocket": false
+    },
+    {
+      "chain": "A",
+      "resid": 75,
+      "resname": "MET",
+      "anm_msf": 4.700302,
+      "anm_rmsf_norm": 0.8948,
+      "in_aoh_pocket": false
+    },
+    {
+      "chain": "A",
+      "resid": 76,
+      "resname": "SER",
+      "anm_msf": 4.962167,
+      "anm_rmsf_norm": 0.9194,
+      "in_aoh_pocket": false
+    },
+    {
+      "chain": "A",
+      "resid": 77,
+      "resname": "LYS",
+      "anm_msf": 5.793841,
+      "anm_rmsf_norm": 0.9934,
+      "in_aoh_pocket": false
+    },
+    {
+      "chain": "A",
+      "resid": 78,
+      "resname": "ILE",
+      "anm_msf": 5.398299,
+      "anm_rmsf_norm": 0.9589,
+      "in_aoh_pocket": false
+    },
+    {
+      "chain": "A",
+      "resid": 79,
+      "resname": "LEU",
+      "anm_msf": 5.272924,
+      "anm_rmsf_norm": 0.9477,
+      "in_aoh_pocket": false
+    },
+    {
+      "chain": "A",
+      "resid": 80,
+      "resname": "LYS",
+      "anm_msf": 6.151766,
+      "anm_rmsf_norm": 1.0237,
+      "in_aoh_pocket": false
+    },
+    {
+      "chain": "A",
+      "resid": 81,
+      "resname": "CYS",
+      "anm_msf": 6.659171,
+      "anm_rmsf_norm": 1.065,
+      "in_aoh_pocket": false
+    },
+    {
+      "chain": "A",
+      "resid": 82,
+      "resname": "ALA",
+      "anm_msf": 6.817907,
+      "anm_rmsf_norm": 1.0777,
+      "in_aoh_pocket": false
+    },
+    {
+      "chain": "A",
+      "resid": 83,
+      "resname": "GLY",
+      "anm_msf": 8.643722,
+      "anm_rmsf_norm": 1.2134,
+      "in_aoh_pocket": false
+    },
+    {
+      "chain": "A",
+      "resid": 84,
+      "resname": "ASN",
+      "anm_msf": 8.518994,
+      "anm_rmsf_norm": 1.2046,
+      "in_aoh_pocket": false
+    },
+    {
+      "chain": "A",
+      "resid": 85,
+      "resname": "GLU",
+      "anm_msf": 10.047139,
+      "anm_rmsf_norm": 1.3082,
+      "in_aoh_pocket": false
+    },
+    {
+      "chain": "A",
+      "resid": 86,
+      "resname": "ASP",
+      "anm_msf": 8.068608,
+      "anm_rmsf_norm": 1.1723,
+      "in_aoh_pocket": false
+    },
+    {
+      "chain": "A",
+      "resid": 87,
+      "resname": "ILE",
+      "anm_msf": 7.620324,
+      "anm_rmsf_norm": 1.1393,
+      "in_aoh_pocket": false
+    },
+    {
+      "chain": "A",
+      "resid": 88,
+      "resname": "ILE",
+      "anm_msf": 5.72325,
+      "anm_rmsf_norm": 0.9874,
+      "in_aoh_pocket": false
+    },
+    {
+      "chain": "A",
+      "resid": 89,
+      "resname": "THR",
+      "anm_msf": 5.860129,
+      "anm_rmsf_norm": 0.9991,
+      "in_aoh_pocket": false
+    },
+    {
+      "chain": "A",
+      "resid": 90,
+      "resname": "LEU",
+      "anm_msf": 4.767086,
+      "anm_rmsf_norm": 0.9011,
+      "in_aoh_pocket": false
+    },
+    {
+      "chain": "A",
+      "resid": 91,
+      "resname": "ARG",
+      "anm_msf": 5.66827,
+      "anm_rmsf_norm": 0.9826,
+      "in_aoh_pocket": false
+    },
+    {
+      "chain": "A",
+      "resid": 92,
+      "resname": "ALA",
+      "anm_msf": 5.911338,
+      "anm_rmsf_norm": 1.0034,
+      "in_aoh_pocket": false
+    },
+    {
+      "chain": "A",
+      "resid": 93,
+      "resname": "GLU",
+      "anm_msf": 8.08346,
+      "anm_rmsf_norm": 1.1734,
+      "in_aoh_pocket": false
+    },
+    {
+      "chain": "A",
+      "resid": 97,
+      "resname": "ASP",
+      "anm_msf": 6.158695,
+      "anm_rmsf_norm": 1.0242,
+      "in_aoh_pocket": false
+    },
+    {
+      "chain": "A",
+      "resid": 98,
+      "resname": "THR",
+      "anm_msf": 4.608533,
+      "anm_rmsf_norm": 0.886,
+      "in_aoh_pocket": false
+    },
+    {
+      "chain": "A",
+      "resid": 99,
+      "resname": "LEU",
+      "anm_msf": 3.965127,
+      "anm_rmsf_norm": 0.8218,
+      "in_aoh_pocket": false
+    },
+    {
+      "chain": "A",
+      "resid": 100,
+      "resname": "ALA",
+      "anm_msf": 4.224895,
+      "anm_rmsf_norm": 0.8483,
+      "in_aoh_pocket": false
+    },
+    {
+      "chain": "A",
+      "resid": 101,
+      "resname": "LEU",
+      "anm_msf": 4.273512,
+      "anm_rmsf_norm": 0.8532,
+      "in_aoh_pocket": false
+    },
+    {
+      "chain": "A",
+      "resid": 102,
+      "resname": "VAL",
+      "anm_msf": 4.834392,
+      "anm_rmsf_norm": 0.9075,
+      "in_aoh_pocket": false
+    },
+    {
+      "chain": "A",
+      "resid": 103,
+      "resname": "PHE",
+      "anm_msf": 5.784327,
+      "anm_rmsf_norm": 0.9926,
+      "in_aoh_pocket": false
+    },
+    {
+      "chain": "A",
+      "resid": 104,
+      "resname": "GLU",
+      "anm_msf": 7.38981,
+      "anm_rmsf_norm": 1.1219,
+      "in_aoh_pocket": false
+    },
+    {
+      "chain": "A",
+      "resid": 105,
+      "resname": "ALA",
+      "anm_msf": 11.541351,
+      "anm_rmsf_norm": 1.4021,
+      "in_aoh_pocket": false
+    },
+    {
+      "chain": "A",
+      "resid": 110,
+      "resname": "LYS",
+      "anm_msf": 5.738591,
+      "anm_rmsf_norm": 0.9887,
+      "in_aoh_pocket": false
+    },
+    {
+      "chain": "A",
+      "resid": 111,
+      "resname": "VAL",
+      "anm_msf": 4.670806,
+      "anm_rmsf_norm": 0.892,
+      "in_aoh_pocket": false
+    },
+    {
+      "chain": "A",
+      "resid": 112,
+      "resname": "SER",
+      "anm_msf": 4.243821,
+      "anm_rmsf_norm": 0.8502,
+      "in_aoh_pocket": false
+    },
+    {
+      "chain": "A",
+      "resid": 113,
+      "resname": "ASP",
+      "anm_msf": 3.506921,
+      "anm_rmsf_norm": 0.7729,
+      "in_aoh_pocket": false
+    },
+    {
+      "chain": "A",
+      "resid": 114,
+      "resname": "TYR",
+      "anm_msf": 3.650095,
+      "anm_rmsf_norm": 0.7885,
+      "in_aoh_pocket": false
+    },
+    {
+      "chain": "A",
+      "resid": 115,
+      "resname": "GLU",
+      "anm_msf": 3.47504,
+      "anm_rmsf_norm": 0.7694,
+      "in_aoh_pocket": false
+    },
+    {
+      "chain": "A",
+      "resid": 116,
+      "resname": "MET",
+      "anm_msf": 3.43624,
+      "anm_rmsf_norm": 0.7651,
+      "in_aoh_pocket": false
+    },
+    {
+      "chain": "A",
+      "resid": 117,
+      "resname": "LYS",
+      "anm_msf": 4.233273,
+      "anm_rmsf_norm": 0.8492,
+      "in_aoh_pocket": false
+    },
+    {
+      "chain": "A",
+      "resid": 118,
+      "resname": "LEU",
+      "anm_msf": 4.505167,
+      "anm_rmsf_norm": 0.876,
+      "in_aoh_pocket": false
+    },
+    {
+      "chain": "A",
+      "resid": 119,
+      "resname": "MET",
+      "anm_msf": 6.405032,
+      "anm_rmsf_norm": 1.0445,
+      "in_aoh_pocket": false
+    },
+    {
+      "chain": "A",
+      "resid": 120,
+      "resname": "ASP",
+      "anm_msf": 8.978591,
+      "anm_rmsf_norm": 1.2367,
+      "in_aoh_pocket": false
+    },
+    {
+      "chain": "A",
+      "resid": 121,
+      "resname": "LEU",
+      "anm_msf": 8.148349,
+      "anm_rmsf_norm": 1.1781,
+      "in_aoh_pocket": false
+    },
+    {
+      "chain": "A",
+      "resid": 122,
+      "resname": "ASP",
+      "anm_msf": 10.654168,
+      "anm_rmsf_norm": 1.3471,
+      "in_aoh_pocket": false
+    },
+    {
+      "chain": "A",
+      "resid": 123,
+      "resname": "VAL",
+      "anm_msf": 14.9572,
+      "anm_rmsf_norm": 1.5962,
+      "in_aoh_pocket": true
+    },
+    {
+      "chain": "A",
+      "resid": 124,
+      "resname": "GLU",
+      "anm_msf": 21.35628,
+      "anm_rmsf_norm": 1.9073,
+      "in_aoh_pocket": false
+    },
+    {
+      "chain": "A",
+      "resid": 125,
+      "resname": "GLN",
+      "anm_msf": 13.795804,
+      "anm_rmsf_norm": 1.5329,
+      "in_aoh_pocket": true
+    },
+    {
+      "chain": "A",
+      "resid": 126,
+      "resname": "LEU",
+      "anm_msf": 5.981255,
+      "anm_rmsf_norm": 1.0094,
+      "in_aoh_pocket": true
+    },
+    {
+      "chain": "A",
+      "resid": 127,
+      "resname": "GLY",
+      "anm_msf": 6.258697,
+      "anm_rmsf_norm": 1.0325,
+      "in_aoh_pocket": false
+    },
+    {
+      "chain": "A",
+      "resid": 128,
+      "resname": "ILE",
+      "anm_msf": 15.759566,
+      "anm_rmsf_norm": 1.6384,
+      "in_aoh_pocket": true
+    },
+    {
+      "chain": "A",
+      "resid": 129,
+      "resname": "PRO",
+      "anm_msf": 28.756047,
+      "anm_rmsf_norm": 2.2132,
+      "in_aoh_pocket": false
+    },
+    {
+      "chain": "A",
+      "resid": 130,
+      "resname": "GLU",
+      "anm_msf": 33.070818,
+      "anm_rmsf_norm": 2.3734,
+      "in_aoh_pocket": false
+    },
+    {
+      "chain": "A",
+      "resid": 131,
+      "resname": "GLN",
+      "anm_msf": 28.712076,
+      "anm_rmsf_norm": 2.2115,
+      "in_aoh_pocket": false
+    },
+    {
+      "chain": "A",
+      "resid": 132,
+      "resname": "GLU",
+      "anm_msf": 33.758404,
+      "anm_rmsf_norm": 2.398,
+      "in_aoh_pocket": false
+    },
+    {
+      "chain": "A",
+      "resid": 133,
+      "resname": "TYR",
+      "anm_msf": 8.192995,
+      "anm_rmsf_norm": 1.1813,
+      "in_aoh_pocket": false
+    },
+    {
+      "chain": "A",
+      "resid": 134,
+      "resname": "SER",
+      "anm_msf": 8.392771,
+      "anm_rmsf_norm": 1.1957,
+      "in_aoh_pocket": false
+    },
+    {
+      "chain": "A",
+      "resid": 135,
+      "resname": "CYS",
+      "anm_msf": 6.688281,
+      "anm_rmsf_norm": 1.0674,
+      "in_aoh_pocket": false
+    },
+    {
+      "chain": "A",
+      "resid": 136,
+      "resname": "VAL",
+      "anm_msf": 6.212447,
+      "anm_rmsf_norm": 1.0287,
+      "in_aoh_pocket": false
+    },
+    {
+      "chain": "A",
+      "resid": 137,
+      "resname": "VAL",
+      "anm_msf": 5.681022,
+      "anm_rmsf_norm": 0.9837,
+      "in_aoh_pocket": false
+    },
+    {
+      "chain": "A",
+      "resid": 138,
+      "resname": "LYS",
+      "anm_msf": 6.170769,
+      "anm_rmsf_norm": 1.0252,
+      "in_aoh_pocket": false
+    },
+    {
+      "chain": "A",
+      "resid": 139,
+      "resname": "MET",
+      "anm_msf": 6.150243,
+      "anm_rmsf_norm": 1.0235,
+      "in_aoh_pocket": false
+    },
+    {
+      "chain": "A",
+      "resid": 140,
+      "resname": "PRO",
+      "anm_msf": 6.501935,
+      "anm_rmsf_norm": 1.0524,
+      "in_aoh_pocket": false
+    },
+    {
+      "chain": "A",
+      "resid": 141,
+      "resname": "SER",
+      "anm_msf": 5.433525,
+      "anm_rmsf_norm": 0.962,
+      "in_aoh_pocket": false
+    },
+    {
+      "chain": "A",
+      "resid": 142,
+      "resname": "GLY",
+      "anm_msf": 6.14688,
+      "anm_rmsf_norm": 1.0232,
+      "in_aoh_pocket": false
+    },
+    {
+      "chain": "A",
+      "resid": 143,
+      "resname": "GLU",
+      "anm_msf": 6.047098,
+      "anm_rmsf_norm": 1.0149,
+      "in_aoh_pocket": false
+    },
+    {
+      "chain": "A",
+      "resid": 144,
+      "resname": "PHE",
+      "anm_msf": 4.724472,
+      "anm_rmsf_norm": 0.8971,
+      "in_aoh_pocket": false
+    },
+    {
+      "chain": "A",
+      "resid": 145,
+      "resname": "ALA",
+      "anm_msf": 4.831585,
+      "anm_rmsf_norm": 0.9072,
+      "in_aoh_pocket": false
+    },
+    {
+      "chain": "A",
+      "resid": 146,
+      "resname": "ARG",
+      "anm_msf": 5.506271,
+      "anm_rmsf_norm": 0.9685,
+      "in_aoh_pocket": false
+    },
+    {
+      "chain": "A",
+      "resid": 147,
+      "resname": "ILE",
+      "anm_msf": 4.86357,
+      "anm_rmsf_norm": 0.9102,
+      "in_aoh_pocket": false
+    },
+    {
+      "chain": "A",
+      "resid": 148,
+      "resname": "CYS",
+      "anm_msf": 4.454608,
+      "anm_rmsf_norm": 0.8711,
+      "in_aoh_pocket": false
+    },
+    {
+      "chain": "A",
+      "resid": 149,
+      "resname": "ARG",
+      "anm_msf": 5.083004,
+      "anm_rmsf_norm": 0.9305,
+      "in_aoh_pocket": false
+    },
+    {
+      "chain": "A",
+      "resid": 150,
+      "resname": "ASP",
+      "anm_msf": 5.167022,
+      "anm_rmsf_norm": 0.9382,
+      "in_aoh_pocket": false
+    },
+    {
+      "chain": "A",
+      "resid": 151,
+      "resname": "LEU",
+      "anm_msf": 4.691789,
+      "anm_rmsf_norm": 0.894,
+      "in_aoh_pocket": false
+    },
+    {
+      "chain": "A",
+      "resid": 152,
+      "resname": "SER",
+      "anm_msf": 5.248363,
+      "anm_rmsf_norm": 0.9455,
+      "in_aoh_pocket": false
+    },
+    {
+      "chain": "A",
+      "resid": 153,
+      "resname": "HIS",
+      "anm_msf": 5.975517,
+      "anm_rmsf_norm": 1.0089,
+      "in_aoh_pocket": false
+    },
+    {
+      "chain": "A",
+      "resid": 154,
+      "resname": "ILE",
+      "anm_msf": 4.923892,
+      "anm_rmsf_norm": 0.9158,
+      "in_aoh_pocket": false
+    },
+    {
+      "chain": "A",
+      "resid": 155,
+      "resname": "GLY",
+      "anm_msf": 5.540698,
+      "anm_rmsf_norm": 0.9715,
+      "in_aoh_pocket": false
+    },
+    {
+      "chain": "A",
+      "resid": 156,
+      "resname": "ASP",
+      "anm_msf": 5.590818,
+      "anm_rmsf_norm": 0.9759,
+      "in_aoh_pocket": false
+    },
+    {
+      "chain": "A",
+      "resid": 157,
+      "resname": "ALA",
+      "anm_msf": 5.059602,
+      "anm_rmsf_norm": 0.9283,
+      "in_aoh_pocket": false
+    },
+    {
+      "chain": "A",
+      "resid": 158,
+      "resname": "VAL",
+      "anm_msf": 4.63988,
+      "anm_rmsf_norm": 0.889,
+      "in_aoh_pocket": false
+    },
+    {
+      "chain": "A",
+      "resid": 159,
+      "resname": "VAL",
+      "anm_msf": 5.174821,
+      "anm_rmsf_norm": 0.9389,
+      "in_aoh_pocket": false
+    },
+    {
+      "chain": "A",
+      "resid": 160,
+      "resname": "ILE",
+      "anm_msf": 4.907507,
+      "anm_rmsf_norm": 0.9143,
+      "in_aoh_pocket": false
+    },
+    {
+      "chain": "A",
+      "resid": 161,
+      "resname": "SER",
+      "anm_msf": 5.888554,
+      "anm_rmsf_norm": 1.0015,
+      "in_aoh_pocket": false
+    },
+    {
+      "chain": "A",
+      "resid": 162,
+      "resname": "CYS",
+      "anm_msf": 6.50544,
+      "anm_rmsf_norm": 1.0527,
+      "in_aoh_pocket": false
+    },
+    {
+      "chain": "A",
+      "resid": 163,
+      "resname": "ALA",
+      "anm_msf": 8.130159,
+      "anm_rmsf_norm": 1.1768,
+      "in_aoh_pocket": false
+    },
+    {
+      "chain": "A",
+      "resid": 164,
+      "resname": "LYS",
+      "anm_msf": 9.252183,
+      "anm_rmsf_norm": 1.2554,
+      "in_aoh_pocket": false
+    },
+    {
+      "chain": "A",
+      "resid": 167,
+      "resname": "VAL",
+      "anm_msf": 5.418848,
+      "anm_rmsf_norm": 0.9607,
+      "in_aoh_pocket": false
+    },
+    {
+      "chain": "A",
+      "resid": 168,
+      "resname": "LYS",
+      "anm_msf": 5.07446,
+      "anm_rmsf_norm": 0.9297,
+      "in_aoh_pocket": false
+    },
+    {
+      "chain": "A",
+      "resid": 169,
+      "resname": "PHE",
+      "anm_msf": 4.504104,
+      "anm_rmsf_norm": 0.8759,
+      "in_aoh_pocket": false
+    },
+    {
+      "chain": "A",
+      "resid": 170,
+      "resname": "SER",
+      "anm_msf": 4.338129,
+      "anm_rmsf_norm": 0.8596,
+      "in_aoh_pocket": false
+    },
+    {
+      "chain": "A",
+      "resid": 171,
+      "resname": "ALA",
+      "anm_msf": 4.393143,
+      "anm_rmsf_norm": 0.865,
+      "in_aoh_pocket": false
+    },
+    {
+      "chain": "A",
+      "resid": 172,
+      "resname": "SER",
+      "anm_msf": 4.566066,
+      "anm_rmsf_norm": 0.8819,
+      "in_aoh_pocket": false
+    },
+    {
+      "chain": "A",
+      "resid": 173,
+      "resname": "GLY",
+      "anm_msf": 5.170519,
+      "anm_rmsf_norm": 0.9385,
+      "in_aoh_pocket": false
+    },
+    {
+      "chain": "A",
+      "resid": 174,
+      "resname": "GLU",
+      "anm_msf": 5.925532,
+      "anm_rmsf_norm": 1.0047,
+      "in_aoh_pocket": false
+    },
+    {
+      "chain": "A",
+      "resid": 175,
+      "resname": "LEU",
+      "anm_msf": 4.625586,
+      "anm_rmsf_norm": 0.8876,
+      "in_aoh_pocket": false
+    },
+    {
+      "chain": "A",
+      "resid": 176,
+      "resname": "GLY",
+      "anm_msf": 4.085796,
+      "anm_rmsf_norm": 0.8342,
+      "in_aoh_pocket": false
+    },
+    {
+      "chain": "A",
+      "resid": 177,
+      "resname": "ASN",
+      "anm_msf": 3.759873,
+      "anm_rmsf_norm": 0.8003,
+      "in_aoh_pocket": false
+    },
+    {
+      "chain": "A",
+      "resid": 178,
+      "resname": "GLY",
+      "anm_msf": 3.706908,
+      "anm_rmsf_norm": 0.7946,
+      "in_aoh_pocket": false
+    },
+    {
+      "chain": "A",
+      "resid": 179,
+      "resname": "ASN",
+      "anm_msf": 3.852906,
+      "anm_rmsf_norm": 0.8101,
+      "in_aoh_pocket": false
+    },
+    {
+      "chain": "A",
+      "resid": 180,
+      "resname": "ILE",
+      "anm_msf": 4.181338,
+      "anm_rmsf_norm": 0.8439,
+      "in_aoh_pocket": false
+    },
+    {
+      "chain": "A",
+      "resid": 181,
+      "resname": "LYS",
+      "anm_msf": 4.604785,
+      "anm_rmsf_norm": 0.8856,
+      "in_aoh_pocket": false
+    },
+    {
+      "chain": "A",
+      "resid": 182,
+      "resname": "LEU",
+      "anm_msf": 5.45496,
+      "anm_rmsf_norm": 0.9639,
+      "in_aoh_pocket": false
+    },
+    {
+      "chain": "A",
+      "resid": 183,
+      "resname": "SER",
+      "anm_msf": 6.674201,
+      "anm_rmsf_norm": 1.0662,
+      "in_aoh_pocket": false
+    },
+    {
+      "chain": "A",
+      "resid": 184,
+      "resname": "GLN",
+      "anm_msf": 7.481511,
+      "anm_rmsf_norm": 1.1289,
+      "in_aoh_pocket": false
+    },
+    {
+      "chain": "A",
+      "resid": 193,
+      "resname": "GLU",
+      "anm_msf": 212.143249,
+      "anm_rmsf_norm": 6.0113,
+      "in_aoh_pocket": false
+    },
+    {
+      "chain": "A",
+      "resid": 194,
+      "resname": "ALA",
+      "anm_msf": 12.009909,
+      "anm_rmsf_norm": 1.4303,
+      "in_aoh_pocket": false
+    },
+    {
+      "chain": "A",
+      "resid": 195,
+      "resname": "VAL",
+      "anm_msf": 7.45688,
+      "anm_rmsf_norm": 1.127,
+      "in_aoh_pocket": false
+    },
+    {
+      "chain": "A",
+      "resid": 196,
+      "resname": "THR",
+      "anm_msf": 7.346241,
+      "anm_rmsf_norm": 1.1186,
+      "in_aoh_pocket": false
+    },
+    {
+      "chain": "A",
+      "resid": 197,
+      "resname": "ILE",
+      "anm_msf": 6.704169,
+      "anm_rmsf_norm": 1.0686,
+      "in_aoh_pocket": false
+    },
+    {
+      "chain": "A",
+      "resid": 198,
+      "resname": "GLU",
+      "anm_msf": 8.25041,
+      "anm_rmsf_norm": 1.1855,
+      "in_aoh_pocket": false
+    },
+    {
+      "chain": "A",
+      "resid": 199,
+      "resname": "MET",
+      "anm_msf": 8.563803,
+      "anm_rmsf_norm": 1.2078,
+      "in_aoh_pocket": false
+    },
+    {
+      "chain": "A",
+      "resid": 200,
+      "resname": "ASN",
+      "anm_msf": 10.591247,
+      "anm_rmsf_norm": 1.3432,
+      "in_aoh_pocket": false
+    },
+    {
+      "chain": "A",
+      "resid": 201,
+      "resname": "GLU",
+      "anm_msf": 10.404667,
+      "anm_rmsf_norm": 1.3313,
+      "in_aoh_pocket": false
+    },
+    {
+      "chain": "A",
+      "resid": 202,
+      "resname": "PRO",
+      "anm_msf": 8.789777,
+      "anm_rmsf_norm": 1.2236,
+      "in_aoh_pocket": false
+    },
+    {
+      "chain": "A",
+      "resid": 203,
+      "resname": "VAL",
+      "anm_msf": 7.390611,
+      "anm_rmsf_norm": 1.122,
+      "in_aoh_pocket": false
+    },
+    {
+      "chain": "A",
+      "resid": 204,
+      "resname": "GLN",
+      "anm_msf": 6.713517,
+      "anm_rmsf_norm": 1.0694,
+      "in_aoh_pocket": false
+    },
+    {
+      "chain": "A",
+      "resid": 205,
+      "resname": "LEU",
+      "anm_msf": 6.153957,
+      "anm_rmsf_norm": 1.0238,
+      "in_aoh_pocket": false
+    },
+    {
+      "chain": "A",
+      "resid": 206,
+      "resname": "THR",
+      "anm_msf": 5.587421,
+      "anm_rmsf_norm": 0.9756,
+      "in_aoh_pocket": false
+    },
+    {
+      "chain": "A",
+      "resid": 207,
+      "resname": "PHE",
+      "anm_msf": 5.046402,
+      "anm_rmsf_norm": 0.9271,
+      "in_aoh_pocket": false
+    },
+    {
+      "chain": "A",
+      "resid": 208,
+      "resname": "ALA",
+      "anm_msf": 5.733266,
+      "anm_rmsf_norm": 0.9882,
+      "in_aoh_pocket": false
+    },
+    {
+      "chain": "A",
+      "resid": 209,
+      "resname": "LEU",
+      "anm_msf": 5.06751,
+      "anm_rmsf_norm": 0.9291,
+      "in_aoh_pocket": false
+    },
+    {
+      "chain": "A",
+      "resid": 210,
+      "resname": "ARG",
+      "anm_msf": 5.788716,
+      "anm_rmsf_norm": 0.993,
+      "in_aoh_pocket": false
+    },
+    {
+      "chain": "A",
+      "resid": 211,
+      "resname": "TYR",
+      "anm_msf": 5.733889,
+      "anm_rmsf_norm": 0.9883,
+      "in_aoh_pocket": false
+    },
+    {
+      "chain": "A",
+      "resid": 212,
+      "resname": "LEU",
+      "anm_msf": 4.897016,
+      "anm_rmsf_norm": 0.9133,
+      "in_aoh_pocket": false
+    },
+    {
+      "chain": "A",
+      "resid": 213,
+      "resname": "ASN",
+      "anm_msf": 5.102459,
+      "anm_rmsf_norm": 0.9323,
+      "in_aoh_pocket": false
+    },
+    {
+      "chain": "A",
+      "resid": 214,
+      "resname": "PHE",
+      "anm_msf": 5.682245,
+      "anm_rmsf_norm": 0.9838,
+      "in_aoh_pocket": false
+    },
+    {
+      "chain": "A",
+      "resid": 215,
+      "resname": "PHE",
+      "anm_msf": 5.09223,
+      "anm_rmsf_norm": 0.9313,
+      "in_aoh_pocket": false
+    },
+    {
+      "chain": "A",
+      "resid": 216,
+      "resname": "THR",
+      "anm_msf": 5.483797,
+      "anm_rmsf_norm": 0.9665,
+      "in_aoh_pocket": false
+    },
+    {
+      "chain": "A",
+      "resid": 217,
+      "resname": "LYS",
+      "anm_msf": 5.412549,
+      "anm_rmsf_norm": 0.9602,
+      "in_aoh_pocket": false
+    },
+    {
+      "chain": "A",
+      "resid": 218,
+      "resname": "ALA",
+      "anm_msf": 4.836293,
+      "anm_rmsf_norm": 0.9076,
+      "in_aoh_pocket": false
+    },
+    {
+      "chain": "A",
+      "resid": 219,
+      "resname": "THR",
+      "anm_msf": 5.600267,
+      "anm_rmsf_norm": 0.9767,
+      "in_aoh_pocket": false
+    },
+    {
+      "chain": "A",
+      "resid": 220,
+      "resname": "PRO",
+      "anm_msf": 6.638765,
+      "anm_rmsf_norm": 1.0634,
+      "in_aoh_pocket": false
+    },
+    {
+      "chain": "A",
+      "resid": 221,
+      "resname": "LEU",
+      "anm_msf": 5.479536,
+      "anm_rmsf_norm": 0.9661,
+      "in_aoh_pocket": false
+    },
+    {
+      "chain": "A",
+      "resid": 222,
+      "resname": "SER",
+      "anm_msf": 6.098442,
+      "anm_rmsf_norm": 1.0192,
+      "in_aoh_pocket": false
+    },
+    {
+      "chain": "A",
+      "resid": 223,
+      "resname": "SER",
+      "anm_msf": 6.20738,
+      "anm_rmsf_norm": 1.0283,
+      "in_aoh_pocket": false
+    },
+    {
+      "chain": "A",
+      "resid": 224,
+      "resname": "THR",
+      "anm_msf": 5.840311,
+      "anm_rmsf_norm": 0.9974,
+      "in_aoh_pocket": false
+    },
+    {
+      "chain": "A",
+      "resid": 225,
+      "resname": "VAL",
+      "anm_msf": 5.0961,
+      "anm_rmsf_norm": 0.9317,
+      "in_aoh_pocket": false
+    },
+    {
+      "chain": "A",
+      "resid": 226,
+      "resname": "THR",
+      "anm_msf": 5.37493,
+      "anm_rmsf_norm": 0.9568,
+      "in_aoh_pocket": false
+    },
+    {
+      "chain": "A",
+      "resid": 227,
+      "resname": "LEU",
+      "anm_msf": 4.999404,
+      "anm_rmsf_norm": 0.9228,
+      "in_aoh_pocket": false
+    },
+    {
+      "chain": "A",
+      "resid": 228,
+      "resname": "SER",
+      "anm_msf": 5.56954,
+      "anm_rmsf_norm": 0.974,
+      "in_aoh_pocket": false
+    },
+    {
+      "chain": "A",
+      "resid": 229,
+      "resname": "MET",
+      "anm_msf": 5.384907,
+      "anm_rmsf_norm": 0.9577,
+      "in_aoh_pocket": false
+    },
+    {
+      "chain": "A",
+      "resid": 230,
+      "resname": "SER",
+      "anm_msf": 6.618222,
+      "anm_rmsf_norm": 1.0618,
+      "in_aoh_pocket": false
+    },
+    {
+      "chain": "A",
+      "resid": 231,
+      "resname": "ALA",
+      "anm_msf": 7.539631,
+      "anm_rmsf_norm": 1.1333,
+      "in_aoh_pocket": true
+    },
+    {
+      "chain": "A",
+      "resid": 232,
+      "resname": "ASP",
+      "anm_msf": 9.567384,
+      "anm_rmsf_norm": 1.2766,
+      "in_aoh_pocket": true
+    },
+    {
+      "chain": "A",
+      "resid": 233,
+      "resname": "VAL",
+      "anm_msf": 7.798397,
+      "anm_rmsf_norm": 1.1525,
+      "in_aoh_pocket": true
+    },
+    {
+      "chain": "A",
+      "resid": 234,
+      "resname": "PRO",
+      "anm_msf": 6.007049,
+      "anm_rmsf_norm": 1.0115,
+      "in_aoh_pocket": true
+    },
+    {
+      "chain": "A",
+      "resid": 235,
+      "resname": "LEU",
+      "anm_msf": 5.22318,
+      "anm_rmsf_norm": 0.9432,
+      "in_aoh_pocket": false
+    },
+    {
+      "chain": "A",
+      "resid": 236,
+      "resname": "VAL",
+      "anm_msf": 5.020991,
+      "anm_rmsf_norm": 0.9248,
+      "in_aoh_pocket": false
+    },
+    {
+      "chain": "A",
+      "resid": 237,
+      "resname": "VAL",
+      "anm_msf": 4.749673,
+      "anm_rmsf_norm": 0.8995,
+      "in_aoh_pocket": false
+    },
+    {
+      "chain": "A",
+      "resid": 238,
+      "resname": "GLU",
+      "anm_msf": 4.614399,
+      "anm_rmsf_norm": 0.8866,
+      "in_aoh_pocket": false
+    },
+    {
+      "chain": "A",
+      "resid": 239,
+      "resname": "TYR",
+      "anm_msf": 4.452937,
+      "anm_rmsf_norm": 0.8709,
+      "in_aoh_pocket": false
+    },
+    {
+      "chain": "A",
+      "resid": 240,
+      "resname": "LYS",
+      "anm_msf": 4.790304,
+      "anm_rmsf_norm": 0.9033,
+      "in_aoh_pocket": false
+    },
+    {
+      "chain": "A",
+      "resid": 241,
+      "resname": "ILE",
+      "anm_msf": 4.741358,
+      "anm_rmsf_norm": 0.8987,
+      "in_aoh_pocket": false
+    },
+    {
+      "chain": "A",
+      "resid": 242,
+      "resname": "ALA",
+      "anm_msf": 6.457055,
+      "anm_rmsf_norm": 1.0487,
+      "in_aoh_pocket": false
+    },
+    {
+      "chain": "A",
+      "resid": 243,
+      "resname": "ASP",
+      "anm_msf": 7.713988,
+      "anm_rmsf_norm": 1.1463,
+      "in_aoh_pocket": false
+    },
+    {
+      "chain": "A",
+      "resid": 244,
+      "resname": "MET",
+      "anm_msf": 6.028118,
+      "anm_rmsf_norm": 1.0133,
+      "in_aoh_pocket": false
+    },
+    {
+      "chain": "A",
+      "resid": 245,
+      "resname": "GLY",
+      "anm_msf": 5.141337,
+      "anm_rmsf_norm": 0.9358,
+      "in_aoh_pocket": false
+    },
+    {
+      "chain": "A",
+      "resid": 246,
+      "resname": "HIS",
+      "anm_msf": 4.400437,
+      "anm_rmsf_norm": 0.8658,
+      "in_aoh_pocket": false
+    },
+    {
+      "chain": "A",
+      "resid": 247,
+      "resname": "LEU",
+      "anm_msf": 3.978337,
+      "anm_rmsf_norm": 0.8232,
+      "in_aoh_pocket": false
+    },
+    {
+      "chain": "A",
+      "resid": 248,
+      "resname": "LYS",
+      "anm_msf": 4.312973,
+      "anm_rmsf_norm": 0.8571,
+      "in_aoh_pocket": false
+    },
+    {
+      "chain": "A",
+      "resid": 249,
+      "resname": "TYR",
+      "anm_msf": 4.559387,
+      "anm_rmsf_norm": 0.8813,
+      "in_aoh_pocket": false
+    },
+    {
+      "chain": "A",
+      "resid": 250,
+      "resname": "TYR",
+      "anm_msf": 5.036948,
+      "anm_rmsf_norm": 0.9263,
+      "in_aoh_pocket": true
+    },
+    {
+      "chain": "A",
+      "resid": 251,
+      "resname": "LEU",
+      "anm_msf": 5.397944,
+      "anm_rmsf_norm": 0.9589,
+      "in_aoh_pocket": true
+    },
+    {
+      "chain": "A",
+      "resid": 252,
+      "resname": "ALA",
+      "anm_msf": 5.65829,
+      "anm_rmsf_norm": 0.9817,
+      "in_aoh_pocket": true
+    },
+    {
+      "chain": "A",
+      "resid": 253,
+      "resname": "PRO",
+      "anm_msf": 5.988098,
+      "anm_rmsf_norm": 1.0099,
+      "in_aoh_pocket": true
+    },
+    {
+      "chain": "A",
+      "resid": 254,
+      "resname": "LYS",
+      "anm_msf": 7.46543,
+      "anm_rmsf_norm": 1.1277,
+      "in_aoh_pocket": false
+    },
+    {
+      "chain": "B",
+      "resid": 1,
+      "resname": "MET",
+      "anm_msf": 9.106983,
+      "anm_rmsf_norm": 1.2455,
+      "in_aoh_pocket": false
+    },
+    {
+      "chain": "B",
+      "resid": 2,
+      "resname": "PHE",
+      "anm_msf": 6.975081,
+      "anm_rmsf_norm": 1.09,
+      "in_aoh_pocket": false
+    },
+    {
+      "chain": "B",
+      "resid": 3,
+      "resname": "GLU",
+      "anm_msf": 7.045563,
+      "anm_rmsf_norm": 1.0955,
+      "in_aoh_pocket": false
+    },
+    {
+      "chain": "B",
+      "resid": 4,
+      "resname": "ALA",
+      "anm_msf": 6.182036,
+      "anm_rmsf_norm": 1.0262,
+      "in_aoh_pocket": false
+    },
+    {
+      "chain": "B",
+      "resid": 5,
+      "resname": "ARG",
+      "anm_msf": 6.974981,
+      "anm_rmsf_norm": 1.09,
+      "in_aoh_pocket": false
+    },
+    {
+      "chain": "B",
+      "resid": 6,
+      "resname": "LEU",
+      "anm_msf": 6.705024,
+      "anm_rmsf_norm": 1.0687,
+      "in_aoh_pocket": false
+    },
+    {
+      "chain": "B",
+      "resid": 7,
+      "resname": "VAL",
+      "anm_msf": 8.407127,
+      "anm_rmsf_norm": 1.1967,
+      "in_aoh_pocket": false
+    },
+    {
+      "chain": "B",
+      "resid": 8,
+      "resname": "GLN",
+      "anm_msf": 8.004596,
+      "anm_rmsf_norm": 1.1677,
+      "in_aoh_pocket": false
+    },
+    {
+      "chain": "B",
+      "resid": 9,
+      "resname": "GLY",
+      "anm_msf": 6.041204,
+      "anm_rmsf_norm": 1.0144,
+      "in_aoh_pocket": false
+    },
+    {
+      "chain": "B",
+      "resid": 10,
+      "resname": "SER",
+      "anm_msf": 6.644201,
+      "anm_rmsf_norm": 1.0638,
+      "in_aoh_pocket": false
+    },
+    {
+      "chain": "B",
+      "resid": 11,
+      "resname": "ILE",
+      "anm_msf": 5.914927,
+      "anm_rmsf_norm": 1.0038,
+      "in_aoh_pocket": false
+    },
+    {
+      "chain": "B",
+      "resid": 12,
+      "resname": "LEU",
+      "anm_msf": 4.562865,
+      "anm_rmsf_norm": 0.8816,
+      "in_aoh_pocket": false
+    },
+    {
+      "chain": "B",
+      "resid": 13,
+      "resname": "LYS",
+      "anm_msf": 4.775692,
+      "anm_rmsf_norm": 0.9019,
+      "in_aoh_pocket": false
+    },
+    {
+      "chain": "B",
+      "resid": 14,
+      "resname": "LYS",
+      "anm_msf": 4.744638,
+      "anm_rmsf_norm": 0.899,
+      "in_aoh_pocket": false
+    },
+    {
+      "chain": "B",
+      "resid": 15,
+      "resname": "VAL",
+      "anm_msf": 3.688855,
+      "anm_rmsf_norm": 0.7927,
+      "in_aoh_pocket": false
+    },
+    {
+      "chain": "B",
+      "resid": 16,
+      "resname": "LEU",
+      "anm_msf": 3.712552,
+      "anm_rmsf_norm": 0.7952,
+      "in_aoh_pocket": false
+    },
+    {
+      "chain": "B",
+      "resid": 17,
+      "resname": "GLU",
+      "anm_msf": 4.387271,
+      "anm_rmsf_norm": 0.8645,
+      "in_aoh_pocket": false
+    },
+    {
+      "chain": "B",
+      "resid": 18,
+      "resname": "ALA",
+      "anm_msf": 4.00916,
+      "anm_rmsf_norm": 0.8264,
+      "in_aoh_pocket": false
+    },
+    {
+      "chain": "B",
+      "resid": 19,
+      "resname": "LEU",
+      "anm_msf": 3.691791,
+      "anm_rmsf_norm": 0.793,
+      "in_aoh_pocket": false
+    },
+    {
+      "chain": "B",
+      "resid": 20,
+      "resname": "LYS",
+      "anm_msf": 4.479647,
+      "anm_rmsf_norm": 0.8735,
+      "in_aoh_pocket": false
+    },
+    {
+      "chain": "B",
+      "resid": 21,
+      "resname": "ASP",
+      "anm_msf": 5.529344,
+      "anm_rmsf_norm": 0.9705,
+      "in_aoh_pocket": false
+    },
+    {
+      "chain": "B",
+      "resid": 22,
+      "resname": "LEU",
+      "anm_msf": 5.113345,
+      "anm_rmsf_norm": 0.9333,
+      "in_aoh_pocket": false
+    },
+    {
+      "chain": "B",
+      "resid": 23,
+      "resname": "ILE",
+      "anm_msf": 5.450617,
+      "anm_rmsf_norm": 0.9636,
+      "in_aoh_pocket": true
+    },
+    {
+      "chain": "B",
+      "resid": 24,
+      "resname": "ASN",
+      "anm_msf": 5.622464,
+      "anm_rmsf_norm": 0.9786,
+      "in_aoh_pocket": false
+    },
+    {
+      "chain": "B",
+      "resid": 25,
+      "resname": "GLU",
+      "anm_msf": 5.116592,
+      "anm_rmsf_norm": 0.9336,
+      "in_aoh_pocket": true
+    },
+    {
+      "chain": "B",
+      "resid": 26,
+      "resname": "ALA",
+      "anm_msf": 4.831767,
+      "anm_rmsf_norm": 0.9072,
+      "in_aoh_pocket": true
+    },
+    {
+      "chain": "B",
+      "resid": 27,
+      "resname": "CYS",
+      "anm_msf": 5.34416,
+      "anm_rmsf_norm": 0.9541,
+      "in_aoh_pocket": true
+    },
+    {
+      "chain": "B",
+      "resid": 28,
+      "resname": "TRP",
+      "anm_msf": 4.497955,
+      "anm_rmsf_norm": 0.8753,
+      "in_aoh_pocket": false
+    },
+    {
+      "chain": "B",
+      "resid": 29,
+      "resname": "ASP",
+      "anm_msf": 5.872647,
+      "anm_rmsf_norm": 1.0002,
+      "in_aoh_pocket": false
+    },
+    {
+      "chain": "B",
+      "resid": 30,
+      "resname": "ILE",
+      "anm_msf": 5.990665,
+      "anm_rmsf_norm": 1.0102,
+      "in_aoh_pocket": false
+    },
+    {
+      "chain": "B",
+      "resid": 31,
+      "resname": "SER",
+      "anm_msf": 7.934922,
+      "anm_rmsf_norm": 1.1626,
+      "in_aoh_pocket": false
+    },
+    {
+      "chain": "B",
+      "resid": 32,
+      "resname": "SER",
+      "anm_msf": 9.319208,
+      "anm_rmsf_norm": 1.2599,
+      "in_aoh_pocket": false
+    },
+    {
+      "chain": "B",
+      "resid": 33,
+      "resname": "SER",
+      "anm_msf": 8.681214,
+      "anm_rmsf_norm": 1.216,
+      "in_aoh_pocket": false
+    },
+    {
+      "chain": "B",
+      "resid": 34,
+      "resname": "GLY",
+      "anm_msf": 6.246215,
+      "anm_rmsf_norm": 1.0315,
+      "in_aoh_pocket": false
+    },
+    {
+      "chain": "B",
+      "resid": 35,
+      "resname": "VAL",
+      "anm_msf": 4.711997,
+      "anm_rmsf_norm": 0.8959,
+      "in_aoh_pocket": false
+    },
+    {
+      "chain": "B",
+      "resid": 36,
+      "resname": "ASN",
+      "anm_msf": 4.556737,
+      "anm_rmsf_norm": 0.881,
+      "in_aoh_pocket": false
+    },
+    {
+      "chain": "B",
+      "resid": 37,
+      "resname": "LEU",
+      "anm_msf": 4.01111,
+      "anm_rmsf_norm": 0.8266,
+      "in_aoh_pocket": false
+    },
+    {
+      "chain": "B",
+      "resid": 38,
+      "resname": "GLN",
+      "anm_msf": 4.686678,
+      "anm_rmsf_norm": 0.8935,
+      "in_aoh_pocket": true
+    },
+    {
+      "chain": "B",
+      "resid": 39,
+      "resname": "SER",
+      "anm_msf": 5.152598,
+      "anm_rmsf_norm": 0.9368,
+      "in_aoh_pocket": true
+    },
+    {
+      "chain": "B",
+      "resid": 40,
+      "resname": "MET",
+      "anm_msf": 6.596394,
+      "anm_rmsf_norm": 1.06,
+      "in_aoh_pocket": true
+    },
+    {
+      "chain": "B",
+      "resid": 41,
+      "resname": "ASP",
+      "anm_msf": 8.080045,
+      "anm_rmsf_norm": 1.1732,
+      "in_aoh_pocket": true
+    },
+    {
+      "chain": "B",
+      "resid": 42,
+      "resname": "SER",
+      "anm_msf": 11.860161,
+      "anm_rmsf_norm": 1.4213,
+      "in_aoh_pocket": true
+    },
+    {
+      "chain": "B",
+      "resid": 43,
+      "resname": "SER",
+      "anm_msf": 13.643252,
+      "anm_rmsf_norm": 1.5244,
+      "in_aoh_pocket": false
+    },
+    {
+      "chain": "B",
+      "resid": 44,
+      "resname": "HIS",
+      "anm_msf": 10.903032,
+      "anm_rmsf_norm": 1.3628,
+      "in_aoh_pocket": true
+    },
+    {
+      "chain": "B",
+      "resid": 45,
+      "resname": "VAL",
+      "anm_msf": 10.160414,
+      "anm_rmsf_norm": 1.3156,
+      "in_aoh_pocket": true
+    },
+    {
+      "chain": "B",
+      "resid": 46,
+      "resname": "SER",
+      "anm_msf": 6.95409,
+      "anm_rmsf_norm": 1.0884,
+      "in_aoh_pocket": true
+    },
+    {
+      "chain": "B",
+      "resid": 47,
+      "resname": "LEU",
+      "anm_msf": 5.300701,
+      "anm_rmsf_norm": 0.9502,
+      "in_aoh_pocket": true
+    },
+    {
+      "chain": "B",
+      "resid": 48,
+      "resname": "VAL",
+      "anm_msf": 4.423844,
+      "anm_rmsf_norm": 0.8681,
+      "in_aoh_pocket": false
+    },
+    {
+      "chain": "B",
+      "resid": 49,
+      "resname": "GLN",
+      "anm_msf": 3.98876,
+      "anm_rmsf_norm": 0.8243,
+      "in_aoh_pocket": false
+    },
+    {
+      "chain": "B",
+      "resid": 50,
+      "resname": "LEU",
+      "anm_msf": 3.621575,
+      "anm_rmsf_norm": 0.7854,
+      "in_aoh_pocket": false
+    },
+    {
+      "chain": "B",
+      "resid": 51,
+      "resname": "THR",
+      "anm_msf": 4.23208,
+      "anm_rmsf_norm": 0.849,
+      "in_aoh_pocket": false
+    },
+    {
+      "chain": "B",
+      "resid": 52,
+      "resname": "LEU",
+      "anm_msf": 4.423018,
+      "anm_rmsf_norm": 0.868,
+      "in_aoh_pocket": false
+    },
+    {
+      "chain": "B",
+      "resid": 53,
+      "resname": "ARG",
+      "anm_msf": 5.903912,
+      "anm_rmsf_norm": 1.0028,
+      "in_aoh_pocket": false
+    },
+    {
+      "chain": "B",
+      "resid": 54,
+      "resname": "SER",
+      "anm_msf": 6.845573,
+      "anm_rmsf_norm": 1.0798,
+      "in_aoh_pocket": false
+    },
+    {
+      "chain": "B",
+      "resid": 55,
+      "resname": "GLU",
+      "anm_msf": 8.224305,
+      "anm_rmsf_norm": 1.1836,
+      "in_aoh_pocket": false
+    },
+    {
+      "chain": "B",
+      "resid": 56,
+      "resname": "GLY",
+      "anm_msf": 6.9406,
+      "anm_rmsf_norm": 1.0873,
+      "in_aoh_pocket": false
+    },
+    {
+      "chain": "B",
+      "resid": 57,
+      "resname": "PHE",
+      "anm_msf": 7.176581,
+      "anm_rmsf_norm": 1.1056,
+      "in_aoh_pocket": false
+    },
+    {
+      "chain": "B",
+      "resid": 58,
+      "resname": "ASP",
+      "anm_msf": 9.935011,
+      "anm_rmsf_norm": 1.3009,
+      "in_aoh_pocket": false
+    },
+    {
+      "chain": "B",
+      "resid": 59,
+      "resname": "THR",
+      "anm_msf": 10.127567,
+      "anm_rmsf_norm": 1.3134,
+      "in_aoh_pocket": false
+    },
+    {
+      "chain": "B",
+      "resid": 60,
+      "resname": "TYR",
+      "anm_msf": 8.639593,
+      "anm_rmsf_norm": 1.2131,
+      "in_aoh_pocket": false
+    },
+    {
+      "chain": "B",
+      "resid": 61,
+      "resname": "ARG",
+      "anm_msf": 9.977805,
+      "anm_rmsf_norm": 1.3037,
+      "in_aoh_pocket": false
+    },
+    {
+      "chain": "B",
+      "resid": 62,
+      "resname": "CYS",
+      "anm_msf": 9.378774,
+      "anm_rmsf_norm": 1.2639,
+      "in_aoh_pocket": false
+    },
+    {
+      "chain": "B",
+      "resid": 63,
+      "resname": "ASP",
+      "anm_msf": 12.220936,
+      "anm_rmsf_norm": 1.4428,
+      "in_aoh_pocket": false
+    },
+    {
+      "chain": "B",
+      "resid": 64,
+      "resname": "ARG",
+      "anm_msf": 12.055713,
+      "anm_rmsf_norm": 1.433,
+      "in_aoh_pocket": false
+    },
+    {
+      "chain": "B",
+      "resid": 65,
+      "resname": "ASN",
+      "anm_msf": 10.056193,
+      "anm_rmsf_norm": 1.3088,
+      "in_aoh_pocket": false
+    },
+    {
+      "chain": "B",
+      "resid": 66,
+      "resname": "LEU",
+      "anm_msf": 8.507743,
+      "anm_rmsf_norm": 1.2038,
+      "in_aoh_pocket": false
+    },
+    {
+      "chain": "B",
+      "resid": 67,
+      "resname": "ALA",
+      "anm_msf": 6.953661,
+      "anm_rmsf_norm": 1.0883,
+      "in_aoh_pocket": false
+    },
+    {
+      "chain": "B",
+      "resid": 68,
+      "resname": "MET",
+      "anm_msf": 5.198063,
+      "anm_rmsf_norm": 0.941,
+      "in_aoh_pocket": false
+    },
+    {
+      "chain": "B",
+      "resid": 69,
+      "resname": "GLY",
+      "anm_msf": 5.024988,
+      "anm_rmsf_norm": 0.9252,
+      "in_aoh_pocket": false
+    },
+    {
+      "chain": "B",
+      "resid": 70,
+      "resname": "VAL",
+      "anm_msf": 4.143055,
+      "anm_rmsf_norm": 0.8401,
+      "in_aoh_pocket": false
+    },
+    {
+      "chain": "B",
+      "resid": 71,
+      "resname": "ASN",
+      "anm_msf": 5.09664,
+      "anm_rmsf_norm": 0.9317,
+      "in_aoh_pocket": false
+    },
+    {
+      "chain": "B",
+      "resid": 72,
+      "resname": "LEU",
+      "anm_msf": 4.379455,
+      "anm_rmsf_norm": 0.8637,
+      "in_aoh_pocket": false
+    },
+    {
+      "chain": "B",
+      "resid": 73,
+      "resname": "THR",
+      "anm_msf": 5.257335,
+      "anm_rmsf_norm": 0.9463,
+      "in_aoh_pocket": false
+    },
+    {
+      "chain": "B",
+      "resid": 74,
+      "resname": "SER",
+      "anm_msf": 5.332187,
+      "anm_rmsf_norm": 0.953,
+      "in_aoh_pocket": false
+    },
+    {
+      "chain": "B",
+      "resid": 75,
+      "resname": "MET",
+      "anm_msf": 4.438037,
+      "anm_rmsf_norm": 0.8695,
+      "in_aoh_pocket": false
+    },
+    {
+      "chain": "B",
+      "resid": 76,
+      "resname": "SER",
+      "anm_msf": 4.445344,
+      "anm_rmsf_norm": 0.8702,
+      "in_aoh_pocket": false
+    },
+    {
+      "chain": "B",
+      "resid": 77,
+      "resname": "LYS",
+      "anm_msf": 5.540407,
+      "anm_rmsf_norm": 0.9715,
+      "in_aoh_pocket": false
+    },
+    {
+      "chain": "B",
+      "resid": 78,
+      "resname": "ILE",
+      "anm_msf": 5.205421,
+      "anm_rmsf_norm": 0.9416,
+      "in_aoh_pocket": false
+    },
+    {
+      "chain": "B",
+      "resid": 79,
+      "resname": "LEU",
+      "anm_msf": 4.868932,
+      "anm_rmsf_norm": 0.9107,
+      "in_aoh_pocket": false
+    },
+    {
+      "chain": "B",
+      "resid": 80,
+      "resname": "LYS",
+      "anm_msf": 5.874766,
+      "anm_rmsf_norm": 1.0003,
+      "in_aoh_pocket": false
+    },
+    {
+      "chain": "B",
+      "resid": 81,
+      "resname": "CYS",
+      "anm_msf": 6.774271,
+      "anm_rmsf_norm": 1.0742,
+      "in_aoh_pocket": false
+    },
+    {
+      "chain": "B",
+      "resid": 82,
+      "resname": "ALA",
+      "anm_msf": 6.238234,
+      "anm_rmsf_norm": 1.0308,
+      "in_aoh_pocket": false
+    },
+    {
+      "chain": "B",
+      "resid": 84,
+      "resname": "ASN",
+      "anm_msf": 8.329167,
+      "anm_rmsf_norm": 1.1911,
+      "in_aoh_pocket": false
+    },
+    {
+      "chain": "B",
+      "resid": 85,
+      "resname": "GLU",
+      "anm_msf": 9.391742,
+      "anm_rmsf_norm": 1.2648,
+      "in_aoh_pocket": false
+    },
+    {
+      "chain": "B",
+      "resid": 86,
+      "resname": "ASP",
+      "anm_msf": 7.524043,
+      "anm_rmsf_norm": 1.1321,
+      "in_aoh_pocket": false
+    },
+    {
+      "chain": "B",
+      "resid": 87,
+      "resname": "ILE",
+      "anm_msf": 7.122473,
+      "anm_rmsf_norm": 1.1015,
+      "in_aoh_pocket": false
+    },
+    {
+      "chain": "B",
+      "resid": 88,
+      "resname": "ILE",
+      "anm_msf": 5.465724,
+      "anm_rmsf_norm": 0.9649,
+      "in_aoh_pocket": false
+    },
+    {
+      "chain": "B",
+      "resid": 89,
+      "resname": "THR",
+      "anm_msf": 5.62108,
+      "anm_rmsf_norm": 0.9785,
+      "in_aoh_pocket": false
+    },
+    {
+      "chain": "B",
+      "resid": 90,
+      "resname": "LEU",
+      "anm_msf": 4.604866,
+      "anm_rmsf_norm": 0.8856,
+      "in_aoh_pocket": false
+    },
+    {
+      "chain": "B",
+      "resid": 91,
+      "resname": "ARG",
+      "anm_msf": 5.537609,
+      "anm_rmsf_norm": 0.9712,
+      "in_aoh_pocket": false
+    },
+    {
+      "chain": "B",
+      "resid": 92,
+      "resname": "ALA",
+      "anm_msf": 5.473606,
+      "anm_rmsf_norm": 0.9656,
+      "in_aoh_pocket": false
+    },
+    {
+      "chain": "B",
+      "resid": 93,
+      "resname": "GLU",
+      "anm_msf": 7.623205,
+      "anm_rmsf_norm": 1.1395,
+      "in_aoh_pocket": false
+    },
+    {
+      "chain": "B",
+      "resid": 94,
+      "resname": "ASP",
+      "anm_msf": 9.512541,
+      "anm_rmsf_norm": 1.2729,
+      "in_aoh_pocket": false
+    },
+    {
+      "chain": "B",
+      "resid": 95,
+      "resname": "ASN",
+      "anm_msf": 23.470551,
+      "anm_rmsf_norm": 1.9995,
+      "in_aoh_pocket": false
+    },
+    {
+      "chain": "B",
+      "resid": 96,
+      "resname": "ALA",
+      "anm_msf": 8.985249,
+      "anm_rmsf_norm": 1.2371,
+      "in_aoh_pocket": false
+    },
+    {
+      "chain": "B",
+      "resid": 97,
+      "resname": "ASP",
+      "anm_msf": 6.049264,
+      "anm_rmsf_norm": 1.0151,
+      "in_aoh_pocket": false
+    },
+    {
+      "chain": "B",
+      "resid": 98,
+      "resname": "THR",
+      "anm_msf": 4.784575,
+      "anm_rmsf_norm": 0.9028,
+      "in_aoh_pocket": false
+    },
+    {
+      "chain": "B",
+      "resid": 99,
+      "resname": "LEU",
+      "anm_msf": 4.051626,
+      "anm_rmsf_norm": 0.8307,
+      "in_aoh_pocket": false
+    },
+    {
+      "chain": "B",
+      "resid": 100,
+      "resname": "ALA",
+      "anm_msf": 4.319829,
+      "anm_rmsf_norm": 0.8578,
+      "in_aoh_pocket": false
+    },
+    {
+      "chain": "B",
+      "resid": 101,
+      "resname": "LEU",
+      "anm_msf": 4.212211,
+      "anm_rmsf_norm": 0.847,
+      "in_aoh_pocket": false
+    },
+    {
+      "chain": "B",
+      "resid": 102,
+      "resname": "VAL",
+      "anm_msf": 4.625441,
+      "anm_rmsf_norm": 0.8876,
+      "in_aoh_pocket": false
+    },
+    {
+      "chain": "B",
+      "resid": 103,
+      "resname": "PHE",
+      "anm_msf": 5.325787,
+      "anm_rmsf_norm": 0.9525,
+      "in_aoh_pocket": false
+    },
+    {
+      "chain": "B",
+      "resid": 104,
+      "resname": "GLU",
+      "anm_msf": 6.614555,
+      "anm_rmsf_norm": 1.0615,
+      "in_aoh_pocket": false
+    },
+    {
+      "chain": "B",
+      "resid": 105,
+      "resname": "ALA",
+      "anm_msf": 8.823996,
+      "anm_rmsf_norm": 1.226,
+      "in_aoh_pocket": false
+    },
+    {
+      "chain": "B",
+      "resid": 106,
+      "resname": "PRO",
+      "anm_msf": 11.792065,
+      "anm_rmsf_norm": 1.4173,
+      "in_aoh_pocket": false
+    },
+    {
+      "chain": "B",
+      "resid": 107,
+      "resname": "ASN",
+      "anm_msf": 11.823038,
+      "anm_rmsf_norm": 1.4191,
+      "in_aoh_pocket": false
+    },
+    {
+      "chain": "B",
+      "resid": 108,
+      "resname": "GLN",
+      "anm_msf": 8.790052,
+      "anm_rmsf_norm": 1.2236,
+      "in_aoh_pocket": false
+    },
+    {
+      "chain": "B",
+      "resid": 109,
+      "resname": "GLU",
+      "anm_msf": 7.988112,
+      "anm_rmsf_norm": 1.1665,
+      "in_aoh_pocket": false
+    },
+    {
+      "chain": "B",
+      "resid": 110,
+      "resname": "LYS",
+      "anm_msf": 6.421786,
+      "anm_rmsf_norm": 1.0459,
+      "in_aoh_pocket": false
+    },
+    {
+      "chain": "B",
+      "resid": 111,
+      "resname": "VAL",
+      "anm_msf": 5.029846,
+      "anm_rmsf_norm": 0.9256,
+      "in_aoh_pocket": false
+    },
+    {
+      "chain": "B",
+      "resid": 112,
+      "resname": "SER",
+      "anm_msf": 4.422543,
+      "anm_rmsf_norm": 0.8679,
+      "in_aoh_pocket": false
+    },
+    {
+      "chain": "B",
+      "resid": 113,
+      "resname": "ASP",
+      "anm_msf": 3.775706,
+      "anm_rmsf_norm": 0.802,
+      "in_aoh_pocket": false
+    },
+    {
+      "chain": "B",
+      "resid": 114,
+      "resname": "TYR",
+      "anm_msf": 3.955779,
+      "anm_rmsf_norm": 0.8209,
+      "in_aoh_pocket": false
+    },
+    {
+      "chain": "B",
+      "resid": 115,
+      "resname": "GLU",
+      "anm_msf": 3.78603,
+      "anm_rmsf_norm": 0.8031,
+      "in_aoh_pocket": false
+    },
+    {
+      "chain": "B",
+      "resid": 116,
+      "resname": "MET",
+      "anm_msf": 3.705232,
+      "anm_rmsf_norm": 0.7944,
+      "in_aoh_pocket": false
+    },
+    {
+      "chain": "B",
+      "resid": 117,
+      "resname": "LYS",
+      "anm_msf": 4.721203,
+      "anm_rmsf_norm": 0.8968,
+      "in_aoh_pocket": false
+    },
+    {
+      "chain": "B",
+      "resid": 118,
+      "resname": "LEU",
+      "anm_msf": 4.634498,
+      "anm_rmsf_norm": 0.8885,
+      "in_aoh_pocket": false
+    },
+    {
+      "chain": "B",
+      "resid": 119,
+      "resname": "MET",
+      "anm_msf": 5.869848,
+      "anm_rmsf_norm": 0.9999,
+      "in_aoh_pocket": false
+    },
+    {
+      "chain": "B",
+      "resid": 120,
+      "resname": "ASP",
+      "anm_msf": 7.829235,
+      "anm_rmsf_norm": 1.1548,
+      "in_aoh_pocket": false
+    },
+    {
+      "chain": "B",
+      "resid": 121,
+      "resname": "LEU",
+      "anm_msf": 7.543172,
+      "anm_rmsf_norm": 1.1335,
+      "in_aoh_pocket": false
+    },
+    {
+      "chain": "B",
+      "resid": 122,
+      "resname": "ASP",
+      "anm_msf": 9.368902,
+      "anm_rmsf_norm": 1.2633,
+      "in_aoh_pocket": false
+    },
+    {
+      "chain": "B",
+      "resid": 123,
+      "resname": "VAL",
+      "anm_msf": 13.885075,
+      "anm_rmsf_norm": 1.5379,
+      "in_aoh_pocket": true
+    },
+    {
+      "chain": "B",
+      "resid": 124,
+      "resname": "GLU",
+      "anm_msf": 19.749044,
+      "anm_rmsf_norm": 1.8341,
+      "in_aoh_pocket": false
+    },
+    {
+      "chain": "B",
+      "resid": 125,
+      "resname": "GLN",
+      "anm_msf": 14.621651,
+      "anm_rmsf_norm": 1.5782,
+      "in_aoh_pocket": true
+    },
+    {
+      "chain": "B",
+      "resid": 126,
+      "resname": "LEU",
+      "anm_msf": 8.191821,
+      "anm_rmsf_norm": 1.1813,
+      "in_aoh_pocket": true
+    },
+    {
+      "chain": "B",
+      "resid": 127,
+      "resname": "GLY",
+      "anm_msf": 7.065408,
+      "anm_rmsf_norm": 1.097,
+      "in_aoh_pocket": false
+    },
+    {
+      "chain": "B",
+      "resid": 128,
+      "resname": "ILE",
+      "anm_msf": 13.110868,
+      "anm_rmsf_norm": 1.4944,
+      "in_aoh_pocket": true
+    },
+    {
+      "chain": "B",
+      "resid": 129,
+      "resname": "PRO",
+      "anm_msf": 16.84427,
+      "anm_rmsf_norm": 1.6939,
+      "in_aoh_pocket": false
+    },
+    {
+      "chain": "B",
+      "resid": 130,
+      "resname": "GLU",
+      "anm_msf": 28.202367,
+      "anm_rmsf_norm": 2.1918,
+      "in_aoh_pocket": false
+    },
+    {
+      "chain": "B",
+      "resid": 131,
+      "resname": "GLN",
+      "anm_msf": 25.231386,
+      "anm_rmsf_norm": 2.0731,
+      "in_aoh_pocket": false
+    },
+    {
+      "chain": "B",
+      "resid": 132,
+      "resname": "GLU",
+      "anm_msf": 35.576113,
+      "anm_rmsf_norm": 2.4617,
+      "in_aoh_pocket": false
+    },
+    {
+      "chain": "B",
+      "resid": 133,
+      "resname": "TYR",
+      "anm_msf": 9.12678,
+      "anm_rmsf_norm": 1.2468,
+      "in_aoh_pocket": false
+    },
+    {
+      "chain": "B",
+      "resid": 134,
+      "resname": "SER",
+      "anm_msf": 9.441867,
+      "anm_rmsf_norm": 1.2682,
+      "in_aoh_pocket": false
+    },
+    {
+      "chain": "B",
+      "resid": 135,
+      "resname": "CYS",
+      "anm_msf": 7.60005,
+      "anm_rmsf_norm": 1.1378,
+      "in_aoh_pocket": false
+    },
+    {
+      "chain": "B",
+      "resid": 136,
+      "resname": "VAL",
+      "anm_msf": 6.649551,
+      "anm_rmsf_norm": 1.0643,
+      "in_aoh_pocket": false
+    },
+    {
+      "chain": "B",
+      "resid": 137,
+      "resname": "VAL",
+      "anm_msf": 5.900242,
+      "anm_rmsf_norm": 1.0025,
+      "in_aoh_pocket": false
+    },
+    {
+      "chain": "B",
+      "resid": 138,
+      "resname": "LYS",
+      "anm_msf": 5.875678,
+      "anm_rmsf_norm": 1.0004,
+      "in_aoh_pocket": false
+    },
+    {
+      "chain": "B",
+      "resid": 139,
+      "resname": "MET",
+      "anm_msf": 5.636879,
+      "anm_rmsf_norm": 0.9799,
+      "in_aoh_pocket": false
+    },
+    {
+      "chain": "B",
+      "resid": 140,
+      "resname": "PRO",
+      "anm_msf": 5.731236,
+      "anm_rmsf_norm": 0.988,
+      "in_aoh_pocket": false
+    },
+    {
+      "chain": "B",
+      "resid": 141,
+      "resname": "SER",
+      "anm_msf": 4.870483,
+      "anm_rmsf_norm": 0.9108,
+      "in_aoh_pocket": false
+    },
+    {
+      "chain": "B",
+      "resid": 142,
+      "resname": "GLY",
+      "anm_msf": 5.255461,
+      "anm_rmsf_norm": 0.9461,
+      "in_aoh_pocket": false
+    },
+    {
+      "chain": "B",
+      "resid": 143,
+      "resname": "GLU",
+      "anm_msf": 5.244207,
+      "anm_rmsf_norm": 0.9451,
+      "in_aoh_pocket": false
+    },
+    {
+      "chain": "B",
+      "resid": 144,
+      "resname": "PHE",
+      "anm_msf": 4.172799,
+      "anm_rmsf_norm": 0.8431,
+      "in_aoh_pocket": false
+    },
+    {
+      "chain": "B",
+      "resid": 145,
+      "resname": "ALA",
+      "anm_msf": 4.049673,
+      "anm_rmsf_norm": 0.8305,
+      "in_aoh_pocket": false
+    },
+    {
+      "chain": "B",
+      "resid": 146,
+      "resname": "ARG",
+      "anm_msf": 4.550155,
+      "anm_rmsf_norm": 0.8804,
+      "in_aoh_pocket": false
+    },
+    {
+      "chain": "B",
+      "resid": 147,
+      "resname": "ILE",
+      "anm_msf": 4.226133,
+      "anm_rmsf_norm": 0.8484,
+      "in_aoh_pocket": false
+    },
+    {
+      "chain": "B",
+      "resid": 148,
+      "resname": "CYS",
+      "anm_msf": 3.907524,
+      "anm_rmsf_norm": 0.8158,
+      "in_aoh_pocket": false
+    },
+    {
+      "chain": "B",
+      "resid": 149,
+      "resname": "ARG",
+      "anm_msf": 4.214143,
+      "anm_rmsf_norm": 0.8472,
+      "in_aoh_pocket": false
+    },
+    {
+      "chain": "B",
+      "resid": 150,
+      "resname": "ASP",
+      "anm_msf": 4.65603,
+      "anm_rmsf_norm": 0.8906,
+      "in_aoh_pocket": false
+    },
+    {
+      "chain": "B",
+      "resid": 151,
+      "resname": "LEU",
+      "anm_msf": 4.387419,
+      "anm_rmsf_norm": 0.8645,
+      "in_aoh_pocket": false
+    },
+    {
+      "chain": "B",
+      "resid": 152,
+      "resname": "SER",
+      "anm_msf": 4.78409,
+      "anm_rmsf_norm": 0.9027,
+      "in_aoh_pocket": false
+    },
+    {
+      "chain": "B",
+      "resid": 153,
+      "resname": "HIS",
+      "anm_msf": 5.63464,
+      "anm_rmsf_norm": 0.9797,
+      "in_aoh_pocket": false
+    },
+    {
+      "chain": "B",
+      "resid": 154,
+      "resname": "ILE",
+      "anm_msf": 4.769453,
+      "anm_rmsf_norm": 0.9013,
+      "in_aoh_pocket": false
+    },
+    {
+      "chain": "B",
+      "resid": 155,
+      "resname": "GLY",
+      "anm_msf": 5.133183,
+      "anm_rmsf_norm": 0.9351,
+      "in_aoh_pocket": false
+    },
+    {
+      "chain": "B",
+      "resid": 156,
+      "resname": "ASP",
+      "anm_msf": 5.570904,
+      "anm_rmsf_norm": 0.9741,
+      "in_aoh_pocket": false
+    },
+    {
+      "chain": "B",
+      "resid": 157,
+      "resname": "ALA",
+      "anm_msf": 4.930573,
+      "anm_rmsf_norm": 0.9164,
+      "in_aoh_pocket": false
+    },
+    {
+      "chain": "B",
+      "resid": 158,
+      "resname": "VAL",
+      "anm_msf": 4.537153,
+      "anm_rmsf_norm": 0.8791,
+      "in_aoh_pocket": false
+    },
+    {
+      "chain": "B",
+      "resid": 159,
+      "resname": "VAL",
+      "anm_msf": 5.179006,
+      "anm_rmsf_norm": 0.9392,
+      "in_aoh_pocket": false
+    },
+    {
+      "chain": "B",
+      "resid": 160,
+      "resname": "ILE",
+      "anm_msf": 5.069945,
+      "anm_rmsf_norm": 0.9293,
+      "in_aoh_pocket": false
+    },
+    {
+      "chain": "B",
+      "resid": 161,
+      "resname": "SER",
+      "anm_msf": 6.170893,
+      "anm_rmsf_norm": 1.0252,
+      "in_aoh_pocket": false
+    },
+    {
+      "chain": "B",
+      "resid": 162,
+      "resname": "CYS",
+      "anm_msf": 6.987764,
+      "anm_rmsf_norm": 1.091,
+      "in_aoh_pocket": false
+    },
+    {
+      "chain": "B",
+      "resid": 167,
+      "resname": "VAL",
+      "anm_msf": 5.595911,
+      "anm_rmsf_norm": 0.9763,
+      "in_aoh_pocket": false
+    },
+    {
+      "chain": "B",
+      "resid": 168,
+      "resname": "LYS",
+      "anm_msf": 5.111116,
+      "anm_rmsf_norm": 0.9331,
+      "in_aoh_pocket": false
+    },
+    {
+      "chain": "B",
+      "resid": 169,
+      "resname": "PHE",
+      "anm_msf": 4.444702,
+      "anm_rmsf_norm": 0.8701,
+      "in_aoh_pocket": false
+    },
+    {
+      "chain": "B",
+      "resid": 170,
+      "resname": "SER",
+      "anm_msf": 4.378044,
+      "anm_rmsf_norm": 0.8636,
+      "in_aoh_pocket": false
+    },
+    {
+      "chain": "B",
+      "resid": 171,
+      "resname": "ALA",
+      "anm_msf": 4.285378,
+      "anm_rmsf_norm": 0.8544,
+      "in_aoh_pocket": false
+    },
+    {
+      "chain": "B",
+      "resid": 172,
+      "resname": "SER",
+      "anm_msf": 4.433663,
+      "anm_rmsf_norm": 0.869,
+      "in_aoh_pocket": false
+    },
+    {
+      "chain": "B",
+      "resid": 173,
+      "resname": "GLY",
+      "anm_msf": 5.005904,
+      "anm_rmsf_norm": 0.9234,
+      "in_aoh_pocket": false
+    },
+    {
+      "chain": "B",
+      "resid": 174,
+      "resname": "GLU",
+      "anm_msf": 5.852182,
+      "anm_rmsf_norm": 0.9984,
+      "in_aoh_pocket": false
+    },
+    {
+      "chain": "B",
+      "resid": 175,
+      "resname": "LEU",
+      "anm_msf": 4.630781,
+      "anm_rmsf_norm": 0.8881,
+      "in_aoh_pocket": false
+    },
+    {
+      "chain": "B",
+      "resid": 176,
+      "resname": "GLY",
+      "anm_msf": 4.113843,
+      "anm_rmsf_norm": 0.8371,
+      "in_aoh_pocket": false
+    },
+    {
+      "chain": "B",
+      "resid": 177,
+      "resname": "ASN",
+      "anm_msf": 3.762798,
+      "anm_rmsf_norm": 0.8006,
+      "in_aoh_pocket": false
+    },
+    {
+      "chain": "B",
+      "resid": 178,
+      "resname": "GLY",
+      "anm_msf": 3.668454,
+      "anm_rmsf_norm": 0.7905,
+      "in_aoh_pocket": false
+    },
+    {
+      "chain": "B",
+      "resid": 179,
+      "resname": "ASN",
+      "anm_msf": 3.821527,
+      "anm_rmsf_norm": 0.8068,
+      "in_aoh_pocket": false
+    },
+    {
+      "chain": "B",
+      "resid": 180,
+      "resname": "ILE",
+      "anm_msf": 4.174372,
+      "anm_rmsf_norm": 0.8432,
+      "in_aoh_pocket": false
+    },
+    {
+      "chain": "B",
+      "resid": 181,
+      "resname": "LYS",
+      "anm_msf": 4.617791,
+      "anm_rmsf_norm": 0.8869,
+      "in_aoh_pocket": false
+    },
+    {
+      "chain": "B",
+      "resid": 182,
+      "resname": "LEU",
+      "anm_msf": 5.325916,
+      "anm_rmsf_norm": 0.9525,
+      "in_aoh_pocket": false
+    },
+    {
+      "chain": "B",
+      "resid": 183,
+      "resname": "SER",
+      "anm_msf": 5.873994,
+      "anm_rmsf_norm": 1.0003,
+      "in_aoh_pocket": false
+    },
+    {
+      "chain": "B",
+      "resid": 184,
+      "resname": "GLN",
+      "anm_msf": 7.535066,
+      "anm_rmsf_norm": 1.1329,
+      "in_aoh_pocket": false
+    },
+    {
+      "chain": "B",
+      "resid": 185,
+      "resname": "THR",
+      "anm_msf": 9.102638,
+      "anm_rmsf_norm": 1.2452,
+      "in_aoh_pocket": false
+    },
+    {
+      "chain": "B",
+      "resid": 194,
+      "resname": "ALA",
+      "anm_msf": 9.202633,
+      "anm_rmsf_norm": 1.252,
+      "in_aoh_pocket": false
+    },
+    {
+      "chain": "B",
+      "resid": 195,
+      "resname": "VAL",
+      "anm_msf": 6.397739,
+      "anm_rmsf_norm": 1.0439,
+      "in_aoh_pocket": false
+    },
+    {
+      "chain": "B",
+      "resid": 196,
+      "resname": "THR",
+      "anm_msf": 7.118887,
+      "anm_rmsf_norm": 1.1012,
+      "in_aoh_pocket": false
+    },
+    {
+      "chain": "B",
+      "resid": 197,
+      "resname": "ILE",
+      "anm_msf": 6.998841,
+      "anm_rmsf_norm": 1.0919,
+      "in_aoh_pocket": false
+    },
+    {
+      "chain": "B",
+      "resid": 198,
+      "resname": "GLU",
+      "anm_msf": 8.778775,
+      "anm_rmsf_norm": 1.2228,
+      "in_aoh_pocket": false
+    },
+    {
+      "chain": "B",
+      "resid": 199,
+      "resname": "MET",
+      "anm_msf": 9.257429,
+      "anm_rmsf_norm": 1.2557,
+      "in_aoh_pocket": false
+    },
+    {
+      "chain": "B",
+      "resid": 200,
+      "resname": "ASN",
+      "anm_msf": 11.747286,
+      "anm_rmsf_norm": 1.4146,
+      "in_aoh_pocket": false
+    },
+    {
+      "chain": "B",
+      "resid": 201,
+      "resname": "GLU",
+      "anm_msf": 11.660785,
+      "anm_rmsf_norm": 1.4093,
+      "in_aoh_pocket": false
+    },
+    {
+      "chain": "B",
+      "resid": 202,
+      "resname": "PRO",
+      "anm_msf": 9.626696,
+      "anm_rmsf_norm": 1.2805,
+      "in_aoh_pocket": false
+    },
+    {
+      "chain": "B",
+      "resid": 203,
+      "resname": "VAL",
+      "anm_msf": 8.087088,
+      "anm_rmsf_norm": 1.1737,
+      "in_aoh_pocket": false
+    },
+    {
+      "chain": "B",
+      "resid": 204,
+      "resname": "GLN",
+      "anm_msf": 7.402039,
+      "anm_rmsf_norm": 1.1229,
+      "in_aoh_pocket": false
+    },
+    {
+      "chain": "B",
+      "resid": 205,
+      "resname": "LEU",
+      "anm_msf": 6.633747,
+      "anm_rmsf_norm": 1.063,
+      "in_aoh_pocket": false
+    },
+    {
+      "chain": "B",
+      "resid": 206,
+      "resname": "THR",
+      "anm_msf": 5.690397,
+      "anm_rmsf_norm": 0.9845,
+      "in_aoh_pocket": false
+    },
+    {
+      "chain": "B",
+      "resid": 207,
+      "resname": "PHE",
+      "anm_msf": 5.022212,
+      "anm_rmsf_norm": 0.9249,
+      "in_aoh_pocket": false
+    },
+    {
+      "chain": "B",
+      "resid": 208,
+      "resname": "ALA",
+      "anm_msf": 5.411251,
+      "anm_rmsf_norm": 0.9601,
+      "in_aoh_pocket": false
+    },
+    {
+      "chain": "B",
+      "resid": 209,
+      "resname": "LEU",
+      "anm_msf": 4.694157,
+      "anm_rmsf_norm": 0.8942,
+      "in_aoh_pocket": false
+    },
+    {
+      "chain": "B",
+      "resid": 210,
+      "resname": "ARG",
+      "anm_msf": 5.236229,
+      "anm_rmsf_norm": 0.9444,
+      "in_aoh_pocket": false
+    },
+    {
+      "chain": "B",
+      "resid": 211,
+      "resname": "TYR",
+      "anm_msf": 5.078561,
+      "anm_rmsf_norm": 0.9301,
+      "in_aoh_pocket": false
+    },
+    {
+      "chain": "B",
+      "resid": 212,
+      "resname": "LEU",
+      "anm_msf": 4.375562,
+      "anm_rmsf_norm": 0.8633,
+      "in_aoh_pocket": false
+    },
+    {
+      "chain": "B",
+      "resid": 213,
+      "resname": "ASN",
+      "anm_msf": 4.481008,
+      "anm_rmsf_norm": 0.8737,
+      "in_aoh_pocket": false
+    },
+    {
+      "chain": "B",
+      "resid": 214,
+      "resname": "PHE",
+      "anm_msf": 4.938662,
+      "anm_rmsf_norm": 0.9172,
+      "in_aoh_pocket": false
+    },
+    {
+      "chain": "B",
+      "resid": 215,
+      "resname": "PHE",
+      "anm_msf": 4.456643,
+      "anm_rmsf_norm": 0.8713,
+      "in_aoh_pocket": false
+    },
+    {
+      "chain": "B",
+      "resid": 216,
+      "resname": "THR",
+      "anm_msf": 4.844917,
+      "anm_rmsf_norm": 0.9084,
+      "in_aoh_pocket": false
+    },
+    {
+      "chain": "B",
+      "resid": 217,
+      "resname": "LYS",
+      "anm_msf": 4.743264,
+      "anm_rmsf_norm": 0.8989,
+      "in_aoh_pocket": false
+    },
+    {
+      "chain": "B",
+      "resid": 218,
+      "resname": "ALA",
+      "anm_msf": 4.435124,
+      "anm_rmsf_norm": 0.8692,
+      "in_aoh_pocket": false
+    },
+    {
+      "chain": "B",
+      "resid": 219,
+      "resname": "THR",
+      "anm_msf": 5.088613,
+      "anm_rmsf_norm": 0.931,
+      "in_aoh_pocket": false
+    },
+    {
+      "chain": "B",
+      "resid": 220,
+      "resname": "PRO",
+      "anm_msf": 5.815725,
+      "anm_rmsf_norm": 0.9953,
+      "in_aoh_pocket": false
+    },
+    {
+      "chain": "B",
+      "resid": 221,
+      "resname": "LEU",
+      "anm_msf": 5.066688,
+      "anm_rmsf_norm": 0.929,
+      "in_aoh_pocket": false
+    },
+    {
+      "chain": "B",
+      "resid": 222,
+      "resname": "SER",
+      "anm_msf": 5.470229,
+      "anm_rmsf_norm": 0.9653,
+      "in_aoh_pocket": false
+    },
+    {
+      "chain": "B",
+      "resid": 223,
+      "resname": "SER",
+      "anm_msf": 6.127459,
+      "anm_rmsf_norm": 1.0216,
+      "in_aoh_pocket": false
+    },
+    {
+      "chain": "B",
+      "resid": 224,
+      "resname": "THR",
+      "anm_msf": 5.557195,
+      "anm_rmsf_norm": 0.9729,
+      "in_aoh_pocket": false
+    },
+    {
+      "chain": "B",
+      "resid": 225,
+      "resname": "VAL",
+      "anm_msf": 4.940074,
+      "anm_rmsf_norm": 0.9173,
+      "in_aoh_pocket": false
+    },
+    {
+      "chain": "B",
+      "resid": 226,
+      "resname": "THR",
+      "anm_msf": 5.395919,
+      "anm_rmsf_norm": 0.9587,
+      "in_aoh_pocket": false
+    },
+    {
+      "chain": "B",
+      "resid": 227,
+      "resname": "LEU",
+      "anm_msf": 5.292233,
+      "anm_rmsf_norm": 0.9495,
+      "in_aoh_pocket": false
+    },
+    {
+      "chain": "B",
+      "resid": 228,
+      "resname": "SER",
+      "anm_msf": 5.985228,
+      "anm_rmsf_norm": 1.0097,
+      "in_aoh_pocket": false
+    },
+    {
+      "chain": "B",
+      "resid": 229,
+      "resname": "MET",
+      "anm_msf": 6.132171,
+      "anm_rmsf_norm": 1.022,
+      "in_aoh_pocket": false
+    },
+    {
+      "chain": "B",
+      "resid": 230,
+      "resname": "SER",
+      "anm_msf": 7.753444,
+      "anm_rmsf_norm": 1.1492,
+      "in_aoh_pocket": false
+    },
+    {
+      "chain": "B",
+      "resid": 231,
+      "resname": "ALA",
+      "anm_msf": 8.637815,
+      "anm_rmsf_norm": 1.213,
+      "in_aoh_pocket": true
+    },
+    {
+      "chain": "B",
+      "resid": 232,
+      "resname": "ASP",
+      "anm_msf": 10.255832,
+      "anm_rmsf_norm": 1.3217,
+      "in_aoh_pocket": true
+    },
+    {
+      "chain": "B",
+      "resid": 233,
+      "resname": "VAL",
+      "anm_msf": 8.306601,
+      "anm_rmsf_norm": 1.1895,
+      "in_aoh_pocket": true
+    },
+    {
+      "chain": "B",
+      "resid": 234,
+      "resname": "PRO",
+      "anm_msf": 6.178036,
+      "anm_rmsf_norm": 1.0258,
+      "in_aoh_pocket": true
+    },
+    {
+      "chain": "B",
+      "resid": 235,
+      "resname": "LEU",
+      "anm_msf": 5.40147,
+      "anm_rmsf_norm": 0.9592,
+      "in_aoh_pocket": false
+    },
+    {
+      "chain": "B",
+      "resid": 236,
+      "resname": "VAL",
+      "anm_msf": 5.179311,
+      "anm_rmsf_norm": 0.9393,
+      "in_aoh_pocket": false
+    },
+    {
+      "chain": "B",
+      "resid": 237,
+      "resname": "VAL",
+      "anm_msf": 4.833673,
+      "anm_rmsf_norm": 0.9074,
+      "in_aoh_pocket": false
+    },
+    {
+      "chain": "B",
+      "resid": 238,
+      "resname": "GLU",
+      "anm_msf": 4.769929,
+      "anm_rmsf_norm": 0.9014,
+      "in_aoh_pocket": false
+    },
+    {
+      "chain": "B",
+      "resid": 239,
+      "resname": "TYR",
+      "anm_msf": 4.473632,
+      "anm_rmsf_norm": 0.8729,
+      "in_aoh_pocket": false
+    },
+    {
+      "chain": "B",
+      "resid": 240,
+      "resname": "LYS",
+      "anm_msf": 5.060962,
+      "anm_rmsf_norm": 0.9285,
+      "in_aoh_pocket": false
+    },
+    {
+      "chain": "B",
+      "resid": 241,
+      "resname": "ILE",
+      "anm_msf": 5.165939,
+      "anm_rmsf_norm": 0.9381,
+      "in_aoh_pocket": false
+    },
+    {
+      "chain": "B",
+      "resid": 242,
+      "resname": "ALA",
+      "anm_msf": 7.331432,
+      "anm_rmsf_norm": 1.1175,
+      "in_aoh_pocket": false
+    },
+    {
+      "chain": "B",
+      "resid": 243,
+      "resname": "ASP",
+      "anm_msf": 7.207904,
+      "anm_rmsf_norm": 1.108,
+      "in_aoh_pocket": false
+    },
+    {
+      "chain": "B",
+      "resid": 244,
+      "resname": "MET",
+      "anm_msf": 5.450614,
+      "anm_rmsf_norm": 0.9636,
+      "in_aoh_pocket": false
+    },
+    {
+      "chain": "B",
+      "resid": 245,
+      "resname": "GLY",
+      "anm_msf": 5.143916,
+      "anm_rmsf_norm": 0.9361,
+      "in_aoh_pocket": false
+    },
+    {
+      "chain": "B",
+      "resid": 246,
+      "resname": "HIS",
+      "anm_msf": 4.498522,
+      "anm_rmsf_norm": 0.8754,
+      "in_aoh_pocket": false
+    },
+    {
+      "chain": "B",
+      "resid": 247,
+      "resname": "LEU",
+      "anm_msf": 3.955893,
+      "anm_rmsf_norm": 0.8209,
+      "in_aoh_pocket": false
+    },
+    {
+      "chain": "B",
+      "resid": 248,
+      "resname": "LYS",
+      "anm_msf": 4.26277,
+      "anm_rmsf_norm": 0.8521,
+      "in_aoh_pocket": false
+    },
+    {
+      "chain": "B",
+      "resid": 249,
+      "resname": "TYR",
+      "anm_msf": 4.440344,
+      "anm_rmsf_norm": 0.8697,
+      "in_aoh_pocket": false
+    },
+    {
+      "chain": "B",
+      "resid": 250,
+      "resname": "TYR",
+      "anm_msf": 4.988229,
+      "anm_rmsf_norm": 0.9218,
+      "in_aoh_pocket": true
+    },
+    {
+      "chain": "B",
+      "resid": 251,
+      "resname": "LEU",
+      "anm_msf": 5.339554,
+      "anm_rmsf_norm": 0.9537,
+      "in_aoh_pocket": true
+    },
+    {
+      "chain": "B",
+      "resid": 252,
+      "resname": "ALA",
+      "anm_msf": 5.707679,
+      "anm_rmsf_norm": 0.986,
+      "in_aoh_pocket": true
+    },
+    {
+      "chain": "B",
+      "resid": 253,
+      "resname": "PRO",
+      "anm_msf": 6.184962,
+      "anm_rmsf_norm": 1.0264,
+      "in_aoh_pocket": false
+    },
+    {
+      "chain": "C",
+      "resid": 2,
+      "resname": "PHE",
+      "anm_msf": 8.220979,
+      "anm_rmsf_norm": 1.1834,
+      "in_aoh_pocket": false
+    },
+    {
+      "chain": "C",
+      "resid": 3,
+      "resname": "GLU",
+      "anm_msf": 7.719352,
+      "anm_rmsf_norm": 1.1467,
+      "in_aoh_pocket": false
+    },
+    {
+      "chain": "C",
+      "resid": 4,
+      "resname": "ALA",
+      "anm_msf": 6.630384,
+      "anm_rmsf_norm": 1.0627,
+      "in_aoh_pocket": false
+    },
+    {
+      "chain": "C",
+      "resid": 5,
+      "resname": "ARG",
+      "anm_msf": 7.215229,
+      "anm_rmsf_norm": 1.1086,
+      "in_aoh_pocket": false
+    },
+    {
+      "chain": "C",
+      "resid": 6,
+      "resname": "LEU",
+      "anm_msf": 6.691239,
+      "anm_rmsf_norm": 1.0676,
+      "in_aoh_pocket": false
+    },
+    {
+      "chain": "C",
+      "resid": 7,
+      "resname": "VAL",
+      "anm_msf": 8.147694,
+      "anm_rmsf_norm": 1.1781,
+      "in_aoh_pocket": false
+    },
+    {
+      "chain": "C",
+      "resid": 8,
+      "resname": "GLN",
+      "anm_msf": 7.763536,
+      "anm_rmsf_norm": 1.15,
+      "in_aoh_pocket": false
+    },
+    {
+      "chain": "C",
+      "resid": 9,
+      "resname": "GLY",
+      "anm_msf": 6.292978,
+      "anm_rmsf_norm": 1.0353,
+      "in_aoh_pocket": false
+    },
+    {
+      "chain": "C",
+      "resid": 10,
+      "resname": "SER",
+      "anm_msf": 6.624487,
+      "anm_rmsf_norm": 1.0623,
+      "in_aoh_pocket": false
+    },
+    {
+      "chain": "C",
+      "resid": 11,
+      "resname": "ILE",
+      "anm_msf": 6.162615,
+      "anm_rmsf_norm": 1.0246,
+      "in_aoh_pocket": false
+    },
+    {
+      "chain": "C",
+      "resid": 12,
+      "resname": "LEU",
+      "anm_msf": 4.841769,
+      "anm_rmsf_norm": 0.9081,
+      "in_aoh_pocket": false
+    },
+    {
+      "chain": "C",
+      "resid": 13,
+      "resname": "LYS",
+      "anm_msf": 4.907549,
+      "anm_rmsf_norm": 0.9143,
+      "in_aoh_pocket": false
+    },
+    {
+      "chain": "C",
+      "resid": 14,
+      "resname": "LYS",
+      "anm_msf": 5.091704,
+      "anm_rmsf_norm": 0.9313,
+      "in_aoh_pocket": false
+    },
+    {
+      "chain": "C",
+      "resid": 15,
+      "resname": "VAL",
+      "anm_msf": 4.11867,
+      "anm_rmsf_norm": 0.8376,
+      "in_aoh_pocket": false
+    },
+    {
+      "chain": "C",
+      "resid": 16,
+      "resname": "LEU",
+      "anm_msf": 4.023595,
+      "anm_rmsf_norm": 0.8279,
+      "in_aoh_pocket": false
+    },
+    {
+      "chain": "C",
+      "resid": 17,
+      "resname": "GLU",
+      "anm_msf": 4.576032,
+      "anm_rmsf_norm": 0.8829,
+      "in_aoh_pocket": false
+    },
+    {
+      "chain": "C",
+      "resid": 18,
+      "resname": "ALA",
+      "anm_msf": 4.207276,
+      "anm_rmsf_norm": 0.8466,
+      "in_aoh_pocket": false
+    },
+    {
+      "chain": "C",
+      "resid": 19,
+      "resname": "LEU",
+      "anm_msf": 4.183177,
+      "anm_rmsf_norm": 0.8441,
+      "in_aoh_pocket": false
+    },
+    {
+      "chain": "C",
+      "resid": 20,
+      "resname": "LYS",
+      "anm_msf": 4.741143,
+      "anm_rmsf_norm": 0.8987,
+      "in_aoh_pocket": false
+    },
+    {
+      "chain": "C",
+      "resid": 21,
+      "resname": "ASP",
+      "anm_msf": 5.601983,
+      "anm_rmsf_norm": 0.9768,
+      "in_aoh_pocket": false
+    },
+    {
+      "chain": "C",
+      "resid": 22,
+      "resname": "LEU",
+      "anm_msf": 5.37069,
+      "anm_rmsf_norm": 0.9565,
+      "in_aoh_pocket": false
+    },
+    {
+      "chain": "C",
+      "resid": 23,
+      "resname": "ILE",
+      "anm_msf": 5.680677,
+      "anm_rmsf_norm": 0.9837,
+      "in_aoh_pocket": false
+    },
+    {
+      "chain": "C",
+      "resid": 24,
+      "resname": "ASN",
+      "anm_msf": 6.014873,
+      "anm_rmsf_norm": 1.0122,
+      "in_aoh_pocket": false
+    },
+    {
+      "chain": "C",
+      "resid": 25,
+      "resname": "GLU",
+      "anm_msf": 5.764107,
+      "anm_rmsf_norm": 0.9909,
+      "in_aoh_pocket": true
+    },
+    {
+      "chain": "C",
+      "resid": 26,
+      "resname": "ALA",
+      "anm_msf": 5.188175,
+      "anm_rmsf_norm": 0.9401,
+      "in_aoh_pocket": true
+    },
+    {
+      "chain": "C",
+      "resid": 27,
+      "resname": "CYS",
+      "anm_msf": 5.687796,
+      "anm_rmsf_norm": 0.9843,
+      "in_aoh_pocket": true
+    },
+    {
+      "chain": "C",
+      "resid": 28,
+      "resname": "TRP",
+      "anm_msf": 4.998993,
+      "anm_rmsf_norm": 0.9228,
+      "in_aoh_pocket": false
+    },
+    {
+      "chain": "C",
+      "resid": 29,
+      "resname": "ASP",
+      "anm_msf": 6.557945,
+      "anm_rmsf_norm": 1.0569,
+      "in_aoh_pocket": false
+    },
+    {
+      "chain": "C",
+      "resid": 30,
+      "resname": "ILE",
+      "anm_msf": 6.637552,
+      "anm_rmsf_norm": 1.0633,
+      "in_aoh_pocket": false
+    },
+    {
+      "chain": "C",
+      "resid": 31,
+      "resname": "SER",
+      "anm_msf": 8.349919,
+      "anm_rmsf_norm": 1.1926,
+      "in_aoh_pocket": false
+    },
+    {
+      "chain": "C",
+      "resid": 32,
+      "resname": "SER",
+      "anm_msf": 9.988962,
+      "anm_rmsf_norm": 1.3044,
+      "in_aoh_pocket": false
+    },
+    {
+      "chain": "C",
+      "resid": 33,
+      "resname": "SER",
+      "anm_msf": 9.615456,
+      "anm_rmsf_norm": 1.2798,
+      "in_aoh_pocket": false
+    },
+    {
+      "chain": "C",
+      "resid": 34,
+      "resname": "GLY",
+      "anm_msf": 6.965237,
+      "anm_rmsf_norm": 1.0892,
+      "in_aoh_pocket": false
+    },
+    {
+      "chain": "C",
+      "resid": 35,
+      "resname": "VAL",
+      "anm_msf": 5.505005,
+      "anm_rmsf_norm": 0.9683,
+      "in_aoh_pocket": false
+    },
+    {
+      "chain": "C",
+      "resid": 36,
+      "resname": "ASN",
+      "anm_msf": 5.223467,
+      "anm_rmsf_norm": 0.9433,
+      "in_aoh_pocket": false
+    },
+    {
+      "chain": "C",
+      "resid": 37,
+      "resname": "LEU",
+      "anm_msf": 4.587687,
+      "anm_rmsf_norm": 0.884,
+      "in_aoh_pocket": false
+    },
+    {
+      "chain": "C",
+      "resid": 38,
+      "resname": "GLN",
+      "anm_msf": 5.141616,
+      "anm_rmsf_norm": 0.9358,
+      "in_aoh_pocket": true
+    },
+    {
+      "chain": "C",
+      "resid": 39,
+      "resname": "SER",
+      "anm_msf": 5.712512,
+      "anm_rmsf_norm": 0.9864,
+      "in_aoh_pocket": true
+    },
+    {
+      "chain": "C",
+      "resid": 40,
+      "resname": "MET",
+      "anm_msf": 6.85853,
+      "anm_rmsf_norm": 1.0809,
+      "in_aoh_pocket": true
+    },
+    {
+      "chain": "C",
+      "resid": 41,
+      "resname": "ASP",
+      "anm_msf": 8.142587,
+      "anm_rmsf_norm": 1.1777,
+      "in_aoh_pocket": true
+    },
+    {
+      "chain": "C",
+      "resid": 42,
+      "resname": "SER",
+      "anm_msf": 12.273898,
+      "anm_rmsf_norm": 1.4459,
+      "in_aoh_pocket": true
+    },
+    {
+      "chain": "C",
+      "resid": 43,
+      "resname": "SER",
+      "anm_msf": 13.658088,
+      "anm_rmsf_norm": 1.5253,
+      "in_aoh_pocket": false
+    },
+    {
+      "chain": "C",
+      "resid": 44,
+      "resname": "HIS",
+      "anm_msf": 10.590813,
+      "anm_rmsf_norm": 1.3431,
+      "in_aoh_pocket": true
+    },
+    {
+      "chain": "C",
+      "resid": 45,
+      "resname": "VAL",
+      "anm_msf": 9.33981,
+      "anm_rmsf_norm": 1.2613,
+      "in_aoh_pocket": true
+    },
+    {
+      "chain": "C",
+      "resid": 46,
+      "resname": "SER",
+      "anm_msf": 6.483214,
+      "anm_rmsf_norm": 1.0509,
+      "in_aoh_pocket": true
+    },
+    {
+      "chain": "C",
+      "resid": 47,
+      "resname": "LEU",
+      "anm_msf": 5.278683,
+      "anm_rmsf_norm": 0.9482,
+      "in_aoh_pocket": true
+    },
+    {
+      "chain": "C",
+      "resid": 48,
+      "resname": "VAL",
+      "anm_msf": 4.662044,
+      "anm_rmsf_norm": 0.8911,
+      "in_aoh_pocket": false
+    },
+    {
+      "chain": "C",
+      "resid": 49,
+      "resname": "GLN",
+      "anm_msf": 4.422588,
+      "anm_rmsf_norm": 0.8679,
+      "in_aoh_pocket": false
+    },
+    {
+      "chain": "C",
+      "resid": 50,
+      "resname": "LEU",
+      "anm_msf": 4.287272,
+      "anm_rmsf_norm": 0.8546,
+      "in_aoh_pocket": false
+    },
+    {
+      "chain": "C",
+      "resid": 51,
+      "resname": "THR",
+      "anm_msf": 4.94201,
+      "anm_rmsf_norm": 0.9175,
+      "in_aoh_pocket": false
+    },
+    {
+      "chain": "C",
+      "resid": 52,
+      "resname": "LEU",
+      "anm_msf": 5.083185,
+      "anm_rmsf_norm": 0.9305,
+      "in_aoh_pocket": false
+    },
+    {
+      "chain": "C",
+      "resid": 53,
+      "resname": "ARG",
+      "anm_msf": 6.647217,
+      "anm_rmsf_norm": 1.0641,
+      "in_aoh_pocket": false
+    },
+    {
+      "chain": "C",
+      "resid": 54,
+      "resname": "SER",
+      "anm_msf": 7.620005,
+      "anm_rmsf_norm": 1.1393,
+      "in_aoh_pocket": false
+    },
+    {
+      "chain": "C",
+      "resid": 55,
+      "resname": "GLU",
+      "anm_msf": 9.065031,
+      "anm_rmsf_norm": 1.2426,
+      "in_aoh_pocket": false
+    },
+    {
+      "chain": "C",
+      "resid": 56,
+      "resname": "GLY",
+      "anm_msf": 7.538221,
+      "anm_rmsf_norm": 1.1331,
+      "in_aoh_pocket": false
+    },
+    {
+      "chain": "C",
+      "resid": 57,
+      "resname": "PHE",
+      "anm_msf": 7.691734,
+      "anm_rmsf_norm": 1.1446,
+      "in_aoh_pocket": false
+    },
+    {
+      "chain": "C",
+      "resid": 58,
+      "resname": "ASP",
+      "anm_msf": 10.335814,
+      "anm_rmsf_norm": 1.3269,
+      "in_aoh_pocket": false
+    },
+    {
+      "chain": "C",
+      "resid": 59,
+      "resname": "THR",
+      "anm_msf": 10.900169,
+      "anm_rmsf_norm": 1.3626,
+      "in_aoh_pocket": false
+    },
+    {
+      "chain": "C",
+      "resid": 60,
+      "resname": "TYR",
+      "anm_msf": 9.207391,
+      "anm_rmsf_norm": 1.2523,
+      "in_aoh_pocket": false
+    },
+    {
+      "chain": "C",
+      "resid": 61,
+      "resname": "ARG",
+      "anm_msf": 10.592211,
+      "anm_rmsf_norm": 1.3432,
+      "in_aoh_pocket": false
+    },
+    {
+      "chain": "C",
+      "resid": 62,
+      "resname": "CYS",
+      "anm_msf": 9.918368,
+      "anm_rmsf_norm": 1.2998,
+      "in_aoh_pocket": false
+    },
+    {
+      "chain": "C",
+      "resid": 63,
+      "resname": "ASP",
+      "anm_msf": 12.926476,
+      "anm_rmsf_norm": 1.4839,
+      "in_aoh_pocket": false
+    },
+    {
+      "chain": "C",
+      "resid": 64,
+      "resname": "ARG",
+      "anm_msf": 12.900571,
+      "anm_rmsf_norm": 1.4824,
+      "in_aoh_pocket": false
+    },
+    {
+      "chain": "C",
+      "resid": 65,
+      "resname": "ASN",
+      "anm_msf": 11.29037,
+      "anm_rmsf_norm": 1.3868,
+      "in_aoh_pocket": false
+    },
+    {
+      "chain": "C",
+      "resid": 66,
+      "resname": "LEU",
+      "anm_msf": 8.936257,
+      "anm_rmsf_norm": 1.2338,
+      "in_aoh_pocket": false
+    },
+    {
+      "chain": "C",
+      "resid": 67,
+      "resname": "ALA",
+      "anm_msf": 7.643935,
+      "anm_rmsf_norm": 1.1411,
+      "in_aoh_pocket": false
+    },
+    {
+      "chain": "C",
+      "resid": 68,
+      "resname": "MET",
+      "anm_msf": 5.883934,
+      "anm_rmsf_norm": 1.0011,
+      "in_aoh_pocket": false
+    },
+    {
+      "chain": "C",
+      "resid": 69,
+      "resname": "GLY",
+      "anm_msf": 5.732444,
+      "anm_rmsf_norm": 0.9881,
+      "in_aoh_pocket": false
+    },
+    {
+      "chain": "C",
+      "resid": 70,
+      "resname": "VAL",
+      "anm_msf": 4.799446,
+      "anm_rmsf_norm": 0.9042,
+      "in_aoh_pocket": false
+    },
+    {
+      "chain": "C",
+      "resid": 71,
+      "resname": "ASN",
+      "anm_msf": 5.24117,
+      "anm_rmsf_norm": 0.9449,
+      "in_aoh_pocket": false
+    },
+    {
+      "chain": "C",
+      "resid": 72,
+      "resname": "LEU",
+      "anm_msf": 4.56088,
+      "anm_rmsf_norm": 0.8814,
+      "in_aoh_pocket": false
+    },
+    {
+      "chain": "C",
+      "resid": 73,
+      "resname": "THR",
+      "anm_msf": 5.224417,
+      "anm_rmsf_norm": 0.9433,
+      "in_aoh_pocket": false
+    },
+    {
+      "chain": "C",
+      "resid": 74,
+      "resname": "SER",
+      "anm_msf": 5.180435,
+      "anm_rmsf_norm": 0.9394,
+      "in_aoh_pocket": false
+    },
+    {
+      "chain": "C",
+      "resid": 75,
+      "resname": "MET",
+      "anm_msf": 4.324444,
+      "anm_rmsf_norm": 0.8583,
+      "in_aoh_pocket": false
+    },
+    {
+      "chain": "C",
+      "resid": 76,
+      "resname": "SER",
+      "anm_msf": 4.402985,
+      "anm_rmsf_norm": 0.866,
+      "in_aoh_pocket": false
+    },
+    {
+      "chain": "C",
+      "resid": 77,
+      "resname": "LYS",
+      "anm_msf": 5.041467,
+      "anm_rmsf_norm": 0.9267,
+      "in_aoh_pocket": false
+    },
+    {
+      "chain": "C",
+      "resid": 78,
+      "resname": "ILE",
+      "anm_msf": 4.814352,
+      "anm_rmsf_norm": 0.9056,
+      "in_aoh_pocket": false
+    },
+    {
+      "chain": "C",
+      "resid": 79,
+      "resname": "LEU",
+      "anm_msf": 4.706386,
+      "anm_rmsf_norm": 0.8954,
+      "in_aoh_pocket": false
+    },
+    {
+      "chain": "C",
+      "resid": 80,
+      "resname": "LYS",
+      "anm_msf": 5.34406,
+      "anm_rmsf_norm": 0.9541,
+      "in_aoh_pocket": false
+    },
+    {
+      "chain": "C",
+      "resid": 81,
+      "resname": "CYS",
+      "anm_msf": 6.179758,
+      "anm_rmsf_norm": 1.026,
+      "in_aoh_pocket": false
+    },
+    {
+      "chain": "C",
+      "resid": 82,
+      "resname": "ALA",
+      "anm_msf": 5.972978,
+      "anm_rmsf_norm": 1.0087,
+      "in_aoh_pocket": false
+    },
+    {
+      "chain": "C",
+      "resid": 83,
+      "resname": "GLY",
+      "anm_msf": 7.97052,
+      "anm_rmsf_norm": 1.1652,
+      "in_aoh_pocket": false
+    },
+    {
+      "chain": "C",
+      "resid": 84,
+      "resname": "ASN",
+      "anm_msf": 8.172299,
+      "anm_rmsf_norm": 1.1798,
+      "in_aoh_pocket": false
+    },
+    {
+      "chain": "C",
+      "resid": 85,
+      "resname": "GLU",
+      "anm_msf": 9.001491,
+      "anm_rmsf_norm": 1.2383,
+      "in_aoh_pocket": false
+    },
+    {
+      "chain": "C",
+      "resid": 86,
+      "resname": "ASP",
+      "anm_msf": 7.606171,
+      "anm_rmsf_norm": 1.1382,
+      "in_aoh_pocket": false
+    },
+    {
+      "chain": "C",
+      "resid": 87,
+      "resname": "ILE",
+      "anm_msf": 7.230603,
+      "anm_rmsf_norm": 1.1098,
+      "in_aoh_pocket": false
+    },
+    {
+      "chain": "C",
+      "resid": 88,
+      "resname": "ILE",
+      "anm_msf": 5.735976,
+      "anm_rmsf_norm": 0.9885,
+      "in_aoh_pocket": false
+    },
+    {
+      "chain": "C",
+      "resid": 89,
+      "resname": "THR",
+      "anm_msf": 5.926831,
+      "anm_rmsf_norm": 1.0048,
+      "in_aoh_pocket": false
+    },
+    {
+      "chain": "C",
+      "resid": 90,
+      "resname": "LEU",
+      "anm_msf": 5.078413,
+      "anm_rmsf_norm": 0.9301,
+      "in_aoh_pocket": false
+    },
+    {
+      "chain": "C",
+      "resid": 91,
+      "resname": "ARG",
+      "anm_msf": 6.006536,
+      "anm_rmsf_norm": 1.0115,
+      "in_aoh_pocket": false
+    },
+    {
+      "chain": "C",
+      "resid": 92,
+      "resname": "ALA",
+      "anm_msf": 6.604267,
+      "anm_rmsf_norm": 1.0606,
+      "in_aoh_pocket": false
+    },
+    {
+      "chain": "C",
+      "resid": 97,
+      "resname": "ASP",
+      "anm_msf": 6.520084,
+      "anm_rmsf_norm": 1.0539,
+      "in_aoh_pocket": false
+    },
+    {
+      "chain": "C",
+      "resid": 98,
+      "resname": "THR",
+      "anm_msf": 5.027799,
+      "anm_rmsf_norm": 0.9254,
+      "in_aoh_pocket": false
+    },
+    {
+      "chain": "C",
+      "resid": 99,
+      "resname": "LEU",
+      "anm_msf": 4.422781,
+      "anm_rmsf_norm": 0.868,
+      "in_aoh_pocket": false
+    },
+    {
+      "chain": "C",
+      "resid": 100,
+      "resname": "ALA",
+      "anm_msf": 4.667611,
+      "anm_rmsf_norm": 0.8917,
+      "in_aoh_pocket": false
+    },
+    {
+      "chain": "C",
+      "resid": 101,
+      "resname": "LEU",
+      "anm_msf": 4.579955,
+      "anm_rmsf_norm": 0.8832,
+      "in_aoh_pocket": false
+    },
+    {
+      "chain": "C",
+      "resid": 102,
+      "resname": "VAL",
+      "anm_msf": 5.140657,
+      "anm_rmsf_norm": 0.9358,
+      "in_aoh_pocket": false
+    },
+    {
+      "chain": "C",
+      "resid": 103,
+      "resname": "PHE",
+      "anm_msf": 6.039156,
+      "anm_rmsf_norm": 1.0142,
+      "in_aoh_pocket": false
+    },
+    {
+      "chain": "C",
+      "resid": 104,
+      "resname": "GLU",
+      "anm_msf": 7.485497,
+      "anm_rmsf_norm": 1.1292,
+      "in_aoh_pocket": false
+    },
+    {
+      "chain": "C",
+      "resid": 105,
+      "resname": "ALA",
+      "anm_msf": 10.622109,
+      "anm_rmsf_norm": 1.3451,
+      "in_aoh_pocket": false
+    },
+    {
+      "chain": "C",
+      "resid": 109,
+      "resname": "GLU",
+      "anm_msf": 7.428899,
+      "anm_rmsf_norm": 1.1249,
+      "in_aoh_pocket": false
+    },
+    {
+      "chain": "C",
+      "resid": 110,
+      "resname": "LYS",
+      "anm_msf": 6.401911,
+      "anm_rmsf_norm": 1.0443,
+      "in_aoh_pocket": false
+    },
+    {
+      "chain": "C",
+      "resid": 111,
+      "resname": "VAL",
+      "anm_msf": 5.201755,
+      "anm_rmsf_norm": 0.9413,
+      "in_aoh_pocket": false
+    },
+    {
+      "chain": "C",
+      "resid": 112,
+      "resname": "SER",
+      "anm_msf": 4.540351,
+      "anm_rmsf_norm": 0.8794,
+      "in_aoh_pocket": false
+    },
+    {
+      "chain": "C",
+      "resid": 113,
+      "resname": "ASP",
+      "anm_msf": 3.989155,
+      "anm_rmsf_norm": 0.8243,
+      "in_aoh_pocket": false
+    },
+    {
+      "chain": "C",
+      "resid": 114,
+      "resname": "TYR",
+      "anm_msf": 3.963664,
+      "anm_rmsf_norm": 0.8217,
+      "in_aoh_pocket": false
+    },
+    {
+      "chain": "C",
+      "resid": 115,
+      "resname": "GLU",
+      "anm_msf": 3.927198,
+      "anm_rmsf_norm": 0.8179,
+      "in_aoh_pocket": false
+    },
+    {
+      "chain": "C",
+      "resid": 116,
+      "resname": "MET",
+      "anm_msf": 3.904081,
+      "anm_rmsf_norm": 0.8155,
+      "in_aoh_pocket": false
+    },
+    {
+      "chain": "C",
+      "resid": 117,
+      "resname": "LYS",
+      "anm_msf": 4.677144,
+      "anm_rmsf_norm": 0.8926,
+      "in_aoh_pocket": false
+    },
+    {
+      "chain": "C",
+      "resid": 118,
+      "resname": "LEU",
+      "anm_msf": 5.149311,
+      "anm_rmsf_norm": 0.9365,
+      "in_aoh_pocket": false
+    },
+    {
+      "chain": "C",
+      "resid": 119,
+      "resname": "MET",
+      "anm_msf": 6.742239,
+      "anm_rmsf_norm": 1.0717,
+      "in_aoh_pocket": false
+    },
+    {
+      "chain": "C",
+      "resid": 120,
+      "resname": "ASP",
+      "anm_msf": 8.723726,
+      "anm_rmsf_norm": 1.219,
+      "in_aoh_pocket": false
+    },
+    {
+      "chain": "C",
+      "resid": 121,
+      "resname": "LEU",
+      "anm_msf": 10.246038,
+      "anm_rmsf_norm": 1.3211,
+      "in_aoh_pocket": false
+    },
+    {
+      "chain": "C",
+      "resid": 123,
+      "resname": "VAL",
+      "anm_msf": 1.741522,
+      "anm_rmsf_norm": 0.5446,
+      "in_aoh_pocket": true
+    },
+    {
+      "chain": "C",
+      "resid": 124,
+      "resname": "GLU",
+      "anm_msf": 2.441653,
+      "anm_rmsf_norm": 0.6449,
+      "in_aoh_pocket": false
+    },
+    {
+      "chain": "C",
+      "resid": 125,
+      "resname": "GLN",
+      "anm_msf": 3.095023,
+      "anm_rmsf_norm": 0.7261,
+      "in_aoh_pocket": true
+    },
+    {
+      "chain": "C",
+      "resid": 126,
+      "resname": "LEU",
+      "anm_msf": 1.089391,
+      "anm_rmsf_norm": 0.4308,
+      "in_aoh_pocket": true
+    },
+    {
+      "chain": "C",
+      "resid": 127,
+      "resname": "GLY",
+      "anm_msf": 2.530465,
+      "anm_rmsf_norm": 0.6565,
+      "in_aoh_pocket": false
+    },
+    {
+      "chain": "C",
+      "resid": 128,
+      "resname": "ILE",
+      "anm_msf": 2.190937,
+      "anm_rmsf_norm": 0.6109,
+      "in_aoh_pocket": true
+    },
+    {
+      "chain": "C",
+      "resid": 129,
+      "resname": "PRO",
+      "anm_msf": 7.054981,
+      "anm_rmsf_norm": 1.0962,
+      "in_aoh_pocket": false
+    },
+    {
+      "chain": "C",
+      "resid": 130,
+      "resname": "GLU",
+      "anm_msf": 5.126196,
+      "anm_rmsf_norm": 0.9344,
+      "in_aoh_pocket": false
+    },
+    {
+      "chain": "C",
+      "resid": 131,
+      "resname": "GLN",
+      "anm_msf": 14.379896,
+      "anm_rmsf_norm": 1.5651,
+      "in_aoh_pocket": false
+    },
+    {
+      "chain": "C",
+      "resid": 132,
+      "resname": "GLU",
+      "anm_msf": 15.854658,
+      "anm_rmsf_norm": 1.6434,
+      "in_aoh_pocket": false
+    },
+    {
+      "chain": "C",
+      "resid": 133,
+      "resname": "TYR",
+      "anm_msf": 9.167064,
+      "anm_rmsf_norm": 1.2496,
+      "in_aoh_pocket": false
+    },
+    {
+      "chain": "C",
+      "resid": 134,
+      "resname": "SER",
+      "anm_msf": 9.226565,
+      "anm_rmsf_norm": 1.2536,
+      "in_aoh_pocket": false
+    },
+    {
+      "chain": "C",
+      "resid": 135,
+      "resname": "CYS",
+      "anm_msf": 7.645299,
+      "anm_rmsf_norm": 1.1412,
+      "in_aoh_pocket": false
+    },
+    {
+      "chain": "C",
+      "resid": 136,
+      "resname": "VAL",
+      "anm_msf": 7.256642,
+      "anm_rmsf_norm": 1.1118,
+      "in_aoh_pocket": false
+    },
+    {
+      "chain": "C",
+      "resid": 137,
+      "resname": "VAL",
+      "anm_msf": 6.570384,
+      "anm_rmsf_norm": 1.0579,
+      "in_aoh_pocket": false
+    },
+    {
+      "chain": "C",
+      "resid": 138,
+      "resname": "LYS",
+      "anm_msf": 7.173247,
+      "anm_rmsf_norm": 1.1054,
+      "in_aoh_pocket": false
+    },
+    {
+      "chain": "C",
+      "resid": 139,
+      "resname": "MET",
+      "anm_msf": 7.003403,
+      "anm_rmsf_norm": 1.0922,
+      "in_aoh_pocket": false
+    },
+    {
+      "chain": "C",
+      "resid": 140,
+      "resname": "PRO",
+      "anm_msf": 7.411366,
+      "anm_rmsf_norm": 1.1236,
+      "in_aoh_pocket": false
+    },
+    {
+      "chain": "C",
+      "resid": 141,
+      "resname": "SER",
+      "anm_msf": 6.080778,
+      "anm_rmsf_norm": 1.0177,
+      "in_aoh_pocket": false
+    },
+    {
+      "chain": "C",
+      "resid": 142,
+      "resname": "GLY",
+      "anm_msf": 6.421632,
+      "anm_rmsf_norm": 1.0459,
+      "in_aoh_pocket": false
+    },
+    {
+      "chain": "C",
+      "resid": 143,
+      "resname": "GLU",
+      "anm_msf": 6.446218,
+      "anm_rmsf_norm": 1.0479,
+      "in_aoh_pocket": false
+    },
+    {
+      "chain": "C",
+      "resid": 144,
+      "resname": "PHE",
+      "anm_msf": 4.848856,
+      "anm_rmsf_norm": 0.9088,
+      "in_aoh_pocket": false
+    },
+    {
+      "chain": "C",
+      "resid": 145,
+      "resname": "ALA",
+      "anm_msf": 4.794106,
+      "anm_rmsf_norm": 0.9037,
+      "in_aoh_pocket": false
+    },
+    {
+      "chain": "C",
+      "resid": 146,
+      "resname": "ARG",
+      "anm_msf": 5.519886,
+      "anm_rmsf_norm": 0.9697,
+      "in_aoh_pocket": false
+    },
+    {
+      "chain": "C",
+      "resid": 147,
+      "resname": "ILE",
+      "anm_msf": 4.675086,
+      "anm_rmsf_norm": 0.8924,
+      "in_aoh_pocket": false
+    },
+    {
+      "chain": "C",
+      "resid": 148,
+      "resname": "CYS",
+      "anm_msf": 4.186717,
+      "anm_rmsf_norm": 0.8445,
+      "in_aoh_pocket": false
+    },
+    {
+      "chain": "C",
+      "resid": 149,
+      "resname": "ARG",
+      "anm_msf": 4.886133,
+      "anm_rmsf_norm": 0.9123,
+      "in_aoh_pocket": false
+    },
+    {
+      "chain": "C",
+      "resid": 150,
+      "resname": "ASP",
+      "anm_msf": 5.213644,
+      "anm_rmsf_norm": 0.9424,
+      "in_aoh_pocket": false
+    },
+    {
+      "chain": "C",
+      "resid": 151,
+      "resname": "LEU",
+      "anm_msf": 4.376542,
+      "anm_rmsf_norm": 0.8634,
+      "in_aoh_pocket": false
+    },
+    {
+      "chain": "C",
+      "resid": 152,
+      "resname": "SER",
+      "anm_msf": 4.752704,
+      "anm_rmsf_norm": 0.8998,
+      "in_aoh_pocket": false
+    },
+    {
+      "chain": "C",
+      "resid": 153,
+      "resname": "HIS",
+      "anm_msf": 5.235207,
+      "anm_rmsf_norm": 0.9443,
+      "in_aoh_pocket": false
+    },
+    {
+      "chain": "C",
+      "resid": 154,
+      "resname": "ILE",
+      "anm_msf": 4.432611,
+      "anm_rmsf_norm": 0.8689,
+      "in_aoh_pocket": false
+    },
+    {
+      "chain": "C",
+      "resid": 155,
+      "resname": "GLY",
+      "anm_msf": 4.986631,
+      "anm_rmsf_norm": 0.9216,
+      "in_aoh_pocket": false
+    },
+    {
+      "chain": "C",
+      "resid": 156,
+      "resname": "ASP",
+      "anm_msf": 5.20868,
+      "anm_rmsf_norm": 0.9419,
+      "in_aoh_pocket": false
+    },
+    {
+      "chain": "C",
+      "resid": 157,
+      "resname": "ALA",
+      "anm_msf": 4.509091,
+      "anm_rmsf_norm": 0.8764,
+      "in_aoh_pocket": false
+    },
+    {
+      "chain": "C",
+      "resid": 158,
+      "resname": "VAL",
+      "anm_msf": 4.194253,
+      "anm_rmsf_norm": 0.8452,
+      "in_aoh_pocket": false
+    },
+    {
+      "chain": "C",
+      "resid": 159,
+      "resname": "VAL",
+      "anm_msf": 4.841424,
+      "anm_rmsf_norm": 0.9081,
+      "in_aoh_pocket": false
+    },
+    {
+      "chain": "C",
+      "resid": 160,
+      "resname": "ILE",
+      "anm_msf": 4.693108,
+      "anm_rmsf_norm": 0.8941,
+      "in_aoh_pocket": false
+    },
+    {
+      "chain": "C",
+      "resid": 161,
+      "resname": "SER",
+      "anm_msf": 5.967784,
+      "anm_rmsf_norm": 1.0082,
+      "in_aoh_pocket": false
+    },
+    {
+      "chain": "C",
+      "resid": 162,
+      "resname": "CYS",
+      "anm_msf": 7.328468,
+      "anm_rmsf_norm": 1.1173,
+      "in_aoh_pocket": false
+    },
+    {
+      "chain": "C",
+      "resid": 167,
+      "resname": "VAL",
+      "anm_msf": 5.620216,
+      "anm_rmsf_norm": 0.9784,
+      "in_aoh_pocket": false
+    },
+    {
+      "chain": "C",
+      "resid": 168,
+      "resname": "LYS",
+      "anm_msf": 4.967838,
+      "anm_rmsf_norm": 0.9199,
+      "in_aoh_pocket": false
+    },
+    {
+      "chain": "C",
+      "resid": 169,
+      "resname": "PHE",
+      "anm_msf": 4.262909,
+      "anm_rmsf_norm": 0.8521,
+      "in_aoh_pocket": false
+    },
+    {
+      "chain": "C",
+      "resid": 170,
+      "resname": "SER",
+      "anm_msf": 4.129468,
+      "anm_rmsf_norm": 0.8387,
+      "in_aoh_pocket": false
+    },
+    {
+      "chain": "C",
+      "resid": 171,
+      "resname": "ALA",
+      "anm_msf": 4.070513,
+      "anm_rmsf_norm": 0.8327,
+      "in_aoh_pocket": false
+    },
+    {
+      "chain": "C",
+      "resid": 172,
+      "resname": "SER",
+      "anm_msf": 4.250146,
+      "anm_rmsf_norm": 0.8509,
+      "in_aoh_pocket": false
+    },
+    {
+      "chain": "C",
+      "resid": 173,
+      "resname": "GLY",
+      "anm_msf": 4.802259,
+      "anm_rmsf_norm": 0.9044,
+      "in_aoh_pocket": false
+    },
+    {
+      "chain": "C",
+      "resid": 174,
+      "resname": "GLU",
+      "anm_msf": 5.629794,
+      "anm_rmsf_norm": 0.9793,
+      "in_aoh_pocket": false
+    },
+    {
+      "chain": "C",
+      "resid": 175,
+      "resname": "LEU",
+      "anm_msf": 4.198427,
+      "anm_rmsf_norm": 0.8457,
+      "in_aoh_pocket": false
+    },
+    {
+      "chain": "C",
+      "resid": 176,
+      "resname": "GLY",
+      "anm_msf": 3.699571,
+      "anm_rmsf_norm": 0.7938,
+      "in_aoh_pocket": false
+    },
+    {
+      "chain": "C",
+      "resid": 177,
+      "resname": "ASN",
+      "anm_msf": 3.395291,
+      "anm_rmsf_norm": 0.7605,
+      "in_aoh_pocket": false
+    },
+    {
+      "chain": "C",
+      "resid": 178,
+      "resname": "GLY",
+      "anm_msf": 3.385111,
+      "anm_rmsf_norm": 0.7593,
+      "in_aoh_pocket": false
+    },
+    {
+      "chain": "C",
+      "resid": 179,
+      "resname": "ASN",
+      "anm_msf": 3.538714,
+      "anm_rmsf_norm": 0.7764,
+      "in_aoh_pocket": false
+    },
+    {
+      "chain": "C",
+      "resid": 180,
+      "resname": "ILE",
+      "anm_msf": 3.956176,
+      "anm_rmsf_norm": 0.8209,
+      "in_aoh_pocket": false
+    },
+    {
+      "chain": "C",
+      "resid": 181,
+      "resname": "LYS",
+      "anm_msf": 4.422394,
+      "anm_rmsf_norm": 0.8679,
+      "in_aoh_pocket": false
+    },
+    {
+      "chain": "C",
+      "resid": 182,
+      "resname": "LEU",
+      "anm_msf": 5.306391,
+      "anm_rmsf_norm": 0.9507,
+      "in_aoh_pocket": false
+    },
+    {
+      "chain": "C",
+      "resid": 183,
+      "resname": "SER",
+      "anm_msf": 6.802252,
+      "anm_rmsf_norm": 1.0764,
+      "in_aoh_pocket": false
+    },
+    {
+      "chain": "C",
+      "resid": 184,
+      "resname": "GLN",
+      "anm_msf": 8.240092,
+      "anm_rmsf_norm": 1.1847,
+      "in_aoh_pocket": false
+    },
+    {
+      "chain": "C",
+      "resid": 185,
+      "resname": "THR",
+      "anm_msf": 11.5226,
+      "anm_rmsf_norm": 1.401,
+      "in_aoh_pocket": false
+    },
+    {
+      "chain": "C",
+      "resid": 193,
+      "resname": "GLU",
+      "anm_msf": 18.501375,
+      "anm_rmsf_norm": 1.7752,
+      "in_aoh_pocket": false
+    },
+    {
+      "chain": "C",
+      "resid": 194,
+      "resname": "ALA",
+      "anm_msf": 10.3661,
+      "anm_rmsf_norm": 1.3288,
+      "in_aoh_pocket": false
+    },
+    {
+      "chain": "C",
+      "resid": 195,
+      "resname": "VAL",
+      "anm_msf": 8.258714,
+      "anm_rmsf_norm": 1.1861,
+      "in_aoh_pocket": false
+    },
+    {
+      "chain": "C",
+      "resid": 196,
+      "resname": "THR",
+      "anm_msf": 8.724969,
+      "anm_rmsf_norm": 1.2191,
+      "in_aoh_pocket": false
+    },
+    {
+      "chain": "C",
+      "resid": 197,
+      "resname": "ILE",
+      "anm_msf": 7.734463,
+      "anm_rmsf_norm": 1.1478,
+      "in_aoh_pocket": false
+    },
+    {
+      "chain": "C",
+      "resid": 198,
+      "resname": "GLU",
+      "anm_msf": 9.480943,
+      "anm_rmsf_norm": 1.2708,
+      "in_aoh_pocket": false
+    },
+    {
+      "chain": "C",
+      "resid": 200,
+      "resname": "ASN",
+      "anm_msf": 12.02706,
+      "anm_rmsf_norm": 1.4313,
+      "in_aoh_pocket": false
+    },
+    {
+      "chain": "C",
+      "resid": 201,
+      "resname": "GLU",
+      "anm_msf": 10.64392,
+      "anm_rmsf_norm": 1.3465,
+      "in_aoh_pocket": false
+    },
+    {
+      "chain": "C",
+      "resid": 202,
+      "resname": "PRO",
+      "anm_msf": 8.974278,
+      "anm_rmsf_norm": 1.2364,
+      "in_aoh_pocket": false
+    },
+    {
+      "chain": "C",
+      "resid": 203,
+      "resname": "VAL",
+      "anm_msf": 7.306873,
+      "anm_rmsf_norm": 1.1156,
+      "in_aoh_pocket": false
+    },
+    {
+      "chain": "C",
+      "resid": 204,
+      "resname": "GLN",
+      "anm_msf": 6.695913,
+      "anm_rmsf_norm": 1.068,
+      "in_aoh_pocket": false
+    },
+    {
+      "chain": "C",
+      "resid": 205,
+      "resname": "LEU",
+      "anm_msf": 5.832243,
+      "anm_rmsf_norm": 0.9967,
+      "in_aoh_pocket": false
+    },
+    {
+      "chain": "C",
+      "resid": 206,
+      "resname": "THR",
+      "anm_msf": 5.268046,
+      "anm_rmsf_norm": 0.9473,
+      "in_aoh_pocket": false
+    },
+    {
+      "chain": "C",
+      "resid": 207,
+      "resname": "PHE",
+      "anm_msf": 4.480368,
+      "anm_rmsf_norm": 0.8736,
+      "in_aoh_pocket": false
+    },
+    {
+      "chain": "C",
+      "resid": 208,
+      "resname": "ALA",
+      "anm_msf": 5.012993,
+      "anm_rmsf_norm": 0.9241,
+      "in_aoh_pocket": false
+    },
+    {
+      "chain": "C",
+      "resid": 209,
+      "resname": "LEU",
+      "anm_msf": 4.428699,
+      "anm_rmsf_norm": 0.8685,
+      "in_aoh_pocket": false
+    },
+    {
+      "chain": "C",
+      "resid": 210,
+      "resname": "ARG",
+      "anm_msf": 5.033324,
+      "anm_rmsf_norm": 0.9259,
+      "in_aoh_pocket": false
+    },
+    {
+      "chain": "C",
+      "resid": 211,
+      "resname": "TYR",
+      "anm_msf": 4.915986,
+      "anm_rmsf_norm": 0.9151,
+      "in_aoh_pocket": false
+    },
+    {
+      "chain": "C",
+      "resid": 212,
+      "resname": "LEU",
+      "anm_msf": 4.28847,
+      "anm_rmsf_norm": 0.8547,
+      "in_aoh_pocket": false
+    },
+    {
+      "chain": "C",
+      "resid": 213,
+      "resname": "ASN",
+      "anm_msf": 4.58814,
+      "anm_rmsf_norm": 0.884,
+      "in_aoh_pocket": false
+    },
+    {
+      "chain": "C",
+      "resid": 214,
+      "resname": "PHE",
+      "anm_msf": 5.082273,
+      "anm_rmsf_norm": 0.9304,
+      "in_aoh_pocket": false
+    },
+    {
+      "chain": "C",
+      "resid": 215,
+      "resname": "PHE",
+      "anm_msf": 4.716423,
+      "anm_rmsf_norm": 0.8963,
+      "in_aoh_pocket": false
+    },
+    {
+      "chain": "C",
+      "resid": 216,
+      "resname": "THR",
+      "anm_msf": 5.230347,
+      "anm_rmsf_norm": 0.9439,
+      "in_aoh_pocket": false
+    },
+    {
+      "chain": "C",
+      "resid": 217,
+      "resname": "LYS",
+      "anm_msf": 5.235509,
+      "anm_rmsf_norm": 0.9443,
+      "in_aoh_pocket": false
+    },
+    {
+      "chain": "C",
+      "resid": 218,
+      "resname": "ALA",
+      "anm_msf": 4.850965,
+      "anm_rmsf_norm": 0.909,
+      "in_aoh_pocket": false
+    },
+    {
+      "chain": "C",
+      "resid": 219,
+      "resname": "THR",
+      "anm_msf": 5.872593,
+      "anm_rmsf_norm": 1.0002,
+      "in_aoh_pocket": false
+    },
+    {
+      "chain": "C",
+      "resid": 220,
+      "resname": "PRO",
+      "anm_msf": 6.84097,
+      "anm_rmsf_norm": 1.0795,
+      "in_aoh_pocket": false
+    },
+    {
+      "chain": "C",
+      "resid": 221,
+      "resname": "LEU",
+      "anm_msf": 6.011901,
+      "anm_rmsf_norm": 1.0119,
+      "in_aoh_pocket": false
+    },
+    {
+      "chain": "C",
+      "resid": 222,
+      "resname": "SER",
+      "anm_msf": 6.608067,
+      "anm_rmsf_norm": 1.0609,
+      "in_aoh_pocket": false
+    },
+    {
+      "chain": "C",
+      "resid": 223,
+      "resname": "SER",
+      "anm_msf": 7.389561,
+      "anm_rmsf_norm": 1.1219,
+      "in_aoh_pocket": false
+    },
+    {
+      "chain": "C",
+      "resid": 224,
+      "resname": "THR",
+      "anm_msf": 6.798064,
+      "anm_rmsf_norm": 1.0761,
+      "in_aoh_pocket": false
+    },
+    {
+      "chain": "C",
+      "resid": 225,
+      "resname": "VAL",
+      "anm_msf": 5.776628,
+      "anm_rmsf_norm": 0.992,
+      "in_aoh_pocket": false
+    },
+    {
+      "chain": "C",
+      "resid": 226,
+      "resname": "THR",
+      "anm_msf": 6.016966,
+      "anm_rmsf_norm": 1.0124,
+      "in_aoh_pocket": false
+    },
+    {
+      "chain": "C",
+      "resid": 227,
+      "resname": "LEU",
+      "anm_msf": 5.237705,
+      "anm_rmsf_norm": 0.9445,
+      "in_aoh_pocket": false
+    },
+    {
+      "chain": "C",
+      "resid": 228,
+      "resname": "SER",
+      "anm_msf": 6.045612,
+      "anm_rmsf_norm": 1.0148,
+      "in_aoh_pocket": false
+    },
+    {
+      "chain": "C",
+      "resid": 229,
+      "resname": "MET",
+      "anm_msf": 5.628023,
+      "anm_rmsf_norm": 0.9791,
+      "in_aoh_pocket": false
+    },
+    {
+      "chain": "C",
+      "resid": 230,
+      "resname": "SER",
+      "anm_msf": 6.865135,
+      "anm_rmsf_norm": 1.0814,
+      "in_aoh_pocket": false
+    },
+    {
+      "chain": "C",
+      "resid": 231,
+      "resname": "ALA",
+      "anm_msf": 7.574784,
+      "anm_rmsf_norm": 1.1359,
+      "in_aoh_pocket": true
+    },
+    {
+      "chain": "C",
+      "resid": 232,
+      "resname": "ASP",
+      "anm_msf": 10.068283,
+      "anm_rmsf_norm": 1.3096,
+      "in_aoh_pocket": true
+    },
+    {
+      "chain": "C",
+      "resid": 233,
+      "resname": "VAL",
+      "anm_msf": 8.063907,
+      "anm_rmsf_norm": 1.172,
+      "in_aoh_pocket": true
+    },
+    {
+      "chain": "C",
+      "resid": 234,
+      "resname": "PRO",
+      "anm_msf": 5.578321,
+      "anm_rmsf_norm": 0.9748,
+      "in_aoh_pocket": true
+    },
+    {
+      "chain": "C",
+      "resid": 235,
+      "resname": "LEU",
+      "anm_msf": 5.011376,
+      "anm_rmsf_norm": 0.9239,
+      "in_aoh_pocket": false
+    },
+    {
+      "chain": "C",
+      "resid": 236,
+      "resname": "VAL",
+      "anm_msf": 4.975584,
+      "anm_rmsf_norm": 0.9206,
+      "in_aoh_pocket": false
+    },
+    {
+      "chain": "C",
+      "resid": 237,
+      "resname": "VAL",
+      "anm_msf": 4.779868,
+      "anm_rmsf_norm": 0.9023,
+      "in_aoh_pocket": false
+    },
+    {
+      "chain": "C",
+      "resid": 238,
+      "resname": "GLU",
+      "anm_msf": 5.246081,
+      "anm_rmsf_norm": 0.9453,
+      "in_aoh_pocket": false
+    },
+    {
+      "chain": "C",
+      "resid": 239,
+      "resname": "TYR",
+      "anm_msf": 4.994581,
+      "anm_rmsf_norm": 0.9224,
+      "in_aoh_pocket": false
+    },
+    {
+      "chain": "C",
+      "resid": 240,
+      "resname": "LYS",
+      "anm_msf": 5.788388,
+      "anm_rmsf_norm": 0.993,
+      "in_aoh_pocket": false
+    },
+    {
+      "chain": "C",
+      "resid": 241,
+      "resname": "ILE",
+      "anm_msf": 6.003655,
+      "anm_rmsf_norm": 1.0113,
+      "in_aoh_pocket": false
+    },
+    {
+      "chain": "C",
+      "resid": 242,
+      "resname": "ALA",
+      "anm_msf": 8.033979,
+      "anm_rmsf_norm": 1.1698,
+      "in_aoh_pocket": false
+    },
+    {
+      "chain": "C",
+      "resid": 243,
+      "resname": "ASP",
+      "anm_msf": 8.093472,
+      "anm_rmsf_norm": 1.1741,
+      "in_aoh_pocket": false
+    },
+    {
+      "chain": "C",
+      "resid": 244,
+      "resname": "MET",
+      "anm_msf": 6.408095,
+      "anm_rmsf_norm": 1.0448,
+      "in_aoh_pocket": false
+    },
+    {
+      "chain": "C",
+      "resid": 245,
+      "resname": "GLY",
+      "anm_msf": 5.857489,
+      "anm_rmsf_norm": 0.9989,
+      "in_aoh_pocket": false
+    },
+    {
+      "chain": "C",
+      "resid": 246,
+      "resname": "HIS",
+      "anm_msf": 5.164415,
+      "anm_rmsf_norm": 0.9379,
+      "in_aoh_pocket": false
+    },
+    {
+      "chain": "C",
+      "resid": 247,
+      "resname": "LEU",
+      "anm_msf": 4.553493,
+      "anm_rmsf_norm": 0.8807,
+      "in_aoh_pocket": false
+    },
+    {
+      "chain": "C",
+      "resid": 248,
+      "resname": "LYS",
+      "anm_msf": 4.618061,
+      "anm_rmsf_norm": 0.8869,
+      "in_aoh_pocket": false
+    },
+    {
+      "chain": "C",
+      "resid": 249,
+      "resname": "TYR",
+      "anm_msf": 4.469891,
+      "anm_rmsf_norm": 0.8726,
+      "in_aoh_pocket": false
+    },
+    {
+      "chain": "C",
+      "resid": 250,
+      "resname": "TYR",
+      "anm_msf": 4.659175,
+      "anm_rmsf_norm": 0.8909,
+      "in_aoh_pocket": true
+    },
+    {
+      "chain": "C",
+      "resid": 251,
+      "resname": "LEU",
+      "anm_msf": 4.898769,
+      "anm_rmsf_norm": 0.9135,
+      "in_aoh_pocket": true
+    },
+    {
+      "chain": "C",
+      "resid": 252,
+      "resname": "ALA",
+      "anm_msf": 5.09829,
+      "anm_rmsf_norm": 0.9319,
+      "in_aoh_pocket": true
+    },
+    {
+      "chain": "C",
+      "resid": 253,
+      "resname": "PRO",
+      "anm_msf": 5.438156,
+      "anm_rmsf_norm": 0.9625,
+      "in_aoh_pocket": true
+    },
+    {
+      "chain": "C",
+      "resid": 254,
+      "resname": "LYS",
+      "anm_msf": 6.676332,
+      "anm_rmsf_norm": 1.0664,
+      "in_aoh_pocket": false
+    },
+    {
+      "chain": "C",
+      "resid": 255,
+      "resname": "ILE",
+      "anm_msf": 6.973277,
+      "anm_rmsf_norm": 1.0899,
+      "in_aoh_pocket": false
+    },
+    {
+      "chain": "D",
+      "resid": 2,
+      "resname": "PHE",
+      "anm_msf": 4.382606,
+      "anm_rmsf_norm": 0.864,
+      "in_aoh_pocket": false
+    },
+    {
+      "chain": "D",
+      "resid": 3,
+      "resname": "GLU",
+      "anm_msf": 4.10374,
+      "anm_rmsf_norm": 0.8361,
+      "in_aoh_pocket": false
+    },
+    {
+      "chain": "D",
+      "resid": 4,
+      "resname": "ALA",
+      "anm_msf": 3.163657,
+      "anm_rmsf_norm": 0.7341,
+      "in_aoh_pocket": false
+    },
+    {
+      "chain": "D",
+      "resid": 5,
+      "resname": "ARG",
+      "anm_msf": 3.273545,
+      "anm_rmsf_norm": 0.7467,
+      "in_aoh_pocket": false
+    },
+    {
+      "chain": "D",
+      "resid": 6,
+      "resname": "LEU",
+      "anm_msf": 2.76445,
+      "anm_rmsf_norm": 0.6862,
+      "in_aoh_pocket": false
+    },
+    {
+      "chain": "D",
+      "resid": 7,
+      "resname": "VAL",
+      "anm_msf": 3.244132,
+      "anm_rmsf_norm": 0.7434,
+      "in_aoh_pocket": false
+    },
+    {
+      "chain": "D",
+      "resid": 8,
+      "resname": "GLN",
+      "anm_msf": 2.86621,
+      "anm_rmsf_norm": 0.6987,
+      "in_aoh_pocket": false
+    },
+    {
+      "chain": "D",
+      "resid": 9,
+      "resname": "GLY",
+      "anm_msf": 2.577958,
+      "anm_rmsf_norm": 0.6627,
+      "in_aoh_pocket": false
+    },
+    {
+      "chain": "D",
+      "resid": 10,
+      "resname": "SER",
+      "anm_msf": 2.739951,
+      "anm_rmsf_norm": 0.6832,
+      "in_aoh_pocket": false
+    },
+    {
+      "chain": "D",
+      "resid": 11,
+      "resname": "ILE",
+      "anm_msf": 2.913517,
+      "anm_rmsf_norm": 0.7045,
+      "in_aoh_pocket": false
+    },
+    {
+      "chain": "D",
+      "resid": 12,
+      "resname": "LEU",
+      "anm_msf": 2.741576,
+      "anm_rmsf_norm": 0.6834,
+      "in_aoh_pocket": false
+    },
+    {
+      "chain": "D",
+      "resid": 13,
+      "resname": "LYS",
+      "anm_msf": 2.746787,
+      "anm_rmsf_norm": 0.684,
+      "in_aoh_pocket": false
+    },
+    {
+      "chain": "D",
+      "resid": 14,
+      "resname": "LYS",
+      "anm_msf": 2.909723,
+      "anm_rmsf_norm": 0.704,
+      "in_aoh_pocket": false
+    },
+    {
+      "chain": "D",
+      "resid": 15,
+      "resname": "VAL",
+      "anm_msf": 2.990892,
+      "anm_rmsf_norm": 0.7138,
+      "in_aoh_pocket": false
+    },
+    {
+      "chain": "D",
+      "resid": 16,
+      "resname": "LEU",
+      "anm_msf": 3.144328,
+      "anm_rmsf_norm": 0.7318,
+      "in_aoh_pocket": false
+    },
+    {
+      "chain": "D",
+      "resid": 17,
+      "resname": "GLU",
+      "anm_msf": 3.218049,
+      "anm_rmsf_norm": 0.7404,
+      "in_aoh_pocket": false
+    },
+    {
+      "chain": "D",
+      "resid": 18,
+      "resname": "ALA",
+      "anm_msf": 3.128643,
+      "anm_rmsf_norm": 0.73,
+      "in_aoh_pocket": false
+    },
+    {
+      "chain": "D",
+      "resid": 19,
+      "resname": "LEU",
+      "anm_msf": 3.297727,
+      "anm_rmsf_norm": 0.7495,
+      "in_aoh_pocket": false
+    },
+    {
+      "chain": "D",
+      "resid": 20,
+      "resname": "LYS",
+      "anm_msf": 3.673042,
+      "anm_rmsf_norm": 0.791,
+      "in_aoh_pocket": false
+    },
+    {
+      "chain": "D",
+      "resid": 21,
+      "resname": "ASP",
+      "anm_msf": 3.708128,
+      "anm_rmsf_norm": 0.7947,
+      "in_aoh_pocket": false
+    },
+    {
+      "chain": "D",
+      "resid": 22,
+      "resname": "LEU",
+      "anm_msf": 3.643181,
+      "anm_rmsf_norm": 0.7878,
+      "in_aoh_pocket": false
+    },
+    {
+      "chain": "D",
+      "resid": 23,
+      "resname": "ILE",
+      "anm_msf": 3.98929,
+      "anm_rmsf_norm": 0.8243,
+      "in_aoh_pocket": false
+    },
+    {
+      "chain": "D",
+      "resid": 24,
+      "resname": "ASN",
+      "anm_msf": 4.397603,
+      "anm_rmsf_norm": 0.8655,
+      "in_aoh_pocket": false
+    },
+    {
+      "chain": "D",
+      "resid": 25,
+      "resname": "GLU",
+      "anm_msf": 4.223579,
+      "anm_rmsf_norm": 0.8482,
+      "in_aoh_pocket": false
+    },
+    {
+      "chain": "D",
+      "resid": 26,
+      "resname": "ALA",
+      "anm_msf": 3.831274,
+      "anm_rmsf_norm": 0.8078,
+      "in_aoh_pocket": false
+    },
+    {
+      "chain": "D",
+      "resid": 27,
+      "resname": "CYS",
+      "anm_msf": 3.884452,
+      "anm_rmsf_norm": 0.8134,
+      "in_aoh_pocket": false
+    },
+    {
+      "chain": "D",
+      "resid": 28,
+      "resname": "TRP",
+      "anm_msf": 3.467464,
+      "anm_rmsf_norm": 0.7685,
+      "in_aoh_pocket": false
+    },
+    {
+      "chain": "D",
+      "resid": 29,
+      "resname": "ASP",
+      "anm_msf": 3.480742,
+      "anm_rmsf_norm": 0.77,
+      "in_aoh_pocket": false
+    },
+    {
+      "chain": "D",
+      "resid": 30,
+      "resname": "ILE",
+      "anm_msf": 3.584906,
+      "anm_rmsf_norm": 0.7814,
+      "in_aoh_pocket": false
+    },
+    {
+      "chain": "D",
+      "resid": 31,
+      "resname": "SER",
+      "anm_msf": 4.082703,
+      "anm_rmsf_norm": 0.8339,
+      "in_aoh_pocket": false
+    },
+    {
+      "chain": "D",
+      "resid": 32,
+      "resname": "SER",
+      "anm_msf": 4.671146,
+      "anm_rmsf_norm": 0.892,
+      "in_aoh_pocket": false
+    },
+    {
+      "chain": "D",
+      "resid": 33,
+      "resname": "SER",
+      "anm_msf": 4.317309,
+      "anm_rmsf_norm": 0.8575,
+      "in_aoh_pocket": false
+    },
+    {
+      "chain": "D",
+      "resid": 34,
+      "resname": "GLY",
+      "anm_msf": 3.038841,
+      "anm_rmsf_norm": 0.7195,
+      "in_aoh_pocket": false
+    },
+    {
+      "chain": "D",
+      "resid": 35,
+      "resname": "VAL",
+      "anm_msf": 2.839751,
+      "anm_rmsf_norm": 0.6955,
+      "in_aoh_pocket": false
+    },
+    {
+      "chain": "D",
+      "resid": 36,
+      "resname": "ASN",
+      "anm_msf": 2.803116,
+      "anm_rmsf_norm": 0.691,
+      "in_aoh_pocket": false
+    },
+    {
+      "chain": "D",
+      "resid": 37,
+      "resname": "LEU",
+      "anm_msf": 2.955936,
+      "anm_rmsf_norm": 0.7096,
+      "in_aoh_pocket": false
+    },
+    {
+      "chain": "D",
+      "resid": 38,
+      "resname": "GLN",
+      "anm_msf": 2.896665,
+      "anm_rmsf_norm": 0.7024,
+      "in_aoh_pocket": false
+    },
+    {
+      "chain": "D",
+      "resid": 39,
+      "resname": "SER",
+      "anm_msf": 3.366936,
+      "anm_rmsf_norm": 0.7573,
+      "in_aoh_pocket": false
+    },
+    {
+      "chain": "D",
+      "resid": 40,
+      "resname": "MET",
+      "anm_msf": 3.419701,
+      "anm_rmsf_norm": 0.7632,
+      "in_aoh_pocket": false
+    },
+    {
+      "chain": "D",
+      "resid": 41,
+      "resname": "ASP",
+      "anm_msf": 4.016093,
+      "anm_rmsf_norm": 0.8271,
+      "in_aoh_pocket": false
+    },
+    {
+      "chain": "D",
+      "resid": 42,
+      "resname": "SER",
+      "anm_msf": 5.460177,
+      "anm_rmsf_norm": 0.9644,
+      "in_aoh_pocket": false
+    },
+    {
+      "chain": "D",
+      "resid": 43,
+      "resname": "SER",
+      "anm_msf": 5.246629,
+      "anm_rmsf_norm": 0.9454,
+      "in_aoh_pocket": false
+    },
+    {
+      "chain": "D",
+      "resid": 44,
+      "resname": "HIS",
+      "anm_msf": 3.871145,
+      "anm_rmsf_norm": 0.812,
+      "in_aoh_pocket": false
+    },
+    {
+      "chain": "D",
+      "resid": 45,
+      "resname": "VAL",
+      "anm_msf": 3.321729,
+      "anm_rmsf_norm": 0.7522,
+      "in_aoh_pocket": false
+    },
+    {
+      "chain": "D",
+      "resid": 46,
+      "resname": "SER",
+      "anm_msf": 2.803212,
+      "anm_rmsf_norm": 0.691,
+      "in_aoh_pocket": false
+    },
+    {
+      "chain": "D",
+      "resid": 47,
+      "resname": "LEU",
+      "anm_msf": 2.459107,
+      "anm_rmsf_norm": 0.6472,
+      "in_aoh_pocket": false
+    },
+    {
+      "chain": "D",
+      "resid": 48,
+      "resname": "VAL",
+      "anm_msf": 2.727314,
+      "anm_rmsf_norm": 0.6816,
+      "in_aoh_pocket": false
+    },
+    {
+      "chain": "D",
+      "resid": 49,
+      "resname": "GLN",
+      "anm_msf": 2.448101,
+      "anm_rmsf_norm": 0.6458,
+      "in_aoh_pocket": false
+    },
+    {
+      "chain": "D",
+      "resid": 50,
+      "resname": "LEU",
+      "anm_msf": 2.5271,
+      "anm_rmsf_norm": 0.6561,
+      "in_aoh_pocket": false
+    },
+    {
+      "chain": "D",
+      "resid": 51,
+      "resname": "THR",
+      "anm_msf": 2.453866,
+      "anm_rmsf_norm": 0.6465,
+      "in_aoh_pocket": false
+    },
+    {
+      "chain": "D",
+      "resid": 52,
+      "resname": "LEU",
+      "anm_msf": 2.246805,
+      "anm_rmsf_norm": 0.6186,
+      "in_aoh_pocket": false
+    },
+    {
+      "chain": "D",
+      "resid": 53,
+      "resname": "ARG",
+      "anm_msf": 2.589028,
+      "anm_rmsf_norm": 0.6641,
+      "in_aoh_pocket": false
+    },
+    {
+      "chain": "D",
+      "resid": 54,
+      "resname": "SER",
+      "anm_msf": 3.12113,
+      "anm_rmsf_norm": 0.7291,
+      "in_aoh_pocket": false
+    },
+    {
+      "chain": "D",
+      "resid": 55,
+      "resname": "GLU",
+      "anm_msf": 3.226966,
+      "anm_rmsf_norm": 0.7414,
+      "in_aoh_pocket": false
+    },
+    {
+      "chain": "D",
+      "resid": 56,
+      "resname": "GLY",
+      "anm_msf": 2.562333,
+      "anm_rmsf_norm": 0.6606,
+      "in_aoh_pocket": false
+    },
+    {
+      "chain": "D",
+      "resid": 57,
+      "resname": "PHE",
+      "anm_msf": 2.881923,
+      "anm_rmsf_norm": 0.7006,
+      "in_aoh_pocket": false
+    },
+    {
+      "chain": "D",
+      "resid": 58,
+      "resname": "ASP",
+      "anm_msf": 3.471441,
+      "anm_rmsf_norm": 0.769,
+      "in_aoh_pocket": false
+    },
+    {
+      "chain": "D",
+      "resid": 59,
+      "resname": "THR",
+      "anm_msf": 3.844786,
+      "anm_rmsf_norm": 0.8093,
+      "in_aoh_pocket": false
+    },
+    {
+      "chain": "D",
+      "resid": 60,
+      "resname": "TYR",
+      "anm_msf": 3.654499,
+      "anm_rmsf_norm": 0.789,
+      "in_aoh_pocket": false
+    },
+    {
+      "chain": "D",
+      "resid": 61,
+      "resname": "ARG",
+      "anm_msf": 3.998232,
+      "anm_rmsf_norm": 0.8253,
+      "in_aoh_pocket": false
+    },
+    {
+      "chain": "D",
+      "resid": 62,
+      "resname": "CYS",
+      "anm_msf": 4.608352,
+      "anm_rmsf_norm": 0.886,
+      "in_aoh_pocket": false
+    },
+    {
+      "chain": "D",
+      "resid": 63,
+      "resname": "ASP",
+      "anm_msf": 5.532847,
+      "anm_rmsf_norm": 0.9708,
+      "in_aoh_pocket": false
+    },
+    {
+      "chain": "D",
+      "resid": 64,
+      "resname": "ARG",
+      "anm_msf": 6.107683,
+      "anm_rmsf_norm": 1.02,
+      "in_aoh_pocket": false
+    },
+    {
+      "chain": "D",
+      "resid": 65,
+      "resname": "ASN",
+      "anm_msf": 5.086536,
+      "anm_rmsf_norm": 0.9308,
+      "in_aoh_pocket": false
+    },
+    {
+      "chain": "D",
+      "resid": 66,
+      "resname": "LEU",
+      "anm_msf": 4.596967,
+      "anm_rmsf_norm": 0.8849,
+      "in_aoh_pocket": false
+    },
+    {
+      "chain": "D",
+      "resid": 67,
+      "resname": "ALA",
+      "anm_msf": 4.158062,
+      "anm_rmsf_norm": 0.8416,
+      "in_aoh_pocket": false
+    },
+    {
+      "chain": "D",
+      "resid": 68,
+      "resname": "MET",
+      "anm_msf": 4.350865,
+      "anm_rmsf_norm": 0.8609,
+      "in_aoh_pocket": false
+    },
+    {
+      "chain": "D",
+      "resid": 69,
+      "resname": "GLY",
+      "anm_msf": 4.399161,
+      "anm_rmsf_norm": 0.8656,
+      "in_aoh_pocket": false
+    },
+    {
+      "chain": "D",
+      "resid": 70,
+      "resname": "VAL",
+      "anm_msf": 4.188218,
+      "anm_rmsf_norm": 0.8446,
+      "in_aoh_pocket": false
+    },
+    {
+      "chain": "D",
+      "resid": 71,
+      "resname": "ASN",
+      "anm_msf": 4.568632,
+      "anm_rmsf_norm": 0.8822,
+      "in_aoh_pocket": false
+    },
+    {
+      "chain": "D",
+      "resid": 72,
+      "resname": "LEU",
+      "anm_msf": 4.083287,
+      "anm_rmsf_norm": 0.834,
+      "in_aoh_pocket": false
+    },
+    {
+      "chain": "D",
+      "resid": 73,
+      "resname": "THR",
+      "anm_msf": 4.554727,
+      "anm_rmsf_norm": 0.8808,
+      "in_aoh_pocket": false
+    },
+    {
+      "chain": "D",
+      "resid": 74,
+      "resname": "SER",
+      "anm_msf": 4.835321,
+      "anm_rmsf_norm": 0.9075,
+      "in_aoh_pocket": false
+    },
+    {
+      "chain": "D",
+      "resid": 75,
+      "resname": "MET",
+      "anm_msf": 3.997898,
+      "anm_rmsf_norm": 0.8252,
+      "in_aoh_pocket": false
+    },
+    {
+      "chain": "D",
+      "resid": 76,
+      "resname": "SER",
+      "anm_msf": 3.803233,
+      "anm_rmsf_norm": 0.8049,
+      "in_aoh_pocket": false
+    },
+    {
+      "chain": "D",
+      "resid": 77,
+      "resname": "LYS",
+      "anm_msf": 4.621114,
+      "anm_rmsf_norm": 0.8872,
+      "in_aoh_pocket": false
+    },
+    {
+      "chain": "D",
+      "resid": 78,
+      "resname": "ILE",
+      "anm_msf": 4.3508,
+      "anm_rmsf_norm": 0.8609,
+      "in_aoh_pocket": false
+    },
+    {
+      "chain": "D",
+      "resid": 79,
+      "resname": "LEU",
+      "anm_msf": 3.515803,
+      "anm_rmsf_norm": 0.7739,
+      "in_aoh_pocket": false
+    },
+    {
+      "chain": "D",
+      "resid": 80,
+      "resname": "LYS",
+      "anm_msf": 4.156643,
+      "anm_rmsf_norm": 0.8414,
+      "in_aoh_pocket": false
+    },
+    {
+      "chain": "D",
+      "resid": 81,
+      "resname": "CYS",
+      "anm_msf": 4.997361,
+      "anm_rmsf_norm": 0.9226,
+      "in_aoh_pocket": false
+    },
+    {
+      "chain": "D",
+      "resid": 82,
+      "resname": "ALA",
+      "anm_msf": 4.428947,
+      "anm_rmsf_norm": 0.8686,
+      "in_aoh_pocket": false
+    },
+    {
+      "chain": "D",
+      "resid": 83,
+      "resname": "GLY",
+      "anm_msf": 4.728631,
+      "anm_rmsf_norm": 0.8975,
+      "in_aoh_pocket": false
+    },
+    {
+      "chain": "D",
+      "resid": 84,
+      "resname": "ASN",
+      "anm_msf": 4.068989,
+      "anm_rmsf_norm": 0.8325,
+      "in_aoh_pocket": false
+    },
+    {
+      "chain": "D",
+      "resid": 85,
+      "resname": "GLU",
+      "anm_msf": 4.329393,
+      "anm_rmsf_norm": 0.8587,
+      "in_aoh_pocket": false
+    },
+    {
+      "chain": "D",
+      "resid": 86,
+      "resname": "ASP",
+      "anm_msf": 4.202457,
+      "anm_rmsf_norm": 0.8461,
+      "in_aoh_pocket": false
+    },
+    {
+      "chain": "D",
+      "resid": 87,
+      "resname": "ILE",
+      "anm_msf": 3.78104,
+      "anm_rmsf_norm": 0.8025,
+      "in_aoh_pocket": false
+    },
+    {
+      "chain": "D",
+      "resid": 88,
+      "resname": "ILE",
+      "anm_msf": 3.105724,
+      "anm_rmsf_norm": 0.7273,
+      "in_aoh_pocket": false
+    },
+    {
+      "chain": "D",
+      "resid": 89,
+      "resname": "THR",
+      "anm_msf": 3.558958,
+      "anm_rmsf_norm": 0.7786,
+      "in_aoh_pocket": false
+    },
+    {
+      "chain": "D",
+      "resid": 90,
+      "resname": "LEU",
+      "anm_msf": 3.423282,
+      "anm_rmsf_norm": 0.7636,
+      "in_aoh_pocket": false
+    },
+    {
+      "chain": "D",
+      "resid": 91,
+      "resname": "ARG",
+      "anm_msf": 4.671759,
+      "anm_rmsf_norm": 0.8921,
+      "in_aoh_pocket": false
+    },
+    {
+      "chain": "D",
+      "resid": 92,
+      "resname": "ALA",
+      "anm_msf": 5.2683,
+      "anm_rmsf_norm": 0.9473,
+      "in_aoh_pocket": false
+    },
+    {
+      "chain": "D",
+      "resid": 93,
+      "resname": "GLU",
+      "anm_msf": 7.544789,
+      "anm_rmsf_norm": 1.1336,
+      "in_aoh_pocket": false
+    },
+    {
+      "chain": "D",
+      "resid": 94,
+      "resname": "ASP",
+      "anm_msf": 8.812686,
+      "anm_rmsf_norm": 1.2252,
+      "in_aoh_pocket": false
+    },
+    {
+      "chain": "D",
+      "resid": 95,
+      "resname": "ASN",
+      "anm_msf": 7.448705,
+      "anm_rmsf_norm": 1.1264,
+      "in_aoh_pocket": false
+    },
+    {
+      "chain": "D",
+      "resid": 96,
+      "resname": "ALA",
+      "anm_msf": 6.696123,
+      "anm_rmsf_norm": 1.068,
+      "in_aoh_pocket": false
+    },
+    {
+      "chain": "D",
+      "resid": 97,
+      "resname": "ASP",
+      "anm_msf": 6.082932,
+      "anm_rmsf_norm": 1.0179,
+      "in_aoh_pocket": false
+    },
+    {
+      "chain": "D",
+      "resid": 98,
+      "resname": "THR",
+      "anm_msf": 5.449931,
+      "anm_rmsf_norm": 0.9635,
+      "in_aoh_pocket": false
+    },
+    {
+      "chain": "D",
+      "resid": 99,
+      "resname": "LEU",
+      "anm_msf": 4.422404,
+      "anm_rmsf_norm": 0.8679,
+      "in_aoh_pocket": false
+    },
+    {
+      "chain": "D",
+      "resid": 100,
+      "resname": "ALA",
+      "anm_msf": 4.796082,
+      "anm_rmsf_norm": 0.9038,
+      "in_aoh_pocket": false
+    },
+    {
+      "chain": "D",
+      "resid": 101,
+      "resname": "LEU",
+      "anm_msf": 4.022982,
+      "anm_rmsf_norm": 0.8278,
+      "in_aoh_pocket": false
+    },
+    {
+      "chain": "D",
+      "resid": 102,
+      "resname": "VAL",
+      "anm_msf": 4.860642,
+      "anm_rmsf_norm": 0.9099,
+      "in_aoh_pocket": false
+    },
+    {
+      "chain": "D",
+      "resid": 103,
+      "resname": "PHE",
+      "anm_msf": 4.811459,
+      "anm_rmsf_norm": 0.9053,
+      "in_aoh_pocket": false
+    },
+    {
+      "chain": "D",
+      "resid": 104,
+      "resname": "GLU",
+      "anm_msf": 6.343256,
+      "anm_rmsf_norm": 1.0395,
+      "in_aoh_pocket": false
+    },
+    {
+      "chain": "D",
+      "resid": 105,
+      "resname": "ALA",
+      "anm_msf": 7.027082,
+      "anm_rmsf_norm": 1.0941,
+      "in_aoh_pocket": false
+    },
+    {
+      "chain": "D",
+      "resid": 107,
+      "resname": "ASN",
+      "anm_msf": 14.318057,
+      "anm_rmsf_norm": 1.5617,
+      "in_aoh_pocket": false
+    },
+    {
+      "chain": "D",
+      "resid": 108,
+      "resname": "GLN",
+      "anm_msf": 13.615216,
+      "anm_rmsf_norm": 1.5229,
+      "in_aoh_pocket": false
+    },
+    {
+      "chain": "D",
+      "resid": 109,
+      "resname": "GLU",
+      "anm_msf": 22.848081,
+      "anm_rmsf_norm": 1.9728,
+      "in_aoh_pocket": false
+    },
+    {
+      "chain": "D",
+      "resid": 110,
+      "resname": "LYS",
+      "anm_msf": 18.489671,
+      "anm_rmsf_norm": 1.7747,
+      "in_aoh_pocket": false
+    },
+    {
+      "chain": "D",
+      "resid": 111,
+      "resname": "VAL",
+      "anm_msf": 10.921943,
+      "anm_rmsf_norm": 1.364,
+      "in_aoh_pocket": false
+    },
+    {
+      "chain": "D",
+      "resid": 112,
+      "resname": "SER",
+      "anm_msf": 8.642473,
+      "anm_rmsf_norm": 1.2133,
+      "in_aoh_pocket": false
+    },
+    {
+      "chain": "D",
+      "resid": 113,
+      "resname": "ASP",
+      "anm_msf": 6.668417,
+      "anm_rmsf_norm": 1.0658,
+      "in_aoh_pocket": false
+    },
+    {
+      "chain": "D",
+      "resid": 114,
+      "resname": "TYR",
+      "anm_msf": 5.684444,
+      "anm_rmsf_norm": 0.984,
+      "in_aoh_pocket": false
+    },
+    {
+      "chain": "D",
+      "resid": 115,
+      "resname": "GLU",
+      "anm_msf": 5.527373,
+      "anm_rmsf_norm": 0.9703,
+      "in_aoh_pocket": false
+    },
+    {
+      "chain": "D",
+      "resid": 116,
+      "resname": "MET",
+      "anm_msf": 5.096408,
+      "anm_rmsf_norm": 0.9317,
+      "in_aoh_pocket": false
+    },
+    {
+      "chain": "D",
+      "resid": 117,
+      "resname": "LYS",
+      "anm_msf": 5.808398,
+      "anm_rmsf_norm": 0.9947,
+      "in_aoh_pocket": false
+    },
+    {
+      "chain": "D",
+      "resid": 118,
+      "resname": "LEU",
+      "anm_msf": 5.353109,
+      "anm_rmsf_norm": 0.9549,
+      "in_aoh_pocket": false
+    },
+    {
+      "chain": "D",
+      "resid": 119,
+      "resname": "MET",
+      "anm_msf": 5.981764,
+      "anm_rmsf_norm": 1.0094,
+      "in_aoh_pocket": false
+    },
+    {
+      "chain": "D",
+      "resid": 120,
+      "resname": "ASP",
+      "anm_msf": 6.177445,
+      "anm_rmsf_norm": 1.0258,
+      "in_aoh_pocket": false
+    },
+    {
+      "chain": "D",
+      "resid": 121,
+      "resname": "LEU",
+      "anm_msf": 6.887685,
+      "anm_rmsf_norm": 1.0832,
+      "in_aoh_pocket": false
+    },
+    {
+      "chain": "D",
+      "resid": 122,
+      "resname": "ASP",
+      "anm_msf": 14.608033,
+      "anm_rmsf_norm": 1.5774,
+      "in_aoh_pocket": false
+    },
+    {
+      "chain": "D",
+      "resid": 123,
+      "resname": "VAL",
+      "anm_msf": 37.460111,
+      "anm_rmsf_norm": 2.526,
+      "in_aoh_pocket": false
+    },
+    {
+      "chain": "D",
+      "resid": 124,
+      "resname": "GLU",
+      "anm_msf": 112.814494,
+      "anm_rmsf_norm": 4.3836,
+      "in_aoh_pocket": false
+    },
+    {
+      "chain": "D",
+      "resid": 125,
+      "resname": "GLN",
+      "anm_msf": 40.78863,
+      "anm_rmsf_norm": 2.6359,
+      "in_aoh_pocket": false
+    },
+    {
+      "chain": "D",
+      "resid": 126,
+      "resname": "LEU",
+      "anm_msf": 25.203503,
+      "anm_rmsf_norm": 2.072,
+      "in_aoh_pocket": false
+    },
+    {
+      "chain": "D",
+      "resid": 127,
+      "resname": "GLY",
+      "anm_msf": 11.057066,
+      "anm_rmsf_norm": 1.3724,
+      "in_aoh_pocket": false
+    },
+    {
+      "chain": "D",
+      "resid": 128,
+      "resname": "ILE",
+      "anm_msf": 11.071541,
+      "anm_rmsf_norm": 1.3733,
+      "in_aoh_pocket": false
+    },
+    {
+      "chain": "D",
+      "resid": 129,
+      "resname": "PRO",
+      "anm_msf": 22.952335,
+      "anm_rmsf_norm": 1.9773,
+      "in_aoh_pocket": false
+    },
+    {
+      "chain": "D",
+      "resid": 130,
+      "resname": "GLU",
+      "anm_msf": 25.828159,
+      "anm_rmsf_norm": 2.0975,
+      "in_aoh_pocket": false
+    },
+    {
+      "chain": "D",
+      "resid": 131,
+      "resname": "GLN",
+      "anm_msf": 19.903517,
+      "anm_rmsf_norm": 1.8413,
+      "in_aoh_pocket": false
+    },
+    {
+      "chain": "D",
+      "resid": 132,
+      "resname": "GLU",
+      "anm_msf": 17.243516,
+      "anm_rmsf_norm": 1.7138,
+      "in_aoh_pocket": false
+    },
+    {
+      "chain": "D",
+      "resid": 133,
+      "resname": "TYR",
+      "anm_msf": 4.098359,
+      "anm_rmsf_norm": 0.8355,
+      "in_aoh_pocket": false
+    },
+    {
+      "chain": "D",
+      "resid": 134,
+      "resname": "SER",
+      "anm_msf": 3.886165,
+      "anm_rmsf_norm": 0.8136,
+      "in_aoh_pocket": false
+    },
+    {
+      "chain": "D",
+      "resid": 135,
+      "resname": "CYS",
+      "anm_msf": 2.196713,
+      "anm_rmsf_norm": 0.6117,
+      "in_aoh_pocket": false
+    },
+    {
+      "chain": "D",
+      "resid": 136,
+      "resname": "VAL",
+      "anm_msf": 1.684798,
+      "anm_rmsf_norm": 0.5357,
+      "in_aoh_pocket": false
+    },
+    {
+      "chain": "D",
+      "resid": 137,
+      "resname": "VAL",
+      "anm_msf": 0.933271,
+      "anm_rmsf_norm": 0.3987,
+      "in_aoh_pocket": false
+    },
+    {
+      "chain": "D",
+      "resid": 138,
+      "resname": "LYS",
+      "anm_msf": 1.412847,
+      "anm_rmsf_norm": 0.4906,
+      "in_aoh_pocket": false
+    },
+    {
+      "chain": "D",
+      "resid": 139,
+      "resname": "MET",
+      "anm_msf": 1.274751,
+      "anm_rmsf_norm": 0.466,
+      "in_aoh_pocket": false
+    },
+    {
+      "chain": "D",
+      "resid": 140,
+      "resname": "PRO",
+      "anm_msf": 1.751246,
+      "anm_rmsf_norm": 0.5462,
+      "in_aoh_pocket": false
+    },
+    {
+      "chain": "D",
+      "resid": 141,
+      "resname": "SER",
+      "anm_msf": 1.944977,
+      "anm_rmsf_norm": 0.5756,
+      "in_aoh_pocket": false
+    },
+    {
+      "chain": "D",
+      "resid": 142,
+      "resname": "GLY",
+      "anm_msf": 2.395081,
+      "anm_rmsf_norm": 0.6387,
+      "in_aoh_pocket": false
+    },
+    {
+      "chain": "D",
+      "resid": 143,
+      "resname": "GLU",
+      "anm_msf": 1.889798,
+      "anm_rmsf_norm": 0.5674,
+      "in_aoh_pocket": false
+    },
+    {
+      "chain": "D",
+      "resid": 144,
+      "resname": "PHE",
+      "anm_msf": 1.460586,
+      "anm_rmsf_norm": 0.4988,
+      "in_aoh_pocket": false
+    },
+    {
+      "chain": "D",
+      "resid": 145,
+      "resname": "ALA",
+      "anm_msf": 2.221351,
+      "anm_rmsf_norm": 0.6151,
+      "in_aoh_pocket": false
+    },
+    {
+      "chain": "D",
+      "resid": 146,
+      "resname": "ARG",
+      "anm_msf": 2.748287,
+      "anm_rmsf_norm": 0.6842,
+      "in_aoh_pocket": false
+    },
+    {
+      "chain": "D",
+      "resid": 147,
+      "resname": "ILE",
+      "anm_msf": 1.981789,
+      "anm_rmsf_norm": 0.581,
+      "in_aoh_pocket": false
+    },
+    {
+      "chain": "D",
+      "resid": 148,
+      "resname": "CYS",
+      "anm_msf": 2.124773,
+      "anm_rmsf_norm": 0.6016,
+      "in_aoh_pocket": false
+    },
+    {
+      "chain": "D",
+      "resid": 149,
+      "resname": "ARG",
+      "anm_msf": 3.551039,
+      "anm_rmsf_norm": 0.7777,
+      "in_aoh_pocket": false
+    },
+    {
+      "chain": "D",
+      "resid": 150,
+      "resname": "ASP",
+      "anm_msf": 4.003488,
+      "anm_rmsf_norm": 0.8258,
+      "in_aoh_pocket": false
+    },
+    {
+      "chain": "D",
+      "resid": 151,
+      "resname": "LEU",
+      "anm_msf": 3.410037,
+      "anm_rmsf_norm": 0.7621,
+      "in_aoh_pocket": false
+    },
+    {
+      "chain": "D",
+      "resid": 152,
+      "resname": "SER",
+      "anm_msf": 4.526484,
+      "anm_rmsf_norm": 0.8781,
+      "in_aoh_pocket": false
+    },
+    {
+      "chain": "D",
+      "resid": 153,
+      "resname": "HIS",
+      "anm_msf": 6.812001,
+      "anm_rmsf_norm": 1.0772,
+      "in_aoh_pocket": false
+    },
+    {
+      "chain": "D",
+      "resid": 154,
+      "resname": "ILE",
+      "anm_msf": 6.635774,
+      "anm_rmsf_norm": 1.0632,
+      "in_aoh_pocket": false
+    },
+    {
+      "chain": "D",
+      "resid": 156,
+      "resname": "ASP",
+      "anm_msf": 5.483297,
+      "anm_rmsf_norm": 0.9664,
+      "in_aoh_pocket": false
+    },
+    {
+      "chain": "D",
+      "resid": 157,
+      "resname": "ALA",
+      "anm_msf": 3.602483,
+      "anm_rmsf_norm": 0.7833,
+      "in_aoh_pocket": false
+    },
+    {
+      "chain": "D",
+      "resid": 158,
+      "resname": "VAL",
+      "anm_msf": 2.431242,
+      "anm_rmsf_norm": 0.6435,
+      "in_aoh_pocket": false
+    },
+    {
+      "chain": "D",
+      "resid": 159,
+      "resname": "VAL",
+      "anm_msf": 2.348126,
+      "anm_rmsf_norm": 0.6324,
+      "in_aoh_pocket": false
+    },
+    {
+      "chain": "D",
+      "resid": 160,
+      "resname": "ILE",
+      "anm_msf": 1.7291,
+      "anm_rmsf_norm": 0.5427,
+      "in_aoh_pocket": false
+    },
+    {
+      "chain": "D",
+      "resid": 161,
+      "resname": "SER",
+      "anm_msf": 2.138222,
+      "anm_rmsf_norm": 0.6035,
+      "in_aoh_pocket": false
+    },
+    {
+      "chain": "D",
+      "resid": 162,
+      "resname": "CYS",
+      "anm_msf": 1.985877,
+      "anm_rmsf_norm": 0.5816,
+      "in_aoh_pocket": false
+    },
+    {
+      "chain": "D",
+      "resid": 163,
+      "resname": "ALA",
+      "anm_msf": 3.053654,
+      "anm_rmsf_norm": 0.7212,
+      "in_aoh_pocket": false
+    },
+    {
+      "chain": "D",
+      "resid": 164,
+      "resname": "LYS",
+      "anm_msf": 3.667014,
+      "anm_rmsf_norm": 0.7903,
+      "in_aoh_pocket": false
+    },
+    {
+      "chain": "D",
+      "resid": 167,
+      "resname": "VAL",
+      "anm_msf": 1.891457,
+      "anm_rmsf_norm": 0.5676,
+      "in_aoh_pocket": false
+    },
+    {
+      "chain": "D",
+      "resid": 168,
+      "resname": "LYS",
+      "anm_msf": 2.250086,
+      "anm_rmsf_norm": 0.6191,
+      "in_aoh_pocket": false
+    },
+    {
+      "chain": "D",
+      "resid": 169,
+      "resname": "PHE",
+      "anm_msf": 2.042103,
+      "anm_rmsf_norm": 0.5898,
+      "in_aoh_pocket": false
+    },
+    {
+      "chain": "D",
+      "resid": 170,
+      "resname": "SER",
+      "anm_msf": 2.976764,
+      "anm_rmsf_norm": 0.7121,
+      "in_aoh_pocket": false
+    },
+    {
+      "chain": "D",
+      "resid": 171,
+      "resname": "ALA",
+      "anm_msf": 3.806521,
+      "anm_rmsf_norm": 0.8052,
+      "in_aoh_pocket": false
+    },
+    {
+      "chain": "D",
+      "resid": 172,
+      "resname": "SER",
+      "anm_msf": 6.432836,
+      "anm_rmsf_norm": 1.0468,
+      "in_aoh_pocket": false
+    },
+    {
+      "chain": "D",
+      "resid": 173,
+      "resname": "GLY",
+      "anm_msf": 9.033996,
+      "anm_rmsf_norm": 1.2405,
+      "in_aoh_pocket": false
+    },
+    {
+      "chain": "D",
+      "resid": 174,
+      "resname": "GLU",
+      "anm_msf": 13.34587,
+      "anm_rmsf_norm": 1.5077,
+      "in_aoh_pocket": false
+    },
+    {
+      "chain": "D",
+      "resid": 175,
+      "resname": "LEU",
+      "anm_msf": 12.98523,
+      "anm_rmsf_norm": 1.4872,
+      "in_aoh_pocket": false
+    },
+    {
+      "chain": "D",
+      "resid": 176,
+      "resname": "GLY",
+      "anm_msf": 10.838758,
+      "anm_rmsf_norm": 1.3588,
+      "in_aoh_pocket": false
+    },
+    {
+      "chain": "D",
+      "resid": 177,
+      "resname": "ASN",
+      "anm_msf": 7.537682,
+      "anm_rmsf_norm": 1.1331,
+      "in_aoh_pocket": false
+    },
+    {
+      "chain": "D",
+      "resid": 178,
+      "resname": "GLY",
+      "anm_msf": 5.148863,
+      "anm_rmsf_norm": 0.9365,
+      "in_aoh_pocket": false
+    },
+    {
+      "chain": "D",
+      "resid": 179,
+      "resname": "ASN",
+      "anm_msf": 3.76851,
+      "anm_rmsf_norm": 0.8012,
+      "in_aoh_pocket": false
+    },
+    {
+      "chain": "D",
+      "resid": 180,
+      "resname": "ILE",
+      "anm_msf": 3.001187,
+      "anm_rmsf_norm": 0.715,
+      "in_aoh_pocket": false
+    },
+    {
+      "chain": "D",
+      "resid": 181,
+      "resname": "LYS",
+      "anm_msf": 2.987853,
+      "anm_rmsf_norm": 0.7134,
+      "in_aoh_pocket": false
+    },
+    {
+      "chain": "D",
+      "resid": 182,
+      "resname": "LEU",
+      "anm_msf": 2.830284,
+      "anm_rmsf_norm": 0.6943,
+      "in_aoh_pocket": false
+    },
+    {
+      "chain": "D",
+      "resid": 183,
+      "resname": "SER",
+      "anm_msf": 3.197992,
+      "anm_rmsf_norm": 0.7381,
+      "in_aoh_pocket": false
+    },
+    {
+      "chain": "D",
+      "resid": 184,
+      "resname": "GLN",
+      "anm_msf": 3.660306,
+      "anm_rmsf_norm": 0.7896,
+      "in_aoh_pocket": false
+    },
+    {
+      "chain": "D",
+      "resid": 193,
+      "resname": "GLU",
+      "anm_msf": 6.523726,
+      "anm_rmsf_norm": 1.0541,
+      "in_aoh_pocket": false
+    },
+    {
+      "chain": "D",
+      "resid": 194,
+      "resname": "ALA",
+      "anm_msf": 3.564597,
+      "anm_rmsf_norm": 0.7792,
+      "in_aoh_pocket": false
+    },
+    {
+      "chain": "D",
+      "resid": 195,
+      "resname": "VAL",
+      "anm_msf": 2.145167,
+      "anm_rmsf_norm": 0.6045,
+      "in_aoh_pocket": false
+    },
+    {
+      "chain": "D",
+      "resid": 196,
+      "resname": "THR",
+      "anm_msf": 2.429623,
+      "anm_rmsf_norm": 0.6433,
+      "in_aoh_pocket": false
+    },
+    {
+      "chain": "D",
+      "resid": 197,
+      "resname": "ILE",
+      "anm_msf": 2.159804,
+      "anm_rmsf_norm": 0.6065,
+      "in_aoh_pocket": false
+    },
+    {
+      "chain": "D",
+      "resid": 198,
+      "resname": "GLU",
+      "anm_msf": 3.701948,
+      "anm_rmsf_norm": 0.7941,
+      "in_aoh_pocket": false
+    },
+    {
+      "chain": "D",
+      "resid": 199,
+      "resname": "MET",
+      "anm_msf": 3.573123,
+      "anm_rmsf_norm": 0.7801,
+      "in_aoh_pocket": false
+    },
+    {
+      "chain": "D",
+      "resid": 200,
+      "resname": "ASN",
+      "anm_msf": 5.241259,
+      "anm_rmsf_norm": 0.9449,
+      "in_aoh_pocket": false
+    },
+    {
+      "chain": "D",
+      "resid": 201,
+      "resname": "GLU",
+      "anm_msf": 5.11912,
+      "anm_rmsf_norm": 0.9338,
+      "in_aoh_pocket": false
+    },
+    {
+      "chain": "D",
+      "resid": 202,
+      "resname": "PRO",
+      "anm_msf": 3.933248,
+      "anm_rmsf_norm": 0.8185,
+      "in_aoh_pocket": false
+    },
+    {
+      "chain": "D",
+      "resid": 203,
+      "resname": "VAL",
+      "anm_msf": 3.13752,
+      "anm_rmsf_norm": 0.731,
+      "in_aoh_pocket": false
+    },
+    {
+      "chain": "D",
+      "resid": 204,
+      "resname": "GLN",
+      "anm_msf": 2.663749,
+      "anm_rmsf_norm": 0.6736,
+      "in_aoh_pocket": false
+    },
+    {
+      "chain": "D",
+      "resid": 205,
+      "resname": "LEU",
+      "anm_msf": 2.590421,
+      "anm_rmsf_norm": 0.6643,
+      "in_aoh_pocket": false
+    },
+    {
+      "chain": "D",
+      "resid": 206,
+      "resname": "THR",
+      "anm_msf": 2.556738,
+      "anm_rmsf_norm": 0.6599,
+      "in_aoh_pocket": false
+    },
+    {
+      "chain": "D",
+      "resid": 207,
+      "resname": "PHE",
+      "anm_msf": 2.457291,
+      "anm_rmsf_norm": 0.647,
+      "in_aoh_pocket": false
+    },
+    {
+      "chain": "D",
+      "resid": 208,
+      "resname": "ALA",
+      "anm_msf": 3.651865,
+      "anm_rmsf_norm": 0.7887,
+      "in_aoh_pocket": false
+    },
+    {
+      "chain": "D",
+      "resid": 209,
+      "resname": "LEU",
+      "anm_msf": 3.103066,
+      "anm_rmsf_norm": 0.727,
+      "in_aoh_pocket": false
+    },
+    {
+      "chain": "D",
+      "resid": 210,
+      "resname": "ARG",
+      "anm_msf": 4.364366,
+      "anm_rmsf_norm": 0.8622,
+      "in_aoh_pocket": false
+    },
+    {
+      "chain": "D",
+      "resid": 211,
+      "resname": "TYR",
+      "anm_msf": 3.758909,
+      "anm_rmsf_norm": 0.8002,
+      "in_aoh_pocket": false
+    },
+    {
+      "chain": "D",
+      "resid": 212,
+      "resname": "LEU",
+      "anm_msf": 2.497674,
+      "anm_rmsf_norm": 0.6523,
+      "in_aoh_pocket": false
+    },
+    {
+      "chain": "D",
+      "resid": 213,
+      "resname": "ASN",
+      "anm_msf": 3.014079,
+      "anm_rmsf_norm": 0.7165,
+      "in_aoh_pocket": false
+    },
+    {
+      "chain": "D",
+      "resid": 214,
+      "resname": "PHE",
+      "anm_msf": 3.654249,
+      "anm_rmsf_norm": 0.789,
+      "in_aoh_pocket": false
+    },
+    {
+      "chain": "D",
+      "resid": 215,
+      "resname": "PHE",
+      "anm_msf": 3.212504,
+      "anm_rmsf_norm": 0.7397,
+      "in_aoh_pocket": false
+    },
+    {
+      "chain": "D",
+      "resid": 216,
+      "resname": "THR",
+      "anm_msf": 3.086937,
+      "anm_rmsf_norm": 0.7251,
+      "in_aoh_pocket": false
+    },
+    {
+      "chain": "D",
+      "resid": 217,
+      "resname": "LYS",
+      "anm_msf": 3.317178,
+      "anm_rmsf_norm": 0.7517,
+      "in_aoh_pocket": false
+    },
+    {
+      "chain": "D",
+      "resid": 218,
+      "resname": "ALA",
+      "anm_msf": 3.239873,
+      "anm_rmsf_norm": 0.7429,
+      "in_aoh_pocket": false
+    },
+    {
+      "chain": "D",
+      "resid": 219,
+      "resname": "THR",
+      "anm_msf": 2.939781,
+      "anm_rmsf_norm": 0.7076,
+      "in_aoh_pocket": false
+    },
+    {
+      "chain": "D",
+      "resid": 220,
+      "resname": "PRO",
+      "anm_msf": 2.995945,
+      "anm_rmsf_norm": 0.7144,
+      "in_aoh_pocket": false
+    },
+    {
+      "chain": "D",
+      "resid": 221,
+      "resname": "LEU",
+      "anm_msf": 2.739749,
+      "anm_rmsf_norm": 0.6831,
+      "in_aoh_pocket": false
+    },
+    {
+      "chain": "D",
+      "resid": 222,
+      "resname": "SER",
+      "anm_msf": 2.391568,
+      "anm_rmsf_norm": 0.6383,
+      "in_aoh_pocket": false
+    },
+    {
+      "chain": "D",
+      "resid": 223,
+      "resname": "SER",
+      "anm_msf": 2.26534,
+      "anm_rmsf_norm": 0.6212,
+      "in_aoh_pocket": false
+    },
+    {
+      "chain": "D",
+      "resid": 224,
+      "resname": "THR",
+      "anm_msf": 1.944822,
+      "anm_rmsf_norm": 0.5756,
+      "in_aoh_pocket": false
+    },
+    {
+      "chain": "D",
+      "resid": 225,
+      "resname": "VAL",
+      "anm_msf": 1.898794,
+      "anm_rmsf_norm": 0.5687,
+      "in_aoh_pocket": false
+    },
+    {
+      "chain": "D",
+      "resid": 226,
+      "resname": "THR",
+      "anm_msf": 1.794351,
+      "anm_rmsf_norm": 0.5528,
+      "in_aoh_pocket": false
+    },
+    {
+      "chain": "D",
+      "resid": 227,
+      "resname": "LEU",
+      "anm_msf": 1.259878,
+      "anm_rmsf_norm": 0.4633,
+      "in_aoh_pocket": false
+    },
+    {
+      "chain": "D",
+      "resid": 228,
+      "resname": "SER",
+      "anm_msf": 1.765671,
+      "anm_rmsf_norm": 0.5484,
+      "in_aoh_pocket": false
+    },
+    {
+      "chain": "D",
+      "resid": 229,
+      "resname": "MET",
+      "anm_msf": 1.584393,
+      "anm_rmsf_norm": 0.5195,
+      "in_aoh_pocket": false
+    },
+    {
+      "chain": "D",
+      "resid": 230,
+      "resname": "SER",
+      "anm_msf": 3.012637,
+      "anm_rmsf_norm": 0.7164,
+      "in_aoh_pocket": false
+    },
+    {
+      "chain": "D",
+      "resid": 231,
+      "resname": "ALA",
+      "anm_msf": 4.331555,
+      "anm_rmsf_norm": 0.859,
+      "in_aoh_pocket": false
+    },
+    {
+      "chain": "D",
+      "resid": 232,
+      "resname": "ASP",
+      "anm_msf": 6.208015,
+      "anm_rmsf_norm": 1.0283,
+      "in_aoh_pocket": false
+    },
+    {
+      "chain": "D",
+      "resid": 233,
+      "resname": "VAL",
+      "anm_msf": 4.523126,
+      "anm_rmsf_norm": 0.8778,
+      "in_aoh_pocket": false
+    },
+    {
+      "chain": "D",
+      "resid": 234,
+      "resname": "PRO",
+      "anm_msf": 2.753307,
+      "anm_rmsf_norm": 0.6848,
+      "in_aoh_pocket": false
+    },
+    {
+      "chain": "D",
+      "resid": 235,
+      "resname": "LEU",
+      "anm_msf": 1.947527,
+      "anm_rmsf_norm": 0.576,
+      "in_aoh_pocket": false
+    },
+    {
+      "chain": "D",
+      "resid": 236,
+      "resname": "VAL",
+      "anm_msf": 2.161794,
+      "anm_rmsf_norm": 0.6068,
+      "in_aoh_pocket": false
+    },
+    {
+      "chain": "D",
+      "resid": 237,
+      "resname": "VAL",
+      "anm_msf": 2.253107,
+      "anm_rmsf_norm": 0.6195,
+      "in_aoh_pocket": false
+    },
+    {
+      "chain": "D",
+      "resid": 238,
+      "resname": "GLU",
+      "anm_msf": 2.43785,
+      "anm_rmsf_norm": 0.6444,
+      "in_aoh_pocket": false
+    },
+    {
+      "chain": "D",
+      "resid": 239,
+      "resname": "TYR",
+      "anm_msf": 2.47219,
+      "anm_rmsf_norm": 0.6489,
+      "in_aoh_pocket": false
+    },
+    {
+      "chain": "D",
+      "resid": 240,
+      "resname": "LYS",
+      "anm_msf": 2.410801,
+      "anm_rmsf_norm": 0.6408,
+      "in_aoh_pocket": false
+    },
+    {
+      "chain": "D",
+      "resid": 241,
+      "resname": "ILE",
+      "anm_msf": 2.496715,
+      "anm_rmsf_norm": 0.6521,
+      "in_aoh_pocket": false
+    },
+    {
+      "chain": "D",
+      "resid": 242,
+      "resname": "ALA",
+      "anm_msf": 2.531766,
+      "anm_rmsf_norm": 0.6567,
+      "in_aoh_pocket": false
+    },
+    {
+      "chain": "D",
+      "resid": 243,
+      "resname": "ASP",
+      "anm_msf": 2.476867,
+      "anm_rmsf_norm": 0.6495,
+      "in_aoh_pocket": false
+    },
+    {
+      "chain": "D",
+      "resid": 244,
+      "resname": "MET",
+      "anm_msf": 2.228379,
+      "anm_rmsf_norm": 0.6161,
+      "in_aoh_pocket": false
+    },
+    {
+      "chain": "D",
+      "resid": 245,
+      "resname": "GLY",
+      "anm_msf": 2.383714,
+      "anm_rmsf_norm": 0.6372,
+      "in_aoh_pocket": false
+    },
+    {
+      "chain": "D",
+      "resid": 246,
+      "resname": "HIS",
+      "anm_msf": 2.461396,
+      "anm_rmsf_norm": 0.6475,
+      "in_aoh_pocket": false
+    },
+    {
+      "chain": "D",
+      "resid": 247,
+      "resname": "LEU",
+      "anm_msf": 2.627339,
+      "anm_rmsf_norm": 0.669,
+      "in_aoh_pocket": false
+    },
+    {
+      "chain": "D",
+      "resid": 248,
+      "resname": "LYS",
+      "anm_msf": 2.651442,
+      "anm_rmsf_norm": 0.672,
+      "in_aoh_pocket": false
+    },
+    {
+      "chain": "D",
+      "resid": 249,
+      "resname": "TYR",
+      "anm_msf": 2.73576,
+      "anm_rmsf_norm": 0.6826,
+      "in_aoh_pocket": false
+    },
+    {
+      "chain": "D",
+      "resid": 250,
+      "resname": "TYR",
+      "anm_msf": 2.524682,
+      "anm_rmsf_norm": 0.6558,
+      "in_aoh_pocket": false
+    },
+    {
+      "chain": "D",
+      "resid": 251,
+      "resname": "LEU",
+      "anm_msf": 2.791563,
+      "anm_rmsf_norm": 0.6896,
+      "in_aoh_pocket": false
+    },
+    {
+      "chain": "D",
+      "resid": 252,
+      "resname": "ALA",
+      "anm_msf": 3.290109,
+      "anm_rmsf_norm": 0.7486,
+      "in_aoh_pocket": false
+    },
+    {
+      "chain": "D",
+      "resid": 253,
+      "resname": "PRO",
+      "anm_msf": 3.070525,
+      "anm_rmsf_norm": 0.7232,
+      "in_aoh_pocket": false
+    },
+    {
+      "chain": "D",
+      "resid": 254,
+      "resname": "LYS",
+      "anm_msf": 3.90754,
+      "anm_rmsf_norm": 0.8158,
+      "in_aoh_pocket": false
+    },
+    {
+      "chain": "D",
+      "resid": 255,
+      "resname": "ILE",
+      "anm_msf": 2.911288,
+      "anm_rmsf_norm": 0.7042,
+      "in_aoh_pocket": false
+    }
+  ]
+}

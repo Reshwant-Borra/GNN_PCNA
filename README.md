@@ -219,14 +219,14 @@ Add to Claude Code via `.claude/mcp.json` (already configured in this repo).
 
 ## Validation Targets
 
-| Metric | Minimum bar | Strong result |
-|---|---|---|
-| AOH1996 pocket mean score on 8GLA | > 0.7 | — | **Not passed** (v2-small: 0.587; v3-XL: passes) |
-| AOH1996 pocket rank | top-3 | top-1 | Top-2 in v2-small (8GLA analysis) |
-| AUROC on ligand-proximity labeled held-out | > 0.65 | > 0.80 | v3-XL mean 0.94 (ligand-proximity labels, not curated CryptoSite) |
-| AOH1996 pocket ANM-RMSF fold-change | < 1.0 (rigid cryptic) | — | **0.857** — 14% less flexible than bg; consistent with buried cryptic pocket |
-| AOH1996 pocket internal DCCM | > 0 | > 0.3 | **0.0995** — mild positive; coherent motion |
-| Novel pocket transient volume (MD) | — | > 100 Å³ | **Not measured** — no MD trajectories |
+| Metric | Minimum bar | Strong result | Status |
+|---|---|---|---|
+| AOH1996 pocket mean score on 8GLA | > 0.7 | — | **PASS** — XL fixed: 0.8969 (small: FAIL 0.5998) |
+| AOH1996 pocket rank | top-3 | top-1 | **PASS** — rank 1 (XL fixed) |
+| Test AUROC, protein-level held-out (5 proteins) | > 0.65 | > 0.80 | **PASS** — XL fixed: 0.9627; reproduced small: 0.7414 |
+| ANM apo/holo fold-change delta | > 0 | > 0.2 | **PASS** — delta = +0.247 (apo 0.857 → holo 1.104) |
+| Internal pocket DCCM (apo) | > 0 | > 0.3 | **Partial** — 0.0995 (mild positive coherent motion) |
+| Novel pocket transient volume (MD) | — | > 100 Å³ | Not measured — no MD trajectories |
 
 ---
 

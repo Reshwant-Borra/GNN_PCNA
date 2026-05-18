@@ -15,26 +15,6 @@ Thumbs.db
 # Jupyter
 .ipynb_checkpoints/
 
-# ── Large data files (reproduce with: python scripts/download_data.py) ─────────
-data/raw/*.pdb
-data/processed/*.pdb
-data/graphs/*.pt
-data/pcna/*.pt
-
-# Keep READMEs and manifests tracked
-!data/raw/README.md
-!data/graphs/README.md
-!data/manifests/
-
-# ESM2 feature cache
-data/esm_cache/
-
-# Generated figures (regenerate with full_eval.py)
-results/**/*.png
-results/**/*.pdf
-
-# Per-structure outputs (regenerate with per_structure_analysis.py)
-results/per_structure/*/scores.csv
-results/per_structure/*/clusters.csv
-results/per_structure/*/report.txt
-results/per_structure/*/summary.json
+# Word temp lock files (never real files)
+docs/~$*
+~$*

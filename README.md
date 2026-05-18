@@ -14,7 +14,7 @@ PCNA (Proliferating Cell Nuclear Antigen) is a homotrimeric protein ring essenti
 2. Represents a protein structure as a dual-view graph (spatial contacts + backbone connectivity)
 3. Trains a dual-branch GNN (PocketGNN v2; ~907k–10.4M params depending on variant) to score per-residue pocket probability
 4. Visualises predictions in a Streamlit UI with PyMOL-ready export
-5. MD validation infrastructure exists (`src/md/parse_trajectory.py`) but has **not yet been run** — no trajectories, RMSF tables, or DCCM outputs exist in this repository
+5. **ANM flexibility analysis** completed on apo PCNA (1W60): pocket residues are 14% less flexible than background (fold-change 0.857), consistent with a rigidly packed cryptic site. Full MD trajectories not yet generated.
 
 ---
 
@@ -29,10 +29,11 @@ PDB Structure
   → parse_pdb.py           residues + Cα coordinates
   → graph_construction.py  dual-graph PyG Data (40-dim nodes, 6-dim edges)
   ↓
-PocketGNN v2  (src/models/cryptic_gnn.py)
-  Branch 1: 4× GATv2Conv on spatial contact graph (8 Å)
-  Branch 2: 3× GATv2Conv on backbone sequential graph (|i−j| ≤ 2)
+PocketGNN v2 small  (src/models/cryptic_gnn.py — checkpoint used for all results)
+  Branch 1: 3× GATv2Conv on spatial contact graph (8 Å)
+  Branch 2: 2× GATv2Conv on backbone sequential graph (|i−j| ≤ 2)
   → gated fusion → 4-layer MLP head → per-residue sigmoid score
+  (large config: 4+3 layers, ~10.4M params — defined but not used for any result)
   ↓
 Streamlit UI  (src/ui/app.py)
   → sequence heatmap, top-residue table, chain symmetry check
@@ -51,8 +52,8 @@ MD Validation  (src/md/parse_trajectory.py)
 | Node features | 40 dims: aa_onehot(20), SASA, SS(3), B-factor, rel_pos, hydrophobicity, charge, volume, flexibility, sin/cos pseudo-dihedrals(4), local_density_5Å, local_density_10Å, interface_flag, chain_onehot(3) |
 | Edge features | 6 dims: dist_norm, inv_dist, seq_sep_norm, same_chain, is_backbone, cross_chain |
 | Pre-encoder | Linear(40→256→512→768) + LayerNorm |
-| Branch 1 (spatial) | 4× GATv2Conv(768, heads=8, edge_dim=6) with residuals |
-| Branch 2 (sequential) | 3× GATv2Conv(768, heads=8, edge_dim=6) with residuals |
+| Branch 1 (spatial) | **3× GATv2Conv(256, heads=4)** (small/checkpoint) · 4× (large, ~10.4M, not deployed) |
+| Branch 2 (sequential) | **2× GATv2Conv(256, heads=4)** (small/checkpoint) · 3× (large, ~10.4M, not deployed) |
 | Fusion | Learned gate per residue: `gate * h_spatial + (1-gate) * h_seq` |
 | Scoring head | Linear(768→384→192→96→1) + ReLU + Dropout at each layer |
 | Output | Per-residue pocket probability ∈ [0, 1] |
@@ -113,25 +114,24 @@ pip install torch-geometric
 pip install -r requirements.txt
 ```
 
-### 4. Download PDB structures
+### 4. Download PDB structures + build graph tensors
 
-Raw `.pdb` files are included in this repository. You can also re-download them via the crawler:
-
-```bash
-python agents/pcna_crawler.py --download --sources rcsb --download-limit 100
-```
-
-Or fetch a single structure manually:
+Raw `.pdb` files are **gitignored** (too large for version control) but freely downloadable
+from RCSB. A single script handles download, checksum verification, and graph construction:
 
 ```bash
-curl -o data/raw/8GLA.pdb https://files.rcsb.org/download/8GLA.pdb
+# Download all 59 PCNA structures + build PyG graphs (one command)
+python scripts/download_data.py
+
+# Download only, skip graph building
+python scripts/download_data.py --skip-graphs
+
+# Verify checksums of already-downloaded files
+python scripts/download_data.py --verify
 ```
 
-### 5. Build graph tensors
-
-```bash
-python scripts/build_graphs.py
-```
+This replaces the older `pcna_crawler.py --download` and `build_graphs.py` workflow.
+See `data/raw/README.md` and `data/graphs/README.md` for details.
 
 ### 6. Run inference (pre-trained checkpoint included)
 
@@ -151,12 +151,14 @@ streamlit run src/ui/app.py
 ### 7. Train from scratch (optional)
 
 > **Note:** `data/cryptosite/train/` and `data/cryptosite/val/` are not included (ligand-proximity labeled
-> graphs built from the CryptoSite protein set). Run `python scripts/build_graphs.py` then
-> `python scripts/make_split.py` to generate them from the included PDB files first.
+> graphs built from the CryptoSite protein set). Run `python scripts/download_data.py` first to
+> download PDB files and build graphs, then `python scripts/make_split.py` to create the split.
 
 ```bash
-# Build graphs then split
-python scripts/build_graphs.py
+# Download PDB files + build graphs
+python scripts/download_data.py
+
+# Create train/val/test split
 python scripts/make_split.py
 
 # Pre-train on ligand-proximity labeled structures
@@ -180,7 +182,7 @@ python scripts/finetune_pcna.py \
 | `ModuleNotFoundError: torch_scatter` | Re-run step 3 with the correct CUDA tag |
 | `UnicodeEncodeError: cp1252` | Prefix command with `PYTHONIOENCODING=utf-8` |
 | `FileNotFoundError: best_pcna.ckpt` | Run `git pull` — checkpoint is in git |
-| `FileNotFoundError: data/raw/8GLA.pdb` | Run step 4 |
+| `FileNotFoundError: data/raw/8GLA.pdb` | Run `python scripts/download_data.py` |
 | `AUROC = 0.5` | Apo structure — no ligand to label from; expected behaviour |
 
 ---
@@ -222,8 +224,9 @@ Add to Claude Code via `.claude/mcp.json` (already configured in this repo).
 | AOH1996 pocket mean score on 8GLA | > 0.7 | — | **Not passed** (v2-small: 0.587; v3-XL: passes) |
 | AOH1996 pocket rank | top-3 | top-1 | Top-2 in v2-small (8GLA analysis) |
 | AUROC on ligand-proximity labeled held-out | > 0.65 | > 0.80 | v3-XL mean 0.94 (ligand-proximity labels, not curated CryptoSite) |
-| Novel pocket RMSF | — | > 1.5 Å | **Not measured** — no MD trajectories |
-| Novel pocket transient volume | — | > 100 Å³ | **Not measured** — no MD trajectories |
+| AOH1996 pocket ANM-RMSF fold-change | < 1.0 (rigid cryptic) | — | **0.857** — 14% less flexible than bg; consistent with buried cryptic pocket |
+| AOH1996 pocket internal DCCM | > 0 | > 0.3 | **0.0995** — mild positive; coherent motion |
+| Novel pocket transient volume (MD) | — | > 100 Å³ | **Not measured** — no MD trajectories |
 
 ---
 

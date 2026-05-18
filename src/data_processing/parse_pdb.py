@@ -197,6 +197,8 @@ def label_pocket_residues(
     any heavy atom of the residue. A future fix would store per-residue heavy-atom coords
     in the Residue dataclass and use those here.
     """
+    if not residues:
+        return np.zeros(0, dtype=np.float32)
     ca_coords = np.stack([r.ca_coord for r in residues])   # (N, 3)
     dists = np.linalg.norm(
         ca_coords[:, None, :] - ligand_coords[None, :, :], axis=-1

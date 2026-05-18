@@ -32,9 +32,9 @@ def test_residue_outside_cutoff_unlabeled():
 
 def test_multiple_residues_mixed():
     residues = [
-        _make_residue([0, 0, 0]),   # 3 Å away — should be labeled
-        _make_residue([8, 0, 0]),   # 8 Å away — should NOT be labeled
-        _make_residue([5, 0, 0]),   # 5 Å away — should be labeled
+        _make_residue([0, 0, 0]),    # 3 Å from ligand — should be labeled
+        _make_residue([11, 0, 0]),   # 8 Å from ligand — should NOT be labeled
+        _make_residue([5, 0, 0]),    # 2 Å from ligand — should be labeled
     ]
     ligand = np.array([[3.0, 0, 0]], dtype=np.float32)
     labels = label_pocket_residues(residues, ligand, cutoff_angstrom=6.0)

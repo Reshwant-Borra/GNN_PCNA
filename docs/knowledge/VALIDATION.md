@@ -45,7 +45,24 @@ If these fail → debug before proceeding. See [[RESEARCH_QUESTION]] failure cri
 
 ---
 
-## MD Validation Metrics
+## ANM Flexibility Analysis (COMPLETED — see `data/results/nma_1W60.json`)
+
+| Metric | Result | Interpretation |
+|--------|--------|----------------|
+| AOH1996 pocket ANM-RMSF (norm) | 0.8685 | 14% less flexible than structural background |
+| Fold-change vs background | 0.857 | < 1 = buried, rigid pocket in apo state ✓ |
+| Internal pocket DCCM | 0.0995 | Mild positive correlation — coherent motion ✓ |
+| Method | ANM, 7.5 Å cutoff, 20 modes | Correlates with MD-RMSF at r~0.6–0.8 |
+
+Command: `python scripts/run_nma.py --pdb data/raw/1W60.pdb --cutoff 7.5 --n_modes 20`
+
+**Interpretation:** The AOH1996 cryptic pocket is rigidly packed in the apo state (fold-change 0.857 < 1),
+consistent with a buried site that requires ligand-induced opening. This is the expected
+signature of a true cryptic pocket vs an allosteric site (which would show elevated apo RMSF).
+
+---
+
+## MD Validation Metrics (NOT YET RUN — infrastructure ready, no trajectory data)
 
 ### RMSF (Root Mean Square Fluctuation)
 

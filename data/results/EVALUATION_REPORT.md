@@ -22,19 +22,23 @@
 
 | PDB | Description | Residues | Chains | Max Score | % above 0.4 | Pockets | AUROC |
 |---|---|---|---|---|---|---|---|
-| 8GLA | Holo — AOH1996 cryptic pocket OPEN | 952 | 4 | 0.9377 | 12.7% | 6 | 0.9994 |
+| 8GLA | Holo — AOH1996 cryptic pocket OPEN | 952 | 4 | 0.9377 | 12.7% | 6 | INVALID (training structure — data leak) |
 | 1W60 | Apo — cryptic pocket ABSENT | 510 | 2 | 0.9109 | 12.5% | 4 | n/a |
 | 1W61 | Apo variant | 710 | 2 | 0.9332 | 3.4% | 2 | 1.0000 |
 | 1AXC | PIP-box complex (p21) | 804 | 6 | 0.9128 | 10.9% | 6 | n/a |
 
 ### Key Findings on PCNA
 
-- **8GLA (holo)** scores significantly higher than **1W60 (apo)** — the model correctly
-  identifies that the cryptic pocket is open in the holo state and closed in the apo.
+- **8GLA AUROC is INVALID** — 8GLA was the fine-tuning structure (training data leak). The
+  0.9994 figure must not be cited as a performance result.
+- **V3 cannot reliably distinguish apo from holo**: 1W60 (apo, no pocket open) and 8GLA
+  (holo, pocket open) receive nearly identical top-cluster scores (+0.015 delta), below
+  any useful discrimination threshold. The apo false-positive rate was 87% before the fix.
+  Use `checkpoints/pcna/best_pcna_v3_fixed.ckpt` for apo/holo discrimination tasks.
 - The IDCL loop (residues 119–133) and interdomain interface (251–256) are the primary
   high-score regions, consistent with the known AOH1996 binding site.
-- 8GLA AUROC = 0.9994 — the model recovers the known pocket residues
-  well above chance.
+- **Honest held-out V3 AUROC (6 structures, excl. training structure 8GLA): mean 0.891**
+  (3VKX=0.9597, 9N3L=0.9671, 8GL9=0.9984, 6CBI=0.9097, 7M5N=0.7230, 7M5L=0.7901).
 
 ---
 
@@ -73,7 +77,7 @@
 | 2NWX |  | 1197 | 0.9468 | 0.0411 | 1.5% | 1.5% | 3 | 0.9936 |
 | 1PDZ |  | 433 | 0.9459 | 0.0458 | 1.8% | 1.8% | 1 | 0.9953 |
 | 1ONE |  | 872 | 0.9454 | 0.0500 | 2.6% | 2.5% | 3 | 0.9909 |
-| 8GLA | YES | 952 | 0.9377 | 0.1324 | 12.7% | 11.9% | 6 | 0.9994 |
+| 8GLA | YES | 952 | 0.9377 | 0.1324 | 12.7% | 11.9% | 6 | INVALID (training leak) |
 | 2VGO |  | 629 | 0.9364 | 0.0713 | 5.9% | 5.6% | 3 | 0.9941 |
 | 1D09 |  | 926 | 0.9347 | 0.0978 | 6.9% | 5.9% | 6 | 0.9526 |
 | 1W61 | YES | 710 | 0.9332 | 0.0536 | 3.4% | 3.4% | 2 | 1.0000 |

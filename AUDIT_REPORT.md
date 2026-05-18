@@ -205,14 +205,129 @@ v3 is the better model for PCNA pocket detection. The 13.4M parameters + ESM2 la
 ### AOH overlap — v3 results
 - 8GLA: top cluster covers **24/24** AOH GT residues, score=0.825
 - 9N3L: 20/24, score=0.772
-- 1W60 (apo): 20/24, score=0.810 — v3 *correctly* identifies the AOH site even in the apo structure
+- 1W60 (apo): 20/24, score=0.810 — ~~v3 correctly identifies the AOH site even in the apo structure~~ **RETRACTED — see H6 below**
+
+---
+
+## V3 Hallucination Test Results — 2026-05-17
+
+Full test battery in `scripts/v3_hallucination_tests.py`. Four critical issues confirmed.
+
+### H1 — Training-set leakage [CONFIRMED]
+`scripts/finetune_pcna.py` explicitly fine-tunes on 8GLA (`data/pcna/8GLA.pt`).  
+**V3 AUROC of 0.9990 on 8GLA is invalid — the model was trained on that exact structure.**  
+This result must not be cited as a generalisation metric.
+
+Valid held-out AUROC (6 structures never seen by V3):
+
+| Structure | V3 AUROC | Notes |
+|---|---|---|
+| 3VKX | 0.9597 | Held-out |
+| 9N3L | 0.9671 | Held-out |
+| 8GL9 | 0.9984 | Held-out — but same sequence family as 8GLA |
+| 6CBI | 0.9097 | Held-out |
+| 7M5N | 0.7230 | Held-out |
+| 7M5L | 0.7901 | Held-out |
+| **Mean** | **0.8913** | Held-out mean (excluding 8GLA) |
+
+### H2 — Apo/holo discrimination [FAIL]
+V3 gives the apo structure (1W60, no pocket open) nearly the same score as the holo (8GLA, pocket open):
+
+| Model | 1W60 apo | 8GLA holo | Delta |
+|---|---|---|---|
+| V1 | 0.6653 | 0.5870 | −0.078 |
+| V3 | 0.8104 | 0.8250 | +0.015 |
+
+**V3 delta is only +0.015 — below any useful discrimination threshold (>0.15 required).**  
+V3 cannot distinguish whether a PCNA cryptic pocket is structurally open or closed.
+
+### H3 — Score compression [FAIL]
+All 59 PCNA structures score in a tight range — V3 `top_cluster_mean` std = **0.034** (vs V1 std = 0.039).  
+97% of all 59 structures score above 0.75 on `top_cluster_mean`.  
+`score_max` ranges from 0.878–0.936 (std = 0.015) — effectively constant across all structures.  
+This is a signature of mode collapse into "PCNA = high score" regardless of pocket state.
+
+### H4 — ESM2 ablation [CONFIRMED — CRITICAL]
+8GLA chain A, AUROC when ESM2 features are zeroed vs filled:
+
+| Condition | AUROC | Delta vs full |
+|---|---|---|
+| Full ESM2 (normal) | **0.9971** | — |
+| Zero ESM2 (ablated) | 0.7974 | **−0.1997** |
+| Mean ESM2 (all residues same) | 0.7561 | −0.2410 |
+
+**ESM2 contributes 0.20 AUROC points.** Without ESM2 the model still achieves 0.80 AUROC (from structural features alone), but the 0.20 gain from ESM2 is due to sequence-identity memorisation, not structural generalisation.
+
+### H5 — ESM2 row shuffle [CONFIRMED — CRITICAL]
+Permuting which residue receives which ESM2 embedding (row shuffle) breaks positional alignment while preserving global protein-type signal:
+
+| Trial | Shuffled AUROC |
+|---|---|
+| Trial 1 | 0.6889 |
+| Trial 2 | 0.5802 |
+| Trial 3 | 0.5448 |
+| Trial 4 | 0.6681 |
+| Trial 5 | 0.3367 |
+| **Mean** | **0.5637** |
+
+Real AUROC = 0.9971. **Row shuffle drops AUROC by 0.43** — to essentially random (mean 0.56).  
+This proves V3's performance depends critically on **residue-position-aligned ESM2 embeddings**.  
+The model has learned to associate specific residue positions in the PCNA sequence with high scores, not general structural features.
+
+### H6 — AOH position bias [FAIL]
+V3 predicts AOH canonical residue positions (25–47, 123–128, 231–234, 250–253) as high-scoring on **39% of all 59 structures** (23/59), including:
+- 1W60 (apo, no AOH1996 bound): **20/24 AOH residues in top cluster**
+- Multiple other structures with no drug-like ligand
+
+AOH overlap distribution across 59 structures:
+```
+ 0/24 : 13 structures
+ 2/24 :  1 structure
+ 3/24 :  7 structures
+ 4/24 : 15 structures
+20/24 : 20 structures  ← includes apo + unrelated PCNA complexes
+24/24 :  3 structures
+```
+**V3 has memorised the AOH binding site residue positions by sequence, not by structure.**
+
+### H7 — Held-out AUROC [INFORMATIONAL]
+Mean held-out AUROC = **0.8913** (6 structures not in CryptoSite train/val and not 8GLA).  
+This is the only honest generalisation metric. V1 held-out mean = 0.6927 (same 6 structures, drug-like filter).  
+V3 genuinely outperforms V1 on held-out structures (+0.199 mean AUROC).
+
+### H8 — V1 vs V3 apo discrimination [INFORMATIONAL]
+Neither model reliably suppresses apo-structure scores.  
+V1 discrimination ratio: −0.133 (holo actually scores lower than apo — both unreliable).  
+V3 discrimination ratio: +0.018 (marginally better directionally, but not meaningful).  
+**Reliable apo/holo discrimination requires MD ensemble input, not single PDB inference.**
+
+---
+
+### Root cause of V3 behaviour
+
+ESM2 embeddings encode PCNA sequence identity. The model fine-tuned on 8GLA learned:  
+**"PCNA sequence → residues 25–47, 123–128, 231–234, 250–253 = high score"**  
+regardless of whether the pocket is structurally open in a given PDB entry.  
+This is sequence memorisation, not structural pocket detection.
+
+### What V3 is and is not good for
+
+| Use case | V3 reliable? |
+|---|---|
+| Ranking residues within a PCNA structure by AOH-site likelihood | YES |
+| AUROC on held-out structures not in training | YES (mean 0.891) |
+| Distinguishing open vs closed pocket conformations | NO |
+| Claiming the AOH site is "predicted" in any new PCNA structure | NO — it always predicts it |
+| Citing 8GLA AUROC (0.9990) as model performance | NO — training data leak |
 
 ### What is still undocumented / missing
 - No README section for v3 / PocketGNNXL (being corrected)
 - `checkpoints/xl_pcna/` directory exists but is empty — XL PCNA fine-tune was never completed (v3 used CryptoSite pre-train + PCNA fine-tune in `checkpoints/pcna/`)
 
-### Conclusion on v3 (updated)
-v3 is now fully operational and demonstrates clear superiority over v1. The combination of ESM2 protein language model embeddings (480-dim) with the 13.4M parameter XL architecture closes most of the AUROC gap on difficult structures (6CBI: 0.41→0.91, 7M5L: 0.36→0.79). **v3 should be the primary model for all future inference.**
+### Conclusion on v3 (REVISED 2026-05-17)
+V3 achieves a genuine held-out mean AUROC of **0.891** on 6 never-seen PCNA structures — a real improvement over V1 (0.693). However, the improvement is substantially driven by ESM2 sequence-identity memorisation of the AOH binding site, not generalizable structural pocket detection. V3 is **not appropriate as a primary model** for claims about novel cryptic site discovery. V3's high scores should be treated as "model predicts this PCNA region is an AOH-like site by sequence" rather than "model detects a structurally open pocket."
+
+**Revised recommendation: Use V1 for structural-feature-driven analysis. Use V3 held-out AUROC (0.891) as the honest benchmark figure. Exclude 8GLA from all V3 performance claims.**
 
 ---
 

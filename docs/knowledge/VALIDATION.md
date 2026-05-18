@@ -10,9 +10,12 @@
 
 | Test | Criterion | Status |
 |---|---|---|
-| AOH1996 pocket mean score | > 0.7 on 8GLA | Not tested |
-| AOH1996 pocket rank | Top-3 candidates on 8GLA | Not tested |
-| AUROC on CryptoSite held-out | > 0.80 | Not tested |
+| AOH1996 pocket mean score (small, best_pcna.ckpt) | > 0.7 on 8GLA | **FAIL** — 0.5998 |
+| AOH1996 pocket mean score (XL, best_pcna_v3.ckpt) | > 0.7 on 8GLA | **PASS** — 0.8969 |
+| AOH1996 pocket rank (XL) | Top-3 candidates on 8GLA | **PASS** — rank 1 |
+| AUROC on CryptoSite held-out | > 0.80 | Not measured (same-structure eval only) |
+
+See `data/results/aoh_gate_results.json` for exact values and commands used.
 
 If these fail → debug before proceeding. See [[RESEARCH_QUESTION]] failure criteria.
 

@@ -14,7 +14,7 @@
 
 | # | Sub-question | Status |
 |---|---|---|
-| Q1 | Does the GNN recover the known AOH1996 pocket in 8GLA? | Not yet tested |
+| Q1 | Does the GNN recover the known AOH1996 pocket in 8GLA? | **Yes (XL)** — mean 0.8969, rank 1 (small model fails: 0.5998) |
 | Q2 | Does the GNN identify additional novel sites on PCNA? | Not yet tested |
 | Q3 | Do predicted novel sites show elevated RMSF in MD? | Not yet tested |
 | Q4 | Do predicted novel sites show correlated motion (DCCM) in MD? | Not yet tested |
@@ -26,8 +26,8 @@
 ## Validation Criteria (what "success" looks like)
 
 ### Minimum bar (must pass before any claim)
-- [ ] GNN scores AOH1996 pocket residues in 8GLA with mean score > 0.7
-- [ ] AOH1996 pocket ranks in top-3 pocket candidates on 8GLA
+- [x] GNN scores AOH1996 pocket residues in 8GLA with mean score > 0.7 — **PASS** (XL: 0.8969; small: FAIL 0.5998)
+- [x] AOH1996 pocket ranks in top-3 pocket candidates on 8GLA — **PASS** (rank 1 with XL)
 
 ### Strong result (publication-grade)
 - [ ] AUROC > 0.80 on held-out CryptoSite proteins

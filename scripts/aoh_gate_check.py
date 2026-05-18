@@ -36,16 +36,22 @@ GATE = 0.7
 
 
 def run(ckpt_path: Path, model_size: str) -> dict:
-    graph_path = REPO / "data" / "pcna" / "8GLA.pt"
-    if not graph_path.exists():
+    if model_size == "xl":
         graph_path = REPO / "data" / "pcna_xl" / "8GLA.pt"
+        if not graph_path.exists():
+            graph_path = REPO / "data" / "pcna" / "8GLA.pt"
+    else:
+        graph_path = REPO / "data" / "pcna" / "8GLA.pt"
+        if not graph_path.exists():
+            graph_path = REPO / "data" / "pcna_xl" / "8GLA.pt"
     if not graph_path.exists():
         return {"error": "8GLA.pt not found in data/pcna/ or data/pcna_xl/"}
 
     data = torch.load(str(graph_path), weights_only=False)
 
+    node_in_dim = data.x.shape[1]
     if model_size == "xl":
-        model = PocketGNNXL().eval()
+        model = PocketGNNXL(node_in_dim=node_in_dim).eval()
     else:
         model = PocketGNN.small().eval()
 

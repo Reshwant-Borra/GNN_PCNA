@@ -1,0 +1,19 @@
+{
+  "note": "Provenance stub — this checkpoint predates automated metadata saving. Fields marked UNKNOWN cannot be recovered without retraining.",
+  "checkpoint": "best_pcna.ckpt",
+  "model_class": "PocketGNN",
+  "model_size": "small",
+  "n_params": 907706,
+  "node_in_dim": 40,
+  "epoch": "UNKNOWN",
+  "val_auroc": "UNKNOWN",
+  "seed": "UNKNOWN",
+  "phase": "UNKNOWN",
+  "lr": "UNKNOWN",
+  "timestamp": "UNKNOWN",
+  "aoh_gate": {
+    "mean_score": 0.5998,
+    "gate_pass": false,
+    "verdict": "FAIL (mean 0.5998 < 0.7)"
+  }
+}

@@ -1,0 +1,15 @@
+{
+  "note": "Provenance stub — this checkpoint predates automated metadata saving. Fields marked UNKNOWN cannot be recovered without retraining. '_fixed' suffix indicates a post-hoc weight correction was applied; exact nature of fix is UNKNOWN.",
+  "checkpoint": "best_pcna_v3_fixed.ckpt",
+  "model_class": "PocketGNNXL",
+  "model_size": "xl",
+  "n_params": 13364354,
+  "node_in_dim": 520,
+  "epoch": "UNKNOWN",
+  "val_auroc": "UNKNOWN",
+  "seed": "UNKNOWN",
+  "phase": "UNKNOWN",
+  "lr": "UNKNOWN",
+  "timestamp": "UNKNOWN",
+  "aoh_gate": "NOT_MEASURED"
+}

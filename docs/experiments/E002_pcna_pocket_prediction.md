@@ -1,10 +1,10 @@
-# E002: PCNA Pocket Prediction — Recover AOH1996 Site
+# E002: PCNA Pocket Prediction â€” Recover AOH1996 Site
 
 **Status:** planned
-**Date started:** —
-**Date completed:** —
+**Date started:** â€”
+**Date completed:** â€”
 
-→ Links: [[EXPERIMENT_INDEX]] | [[PIPELINE]] | [[MODELS]] | [[VALIDATION]] | [[BIOLOGY_PCNA]]
+â†’ Links: [[EXPERIMENT_INDEX]] | [[PIPELINE]] | [[MODELS]] | [[VALIDATION]] | [[BIOLOGY_PCNA]]
 
 ---
 
@@ -24,7 +24,7 @@ See [[VALIDATION]] for the full positive control criteria.
 
 ## Pipeline Stage
 
-- Stage 3: Labeling (8GLA residues within 6 Å of AOH1996 = positive)
+- Stage 3: Labeling (8GLA residues within 6 Ã… of AOH1996 = positive)
 - Stage 4: GNN Training / Fine-tuning
 - Stage 5: Pocket Clustering + Ranking
 
@@ -36,7 +36,7 @@ See [[VALIDATION]] for the full positive control criteria.
 |---|---|---|---|
 | Training structure | PDB 8GLA | `data/raw/8GLA.pdb` | Download required |
 | Apo structure | PDB 1W60 | `data/raw/1W60.pdb` | Background negative |
-| Pocket labels | Generated | `data/labels/8GLA_labels.npy` | 6 Å cutoff from AOH1996 |
+| Pocket labels | Generated | `data/labels/8GLA_labels.npy` | 6 Ã… cutoff from AOH1996 |
 | Graphs | Generated | `data/graphs/8GLA.pt`, `1W60.pt` | |
 | External training | CryptoSite dataset | TBD | Pre-training only |
 
@@ -85,7 +85,7 @@ pocket_cutoff_angstrom = 6.0
 
 # Clustering
 score_threshold = 0.5
-dbscan_eps = 6.0    # Å
+dbscan_eps = 6.0    # Ã…
 dbscan_min_samples = 3
 ```
 
@@ -95,10 +95,10 @@ dbscan_min_samples = 3
 
 | Criterion | Target | Actual |
 |---|---|---|
-| AOH1996 pocket mean score | > 0.7 | — |
-| AOH1996 pocket rank | Top 3 | — |
-| AUROC (if CryptoSite used) | > 0.80 | — |
-| AUPRC (if CryptoSite used) | > 0.50 | — |
+| AOH1996 pocket mean score | > 0.7 | â€” |
+| AOH1996 pocket rank | Top 3 | â€” |
+| AUROC (if CryptoSite used) | > 0.80 | â€” |
+| AUPRC (if CryptoSite used) | > 0.50 | â€” |
 
 ---
 
@@ -116,13 +116,13 @@ _Fill in after running._
 
 ## Limitations
 
-- Only one PCNA holo structure available (8GLA) — very small fine-tuning set
+- Only one PCNA holo structure available (8GLA) â€” very small fine-tuning set
 - If pre-training skipped, generalization may be poor
-- Chain leakage risk: all 3 chains of PCNA are near-identical — must not use them as separate test set members
+- Chain leakage risk: all 3 chains of PCNA are near-identical â€” must not use them as separate test set members
 
 ---
 
 ## Next Action
 
-If E002 passes → proceed to E003 (MD validation of novel predicted pockets).
-If E002 fails → debug labeling, class imbalance, or training stability before claiming any result.
+If E002 passes â†’ proceed to E003 (MD validation of novel predicted pockets).
+If E002 fails â†’ debug labeling, class imbalance, or training stability before claiming any result.

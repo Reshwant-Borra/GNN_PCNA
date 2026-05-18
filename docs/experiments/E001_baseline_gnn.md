@@ -1,10 +1,10 @@
-# E001: Baseline GNN — Forward Pass Sanity Check
+# E001: Baseline GNN â€” Forward Pass Sanity Check
 
 **Status:** planned
-**Date started:** —
-**Date completed:** —
+**Date started:** â€”
+**Date completed:** â€”
 
-→ Links: [[EXPERIMENT_INDEX]] | [[PIPELINE]] | [[MODELS]] | [[VALIDATION]]
+â†’ Links: [[EXPERIMENT_INDEX]] | [[PIPELINE]] | [[MODELS]] | [[VALIDATION]]
 
 ---
 
@@ -16,7 +16,7 @@ The CrypticGNN model can be instantiated and run a forward pass on a PCNA residu
 
 ## Goal
 
-Verify the complete graph construction + model forward pass pipeline works end-to-end on human PCNA (1W60, apo). No training required — just check shapes and value ranges.
+Verify the complete graph construction + model forward pass pipeline works end-to-end on human PCNA (1W60, apo). No training required â€” just check shapes and value ranges.
 
 ---
 
@@ -42,8 +42,8 @@ Verify the complete graph construction + model forward pass pipeline works end-t
 
 | File | Status | Role |
 |---|---|---|
-| `src/data_processing/parse_pdb.py` | Stub | Parse PDB → Residue list |
-| `src/data_processing/graph_construction.py` | Stub | Residue list → PyG Data |
+| `src/data_processing/parse_pdb.py` | Stub | Parse PDB â†’ Residue list |
+| `src/data_processing/graph_construction.py` | Stub | Residue list â†’ PyG Data |
 | `src/models/cryptic_gnn.py` | Implemented | Forward pass |
 
 ---
@@ -59,7 +59,7 @@ Verify the complete graph construction + model forward pass pipeline works end-t
 ## Config
 
 ```python
-distance_cutoff = 8.0  # Å (Cα–Cα)
+distance_cutoff = 8.0  # Ã… (CÎ±â€“CÎ±)
 node_in_dim = 26       # AA one-hot (20) + SASA (1) + SS (3) + B-factor (1) + pos (1)
 edge_dim = 2           # distance + seq_separation
 hidden_dim = 256
@@ -74,14 +74,14 @@ dropout = 0.2
 
 | Check | Expected | Actual |
 |---|---|---|
-| Graph nodes (monomer) | ~267 residues | — |
-| Graph nodes (trimer) | ~800 residues | — |
-| Edge count (8Å cutoff) | ~5000–8000 edges | — |
-| Node feature shape | (N, 26) | — |
-| Edge feature shape | (E, 2) | — |
-| Output shape | (N,) | — |
-| Output range | [0, 1] | — |
-| Forward pass time | < 1 second | — |
+| Graph nodes (monomer) | ~267 residues | â€” |
+| Graph nodes (trimer) | ~800 residues | â€” |
+| Edge count (8Ã… cutoff) | ~5000â€“8000 edges | â€” |
+| Node feature shape | (N, 26) | â€” |
+| Edge feature shape | (E, 2) | â€” |
+| Output shape | (N,) | â€” |
+| Output range | [0, 1] | â€” |
+| Forward pass time | < 1 second | â€” |
 
 ---
 
@@ -99,12 +99,12 @@ _Fill in after running._
 
 ## Limitations
 
-- Untrained model — scores are random. This is only a sanity check.
+- Untrained model â€” scores are random. This is only a sanity check.
 - If graph has wrong node count, check chain parsing (PCNA has chains A, B, C).
 
 ---
 
 ## Next Action
 
-If E001 passes → proceed to E002 (training + pocket recovery on 8GLA).
-If E001 fails → debug parse_pdb or graph_construction before any other work.
+If E001 passes â†’ proceed to E002 (training + pocket recovery on 8GLA).
+If E001 fails â†’ debug parse_pdb or graph_construction before any other work.

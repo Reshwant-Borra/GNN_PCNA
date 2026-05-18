@@ -1,18 +1,21 @@
 """
-PCNA fine-tuning on 8GLA with chain-based cross-validation.
+PCNA fine-tuning on 8GLA with intra-structure chain-based evaluation.
 
 Strategy
 --------
 8GLA is a PCNA homotrimer (chains A, B, C) co-crystallised with AOH1996 (ZQZ).
 The ZQZ ligand sits at the A-B subunit interface, so both chain A and chain B
-have labeled pocket residues (24 each).  Chain C is unlabeled.
+have labeled pocket residues (~24 each).  Chain C is unlabeled.
 
-We exploit the trimer symmetry:
   - Train loss: chain A residues only  (24 pocket / ~317 total)
-  - Val AUROC : chain B residues only  (24 pocket / ~317 total — never seen during training)
+  - Val AUROC : chain B residues only  (24 pocket / ~317 total)
   - Monitoring: chain C false-positive rate (should stay low)
 
-This gives a proper held-out validation without needing additional structures.
+LIMITATION: This is same-structure evaluation, not independent validation.
+Chain B shares the same fold and crystal environment as chain A.  The val AUROC
+measures symmetry generalisation within a single structure, not generalisation
+to unseen proteins.  Do not report this AUROC as independent held-out performance.
+For genuine independent validation use pre-training val/test graphs (make_split.py).
 
 Usage
 -----
@@ -22,7 +25,9 @@ Usage
 from __future__ import annotations
 
 import argparse
+import json
 import sys
+from datetime import datetime
 from pathlib import Path
 
 import torch
@@ -155,6 +160,22 @@ def main(args: argparse.Namespace) -> None:
             best_auroc_B = auroc_B
             patience_counter = 0
             torch.save(model.state_dict(), ckpt_dir / "best_pcna.ckpt")
+            meta = {
+                "epoch": epoch,
+                "val_auroc_chain_b": round(float(auroc_B), 6),
+                "train_auroc_chain_a": round(float(auroc_A), 6) if not np.isnan(auroc_A) else None,
+                "train_loss": round(float(loss.item()), 6),
+                "model_size": args.model_size,
+                "pretrain_ckpt": args.pretrain,
+                "lr": args.lr,
+                "wd": args.wd,
+                "seed": 42,
+                "validation_note": "intra-structure (chain A train / chain B val) — not independent",
+                "timestamp": datetime.utcnow().isoformat() + "Z",
+            }
+            (ckpt_dir / "best_pcna_meta.json").write_text(
+                json.dumps(meta, indent=2), encoding="utf-8"
+            )
         else:
             patience_counter += 1
 

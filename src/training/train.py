@@ -4,6 +4,8 @@ Pre-train on CryptoSite, fine-tune on PCNA (8GLA labels).
 """
 from __future__ import annotations
 import argparse
+import json
+from datetime import datetime
 from pathlib import Path
 
 import torch
@@ -249,6 +251,27 @@ def main(args: argparse.Namespace) -> None:
             best_auroc = auroc
             patience_counter = 0
             torch.save(model.state_dict(), ckpt_dir / 'best.ckpt')
+            meta = {
+                "epoch": epoch,
+                "val_auroc": round(float(auroc), 6),
+                "val_loss": round(float(val_metrics["loss"]), 6),
+                "train_loss": round(float(train_loss), 6),
+                "model_class": model.__class__.__name__,
+                "model_size": args.model_size,
+                "n_params": sum(p.numel() for p in model.parameters()),
+                "phase": args.phase,
+                "resume_ckpt": args.resume or None,
+                "train_dir": str(args.train_dir),
+                "val_dir": str(args.val_dir),
+                "lr": args.lr,
+                "weight_decay": args.weight_decay,
+                "batch_size": args.batch_size,
+                "seed": args.seed,
+                "timestamp": datetime.utcnow().isoformat() + "Z",
+            }
+            (ckpt_dir / "best_meta.json").write_text(
+                json.dumps(meta, indent=2), encoding="utf-8"
+            )
             epoch_bar.write(f"  -> new best AUROC {best_auroc:.4f}  (saved)")
         else:
             patience_counter += 1
@@ -286,4 +309,6 @@ if __name__ == '__main__':
                         choices=['cosine', 'plateau'])
     parser.add_argument('--lr_patience',    type=int,   default=7,
                         help='epochs without improvement before LR halved (plateau only)')
+    parser.add_argument('--seed',           type=int,   default=42,
+                        help='random seed for reproducibility')
     main(parser.parse_args())

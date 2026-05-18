@@ -12,7 +12,7 @@
 | Threshold | 0.4 |
 | Total structures evaluated | 90 |
 | Structures with pocket labels | 53 |
-| Mean AUROC (labeled CryptoSite) | **0.9405** |
+| Mean AUROC (ligand-proximity labeled structures) | **0.9405** (labels use Cα–ligand distance, not curated CryptoSite benchmark labels) |
 | Structures AUROC ≥ 0.65 | 51 / 53 (96%) |
 | Structures AUROC ≥ 0.75 | 49 / 53 (92%) |
 
@@ -42,7 +42,11 @@
 
 ---
 
-## 3. CryptoSite Benchmark — Top 10 Structures by AUROC
+## 3. Ligand-Proximity Labeled Structures — Top 10 by AUROC
+
+> **Label methodology:** Residues labeled positive if Cα is within 6 Å of any ligand atom.
+> These are **not** curated CryptoSite benchmark labels. AUROC measures agreement with
+> proximity-based heuristics, not validated cryptic-pocket annotations.
 
 | Rank | PDB | AUROC | Max Score | % above 0.4 | Pockets | Residues |
 |---|---|---|---|---|---|---|
@@ -61,7 +65,7 @@
 
 ## 4. Score Distribution Summary
 
-| Metric | CryptoSite (all) | PCNA core |
+| Metric | Ligand-proximity labeled (all) | PCNA core |
 |---|---|---|
 | Mean max score | 0.5676 | 0.9236 |
 | Median max score | 0.7954 | 0.9230 |
@@ -184,38 +188,37 @@
 PocketGNN v2 takes a static crystal structure (no dynamics, no MD required) and assigns
 each residue a probability that it belongs to a cryptic pocket — a binding site that is
 hidden in the apo structure but opens when a ligand is present. It does this by learning
-graph-level patterns from the CryptoSite benchmark (proteins with known cryptic pockets)
-and transferring that knowledge to PCNA.
+graph-level patterns from ligand-proximity labeled proteins (87 proteins from the CryptoSite
+set, labeled via Cα–ligand distance heuristic) and transferring those patterns to PCNA.
 
-### Why AUROC 0.94 matters
-Random prediction gives AUROC = 0.50. A mean AUROC of 0.94 across 53 unseen
-proteins means the model has genuinely learned structural features that distinguish pocket
-residues from non-pocket residues — without ever being told where to look. The model sees
-only the graph topology and physicochemical features (hydrophobicity, SASA, secondary
-structure, local density), not the ligand.
+**Important caveat:** Labels are derived from Cα–ligand distance (6 Å), not from the curated
+CryptoSite benchmark labels used in published papers. AUROC measures agreement with
+proximity-based heuristics, not validated cryptic-pocket annotations.
+
+### Why AUROC 0.94 matters (with caveat)
+Random prediction gives AUROC = 0.50. A mean AUROC of 0.94 across 53 structures
+suggests the model consistently ranks labeled residues higher than background — without
+being shown the ligand at inference time. However, since labels are proximity-based
+heuristics rather than curated annotations, this AUROC cannot be directly compared to
+published benchmarks such as PocketMiner or DeepPocket. It should be treated as
+internal consistency evidence only.
 
 ### Replicability
 1. The graph construction is deterministic — given the same PDB file, the same .pt graph
    is produced every time.
 2. The model weights are fixed at inference (eval mode, no dropout).
-3. The CryptoSite split is seeded (seed=42), so the exact same 45/5/5 train/val/test
-   split can be reproduced from scratch with `python scripts/make_split.py`.
-4. All inputs (PDB files), outputs (graphs, scores, checkpoints), and code are version-
-   controlled in the GitHub repository.
-   Any researcher can clone the repo, run fetch_structures.py + build_graphs.py +
-   make_split.py + train.py and reproduce the same checkpoint within normal random-seed
-   variance.
+3. The split is seeded (seed=42) — reproduce with `python scripts/make_split.py`.
+4. All inputs (PDB files), code, and checkpoints are version-controlled.
+   Reproduce with: `python scripts/build_graphs.py` + `python scripts/make_split.py` +
+   `python scripts/finetune_pcna.py`.
 
 ### Scientific usefulness
-- **Drug discovery triage**: Instead of running microsecond MD simulations on every
-  PCNA structure (expensive, slow), this model screens all 90 available structures in
-  under 60 seconds and ranks them by cryptic pocket probability.
-- **Novel site discovery**: The model can score any new PCNA structure (mutant,
-  co-crystal, engineered variant) the moment it appears in the PDB. If it scores
-  high in a region that is NOT the AOH1996 site, that is a novel druggable hypothesis
-  worth investigating with MD.
-- **Benchmark performance**: AUROC 0.94 on CryptoSite puts this in the competitive
-  range for cryptic pocket predictors (PocketMiner reports ~0.73, DeepPocket ~0.68 on
+- **Drug discovery triage**: Screens all available PCNA structures in under 60 seconds
+  and ranks regions by pocket probability — useful for prioritising experimental follow-up.
+- **Novel site hypotheses**: High scores in non-AOH1996 regions are unvalidated hypotheses
+  worth investigating with docking or MD. They are not confirmed novel pockets.
+- **Preliminary benchmark**: AUROC 0.94 on ligand-proximity labels is encouraging but not
+  directly comparable to published cryptic-pocket benchmarks — comparison on
   similar benchmarks), using a fraction of the compute and no MD data.
 - **PCNA specificity**: The fine-tuning step with symmetry loss means the model
   understands PCNA's homotrimeric geometry — it penalises asymmetric predictions across

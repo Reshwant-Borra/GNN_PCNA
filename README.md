@@ -39,7 +39,7 @@ Streamlit UI  (src/ui/app.py)
   → B-factor PDB export (PyMOL) + CSV
   ↓
 MD Validation  (src/md/parse_trajectory.py)
-  → RMSF, DCCM, transient volume analysis
+  → RMSF, DCCM, transient volume analysis  [NOT YET RUN — no trajectory data]
 ```
 
 ---
@@ -71,7 +71,7 @@ CrypticGNN v1 (~556k params, single-branch, 26-dim nodes) is preserved for compa
 | Holo structure | PDB **8GLA** — AOH1996 bound, cryptic pocket open |
 | Ground truth labels | Residues within 6 Å of AOH1996 in 8GLA |
 | Validation gate | Model MUST score AOH1996 pocket residues > 0.7 before trusting novel predictions |
-| Pre-training data | CryptoSite benchmark (87 known cryptic pocket proteins) |
+| Pre-training data | Ligand-proximity labeled structures (87 proteins from CryptoSite set, labeled via Cα–ligand distance, **not** curated CryptoSite benchmark labels) |
 | PCNA UniProt | P12004 · homotrimer (chains A, B, C) |
 
 ---
@@ -150,8 +150,16 @@ streamlit run src/ui/app.py
 
 ### 7. Train from scratch (optional)
 
+> **Note:** `data/cryptosite/train/` and `data/cryptosite/val/` are not included (ligand-proximity labeled
+> graphs built from the CryptoSite protein set). Run `python scripts/build_graphs.py` then
+> `python scripts/make_split.py` to generate them from the included PDB files first.
+
 ```bash
-# Pre-train on CryptoSite
+# Build graphs then split
+python scripts/build_graphs.py
+python scripts/make_split.py
+
+# Pre-train on ligand-proximity labeled structures
 python -m src.training.train \
   --train_dir data/cryptosite/train \
   --val_dir   data/cryptosite/val \
@@ -159,14 +167,10 @@ python -m src.training.train \
   --checkpoint_dir checkpoints/pretrain/ \
   --epochs 100 --lr 1e-3 --patience 15
 
-# Fine-tune on PCNA (enables symmetry loss)
-python -m src.training.train \
-  --train_dir data/pcna/train \
-  --val_dir   data/pcna/val \
-  --model_size large --phase finetune \
-  --resume checkpoints/pretrain/best.ckpt \
-  --checkpoint_dir checkpoints/finetune/ \
-  --epochs 50 --lr 3e-4 --patience 10
+# Fine-tune on PCNA
+python scripts/finetune_pcna.py \
+  --pretrain checkpoints/pretrain/best.ckpt \
+  --model_size small --epochs 80
 ```
 
 ### Troubleshooting
@@ -215,11 +219,11 @@ Add to Claude Code via `.claude/mcp.json` (already configured in this repo).
 
 | Metric | Minimum bar | Strong result |
 |---|---|---|
-| AOH1996 pocket mean score on 8GLA | > 0.7 | — |
-| AOH1996 pocket rank | top-3 | top-1 |
-| AUROC on CryptoSite held-out | > 0.65 | > 0.80 |
-| Novel pocket RMSF | — | > 1.5 Å |
-| Novel pocket transient volume | — | > 100 Å³ |
+| AOH1996 pocket mean score on 8GLA | > 0.7 | — | **Not passed** (v2-small: 0.587; v3-XL: passes) |
+| AOH1996 pocket rank | top-3 | top-1 | Top-2 in v2-small (8GLA analysis) |
+| AUROC on ligand-proximity labeled held-out | > 0.65 | > 0.80 | v3-XL mean 0.94 (ligand-proximity labels, not curated CryptoSite) |
+| Novel pocket RMSF | — | > 1.5 Å | **Not measured** — no MD trajectories |
+| Novel pocket transient volume | — | > 100 Å³ | **Not measured** — no MD trajectories |
 
 ---
 

@@ -1,7 +1,7 @@
 # System Overview
 
 ## Goal
-Identify **cryptic binding pockets** on PCNA (Proliferating Cell Nuclear Antigen) using a GNN-based detection pipeline, validated by molecular dynamics simulation.
+Identify **cryptic binding pockets** on PCNA (Proliferating Cell Nuclear Antigen) using a GNN-based detection pipeline. MD validation infrastructure exists but has not yet been run — no trajectory data, RMSF outputs, or DCCM matrices exist in this repository.
 
 ## Why PCNA
 - Homotrimeric sliding clamp, essential for DNA replication and repair
@@ -20,7 +20,7 @@ PDB Structure(s)
   → Graph Construction (residues as nodes, edges by distance/contact)
   → GNN Encoder (learns pocket-relevant node/edge embeddings)
   → Pocket Scoring Head (per-residue cryptic pocket probability)
-  → MD Validation (confirm pocket opens dynamically)
+  → MD Validation (PLANNED — confirm pocket opens dynamically — not yet run)
   → Ranked Output (novel cryptic sites + confidence)
 ```
 

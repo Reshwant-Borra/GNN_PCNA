@@ -1,32 +1,33 @@
-# GNN-PCNA — Replication Setup Guide
+# GNN-PCNA — Setup Guide for Reviewers
 
-Step-by-step instructions to run the full pipeline from scratch on a new machine.
-
----
-
-## Prerequisites
-
-| Requirement | Version | Notes |
-|---|---|---|
-| Python | 3.10 – 3.12 | 3.12 tested |
-| pip | ≥ 23.0 | `pip install --upgrade pip` |
-| Git | any | for cloning |
-| RAM | ≥ 8 GB | 16 GB recommended for large complexes |
-| GPU | optional | CPU works; GPU speeds training 5–10× |
-| Disk | ≥ 2 GB | raw PDB files are ~111 MB for 59 structures |
+Everything you need to reproduce results, run inference, or explore the model.
 
 ---
 
-## 1. Clone the repo
+## Step 0 — Check your environment first
+
+After cloning, run this before anything else:
+
+```bash
+python scripts/check_env.py
+```
+
+It checks every dependency and tells you exactly what to install if anything is missing. If it prints `[PASS] All checks passed`, skip to Step 4.
+
+---
+
+## Step 1 — Clone
 
 ```bash
 git clone https://github.com/Reshwant-Borra/GNN_PCNA.git
 cd GNN_PCNA
 ```
 
+All 59 PDB files, 88 graph tensors, and trained checkpoints are **already in the repo**. No download step needed.
+
 ---
 
-## 2. Create a virtual environment
+## Step 2 — Create a virtual environment
 
 ```bash
 python -m venv .venv
@@ -40,220 +41,156 @@ source .venv/bin/activate
 
 ---
 
-## 3. Install PyTorch
+## Step 3 — Install dependencies
 
-Install the build that matches your hardware **before** anything else.
+PyTorch Geometric requires two separate install steps. **Do them in order.**
 
-### CPU only (works everywhere, slower training)
+### 3a. Install PyTorch (pick your hardware)
+
 ```bash
+# CPU only — works on any machine
 pip install torch==2.1.0 --index-url https://download.pytorch.org/whl/cpu
-```
 
-### NVIDIA GPU (CUDA 11.8)
-```bash
+# NVIDIA GPU — CUDA 11.8
 pip install torch==2.1.0 --index-url https://download.pytorch.org/whl/cu118
-```
 
-### NVIDIA GPU (CUDA 12.1)
-```bash
+# NVIDIA GPU — CUDA 12.1
 pip install torch==2.1.0 --index-url https://download.pytorch.org/whl/cu121
-```
-
-### Apple Silicon (MPS)
-```bash
-pip install torch==2.1.0
 ```
 
 Verify:
 ```bash
-python -c "import torch; print(torch.__version__, torch.cuda.is_available())"
+python -c "import torch; print(torch.__version__)"
+# Expected: 2.1.0+cpu  (or +cu118 / +cu121)
 ```
 
----
-
-## 4. Install PyTorch Geometric
-
-PyG sparse ops must match your PyTorch + CUDA version exactly.
+### 3b. Install PyTorch Geometric
 
 ```bash
 pip install torch-geometric
 
-# torch-scatter and torch-sparse (replace cu118 with your CUDA tag, or cpu)
-pip install torch-scatter torch-sparse \
-  -f https://data.pyg.org/whl/torch-2.1.0+cu118.html
-```
-
-For CPU:
-```bash
+# Sparse ops — replace +cpu with +cu118 or +cu121 to match your torch build
 pip install torch-scatter torch-sparse \
   -f https://data.pyg.org/whl/torch-2.1.0+cpu.html
 ```
 
----
+Verify:
+```bash
+python -c "import torch_geometric; print(torch_geometric.__version__)"
+# Expected: 2.4.x or later
+```
 
-## 5. Install all other dependencies
+### 3c. Install all other dependencies
 
 ```bash
 pip install -r requirements.txt
 ```
 
-This installs: biopython, scikit-learn, scipy, numpy, requests, beautifulsoup4, streamlit, matplotlib, pandas, tqdm.
-
----
-
-## 6. Verify the install
+### Final check
 
 ```bash
-python -c "
-import torch, torch_geometric, Bio, sklearn, streamlit
-print('torch:', torch.__version__)
-print('pyg:', torch_geometric.__version__)
-print('biopython OK')
-print('sklearn OK')
-print('streamlit OK')
-"
+python scripts/check_env.py
+# Should show [PASS] for every line
 ```
 
 ---
 
-## 7. Download PDB structures
+## Step 4 — Run the AOH1996 validation gate
 
-The raw `.pdb` files are not tracked in git. Download them via the crawler:
+This is the key scientific check. The model must score the AOH1996 binding site > 0.7 to be trusted for novel predictions.
 
 ```bash
-python agents/pcna_crawler.py --download --sources rcsb --download-limit 100
+# Using the recommended checkpoint (best_pcna_v3_fixed.ckpt)
+python scripts/aoh_gate_check.py --ckpt checkpoints/pcna/best_pcna_v3_fixed.ckpt --model xl
 ```
 
-This downloads up to 100 verified PCNA structures to `data/raw/`.
-
-The 59 PCNA structures used in this study are listed in `results/per_structure/summary_table.csv`.
-
-To download a specific structure manually:
-```bash
-# Example: 8GLA (AOH1996 holo)
-curl -o data/raw/8GLA.pdb https://files.rcsb.org/download/8GLA.pdb
+Expected output:
+```
+AOH1996 pocket mean score : 0.8250
+Gate threshold            : 0.700
+Verdict                   : PASS
 ```
 
 ---
 
-## 8. Build graph tensors
+## Step 5 — Run the held-out test evaluation
 
-Convert raw PDB files into PyG graph tensors:
+Evaluates the model on 5 proteins never seen during training or validation.
 
 ```bash
-python scripts/build_graphs.py
+python scripts/run_test_eval.py --ckpt checkpoints/pcna/best_pcna_v3_fixed.ckpt --model xl
 ```
 
-Output: `data/graphs/*.pt` (one file per structure, gitignored).
+Results written to `data/results/test_split_eval.json`.
 
 ---
 
-## 9. Use the pre-trained checkpoint
+## Step 6 — Run the full test suite
 
-The trained model is tracked in git at `checkpoints/pcna/best_pcna.ckpt`.
-No training required to run inference.
-
-Verify it loads:
 ```bash
-python -c "
-import torch
-from src.models import PocketGNN
-model = PocketGNN.small()
-model.load_state_dict(torch.load('checkpoints/pcna/best_pcna.ckpt', map_location='cpu', weights_only=True))
-print('Checkpoint loaded OK — params:', sum(p.numel() for p in model.parameters()))
-"
+python -m pytest -v
 ```
 
-Expected output: `Checkpoint loaded OK — params: 850000` (approximately).
+Expected: **16 passed**. All tests pass with PyG installed.
+
+If you see `11 skipped` with a message about `torch_geometric not installed`, go back to Step 3b.
 
 ---
 
-## 10. Run per-structure analysis (all 59 PCNA structures)
+## Step 7 — Run per-structure analysis (all 59 PCNA structures)
 
 ```bash
 python scripts/per_structure_analysis.py
 ```
 
-Output: `results/per_structure/{PDB_ID}/` for each structure.
-This takes ~5–15 minutes on CPU depending on machine.
+Output: `results/per_structure/{PDB_ID}/` for each structure (~5–15 min on CPU).
 
 ---
 
-## 11. Generate the analysis figure
-
-```bash
-python scripts/make_final_figure.py
-```
-
-Output: `results/per_structure/full_analysis.png` (5-panel figure).
-
----
-
-## 12. Launch the Streamlit UI
+## Step 8 — Launch the Streamlit UI
 
 ```bash
 streamlit run src/ui/app.py
 ```
 
-Opens at `http://localhost:8501`. Upload any PDB file or select a pre-analyzed structure.
+Opens at `http://localhost:8501`. The UI defaults to `best_pcna_v3_fixed.ckpt`.
 
 ---
 
-## 13. Regenerate protein documentation
+## Step 9 — Reproduce the ANM flexibility analysis
 
 ```bash
-python scripts/generate_protein_docs.py
+python scripts/run_nma.py --pdb data/raw/1W60.pdb --cutoff 7.5 --n_modes 20
+python scripts/run_nma.py --pdb data/raw/8GLA.pdb --cutoff 7.5 --n_modes 20
 ```
 
-Output: `docs/proteins/*.md` — one doc per structure + `docs/proteins/aoh1996_candidates.md`.
+Expected: apo fold-change = 0.857, holo fold-change = 1.104.
+Results written to `data/results/nma_1W60.json` and `data/results/nma_8GLA.json`.
 
 ---
 
-## Full pipeline (automated)
+## Checkpoints
 
-Runs all stages in sequence:
-
-```bash
-python scripts/run_pipeline.py --stages crawl download graphs split train eval
-```
-
-Flags:
-- `--stages` — which stages to run (default: all)
-- `--cutoff 8.0` — spatial graph edge cutoff in Angstroms
-- `--download-limit 100` — max PDB files to download
-- `--epochs 100` — training epochs
+| File | Model | Use |
+|---|---|---|
+| `checkpoints/pcna/best_pcna_v3_fixed.ckpt` | PocketGNNXL (~13.4M params) | **Recommended** — apo-negative fix applied |
+| `checkpoints/pcna/best_pcna_v3.ckpt` | PocketGNNXL (~13.4M params) | Superseded — 8GLA training leak present |
+| `checkpoints/pcna/best_pcna.ckpt` | PocketGNN small (~907k params) | Baseline comparison only |
 
 ---
 
-## Optional: MD validation
+## Key results already computed
 
-Requires MDAnalysis and a trajectory file (`.xtc` or `.dcd`):
+These files are committed — no recomputation needed to verify numbers:
 
-```bash
-pip install mdanalysis prody
-python -m src.md.analyze --topology data/raw/8GLA.pdb --trajectory path/to/traj.xtc
-```
-
----
-
-## Optional: MCP server (Claude Code integration)
-
-```bash
-pip install mcp
-python agents/mcp_server.py
-```
-
-Then add to your Claude Code MCP config:
-```json
-{
-  "mcpServers": {
-    "gnn-pcna": {
-      "command": "python",
-      "args": ["agents/mcp_server.py"]
-    }
-  }
-}
-```
+| File | Contents |
+|---|---|
+| `data/results/EVALUATION_REPORT.md` | Full per-structure AUROC table |
+| `data/results/v3_summary.csv` | V3 per-structure scores |
+| `data/results/nma_apo_holo_comparison.json` | ANM flexibility comparison |
+| `data/splits/cryptosite_split.json` | Train/val/test split manifest |
+| `data/manifests/pdb_checksums.json` | SHA256 checksums for all 150 PDB files |
+| `VERIFICATION_REPORT.md` | Automated claim verification (52 VERIFIED, 0 WRONG) |
 
 ---
 
@@ -261,28 +198,21 @@ Then add to your Claude Code MCP config:
 
 | Error | Fix |
 |---|---|
-| `ModuleNotFoundError: torch_scatter` | Re-run step 4 with correct CUDA tag |
-| `UnicodeEncodeError: cp1252` | Run with `PYTHONIOENCODING=utf-8 python ...` |
-| `FileNotFoundError: best_pcna.ckpt` | Run `git pull` — checkpoint is tracked in git |
-| `FileNotFoundError: data/raw/8GLA.pdb` | Run step 7 (crawler download) |
-| `AUROC = 0.5` on a structure | Check if drug-like HETATM exists — apo structures have no labeling signal |
+| `ModuleNotFoundError: torch_geometric` | Run Step 3b — PyG is a separate install from PyTorch |
+| `ModuleNotFoundError: torch_scatter` | Re-run Step 3b with the correct CUDA tag (`+cpu`, `+cu118`, `+cu121`) |
+| `11 tests skipped` in pytest | PyG not installed — run Step 3b |
+| `UnicodeEncodeError: cp1252` | Prefix command with `PYTHONIOENCODING=utf-8` |
+| `AUROC = 0.5` on a structure | Expected for apo structures — no ligand means no positive labels |
 | Streamlit not found | `pip install streamlit` |
-| Out of memory during analysis | Reduce batch size or run structures one at a time |
 
 ---
 
-## Key files at a glance
+## What is NOT in this repo
 
-| File | Purpose |
-|---|---|
-| `checkpoints/pcna/best_pcna.ckpt` | Pre-trained model (tracked in git) |
-| `results/per_structure/summary_table.csv` | All-59 results rollup (tracked in git) |
-| `results/per_structure/full_analysis.png` | 5-panel figure (tracked in git) |
-| `docs/proteins/aoh1996_candidates.md` | AOH1996 candidate extract |
-| `data/raw/*.pdb` | Raw structures (gitignored — download via crawler) |
-| `data/graphs/*.pt` | Graph tensors (gitignored — build via build_graphs.py) |
-| `data/catalog/pcna_data_catalog.json` | Crawler output catalog (tracked) |
+- MD trajectories (not generated — no trajectory data available)
+- ESM2 feature cache (generated on-the-fly at inference time)
+- Raw crawled catalog beyond the committed `data/catalog/` files
 
 ---
 
-*GNN-PCNA v2 | Python 3.12 | PyTorch 2.1 | PyTorch Geometric 2.4*
+*GNN-PCNA | Python 3.10–3.12 | PyTorch 2.1 | PyTorch Geometric 2.4+*

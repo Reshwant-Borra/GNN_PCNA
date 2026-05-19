@@ -41,7 +41,7 @@ V1_DIR      = REPO_ROOT / "results" / "per_structure"
 RCSB_DL     = "https://files.rcsb.org/download/{}.pdb"
 
 CKPT_V2 = REPO_ROOT / "checkpoints" / "pcna" / "best_pcna.ckpt"
-CKPT_V3 = REPO_ROOT / "checkpoints" / "pcna" / "best_pcna_v3.ckpt"
+CKPT_V3 = REPO_ROOT / "checkpoints" / "pcna" / "best_pcna_v3_fixed.ckpt"
 
 # Residues within 6 A of AOH1996 (ZQZ) in 8GLA
 _8GLA_GT: dict[str, set[int]] = {
@@ -639,8 +639,8 @@ if not run_btn or pdb_bytes is None:
 | Virtual node | Global context node gated into all residue representations |
 | Fusion | Learned gate per residue |
 | Head | MLP -> sigmoid per residue |
-| Checkpoint | best_pcna_v3.ckpt — pre-trained CryptoSite, fine-tuned PCNA |
-| AUROC on 8GLA | **0.9990** (v1 baseline: 0.8661) |
+| Checkpoint | best_pcna_v3_fixed.ckpt — pre-trained CryptoSite, fine-tuned PCNA (apo-negative fix) |
+| Held-out AUROC | **0.8913** mean over 6 held-out structures (8GLA excluded — training leak) |
 """)
         else:
             st.markdown(f"""

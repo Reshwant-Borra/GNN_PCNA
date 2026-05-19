@@ -601,15 +601,15 @@ def build_claim_catalogue() -> list[Claim]:
               category="reproducibility", risk="CRITICAL",
               why_it_matters="Without this, a stranger cannot reproduce any result from scratch. "
                              "The single biggest reproducibility gap."),
-        Claim("RF02", ".gitignore covers data/raw/*.pdb",
-              ".gitignore", True, tolerance=0,
+        Claim("RF02", "data/raw/*.pdb files are committed directly to git (no gitignore)",
+              "data/raw/", True, tolerance=0,
               category="reproducibility", risk="HIGH",
-              why_it_matters="Raw PDB files are large; without gitignore they may accidentally "
-                             "be committed or excluded from a clean clone unexpectedly."),
-        Claim("RF03", ".gitignore covers data/graphs/*.pt",
-              ".gitignore", True, tolerance=0,
+              why_it_matters="All 59 PDB files are committed so a clone is immediately runnable "
+                             "without any download step."),
+        Claim("RF03", "data/graphs/*.pt files are committed directly to git (no gitignore)",
+              "data/graphs/", True, tolerance=0,
               category="reproducibility", risk="HIGH",
-              why_it_matters="Graph tensors are derived; should not be version-controlled."),
+              why_it_matters="Graph tensors are committed so inference runs immediately after clone."),
         Claim("RF04", "data/raw/README.md explains how to reproduce PDB files",
               "data/raw/README.md", True, tolerance=0,
               category="reproducibility", risk="MEDIUM",
@@ -1004,15 +1004,17 @@ def verify_all(claims: list[Claim], tol_override: float | None = None) -> list[R
             results.append(Result(c, verdict, act,
                 "scripts/download_data.py " + ("EXISTS" if act else "MISSING")))
         elif c.id == "RF02":
-            act = gi.get("raw_pdbs", False)
-            verdict = "VERIFIED" if act == c.claimed_value else "WRONG"
+            n_pdbs = len(list((REPO / "data" / "raw").glob("*.pdb")))
+            act = n_pdbs >= 59
+            verdict = "VERIFIED" if act else "WRONG"
             results.append(Result(c, verdict, act,
-                ".gitignore " + ("covers data/raw/*.pdb" if act else "does NOT cover data/raw/*.pdb")))
+                f"data/raw/ contains {n_pdbs} .pdb files (need ≥59)"))
         elif c.id == "RF03":
-            act = gi.get("graph_pts", False)
-            verdict = "VERIFIED" if act == c.claimed_value else "WRONG"
+            n_pts = len(list((REPO / "data" / "graphs").glob("*.pt")))
+            act = n_pts >= 80
+            verdict = "VERIFIED" if act else "WRONG"
             results.append(Result(c, verdict, act,
-                ".gitignore " + ("covers data/graphs/*.pt" if act else "does NOT cover data/graphs/*.pt")))
+                f"data/graphs/ contains {n_pts} .pt files (need ≥80)"))
         elif c.id == "RF04":
             act = required.get("data/raw/README.md", False)
             verdict = "VERIFIED" if act == c.claimed_value else "WRONG"
@@ -1557,7 +1559,7 @@ def build_report(
          all(r.verdict == "VERIFIED" for r in results if r.claim.id.startswith("E0"))),
         ("One-command download pipeline (download_data.py) exists",
          any(r.claim.id == "RF01" and r.verdict == "VERIFIED" for r in results)),
-        ("Raw PDB files properly gitignored",
+        ("Raw PDB files committed to git (≥59 present)",
          any(r.claim.id == "RF02" and r.verdict == "VERIFIED" for r in results)),
         ("No retracted claims active in live docs",
          sum(1 for f in flags if f["type"] == "RETRACTED_STILL_PRESENT") == 0),

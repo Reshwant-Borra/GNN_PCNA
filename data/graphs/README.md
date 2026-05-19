@@ -1,6 +1,6 @@
 # data/graphs/ — PyG Graph Tensors
 
-This directory is **gitignored** (derived from raw PDB files, reproducible on demand).
+All graph `.pt` files are **committed directly to this repo** and can be cloned without rebuilding.
 
 ## What goes here
 
@@ -9,7 +9,7 @@ PyTorch Geometric `Data` objects saved as `{PDB_ID}.pt`, one per PCNA structure.
 Each `.pt` file contains:
 - `x`: node features, shape `[N_residues, 40]` — hand-crafted geometric + chemical features
 - `edge_index`: spatial edges (Cα–Cα distance < 8 Å)
-- `edge_attr`: edge features, shape `[E, 5]`
+- `edge_attr`: edge features, shape `[E, 6]`
 - `seq_edge_index`: sequential backbone edges (i → i+1 within each chain)
 - `y`: binary pocket labels (1 = within 6 Å of ligand heavy atom)
 - `pos`: Cα coordinates, shape `[N_residues, 3]`

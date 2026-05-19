@@ -10,12 +10,21 @@ REPO = Path(__file__).parent.parent
 
 try:
     import torch
-    from src.models import PocketGNN, PocketGNNXL
     HAS_TORCH = True
 except ImportError:
     HAS_TORCH = False
 
-pytestmark = pytest.mark.skipif(not HAS_TORCH, reason="torch not installed")
+try:
+    import torch_geometric  # noqa: F401
+    from src.models import PocketGNN, PocketGNNXL
+    HAS_PYG = True
+except ImportError:
+    HAS_PYG = False
+
+pytestmark = pytest.mark.skipif(
+    not HAS_TORCH or not HAS_PYG,
+    reason="torch not installed" if not HAS_TORCH else "torch_geometric not installed — run: pip install torch-geometric torch-scatter torch-sparse"
+)
 
 CKPT_SMALL = REPO / "checkpoints" / "pcna" / "best_pcna.ckpt"
 CKPT_V3    = REPO / "checkpoints" / "pcna" / "best_pcna_v3.ckpt"

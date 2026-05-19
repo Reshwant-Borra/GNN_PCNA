@@ -6,7 +6,7 @@
   "n_params": 13364354,
   "input_dim": {
     "node_in_dim": 520,
-    "edge_in_dim": 5,
+    "edge_in_dim": 6,
     "note": "40 hand-crafted + 480 ESM2 (facebook/esm2_t12_35M_UR50D)"
   },
   "architecture": {

@@ -1,9 +1,42 @@
 {
-  "generated": "2026-05-18T00:00:00Z",
-  "description": "AOH1996 validation gate results for committed checkpoints against 8GLA ground truth residues.",
+  "generated": "2026-05-19T00:00:00Z",
+  "description": "AOH1996 validation gate results. Gate measures mean score over the AOH1996-labeled residues (Ca within 6A of ligand in 8GLA). Mean >= 0.7 = PASS.",
   "gate_threshold": 0.7,
-  "note": "Gate measures mean score over the 48 AOH1996-labeled residues (Cα within 6Å of ligand in 8GLA). Mean >= 0.7 = PASS.",
   "results": [
+    {
+      "checkpoint": "checkpoints/pcna_reproduced/best.ckpt",
+      "model": "xl",
+      "graph": "data/pcna_xl/8GLA.pt",
+      "node_dim": 520,
+      "n_residues_total": 952,
+      "n_aoh_labeled": 48,
+      "aoh_mean_score": 0.8676,
+      "aoh_median_score": 0.9211,
+      "aoh_min_score": 0.0571,
+      "aoh_max_score": 0.9681,
+      "rank_of_best_aoh_residue": 1,
+      "gate_pass": true,
+      "verdict": "PASS",
+      "provenance": "FULL — pretrain seed=42 + finetune seed=42, lr=3e-4, epoch=57",
+      "command": "python scripts/aoh_gate_check.py --ckpt checkpoints/pcna_reproduced/best.ckpt --model xl"
+    },
+    {
+      "checkpoint": "checkpoints/pcna/best_pcna_v3_fixed.ckpt",
+      "model": "xl",
+      "graph": "data/pcna_xl/8GLA.pt",
+      "node_dim": 520,
+      "n_residues_total": 952,
+      "n_aoh_labeled": 48,
+      "aoh_mean_score": 0.8969,
+      "aoh_median_score": 0.8987,
+      "aoh_min_score": 0.8427,
+      "aoh_max_score": 0.9377,
+      "rank_of_best_aoh_residue": 1,
+      "gate_pass": true,
+      "verdict": "PASS",
+      "provenance": "PARTIAL — seed=UNKNOWN, lr=UNKNOWN (superseded)",
+      "command": "python scripts/aoh_gate_check.py --ckpt checkpoints/pcna/best_pcna_v3_fixed.ckpt --model xl"
+    },
     {
       "checkpoint": "checkpoints/pcna/best_pcna.ckpt",
       "model": "small",
@@ -18,23 +51,8 @@
       "rank_of_best_aoh_residue": 1,
       "gate_pass": false,
       "verdict": "FAIL (mean 0.5998 < 0.7)",
+      "provenance": "NONE — all fields UNKNOWN (superseded)",
       "command": "python scripts/aoh_gate_check.py --ckpt checkpoints/pcna/best_pcna.ckpt --model small"
-    },
-    {
-      "checkpoint": "checkpoints/pcna/best_pcna_v3.ckpt",
-      "model": "xl",
-      "graph": "data/pcna_xl/8GLA.pt",
-      "node_dim": 520,
-      "n_residues_total": 952,
-      "n_aoh_labeled": 48,
-      "aoh_mean_score": 0.8969,
-      "aoh_median_score": 0.8987,
-      "aoh_min_score": 0.8427,
-      "aoh_max_score": 0.9377,
-      "rank_of_best_aoh_residue": 1,
-      "gate_pass": true,
-      "verdict": "PASS",
-      "command": "python scripts/aoh_gate_check.py --ckpt checkpoints/pcna/best_pcna_v3.ckpt --model xl"
     }
   ]
 }

@@ -29,11 +29,11 @@ PDB Structure
   → parse_pdb.py           residues + Cα coordinates
   → graph_construction.py  dual-graph PyG Data (40-dim nodes, 6-dim edges)
   ↓
-PocketGNN v2 small  (src/models/cryptic_gnn.py — checkpoint used for all results)
-  Branch 1: 3× GATv2Conv on spatial contact graph (8 Å)
-  Branch 2: 2× GATv2Conv on backbone sequential graph (|i−j| ≤ 2)
-  → gated fusion → 4-layer MLP head → per-residue sigmoid score
-  (large config: 4+3 layers, ~10.4M params — defined but not used for any result)
+PocketGNNXL  (src/models/cryptic_gnn.py — primary checkpoint: checkpoints/pcna_reproduced/best.ckpt)
+  Branch 1: 5× GATv2Conv on spatial contact graph (8 Å)
+  Branch 2: 4× GATv2Conv on backbone sequential graph (|i−j| ≤ 2)
+  → gated fusion → virtual-node → MLP head → per-residue sigmoid score
+  (small config: 3+2 layers, ~907k params — available as checkpoints/reproduced/best.ckpt)
   ↓
 Streamlit UI  (src/ui/app.py)
   → sequence heatmap, top-residue table, chain symmetry check
@@ -57,7 +57,7 @@ MD Validation  (src/md/parse_trajectory.py)
 | Fusion | Learned gate per residue: `gate * h_spatial + (1-gate) * h_seq` |
 | Scoring head | Linear(768→384→192→96→1) + ReLU + Dropout at each layer |
 | Output | Per-residue pocket probability ∈ [0, 1] |
-| Parameters | ~10.4M (large) · ~3.6M (medium) · ~907k (small) — **all results in this repo use the small checkpoint** |
+| Parameters | ~13.4M (XL) · ~10.4M (large) · ~3.6M (medium) · ~907k (small) — **primary results use `checkpoints/pcna_reproduced/best.ckpt` (fully reproduced, seed=42 end-to-end)** |
 | Loss | Focal(γ=2, α=0.25) + 0.05×Ranking(margin=0.2) + 0.10×Symmetry (finetune only) |
 
 CrypticGNN v1 (~556k params, single-branch, 26-dim nodes) is preserved for comparison.
@@ -114,30 +114,28 @@ pip install torch-geometric
 pip install -r requirements.txt
 ```
 
-### 4. Download PDB structures + build graph tensors
+### 4. PDB structures + graph tensors (already in repo)
 
-Raw `.pdb` files are **gitignored** (too large for version control) but freely downloadable
-from RCSB. A single script handles download, checksum verification, and graph construction:
+All 59 raw `.pdb` files and 88 graph `.pt` files are **committed to this repo** — no download step needed after cloning. SHA256 checksums are at `data/manifests/pdb_checksums.json`.
+
+To verify checksums or re-download from scratch:
 
 ```bash
-# Download all 59 PCNA structures + build PyG graphs (one command)
-python scripts/download_data.py
-
-# Download only, skip graph building
-python scripts/download_data.py --skip-graphs
-
-# Verify checksums of already-downloaded files
+# Verify checksums of committed files
 python scripts/download_data.py --verify
-```
 
-This replaces the older `pcna_crawler.py --download` and `build_graphs.py` workflow.
-See `data/raw/README.md` and `data/graphs/README.md` for details.
+# Re-download all PDB files from RCSB (overwrites local)
+python scripts/download_data.py --force
+```
 
 ### 6. Run inference (pre-trained checkpoint included)
 
-The checkpoint `checkpoints/pcna/best_pcna.ckpt` is tracked in git — no training needed.
+The primary checkpoint `checkpoints/pcna_reproduced/best.ckpt` is tracked in git — no training needed. It is a fully reproduced XL model (seed=42 end-to-end, pretrain → PCNA fine-tune).
 
 ```bash
+# Validate AOH1996 pocket recovery gate
+python scripts/aoh_gate_check.py --ckpt checkpoints/pcna_reproduced/best.ckpt --model xl
+
 # Per-structure analysis on all 59 PCNA structures
 python scripts/per_structure_analysis.py
 
@@ -150,9 +148,10 @@ streamlit run src/ui/app.py
 
 ### 7. Train from scratch (optional)
 
-> **Note:** `data/cryptosite/train/` and `data/cryptosite/val/` are not included (ligand-proximity labeled
-> graphs built from the CryptoSite protein set). Run `python scripts/download_data.py` first to
-> download PDB files and build graphs, then `python scripts/make_split.py` to create the split.
+> **Note:** `data/cryptosite/train/` (42 graphs), `data/cryptosite/val/` (8 graphs), and `data/cryptosite/test/` (5 graphs)
+> are committed to this repo. These are ligand-proximity labeled graphs (Cα–ligand distance labels,
+> **not** curated CryptoSite benchmark annotations). To rebuild from scratch:
+> `python scripts/download_data.py` then `python scripts/make_split.py`.
 
 ```bash
 # Download PDB files + build graphs
@@ -221,9 +220,9 @@ Add to Claude Code via `.claude/mcp.json` (already configured in this repo).
 
 | Metric | Minimum bar | Strong result | Status |
 |---|---|---|---|
-| AOH1996 pocket mean score on 8GLA | > 0.7 | — | **PASS** — XL fixed: 0.8969 (small: FAIL 0.5998) |
-| AOH1996 pocket rank | top-3 | top-1 | **PASS** — rank 1 (XL fixed) |
-| Test AUROC, protein-level held-out (5 proteins) | > 0.65 | > 0.80 | **PASS** — XL fixed: 0.9627; reproduced small: 0.7414 |
+| AOH1996 pocket mean score on 8GLA | > 0.7 | — | **PASS** — reproduced fine-tuned XL: 0.8676, rank 1 (small: FAIL 0.5998) |
+| AOH1996 pocket rank | top-3 | top-1 | **PASS** — rank 1 (reproduced fine-tuned XL) |
+| Test AUROC, protein-level held-out (5 proteins) | > 0.65 | > 0.80 | **PASS** — reproduced fine-tuned XL: 0.9390 (seed=42 end-to-end) |
 | ANM apo/holo fold-change delta | > 0 | > 0.2 | **PASS** — delta = +0.247 (apo 0.857 → holo 1.104) |
 | Internal pocket DCCM (apo) | > 0 | > 0.3 | **Partial** — 0.0995 (mild positive coherent motion) |
 | Novel pocket transient volume (MD) | — | > 100 Å³ | Not measured — no MD trajectories |

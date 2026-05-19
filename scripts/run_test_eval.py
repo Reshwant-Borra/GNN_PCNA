@@ -18,13 +18,21 @@ from __future__ import annotations
 import sys, json, argparse
 from pathlib import Path
 
-import torch
-import numpy as np
-from sklearn.metrics import roc_auc_score, average_precision_score
-
 REPO = Path(__file__).parent.parent
 sys.path.insert(0, str(REPO))
 
+try:
+    import torch
+    import torch_geometric  # noqa: F401
+except ImportError as e:
+    print(f"\n[ERROR] Missing dependency: {e}")
+    print("  PyTorch Geometric is required. Run the environment checker first:")
+    print("    python scripts/check_env.py")
+    print("  Then follow its install instructions.\n")
+    sys.exit(1)
+
+import numpy as np
+from sklearn.metrics import roc_auc_score, average_precision_score
 from src.models import PocketGNN, PocketGNNXL
 
 

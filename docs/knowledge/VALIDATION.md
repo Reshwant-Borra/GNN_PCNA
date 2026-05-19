@@ -10,15 +10,16 @@
 
 | Test | Criterion | Status |
 |---|---|---|
-| AOH1996 pocket mean score (small) | > 0.7 on 8GLA | **FAIL** — 0.5998 |
-| AOH1996 pocket mean score (XL fixed) | > 0.7 on 8GLA | **PASS** — 0.8969 |
-| AOH1996 pocket rank (XL fixed) | Top-3 on 8GLA | **PASS** — rank 1 |
-| AUROC on held-out test split — small | > 0.65 | **0.6484** (5 proteins, protein-level split) |
-| AUROC on held-out test split — XL fixed | > 0.80 | **0.9627** (5 proteins, protein-level split) ✓ |
-| AUPRC on held-out test split — XL fixed | > 0.30 | **0.4035** ✓ |
+| AOH1996 pocket mean score (reproduced PCNA fine-tune) | > 0.7 on 8GLA | **PASS** — 0.8676, rank 1 |
+| AOH1996 pocket mean score (small, original) | > 0.7 on 8GLA | **FAIL** — 0.5998 |
+| AUROC on held-out test split — reproduced fine-tuned XL | > 0.80 | **0.9390** (5 proteins, seed=42) ✓ |
+| AUPRC on held-out test split — reproduced fine-tuned XL | > 0.30 | **0.3706** ✓ |
+| AUROC on held-out test split — reproduced pretrain XL | > 0.80 | **0.9494** (5 proteins, seed=42) ✓ |
 | ANM apo/holo fold-change delta | > 0 | **+0.247** (0.857→1.104) ✓ |
 
-See `data/results/aoh_gate_results.json` and `data/results/test_split_eval_best_pcna_v3_fixed.json`.
+See `data/results/aoh_gate_results.json` and `data/results/test_split_eval_pcna_reproduced.json`.
+
+**Recommended checkpoint**: `checkpoints/pcna_reproduced/best.ckpt` — fully reproduced PCNA model, complete provenance chain (pretrain seed=42 → finetune seed=42, lr=3e-4, epoch=57).
 
 If these fail → debug before proceeding. See [[RESEARCH_QUESTION]] failure criteria.
 
@@ -31,17 +32,30 @@ from ALL training as a held-out test set. These are different protein families f
 Labels use ligand-proximity (Cα within 6 Å) — same methodology as training, applied
 consistently to unseen structures.
 
-| Model | Checkpoint | Val AUROC (8) | Test AUROC (5) | Test AUPRC |
-|-------|-----------|---------------|----------------|------------|
-| PocketGNN small (reproduced, full provenance) | `checkpoints/reproduced/best.ckpt` | 0.6093 | 0.7414 | 0.1094 |
-| PocketGNN small (original, provenance UNKNOWN) | `checkpoints/pcna/best_pcna.ckpt` | 0.5253 | 0.6484 | 0.1659 |
-| PocketGNNXL fixed | `checkpoints/pcna/best_pcna_v3_fixed.ckpt` | 0.7717 | **0.9627** | **0.4035** |
+| Model | Checkpoint | AOH Gate | Val AUROC (8) | Test AUROC (5) | Test AUPRC | Provenance |
+|-------|-----------|----------|---------------|----------------|------------|------------|
+| PocketGNNXL PCNA fine-tune (reproduced) | `checkpoints/pcna_reproduced/best.ckpt` | **PASS 0.8676** | 0.7263 | **0.9390** | **0.3706** | seed=42 end-to-end, all known |
+| PocketGNNXL pretrain (reproduced) | `checkpoints/reproduced_xl/best.ckpt` | FAIL (pretrain only) | 0.7256 | 0.9494 | 0.4011 | seed=42, lr=3e-4, epoch 10 |
+| PocketGNNXL fixed (original) | `checkpoints/pcna/best_pcna_v3_fixed.ckpt` | PASS 0.8969 | 0.7717 | 0.9627 | 0.4035 | seed=UNKNOWN (superseded) |
+| PocketGNN small (reproduced) | `checkpoints/reproduced/best.ckpt` | FAIL | 0.6093 | 0.7414 | 0.1094 | seed=42, lr=3e-4, epoch 12 |
+| PocketGNN small (original) | `checkpoints/pcna/best_pcna.ckpt` | FAIL | 0.5253 | 0.6484 | 0.1659 | SUPERSEDED |
 
 Test structures (never seen during any training): 1V48, 3CL7, 1D09, 1M17, 2VO5
 
-Command: `python scripts/run_test_eval.py --ckpt checkpoints/pcna/best_pcna_v3_fixed.ckpt --model xl --graphs data/graphs_xl`
+Commands:
+```
+# Primary: reproduced PCNA fine-tune (PASS gate + full provenance)
+python scripts/aoh_gate_check.py --ckpt checkpoints/pcna_reproduced/best.ckpt --model xl
+python scripts/run_test_eval.py --ckpt checkpoints/pcna_reproduced/best.ckpt --model xl --graphs data/graphs_xl
 
-Full results: `data/results/test_split_eval_best_pcna_v3_fixed.json`
+# Reproduced pretrain (CryptoSite benchmark only)
+python scripts/run_test_eval.py --ckpt checkpoints/reproduced_xl/best.ckpt --model xl --graphs data/graphs_xl
+```
+
+Full results:
+- `data/results/test_split_eval_pcna_reproduced.json` (**primary — PASS gate + full provenance**)
+- `data/results/test_split_eval_reproduced_xl.json` (pretrain only, CryptoSite benchmark)
+- `data/results/test_split_eval_best_pcna_v3_fixed.json` (original XL fixed, superseded)
 
 ---
 

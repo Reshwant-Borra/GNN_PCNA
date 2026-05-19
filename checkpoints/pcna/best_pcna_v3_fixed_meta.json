@@ -51,5 +51,5 @@
     "Score compression: top pocket means compressed by 0.0146 (more calibrated)",
     "Ranking loss added: better pocket rank separation"
   ],
-  "status": "CURRENT — recommended checkpoint for all downstream analysis"
+  "status": "SUPERSEDED — replaced by checkpoints/reproduced_xl/best.ckpt (full provenance, seed=42)"
 }

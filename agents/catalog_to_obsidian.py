@@ -754,7 +754,7 @@ def main():
 
     # Write hubs
     write_hub("STRUCTURES", struct_notes,
-              "All PDB crystal structures found for PCNA (human, P12004). "
+              "All PDB structures found for PCNA (human, P12004) — X-ray and cryo-EM. "
               "Core set: [[8GLA]] (ground truth), [[1W60]] (apo baseline).")
     write_hub("PAPERS", paper_notes,
               "Literature: PubMed and bioRxiv papers relevant to PCNA cryptic pockets, "

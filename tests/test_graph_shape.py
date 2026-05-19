@@ -8,13 +8,22 @@ sys.path.insert(0, str(Path(__file__).parent.parent))
 
 try:
     import torch
-    from src.data_processing.parse_pdb import Residue
-    from src.data_processing.graph_construction import build_graph_v2
     HAS_TORCH = True
 except ImportError:
     HAS_TORCH = False
 
-pytestmark = pytest.mark.skipif(not HAS_TORCH, reason="torch / torch_geometric not installed")
+try:
+    import torch_geometric  # noqa: F401
+    from src.data_processing.parse_pdb import Residue
+    from src.data_processing.graph_construction import build_graph_v2
+    HAS_PYG = True
+except ImportError:
+    HAS_PYG = False
+
+pytestmark = pytest.mark.skipif(
+    not HAS_TORCH or not HAS_PYG,
+    reason="torch not installed" if not HAS_TORCH else "torch_geometric not installed — run: pip install torch-geometric torch-scatter torch-sparse"
+)
 
 NODE_DIM = 40
 EDGE_DIM = 6

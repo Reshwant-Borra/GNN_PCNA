@@ -41,14 +41,14 @@ REPO_ROOT = Path(__file__).parent.parent
 sys.path.insert(0, str(REPO_ROOT))
 
 from src.models import PocketGNN
-from src.models.cryptic_gnn import focal_loss, ranking_loss
+from src.models.cryptic_gnn import PocketGNNXL, focal_loss, ranking_loss
 from src.data_processing.parse_pdb import parse_pdb
 from src.data_processing.graph_construction import build_graph_v2
 
 
-def load_8gla() -> tuple:
+def load_8gla(xl: bool = False) -> tuple:
     """Returns (data, chain_masks) where chain_masks is dict chain_letter -> bool tensor."""
-    pt = REPO_ROOT / "data" / "pcna" / "8GLA.pt"
+    pt = REPO_ROOT / "data" / ("pcna_xl" if xl else "pcna") / "8GLA.pt"
     data = torch.load(pt, weights_only=False)
 
     # chain_id: 0=A, 1=B, 2=C, 3=D
@@ -74,7 +74,8 @@ def main(args: argparse.Namespace) -> None:
     device = "cpu"
 
     # ── load 8GLA (holo) ──────────────────────────────────────────────────────
-    data, masks = load_8gla()
+    xl_mode = args.model_size == "xl"
+    data, masks = load_8gla(xl=xl_mode)
     y = data.y.float()
 
     mask_A, mask_B, mask_C = masks["A"], masks["B"], masks["C"]
@@ -87,9 +88,14 @@ def main(args: argparse.Namespace) -> None:
           f"C={mask_C.sum()} res (unlabeled)")
 
     # ── load 1W60 (apo — cross-structure validation) ──────────────────────────
-    apo_path = REPO_ROOT / "data" / "raw" / "1W60.pdb"
     d_apo = None
-    if apo_path.exists():
+    # Prefer pre-built XL graph; fall back to parsing raw PDB
+    xl_apo_pt = REPO_ROOT / "data" / "pcna_xl" / "1W60.pt"
+    apo_path = REPO_ROOT / "data" / "raw" / "1W60.pdb"
+    if xl_mode and xl_apo_pt.exists():
+        d_apo = torch.load(xl_apo_pt, weights_only=False)
+        print(f"1W60 apo loaded (XL graph): {d_apo.x.shape[0]} residues")
+    elif apo_path.exists():
         residues_apo = parse_pdb(apo_path)
         d_apo = build_graph_v2(residues_apo)
         print(f"1W60 apo loaded: {d_apo.x.shape[0]} residues (cross-structure validator)")
@@ -102,7 +108,10 @@ def main(args: argparse.Namespace) -> None:
         raise RuntimeError("No pocket residues in chain A — check 8GLA labels.")
 
     # ── model ─────────────────────────────────────────────────────────────────
-    if args.model_size == "small":
+    if args.model_size == "xl":
+        node_dim = data.x.shape[1]
+        model = PocketGNNXL(node_in_dim=node_dim).to(device)
+    elif args.model_size == "small":
         model = PocketGNN.small().to(device)
     elif args.model_size == "medium":
         model = PocketGNN.medium().to(device)
@@ -122,7 +131,7 @@ def main(args: argparse.Namespace) -> None:
     scheduler = torch.optim.lr_scheduler.CosineAnnealingLR(
         optimizer, T_max=args.epochs)
 
-    ckpt_dir = REPO_ROOT / "checkpoints" / "pcna"
+    ckpt_dir = REPO_ROOT / args.ckpt_dir
     ckpt_dir.mkdir(parents=True, exist_ok=True)
 
     best_disc = -1.0
@@ -183,7 +192,7 @@ def main(args: argparse.Namespace) -> None:
         if is_best:
             best_disc = disc_score
             patience_counter = 0
-            torch.save(model.state_dict(), ckpt_dir / "best_pcna.ckpt")
+            torch.save(model.state_dict(), ckpt_dir / "best.ckpt")
             meta = {
                 "epoch": epoch,
                 "val_criterion": "disc_score = mean(8GLA pocket) - mean(1W60 apo)",
@@ -203,7 +212,7 @@ def main(args: argparse.Namespace) -> None:
                 ),
                 "timestamp": datetime.utcnow().isoformat() + "Z",
             }
-            (ckpt_dir / "best_pcna_meta.json").write_text(
+            (ckpt_dir / "best_meta.json").write_text(
                 json.dumps(meta, indent=2), encoding="utf-8"
             )
         else:
@@ -223,7 +232,7 @@ def main(args: argparse.Namespace) -> None:
 
     # ── final evaluation ──────────────────────────────────────────────────────
     model.load_state_dict(
-        torch.load(ckpt_dir / "best_pcna.ckpt", map_location=device, weights_only=True))
+        torch.load(ckpt_dir / "best.ckpt", map_location=device, weights_only=True))
     model.eval()
 
     with torch.no_grad():
@@ -249,9 +258,17 @@ def main(args: argparse.Namespace) -> None:
 
     # ── test on 1W60 (apo) ────────────────────────────────────────────────────
     apo_path = REPO_ROOT / "data" / "raw" / "1W60.pdb"
-    if apo_path.exists():
-        residues = parse_pdb(apo_path)
-        d_apo    = build_graph_v2(residues)
+    if xl_mode and xl_apo_pt.exists():
+        d_apo_test = torch.load(xl_apo_pt, weights_only=False)
+        residues   = None
+    elif apo_path.exists():
+        residues   = parse_pdb(apo_path)
+        d_apo_test = build_graph_v2(residues)
+    else:
+        d_apo_test = None
+        residues   = None
+    if d_apo_test is not None:
+        d_apo = d_apo_test
         with torch.no_grad():
             sc_apo = model(
                 d_apo.x, d_apo.edge_index, d_apo.edge_attr,
@@ -265,8 +282,11 @@ def main(args: argparse.Namespace) -> None:
               f"above {args.threshold:.2f}: {n_above}/{len(sc_apo)}")
         print("  Top-10 predicted pocket residues:")
         for i in top20[:10]:
-            r = residues[i]
-            print(f"    {r.chain}{r.resid:4d} {r.resname:3s}  score={sc_apo[i]:.3f}")
+            if residues is not None:
+                r = residues[i]
+                print(f"    {r.chain}{r.resid:4d} {r.resname:3s}  score={sc_apo[i]:.3f}")
+            else:
+                print(f"    residue_{i}  score={sc_apo[i]:.3f}")
 
 
 if __name__ == "__main__":
@@ -274,7 +294,7 @@ if __name__ == "__main__":
     parser.add_argument("--pretrain",   default="checkpoints/best.ckpt",
                         help="Pre-trained checkpoint to start from")
     parser.add_argument("--model_size", default="small",
-                        choices=["small", "medium", "large"])
+                        choices=["small", "medium", "large", "xl"])
     parser.add_argument("--epochs",     type=int,   default=80)
     parser.add_argument("--lr",         type=float, default=5e-4)
     parser.add_argument("--wd",         type=float, default=1e-4)
@@ -285,6 +305,8 @@ if __name__ == "__main__":
     parser.add_argument("--patience",   type=int,   default=20)
     parser.add_argument("--threshold",  type=float, default=0.4)
     parser.add_argument("--seed",       type=int,   default=42)
+    parser.add_argument("--ckpt_dir",   default="checkpoints/pcna",
+                        help="Directory to save checkpoint (default: checkpoints/pcna)")
     args = parser.parse_args()
     torch.manual_seed(args.seed)
     np.random.seed(args.seed)

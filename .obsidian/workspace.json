@@ -4,17 +4,17 @@
     "type": "split",
     "children": [
       {
-        "id": "4f3f1709dbb78312",
+        "id": "8bb581820ef72f74",
         "type": "tabs",
         "children": [
           {
-            "id": "dc9d2717bf6f68f1",
+            "id": "af6e8d80c99161b2",
             "type": "leaf",
             "state": {
-              "type": "empty",
+              "type": "graph",
               "state": {},
-              "icon": "lucide-file",
-              "title": "New tab"
+              "icon": "lucide-git-fork",
+              "title": "Graph view"
             }
           }
         ]
@@ -162,7 +162,8 @@
       }
     ],
     "direction": "horizontal",
-    "width": 300
+    "width": 300,
+    "collapsed": true
   },
   "left-ribbon": {
     "hiddenItems": {
@@ -175,49 +176,53 @@
       "bases:Create new base": false
     }
   },
-  "active": "dc9d2717bf6f68f1",
+  "active": "af6e8d80c99161b2",
   "lastOpenFiles": [
-    "data/raw/2EUF.pdb",
-    "data/raw/2DXX.pdb",
-    "data/raw/2DR2.pdb",
-    "data/raw/2CNN.pdb",
-    "data/raw/2CLR.pdb",
-    "data/raw/2C32.pdb",
-    "data/raw/2BRJ.pdb",
-    "data/raw/2BKM.pdb",
-    "data/raw/2B8H.pdb",
-    "data/raw/2AM9.pdb",
-    "data/raw/1ZC3.pdb",
-    "results/validation/confidence.png",
-    "results/figures/data_visualization.png",
+    "src/training/train.py.tmp.29500.91bc068043b5",
+    "src/training/train.py.tmp.29500.5e325320c4e4",
+    "scripts/make_split.py.tmp.29500.af84b31072fe",
+    "scripts/make_split.py.tmp.29500.efff36b954b7",
+    "src/training/dataset.py.tmp.29500.48f29fc0fd49",
+    "scripts/verify_all_claims.py.tmp.29500.f4a49a4e63ab",
+    "scripts/verify_all_claims.py.tmp.29500.59d1802b74fa",
+    "README.md.tmp.29500.3bdd9ffa4fa0",
+    "data/manifests/pdb_checksums.json",
+    "data/manifests",
+    "checkpoints/pcna/best_pcna_v3_meta.json.tmp.29500.7d802558d9c7",
+    "data/graphs/README.md",
+    "data/raw/README.md",
+    "VERIFICATION_REPORT.md",
+    "docs/vault/structures/8UMT.md",
+    "docs/vault/structures/8UII.md",
+    "docs/vault/structures/8UI9.md",
+    "docs/vault/structures/8UI8.md",
+    "docs/vault/structures/8UI7.md",
+    "docs/vault/structures/8GL9.md",
+    "docs/vault/structures/8GCJ.md",
+    "docs/vault/structures/8E84.md",
+    "docs/vault/structures/8COB.md",
+    "docs/vault/structures/8B8T.md",
+    "docs/vault/structures/7QO1.md",
+    "docs/vault/structures/7QNZ.md",
+    "docs/vault/structures/7NV1.md",
+    "docs/vault/structures/7NV0.md",
+    "docs/vault/structures/7M5N.md",
+    "docs/vault/structures/7M5M.md",
+    "docs/vault/structures/7M5L.md",
+    "docs/vault/structures/7KQ1.md",
+    "docs/vault/structures/7EFA.md",
+    "docs/vault/structures/6VVO.md",
+    "docs/vault/structures/6TNZ.md",
+    "docs/vault/structures/6TNY.md",
     "results/figures/arch_pipeline.png",
     "results/figures/arch_model.png",
-    "results/bulk_inference/ranked.png",
+    "results/figures/data_visualization.png",
+    "results/per_structure/full_analysis.png",
+    "results/validation/confidence.png",
     "results/bulk_inference/profiles.png",
-    "data/raw/README.md",
-    "data/graphs/README.md",
-    "VERIFICATION_REPORT.md",
-    "AUDIT_REPORT.md",
-    "9NE9.md",
-    "9CHM.md",
-    "2026-05-18.md",
-    "docs/knowledge/VALIDATION.md",
-    "obsidian-skills/README.md",
-    "docs/knowledge/SYSTEM_OVERVIEW.md",
-    "docs/knowledge/INDEX.md",
-    "docs/visuals/README.md",
-    "docs/logs/RESEARCH_NOTES_LOG.md",
-    "docs/logs/CHANGELOG.md",
-    "docs/logs/BUG_LOG.md",
-    "docs/logs/DECISIONS.md",
-    "docs/prompts/NOTEBOOKLM_EXTRACTION_PROMPTS.md",
-    "docs/prompts/CHATGPT_REVIEW_PROMPTS.md",
-    "docs/prompts/GEMINI_IMPLEMENTER_PROMPTS.md",
-    "docs/prompts/CLAUDE_PLANNER_PROMPTS.md",
-    "docs/plans/plan_template.md",
-    "docs/plans/README.md",
-    "docs/notebooklm/distilled_notes/md_validation_notes.md",
-    "docs/notebooklm/distilled_notes/pcna_biology_notes.md",
-    "docs/notebooklm/distilled_notes/deepallo_notes.md"
+    "results/bulk_inference/ranked.png",
+    "data/results/fig3_cryptosite_histograms.png",
+    "data/results/fig2_pcna_deepdive.png",
+    "data/results/fig1_score_landscape.png"
   ]
 }

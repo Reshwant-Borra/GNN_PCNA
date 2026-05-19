@@ -33,7 +33,7 @@ PDB Structure
   → parse_pdb.py           residues + Cα coordinates
   → graph_construction.py  dual-graph PyG Data (40-dim nodes, 6-dim edges)
   ↓
-PocketGNNXL  (src/models/cryptic_gnn.py — primary checkpoint: checkpoints/pcna/best_pcna_v3_fixed.ckpt)
+PocketGNNXL  (src/models/cryptic_gnn.py — primary checkpoint: checkpoints/pcna_reproduced/best.ckpt)
   Branch 1: 5× GATv2Conv on spatial contact graph (8 Å)
   Branch 2: 4× GATv2Conv on backbone sequential graph (|i−j| ≤ 2)
   → gated fusion → virtual-node → MLP head → per-residue sigmoid score
@@ -61,7 +61,7 @@ MD Validation  (src/md/parse_trajectory.py)
 | Fusion | Learned gate per residue: `gate * h_spatial + (1-gate) * h_seq` |
 | Scoring head | Linear(768→384→192→96→1) + ReLU + Dropout at each layer |
 | Output | Per-residue prioritization score (not a calibrated probability) ∈ [0, 1] |
-| Parameters | ~13.4M (XL) · ~10.4M (large) · ~3.6M (medium) · ~907k (small) — **primary results use `checkpoints/pcna/best_pcna_v3_fixed.ckpt` (fully reproduced, seed=42 end-to-end)** |
+| Parameters | ~13.4M (XL) · ~10.4M (large) · ~3.6M (medium) · ~907k (small) — **primary results use `checkpoints/pcna_reproduced/best.ckpt` (fully reproduced XL, seed=42 end-to-end)** |
 | Loss | Focal(γ=2, α=auto-calibrated from class balance) + 0.05×Ranking(margin=0.2) + 0.10×Symmetry (finetune only) |
 
 CrypticGNN v1 (~556k params, single-branch, 26-dim nodes) is preserved for comparison.
@@ -135,11 +135,11 @@ python scripts/download_data.py --force
 
 ### 6. Run inference (pre-trained checkpoint included)
 
-The primary checkpoint `checkpoints/pcna/best_pcna_v3_fixed.ckpt` is tracked in git — no training needed. It is a fully reproduced XL model (seed=42 end-to-end, pretrain → PCNA fine-tune).
+The primary checkpoint `checkpoints/pcna_reproduced/best.ckpt` is tracked in git — no training needed. It is a fully reproduced XL model (seed=42 end-to-end, pretrain → PCNA fine-tune, AOH gate PASS 0.8676).
 
 ```bash
-# Validate AOH1996 pocket recovery gate
-python scripts/aoh_gate_check.py --ckpt checkpoints/pcna/best_pcna_v3_fixed.ckpt --model xl
+# Validate AOH1996 positive-control recovery (runs against primary checkpoint by default)
+python scripts/aoh_gate_check.py
 
 # Per-structure analysis on all 59 PCNA structures
 python scripts/per_structure_analysis.py

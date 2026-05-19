@@ -7,12 +7,12 @@
   "n_modes_used": 20,
   "note": "RMSF values are in relative units (normalized to mean=1.0). ANM spring constant \u03b3 is set uniformly; absolute magnitudes are not comparable to MD-RMSF in \u00c5. Fold-change and DCCM values are \u03b3-independent.",
   "aoh_pocket_analysis": {
-    "n_aoh_residues": 72,
-    "pocket_mean_rmsf_norm": 1.0952,
-    "background_mean_rmsf_norm": 0.9922,
-    "fold_change_pocket_vs_bg": 1.104,
-    "interpretation": "Pocket residues show elevated flexibility vs background (fold-change 1.10\u00d7). This is consistent with the site being a cryptic pocket \u2014 intrinsically flexible in the apo state.",
-    "pocket_internal_dccm": 0.078,
+    "n_aoh_residues": 48,
+    "pocket_mean_rmsf_norm": 1.148,
+    "background_mean_rmsf_norm": 0.9921,
+    "fold_change_pocket_vs_bg": 1.157,
+    "interpretation": "Pocket residues show elevated flexibility vs background (fold-change 1.16\u00d7). This is consistent with the site being a cryptic pocket \u2014 intrinsically flexible in the apo state.",
+    "pocket_internal_dccm": 0.2093,
     "dccm_interpretation": "Positive internal DCCM among AOH1996 pocket residues \u2014 residues move coherently, consistent with a collective opening motion."
   },
   "eigenvalues": [
@@ -4027,7 +4027,7 @@
       "resname": "GLU",
       "anm_msf": 5.764107,
       "anm_rmsf_norm": 0.9909,
-      "in_aoh_pocket": true
+      "in_aoh_pocket": false
     },
     {
       "chain": "C",
@@ -4035,7 +4035,7 @@
       "resname": "ALA",
       "anm_msf": 5.188175,
       "anm_rmsf_norm": 0.9401,
-      "in_aoh_pocket": true
+      "in_aoh_pocket": false
     },
     {
       "chain": "C",
@@ -4043,7 +4043,7 @@
       "resname": "CYS",
       "anm_msf": 5.687796,
       "anm_rmsf_norm": 0.9843,
-      "in_aoh_pocket": true
+      "in_aoh_pocket": false
     },
     {
       "chain": "C",
@@ -4131,7 +4131,7 @@
       "resname": "GLN",
       "anm_msf": 5.141616,
       "anm_rmsf_norm": 0.9358,
-      "in_aoh_pocket": true
+      "in_aoh_pocket": false
     },
     {
       "chain": "C",
@@ -4139,7 +4139,7 @@
       "resname": "SER",
       "anm_msf": 5.712512,
       "anm_rmsf_norm": 0.9864,
-      "in_aoh_pocket": true
+      "in_aoh_pocket": false
     },
     {
       "chain": "C",
@@ -4147,7 +4147,7 @@
       "resname": "MET",
       "anm_msf": 6.85853,
       "anm_rmsf_norm": 1.0809,
-      "in_aoh_pocket": true
+      "in_aoh_pocket": false
     },
     {
       "chain": "C",
@@ -4155,7 +4155,7 @@
       "resname": "ASP",
       "anm_msf": 8.142587,
       "anm_rmsf_norm": 1.1777,
-      "in_aoh_pocket": true
+      "in_aoh_pocket": false
     },
     {
       "chain": "C",
@@ -4163,7 +4163,7 @@
       "resname": "SER",
       "anm_msf": 12.273898,
       "anm_rmsf_norm": 1.4459,
-      "in_aoh_pocket": true
+      "in_aoh_pocket": false
     },
     {
       "chain": "C",
@@ -4179,7 +4179,7 @@
       "resname": "HIS",
       "anm_msf": 10.590813,
       "anm_rmsf_norm": 1.3431,
-      "in_aoh_pocket": true
+      "in_aoh_pocket": false
     },
     {
       "chain": "C",
@@ -4187,7 +4187,7 @@
       "resname": "VAL",
       "anm_msf": 9.33981,
       "anm_rmsf_norm": 1.2613,
-      "in_aoh_pocket": true
+      "in_aoh_pocket": false
     },
     {
       "chain": "C",
@@ -4195,7 +4195,7 @@
       "resname": "SER",
       "anm_msf": 6.483214,
       "anm_rmsf_norm": 1.0509,
-      "in_aoh_pocket": true
+      "in_aoh_pocket": false
     },
     {
       "chain": "C",
@@ -4203,7 +4203,7 @@
       "resname": "LEU",
       "anm_msf": 5.278683,
       "anm_rmsf_norm": 0.9482,
-      "in_aoh_pocket": true
+      "in_aoh_pocket": false
     },
     {
       "chain": "C",
@@ -4747,7 +4747,7 @@
       "resname": "VAL",
       "anm_msf": 1.741522,
       "anm_rmsf_norm": 0.5446,
-      "in_aoh_pocket": true
+      "in_aoh_pocket": false
     },
     {
       "chain": "C",
@@ -4763,7 +4763,7 @@
       "resname": "GLN",
       "anm_msf": 3.095023,
       "anm_rmsf_norm": 0.7261,
-      "in_aoh_pocket": true
+      "in_aoh_pocket": false
     },
     {
       "chain": "C",
@@ -4771,7 +4771,7 @@
       "resname": "LEU",
       "anm_msf": 1.089391,
       "anm_rmsf_norm": 0.4308,
-      "in_aoh_pocket": true
+      "in_aoh_pocket": false
     },
     {
       "chain": "C",
@@ -4787,7 +4787,7 @@
       "resname": "ILE",
       "anm_msf": 2.190937,
       "anm_rmsf_norm": 0.6109,
-      "in_aoh_pocket": true
+      "in_aoh_pocket": false
     },
     {
       "chain": "C",
@@ -5515,7 +5515,7 @@
       "resname": "ALA",
       "anm_msf": 7.574784,
       "anm_rmsf_norm": 1.1359,
-      "in_aoh_pocket": true
+      "in_aoh_pocket": false
     },
     {
       "chain": "C",
@@ -5523,7 +5523,7 @@
       "resname": "ASP",
       "anm_msf": 10.068283,
       "anm_rmsf_norm": 1.3096,
-      "in_aoh_pocket": true
+      "in_aoh_pocket": false
     },
     {
       "chain": "C",
@@ -5531,7 +5531,7 @@
       "resname": "VAL",
       "anm_msf": 8.063907,
       "anm_rmsf_norm": 1.172,
-      "in_aoh_pocket": true
+      "in_aoh_pocket": false
     },
     {
       "chain": "C",
@@ -5539,7 +5539,7 @@
       "resname": "PRO",
       "anm_msf": 5.578321,
       "anm_rmsf_norm": 0.9748,
-      "in_aoh_pocket": true
+      "in_aoh_pocket": false
     },
     {
       "chain": "C",
@@ -5667,7 +5667,7 @@
       "resname": "TYR",
       "anm_msf": 4.659175,
       "anm_rmsf_norm": 0.8909,
-      "in_aoh_pocket": true
+      "in_aoh_pocket": false
     },
     {
       "chain": "C",
@@ -5675,7 +5675,7 @@
       "resname": "LEU",
       "anm_msf": 4.898769,
       "anm_rmsf_norm": 0.9135,
-      "in_aoh_pocket": true
+      "in_aoh_pocket": false
     },
     {
       "chain": "C",
@@ -5683,7 +5683,7 @@
       "resname": "ALA",
       "anm_msf": 5.09829,
       "anm_rmsf_norm": 0.9319,
-      "in_aoh_pocket": true
+      "in_aoh_pocket": false
     },
     {
       "chain": "C",
@@ -5691,7 +5691,7 @@
       "resname": "PRO",
       "anm_msf": 5.438156,
       "anm_rmsf_norm": 0.9625,
-      "in_aoh_pocket": true
+      "in_aoh_pocket": false
     },
     {
       "chain": "C",

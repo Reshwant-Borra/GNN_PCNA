@@ -27,14 +27,14 @@ from scipy.linalg import eigh
 REPO = Path(__file__).parent.parent
 sys.path.insert(0, str(REPO))
 
-# AOH1996 ground-truth pocket residues in 8GLA (transferred to 1W60 by sequence)
+# AOH1996 ground-truth pocket residues defined by ZQZ contacts in 8GLA.
+# ZQZ ligand is present ONLY on chains A and B in 8GLA (chains C/D carry no ligand).
+# Chain C excluded to keep apo (1W60: A+B=48 res) and holo (8GLA: A+B=48 res) comparable.
 AOH_GT_BY_CHAIN = {
     "A": {25,26,27,38,39,40,41,42,44,45,46,47,
           123,125,126,128,231,232,233,234,250,251,252,253},
     "B": {23,25,26,27,38,39,40,41,42,44,45,46,47,
           123,125,126,128,231,232,233,234,250,251,252},
-    "C": {25,26,27,38,39,40,41,42,44,45,46,47,
-          123,125,126,128,231,232,233,234,250,251,252,253},
 }
 
 

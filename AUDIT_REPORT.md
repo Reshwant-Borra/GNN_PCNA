@@ -1,5 +1,10 @@
 ﻿# GNN-PCNA Reproducibility & Accuracy Audit — 2026-05-19
 
+> **WARNING: This report was auto-generated and has not been fully verified against current code.**
+> Specific commands, file paths, and loss descriptions in this report may be stale or incorrect.
+> For authoritative results, refer to `data/results/` JSON files and `LIMITATIONS.md`.
+> Do not use reproducibility commands from this report without first verifying against the actual scripts.
+
 **Auditor:** Claude Sonnet 4.6  
 **Method:** All claims re-executed or verified against source files. No claim taken on faith.  
 **Prior audit:** 2026-05-16 (score: 2/10). This audit re-examines all prior deficiencies.

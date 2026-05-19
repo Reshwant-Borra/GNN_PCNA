@@ -7,7 +7,7 @@
 
 AOH1996 (molecular weight ~900 Da) targets a cryptic pocket at the PCNA A-B subunit interface, engaging residues in the C-terminal loop (231-253) and IDCL (119-134). Structures listed here have GNN-predicted pockets that spatially overlap >75% with the experimentally confirmed binding site from PDB 8GLA.
 
-These represent PCNA conformations in which the cryptic pocket is **at least partially pre-opened** — the most accessible states for AOH1996 binding.
+These represent PCNA conformations in which the GNN assigns high scores to the AOH1996 residue region. This is a computational prediction — it does not confirm the pocket is open, accessible, or druggable without MD, docking, and experimental validation.
 
 ## Tier 1 — Highest Confidence (overlap >= 22, score >= 0.60)
 
@@ -54,16 +54,17 @@ These represent PCNA conformations in which the cryptic pocket is **at least par
 
 ## Structural Basis for Candidacy
 
-### Why these structures are targetable
+### Why these structures are candidate targets (require further validation)
 
-1. **PCNA forms a homotrimeric ring** — each monomer presents an identical AOH1996 pocket.
-   Structures with 3 or 6 chains (trimers / dimers-of-trimers) get 3x or 6x binding opportunities.
+1. **PCNA forms a homotrimeric ring** — each monomer presents an identical AOH1996-like residue region.
+   Structures with 3 or 6 chains (trimers / dimers-of-trimers) have 3× or 6× copies of this region.
 
-2. **The cryptic pocket opens via induced fit** — AOH1996 itself induces the open conformation.
-   High GNN scores on apo structures (e.g. 1W60, 4RJF) indicate the pocket is near-open even without ligand.
+2. **The AOH1996 pocket opens via induced fit** — high GNN scores on apo structures (e.g. 1W60, 4RJF)
+   suggest the model finds these regions chemically similar to known pocket residues, but do not confirm
+   the pocket is open or accessible without ligand. MD simulation and docking are required to assess this.
 
-3. **Concavity >= 0.45** = geometrically pocket-like (inward-pointing surface). These predictions
-   are not artifacts of convex surface protrusions.
+3. **Concavity >= 0.45** = geometrically inward-pointing surface. This reduces the chance of scoring
+   exposed convex loops, but geometric concavity alone is not evidence of a druggable cavity.
 
 ### Key residues to target (from 8GLA co-crystal)
 
@@ -81,13 +82,15 @@ These represent PCNA conformations in which the cryptic pocket is **at least par
   AGS/ADP cofactor contamination makes AUROC unreliable for pocket labeling
 - **7M5L**: Low AOH overlap (6/24), ligand TME/NH2 is not at AOH site
 
-## Recommended Priority for Docking
+## Candidate Priority for Follow-up (docking and experimental validation required)
+
+These rankings are based on GNN score and AOH overlap only. None have been docked, simulated, or experimentally tested for AOH1996 binding in this project.
 
 ```
-Priority 1 (highest-scoring — candidate for follow-up):  3VKX, 9N3L, 1W60, 4RJF
-Priority 2 (apo, good):      1AXC, 9CHM, 6FCN, 7KQ0
-Priority 3 (complex, check): 1VYJ, 3P87, 6QCG, 5MAV
-Confirmed holo (reference):  8GLA, 8GL9, 8GCJ
+Priority 1 (highest GNN score + overlap — suggested starting point):  3VKX, 9N3L, 1W60, 4RJF
+Priority 2 (apo, moderate score):      1AXC, 9CHM, 6FCN, 7KQ0
+Priority 3 (complex, verify context):  1VYJ, 3P87, 6QCG, 5MAV
+Confirmed holo (reference only):       8GLA, 8GL9, 8GCJ
 ```
 
 ---

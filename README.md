@@ -16,6 +16,8 @@ PCNA (Proliferating Cell Nuclear Antigen) is a homotrimeric protein ring essenti
 4. Visualises predictions in a Streamlit UI with PyMOL-ready export
 5. **ANM flexibility analysis** completed on apo PCNA (1W60): pocket residues are 14% less flexible than background (fold-change 0.857), consistent with a rigidly packed cryptic site. Full MD trajectories not yet generated.
 
+> **Read before interpreting results:** [LIMITATIONS.md](LIMITATIONS.md) documents every known constraint — labeling approximations, asymmetric-unit caveats, metric interpretation, and what the model can and cannot claim.
+
 ---
 
 ## Pipeline

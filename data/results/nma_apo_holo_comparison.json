@@ -7,6 +7,7 @@
     "structure": "1W60",
     "state": "apo (no ligand)",
     "n_residues": 510,
+    "n_aoh_residues": 48,
     "pocket_rmsf_norm": 0.8685,
     "bg_rmsf_norm": 1.0137,
     "fold_change": 0.857,
@@ -16,14 +17,15 @@
     "structure": "8GLA",
     "state": "holo (AOH1996 / ZQZ bound)",
     "n_residues": 952,
+    "n_aoh_residues": 72,
     "pocket_rmsf_norm": 1.0952,
     "bg_rmsf_norm": 0.9922,
     "fold_change": 1.104,
     "internal_dccm": 0.078
   },
   "delta_fold_change": 0.247,
-  "interpretation": "Apo PCNA (1W60): pocket residues 14% LESS flexible than background (fold-change 0.857), consistent with a rigidly packed region. Holo PCNA (8GLA): pocket residues 10% MORE flexible than background (fold-change 1.104). Delta fold-change = +0.247, consistent with a ligand-associated flexibility increase at this site. ANM is a physics-based approximation on static coordinates; it does not prove apo-to-holo pocket opening or confirm cryptic-pocket status. MD simulation is required for that conclusion.",
-  "scientific_significance": "The apo->holo flexibility difference (fold-change 0.857->1.104, delta +0.247) is consistent with a structural signature sometimes seen at cryptic sites, but does not confirm the AOH1996 site is a genuine cryptic pocket. ANM does not simulate ligand-induced dynamics. This result is hypothesis-supporting, not confirmatory.",
+  "interpretation": "Apo PCNA (1W60): pocket residues are 14% LESS flexible than background (fold-change 0.857), consistent with a rigidly packed region. Holo PCNA (8GLA): pocket residues are 10% MORE flexible than background (fold-change 1.104). Delta fold-change = +0.247, consistent with a ligand-associated flexibility increase at this site. ANM is a physics-based approximation on static coordinates; it does not prove apo-to-holo pocket opening or confirm cryptic-pocket status. MD simulation is required for that conclusion.",
+  "scientific_note": "The apo->holo flexibility difference (fold-change delta +0.247) is consistent with structural signatures sometimes seen at cryptic sites, but does not confirm the AOH1996 site is a genuine cryptic pocket. ANM does not simulate ligand-induced dynamics. This result is hypothesis-supporting, not confirmatory.",
   "commands": [
     "python scripts/run_nma.py --pdb data/raw/1W60.pdb",
     "python scripts/run_nma.py --pdb data/raw/8GLA.pdb"

@@ -17,10 +17,63 @@ from __future__ import annotations
 import sys, time, json, argparse
 from pathlib import Path
 
+# Force UTF-8 on Windows consoles that default to cp1252
+if hasattr(sys.stdout, "reconfigure"):
+    sys.stdout.reconfigure(encoding="utf-8", errors="replace")
+
 REPO = Path(__file__).parent.parent
 DATA = REPO / "data" / "md"
 OUT  = REPO / "data" / "results"
 OUT.mkdir(parents=True, exist_ok=True)
+
+
+class ProgressReporter:
+    """In-place progress bar for OpenMM production runs. No dependencies."""
+
+    def __init__(self, total_steps: int, ns: float, report_interval: int):
+        self._total   = total_steps
+        self._ns      = ns
+        self._interval = report_interval
+        self._t0      = time.time()
+        self._bar_width = 30
+
+    def describeNextReport(self, simulation):
+        steps_done = simulation.currentStep
+        steps_left = self._interval - (steps_done % self._interval)
+        return (steps_left, False, False, False, True)
+
+    def report(self, simulation, state):
+        step     = simulation.currentStep
+        pct      = step / self._total
+        elapsed  = time.time() - self._t0
+        ns_done  = step / 250_000
+        speed    = (ns_done / (elapsed / 86400)) if elapsed > 0 else 0
+        eta_s    = ((self._ns - ns_done) / speed * 86400) if speed > 0 else 0
+        eta_str  = self._fmt_time(eta_s)
+
+        filled = int(self._bar_width * pct)
+        bar    = "#" * filled + "-" * (self._bar_width - filled)
+        temp   = state.getKineticEnergy()._value  # rough proxy, not shown
+
+        line = (
+            f"\r  [{bar}] {pct*100:5.1f}%  "
+            f"{ns_done:6.1f}/{self._ns:.0f} ns  |  "
+            f"{speed:6.1f} ns/day  |  ETA {eta_str}   "
+        )
+        sys.stdout.write(line)
+        sys.stdout.flush()
+
+        if step >= self._total:
+            sys.stdout.write("\n")
+            sys.stdout.flush()
+
+    @staticmethod
+    def _fmt_time(seconds: float) -> str:
+        if seconds <= 0:
+            return "--:--"
+        h = int(seconds // 3600)
+        m = int((seconds % 3600) // 60)
+        return f"{h}h {m:02d}m"
 
 
 def check_gpu():
@@ -29,12 +82,12 @@ def check_gpu():
                  for i in range(Platform.getNumPlatforms())}
     print(f"Available OpenMM platforms: {sorted(platforms)}")
     if "CUDA" in platforms:
-        print("CUDA GPU detected — using CUDA (mixed precision)")
+        print("CUDA GPU detected - using CUDA (mixed precision)")
         return "CUDA", {"CudaPrecision": "mixed"}
     if "OpenCL" in platforms:
         print("WARNING: No CUDA found, falling back to OpenCL (slow)")
         return "OpenCL", {"OpenCLPrecision": "mixed"}
-    print("WARNING: CPU only — this will be very slow for 356k atoms")
+    print("WARNING: CPU only - this will be very slow for 356k atoms")
     return "CPU", {}
 
 
@@ -58,10 +111,10 @@ def run(ns: float = 100.0):
     if not top_path.exists() or not sys_path.exists():
         print(f"ERROR: Missing files in {DATA}/")
         print("  Expected: 1W60_solvated.pdb  system.xml")
-        print("  Clone the GNN_PCNA repo — both files are committed.")
+        print("  Clone the GNN_PCNA repo -- both files are committed.")
         sys.exit(1)
 
-    # ── Load ──────────────────────────────────────────────────────────────────
+    # Load
     print(f"\nLoading solvated system ({top_path.name})...")
     pdb = PDBFile(str(top_path))
     print(f"  {pdb.topology.getNumAtoms():,} atoms, {pdb.topology.getNumResidues():,} residues")
@@ -73,7 +126,7 @@ def run(ns: float = 100.0):
     integrator = LangevinMiddleIntegrator(
         310 * unit.kelvin,
         1.0 / unit.picosecond,
-        4.0 * unit.femtosecond,   # 4 fs with hydrogen mass repartitioning
+        4.0 * unit.femtosecond,
     )
 
     platform_name, props = check_gpu()
@@ -81,13 +134,13 @@ def run(ns: float = 100.0):
     simulation = Simulation(pdb.topology, system, integrator, platform, props)
     simulation.context.setPositions(pdb.positions)
 
-    # ── Minimization ──────────────────────────────────────────────────────────
+    # Minimization
     print("\n[1/4] Energy minimization...")
     simulation.minimizeEnergy(maxIterations=2000)
     pe = simulation.context.getState(getEnergy=True).getPotentialEnergy()
     print(f"  PE: {pe}")
 
-    # ── NVT equilibration — heat 100 K → 310 K over 1 ns ────────────────────
+    # NVT equilibration — heat 100 K -> 310 K over 1 ns
     print("\n[2/4] NVT equilibration (1 ns, 100 -> 310 K)...")
     simulation.context.setVelocitiesToTemperature(100 * unit.kelvin)
     simulation.reporters.append(
@@ -96,12 +149,12 @@ def run(ns: float = 100.0):
     )
     for T in range(100, 311, 10):
         integrator.setTemperature(T * unit.kelvin)
-        simulation.step(5_000)   # 20 ps per temperature window
-    simulation.step(125_000)     # remaining ~500 ps at 310 K
+        simulation.step(5_000)
+    simulation.step(125_000)
     print("  NVT done")
     simulation.saveCheckpoint(str(DATA / "equil_nvt.chk"))
 
-    # ── NPT equilibration — 1 ns at 1 atm ────────────────────────────────────
+    # NPT equilibration — 1 ns at 1 atm
     print("\n[3/4] NPT equilibration (1 ns, 310 K, 1 atm)...")
     barostat = MonteCarloBarostat(1.0 * unit.bar, 310 * unit.kelvin, 25)
     system.addForce(barostat)
@@ -116,14 +169,13 @@ def run(ns: float = 100.0):
     print("  NPT done")
     simulation.saveCheckpoint(str(DATA / "equil_npt.chk"))
 
-    # Save topology with equilibrated box
     state = simulation.context.getState(getPositions=True)
     with open(out_top, "w") as f:
         PDBFile.writeFile(simulation.topology, state.getPositions(), f)
     print(f"  Topology saved: {out_top.relative_to(REPO)}")
 
-    # ── Production ────────────────────────────────────────────────────────────
-    STEPS_PER_NS = 250_000    # 250,000 × 4 fs = 1 ns
+    # Production
+    STEPS_PER_NS = 250_000
     PROD_STEPS   = int(ns * STEPS_PER_NS)
     SAVE_EVERY   = 2_500      # 10 ps per frame
 
@@ -137,9 +189,7 @@ def run(ns: float = 100.0):
             progress=True, remainingTime=True, totalSteps=PROD_STEPS)
     )
     simulation.reporters.append(
-        StateDataReporter(sys.stdout, 250_000,
-            step=True, time=True, temperature=True, speed=True,
-            progress=True, remainingTime=True, totalSteps=PROD_STEPS)
+        ProgressReporter(PROD_STEPS, ns, report_interval=250_000)
     )
     simulation.reporters.append(
         CheckpointReporter(str(out_chk), 2_500_000)  # every 10 ns
@@ -175,7 +225,7 @@ def run(ns: float = 100.0):
     meta_path = OUT / "md_run_metadata.json"
     meta_path.write_text(json.dumps(meta, indent=2), encoding="utf-8")
     print(f"  Metadata  : {meta_path.relative_to(REPO)}")
-    print(f"\nNext: python scripts/run_md_analysis.py")
+    print(f"\nNext: python scripts\\run_md_analysis.py")
 
 
 def main():

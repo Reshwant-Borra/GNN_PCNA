@@ -4,20 +4,17 @@
     "type": "split",
     "children": [
       {
-        "id": "8bb581820ef72f74",
+        "id": "4f3f1709dbb78312",
         "type": "tabs",
         "children": [
           {
-            "id": "af6e8d80c99161b2",
+            "id": "dc9d2717bf6f68f1",
             "type": "leaf",
             "state": {
-              "type": "bases",
-              "state": {
-                "file": "Untitled 1.base",
-                "viewName": "Table"
-              },
-              "icon": "lucide-table",
-              "title": "Untitled 1"
+              "type": "empty",
+              "state": {},
+              "icon": "lucide-file",
+              "title": "New tab"
             }
           }
         ]
@@ -165,8 +162,7 @@
       }
     ],
     "direction": "horizontal",
-    "width": 300,
-    "collapsed": true
+    "width": 300
   },
   "left-ribbon": {
     "hiddenItems": {
@@ -179,53 +175,49 @@
       "bases:Create new base": false
     }
   },
-  "active": "af6e8d80c99161b2",
+  "active": "dc9d2717bf6f68f1",
   "lastOpenFiles": [
-    "docs/knowledge/SYSTEM_OVERVIEW.md.tmp.59816.dc421ed97223",
-    "docs/knowledge/SYSTEM_OVERVIEW.md.tmp.59816.29340ab0ff69",
-    "checkpoints/reproduced_xl/best_meta.json",
-    "checkpoints/reproduced_xl/best.ckpt",
-    "checkpoints/reproduced_xl",
-    "data/graphs_xl_train_split/2NWX.pt",
-    "data/graphs_xl_train_split/2VGO.pt",
-    "data/graphs_xl_train_split/1P9Y.pt",
-    "data/graphs_xl_train_split/2EUF.pt",
-    "data/graphs_xl_train_split/2Q1T.pt",
-    "data/graphs_xl_train_split/2NMO.pt",
-    "data/graphs/README.md",
-    "data/raw/README.md",
-    "VERIFICATION_REPORT.md",
-    "docs/vault/structures/8UMT.md",
-    "docs/vault/structures/8UII.md",
-    "docs/vault/structures/8UI9.md",
-    "docs/vault/structures/8UI8.md",
-    "docs/vault/structures/8UI7.md",
-    "docs/vault/structures/8GL9.md",
-    "docs/vault/structures/8GCJ.md",
-    "docs/vault/structures/8E84.md",
-    "docs/vault/structures/8COB.md",
-    "docs/vault/structures/8B8T.md",
-    "docs/vault/structures/7QO1.md",
-    "docs/vault/structures/7QNZ.md",
-    "docs/vault/structures/7NV1.md",
-    "docs/vault/structures/7NV0.md",
-    "docs/vault/structures/7M5N.md",
-    "docs/vault/structures/7M5M.md",
-    "docs/vault/structures/7M5L.md",
-    "docs/vault/structures/7KQ1.md",
-    "docs/vault/structures/7EFA.md",
-    "docs/vault/structures/6VVO.md",
-    "docs/vault/structures/6TNZ.md",
-    "docs/vault/structures/6TNY.md",
+    "data/raw/2EUF.pdb",
+    "data/raw/2DXX.pdb",
+    "data/raw/2DR2.pdb",
+    "data/raw/2CNN.pdb",
+    "data/raw/2CLR.pdb",
+    "data/raw/2C32.pdb",
+    "data/raw/2BRJ.pdb",
+    "data/raw/2BKM.pdb",
+    "data/raw/2B8H.pdb",
+    "data/raw/2AM9.pdb",
+    "data/raw/1ZC3.pdb",
+    "results/validation/confidence.png",
+    "results/figures/data_visualization.png",
     "results/figures/arch_pipeline.png",
     "results/figures/arch_model.png",
-    "results/figures/data_visualization.png",
-    "results/per_structure/full_analysis.png",
-    "results/validation/confidence.png",
-    "results/bulk_inference/profiles.png",
     "results/bulk_inference/ranked.png",
-    "data/results/fig3_cryptosite_histograms.png",
-    "data/results/fig2_pcna_deepdive.png",
-    "data/results/fig1_score_landscape.png"
+    "results/bulk_inference/profiles.png",
+    "data/raw/README.md",
+    "data/graphs/README.md",
+    "VERIFICATION_REPORT.md",
+    "AUDIT_REPORT.md",
+    "9NE9.md",
+    "9CHM.md",
+    "2026-05-18.md",
+    "docs/knowledge/VALIDATION.md",
+    "obsidian-skills/README.md",
+    "docs/knowledge/SYSTEM_OVERVIEW.md",
+    "docs/knowledge/INDEX.md",
+    "docs/visuals/README.md",
+    "docs/logs/RESEARCH_NOTES_LOG.md",
+    "docs/logs/CHANGELOG.md",
+    "docs/logs/BUG_LOG.md",
+    "docs/logs/DECISIONS.md",
+    "docs/prompts/NOTEBOOKLM_EXTRACTION_PROMPTS.md",
+    "docs/prompts/CHATGPT_REVIEW_PROMPTS.md",
+    "docs/prompts/GEMINI_IMPLEMENTER_PROMPTS.md",
+    "docs/prompts/CLAUDE_PLANNER_PROMPTS.md",
+    "docs/plans/plan_template.md",
+    "docs/plans/README.md",
+    "docs/notebooklm/distilled_notes/md_validation_notes.md",
+    "docs/notebooklm/distilled_notes/pcna_biology_notes.md",
+    "docs/notebooklm/distilled_notes/deepallo_notes.md"
   ]
 }

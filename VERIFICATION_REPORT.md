@@ -1,6 +1,6 @@
 # GNN-PCNA Full-Depth Verification Report
 
-**Generated:** 2026-05-18 09:45  
+**Generated:** 2026-05-18 22:27  
 **Verifier:** `scripts/verify_all_claims.py` — fully automated, no manual input  
 **Method:** Every claim re-executed or read from authoritative source (CSV / checkpoint / source code)  
 **Scope:** 50+ catalogued claims + bias assessment + reproducibility audit + uncatalogued scan
@@ -13,21 +13,22 @@
 
 | Verdict | Count |
 |---------|-------|
+| ❌ WRONG | 4 |
 | ⚠️ LEAK | 2 |
 | 🚫 RETRACTED | 4 |
-| ❓ UNVERIFIABLE | 1 |
-| ✅ VERIFIED | 52 |
+| ❓ UNVERIFIABLE | 11 |
+| ✅ VERIFIED | 38 |
 
-> **2 critical issue(s) require attention before publication.**
+> **6 critical issue(s) require attention before publication.**
 
 ### Issues by risk level
 
 | Risk | WRONG | LEAK | UNVERIFIABLE | VERIFIED |
 |------|-------|------|--------------|----------|
-| 🔴 CRITICAL | 0 | 1 | 0 | 9 |
-| 🟠 HIGH | 0 | 1 | 1 | 27 |
-| 🟡 MEDIUM | 0 | 0 | 0 | 12 |
-| 🔵 LOW | 0 | 0 | 0 | 4 |
+| 🔴 CRITICAL | 2 | 1 | 0 | 7 |
+| 🟠 HIGH | 2 | 1 | 5 | 21 |
+| 🟡 MEDIUM | 0 | 0 | 4 | 8 |
+| 🔵 LOW | 0 | 0 | 2 | 2 |
 
 ---
 
@@ -229,11 +230,11 @@ These AUROC values appear in docs but are not in the claim catalogue. They need 
 
 | ID | Risk | Claim | Claimed | Actual | Verdict | Notes |
 |----|------|-------|---------|--------|---------|-------|
-| P01 | 🟡 MEDIUM | PocketGNN large ~10.4M params | 10427905 | 10427905 | ✅ VERIFIED | Instantiated PocketGNN() and counted parameters |
-| P02 | 🟠 HIGH | PocketGNN small ~907k params (checkpoint model for… | 907706 | 907706 | ✅ VERIFIED | Instantiated PocketGNN.small() and counted parameters |
-| P03 | 🔵 LOW | PocketGNN medium ~3.6M params | 3590231 | 3590231 | ✅ VERIFIED | Instantiated PocketGNN.medium() and counted parameters |
+| P01 | 🟡 MEDIUM | PocketGNN large ~10.4M params | 10427905 | — | ❓ UNVERIFIABLE | Instantiated PocketGNN() and counted parameters |
+| P02 | 🟠 HIGH | PocketGNN small ~907k params (checkpoint model for… | 907706 | — | ❓ UNVERIFIABLE | Instantiated PocketGNN.small() and counted parameters |
+| P03 | 🔵 LOW | PocketGNN medium ~3.6M params | 3590231 | — | ❓ UNVERIFIABLE | Instantiated PocketGNN.medium() and counted parameters |
 | P04 | 🟠 HIGH | PocketGNNXL ~13.4M params (V3 checkpoint weight co… | 13364354 | 13364354 | ✅ VERIFIED | Counted weight tensors in best_pcna_v3.ckpt |
-| P05 | 🔵 LOW | CrypticGNN v1 ~556k params | 556417 | 556417 | ✅ VERIFIED | Instantiated CrypticGNN() and counted parameters |
+| P05 | 🔵 LOW | CrypticGNN v1 ~556k params | 556417 | — | ❓ UNVERIFIABLE | Instantiated CrypticGNN() and counted parameters |
 
 <details><summary><b>P01</b> — PocketGNN large ~10.4M params</summary>
 
@@ -280,9 +281,9 @@ These AUROC values appear in docs but are not in the claim catalogue. They need 
 | ID | Risk | Claim | Claimed | Actual | Verdict | Notes |
 |----|------|-------|---------|--------|---------|-------|
 | F01 | 🟠 HIGH | Node feature dim = 40 (hand-crafted, PocketGNN v1/… | 40 | — | ❓ UNVERIFIABLE | Read pre_encoder[0].in_features from PocketGNN.small() |
-| F02 | 🟡 MEDIUM | Edge feature dim = 6 (spatial + sequential each) | 6 | 6 | ✅ VERIFIED | Read spatial_convs[0].edge_dim from PocketGNN.small() |
-| F03 | 🟠 HIGH | PocketGNNXL total input dim = 520 (40 + 480 ESM2) | 520 | 520 | ✅ VERIFIED | Read node_in_dim default from PocketGNNXL.__init__ |
-| F04 | 🟡 MEDIUM | ESM2 embedding dim = 480 (facebook/esm2_t12_35M_UR… | 480 | 480 | ✅ VERIFIED | Computed as PocketGNNXL.node_in_dim(520) - hand_crafted(40) |
+| F02 | 🟡 MEDIUM | Edge feature dim = 6 (spatial + sequential each) | 6 | — | ❓ UNVERIFIABLE | Read spatial_convs[0].edge_dim from PocketGNN.small() |
+| F03 | 🟠 HIGH | PocketGNNXL total input dim = 520 (40 + 480 ESM2) | 520 | — | ❓ UNVERIFIABLE | Read node_in_dim default from PocketGNNXL.__init__ |
+| F04 | 🟡 MEDIUM | ESM2 embedding dim = 480 (facebook/esm2_t12_35M_UR… | 480 | — | ❓ UNVERIFIABLE | Computed as PocketGNNXL.node_in_dim(520) - hand_crafted(40) |
 
 <details><summary><b>F01</b> — Node feature dim = 40 (hand-crafted, PocketGNN v1/v2)</summary>
 
@@ -550,15 +551,15 @@ These AUROC values appear in docs but are not in the claim catalogue. They need 
 
 | ID | Risk | Claim | Claimed | Actual | Verdict | Notes |
 |----|------|-------|---------|--------|---------|-------|
-| C01 | 🟡 MEDIUM | PocketGNN large default: 4 spatial + 3 sequential … | (4, 3) | (4, 3) | ✅ VERIFIED | PocketGNN.__init__ defaults: n_spatial=4, n_seq=3 |
-| C02 | 🟠 HIGH | PocketGNN small (checkpoint): 3 spatial + 2 sequen… | (3, 2) | (3, 2) | ✅ VERIFIED | Counted ModuleList lengths on PocketGNN.small() instance |
-| C03 | 🟠 HIGH | PocketGNNXL (V3): 5 spatial + 4 sequential layers | (5, 4) | (5, 4) | ✅ VERIFIED | PocketGNNXL.__init__ defaults: n_spatial=5, n_seq=4 |
+| C01 | 🟡 MEDIUM | PocketGNN large default: 4 spatial + 3 sequential … | (4, 3) | — | ❓ UNVERIFIABLE | No module named 'torch_geometric' |
+| C02 | 🟠 HIGH | PocketGNN small (checkpoint): 3 spatial + 2 sequen… | (3, 2) | — | ❓ UNVERIFIABLE | No module named 'torch_geometric' |
+| C03 | 🟠 HIGH | PocketGNNXL (V3): 5 spatial + 4 sequential layers | (5, 4) | — | ❓ UNVERIFIABLE | Could not inspect PocketGNNXL default layer counts |
 
 <details><summary><b>C01</b> — PocketGNN large default: 4 spatial + 3 sequential GATv2Conv </summary>
 
 **Why it matters:** Describes the model architecture; wrong if small is claimed as large.  
 **Source:** `cryptic_gnn.py PocketGNN.__init__ defaults`  
-**Verdict detail:** PocketGNN.__init__ defaults: n_spatial=4, n_seq=3
+**Verdict detail:** No module named 'torch_geometric'
 
 </details>
 
@@ -566,7 +567,7 @@ These AUROC values appear in docs but are not in the claim catalogue. They need 
 
 **Why it matters:** The actual deployed checkpoint; all results come from 3+2 not 4+3.  
 **Source:** `cryptic_gnn.py PocketGNN.small()`  
-**Verdict detail:** Counted ModuleList lengths on PocketGNN.small() instance
+**Verdict detail:** No module named 'torch_geometric'
 
 </details>
 
@@ -574,7 +575,7 @@ These AUROC values appear in docs but are not in the claim catalogue. They need 
 
 **Why it matters:** V3 architecture; must match checkpoint structure.  
 **Source:** `cryptic_gnn.py PocketGNNXL.__init__ defaults`  
-**Verdict detail:** PocketGNNXL.__init__ defaults: n_spatial=5, n_seq=4
+**Verdict detail:** Could not inspect PocketGNNXL default layer counts
 
 </details>
 
@@ -642,8 +643,8 @@ These AUROC values appear in docs but are not in the claim catalogue. They need 
 | ID | Risk | Claim | Claimed | Actual | Verdict | Notes |
 |----|------|-------|---------|--------|---------|-------|
 | RF01 | 🔴 CRITICAL | scripts/download_data.py exists (one-command repro… | True | True | ✅ VERIFIED | scripts/download_data.py EXISTS |
-| RF02 | 🟠 HIGH | .gitignore covers data/raw/*.pdb | True | True | ✅ VERIFIED | .gitignore covers data/raw/*.pdb |
-| RF03 | 🟠 HIGH | .gitignore covers data/graphs/*.pt | True | True | ✅ VERIFIED | .gitignore covers data/graphs/*.pt |
+| RF02 | 🟠 HIGH | .gitignore covers data/raw/*.pdb | True | False | ❌ WRONG | .gitignore does NOT cover data/raw/*.pdb |
+| RF03 | 🟠 HIGH | .gitignore covers data/graphs/*.pt | True | False | ❌ WRONG | .gitignore does NOT cover data/graphs/*.pt |
 | RF04 | 🟡 MEDIUM | data/raw/README.md explains how to reproduce PDB f… | True | True | ✅ VERIFIED | data/raw/README.md EXISTS |
 | RF05 | 🟡 MEDIUM | data/graphs/README.md explains graph construction | True | True | ✅ VERIFIED | data/graphs/README.md EXISTS |
 | RF06 | 🟠 HIGH | All three checkpoint .meta.json files exist | True | True | ✅ VERIFIED | v1_meta=True v3_meta=True fixed_meta=True |
@@ -661,7 +662,7 @@ These AUROC values appear in docs but are not in the claim catalogue. They need 
 
 **Why it matters:** Raw PDB files are large; without gitignore they may accidentally be committed or excluded from a clean clone unexpectedly.  
 **Source:** `.gitignore`  
-**Verdict detail:** .gitignore covers data/raw/*.pdb
+**Verdict detail:** .gitignore does NOT cover data/raw/*.pdb
 
 </details>
 
@@ -669,7 +670,7 @@ These AUROC values appear in docs but are not in the claim catalogue. They need 
 
 **Why it matters:** Graph tensors are derived; should not be version-controlled.  
 **Source:** `.gitignore`  
-**Verdict detail:** .gitignore covers data/graphs/*.pt
+**Verdict detail:** .gitignore does NOT cover data/graphs/*.pt
 
 </details>
 
@@ -703,8 +704,8 @@ These AUROC values appear in docs but are not in the claim catalogue. They need 
 |----|------|-------|---------|--------|---------|-------|
 | Q01 | 🟠 HIGH | summary_table.csv row count = 59 (all PCNA structu… | 59 | 59 | ✅ VERIFIED | Row count in results/per_structure/summary_table.csv |
 | Q02 | 🟠 HIGH | train.py has a focal_loss path for non-symmetry tr… | True | True | ✅ VERIFIED | train.py: focal_loss call present=True, pocket_loss call present=True (pocket_loss in dual |
-| Q03 | 🔴 CRITICAL | V1 checkpoint loads into PocketGNN.small() without… | True | missing=0 unexpected=0 | ✅ VERIFIED | Loaded best_pcna.ckpt into PocketGNN.small() — missing_keys=[] unexpected=[] |
-| Q04 | 🔴 CRITICAL | V3 checkpoint loads into PocketGNNXL() without key… | True | missing=0 unexpected=0 | ✅ VERIFIED | Loaded best_pcna_v3.ckpt into PocketGNNXL() — missing_keys=[] unexpected=[] |
+| Q03 | 🔴 CRITICAL | V1 checkpoint loads into PocketGNN.small() without… | True | False | ❌ WRONG | Load failed: No module named 'torch_geometric' |
+| Q04 | 🔴 CRITICAL | V3 checkpoint loads into PocketGNNXL() without key… | True | False | ❌ WRONG | Load failed: No module named 'torch_geometric' |
 
 <details><summary><b>Q01</b> — summary_table.csv row count = 59 (all PCNA structures)</summary>
 
@@ -726,7 +727,7 @@ These AUROC values appear in docs but are not in the claim catalogue. They need 
 
 **Why it matters:** If checkpoint doesn't load cleanly, all v1 results may be from random weights.  
 **Source:** `checkpoints/pcna/best_pcna.ckpt`  
-**Verdict detail:** Loaded best_pcna.ckpt into PocketGNN.small() — missing_keys=[] unexpected=[]
+**Verdict detail:** Load failed: No module named 'torch_geometric'
 
 </details>
 
@@ -734,7 +735,7 @@ These AUROC values appear in docs but are not in the claim catalogue. They need 
 
 **Why it matters:** If checkpoint doesn't load cleanly, all V3 results may be from random weights.  
 **Source:** `checkpoints/pcna/best_pcna_v3.ckpt`  
-**Verdict detail:** Loaded best_pcna_v3.ckpt into PocketGNNXL() — missing_keys=[] unexpected=[]
+**Verdict detail:** Load failed: No module named 'torch_geometric'
 
 </details>
 
@@ -800,10 +801,36 @@ These claims were confirmed false during internal audit and removed from live do
 | ESM2 contribution reduced below 0.20 after fix | ✅ PASS |
 | 1W61 (proline racemase) purged from all active PCNA ID sets | ✅ PASS |
 | One-command download pipeline (download_data.py) exists | ✅ PASS |
-| Raw PDB files properly gitignored | ✅ PASS |
+| Raw PDB files properly gitignored | ❌ FAIL |
 | No retracted claims active in live docs | ✅ PASS |
 | All three checkpoint provenance .meta.json files present | ✅ PASS |
-| Checkpoints load cleanly into expected model architectures | ✅ PASS |
+| Checkpoints load cleanly into expected model architectures | ❌ FAIL |
+
+---
+
+## Root Cause Summary — WRONG Claims
+
+Each wrong claim grouped by its root cause.
+
+**RF02** [HIGH] .gitignore covers data/raw/*.pdb  
+- Claimed: `True`  Actual: `False`  
+- .gitignore does NOT cover data/raw/*.pdb  
+- *Impact:* Raw PDB files are large; without gitignore they may accidentally be committed or excluded from a clean clone unexpectedly.
+
+**RF03** [HIGH] .gitignore covers data/graphs/*.pt  
+- Claimed: `True`  Actual: `False`  
+- .gitignore does NOT cover data/graphs/*.pt  
+- *Impact:* Graph tensors are derived; should not be version-controlled.
+
+**Q03** [CRITICAL] V1 checkpoint loads into PocketGNN.small() without key errors  
+- Claimed: `True`  Actual: `False`  
+- Load failed: No module named 'torch_geometric'  
+- *Impact:* If checkpoint doesn't load cleanly, all v1 results may be from random weights.
+
+**Q04** [CRITICAL] V3 checkpoint loads into PocketGNNXL() without key errors  
+- Claimed: `True`  Actual: `False`  
+- Load failed: No module named 'torch_geometric'  
+- *Impact:* If checkpoint doesn't load cleanly, all V3 results may be from random weights.
 
 ---
 

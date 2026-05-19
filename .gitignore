@@ -18,3 +18,11 @@ Thumbs.db
 # Word temp lock files (never real files)
 docs/~$*
 ~$*
+
+# MD trajectories — too large for git (commit results, not raw trajectory)
+data/md/*.dcd
+data/md/*.xtc
+data/md/*.trr
+data/md/*.chk
+data/md/*.xml
+data/md/1W60_solvated.pdb

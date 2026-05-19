@@ -1,6 +1,6 @@
 # data/raw/ — Raw PDB Files
 
-This directory is **gitignored** (files too large for version control, and freely downloadable from RCSB).
+All 59 PDB files are **committed directly to this repo** and can be cloned without running any download script.
 
 ## What goes here
 

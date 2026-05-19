@@ -114,24 +114,19 @@ pip install torch-geometric
 pip install -r requirements.txt
 ```
 
-### 4. Download PDB structures + build graph tensors
+### 4. PDB structures + graph tensors (already in repo)
 
-Raw `.pdb` files are **gitignored** (too large for version control) but freely downloadable
-from RCSB. A single script handles download, checksum verification, and graph construction:
+All 59 raw `.pdb` files and 88 graph `.pt` files are **committed to this repo** — no download step needed after cloning. SHA256 checksums are at `data/manifests/pdb_checksums.json`.
+
+To verify checksums or re-download from scratch:
 
 ```bash
-# Download all 59 PCNA structures + build PyG graphs (one command)
-python scripts/download_data.py
-
-# Download only, skip graph building
-python scripts/download_data.py --skip-graphs
-
-# Verify checksums of already-downloaded files
+# Verify checksums of committed files
 python scripts/download_data.py --verify
-```
 
-This replaces the older `pcna_crawler.py --download` and `build_graphs.py` workflow.
-See `data/raw/README.md` and `data/graphs/README.md` for details.
+# Re-download all PDB files from RCSB (overwrites local)
+python scripts/download_data.py --force
+```
 
 ### 6. Run inference (pre-trained checkpoint included)
 

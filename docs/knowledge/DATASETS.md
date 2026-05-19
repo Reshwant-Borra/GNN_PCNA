@@ -7,7 +7,7 @@
 | 1W60 | PCNA apo (human, 2.35 Å) | Baseline graph; no AOH1996 pocket visible |
 | 8GLA | PCNA + AOH1996 (cryptic pocket open) | Ground truth pocket labeling |
 | 1AXC | PCNA + p21 PIP-box peptide | Alternative holo form |
-| 1W61 | PCNA + RFC clamp loader fragment | Interface context |
+| ~~1W61~~ | ~~PCNA + RFC clamp loader fragment~~ | **EXCLUDED** — proline racemase (*T. cruzi*), not PCNA |
 
 ## Training Data (Transfer Learning / External)
 

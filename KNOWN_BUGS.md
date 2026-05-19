@@ -2,7 +2,30 @@
 
 ## Active Issues
 
-_None — all known issues resolved as of 2026-05-15._
+### BUG-007: Core ML scripts require torch_geometric not installed by default
+- **Status**: open
+- **Affected**: `scripts/run_test_eval.py`, `scripts/aoh_gate_check.py`, `src/training/train.py`
+- **Description**: All model scripts fail with `ModuleNotFoundError: No module named 'torch_geometric'` in a fresh Python environment. PyTorch Geometric requires a separate install step that most users miss.
+- **Reproduction**: `python scripts/run_test_eval.py --help` in a clean venv.
+- **Fix**: Follow setup instructions step 3 exactly — PyG must be installed before PyTorch.
+
+### BUG-008: pytest skips all model tests with "torch missing" even when torch is installed
+- **Status**: open
+- **Affected**: `tests/`
+- **Description**: 11 of 16 tests are skipped even with torch 2.x installed, because the skip guard checks for `torch_geometric` (absent), not `torch`. False confidence from "5 passed" result.
+- **Fix**: Separate skip guards for torch vs torch_geometric; CI should fail hard when PyG unavailable.
+
+### BUG-009: `download_data.py --verify` fails if manifest doesn't exist
+- **Status**: open
+- **Affected**: `scripts/download_data.py`
+- **Description**: Running `--verify` before ever running the script prints "No manifest found" and exits silently. Since files are already in git, manifest should be pre-committed.
+- **Fix**: Commit `data/manifests/pdb_checksums.json` or auto-generate from existing files.
+
+### BUG-010: Per-structure docs contain pre-fix V3 predictions
+- **Status**: open
+- **Affected**: `results/per_structure/*/report.txt` and related files
+- **Description**: Per-structure reports were generated before the apo-negative fix; scores in those files reflect the superseded checkpoint.
+- **Fix**: Regenerate with `python scripts/per_structure_analysis.py` using `best_pcna_v3_fixed.ckpt`.
 
 ## Template
 

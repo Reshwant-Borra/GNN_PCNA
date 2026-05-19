@@ -13,7 +13,7 @@
 | 1W60 | Kontopidis et al. (2005) Structure 13:1175 | Open (RCSB) | Not yet | — | PCNA apo |
 | 8GLA | Chen et al. (2023) Nature Comm (Needs NLM extraction) | Open (RCSB) | Not yet | — | PCNA + AOH1996 |
 | 1AXC | Kontopidis et al. (2005) | Open (RCSB) | Not yet | — | PCNA + p21 |
-| 1W61 | Kontopidis et al. (2005) | Open (RCSB) | Not yet | — | PCNA + RFC |
+| ~~1W61~~ | — | Open (RCSB) | Excluded | — | **NOT PCNA** — proline racemase (*T. cruzi*); rejected contamination |
 
 ---
 

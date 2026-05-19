@@ -42,14 +42,14 @@
 | Use | Alternative holo form; PIP-box interface context |
 | Priority | Low — supplementary reference |
 
-### 1W61 — PCNA + RFC fragment
+### ~~1W61~~ — EXCLUDED (not PCNA)
 
 | Property | Value |
 |---|---|
 | PDB ID | 1W61 |
-| Chains | PCNA + RFC |
-| Use | Interface context for clamp loader binding |
-| Priority | Low — context only |
+| Actual protein | Proline racemase (*Trypanosoma cruzi*) |
+| Status | **Rejected contamination** — mistakenly included in early versions |
+| Action | Do not use; `data/raw/1W61.pdb` present but excluded from all analysis |
 
 ---
 
@@ -65,7 +65,7 @@ wget https://files.rcsb.org/download/8GLA.pdb -O data/raw/8GLA.pdb
 
 # Optional
 wget https://files.rcsb.org/download/1AXC.pdb -O data/raw/1AXC.pdb
-wget https://files.rcsb.org/download/1W61.pdb -O data/raw/1W61.pdb
+# 1W61 is NOT PCNA — do not download or use
 ```
 
 ---

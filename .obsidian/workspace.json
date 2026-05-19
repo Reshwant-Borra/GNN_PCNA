@@ -11,13 +11,10 @@
             "id": "af6e8d80c99161b2",
             "type": "leaf",
             "state": {
-              "type": "bases",
-              "state": {
-                "file": "Untitled 1.base",
-                "viewName": "Table"
-              },
-              "icon": "lucide-table",
-              "title": "Untitled 1"
+              "type": "graph",
+              "state": {},
+              "icon": "lucide-git-fork",
+              "title": "Graph view"
             }
           }
         ]
@@ -181,17 +178,17 @@
   },
   "active": "af6e8d80c99161b2",
   "lastOpenFiles": [
-    "docs/knowledge/SYSTEM_OVERVIEW.md.tmp.59816.dc421ed97223",
-    "docs/knowledge/SYSTEM_OVERVIEW.md.tmp.59816.29340ab0ff69",
-    "checkpoints/reproduced_xl/best_meta.json",
-    "checkpoints/reproduced_xl/best.ckpt",
-    "checkpoints/reproduced_xl",
-    "data/graphs_xl_train_split/2NWX.pt",
-    "data/graphs_xl_train_split/2VGO.pt",
-    "data/graphs_xl_train_split/1P9Y.pt",
-    "data/graphs_xl_train_split/2EUF.pt",
-    "data/graphs_xl_train_split/2Q1T.pt",
-    "data/graphs_xl_train_split/2NMO.pt",
+    "README.md.tmp.29500.3bdd9ffa4fa0",
+    "data/manifests/pdb_checksums.json",
+    "data/manifests",
+    "checkpoints/pcna/best_pcna_v3_meta.json.tmp.29500.7d802558d9c7",
+    "scripts/run_nma.py.tmp.29500.84b13d54d66c",
+    "src/ui/app.py.tmp.29500.f67dd702c66c",
+    "README.md.tmp.59816.d1782eee1fdd",
+    "README.md.tmp.59816.d1c7ba1a4890",
+    "README.md.tmp.29500.cb4582f3b710",
+    "AUDIT_REPORT.md.tmp.59816.bc6f784b2f52",
+    "docs/data/DATA_PROVENANCE.md.tmp.29500.b3c9b8523fe8",
     "data/graphs/README.md",
     "data/raw/README.md",
     "VERIFICATION_REPORT.md",

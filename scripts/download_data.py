@@ -4,8 +4,8 @@ One-command data download and build pipeline for GNN-PCNA.
 Downloads all 59 PCNA PDB files from RCSB, verifies SHA256 checksums,
 builds PyG graph tensors, and optionally builds ESM2 features.
 
-All raw files land in data/raw/ (gitignored — too large for git).
-Graph tensors land in data/graphs/ (also gitignored).
+All raw files land in data/raw/ (committed to git).
+Graph tensors land in data/graphs/ (also committed to git).
 
 Usage
 -----

@@ -230,7 +230,7 @@ def run(pdb_path: Path, cutoff: float, n_modes: int) -> dict:
             ) if pocket_internal_corr and pocket_internal_corr > 0 else None,
         },
         "eigenvalues": [round(float(v), 6) for v in eigvals[:10]],
-        "dccm_file": "data/results/nma_1W60_dccm.npy",
+        "dccm_file": f"data/results/nma_{stem}_dccm.npy",
         "residues": residues_out,
     }
 

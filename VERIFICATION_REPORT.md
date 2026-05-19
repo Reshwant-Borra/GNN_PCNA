@@ -1,6 +1,6 @@
 # GNN-PCNA Full-Depth Verification Report
 
-**Generated:** 2026-05-18 09:45  
+**Generated:** 2026-05-18 23:12  
 **Verifier:** `scripts/verify_all_claims.py` — fully automated, no manual input  
 **Method:** Every claim re-executed or read from authoritative source (CSV / checkpoint / source code)  
 **Scope:** 50+ catalogued claims + bias assessment + reproducibility audit + uncatalogued scan
@@ -642,8 +642,8 @@ These AUROC values appear in docs but are not in the claim catalogue. They need 
 | ID | Risk | Claim | Claimed | Actual | Verdict | Notes |
 |----|------|-------|---------|--------|---------|-------|
 | RF01 | 🔴 CRITICAL | scripts/download_data.py exists (one-command repro… | True | True | ✅ VERIFIED | scripts/download_data.py EXISTS |
-| RF02 | 🟠 HIGH | .gitignore covers data/raw/*.pdb | True | True | ✅ VERIFIED | .gitignore covers data/raw/*.pdb |
-| RF03 | 🟠 HIGH | .gitignore covers data/graphs/*.pt | True | True | ✅ VERIFIED | .gitignore covers data/graphs/*.pt |
+| RF02 | 🟠 HIGH | data/raw/*.pdb files are committed directly to git… | True | True | ✅ VERIFIED | data/raw/ contains 150 .pdb files (need ≥59) |
+| RF03 | 🟠 HIGH | data/graphs/*.pt files are committed directly to g… | True | True | ✅ VERIFIED | data/graphs/ contains 86 .pt files (need ≥80) |
 | RF04 | 🟡 MEDIUM | data/raw/README.md explains how to reproduce PDB f… | True | True | ✅ VERIFIED | data/raw/README.md EXISTS |
 | RF05 | 🟡 MEDIUM | data/graphs/README.md explains graph construction | True | True | ✅ VERIFIED | data/graphs/README.md EXISTS |
 | RF06 | 🟠 HIGH | All three checkpoint .meta.json files exist | True | True | ✅ VERIFIED | v1_meta=True v3_meta=True fixed_meta=True |
@@ -657,19 +657,19 @@ These AUROC values appear in docs but are not in the claim catalogue. They need 
 
 </details>
 
-<details><summary><b>RF02</b> — .gitignore covers data/raw/*.pdb</summary>
+<details><summary><b>RF02</b> — data/raw/*.pdb files are committed directly to git (no gitig</summary>
 
-**Why it matters:** Raw PDB files are large; without gitignore they may accidentally be committed or excluded from a clean clone unexpectedly.  
-**Source:** `.gitignore`  
-**Verdict detail:** .gitignore covers data/raw/*.pdb
+**Why it matters:** All 59 PDB files are committed so a clone is immediately runnable without any download step.  
+**Source:** `data/raw/`  
+**Verdict detail:** data/raw/ contains 150 .pdb files (need ≥59)
 
 </details>
 
-<details><summary><b>RF03</b> — .gitignore covers data/graphs/*.pt</summary>
+<details><summary><b>RF03</b> — data/graphs/*.pt files are committed directly to git (no git</summary>
 
-**Why it matters:** Graph tensors are derived; should not be version-controlled.  
-**Source:** `.gitignore`  
-**Verdict detail:** .gitignore covers data/graphs/*.pt
+**Why it matters:** Graph tensors are committed so inference runs immediately after clone.  
+**Source:** `data/graphs/`  
+**Verdict detail:** data/graphs/ contains 86 .pt files (need ≥80)
 
 </details>
 
@@ -800,7 +800,7 @@ These claims were confirmed false during internal audit and removed from live do
 | ESM2 contribution reduced below 0.20 after fix | ✅ PASS |
 | 1W61 (proline racemase) purged from all active PCNA ID sets | ✅ PASS |
 | One-command download pipeline (download_data.py) exists | ✅ PASS |
-| Raw PDB files properly gitignored | ✅ PASS |
+| Raw PDB files committed to git (≥59 present) | ✅ PASS |
 | No retracted claims active in live docs | ✅ PASS |
 | All three checkpoint provenance .meta.json files present | ✅ PASS |
 | Checkpoints load cleanly into expected model architectures | ✅ PASS |

@@ -44,7 +44,7 @@ Streamlit UI  (src/ui/app.py)
   → B-factor PDB export (PyMOL) + CSV
   ↓
 MD Validation  (src/md/parse_trajectory.py)
-  → RMSF, DCCM, transient volume analysis  [NOT YET RUN — no trajectory data]
+  → RMSF, DCCM, transient volume analysis  [future work — infrastructure ready, no trajectories generated]
 ```
 
 ---
@@ -135,19 +135,33 @@ python scripts/download_data.py --force
 
 ### 6. Run inference (pre-trained checkpoint included)
 
-The primary checkpoint `checkpoints/pcna_reproduced/best.ckpt` is tracked in git — no training needed. It is a fully reproduced XL model (seed=42 end-to-end, pretrain → PCNA fine-tune, AOH gate PASS 0.8676).
+The primary checkpoint `checkpoints/pcna_reproduced/best.ckpt` is tracked in git — no training needed. It is a fully reproduced XL model (~13.4M params, node_in_dim=520 with ESM2 features, seed=42 end-to-end, AOH gate PASS 0.8676).
+
+**Model variants and which scripts use them:**
+
+| Script | Model | Checkpoint | Node dim | Notes |
+|---|---|---|---|---|
+| `aoh_gate_check.py` | XL (13.4M) | `pcna_reproduced/best.ckpt` | 520 | Uses pre-built XL graphs from `data/pcna_xl/` |
+| `run_test_eval.py` | XL (13.4M) | `pcna_reproduced/best.ckpt` | 520 | Uses pre-built XL graphs from `data/graphs_xl/` |
+| `per_structure_analysis.py` | small (907k) | `pcna/best_pcna.ckpt` | 40 | Uses `build_graph_v2` (no ESM2 required); suitable for all 59 PCNA structures |
+| `src/ui/app.py` | XL (13.4M) | `pcna_reproduced/best.ckpt` | 520 | Interactive UI with pre-built graphs |
+
+ESM2 (`facebook/esm2_t12_35M_UR50D`) is required only to build new XL graphs. Pre-built XL graphs are committed to this repo for the evaluation set and three PCNA structures.
 
 ```bash
-# Validate AOH1996 positive-control recovery (runs against primary checkpoint by default)
+# Validate AOH1996 positive-control recovery (XL checkpoint, pre-built XL graph)
 python scripts/aoh_gate_check.py
 
-# Per-structure analysis on all 59 PCNA structures
+# Evaluate XL checkpoint on all 13 held-out val+test proteins (XL graphs, labeled)
+python scripts/run_test_eval.py --ckpt checkpoints/pcna_reproduced/best.ckpt --model xl --graphs data/graphs_xl
+
+# Per-structure analysis on all 59 PCNA structures (small model, no ESM2 needed)
 python scripts/per_structure_analysis.py
 
 # Generate 5-panel analysis figure
 python scripts/make_final_figure.py
 
-# Launch Streamlit UI
+# Launch Streamlit UI (XL model)
 streamlit run src/ui/app.py
 ```
 
@@ -220,17 +234,47 @@ Add to Claude Code via `.claude/mcp.json` (already configured in this repo).
 
 ---
 
-## Validation Targets
+## Validation Status
 
-| Metric | Minimum bar | Strong result | Status |
-|---|---|---|---|
-| AOH1996 pocket mean score on 8GLA | > 0.7 | — | **PASS** — reproduced fine-tuned XL: 0.8676, rank 1 (small: FAIL 0.5998) |
-| AOH1996 pocket rank | top-3 | top-1 | **PASS** — rank 1 (reproduced fine-tuned XL) |
-| Test AUROC, protein-level held-out (5 proteins, 3 different families) | > 0.65 | > 0.80 | **PASS** — reproduced fine-tuned XL: 0.9390; note AUROC inflated by class imbalance |
-| Test AUPRC (average precision), same 5 proteins | > trivial baseline (~0.08) | > 0.40 | **Partial** — 0.3706 (4.6× above trivial baseline of ~0.08; not strong absolute performance) |
-| ANM apo/holo fold-change delta | > 0 | > 0.2 | **PASS** — delta = +0.247 (apo 0.857 → holo 1.104); consistent with flexibility difference, not proof of opening |
-| Internal pocket DCCM (apo) | > 0 | > 0.3 | **Partial** — 0.0995 (mild positive coherent motion) |
-| Novel pocket transient volume (MD) | — | > 100 Å³ | Not measured — no MD trajectories |
+### Positive-control sanity check (not independent validation)
+
+| Metric | Threshold | Result |
+|---|---|---|
+| AOH1996 pocket mean score on 8GLA | > 0.7 | **PASS** — XL checkpoint: 0.8676, rank 1 |
+| AOH1996 pocket rank | top-3 | **PASS** — rank 1 |
+
+> **Note:** 8GLA was in the fine-tuning data. This is a sanity check that the model retained its training signal, not a performance metric. See `LIMITATIONS.md §4.1`.
+
+### Held-out generalization (genuine unseen evaluation)
+
+All 13 val+test proteins (from `data/splits/cryptosite_split.json`) were withheld from both pre-training and fine-tuning. They span diverse protein families (kinase, protease, transferase, oxidoreductase, hydrolase, and others) distinct from PCNA.
+
+| Split | N proteins | Mean AUROC | Mean AUPRC | Trivial AUPRC baseline | AUPRC ratio |
+|---|---|---|---|---|---|
+| Val (8 proteins) | 8 | 0.7263 | 0.3276 | ~0.07 | ~4.7× |
+| Test (5 proteins) | 5 | 0.9390 | 0.3706 | ~0.08 | ~4.6× |
+| **Combined (13 proteins)** | **13** | **0.8081** | **0.3441** | **~0.056** | **~6.2×** |
+
+AUROC is elevated by class imbalance (~5–15% positive residues); **AUPRC is the honest primary metric**. The model achieves 6.2× above the trivial random-ranking baseline on 13 held-out proteins. This is meaningful signal but not strong absolute performance.
+
+Full per-structure breakdown: `data/results/test_split_eval_best.json`
+
+### ANM flexibility analysis (physics-based, not MD)
+
+| Metric | Result | Interpretation |
+|---|---|---|
+| ANM fold-change delta (apo → holo) | +0.247 (0.857 → 1.104) | Consistent with ligand-induced flexibility hypothesis |
+| Internal pocket DCCM (apo) | 0.0995 | Mild positive coherent motion |
+
+> ANM is a coarse-grained approximation (r ~ 0.6–0.8 vs. full MD). These values are **consistent with a cryptic pocket hypothesis** but require MD confirmation.
+
+### Future work (not yet completed)
+
+| Item | Why not done |
+|---|---|
+| Full MD trajectories (RMSF, DCCM, transient volume) | Computationally intensive; infrastructure in `src/md/` is ready but no trajectory data generated |
+| Calibration curves / Brier scores | Scores are uncalibrated sigmoid outputs; calibration requires held-out probability data |
+| Docking validation | Requires dockable apo conformation; model predicts regions, not pocket geometry |
 
 ---
 

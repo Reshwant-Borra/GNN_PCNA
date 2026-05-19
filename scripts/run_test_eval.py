@@ -1,18 +1,22 @@
 """
-Evaluate the trained model on the held-out test split.
+Evaluate the XL model on the held-out val+test split (13 proteins total).
 
-The test split (cryptosite_split.json) was withheld from ALL training and
-validation — these are genuinely unseen proteins at evaluation time.
+All 13 proteins (8 val + 5 test) were withheld from ALL pre-training and
+fine-tuning. They span protein families distinct from PCNA (kinase, protease,
+transferase, oxidoreductase, hydrolase, and others).
 
 Labels are ligand-proximity based (Ca within 6 A of any ligand atom).
 This is the same labelling methodology used throughout training, applied
 consistently to held-out structures.
 
-Writes: data/results/test_split_eval.json
+Default graphs directory: data/graphs_xl/ (pre-built 520-dim XL graphs)
+Default checkpoint: checkpoints/pcna_reproduced/best.ckpt (XL, ~13.4M params)
+
+Writes: data/results/test_split_eval_{checkpoint_stem}.json
 
 Usage:
     python scripts/run_test_eval.py
-    python scripts/run_test_eval.py --ckpt checkpoints/pcna/best_pcna.ckpt --model small
+    python scripts/run_test_eval.py --ckpt checkpoints/pcna_reproduced/best.ckpt --model xl --graphs data/graphs_xl
 """
 from __future__ import annotations
 import sys, json, argparse
@@ -139,11 +143,11 @@ def run(ckpt_path: Path, model_size: str, split_path: Path,
 
 def main():
     parser = argparse.ArgumentParser()
-    parser.add_argument("--ckpt",   default="checkpoints/pcna/best_pcna.ckpt")
-    parser.add_argument("--model",  default="small",
+    parser.add_argument("--ckpt",   default="checkpoints/pcna_reproduced/best.ckpt")
+    parser.add_argument("--model",  default="xl",
                         choices=["small", "medium", "large", "xl"])
     parser.add_argument("--split",  default="data/splits/cryptosite_split.json")
-    parser.add_argument("--graphs", default="data/graphs")
+    parser.add_argument("--graphs", default="data/graphs_xl")
     args = parser.parse_args()
 
     result = run(

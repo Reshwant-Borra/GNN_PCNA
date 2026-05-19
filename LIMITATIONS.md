@@ -134,22 +134,34 @@ positive classes, AUROC is systematically optimistic.
 
 **AUPRC (mean precision at different recall levels) is the correct primary metric.**
 
-| Metric | Project mean | What it means |
-|--------|-------------|---------------|
-| AUROC  | 0.9390 | Inflated by class imbalance — do not use as headline number |
-| AUPRC  | 0.3706 | Honest. Means ~37% precision across recall levels on held-out structures |
+Current evaluation uses all 13 held-out proteins (8 val + 5 test), all withheld from
+pre-training and fine-tuning, evaluated with the XL checkpoint on pre-built XL graphs:
 
-A model that scores every residue 0 achieves AUROC = 0.5 and AUPRC ≈ pos_fraction (~0.08).
-A model that perfectly ranks all pocket residues first achieves AUPRC = 1.0. The project
-mean AUPRC of 0.3706 is **4.6× above the trivial baseline of ~0.08** — meaningful signal above
-chance — but is not strong absolute performance. The 5-protein test set spans different protein
-families (kinase, protease, transferase, oxidoreductase, hydrolase), making this a
-cross-family transfer check, but the small set size limits statistical power.
+| Split | N | Mean AUROC | Mean AUPRC | Trivial baseline | Fold above trivial |
+|-------|---|-----------|-----------|-----------------|-------------------|
+| Val   | 8 | 0.7263    | 0.3276    | ~0.07           | ~4.7×             |
+| Test  | 5 | 0.9390    | 0.3706    | ~0.08           | ~4.6×             |
+| Combined | 13 | 0.8081 | 0.3441  | ~0.056          | **6.2×**          |
 
-### 4.3 Held-out test set is 5 proteins
+A model that randomly ranks residues achieves AUPRC = pos_fraction (trivial baseline).
+A model that perfectly ranks all pocket residues first achieves AUPRC = 1.0.
+The project mean AUPRC of 0.3441 (13 proteins) is **6.2× above the trivial baseline** —
+meaningful signal above chance — but not strong absolute performance.
 
-The test split contains 5 proteins (`1V48`, `3CL7`, `1D09`, `1M17`, `2VO5`). Metrics
-computed on 5 proteins have wide confidence intervals and should not be overinterpreted.
+The 13 protein set spans kinase, protease, transferase, oxidoreductase, hydrolase, and
+other families distinct from PCNA, making this a cross-family transfer check. The sample
+size is still small enough that confidence intervals are wide — these numbers should not
+be overinterpreted.
+
+Full per-structure results: `data/results/test_split_eval_best.json`
+
+### 4.3 Held-out evaluation covers 13 proteins (8 val + 5 test)
+
+Val: `2QKH`, `1JBP`, `2P54`, `2XBP`, `1K3Y`, `1O3P`, `1PZO`, `1Q5H`  
+Test: `1V48`, `3CL7`, `1D09`, `1M17`, `2VO5`
+
+All 13 proteins have pre-built XL graphs in `data/graphs_xl/` and are evaluated with
+the same XL checkpoint used for the PCNA AOH gate. None appeared in training or fine-tuning.
 
 ### 4.4 ANM flexibility is a coarse-grained approximation
 

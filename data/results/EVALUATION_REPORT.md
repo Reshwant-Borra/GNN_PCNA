@@ -1,14 +1,19 @@
 ﻿# GNN-PCNA Full Evaluation Report
 *Generated automatically by scripts/full_eval.py*
 
+> **ARCHIVED REPORT — V3 checkpoint only.**  
+> The primary checkpoint is now `checkpoints/pcna_reproduced/best.ckpt` (fully reproduced XL, seed=42 end-to-end).  
+> Current held-out evaluation (13 val+test proteins, XL checkpoint): `data/results/test_split_eval_best.json`  
+> Current AOH gate check: `python scripts/aoh_gate_check.py` → PASS, mean score 0.8676
+
 ---
 
-## 1. Overview
+## 1. Overview (V3 checkpoint — archived)
 
 | Item | Value |
 |---|---|
 | Model | PocketGNNXL v3 (13,364,354 params — ESM2 + virtual node) |
-| Checkpoint | checkpoints/pcna/best_pcna_v3.ckpt |
+| Checkpoint | checkpoints/pcna/best_pcna_v3.ckpt (SUPERSEDED — use pcna_reproduced/best.ckpt) |
 | Threshold | 0.4 |
 | Total structures evaluated | 90 |
 | Structures with pocket labels | 53 |

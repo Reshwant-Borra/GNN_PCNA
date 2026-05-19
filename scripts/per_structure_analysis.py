@@ -324,7 +324,7 @@ def main():
     parser.add_argument("--model", default=_DEFAULT_MODEL, choices=["small", "xl"],
                         help="Model size (default: xl)")
     parser.add_argument("--pdb",   default=None,
-                        help="Run on a single PDB ID only (e.g. --pdb 9B8T)")
+                        help="Run on a single PDB ID only, e.g. --pdb 1W60 (stem of file in data/raw/, not a full path)")
     args = parser.parse_args()
 
     ckpt_path = Path(args.ckpt)

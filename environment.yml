@@ -1,0 +1,28 @@
+name: pcna_md
+channels:
+  - conda-forge
+  - pytorch
+  - nvidia
+  - defaults
+dependencies:
+  - python=3.11
+  # MD simulation (conda-forge builds CUDA-enabled OpenMM automatically)
+  - openmm=8.1
+  - mdanalysis=2.7
+  - scipy=1.13
+  - numpy=1.26
+  - pandas=2.2
+  # GNN (pip — PyG wheels must match torch+CUDA version)
+  - pip
+  - pip:
+    - torch==2.1.2
+    - torch-geometric==2.5.3
+    - torch-scatter==2.1.2
+    - torch-sparse==0.6.18
+    - biopython==1.83
+    - scikit-learn==1.5.2
+    - tqdm==4.66.5
+    - requests==2.32.3
+    - beautifulsoup4==4.12.3
+    - streamlit==1.38.0
+    - matplotlib==3.9.2

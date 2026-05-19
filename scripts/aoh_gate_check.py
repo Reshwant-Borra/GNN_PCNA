@@ -17,12 +17,20 @@ from __future__ import annotations
 import sys, json
 from pathlib import Path
 
-import numpy as np
-import torch
-
 REPO = Path(__file__).parent.parent
 sys.path.insert(0, str(REPO))
 
+try:
+    import torch
+    import torch_geometric  # noqa: F401
+except ImportError as e:
+    print(f"\n[ERROR] Missing dependency: {e}")
+    print("  PyTorch Geometric is required. Run the environment checker first:")
+    print("    python scripts/check_env.py")
+    print("  Then follow its install instructions.\n")
+    sys.exit(1)
+
+import numpy as np
 from src.models import PocketGNN, PocketGNNXL
 
 # AOH1996 ground truth: residue numbers per chain in 8GLA

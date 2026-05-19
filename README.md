@@ -286,11 +286,11 @@ Full per-structure breakdown: `data/results/test_split_eval_best.json`
 |---|---|---|---|
 | ANM apo/holo fold-change delta | > 0 | > 0.2 | **PASS** — delta = +0.247 (apo 0.857 → holo 1.104); consistent with flexibility difference hypothesis |
 | Internal pocket DCCM (apo) | > 0 | > 0.3 | **Partial** — 0.0995 (mild positive coherent motion in predicted pocket region) |
-| Novel pocket transient volume (MD RMSF/DCCM) | — | > 100 Å³ | **Planned** — `src/md/` infrastructure complete; awaiting trajectory data |
+| Novel pocket transient volume (MD RMSF/DCCM) | — | > 100 Å³ | **Pending** — 100 ns CHARMM36m trajectory running on collaborator NVIDIA GPU; analysis script ready (`scripts/run_md_analysis.py`) |
 
 **ANM interpretation:** The Anisotropic Network Model (7.5 Å cutoff, 20 non-trivial modes) shows predicted pocket residues are 14% less flexible than background in apo PCNA (fold-change 0.857), rising to 10% *more* flexible than background in holo (fold-change 1.104). The +0.247 delta is consistent with ligand-induced pocket opening. ANM correlates with full MD RMSF at r ~ 0.6–0.8 (Eyal et al. 2006) — this is supporting evidence, not MD confirmation.
 
-**MD pipeline** (`src/md/parse_trajectory.py`): Parses MDAnalysis trajectories to compute per-residue RMSF, DCCM correlation matrices, and transient pocket volume (rolling Voronoi). The analysis framework is fully implemented and validated on synthetic data; full MD trajectories for PCNA are a planned next step requiring HPC compute time.
+**MD pipeline** (`scripts/run_md_analysis.py`): Computes per-residue Cα RMSF, DCCM correlation matrix, and convex-hull pocket volume from the 100 ns trajectory. Compares MD fold-change against ANM baseline (0.857) for AOH1996 pocket residues. Pre-built system files (`data/md/1W60_solvated.pdb`, `data/md/system.xml`) are committed; trajectory will be added when the collaborator run completes.
 
 ---
 

@@ -1,4 +1,4 @@
-# System Overview
+﻿# System Overview
 
 ## Goal
 Identify **cryptic binding pockets** on PCNA (Proliferating Cell Nuclear Antigen) using a GNN-based detection pipeline. ANM flexibility analysis completed (apo/holo comparison: fold-change delta +0.247). Full MD trajectory not yet generated.
@@ -19,7 +19,7 @@ Identify **cryptic binding pockets** on PCNA (Proliferating Cell Nuclear Antigen
 PDB Structure(s)
   → Graph Construction (residues as nodes, edges by distance/contact)
   → GNN Encoder (learns pocket-relevant node/edge embeddings)
-  → Pocket Scoring Head (per-residue cryptic pocket probability)
+  → Pocket Scoring Head (per-residue cryptic prioritization score)
   → ANM Flexibility Analysis (DONE — apo fold-change 0.857, holo 1.104, delta +0.247)
   → MD Validation (FUTURE — full trajectory not yet generated)
   → Ranked Output (novel cryptic sites + confidence)

@@ -91,7 +91,7 @@ Full results: `data/results/nma_apo_holo_comparison.json`
 |-----------|-------|--------------------|---------------|----------------|
 | 1W60 | apo (no ligand) | **0.857** | 0.0995 | Pocket rigidly packed, closed ✓ |
 | 8GLA | holo (AOH1996 bound) | **1.104** | 0.0780 | Pocket open, residues more flexible ✓ |
-| Delta (holo − apo) | — | **+0.247** | — | Ligand-induced opening confirmed ✓ |
+| Delta (holo − apo) | — | **+0.247** | — | Consistent with ligand-induced opening hypothesis |
 
 Method: ANM, 7.5 Å cutoff, 20 non-trivial modes. Correlates with MD-RMSF at r~0.6–0.8 (Eyal et al. 2006).
 
@@ -101,10 +101,10 @@ python scripts/run_nma.py --pdb data/raw/1W60.pdb
 python scripts/run_nma.py --pdb data/raw/8GLA.pdb
 ```
 
-**Interpretation:** The apo→holo fold-change shift (0.857→1.104, Δ=+0.247) is the expected structural
-signature of a ligand-induced cryptic pocket. In the apo state the site is rigid and buried; ligand
-binding opens it and increases local flexibility. This is computed purely from crystallographic
-coordinates using physics-based normal modes — independent of the GNN model.
+**Interpretation:** The apo→holo fold-change shift (0.857→1.104, Δ=+0.247) is consistent with the expected structural
+signature of a ligand-induced cryptic pocket opening. This is a coarse-grained physics-based indicator computed from
+crystallographic coordinates using normal modes — it supports but does not confirm the hypothesis. Independent MD
+simulation would be required for confirmation.
 
 ---
 

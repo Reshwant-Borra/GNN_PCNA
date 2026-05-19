@@ -1,4 +1,4 @@
-"""
+﻿"""
 PocketGNN — dual-branch GNN for cryptic pocket prediction.
 
 v2 small (~907k params):  hidden_dim=256, 3 spatial + 2 seq layers, 4 heads — checkpoint used for all results
@@ -72,7 +72,7 @@ class PocketGNN(nn.Module):
     edge_attr_seq   : (E_s, edge_dim)
     chain_id        : (N,) long  0/1/2 for PCNA chains A/B/C  [optional]
 
-    Returns: (N,) per-residue pocket probability in [0,1]
+    Returns: (N,) per-residue prioritization score in [0,1]
     """
 
     NODE_DIM = 40
@@ -217,7 +217,7 @@ class PocketGNNXL(nn.Module):
     edge_attr_seq   : (E_s, edge_dim)
     chain_id        : (N,) long  [optional]
 
-    Returns: (N,) per-residue pocket probability in [0,1]
+    Returns: (N,) per-residue prioritization score in [0,1]
     """
 
     ESM2_T12_DIM = 480   # facebook/esm2_t12_35M_UR50D

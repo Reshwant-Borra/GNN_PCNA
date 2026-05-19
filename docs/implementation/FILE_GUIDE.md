@@ -32,7 +32,7 @@
 
 ### `src/models/cryptic_gnn.py`
 - **Status:** Implemented
-- **Purpose:** CrypticGNN — 4-layer GATv2Conv + MLP scoring head; per-residue pocket probability
+- **Purpose:** CrypticGNN — 4-layer GATv2Conv + MLP scoring head; per-residue prioritization score
 - **Key classes:** `NodeEmbedding`, `CrypticGNN`
 - **Input:** `x (N,26)`, `edge_index (2,E)`, `edge_attr (E,2)`
 - **Output:** `scores (N,)` ∈ [0, 1]

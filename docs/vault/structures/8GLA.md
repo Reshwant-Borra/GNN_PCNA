@@ -40,8 +40,8 @@ download_url: "https://files.rcsb.org/download/8GLA.pdb"
 ## ML Usage
 
 - **Positive training example** — AOH1996 cryptic pocket is open
-- Ground truth: residues within 6 Å of AOH1996 ligand labeled `1`
-- Required for: pocket labeling, validation gate
+- Ground truth: residues whose Cα is within 6 Å of any heavy atom of ligand ZQZ (AOH1996) labeled `1`
+- Required for: pocket labeling, positive-control sanity check (note: 8GLA was in fine-tuning — not independent validation)
 
 ## Connections
 

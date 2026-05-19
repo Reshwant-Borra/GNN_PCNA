@@ -200,7 +200,7 @@ def write_structure_note(record: dict) -> Path:
         lines += [
             "- **Positive training example** — AOH1996 cryptic pocket is open",
             "- Ground truth: residues within 6 Å of AOH1996 ligand labeled `1`",
-            "- Required for: pocket labeling, validation gate",
+            "- Required for: pocket labeling, positive-control sanity check (8GLA was in fine-tuning — not independent validation)",
         ]
     elif uid == "1W60":
         lines += [

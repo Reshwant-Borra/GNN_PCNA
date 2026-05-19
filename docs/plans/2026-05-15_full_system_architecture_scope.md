@@ -129,7 +129,7 @@ Define the complete end-to-end architecture for GNN-PCNA: from parallel web scra
 │  4 × GATv2Conv(256, heads=4, edge_dim=2, concat=True)          │
 │    + residual: LayerNorm(h + conv(h))                           │
 │  Scoring head: Linear(256→64) → ReLU → Dropout → Linear(64→1) │
-│  Output: sigmoid → (N,) pocket probability ∈ [0,1]             │
+│  Output: sigmoid → (N,) prioritization score ∈ [0,1]             │
 │                                                                 │
 │  Training: src/training/train.py                                │
 │    Loss:    focal loss (γ=2, α=0.25) — src/training/loss.py   │

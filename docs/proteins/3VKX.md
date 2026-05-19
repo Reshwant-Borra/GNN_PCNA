@@ -1,4 +1,4 @@
-# 3VKX — DNA BINDING
+﻿# 3VKX — DNA BINDING
 
 > Generated: 2026-05-16  |  Category: Other PCNA structure  **AOH1996 CANDIDATE**
 
@@ -16,7 +16,7 @@
 
 ## AOH1996 Pocket Assessment
 
-The GNN-PCNA model recovered **24/24 AOH1996 ground-truth residues** in its top predicted cluster. This represents >100% overlap with the experimentally confirmed cryptic pocket from PDB 8GLA. The model is highly confident (0.674 mean score) that this region is druggable.
+The GNN-PCNA model recovered **24/24 AOH1996 ground-truth residues** in its top predicted cluster. This represents >100% overlap with the experimentally confirmed cryptic pocket from PDB 8GLA. The model assigns a high prioritization score (0.674 mean) to this region. **This is a hypothesis only** — druggability requires MD simulation, docking, or experimental validation.
 
 **Implication:** AOH1996 (or its derivatives AOH1160/AOH1996-1LE) would be predicted to bind this structure with similar affinity to the confirmed holo structure 8GLA.
 
@@ -51,7 +51,7 @@ Predicted cryptic pockets: 1
   Top residues: A46(SER)=0.833, A41(ASP)=0.827, A45(VAL)=0.817, A44(HIS)=0.814, A42(SER)=0.813, A251(LEU)=0.786, A139(MET)=0.782, A250(TYR)=0.781
 
   How this pocket was identified:
-    The model assigned high pocket probability to 128 residues that cluster within 6 A of each other in 3D space. These residues have a mean SASA of 34.6 A^2 (62% are partially buried, SASA < 30 A^2), consistent with a recessed binding surface rather than an exposed loop.
+    The model assigned a high prioritization score to 128 residues that cluster within 6 A of each other in 3D space. These residues have a mean SASA of 34.6 A^2 (62% are partially buried, SASA < 30 A^2), consistent with a recessed binding surface rather than an exposed loop.
     The GNN assigned high scores here because the dual-branch message-passing identified this neighborhood as chemically similar to known cryptic pocket residues in the training data: the spatial branch detected dense local packing (average 128 close contacts) and the sequential branch detected the loop or beta-strand context typical of induced-fit binding sites.
     This matches the region where AOH1996 binds in PDB 8GLA, specifically the domain 2 core beta sheet. The prediction is consistent with the known mechanism of cryptic pocket opening.
 

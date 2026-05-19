@@ -1,4 +1,4 @@
-"""
+﻿"""
 Full evaluation: run PocketGNN inference on every available structure.
 Outputs: data/results/  (CSV, PNG charts, markdown report)
 """
@@ -458,10 +458,10 @@ until reproduced with curated labels.
 ### Scientific usefulness
 - **Drug discovery triage**: Instead of running microsecond MD simulations on every
   PCNA structure (expensive, slow), this model screens all 90 available structures in
-  under 60 seconds and ranks them by cryptic pocket probability.
+  under 60 seconds and ranks them by GNN prioritization score.
 - **Novel site discovery**: The model can score any new PCNA structure (mutant,
   co-crystal, engineered variant) the moment it appears in the PDB. If it scores
-  high in a region that is NOT the AOH1996 site, that is a novel druggable hypothesis
+  high in a region that is NOT the AOH1996 site, that is a candidate region for follow-up study (hypothesis — requires MD/docking/experiment)
   worth investigating with MD.
 - **Benchmark performance**: AUROC {mean_auroc:.2f} on CryptoSite puts this in the competitive
   range for cryptic pocket predictors (PocketMiner reports ~0.73, DeepPocket ~0.68 on

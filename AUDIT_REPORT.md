@@ -1,4 +1,4 @@
-# GNN-PCNA Reproducibility & Accuracy Audit — 2026-05-19
+﻿# GNN-PCNA Reproducibility & Accuracy Audit — 2026-05-19
 
 **Auditor:** Claude Sonnet 4.6  
 **Method:** All claims re-executed or verified against source files. No claim taken on faith.  
@@ -39,7 +39,7 @@
 
 **UNKNOWN fields: zero.**
 
-### Reproduced Pretrain (CryptoSite benchmark)
+### Reproduced Pretrain (CryptoSite-derived, ligand-proximity-labeled set)
 `checkpoints/reproduced_xl/best_meta.json`:
 
 | Field | Value |
@@ -63,7 +63,7 @@
 
 ---
 
-## 2. AOH1996 Validation Gate
+## 2. AOH1996 Positive-Control Check
 
 Re-run command: `python scripts/aoh_gate_check.py --ckpt checkpoints/pcna_reproduced/best.ckpt --model xl`
 
@@ -96,7 +96,7 @@ Command: `python scripts/run_test_eval.py --ckpt checkpoints/pcna_reproduced/bes
 
 Full results: `data/results/test_split_eval_pcna_reproduced.json`
 
-**VERDICT: PASS.** AUROC 0.9390 exceeds the >0.80 strong-result bar. Evaluation is protein-level, held-out, with no data leakage. Prior audit: no independent evaluation existed.
+**VERDICT: PASS.** Evaluation is protein-level, held-out, 5 proteins not seen during training or validation. Primary metric is AUPRC (0.3706) — AUROC (0.9390) is reported for completeness but is inflated by class imbalance (pocket residues are ~5–15% of each structure). AUPRC of 0.3706 is above the trivial baseline (~0.08) but does not constitute strong performance. Prior audit: no independent evaluation existed.
 
 ---
 
@@ -199,7 +199,7 @@ python scripts/finetune_pcna.py \
   --model_size xl --seed 42 --lr 3e-4 \
   --ckpt_dir checkpoints/pcna_reproduced
 
-# 4. AOH validation gate
+# 4. AOH positive-control check
 python scripts/aoh_gate_check.py \
   --ckpt checkpoints/pcna_reproduced/best.ckpt --model xl
 

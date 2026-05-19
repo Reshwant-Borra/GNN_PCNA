@@ -1,4 +1,4 @@
-# GNN-PCNA: Cryptic Pocket Detection on PCNA via Graph Neural Network
+﻿# GNN-PCNA: Cryptic Pocket Detection on PCNA via Graph Neural Network
 
 **Authors:** Reshwant Borra · Advay (advay.awesomer@gmail.com)
 
@@ -6,15 +6,19 @@
 
 ## What This Project Does
 
-PCNA (Proliferating Cell Nuclear Antigen) is a homotrimeric protein ring essential for DNA replication and repair. It is overexpressed in cancer, making it a drug target. The experimental compound **AOH1996** binds a cryptic pocket on PCNA (PDB: 8GLA) that is absent in the apo structure (PDB: 1W60).
+This project develops a residue-level GNN scoring pipeline for PCNA and related protein structures. It uses ligand-proximity labels, including the ZQZ/AOH1996-1LE ligand-contact region in PDB 8GLA as a PCNA positive control, and reports high AUROC but mixed precision-recall behavior on a small held-out ligand-proximity-labeled benchmark. **The current evidence supports using the model to prioritize candidate residue clusters for follow-up study, but it does not yet establish novel cryptic pockets, druggability, docking readiness, apo-to-holo opening, or AOH1996 mechanism.**
 
-**Cryptic pockets** are binding sites invisible in the static crystal but open transiently during protein motion. This pipeline:
+Human PCNA (UniProt P12004) is a homotrimeric sliding clamp involved in DNA replication and repair. PDB 8GLA contains PCNA bound to AOH1996 derivative AOH1996-1LE (ligand ZQZ, resolution 3.77 Å, chains A–D in asymmetric unit) and is used here as a positive-control ligand-contact region. PDB 1W60 is apo/native PCNA (chains A/B in asymmetric unit, resolution 3.15 Å).
+
+This pipeline:
 
 1. Crawls 13 biological databases and builds a 160-node Obsidian knowledge graph
 2. Represents a protein structure as a dual-view graph (spatial contacts + backbone connectivity)
-3. Trains a dual-branch GNN (PocketGNN v2; ~907k–10.4M params depending on variant) to score per-residue pocket probability
+3. Trains a dual-branch GNN (PocketGNN v2; ~907k–10.4M params depending on variant) to score per-residue prioritization likelihood
 4. Visualises predictions in a Streamlit UI with PyMOL-ready export
 5. **ANM flexibility analysis** completed on apo PCNA (1W60): pocket residues are 14% less flexible than background (fold-change 0.857), consistent with a rigidly packed cryptic site. Full MD trajectories not yet generated.
+
+> **Read before interpreting results:** [LIMITATIONS.md](LIMITATIONS.md) documents every known constraint — labeling approximations, asymmetric-unit caveats, metric interpretation, and what the model can and cannot claim.
 
 ---
 
@@ -29,7 +33,7 @@ PDB Structure
   → parse_pdb.py           residues + Cα coordinates
   → graph_construction.py  dual-graph PyG Data (40-dim nodes, 6-dim edges)
   ↓
-PocketGNNXL  (src/models/cryptic_gnn.py — primary checkpoint: checkpoints/pcna_reproduced/best.ckpt)
+PocketGNNXL  (src/models/cryptic_gnn.py — primary checkpoint: checkpoints/pcna/best_pcna_v3_fixed.ckpt)
   Branch 1: 5× GATv2Conv on spatial contact graph (8 Å)
   Branch 2: 4× GATv2Conv on backbone sequential graph (|i−j| ≤ 2)
   → gated fusion → virtual-node → MLP head → per-residue sigmoid score
@@ -56,9 +60,9 @@ MD Validation  (src/md/parse_trajectory.py)
 | Branch 2 (sequential) | **2× GATv2Conv(256, heads=4)** (small/checkpoint) · 3× (large, ~10.4M, not deployed) |
 | Fusion | Learned gate per residue: `gate * h_spatial + (1-gate) * h_seq` |
 | Scoring head | Linear(768→384→192→96→1) + ReLU + Dropout at each layer |
-| Output | Per-residue pocket probability ∈ [0, 1] |
-| Parameters | ~13.4M (XL) · ~10.4M (large) · ~3.6M (medium) · ~907k (small) — **primary results use `checkpoints/pcna_reproduced/best.ckpt` (fully reproduced, seed=42 end-to-end)** |
-| Loss | Focal(γ=2, α=0.25) + 0.05×Ranking(margin=0.2) + 0.10×Symmetry (finetune only) |
+| Output | Per-residue prioritization score (not a calibrated probability) ∈ [0, 1] |
+| Parameters | ~13.4M (XL) · ~10.4M (large) · ~3.6M (medium) · ~907k (small) — **primary results use `checkpoints/pcna/best_pcna_v3_fixed.ckpt` (fully reproduced, seed=42 end-to-end)** |
+| Loss | Focal(γ=2, α=auto-calibrated from class balance) + 0.05×Ranking(margin=0.2) + 0.10×Symmetry (finetune only) |
 
 CrypticGNN v1 (~556k params, single-branch, 26-dim nodes) is preserved for comparison.
 
@@ -70,9 +74,9 @@ CrypticGNN v1 (~556k params, single-branch, 26-dim nodes) is preserved for compa
 |---|---|
 | Apo structure | PDB **1W60** — no AOH1996 pocket visible |
 | Holo structure | PDB **8GLA** — AOH1996 bound, cryptic pocket open |
-| Ground truth labels | Residues within 6 Å of AOH1996 in 8GLA |
-| Validation gate | Model MUST score AOH1996 pocket residues > 0.7 before trusting novel predictions |
-| Pre-training data | Ligand-proximity labeled structures (87 proteins from CryptoSite set, labeled via Cα–ligand distance, **not** curated CryptoSite benchmark labels) |
+| Ground truth labels | Residues whose Cα is within 6 Å of any heavy atom of ligand ZQZ (AOH1996) in PDB 8GLA |
+| Positive-control check | Score > 0.7 on 8GLA AOH pocket confirms the checkpoint retained fine-tuning signal (8GLA was in fine-tuning data — this is a sanity check, not independent validation) |
+| Pre-training data | Ligand-proximity labeled structures (87 proteins from a CryptoSite-derived set, labeled via Cα–ligand distance, **not** curated CryptoSite benchmark labels) |
 | PCNA UniProt | P12004 · homotrimer (chains A, B, C) |
 
 ---
@@ -116,7 +120,7 @@ pip install -r requirements.txt
 
 ### 4. PDB structures + graph tensors (already in repo)
 
-All 59 raw `.pdb` files and 88 graph `.pt` files are **committed to this repo** — no download step needed after cloning. SHA256 checksums are at `data/manifests/pdb_checksums.json`.
+All 150 raw `.pdb` files (59 PCNA structures + 91 CryptoSite benchmark proteins) and graph `.pt` files are **committed to this repo** — no download step needed after cloning. SHA256 checksums are at `data/manifests/pdb_checksums.json`.
 
 To verify checksums or re-download from scratch:
 
@@ -130,11 +134,11 @@ python scripts/download_data.py --force
 
 ### 6. Run inference (pre-trained checkpoint included)
 
-The primary checkpoint `checkpoints/pcna_reproduced/best.ckpt` is tracked in git — no training needed. It is a fully reproduced XL model (seed=42 end-to-end, pretrain → PCNA fine-tune).
+The primary checkpoint `checkpoints/pcna/best_pcna_v3_fixed.ckpt` is tracked in git — no training needed. It is a fully reproduced XL model (seed=42 end-to-end, pretrain → PCNA fine-tune).
 
 ```bash
 # Validate AOH1996 pocket recovery gate
-python scripts/aoh_gate_check.py --ckpt checkpoints/pcna_reproduced/best.ckpt --model xl
+python scripts/aoh_gate_check.py --ckpt checkpoints/pcna/best_pcna_v3_fixed.ckpt --model xl
 
 # Per-structure analysis on all 59 PCNA structures
 python scripts/per_structure_analysis.py
@@ -148,10 +152,9 @@ streamlit run src/ui/app.py
 
 ### 7. Train from scratch (optional)
 
-> **Note:** `data/cryptosite/train/` (42 graphs), `data/cryptosite/val/` (8 graphs), and `data/cryptosite/test/` (5 graphs)
-> are committed to this repo. These are ligand-proximity labeled graphs (Cα–ligand distance labels,
-> **not** curated CryptoSite benchmark annotations). To rebuild from scratch:
-> `python scripts/download_data.py` then `python scripts/make_split.py`.
+> **Note:** The train/val/test split is defined in `data/splits/cryptosite_split.json` (42/8/5 proteins).
+> Graphs are in `data/graphs/` with ligand-proximity labels (Cα–ligand distance, **not** curated CryptoSite benchmark annotations).
+> To rebuild from scratch: `python scripts/download_data.py` then `python scripts/make_split.py`.
 
 ```bash
 # Download PDB files + build graphs

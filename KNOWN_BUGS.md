@@ -2,6 +2,8 @@
 
 ## Active Issues
 
+> For scope limitations (asymmetric units, labeling approximations, metric caveats) see **[LIMITATIONS.md](LIMITATIONS.md)**.
+
 ### BUG-007: Core ML scripts require torch_geometric not installed by default
 - **Status**: open
 - **Affected**: `scripts/run_test_eval.py`, `scripts/aoh_gate_check.py`, `src/training/train.py`

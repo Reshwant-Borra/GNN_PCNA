@@ -1,4 +1,4 @@
-"""
+﻿"""
 Build a journal-style NSRI research paper as .docx.
 Two-column body, Times New Roman, booktabs tables, running header/footer.
 """
@@ -490,7 +490,7 @@ abstract_segs = [
      "59 human PCNA crystal structures."),
     ("Results: ",
      "PocketGNNXL (V3) achieved a mean AUROC of 0.9067 across seven structures with drug-like "
-     "ligands—including 0.9990 on 8GLA (AOH1996-bound) and 0.9984 on 8GL9—recovering all 24 "
+     "ligands—including 0.9990 on 8GLA and 0.9984 on 8GL9 (NOTE: both are fine-tuning structures — these AUROCs are not independent)—recovering all 24 "
      "ground-truth AOH1996 pocket residues in three structures and ≥20/24 in 23 of 59 structures. "
      "V3 improved upon V1 (mean AUROC 0.6782) by a mean Δ of +0.228, with the largest gains on "
      "complex multi-chain structures (6CBI: +0.503, 7M5L: +0.433)."),

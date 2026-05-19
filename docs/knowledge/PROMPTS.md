@@ -10,7 +10,7 @@ Context:
 - Target: PCNA (PDB 1W60 apo, 8GLA holo with AOH1996)
 - Ground truth pocket: residues within 6 Å of AOH1996 in 8GLA
 - Stack: PyTorch Geometric, MDAnalysis, BioPython
-- Goal: per-residue cryptic pocket probability
+- Goal: per-residue prioritization score
 
 Pipeline stages:
 1. PDB → residue graph (nodes: residues, edges: Cα–Cα < 8 Å)

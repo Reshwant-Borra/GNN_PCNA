@@ -1,4 +1,4 @@
-"""
+﻿"""
 Per-structure cryptic pocket analysis for all 59 PCNA PDB structures.
 
 For each structure:
@@ -64,6 +64,15 @@ AOH_GT_BY_CHAIN: dict[str, set[int]] = {
 }
 # Flat set for non-8GLA structures (used only as a region marker, not a label)
 AOH_GT = set().union(*AOH_GT_BY_CHAIN.values())
+
+# -- Per-structure chain whitelists -------------------------------------------
+# Structures with non-PCNA protein chains: only these chains are analyzed.
+# Chains not listed are silently excluded before graph construction.
+# Structures absent from this dict keep all chains (assumed all-PCNA).
+PCNA_CHAIN_WHITELIST: dict[str, set[str]] = {
+    "1AXC": {"A", "C", "E"},    # B/D/F are p21/WAF1 peptide (resolution 2.60 Å)
+    "9B8T": {"A", "B", "C"},    # D=DNA pol epsilon; P,T=DNA strands
+}
 
 SKIP_RESNAMES = {
     'HOH','WAT','SO4','EDO','PEG','GOL','DMS','PO4','MPD',
@@ -193,6 +202,16 @@ def write_report(pdb: str, title: str, residues, scores: np.ndarray,
     lines.append(f"PDB: {pdb}")
     lines.append(f"Title: {title}")
     lines.append(f"Chains: {', '.join(chains)}  |  Residues: {len(residues)}")
+    # Structural caveats for known mixed-chain structures
+    if pdb == "1W60":
+        lines.append(f"NOTE: Asymmetric unit only (chains A, B). Biological PCNA trimer")
+        lines.append(f"      requires applying BIOMT symmetry to generate the third chain.")
+    elif pdb == "1AXC":
+        lines.append(f"NOTE: Chains A/C/E are PCNA; chains B/D/F are p21/WAF1 peptide.")
+        lines.append(f"      PCNA-specific region annotations valid for A/C/E only.")
+    elif pdb == "9B8T":
+        lines.append(f"NOTE: Chains A/B/C are PCNA. Chain D = DNA pol epsilon; P/T = DNA.")
+        lines.append(f"      Analysis restricted to PCNA chains A/B/C.")
     lines.append(f"Ligands detected: {', '.join(ligands) if ligands else 'none (apo)'}")
     if auroc is not None:
         lines.append(f"AUROC vs auto-labeled GT: {auroc:.4f}")
@@ -234,7 +253,7 @@ def write_report(pdb: str, title: str, residues, scores: np.ndarray,
         elif aoh >= 6:
             lines.append(f"  --> PARTIAL overlap: pocket partially covers the AOH1996 site")
         else:
-            lines.append(f"  --> LOW overlap: likely a distinct/novel predicted site")
+            lines.append(f"  --> LOW overlap: model predicts a distinct site (hypothesis — requires experimental validation)")
 
         # Concavity
         con = concavity(residues, p["residue_idxs"])
@@ -254,7 +273,7 @@ def write_report(pdb: str, title: str, residues, scores: np.ndarray,
         sasa_vals = [residues[i].sasa for i in ridxs]
         mean_sasa = np.mean(sasa_vals)
         buried_frac = sum(1 for s in sasa_vals if s < 30) / len(sasa_vals)
-        lines.append(f"    The model assigned high pocket probability to {p['n_residues']} residues "
+        lines.append(f"    The model assigned a high prioritization score to {p['n_residues']} residues "
                      f"that cluster within 6 A of each other in 3D space. "
                      f"These residues have a mean SASA of {mean_sasa:.1f} A^2 "
                      f"({buried_frac:.0%} are partially buried, SASA < 30 A^2), "
@@ -271,9 +290,9 @@ def write_report(pdb: str, title: str, residues, scores: np.ndarray,
                          f"specifically the {dominant.lower()}. "
                          f"The prediction is consistent with the known mechanism of cryptic pocket opening.")
         else:
-            lines.append(f"    This does not overlap significantly with the AOH1996 site, "
-                         f"suggesting a potentially novel cryptic pocket that may respond to "
-                         f"a different small molecule than AOH1996.")
+            lines.append(f"    This does not overlap significantly with the AOH1996 site. "
+                         f"The model assigns high scores here; whether this represents a true "
+                         f"cryptic pocket is a hypothesis requiring experimental validation.")
         lines.append("")
 
     # Score distribution
@@ -319,6 +338,12 @@ def main():
 
         try:
             residues = parse_pdb(pdb_path)
+            pcna_chains = PCNA_CHAIN_WHITELIST.get(pdb)
+            if pcna_chains is not None:
+                n_before = len(residues)
+                residues = [r for r in residues if r.chain in pcna_chains]
+                print(f"    Chain filter: kept {sorted(pcna_chains)} "
+                      f"({n_before} → {len(residues)} residues)")
             data     = build_graph_v2(residues)
             title    = get_pdb_title(pdb_path)
             ligands  = find_ligands(pdb_path)

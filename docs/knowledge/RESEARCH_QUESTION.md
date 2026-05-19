@@ -1,4 +1,4 @@
-# RESEARCH_QUESTION.md
+﻿# RESEARCH_QUESTION.md
 
 → Links: [[SYSTEM_OVERVIEW]] | [[VALIDATION]] | [[EXPERIMENT_INDEX]] | [[KNOWN_LIMITATIONS]]
 
@@ -16,7 +16,7 @@
 |---|---|---|
 | Q1 | Does the GNN recover the known AOH1996 pocket in 8GLA? | **Yes (XL)** — mean 0.8969, rank 1 (small model fails: 0.5998) |
 | Q2 | Does the GNN identify additional novel sites on PCNA? | Not yet tested |
-| Q3 | Do predicted novel sites show elevated RMSF in MD? | **ANM DONE** — apo fold-change 0.857 (rigid, closed), holo 1.104 (open). Delta=+0.247 confirms ligand-induced opening |
+| Q3 | Do predicted novel sites show elevated RMSF in MD? | **ANM DONE** — apo fold-change 0.857 (rigid, closed), holo 1.104 (open). Delta=+0.247 is consistent with a ligand-associated flexibility increase (hypothesis) |
 | Q4 | Do predicted novel sites show correlated motion (DCCM) in MD? | **ANM DONE** — internal DCCM 0.0995 (apo), 0.0780 (holo); mild coherent motion confirmed |
 | Q5 | Do any predicted sites show transient pocket opening (volume > 100 Å³)? | Not yet tested |
 | Q6 | Is PocketMiner's performance on PCNA improved by fine-tuning? | Not yet tested |
@@ -58,7 +58,7 @@
 | Claim type | Allowed? |
 |---|---|
 | "GNN recovers known AOH1996 pocket" | Yes, if positive control passes |
-| "Novel cryptic sites predicted" | Yes, with RMSF + DCCM evidence |
+| "Novel cryptic sites predicted" | Unvalidated candidates only — not confirmed |
 | "Novel site is druggable" | Only with volume + geometry analysis |
 | "Novel site is better than AOH1996 site" | Not without functional assay |
 | "PCNA inhibition via novel site expected" | Not without wet lab validation |

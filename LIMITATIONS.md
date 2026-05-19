@@ -155,6 +155,8 @@ be overinterpreted.
 
 Full per-structure results: `data/results/test_split_eval_best.json`
 
+**Cross-method comparison caveat:** The closest published baseline is PocketMiner (Meller et al. 2023, *Nature Communications*), which reports PR-AUC = 0.44 on ~39 proteins using curated experimentally confirmed cryptic pockets. Our mean AUPRC of 0.344 (13 proteins) is lower than PocketMiner's 0.44. However, AUPRC is only directly comparable between datasets with the same positive residue fraction (ours: ~5–15%; PocketMiner's: ~5–10%) and the same label quality (ours: Cα-proximity heuristics; PocketMiner: curated annotations). A fair comparison requires running both models on the same benchmark split (e.g., CryptoBench, Skrhak et al. 2024).
+
 ### 4.3 Held-out evaluation covers 13 proteins (8 val + 5 test)
 
 Val: `2QKH`, `1JBP`, `2P54`, `2XBP`, `1K3Y`, `1O3P`, `1PZO`, `1Q5H`  
@@ -168,9 +170,11 @@ the same XL checkpoint used for the PCNA AOH gate. None appeared in training or 
 The ANM (Anisotropic Network Model) analysis uses a physics-based normal-mode model with
 a 7.5 Å cutoff and 20 non-trivial modes. It is a rapid coarse-grained approximation that
 correlates with full MD RMSF at r~0.6–0.8 (Eyal et al. 2006) but is not a substitute for
-all-atom molecular dynamics. The fold-change values (apo 0.857, holo 1.104) are consistent
-with a ligand-induced flexibility increase — this is a **hypothesis**, not a confirmation.
+all-atom molecular dynamics. The fold-change values (apo 0.857, holo 1.104, delta +0.247)
+are consistent with a ligand-induced flexibility increase — this is a **hypothesis**, not a confirmation.
 Full MD simulation would be required to confirm.
+
+**Literature context for the fold-change value:** No published paper reports an ANM fold-change scalar as a standard benchmark metric for cryptic pockets. CryptoBench (Skrhak et al. 2024, *Bioinformatics*) reports that apo–holo backbone RMSD at cryptic sites ranges from 0.45–22.45 Å across 1,107 structures, with 67% of pairs differing by less than 3 Å. This suggests that small conformational changes (including the subtle flexibility difference we measure via ANM) are consistent with the majority of known cryptic pocket transitions, but the fold-change value is not directly comparable to any published reference range.
 
 ### 4.5 No MD trajectories were generated
 

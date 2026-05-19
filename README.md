@@ -66,6 +66,27 @@ MD Validation  (src/md/parse_trajectory.py)
 
 CrypticGNN v1 (~556k params, single-branch, 26-dim nodes) is preserved for comparison.
 
+**Architectural novelty:** GATv2Conv has not been applied to per-residue cryptic pocket scoring in any published paper as of early 2026. The dominant published baseline (PocketMiner, Meller et al. 2023, *Nature Communications*) uses GVP-GNN (equivariant geometric vector perceptrons). This pipeline's dual-branch GATv2Conv design is a novel contribution relative to that baseline.
+
+---
+
+## Benchmark Context
+
+| Method | Architecture | Dataset | AUROC | PR-AUC / AUPRC | Reference |
+|---|---|---|---|---|---|
+| CryptoSite | SVM + coevolution features | 93 proteins | 0.83 | not reported | Cimermancic et al. 2016, JMB |
+| PocketMiner | GVP-GNN (equivariant) | 39 proteins (test) | **0.87** | **0.44** (5-fold CV) | Meller et al. 2023, Nat Comms |
+| 3D-CNN baseline | 3D CNN | same | 0.79 | 0.41 | Meller et al. 2023 |
+| **This work (XL, test 5)** | Dual-branch GATv2Conv | 5 proteins (test) | **0.939** | **0.371** | This repo |
+| **This work (XL, combined 13)** | Dual-branch GATv2Conv | 13 proteins (val+test) | **0.808** | **0.344** | This repo |
+| Random baseline | — | any, ~5–10% pos | 0.50 | ~pos_fraction | — |
+
+**Important caveats for this comparison:**
+- AUPRC is only directly comparable between datasets with the same positive residue fraction. PocketMiner's positive rate (~5–10% of residues) may differ from ours (~5–15%). A fair comparison requires evaluating on the same benchmark split.
+- Our training labels use Cα-proximity heuristics; PocketMiner uses curated experimentally confirmed cryptic pockets. This makes our task harder to evaluate but easier to scale.
+- Our 5-protein test set has wide confidence intervals; the 13-protein combined result is more reliable.
+- A 2024 benchmark (CryptoBench, Skrhak et al., *Bioinformatics*) scales to 1,107 structures with a pLM-NN baseline outperforming PocketMiner — future work should evaluate on CryptoBench.
+
 ---
 
 ## Scientific Ground Truth

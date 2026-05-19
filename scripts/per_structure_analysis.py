@@ -234,7 +234,7 @@ def write_report(pdb: str, title: str, residues, scores: np.ndarray,
         elif aoh >= 6:
             lines.append(f"  --> PARTIAL overlap: pocket partially covers the AOH1996 site")
         else:
-            lines.append(f"  --> LOW overlap: likely a distinct/novel predicted site")
+            lines.append(f"  --> LOW overlap: model predicts a distinct site (hypothesis — requires experimental validation)")
 
         # Concavity
         con = concavity(residues, p["residue_idxs"])
@@ -271,9 +271,9 @@ def write_report(pdb: str, title: str, residues, scores: np.ndarray,
                          f"specifically the {dominant.lower()}. "
                          f"The prediction is consistent with the known mechanism of cryptic pocket opening.")
         else:
-            lines.append(f"    This does not overlap significantly with the AOH1996 site, "
-                         f"suggesting a potentially novel cryptic pocket that may respond to "
-                         f"a different small molecule than AOH1996.")
+            lines.append(f"    This does not overlap significantly with the AOH1996 site. "
+                         f"The model assigns high scores here; whether this represents a true "
+                         f"cryptic pocket is a hypothesis requiring experimental validation.")
         lines.append("")
 
     # Score distribution

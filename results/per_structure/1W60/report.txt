@@ -1,4 +1,4 @@
-======================================================================
+﻿======================================================================
 PDB: 1W60
 Title: DNA BINDING PROTEINNATIVE HUMAN PCNA
 Chains: A, B  |  Residues: 510
@@ -56,14 +56,14 @@ Predicted cryptic pockets: 3
   Center (A): (69.5, 60.3, 38.8)
   Structural region: Domain 2 core beta sheet
   AOH1996 pocket overlap: 0/24 GT residues
-  --> LOW overlap: likely a distinct/novel predicted site
+  --> LOW overlap: model predicts a distinct site (hypothesis — requires experimental validation)
   Geometric concavity: 0.17 (convex — surface protrusion, interpret cautiously)
   Top residues: B170(SER)=0.637, B169(PHE)=0.637, B168(LYS)=0.601, B180(ILE)=0.595, B171(ALA)=0.578, B181(LYS)=0.573, B179(ASN)=0.569, B184(GLN)=0.562
 
   How this pocket was identified:
     The model assigned high pocket probability to 23 residues that cluster within 6 A of each other in 3D space. These residues have a mean SASA of 53.9 A^2 (39% are partially buried, SASA < 30 A^2), consistent with a recessed binding surface rather than an exposed loop.
     The GNN assigned high scores here because the dual-branch message-passing identified this neighborhood as chemically similar to known cryptic pocket residues in the training data: the spatial branch detected dense local packing (average 23 close contacts) and the sequential branch detected the loop or beta-strand context typical of induced-fit binding sites.
-    This does not overlap significantly with the AOH1996 site, suggesting a potentially novel cryptic pocket that may respond to a different small molecule than AOH1996.
+    This does not overlap significantly with the AOH1996 site. The model assigns high scores here; whether this represents a true cryptic pocket is a hypothesis requiring experimental validation.
 
 Score distribution:
   Min=0.020  Max=0.797  Mean=0.292  Std=0.265

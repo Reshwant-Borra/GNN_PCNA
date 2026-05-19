@@ -14,8 +14,6 @@ except ImportError:
 
 try:
     import torch_geometric  # noqa: F401
-    from src.data_processing.parse_pdb import Residue
-    from src.data_processing.graph_construction import build_graph_v2
     HAS_PYG = True
 except ImportError:
     HAS_PYG = False
@@ -29,7 +27,14 @@ NODE_DIM = 40
 EDGE_DIM = 6
 
 
-def _dummy_residue(chain: str, resid: int, ca: list) -> Residue:
+def _get_imports():
+    from src.data_processing.parse_pdb import Residue
+    from src.data_processing.graph_construction import build_graph_v2
+    return Residue, build_graph_v2
+
+
+def _dummy_residue(chain: str, resid: int, ca: list):
+    Residue, _ = _get_imports()
     return Residue(
         chain=chain, resid=resid, resname="ALA",
         ca_coord=np.array(ca, dtype=np.float32),
@@ -42,12 +47,14 @@ def _make_chain(n: int, chain: str = "A", spacing: float = 3.8) -> list:
 
 
 def test_node_feature_dim():
+    _, build_graph_v2 = _get_imports()
     residues = _make_chain(10)
     data = build_graph_v2(residues)
     assert data.x.shape[1] == NODE_DIM, f"Expected {NODE_DIM}-dim nodes, got {data.x.shape[1]}"
 
 
 def test_edge_feature_dim():
+    _, build_graph_v2 = _get_imports()
     residues = _make_chain(10)
     data = build_graph_v2(residues)
     assert data.edge_attr.shape[1] == EDGE_DIM
@@ -56,6 +63,7 @@ def test_edge_feature_dim():
 
 
 def test_node_count_matches_residues():
+    _, build_graph_v2 = _get_imports()
     n = 15
     residues = _make_chain(n)
     data = build_graph_v2(residues)
@@ -63,6 +71,7 @@ def test_node_count_matches_residues():
 
 
 def test_edge_index_valid():
+    _, build_graph_v2 = _get_imports()
     residues = _make_chain(10)
     data = build_graph_v2(residues)
     assert data.edge_index.shape[0] == 2
@@ -71,8 +80,8 @@ def test_edge_index_valid():
 
 
 def test_chain_id_assigned():
+    _, build_graph_v2 = _get_imports()
     residues = _make_chain(5, "A") + _make_chain(5, "B", spacing=4.0)
-    # Offset B chain so it's spatially separate
     for r in residues[5:]:
         r.ca_coord = r.ca_coord + np.array([100.0, 0.0, 0.0])
     data = build_graph_v2(residues)
@@ -83,6 +92,7 @@ def test_chain_id_assigned():
 def test_scores_in_range():
     import torch
     from src.models import PocketGNN
+    _, build_graph_v2 = _get_imports()
     residues = _make_chain(20)
     data = build_graph_v2(residues)
     model = PocketGNN.small().eval()

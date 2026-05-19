@@ -29,7 +29,7 @@ PDB Structure
   → parse_pdb.py           residues + Cα coordinates
   → graph_construction.py  dual-graph PyG Data (40-dim nodes, 6-dim edges)
   ↓
-PocketGNNXL  (src/models/cryptic_gnn.py — primary checkpoint: checkpoints/pcna_reproduced/best.ckpt)
+PocketGNNXL  (src/models/cryptic_gnn.py — primary checkpoint: checkpoints/pcna/best_pcna_v3_fixed.ckpt)
   Branch 1: 5× GATv2Conv on spatial contact graph (8 Å)
   Branch 2: 4× GATv2Conv on backbone sequential graph (|i−j| ≤ 2)
   → gated fusion → virtual-node → MLP head → per-residue sigmoid score
@@ -57,8 +57,8 @@ MD Validation  (src/md/parse_trajectory.py)
 | Fusion | Learned gate per residue: `gate * h_spatial + (1-gate) * h_seq` |
 | Scoring head | Linear(768→384→192→96→1) + ReLU + Dropout at each layer |
 | Output | Per-residue pocket probability ∈ [0, 1] |
-| Parameters | ~13.4M (XL) · ~10.4M (large) · ~3.6M (medium) · ~907k (small) — **primary results use `checkpoints/pcna_reproduced/best.ckpt` (fully reproduced, seed=42 end-to-end)** |
-| Loss | Focal(γ=2, α=0.25) + 0.05×Ranking(margin=0.2) + 0.10×Symmetry (finetune only) |
+| Parameters | ~13.4M (XL) · ~10.4M (large) · ~3.6M (medium) · ~907k (small) — **primary results use `checkpoints/pcna/best_pcna_v3_fixed.ckpt` (fully reproduced, seed=42 end-to-end)** |
+| Loss | Focal(γ=2, α=auto-calibrated from class balance) + 0.05×Ranking(margin=0.2) + 0.10×Symmetry (finetune only) |
 
 CrypticGNN v1 (~556k params, single-branch, 26-dim nodes) is preserved for comparison.
 
@@ -116,7 +116,7 @@ pip install -r requirements.txt
 
 ### 4. PDB structures + graph tensors (already in repo)
 
-All 59 raw `.pdb` files and 88 graph `.pt` files are **committed to this repo** — no download step needed after cloning. SHA256 checksums are at `data/manifests/pdb_checksums.json`.
+All 150 raw `.pdb` files (59 PCNA structures + 91 CryptoSite benchmark proteins) and graph `.pt` files are **committed to this repo** — no download step needed after cloning. SHA256 checksums are at `data/manifests/pdb_checksums.json`.
 
 To verify checksums or re-download from scratch:
 
@@ -130,11 +130,11 @@ python scripts/download_data.py --force
 
 ### 6. Run inference (pre-trained checkpoint included)
 
-The primary checkpoint `checkpoints/pcna_reproduced/best.ckpt` is tracked in git — no training needed. It is a fully reproduced XL model (seed=42 end-to-end, pretrain → PCNA fine-tune).
+The primary checkpoint `checkpoints/pcna/best_pcna_v3_fixed.ckpt` is tracked in git — no training needed. It is a fully reproduced XL model (seed=42 end-to-end, pretrain → PCNA fine-tune).
 
 ```bash
 # Validate AOH1996 pocket recovery gate
-python scripts/aoh_gate_check.py --ckpt checkpoints/pcna_reproduced/best.ckpt --model xl
+python scripts/aoh_gate_check.py --ckpt checkpoints/pcna/best_pcna_v3_fixed.ckpt --model xl
 
 # Per-structure analysis on all 59 PCNA structures
 python scripts/per_structure_analysis.py
@@ -148,10 +148,9 @@ streamlit run src/ui/app.py
 
 ### 7. Train from scratch (optional)
 
-> **Note:** `data/cryptosite/train/` (42 graphs), `data/cryptosite/val/` (8 graphs), and `data/cryptosite/test/` (5 graphs)
-> are committed to this repo. These are ligand-proximity labeled graphs (Cα–ligand distance labels,
-> **not** curated CryptoSite benchmark annotations). To rebuild from scratch:
-> `python scripts/download_data.py` then `python scripts/make_split.py`.
+> **Note:** The train/val/test split is defined in `data/splits/cryptosite_split.json` (42/8/5 proteins).
+> Graphs are in `data/graphs/` with ligand-proximity labels (Cα–ligand distance, **not** curated CryptoSite benchmark annotations).
+> To rebuild from scratch: `python scripts/download_data.py` then `python scripts/make_split.py`.
 
 ```bash
 # Download PDB files + build graphs

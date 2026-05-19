@@ -228,7 +228,7 @@ def main(args: argparse.Namespace) -> None:
             break
 
     print(f"\nBest disc_score: {best_disc:.4f}")
-    print(f"Saved: {ckpt_dir / 'best_pcna.ckpt'}")
+    print(f"Saved: {ckpt_dir / 'best.ckpt'}")
 
     # ── final evaluation ──────────────────────────────────────────────────────
     model.load_state_dict(

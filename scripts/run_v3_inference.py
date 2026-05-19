@@ -16,7 +16,7 @@ REPO     = Path(__file__).parent.parent
 RAW      = REPO / "data" / "raw"
 ESM_DIR  = REPO / "data" / "esm_features"
 PDIR     = REPO / "results" / "per_structure"
-CKPT     = REPO / "checkpoints" / "pcna" / "best_pcna_v3.ckpt"
+CKPT     = REPO / "checkpoints" / "pcna_reproduced" / "best.ckpt"
 OUT_DIR  = REPO / "results" / "v3"
 OUT_DIR.mkdir(parents=True, exist_ok=True)
 

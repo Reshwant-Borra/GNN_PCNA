@@ -430,12 +430,11 @@ def build_graph_xl(
         esm_t = torch.from_numpy(esm_features.astype(np.float32))
         N = data.x.shape[0]
         if esm_t.shape[0] != N:
-            # Truncate or pad to match residue count
-            if esm_t.shape[0] > N:
-                esm_t = esm_t[:N]
-            else:
-                pad = torch.zeros(N - esm_t.shape[0], esm_t.shape[1])
-                esm_t = torch.cat([esm_t, pad], dim=0)
+            raise ValueError(
+                f"ESM feature row count ({esm_t.shape[0]}) does not match residue count "
+                f"({N}). Ensure ESM features were generated from the same PDB and chain "
+                f"filtering as the graph. Re-run build_esm_features.py for this structure."
+            )
         data.x = torch.cat([data.x, esm_t], dim=1)
 
     return data

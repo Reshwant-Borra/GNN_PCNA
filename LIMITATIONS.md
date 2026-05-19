@@ -33,7 +33,7 @@ distinguish the "target" protein from binding partners.
 | PDB | Issue |
 |-----|-------|
 | 1AXC | PCNA on chains A/C/E; p21/WAF1 peptide on chains B/D/F. Parser includes B/D/F. |
-| 9B8T | PCNA (A/B/C) + DNA polymerase epsilon (D) + DNA. Chain D is not PCNA. |
+| 9B8T | Chain A = DNA polymerase epsilon catalytic subunit. PCNA = chains B/C/D. P/T = DNA strands. Pipeline restricts to PCNA chains B/C/D via `PCNA_CHAIN_WHITELIST`. |
 
 **Effect on this project:** Per-structure reports for these structures include non-PCNA
 residues. Region annotations (IDCL, AOH1996 pocket) are derived from PCNA residue numbers
@@ -81,8 +81,9 @@ AUROC numbers without accounting for this labeling difference.
 Per-structure reports annotate residues with labels like "IDCL", "AOH1996 cryptic pocket
 region", "Front-face loop". These labels are assigned by matching the residue number against
 a hardcoded lookup table derived from the PCNA structure. In structures with non-PCNA chains
-(e.g., 9B8T chain D = DNA polymerase epsilon), residue numbers from the non-PCNA chain may
-accidentally match PCNA annotation ranges and receive incorrect labels.
+(e.g., 9B8T chain A = DNA polymerase epsilon catalytic subunit), residue numbers from the non-PCNA chain may
+accidentally match PCNA annotation ranges and receive incorrect labels. Note: 9B8T is handled
+correctly in the pipeline — chain A is excluded by `PCNA_CHAIN_WHITELIST`.
 
 ---
 
@@ -120,6 +121,11 @@ that the model has not catastrophically forgotten its fine-tuning signal. It is 
 independent performance metric. See `KNOWN_BUGS.md` BUG-006 and the 8GLA entry in
 `VERIFICATION_REPORT.md` (LEAK verdict).
 
+**Additional 8GLA caveats:**
+- 8GLA is a modified PCNA structure (4 chains A–D in the asymmetric unit; chains A and B carry ZQZ, C and D do not).
+- Resolution is 3.77 Å — lower than 1W60 (3.15 Å). At this resolution, Cα positional uncertainty is ~0.4–0.5 Å, adding noise on top of the 6 Å labeling cutoff.
+- Ligand ZQZ is AOH1996-1LE, a derivative of AOH1996, not AOH1996 itself. Contact residues may differ from those of the parent compound.
+
 ### 4.2 AUROC is inflated by class imbalance; AUPRC is the meaningful metric
 
 Pocket residues are sparse (~5–15% of residues). AUROC treats all thresholds equally,
@@ -135,7 +141,10 @@ positive classes, AUROC is systematically optimistic.
 
 A model that scores every residue 0 achieves AUROC = 0.5 and AUPRC ≈ pos_fraction (~0.08).
 A model that perfectly ranks all pocket residues first achieves AUPRC = 1.0. The project
-mean AUPRC of 0.3706 is above the trivial baseline but is not "strong performance."
+mean AUPRC of 0.3706 is **4.6× above the trivial baseline of ~0.08** — meaningful signal above
+chance — but is not strong absolute performance. The 5-protein test set spans different protein
+families (kinase, protease, transferase, oxidoreductase, hydrolase), making this a
+cross-family transfer check, but the small set size limits statistical power.
 
 ### 4.3 Held-out test set is 5 proteins
 
@@ -185,7 +194,7 @@ pocket-like.
 |-------|---------------|------------------|-----------------|
 | 1W60 asymmetric unit (2 chains) | No | No | ANM fold-change values |
 | 1AXC includes p21 peptide chains | No | No | Per-structure report annotation |
-| 9B8T region labels wrong for chain D | No | No | Per-structure report annotation |
+| 9B8T chain assignment | No | No | Fixed: chain A=pol-epsilon excluded; PCNA=B/C/D analyzed |
 | Cα-only labeling (not heavy-atom) | Yes — disclosed approximation | Yes — same approximation used consistently | Label precision: ~1-2 residue boundary fuzziness |
 | Labels not curated CryptoSite annotations | Yes — by design | Yes — by design | AUROC not comparable to CryptoSite benchmark |
 | 8GLA in fine-tuning data | Yes | Yes | 8GLA AUROC is invalid as performance metric |

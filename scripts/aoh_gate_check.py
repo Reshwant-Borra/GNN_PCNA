@@ -124,8 +124,8 @@ def run(ckpt_path: Path, model_size: str) -> dict:
 def main():
     import argparse
     parser = argparse.ArgumentParser()
-    parser.add_argument("--ckpt",  default="checkpoints/pcna/best_pcna.ckpt")
-    parser.add_argument("--model", default="small", choices=["small", "xl"])
+    parser.add_argument("--ckpt",  default="checkpoints/pcna_reproduced/best.ckpt")
+    parser.add_argument("--model", default="xl", choices=["small", "xl"])
     args = parser.parse_args()
 
     result = run(Path(args.ckpt), args.model)

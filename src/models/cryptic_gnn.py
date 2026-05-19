@@ -195,13 +195,13 @@ class PocketGNNXL(nn.Module):
     Dual-branch GATv2Conv (spatial + sequential) with:
       - ESM2 protein language model embeddings concatenated to hand-crafted features
       - Virtual node: global protein context broadcast back to every residue
-      - Deeper node encoder (4-layer MLP)
-      - Deeper scoring head (5-layer MLP)
+      - Deeper node encoder (2-layer MLP: Linear→ReLU→LayerNorm×2)
+      - Deeper scoring head (4-layer MLP)
 
     Default input assumes ESM2 t12 (480-dim) + 40 hand-crafted = 520-dim nodes.
     Node dim is flexible — pass node_in_dim to match whatever ESM2 variant you use.
 
-    Default config: ~12M parameters.
+    Default config: ~13.4M parameters.
 
     Configs
     -------
@@ -240,7 +240,7 @@ class PocketGNNXL(nn.Module):
         self.hidden_dim  = hidden_dim
         head_dim = hidden_dim // num_heads
 
-        # ── 4-layer node encoder (deeper than PocketGNN v2) ───────────────────
+        # ── 2-layer node encoder: Linear→ReLU→LN→Linear→ReLU→LN ─────────────
         self.node_encoder = nn.Sequential(
             nn.Linear(node_in_dim, hidden_dim // 2),
             nn.ReLU(),

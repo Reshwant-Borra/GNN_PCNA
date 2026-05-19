@@ -41,7 +41,7 @@ V1_DIR      = REPO_ROOT / "results" / "per_structure"
 RCSB_DL     = "https://files.rcsb.org/download/{}.pdb"
 
 CKPT_V2 = REPO_ROOT / "checkpoints" / "pcna" / "best_pcna.ckpt"
-CKPT_V3 = REPO_ROOT / "checkpoints" / "pcna" / "best_pcna_v3_fixed.ckpt"
+CKPT_V3 = REPO_ROOT / "checkpoints" / "pcna_reproduced" / "best.ckpt"
 
 # Residues within 6 A of AOH1996 (ZQZ) in 8GLA
 _8GLA_GT: dict[str, set[int]] = {
@@ -322,8 +322,8 @@ def export_bfactor_pdb(pdb_bytes: bytes, residues, scores: np.ndarray) -> str:
             try:
                 chain = line[21]
                 resid = int(line[22:26].strip())
-                prob  = score_map.get((chain, resid), 0.0)
-                line  = line[:60] + f"{prob:6.2f}" + (line[66:] if len(line) > 66 else "")
+                score = score_map.get((chain, resid), 0.0)
+                line  = line[:60] + f"{score:6.2f}" + (line[66:] if len(line) > 66 else "")
             except (ValueError, IndexError):
                 pass
         lines_out.append(line)
@@ -633,13 +633,13 @@ if not run_btn or pdb_bytes is None:
 |---|---|
 | Node features | 520 dims = 40 hand-crafted + 480 ESM2 (facebook/esm2_t12_35M_UR50D) |
 | Edge features | 6 dims — distance_norm, 1/(1+d), seq_sep_norm, same_chain, is_backbone, cross_chain |
-| Pre-encoder | Linear(520 -> 256 -> 512 -> 768) + LayerNorm |
+| Pre-encoder | Linear(520 → 384) + ReLU + LayerNorm → Linear(384 → 768) + ReLU + LayerNorm |
 | Spatial branch | 5x GATv2Conv on contact graph (8 A cutoff), residual + LayerNorm |
 | Sequential branch | 4x GATv2Conv on backbone graph, residual + LayerNorm |
 | Virtual node | Global context node gated into all residue representations |
 | Fusion | Learned gate per residue |
 | Head | MLP -> sigmoid per residue |
-| Checkpoint | best_pcna_v3_fixed.ckpt — pre-trained CryptoSite, fine-tuned PCNA (apo-negative fix) |
+| Checkpoint | pcna_reproduced/best.ckpt — fully reproduced XL, seed=42 end-to-end (primary checkpoint) |
 | Held-out AUROC | **0.8913** mean over 6 held-out structures (8GLA excluded — training leak) |
 """)
         else:

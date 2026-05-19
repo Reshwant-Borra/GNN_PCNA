@@ -38,10 +38,11 @@ from src.models import PocketGNN
 from src.data_processing.parse_pdb import parse_pdb, get_ligand_coords, label_pocket_residues
 from src.data_processing.graph_construction import build_graph_v2
 
-CKPT      = REPO_ROOT / "checkpoints" / "pcna" / "best_pcna.ckpt"
 RAW_DIR   = REPO_ROOT / "data" / "raw"
 OUT_ROOT  = REPO_ROOT / "results" / "per_structure"
 THRESHOLD = 0.40
+_DEFAULT_CKPT  = REPO_ROOT / "checkpoints" / "pcna_reproduced" / "best.ckpt"
+_DEFAULT_MODEL = "xl"
 
 # -- PCNA structural region map ------------------------------------------------
 # Residue ranges define known functional/structural elements
@@ -310,15 +311,32 @@ def write_report(pdb: str, title: str, residues, scores: np.ndarray,
 # -- Main ----------------------------------------------------------------------
 
 def main():
+    import argparse
     from sklearn.metrics import roc_auc_score
 
-    print(f"Loading model: {CKPT}")
-    model = PocketGNN.small().eval()
-    model.load_state_dict(torch.load(CKPT, map_location="cpu", weights_only=True))
+    parser = argparse.ArgumentParser()
+    parser.add_argument("--ckpt",  default=str(_DEFAULT_CKPT),
+                        help="Checkpoint path (default: pcna_reproduced/best.ckpt)")
+    parser.add_argument("--model", default=_DEFAULT_MODEL, choices=["small", "xl"],
+                        help="Model size (default: xl)")
+    parser.add_argument("--pdb",   default=None,
+                        help="Run on a single PDB ID only (e.g. --pdb 9B8T)")
+    args = parser.parse_args()
+
+    ckpt_path = Path(args.ckpt)
+    print(f"Loading model ({args.model}): {ckpt_path}")
+    if args.model == "xl":
+        from src.models import PocketGNNXL
+        model = PocketGNNXL().eval()
+    else:
+        model = PocketGNN.small().eval()
+    model.load_state_dict(torch.load(ckpt_path, map_location="cpu", weights_only=True))
 
     # Collect PCNA PDB files
     pcna_pdbs = []
     for p in sorted(RAW_DIR.glob("*.pdb")):
+        if args.pdb and p.stem.upper() != args.pdb.upper():
+            continue
         txt = p.read_text(errors="ignore")[:3000].upper()
         if "PCNA" in txt or "PROLIFERATING CELL NUCLEAR ANTIGEN" in txt:
             pcna_pdbs.append(p)

@@ -27,7 +27,7 @@
     0.004805,
     0.004952
   ],
-  "dccm_file": "data/results/nma_1W60_dccm.npy",
+  "dccm_file": "data/results/nma_8GLA_dccm.npy",
   "residues": [
     {
       "chain": "A",

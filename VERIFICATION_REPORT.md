@@ -1,6 +1,6 @@
 # GNN-PCNA Full-Depth Verification Report
 
-**Generated:** 2026-05-18 23:12  
+**Generated:** 2026-05-18 23:16  
 **Verifier:** `scripts/verify_all_claims.py` — fully automated, no manual input  
 **Method:** Every claim re-executed or read from authoritative source (CSV / checkpoint / source code)  
 **Scope:** 50+ catalogued claims + bias assessment + reproducibility audit + uncatalogued scan

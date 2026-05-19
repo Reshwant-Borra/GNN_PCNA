@@ -62,9 +62,12 @@ def make_split(
     dry_run: bool = False,
     force: bool = False,
     split_root: Path | None = None,
+    copy_files: bool = False,
 ) -> dict:
     """
-    Split graph files and copy into train/val/test directories.
+    Split graph files and write a manifest to data/splits/cryptosite_split.json.
+    Files are NOT copied by default — training loads directly from data/graphs/.
+    Pass copy_files=True to also copy .pt files into train/val/test directories.
     Returns the split manifest dict.
     """
     all_pt = sorted(graph_dir.glob("*.pt"))
@@ -122,37 +125,34 @@ def make_split(
 
         if dry_run:
             print(f"\n  [{split_name}] (dry-run, {len(paths)} files)")
-            for p in paths:
-                print(f"    {p.name} -> {dest.relative_to(REPO_ROOT)}")
             continue
 
-        dest.mkdir(parents=True, exist_ok=True)
-
-        # Clear existing files if force
-        if force:
-            for f in dest.glob("*.pt"):
-                f.unlink()
-
-        for p in paths:
-            dest_file = dest / p.name
-            if not dest_file.exists() or force:
-                shutil.copy2(str(p), str(dest_file))
-
-        try:
-            dest_label = dest.relative_to(REPO_ROOT)
-        except ValueError:
-            dest_label = dest
-        print(f"  [{split_name}] {len(paths)} files -> {dest_label}")
+        if copy_files:
+            dest.mkdir(parents=True, exist_ok=True)
+            if force:
+                for f in dest.glob("*.pt"):
+                    f.unlink()
+            for p in paths:
+                dest_file = dest / p.name
+                if not dest_file.exists() or force:
+                    shutil.copy2(str(p), str(dest_file))
+            try:
+                dest_label = dest.relative_to(REPO_ROOT)
+            except ValueError:
+                dest_label = dest
+            print(f"  [{split_name}] {len(paths)} files -> {dest_label}")
+        else:
+            print(f"  [{split_name}] {len(paths)} files (manifest only — loading from {graph_dir.relative_to(REPO_ROOT)})")
 
     if not dry_run:
         SPLITS_DIR.mkdir(parents=True, exist_ok=True)
         manifest_path = SPLITS_DIR / "cryptosite_split.json"
         manifest_path.write_text(json.dumps(manifest, indent=2))
         print(f"\nManifest -> {manifest_path.relative_to(REPO_ROOT)}")
-        print("\nReady to train:")
+        print("\nReady to train (using manifest — no duplicate .pt files):")
         print(f"  python -m src.training.train \\")
-        print(f"    --train_dir data/cryptosite/train \\")
-        print(f"    --val_dir   data/cryptosite/val \\")
+        print(f"    --train_manifest data/splits/cryptosite_split.json \\")
+        print(f"    --graph_dir      data/graphs \\")
         print(f"    --checkpoint_dir checkpoints/ \\")
         print(f"    --epochs 100 --batch_size 16 --lr 1e-3 --patience 10")
 
@@ -171,6 +171,8 @@ def main() -> None:
     parser.add_argument("--dry-run",    action="store_true")
     parser.add_argument("--force",      action="store_true",
                         help="Overwrite existing split files")
+    parser.add_argument("--copy-files", action="store_true",
+                        help="Copy .pt files into train/val/test dirs (legacy; creates duplicates)")
     args = parser.parse_args()
 
     make_split(
@@ -181,6 +183,7 @@ def main() -> None:
         dry_run=args.dry_run,
         force=args.force,
         split_root=args.split_root,
+        copy_files=args.copy_files,
     )
 
 

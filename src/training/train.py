@@ -198,8 +198,13 @@ def main(args: argparse.Namespace) -> None:
             print(f"Resumed from {ckpt}")
 
     # ── data ──────────────────────────────────────────────────────────────────
-    train_set = PocketDataset(args.train_dir)
-    val_set   = PocketDataset(args.val_dir)
+    if args.train_manifest:
+        graph_dir = args.graph_dir or "data/graphs"
+        train_set = PocketDataset.from_manifest(args.train_manifest, "train", graph_dir)
+        val_set   = PocketDataset.from_manifest(args.train_manifest, "val",   graph_dir)
+    else:
+        train_set = PocketDataset(args.train_dir)
+        val_set   = PocketDataset(args.val_dir)
     print(f"Train: {len(train_set)} graphs  |  Val: {len(val_set)} graphs")
 
     use_v2 = args.model_size != 'v1'
@@ -285,8 +290,14 @@ def main(args: argparse.Namespace) -> None:
 
 if __name__ == '__main__':
     parser = argparse.ArgumentParser(description="Train PocketGNN")
-    parser.add_argument('--train_dir',      required=True)
-    parser.add_argument('--val_dir',        required=True)
+    parser.add_argument('--train_dir',       default=None,
+                        help='Directory of .pt train graphs (legacy — use --train_manifest instead)')
+    parser.add_argument('--val_dir',         default=None,
+                        help='Directory of .pt val graphs (legacy)')
+    parser.add_argument('--train_manifest',  default=None,
+                        help='Path to cryptosite_split.json manifest (preferred over --train_dir)')
+    parser.add_argument('--graph_dir',       default='data/graphs',
+                        help='Graph directory used with --train_manifest')
     parser.add_argument('--checkpoint_dir', default='checkpoints/')
     parser.add_argument('--model_size',     default='small',
                         choices=['large', 'medium', 'small', 'v1', 'xl', 'xl-t6'],
@@ -311,4 +322,7 @@ if __name__ == '__main__':
                         help='epochs without improvement before LR halved (plateau only)')
     parser.add_argument('--seed',           type=int,   default=42,
                         help='random seed for reproducibility')
-    main(parser.parse_args())
+    args = parser.parse_args()
+    if not args.train_manifest and not args.train_dir:
+        parser.error("Provide --train_manifest (preferred) or --train_dir")
+    main(args)

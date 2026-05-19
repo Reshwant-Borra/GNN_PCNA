@@ -22,8 +22,8 @@
     "internal_dccm": 0.078
   },
   "delta_fold_change": 0.247,
-  "interpretation": "Apo PCNA (1W60): pocket residues 14% LESS flexible than background (fold-change 0.857). The cryptic site is rigidly packed and closed. Holo PCNA (8GLA): pocket residues 10% MORE flexible than background (fold-change 1.104). Ligand binding opens the pocket and increases local flexibility. Delta fold-change = +0.247: statistically meaningful shift in flexibility signature between apo and holo states. This is the expected structural signature of a ligand-induced cryptic pocket: rigid in apo, flexible in holo. The GNN model correctly identifies the site that undergoes this transition.",
-  "scientific_significance": "The apo->holo flexibility change (fold-change 0.857->1.104) provides structural evidence that the AOH1996 site is a genuine cryptic pocket, not a constitutively exposed surface patch. This is computed from real crystallographic coordinates using physics-based normal mode analysis, independent of the GNN model.",
+  "interpretation": "Apo PCNA (1W60): pocket residues 14% LESS flexible than background (fold-change 0.857), consistent with a rigidly packed region. Holo PCNA (8GLA): pocket residues 10% MORE flexible than background (fold-change 1.104). Delta fold-change = +0.247, consistent with a ligand-associated flexibility increase at this site. ANM is a physics-based approximation on static coordinates; it does not prove apo-to-holo pocket opening or confirm cryptic-pocket status. MD simulation is required for that conclusion.",
+  "scientific_significance": "The apo->holo flexibility difference (fold-change 0.857->1.104, delta +0.247) is consistent with a structural signature sometimes seen at cryptic sites, but does not confirm the AOH1996 site is a genuine cryptic pocket. ANM does not simulate ligand-induced dynamics. This result is hypothesis-supporting, not confirmatory.",
   "commands": [
     "python scripts/run_nma.py --pdb data/raw/1W60.pdb",
     "python scripts/run_nma.py --pdb data/raw/8GLA.pdb"

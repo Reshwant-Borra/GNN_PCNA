@@ -186,10 +186,11 @@
 
 ### What the model actually does
 PocketGNN v2 takes a static crystal structure (no dynamics, no MD required) and assigns
-each residue a probability that it belongs to a cryptic pocket — a binding site that is
-hidden in the apo structure but opens when a ligand is present. It does this by learning
-graph-level patterns from ligand-proximity labeled proteins (87 proteins from the CryptoSite
-set, labeled via Cα–ligand distance heuristic) and transferring those patterns to PCNA.
+each residue an uncalibrated prioritization score reflecting similarity to ligand-proximal
+residue environments in the training data. It does this by learning graph-level patterns
+from ligand-proximity labeled proteins (87 proteins from the CryptoSite set, labeled via
+Cα–ligand distance heuristic) and transferring those patterns to PCNA. Scores are not
+calibrated probabilities and do not prove ligand binding, druggability, or pocket opening.
 
 **Important caveat:** Labels are derived from Cα–ligand distance (6 Å), not from the curated
 CryptoSite benchmark labels used in published papers. AUROC measures agreement with

@@ -128,7 +128,7 @@ ax1.set_ylim(0, 0.85)
 legend_patches = [
     mpatches.Patch(color="#e74c3c", label="AOH1996 holo"),
     mpatches.Patch(color="#3498db", label="Canonical apo"),
-    mpatches.Patch(color="#9b59b6", label="9B8T (novel site)"),
+    mpatches.Patch(color="#9b59b6", label="9B8T (chain assignment corrected — reanalysis required)"),
     mpatches.Patch(color="#95a5a6", label="Other PCNA"),
 ]
 ax1.legend(handles=legend_patches, fontsize=7, loc="upper right")
@@ -169,7 +169,7 @@ ax4.set_title("Pocket Score vs Ground-Truth AOH1996 Recovery")
 ax5 = fig.add_axes([0.04, 0.06, 0.44, 0.28])
 for pdb_id, color, label in [
     ("8GLA", "#e74c3c", "8GLA (AOH1996 holo)"),
-    ("9B8T", "#9b59b6", "9B8T (Pol epsilon + DNA -- novel site)"),
+    ("9B8T", "#9b59b6", "9B8T (chain A=pol-eps; B/C/D=PCNA — reanalysis required)"),
     ("1W60", "#3498db", "1W60 (apo)"),
 ]:
     try:

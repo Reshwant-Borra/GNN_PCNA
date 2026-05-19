@@ -619,7 +619,7 @@ def build_doc():
         caption_body=(
             "Left: raw top cluster mean score vs confidence-adjusted score for all "
             "PCNA structures; color = confidence. Known holo structures (8GLA, 8GL9) "
-            "labeled; calibration is tight for high-confidence predictions. "
+            "labeled; monotonicity observed at high scores (not formal calibration verification). "
             "Center: stacked bar of confidence components per structure — "
             "uncertainty (1-std, blue) and symmetry correction (green); structures "
             "ordered by decreasing adjusted score. "

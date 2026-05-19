@@ -43,12 +43,12 @@
     "esm2_contribution_delta": -0.0493,
     "esm2_contribution_note": "ESM2 contribution reduced from +0.1997 (v3) to +0.1504 (fixed) via shuffle augmentation",
     "score_compression_delta": 0.0146,
-    "score_compression_note": "Top pocket mean scores compressed by 0.0146 vs v3 — scores are more calibrated"
+    "score_compression_note": "Top pocket mean scores compressed by 0.0146 vs v3 — score range compressed vs v3 — not verified as better calibrated"
   },
   "improvements_over_v3": [
     "Apo-negative signal: apo FP rate reduced from unknown to 0.0%",
     "ESM2 shuffle augmentation: ESM2 contribution reduced from +0.1997 to +0.1504",
-    "Score compression: top pocket means compressed by 0.0146 (more calibrated)",
+    "Score compression: top pocket means compressed by 0.0146 (score range compressed — not verified as better calibrated)",
     "Ranking loss added: better pocket rank separation"
   ],
   "status": "SUPERSEDED — replaced by checkpoints/reproduced_xl/best.ckpt (full provenance, seed=42)"

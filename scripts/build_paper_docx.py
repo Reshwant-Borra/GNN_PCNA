@@ -697,8 +697,10 @@ section_head(doc, "3.3  Score calibration", level=2)
 body(doc,
     "Table 2 shows the fraction of true pocket residues in each V3 score bin on 8GLA. Pocket "
     "rate increases monotonically from 0.008 in the 0.0–0.2 bin to 1.000 in the 0.8–1.0 bin, "
-    "with zero monotonicity violations, confirming that predicted probabilities carry meaningful "
-    "rank-ordering information and are well calibrated.")
+    "with zero monotonicity violations, indicating that scores carry useful rank-ordering signal. "
+    "Note: this monotonicity check is on the training/fine-tuning structure 8GLA and does not "
+    "constitute calibration verification. Scores are uncalibrated sigmoid outputs; calibration "
+    "curves, Brier scores, or reliability analysis have not been performed.")
 
 journal_table(doc, 2,
     "V3 score calibration on 8GLA — fraction of true AOH1996 pocket residues per score bin.",
@@ -744,16 +746,14 @@ r = fn.add_run(
     "not indicative of degenerate model predictions.")
 r.italic = True; r.font.size = Pt(8); r.font.name = SERIF; r.font.color.rgb = GREY
 
-section_head(doc, "3.5  Novel site identification on 9B8T", level=2)
+section_head(doc, "3.5  9B8T chain-assignment note (reanalysis required)", level=2)
 body(doc,
-    "Structure 9B8T (human DNA polymerase epsilon bound to PCNA and DNA) lacks a drug-like "
-    "small molecule at the AOH1996 site, yet V3 scores a distinct cluster of eight residues "
-    "with mean score 0.802 and maximum 0.916 at the polymerase epsilon-PCNA interface, "
-    "with zero overlap with the AOH1996 ground truth. Geometric analysis of the V1 results "
-    "reported a concavity score of 0.653 at this region. We hypothesize this represents a "
-    "protein-protein interaction interface pocket at the Pol ε B-subunit binding surface. "
-    "Experimental validation via MD simulation (RMSF > 1.5 Å, transient volume > 100 Å³) "
-    "or fragment-based screening is required before biological significance can be established.")
+    "Structure 9B8T (human DNA polymerase epsilon bound to PCNA and DNA) has a corrected "
+    "chain assignment: chain A is the DNA pol epsilon catalytic subunit; chains B/C/D are PCNA; "
+    "P/T are DNA strands. Prior project outputs incorrectly treated chains A/B/C as PCNA. "
+    "All 9B8T scores and pocket calls in existing reports are biologically incorrect and "
+    "must be regenerated with the corrected PCNA chain whitelist (B/C/D) before any "
+    "biological interpretation. No novel-site claims should be made from these outputs.")
 
 section_head(doc, "3.6  Limitations", level=2)
 body(doc,

@@ -38,7 +38,7 @@ def category(r):
     p = r["pdb"]
     if p in {"8GLA","8GL9","8GCJ"}: return "AOH1996 holo (confirmed binder)"
     if p in {"1W60","4RJF","1U7B"}: return "Canonical apo PCNA"
-    if p == "9B8T":                 return "Novel site (Pol epsilon interface)"
+    if p == "9B8T":                 return "Chain assignment corrected — prior outputs biologically invalid (reanalysis required)"
     if p in COMPLEX_CONTAM:         return "Large replication complex (AUROC unreliable)"
     return "Other PCNA structure"
 
@@ -272,7 +272,7 @@ extract_lines += [
     f"",
     f"### Structures confirmed NOT to be AOH1996 targets",
     f"",
-    f"- **9B8T**: Top pocket at Pol epsilon-PCNA interface — novel site, different drug needed",
+    f"- **9B8T**: Chain assignment corrected (A=pol epsilon, B/C/D=PCNA). Prior outputs using A/B/C are biologically invalid. Rerun per_structure_analysis.py before interpreting any 9B8T results.",
     f"- **8UN0, 8UMY, 8UMU, 8UMT, 6VVO, 8UI8, 8UI9**: CTF18-RFC/ATAD5-RFC replication complexes;",
     f"  AGS/ADP cofactor contamination makes AUROC unreliable for pocket labeling",
     f"- **7M5L**: Low AOH overlap (6/24), ligand TME/NH2 is not at AOH site",

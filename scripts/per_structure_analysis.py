@@ -71,7 +71,7 @@ AOH_GT = set().union(*AOH_GT_BY_CHAIN.values())
 # Structures absent from this dict keep all chains (assumed all-PCNA).
 PCNA_CHAIN_WHITELIST: dict[str, set[str]] = {
     "1AXC": {"A", "C", "E"},    # B/D/F are p21/WAF1 peptide (resolution 2.60 Å)
-    "9B8T": {"A", "B", "C"},    # D=DNA pol epsilon; P,T=DNA strands
+    "9B8T": {"B", "C", "D"},    # A=DNA pol epsilon catalytic subunit; P,T=DNA strands
 }
 
 SKIP_RESNAMES = {
@@ -210,8 +210,8 @@ def write_report(pdb: str, title: str, residues, scores: np.ndarray,
         lines.append(f"NOTE: Chains A/C/E are PCNA; chains B/D/F are p21/WAF1 peptide.")
         lines.append(f"      PCNA-specific region annotations valid for A/C/E only.")
     elif pdb == "9B8T":
-        lines.append(f"NOTE: Chains A/B/C are PCNA. Chain D = DNA pol epsilon; P/T = DNA.")
-        lines.append(f"      Analysis restricted to PCNA chains A/B/C.")
+        lines.append(f"NOTE: Chains B/C/D are PCNA. Chain A = DNA pol epsilon catalytic subunit; P/T = DNA.")
+        lines.append(f"      Analysis restricted to PCNA chains B/C/D. Prior outputs using A/B/C are biologically incorrect.")
     lines.append(f"Ligands detected: {', '.join(ligands) if ligands else 'none (apo)'}")
     if auroc is not None:
         lines.append(f"AUROC vs auto-labeled GT: {auroc:.4f}")

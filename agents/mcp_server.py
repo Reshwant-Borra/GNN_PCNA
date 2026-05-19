@@ -98,7 +98,7 @@ if _MCP_AVAILABLE:
     @mcp.tool()
     def list_structures(validated_only: bool = True, limit: int = 50) -> list[dict]:
         """
-        List PCNA crystal structures from the knowledge vault.
+        List PCNA structures from the knowledge vault.
         Returns metadata: pdb_id, resolution, chains, relevance, validated.
         """
         if validated_only:

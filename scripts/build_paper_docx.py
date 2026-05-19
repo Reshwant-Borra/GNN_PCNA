@@ -558,7 +558,7 @@ body(doc,
     "Proliferating Cell Nuclear Antigen (PCNA, UniProt P12004) is a homotrimeric ring protein "
     "essential for DNA replication and repair, acting as a sliding clamp for DNA polymerase delta.¹ "
     "It is overexpressed in breast, colorectal, and lung carcinomas and has been validated as a "
-    "therapeutic target.² The compound AOH1996, currently in Phase I/II clinical trials, disrupts "
+    "therapeutic target.² The compound AOH1996, currently under active Phase I clinical evaluation, disrupts "
     "PCNA function by binding a cryptic allosteric pocket at the A-B subunit interface—a site "
     "invisible in all available apo crystal structures that opens transiently during molecular "
     "motion.³")
@@ -587,7 +587,7 @@ body(doc,
 
 body(doc,
     "Here we present GNN-PCNA: a two-generation pipeline for per-residue cryptic pocket scoring "
-    "evaluated across 59 PCNA crystal structures. We report the first GNN-based systematic "
+    "evaluated across 59 PCNA structures (X-ray and cryo-EM). We report the first GNN-based systematic "
     "recovery of the AOH1996 binding pocket across the full PCNA structural dataset.")
 
 # ── 2. MATERIALS AND METHODS ──────────────────────────────────────────────────
@@ -770,7 +770,7 @@ body(doc,
     "We demonstrate that combining dual-branch GATv2 graph attention with ESM2 protein language "
     "model embeddings achieves near-perfect AUROC (>0.96) for cryptic pocket detection on PCNA "
     "across four of seven drug-like ligand structures, and recovers ≥20/24 AOH1996 ground-truth "
-    "contact residues in 23 of 59 crystal structures including apo forms. PocketGNNXL (V3) "
+    "contact residues in 23 of 59 PCNA structures including apo forms. PocketGNNXL (V3) "
     "outperforms the hand-crafted baseline by a mean of +0.228 AUROC points, with the largest "
     "gains on complex multi-chain structures where evolutionary context is most informative. "
     "These results establish a strong computational foundation for prospective cryptic pocket "

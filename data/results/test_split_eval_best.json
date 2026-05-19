@@ -127,5 +127,12 @@
         }
       ]
     }
+  },
+  "combined_val_test": {
+    "n_structures": 13,
+    "auroc": 0.8081,
+    "auprc": 0.3441,
+    "trivial_baseline_auprc": 0.0557,
+    "lift_above_trivial": 6.2
   }
 }

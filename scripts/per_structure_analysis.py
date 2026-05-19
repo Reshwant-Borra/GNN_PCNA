@@ -41,8 +41,12 @@ from src.data_processing.graph_construction import build_graph_v2
 RAW_DIR   = REPO_ROOT / "data" / "raw"
 OUT_ROOT  = REPO_ROOT / "results" / "per_structure"
 THRESHOLD = 0.40
-_DEFAULT_CKPT  = REPO_ROOT / "checkpoints" / "pcna_reproduced" / "best.ckpt"
-_DEFAULT_MODEL = "xl"
+_DEFAULT_CKPT  = REPO_ROOT / "checkpoints" / "pcna" / "best_pcna.ckpt"
+_DEFAULT_MODEL = "small"
+# NOTE: Use --model xl only if you have pre-built 520-dim XL graphs in data/pcna_xl/.
+# This script builds graphs on-the-fly via build_graph_v2 (40-dim).
+# The XL checkpoint (pcna_reproduced/best.ckpt) expects 520-dim — it will crash on 40-dim graphs.
+# For XL inference on all 59 structures, use scripts/run_v3_inference.py instead.
 
 # -- PCNA structural region map ------------------------------------------------
 # Residue ranges define known functional/structural elements
@@ -327,10 +331,20 @@ def main():
     print(f"Loading model ({args.model}): {ckpt_path}")
     if args.model == "xl":
         from src.models import PocketGNNXL
-        model = PocketGNNXL().eval()
+        node_dim = 520  # xl graphs required; crashes on 40-dim build_graph_v2 output
+        model = PocketGNNXL(node_in_dim=node_dim).eval()
     else:
         model = PocketGNN.small().eval()
-    model.load_state_dict(torch.load(ckpt_path, map_location="cpu", weights_only=True))
+    sd = torch.load(ckpt_path, map_location="cpu", weights_only=True)
+    # Detect node_in_dim from checkpoint to catch dimension mismatches early
+    ckpt_node_dim = next(v for k, v in sd.items() if "node_encoder" in k and "weight" in k).shape[1]
+    expected = 520 if args.model == "xl" else 40
+    if ckpt_node_dim != expected:
+        raise ValueError(
+            f"Checkpoint node_in_dim={ckpt_node_dim} does not match {args.model} model "
+            f"expectation ({expected}). Pass the correct --ckpt and --model combination."
+        )
+    model.load_state_dict(sd)
 
     # Collect PCNA PDB files
     pcna_pdbs = []

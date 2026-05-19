@@ -20,7 +20,7 @@ PDB Structure(s)
   → Graph Construction (residues as nodes, edges by distance/contact)
   → GNN Encoder (learns pocket-relevant node/edge embeddings)
   → Pocket Scoring Head (per-residue cryptic prioritization score)
-  → ANM Flexibility Analysis (DONE — apo fold-change 0.857, holo 1.104, delta +0.247)
+  → ANM Flexibility Analysis (DONE — apo fold-change 0.857, holo 1.157, delta +0.300)
   → MD Validation (FUTURE — full trajectory not yet generated)
   → Ranked Output (novel cryptic sites + confidence)
 ```

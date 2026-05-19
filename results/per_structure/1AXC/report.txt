@@ -2,6 +2,9 @@
 PDB: 1AXC
 Title: COMPLEX (DNA-BINDING PROTEIN/DNA)HUMAN PCNA
 Chains: A, B, C, D, E, F  |  Residues: 804
+NOTE: Chains A/C/E are PCNA (resolution 2.60 A). Chains B/D/F are p21/WAF1 peptide.
+      This report includes all chains — PCNA-specific region annotations below
+      are only valid for chains A/C/E.
 Ligands detected: none (apo)
 Residues above threshold (0.4): 221/804 (27.5%)
 

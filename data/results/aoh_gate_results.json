@@ -1,6 +1,6 @@
 {
   "generated": "2026-05-19T00:00:00Z",
-  "description": "AOH1996 validation gate results. Gate measures mean score over the AOH1996-labeled residues (Ca within 6A of ligand in 8GLA). Mean >= 0.7 = PASS.",
+  "description": "AOH1996 positive-control check. 8GLA was in fine-tuning data — this is a sanity check that the checkpoint retained its training signal, not an independent validation. Measures mean score over residues whose Ca is within 6A of ZQZ ligand heavy atoms in 8GLA. Mean >= 0.7 = PASS.",
   "gate_threshold": 0.7,
   "results": [
     {

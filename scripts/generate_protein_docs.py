@@ -111,8 +111,8 @@ def write_protein_doc(r):
     ]
 
     threshold_note = (
-        f" **Note: mean score {tc_mean:.3f} is below the 0.7 validation gate — "
-        f"the AOH1996 pocket is not confidently recovered by this model.**"
+        f" **Note: mean score {tc_mean:.3f} is below the 0.7 project-defined threshold — "
+        f"the AOH1996 pocket is not confidently recovered by this checkpoint.**"
         if tc_mean < 0.7 else ""
     )
 

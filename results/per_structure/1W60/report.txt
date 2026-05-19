@@ -2,6 +2,9 @@
 PDB: 1W60
 Title: DNA BINDING PROTEINNATIVE HUMAN PCNA
 Chains: A, B  |  Residues: 510
+NOTE: This PDB contains the crystallographic asymmetric unit (chains A, B).
+      The biological PCNA trimer requires applying BIOMT symmetry matrices to
+      generate the third chain. Analysis below covers the 2-chain asymmetric unit only.
 Ligands detected: none (apo)
 Residues above threshold (0.4): 186/510 (36.5%)
 

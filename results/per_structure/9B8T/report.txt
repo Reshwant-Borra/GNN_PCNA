@@ -2,6 +2,10 @@
 PDB: 9B8T
 Title: DNA BINDING PROTEIN/DNAHUMAN POLYMERASE EPSILON BOUND TO PCNA AND DNA IN THE NUCLEOTIDE BOUND STATE
 Chains: A, B, C, D  |  Residues: 1929
+NOTE: Chains A/B/C are PCNA. Chain D = DNA polymerase epsilon; P/T = DNA strands.
+      This report was generated BEFORE chain filtering was implemented — it includes
+      chain D residues. PCNA-specific region annotations are invalid for chain D.
+      Re-run per_structure_analysis.py to get the chain-filtered version.
 Ligands detected: TTP, SF4
 AUROC vs auto-labeled GT: 0.4719
 Residues above threshold (0.4): 337/1929 (17.5%)

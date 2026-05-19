@@ -95,9 +95,9 @@ python scripts/check_env.py
 
 ---
 
-## Step 4 — Run the AOH1996 validation gate
+## Step 4 — Run the AOH1996 positive-control check
 
-This is the key scientific check. The model must score the AOH1996 binding site > 0.7 to be trusted for novel predictions.
+This confirms the checkpoint retained its fine-tuning signal. Note: 8GLA was part of fine-tuning, so this is a **sanity check** (positive control), not independent validation. A PASS means the checkpoint is intact; novel predictions on other structures are hypotheses requiring experimental follow-up.
 
 ```bash
 # Using the recommended checkpoint (best_pcna_v3_fixed.ckpt)

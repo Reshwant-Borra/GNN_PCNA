@@ -72,8 +72,8 @@ CrypticGNN v1 (~556k params, single-branch, 26-dim nodes) is preserved for compa
 |---|---|
 | Apo structure | PDB **1W60** — no AOH1996 pocket visible |
 | Holo structure | PDB **8GLA** — AOH1996 bound, cryptic pocket open |
-| Ground truth labels | Residues within 6 Å of AOH1996 in 8GLA |
-| Validation gate | Model MUST score AOH1996 pocket residues > 0.7 before trusting novel predictions |
+| Ground truth labels | Residues whose Cα is within 6 Å of any heavy atom of ligand ZQZ (AOH1996) in PDB 8GLA |
+| Positive-control check | Score > 0.7 on 8GLA AOH pocket confirms the checkpoint retained fine-tuning signal (8GLA was in fine-tuning data — this is a sanity check, not independent validation) |
 | Pre-training data | Ligand-proximity labeled structures (87 proteins from CryptoSite set, labeled via Cα–ligand distance, **not** curated CryptoSite benchmark labels) |
 | PCNA UniProt | P12004 · homotrimer (chains A, B, C) |
 

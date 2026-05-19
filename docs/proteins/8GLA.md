@@ -18,7 +18,7 @@
 
 The model's top predicted cluster overlaps with **21/24 AOH1996 ground-truth residues** (88% of the confirmed pocket from PDB 8GLA). Top cluster mean score: 0.587.
 
-**Note:** Mean score 0.587 is below the 0.7 validation gate defined in this project — the AOH1996 pocket is not confidently recovered by the v2-small model. The v3-XL checkpoint (`best_pcna_v3.ckpt`) recovers the pocket at higher confidence. Labels are derived from Cα-to-ligand proximity (6 Å), not curated cryptic-pocket annotations.
+**Note:** Mean score 0.587 is below the 0.7 project-defined threshold — the AOH1996 pocket is not confidently recovered by the v2-small model. The v3-XL checkpoint (`best_pcna_v3_fixed.ckpt`) recovers the pocket at higher confidence. Labels are derived from Cα-to-ligand-heavy-atom proximity (6 Å cutoff), not curated cryptic-pocket annotations. The 0.7 threshold is a project-defined sanity check, not an externally calibrated probability.
 
 **Hypothesis (unvalidated):** This region may be compatible with AOH1996 binding. Molecular docking or MD simulation is required to confirm.
 

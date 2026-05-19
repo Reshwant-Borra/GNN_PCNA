@@ -1,4 +1,4 @@
-# 8GCJ — REPLICATIONPCNA
+﻿# 8GCJ — REPLICATIONPCNA
 
 > Generated: 2026-05-16  |  Category: AOH1996 holo (confirmed binder)  **AOH1996 CANDIDATE**
 
@@ -16,7 +16,7 @@
 
 ## AOH1996 Pocket Assessment
 
-The GNN-PCNA model recovered **24/24 AOH1996 ground-truth residues** in its top predicted cluster. This represents >100% overlap with the experimentally confirmed cryptic pocket from PDB 8GLA. The model is highly confident (0.589 mean score) that this region is druggable.
+The GNN-PCNA model recovered **24/24 AOH1996 ground-truth residues** in its top predicted cluster. This represents >100% overlap with the experimentally confirmed cryptic pocket from PDB 8GLA. The model assigns a high prioritization score (0.589 mean) to this region. **This is a hypothesis only** — druggability requires MD simulation, docking, or experimental validation.
 
 **Implication:** AOH1996 (or its derivatives AOH1160/AOH1996-1LE) would be predicted to bind this structure with similar affinity to the confirmed holo structure 8GLA.
 

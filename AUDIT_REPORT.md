@@ -1,4 +1,4 @@
-# GNN-PCNA Reproducibility & Accuracy Audit — 2026-05-19
+﻿# GNN-PCNA Reproducibility & Accuracy Audit — 2026-05-19
 
 **Auditor:** Claude Sonnet 4.6  
 **Method:** All claims re-executed or verified against source files. No claim taken on faith.  
@@ -39,7 +39,7 @@
 
 **UNKNOWN fields: zero.**
 
-### Reproduced Pretrain (CryptoSite benchmark)
+### Reproduced Pretrain (CryptoSite-derived, ligand-proximity-labeled set)
 `checkpoints/reproduced_xl/best_meta.json`:
 
 | Field | Value |

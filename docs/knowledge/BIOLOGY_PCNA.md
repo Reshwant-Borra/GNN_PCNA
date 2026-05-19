@@ -1,4 +1,4 @@
-# BIOLOGY_PCNA.md — PCNA Biology Context
+﻿# BIOLOGY_PCNA.md — PCNA Biology Context
 
 → Links: [[SYSTEM_OVERVIEW]] | [[DATASETS]] | [[VALIDATION]] | [[MODELS]]
 
@@ -15,7 +15,7 @@
 | Symmetry | C3 homotrimer — all 3 chains nearly identical |
 | Key interface | Subunit-subunit interface at the IDCL (Interdomain Connecting Loop) |
 | PDB apo | 1W60 (human, 2.35 Å, no ligand) |
-| PDB holo | 8GLA (human, AOH1996-bound, cryptic pocket open) |
+| PDB holo | 8GLA (human, AOH1996 derivative AOH1996-1LE (ligand ZQZ) bound, resolution 3.77 A, chains A-D in asymmetric unit) |
 
 ---
 
@@ -37,7 +37,7 @@
 | Developer | City of Hope (~2023) |
 | Mechanism | Disrupts PCNA-dependent DNA repair and replication in cancer cells |
 | Binding site | IDCL region — a cryptic site not visible in 1W60 |
-| PDB structure | 8GLA — shows AOH1996 bound |
+| PDB structure | 8GLA — shows AOH1996 derivative (ZQZ/AOH1996-1LE) bound |
 | Site geometry | Needs NotebookLM extraction — exact residue contacts TBD |
 | Selectivity | Cancer cells over-express PCNA; normal cells less affected |
 

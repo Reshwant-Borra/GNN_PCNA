@@ -1,4 +1,4 @@
-======================================================================
+﻿======================================================================
 PDB: 3VKX
 Title: DNA BINDING PROTEINSTRUCTURE OF PCNA
 Chains: A  |  Residues: 248
@@ -26,7 +26,7 @@ Predicted cryptic pockets: 1
   Top residues: A46(SER)=0.833, A41(ASP)=0.827, A45(VAL)=0.817, A44(HIS)=0.814, A42(SER)=0.813, A251(LEU)=0.786, A139(MET)=0.782, A250(TYR)=0.781
 
   How this pocket was identified:
-    The model assigned high pocket probability to 128 residues that cluster within 6 A of each other in 3D space. These residues have a mean SASA of 34.6 A^2 (62% are partially buried, SASA < 30 A^2), consistent with a recessed binding surface rather than an exposed loop.
+    The model assigned a high prioritization score to 128 residues that cluster within 6 A of each other in 3D space. These residues have a mean SASA of 34.6 A^2 (62% are partially buried, SASA < 30 A^2), consistent with a recessed binding surface rather than an exposed loop.
     The GNN assigned high scores here because the dual-branch message-passing identified this neighborhood as chemically similar to known cryptic pocket residues in the training data: the spatial branch detected dense local packing (average 128 close contacts) and the sequential branch detected the loop or beta-strand context typical of induced-fit binding sites.
     This matches the region where AOH1996 binds in PDB 8GLA, specifically the domain 2 core beta sheet. The prediction is consistent with the known mechanism of cryptic pocket opening.
 

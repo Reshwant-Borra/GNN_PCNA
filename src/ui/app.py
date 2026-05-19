@@ -1,4 +1,4 @@
-"""
+﻿"""
 GNN-PCNA: Cryptic Pocket Predictor — Streamlit UI
 
 Run:
@@ -564,7 +564,7 @@ if tab_mode == "Results Browser":
                                  f"{int((sc >= threshold).sum())} above {threshold:.2f}",
                                  fontsize=9)
                 plt.tight_layout(rect=[0, 0, 0.96, 1])
-                fig.colorbar(im, ax=axes[:, 0], label="V3 pocket probability", shrink=0.8)
+                fig.colorbar(im, ax=axes[:, 0], label="V3 prioritization score", shrink=0.8)
                 st.pyplot(fig)
                 plt.close(fig)
             except ImportError:
@@ -754,7 +754,7 @@ if model_key == "v3-xl":
 st.divider()
 
 # ── sequence heatmap ──────────────────────────────────────────────────────────
-st.subheader("Per-chain pocket probability heatmap")
+st.subheader("Per-chain prioritization score heatmap")
 
 try:
     import matplotlib
@@ -794,7 +794,7 @@ try:
         ax.set_xticklabels(ch_resids[::step], fontsize=6, rotation=45)
 
     plt.tight_layout(rect=[0, 0, 0.96, 1])
-    fig.colorbar(im, ax=axes[:, 0], label="Pocket probability", shrink=0.8)
+    fig.colorbar(im, ax=axes[:, 0], label="prioritization score", shrink=0.8)
     st.pyplot(fig)
     plt.close(fig)
 except ImportError:
@@ -954,7 +954,7 @@ with st.expander("Score distribution"):
         ax.hist(scores, bins=50, color="#4472C4", alpha=0.8, edgecolor="none")
         ax.axvline(threshold, color="red", linewidth=1.5, linestyle="--",
                    label=f"Threshold ({threshold:.2f})")
-        ax.set_xlabel("Pocket probability")
+        ax.set_xlabel("prioritization score")
         ax.set_ylabel("Residue count")
         ax.set_title(f"Score distribution — {model_tag}")
         ax.legend(fontsize=8)
@@ -974,7 +974,7 @@ with exp1:
         data=bfactor_pdb,
         file_name=f"{pdb_label}_{model_key}_pocket_scores.pdb",
         mime="chemical/x-pdb",
-        help="In PyMOL: spectrum b, red_white_green — red = high pocket probability",
+        help="In PyMOL: spectrum b, red_white_green — red = high prioritization score",
     )
 
 with exp2:

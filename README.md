@@ -1,4 +1,4 @@
-# GNN-PCNA: Cryptic Pocket Detection on PCNA via Graph Neural Network
+﻿# GNN-PCNA: Cryptic Pocket Detection on PCNA via Graph Neural Network
 
 **Authors:** Reshwant Borra · Advay (advay.awesomer@gmail.com)
 
@@ -6,13 +6,15 @@
 
 ## What This Project Does
 
-PCNA (Proliferating Cell Nuclear Antigen) is a homotrimeric protein ring essential for DNA replication and repair. It is overexpressed in cancer, making it a drug target. The experimental compound **AOH1996** binds a cryptic pocket on PCNA (PDB: 8GLA) that is absent in the apo structure (PDB: 1W60).
+This project develops a residue-level GNN scoring pipeline for PCNA and related protein structures. It uses ligand-proximity labels, including the ZQZ/AOH1996-1LE ligand-contact region in PDB 8GLA as a PCNA positive control, and reports high AUROC but mixed precision-recall behavior on a small held-out ligand-proximity-labeled benchmark. **The current evidence supports using the model to prioritize candidate residue clusters for follow-up study, but it does not yet establish novel cryptic pockets, druggability, docking readiness, apo-to-holo opening, or AOH1996 mechanism.**
 
-**Cryptic pockets** are binding sites invisible in the static crystal but open transiently during protein motion. This pipeline:
+Human PCNA (UniProt P12004) is a homotrimeric sliding clamp involved in DNA replication and repair. PDB 8GLA contains PCNA bound to AOH1996 derivative AOH1996-1LE (ligand ZQZ, resolution 3.77 Å, chains A–D in asymmetric unit) and is used here as a positive-control ligand-contact region. PDB 1W60 is apo/native PCNA (chains A/B in asymmetric unit, resolution 3.15 Å).
+
+This pipeline:
 
 1. Crawls 13 biological databases and builds a 160-node Obsidian knowledge graph
 2. Represents a protein structure as a dual-view graph (spatial contacts + backbone connectivity)
-3. Trains a dual-branch GNN (PocketGNN v2; ~907k–10.4M params depending on variant) to score per-residue pocket probability
+3. Trains a dual-branch GNN (PocketGNN v2; ~907k–10.4M params depending on variant) to score per-residue prioritization likelihood
 4. Visualises predictions in a Streamlit UI with PyMOL-ready export
 5. **ANM flexibility analysis** completed on apo PCNA (1W60): pocket residues are 14% less flexible than background (fold-change 0.857), consistent with a rigidly packed cryptic site. Full MD trajectories not yet generated.
 
@@ -58,7 +60,7 @@ MD Validation  (src/md/parse_trajectory.py)
 | Branch 2 (sequential) | **2× GATv2Conv(256, heads=4)** (small/checkpoint) · 3× (large, ~10.4M, not deployed) |
 | Fusion | Learned gate per residue: `gate * h_spatial + (1-gate) * h_seq` |
 | Scoring head | Linear(768→384→192→96→1) + ReLU + Dropout at each layer |
-| Output | Per-residue pocket probability ∈ [0, 1] |
+| Output | Per-residue prioritization score (not a calibrated probability) ∈ [0, 1] |
 | Parameters | ~13.4M (XL) · ~10.4M (large) · ~3.6M (medium) · ~907k (small) — **primary results use `checkpoints/pcna/best_pcna_v3_fixed.ckpt` (fully reproduced, seed=42 end-to-end)** |
 | Loss | Focal(γ=2, α=auto-calibrated from class balance) + 0.05×Ranking(margin=0.2) + 0.10×Symmetry (finetune only) |
 
@@ -74,7 +76,7 @@ CrypticGNN v1 (~556k params, single-branch, 26-dim nodes) is preserved for compa
 | Holo structure | PDB **8GLA** — AOH1996 bound, cryptic pocket open |
 | Ground truth labels | Residues whose Cα is within 6 Å of any heavy atom of ligand ZQZ (AOH1996) in PDB 8GLA |
 | Positive-control check | Score > 0.7 on 8GLA AOH pocket confirms the checkpoint retained fine-tuning signal (8GLA was in fine-tuning data — this is a sanity check, not independent validation) |
-| Pre-training data | Ligand-proximity labeled structures (87 proteins from CryptoSite set, labeled via Cα–ligand distance, **not** curated CryptoSite benchmark labels) |
+| Pre-training data | Ligand-proximity labeled structures (87 proteins from a CryptoSite-derived set, labeled via Cα–ligand distance, **not** curated CryptoSite benchmark labels) |
 | PCNA UniProt | P12004 · homotrimer (chains A, B, C) |
 
 ---

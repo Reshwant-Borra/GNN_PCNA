@@ -1,4 +1,4 @@
-# AOH1996 Candidate Structures — Cryptic Pocket Extract
+﻿# AOH1996 Candidate Structures — Cryptic Pocket Extract
 
 > Generated: 2026-05-16
 > Criteria: AOH1996 GT overlap >= 18/24 residues AND top cluster mean >= 0.55 AND no co-factor contamination
@@ -84,7 +84,7 @@ These represent PCNA conformations in which the cryptic pocket is **at least par
 ## Recommended Priority for Docking
 
 ```
-Priority 1 (docking-ready):  3VKX, 9N3L, 1W60, 4RJF
+Priority 1 (highest-scoring candidates — follow-up with MD/docking required):  3VKX, 9N3L, 1W60, 4RJF
 Priority 2 (apo, good):      1AXC, 9CHM, 6FCN, 7KQ0
 Priority 3 (complex, check): 1VYJ, 3P87, 6QCG, 5MAV
 Confirmed holo (reference):  8GLA, 8GL9, 8GCJ

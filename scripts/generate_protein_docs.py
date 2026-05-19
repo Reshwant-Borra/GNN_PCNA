@@ -1,4 +1,4 @@
-"""Generate per-protein markdown docs + AOH1996 candidate extract."""
+﻿"""Generate per-protein markdown docs + AOH1996 candidate extract."""
 import csv, json, sys, io
 from pathlib import Path
 from datetime import date
@@ -280,7 +280,7 @@ extract_lines += [
     f"## Recommended Priority for Docking",
     f"",
     f"```",
-    f"Priority 1 (docking-ready):  3VKX, 9N3L, 1W60, 4RJF",
+    f"Priority 1 (highest-scoring — candidate for follow-up):  3VKX, 9N3L, 1W60, 4RJF",
     f"Priority 2 (apo, good):      1AXC, 9CHM, 6FCN, 7KQ0",
     f"Priority 3 (complex, check): 1VYJ, 3P87, 6QCG, 5MAV",
     f"Confirmed holo (reference):  8GLA, 8GL9, 8GCJ",

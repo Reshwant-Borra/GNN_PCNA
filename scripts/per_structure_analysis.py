@@ -1,4 +1,4 @@
-"""
+﻿"""
 Per-structure cryptic pocket analysis for all 59 PCNA PDB structures.
 
 For each structure:
@@ -273,7 +273,7 @@ def write_report(pdb: str, title: str, residues, scores: np.ndarray,
         sasa_vals = [residues[i].sasa for i in ridxs]
         mean_sasa = np.mean(sasa_vals)
         buried_frac = sum(1 for s in sasa_vals if s < 30) / len(sasa_vals)
-        lines.append(f"    The model assigned high pocket probability to {p['n_residues']} residues "
+        lines.append(f"    The model assigned a high prioritization score to {p['n_residues']} residues "
                      f"that cluster within 6 A of each other in 3D space. "
                      f"These residues have a mean SASA of {mean_sasa:.1f} A^2 "
                      f"({buried_frac:.0%} are partially buried, SASA < 30 A^2), "

@@ -6,7 +6,7 @@
 
 ## Design Philosophy
 
-- **Per-residue output**: No global pooling at the scoring stage — we need per-residue probabilities to localize pockets.
+- **Per-residue output**: No global pooling at the scoring stage — we need per-residue prioritization scores to localize pockets.
 - **Residue-level graph**: Nodes = residues (Cα), edges = Cα–Cα spatial contacts < 8 Å.
 - **Edge features included**: Distance + sequence separation at every message-passing step.
 - **Residual connections**: Between each GATv2Conv layer to prevent over-smoothing.
@@ -21,7 +21,7 @@
 |---|---|---|
 | PDB Parser | `src/data_processing/parse_pdb.py` | Parse PDB → `Residue` list; label pocket residues |
 | Graph Builder | `src/data_processing/graph_construction.py` | `Residue` list → PyG `Data` object |
-| GNN Model | `src/models/cryptic_gnn.py` | Graph → per-residue pocket probabilities |
+| GNN Model | `src/models/cryptic_gnn.py` | Graph → per-residue prioritization scores (uncalibrated) |
 | Loss | `src/training/loss.py` | Focal loss for class imbalance |
 | Dataset | `src/training/dataset.py` | PyG `Dataset` / `InMemoryDataset` |
 | Trainer | `src/training/train.py` | Training loop, checkpointing, early stopping |

@@ -10,7 +10,7 @@
 
 ## Hypothesis
 
-The CrypticGNN model can be instantiated and run a forward pass on a PCNA residue graph (constructed from PDB 1W60) without errors, and produce per-residue pocket probabilities in [0, 1].
+The CrypticGNN model can be instantiated and run a forward pass on a PCNA residue graph (constructed from PDB 1W60) without errors, and produce per-residue prioritization scores in [0, 1] (uncalibrated sigmoid outputs, not probabilities).
 
 ---
 

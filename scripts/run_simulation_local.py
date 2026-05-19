@@ -41,7 +41,7 @@ def check_gpu():
 def run(ns: float = 100.0):
     from openmm.app import (
         PDBFile, Simulation, DCDReporter,
-        StateDataReporter, CheckpointReporter, MonteCarloBarostat
+        StateDataReporter, CheckpointReporter
     )
     from openmm import (
         XmlSerializer, LangevinMiddleIntegrator,
@@ -88,7 +88,7 @@ def run(ns: float = 100.0):
     print(f"  PE: {pe}")
 
     # ── NVT equilibration — heat 100 K → 310 K over 1 ns ────────────────────
-    print("\n[2/4] NVT equilibration (1 ns, 100 → 310 K)...")
+    print("\n[2/4] NVT equilibration (1 ns, 100 -> 310 K)...")
     simulation.context.setVelocitiesToTemperature(100 * unit.kelvin)
     simulation.reporters.append(
         StateDataReporter(sys.stdout, 25_000,

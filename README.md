@@ -85,6 +85,10 @@ CrypticGNN v1 (~556k params, single-branch, 26-dim nodes) is preserved for compa
 
 > Full instructions with troubleshooting: **[SETUP.md](SETUP.md)**
 
+> **IMPORTANT FOR AUTOMATED REVIEW / CI:** Do NOT run `pip install -r requirements.txt` directly.
+> `torch-scatter` and `torch-sparse` require a wheel URL that matches your CUDA build.
+> Use the provided install script instead (see Step 2).
+
 ### 1. Clone & create environment
 
 ```bash
@@ -94,29 +98,26 @@ python -m venv .venv
 # Windows: .venv\Scripts\activate  |  macOS/Linux: source .venv/bin/activate
 ```
 
-### 2. Install PyTorch (pick your hardware)
+### 2. Install all dependencies (use the install script — not pip install -r directly)
 
 ```bash
-# CPU only
-pip install torch==2.1.0 --index-url https://download.pytorch.org/whl/cpu
+# CPU-only (default — works on any machine)
+bash install.sh
 
 # NVIDIA GPU — CUDA 11.8
-pip install torch==2.1.0 --index-url https://download.pytorch.org/whl/cu118
+bash install.sh cu118
 
 # NVIDIA GPU — CUDA 12.1
-pip install torch==2.1.0 --index-url https://download.pytorch.org/whl/cu121
+bash install.sh cu121
+
+# Windows
+install.bat        # CPU
+install.bat cu118  # NVIDIA GPU
 ```
 
-### 3. Install PyTorch Geometric + all dependencies
-
-```bash
-# PyG sparse ops (replace +cpu with +cu118 / +cu121 to match your torch build)
-pip install torch-scatter torch-sparse \
-  -f https://data.pyg.org/whl/torch-2.1.0+cpu.html
-
-pip install torch-geometric
-pip install -r requirements.txt
-```
+Why: `torch-scatter` and `torch-sparse` must be installed from the PyG wheel server with
+a tag matching your torch+CUDA build. A plain `pip install -r requirements.txt` will fail
+or install incompatible binaries — see comments in `requirements.txt`.
 
 ### 4. PDB structures + graph tensors (already in repo)
 

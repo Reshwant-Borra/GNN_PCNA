@@ -1,4 +1,4 @@
-# PCNA Biology — Distilled Notes
+﻿# PCNA Biology — Distilled Notes
 
 **Source:** Multiple (paper_notes.md + needs NotebookLM extraction)
 **Status:** Partially populated from paper_notes.md
@@ -12,7 +12,7 @@
 - Overexpressed in cancer; essential for tumor proliferation
 - AOH1996: first-in-class small molecule inhibitor (~2023, City of Hope)
 - AOH1996 binding site: IDCL region (cryptic — not visible in apo 1W60)
-- PDB structures: 1W60 (apo), 8GLA (AOH1996-bound)
+- PDB structures: 1W60 (apo), 8GLA (AOH1996 derivative (ZQZ) bound)
 
 ---
 

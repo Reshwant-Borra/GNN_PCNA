@@ -1,9 +1,9 @@
-# Pipeline
+﻿# Pipeline
 
 ## Stage 1 — Data Ingestion
 - **Input**: PDB files (PCNA structures + cryptic pocket training set)
 - **Steps**:
-  - Download PDB: `1W60` (apo), `8GLA` (holo/AOH1996-bound)
+  - Download PDB: `1W60` (apo), `8GLA` (holo/AOH1996 derivative (ZQZ) bound)
   - Optional: ensemble from MD snapshots
   - Strip waters, ligands (except AOH1996 for labeling)
   - Standardize chain IDs (PCNA has chains A, B, C)
@@ -33,7 +33,7 @@
 ## Stage 4 — GNN Model
 - Architecture: see `docs/knowledge/MODELS.md`
 - Input: node features + edge features + graph topology
-- Output: per-residue scalar (cryptic pocket probability ∈ [0, 1])
+- Output: per-residue scalar (cryptic prioritization score ∈ [0, 1])
 
 ## Stage 5 — Pocket Clustering
 - Threshold per-residue scores (e.g., > 0.5)

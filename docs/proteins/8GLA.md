@@ -1,4 +1,4 @@
-# 8GLA — DNA BINDING
+﻿# 8GLA — DNA BINDING
 
 > Generated: 2026-05-16  |  Category: AOH1996 holo (confirmed binder)  **AOH1996 CANDIDATE**
 
@@ -52,7 +52,7 @@ Predicted cryptic pockets: 6
   Top residues: D236(VAL)=0.703, D115(GLU)=0.700, D235(LEU)=0.690, D40(MET)=0.682, D116(MET)=0.682, D39(SER)=0.682, D237(VAL)=0.669, D226(THR)=0.669
 
   How this pocket was identified:
-    The model assigned high pocket probability to 92 residues that cluster within 6 A of each other in 3D space. These residues have a mean SASA of 42.7 A^2 (51% are partially buried, SASA < 30 A^2), consistent with a recessed binding surface rather than an exposed loop.
+    The model assigned a high prioritization score to 92 residues that cluster within 6 A of each other in 3D space. These residues have a mean SASA of 42.7 A^2 (51% are partially buried, SASA < 30 A^2), consistent with a recessed binding surface rather than an exposed loop.
     The GNN assigned high scores here because the dual-branch message-passing identified this neighborhood as chemically similar to known cryptic pocket residues in the training data: the spatial branch detected dense local packing (average 92 close contacts) and the sequential branch detected the loop or beta-strand context typical of induced-fit binding sites.
     This matches the region where AOH1996 binds in PDB 8GLA, specifically the core beta sheet. The prediction is consistent with the known mechanism of cryptic pocket opening.
 
@@ -72,7 +72,7 @@ Predicted cryptic pockets: 6
   Top residues: A231(ALA)=0.808, A234(PRO)=0.803, A233(VAL)=0.802, A232(ASP)=0.801, A235(LEU)=0.799, A134(SER)=0.790, A139(MET)=0.789, A124(GLU)=0.781
 
   How this pocket was identified:
-    The model assigned high pocket probability to 44 residues that cluster within 6 A of each other in 3D space. These residues have a mean SASA of 37.1 A^2 (52% are partially buried, SASA < 30 A^2), consistent with a recessed binding surface rather than an exposed loop.
+    The model assigned a high prioritization score to 44 residues that cluster within 6 A of each other in 3D space. These residues have a mean SASA of 37.1 A^2 (52% are partially buried, SASA < 30 A^2), consistent with a recessed binding surface rather than an exposed loop.
     The GNN assigned high scores here because the dual-branch message-passing identified this neighborhood as chemically similar to known cryptic pocket residues in the training data: the spatial branch detected dense local packing (average 44 close contacts) and the sequential branch detected the loop or beta-strand context typical of induced-fit binding sites.
     This matches the region where AOH1996 binds in PDB 8GLA, specifically the c-terminal loop — aoh1996 cryptic pocket region. The prediction is consistent with the known mechanism of cryptic pocket opening.
 
@@ -93,7 +93,7 @@ Predicted cryptic pockets: 6
   Top residues: B235(LEU)=0.699, B236(VAL)=0.694, B237(VAL)=0.666, B46(SER)=0.659, B39(SER)=0.655, B38(GLN)=0.643, B238(GLU)=0.635, B229(MET)=0.633
 
   How this pocket was identified:
-    The model assigned high pocket probability to 61 residues that cluster within 6 A of each other in 3D space. These residues have a mean SASA of 32.2 A^2 (56% are partially buried, SASA < 30 A^2), consistent with a recessed binding surface rather than an exposed loop.
+    The model assigned a high prioritization score to 61 residues that cluster within 6 A of each other in 3D space. These residues have a mean SASA of 32.2 A^2 (56% are partially buried, SASA < 30 A^2), consistent with a recessed binding surface rather than an exposed loop.
     The GNN assigned high scores here because the dual-branch message-passing identified this neighborhood as chemically similar to known cryptic pocket residues in the training data: the spatial branch detected dense local packing (average 61 close contacts) and the sequential branch detected the loop or beta-strand context typical of induced-fit binding sites.
     This matches the region where AOH1996 binds in PDB 8GLA, specifically the idcl — interdomain connecting loop (key interaction hub). The prediction is consistent with the known mechanism of cryptic pocket opening.
 
@@ -114,7 +114,7 @@ Predicted cryptic pockets: 6
   Top residues: C226(THR)=0.622, C227(LEU)=0.618, C46(SER)=0.618, C228(SER)=0.604, C39(SER)=0.595, C225(VAL)=0.594, C237(VAL)=0.574, C238(GLU)=0.566
 
   How this pocket was identified:
-    The model assigned high pocket probability to 32 residues that cluster within 6 A of each other in 3D space. These residues have a mean SASA of 39.9 A^2 (56% are partially buried, SASA < 30 A^2), consistent with a recessed binding surface rather than an exposed loop.
+    The model assigned a high prioritization score to 32 residues that cluster within 6 A of each other in 3D space. These residues have a mean SASA of 39.9 A^2 (56% are partially buried, SASA < 30 A^2), consistent with a recessed binding surface rather than an exposed loop.
     The GNN assigned high scores here because the dual-branch message-passing identified this neighborhood as chemically similar to known cryptic pocket residues in the training data: the spatial branch detected dense local packing (average 32 close contacts) and the sequential branch detected the loop or beta-strand context typical of induced-fit binding sites.
     This matches the region where AOH1996 binds in PDB 8GLA, specifically the idcl — interdomain connecting loop (key interaction hub). The prediction is consistent with the known mechanism of cryptic pocket opening.
 
@@ -124,14 +124,14 @@ Predicted cryptic pockets: 6
   Center (A): (113.1, -31.2, 108.9)
   Structural region: Domain 2 core beta sheet
   AOH1996 pocket overlap: 0/24 GT residues
-  --> LOW overlap: likely a distinct/novel predicted site
+  --> LOW overlap: model predicts a distinct site (hypothesis — requires experimental validation)
   Geometric concavity: 0.17 (convex — surface protrusion, interpret cautiously)
   Top residues: D170(SER)=0.567, D179(ASN)=0.552, D169(PHE)=0.552, D180(ILE)=0.525, D178(GLY)=0.498, D181(LYS)=0.484
 
   How this pocket was identified:
-    The model assigned high pocket probability to 6 residues that cluster within 6 A of each other in 3D space. These residues have a mean SASA of 52.5 A^2 (50% are partially buried, SASA < 30 A^2), consistent with a recessed binding surface rather than an exposed loop.
+    The model assigned a high prioritization score to 6 residues that cluster within 6 A of each other in 3D space. These residues have a mean SASA of 52.5 A^2 (50% are partially buried, SASA < 30 A^2), consistent with a recessed binding surface rather than an exposed loop.
     The GNN assigned high scores here because the dual-branch message-passing identified this neighborhood as chemically similar to known cryptic pocket residues in the training data: the spatial branch detected dense local packing (average 6 close contacts) and the sequential branch detected the loop or beta-strand context typical of induced-fit binding sites.
-    This does not overlap significantly with the AOH1996 site, suggesting a potentially novel cryptic pocket that may respond to a different small molecule than AOH1996.
+    This does not overlap significantly with the AOH1996 site. The model assigns high scores here; whether this represents a true cryptic pocket is a hypothesis requiring experimental validation.
 
   Pocket #6  (secondary)
   ------------------------------------------------------------
@@ -139,14 +139,14 @@ Predicted cryptic pockets: 6
   Center (A): (105.3, -24.5, 115.2)
   Structural region: Domain 2 core beta sheet
   AOH1996 pocket overlap: 0/24 GT residues
-  --> LOW overlap: likely a distinct/novel predicted site
+  --> LOW overlap: model predicts a distinct site (hypothesis — requires experimental validation)
   Geometric concavity: 0.25 (convex — surface protrusion, interpret cautiously)
   Top residues: D206(THR)=0.600, D205(LEU)=0.586, D207(PHE)=0.580, D204(GLN)=0.553
 
   How this pocket was identified:
-    The model assigned high pocket probability to 4 residues that cluster within 6 A of each other in 3D space. These residues have a mean SASA of 49.0 A^2 (50% are partially buried, SASA < 30 A^2), consistent with a recessed binding surface rather than an exposed loop.
+    The model assigned a high prioritization score to 4 residues that cluster within 6 A of each other in 3D space. These residues have a mean SASA of 49.0 A^2 (50% are partially buried, SASA < 30 A^2), consistent with a recessed binding surface rather than an exposed loop.
     The GNN assigned high scores here because the dual-branch message-passing identified this neighborhood as chemically similar to known cryptic pocket residues in the training data: the spatial branch detected dense local packing (average 4 close contacts) and the sequential branch detected the loop or beta-strand context typical of induced-fit binding sites.
-    This does not overlap significantly with the AOH1996 site, suggesting a potentially novel cryptic pocket that may respond to a different small molecule than AOH1996.
+    This does not overlap significantly with the AOH1996 site. The model assigns high scores here; whether this represents a true cryptic pocket is a hypothesis requiring experimental validation.
 
 Score distribution:
   Min=0.020  Max=0.808  Mean=0.218  Std=0.238

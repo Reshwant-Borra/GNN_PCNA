@@ -63,7 +63,7 @@
 
 ---
 
-## 2. AOH1996 Validation Gate
+## 2. AOH1996 Positive-Control Check
 
 Re-run command: `python scripts/aoh_gate_check.py --ckpt checkpoints/pcna_reproduced/best.ckpt --model xl`
 
@@ -199,7 +199,7 @@ python scripts/finetune_pcna.py \
   --model_size xl --seed 42 --lr 3e-4 \
   --ckpt_dir checkpoints/pcna_reproduced
 
-# 4. AOH validation gate
+# 4. AOH positive-control check
 python scripts/aoh_gate_check.py \
   --ckpt checkpoints/pcna_reproduced/best.ckpt --model xl
 

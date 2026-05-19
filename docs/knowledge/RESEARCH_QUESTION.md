@@ -58,7 +58,7 @@
 | Claim type | Allowed? |
 |---|---|
 | "GNN recovers known AOH1996 pocket" | Yes, if positive control passes |
-| "Novel cryptic sites predicted" | Yes, with RMSF + DCCM evidence |
+| "Novel cryptic sites predicted" | Unvalidated candidates only — not confirmed |
 | "Novel site is druggable" | Only with volume + geometry analysis |
 | "Novel site is better than AOH1996 site" | Not without functional assay |
 | "PCNA inhibition via novel site expected" | Not without wet lab validation |

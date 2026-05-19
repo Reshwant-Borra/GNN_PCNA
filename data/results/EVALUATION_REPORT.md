@@ -1,4 +1,4 @@
-# GNN-PCNA Full Evaluation Report
+﻿# GNN-PCNA Full Evaluation Report
 *Generated automatically by scripts/full_eval.py*
 
 ---
@@ -215,7 +215,7 @@ internal consistency evidence only.
 
 ### Scientific usefulness
 - **Drug discovery triage**: Screens all available PCNA structures in under 60 seconds
-  and ranks regions by pocket probability — useful for prioritising experimental follow-up.
+  and ranks regions by prioritization score — useful for prioritising experimental follow-up.
 - **Novel site hypotheses**: High scores in non-AOH1996 regions are unvalidated hypotheses
   worth investigating with docking or MD. They are not confirmed novel pockets.
 - **Preliminary benchmark**: AUROC 0.94 on ligand-proximity labels is encouraging but not

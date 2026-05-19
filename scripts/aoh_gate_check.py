@@ -1,5 +1,5 @@
-"""
-AOH1996 Validation Gate Check.
+﻿"""
+AOH1996 Positive-Control Recovery Check.
 
 Computes exact per-residue scores on 8GLA and reports whether the model
 recovers the AOH1996 pocket above the 0.7 validation threshold.
@@ -11,7 +11,7 @@ Usage:
 Outputs:
     - Mean / median score over labeled AOH1996 residues
     - Rank of top AOH1996 residue in the full score list
-    - Pass/fail verdict against the 0.7 threshold
+    - Pass/fail verdict against the 0.7 project-defined threshold
 """
 from __future__ import annotations
 import sys, json

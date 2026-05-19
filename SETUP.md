@@ -23,7 +23,7 @@ git clone https://github.com/Reshwant-Borra/GNN_PCNA.git
 cd GNN_PCNA
 ```
 
-All 59 PDB files, 88 graph tensors, and trained checkpoints are **already in the repo**. No download step needed.
+All PDB files, graph tensors, and trained checkpoints are **already in the repo**. No download step needed.
 
 ---
 
@@ -43,47 +43,21 @@ source .venv/bin/activate
 
 ## Step 3 — Install dependencies
 
-PyTorch Geometric requires two separate install steps. **Do them in order.**
-
-### 3a. Install PyTorch (pick your hardware)
+> **Do NOT run `pip install -r requirements.txt` directly.** `torch-scatter` and `torch-sparse` require a wheel URL matching your CUDA build. Use the install script instead.
 
 ```bash
-# CPU only — works on any machine
-pip install torch==2.1.0 --index-url https://download.pytorch.org/whl/cpu
+# CPU-only (default — works on any machine)
+bash install.sh
 
 # NVIDIA GPU — CUDA 11.8
-pip install torch==2.1.0 --index-url https://download.pytorch.org/whl/cu118
+bash install.sh cu118
 
 # NVIDIA GPU — CUDA 12.1
-pip install torch==2.1.0 --index-url https://download.pytorch.org/whl/cu121
-```
+bash install.sh cu121
 
-Verify:
-```bash
-python -c "import torch; print(torch.__version__)"
-# Expected: 2.1.0+cpu  (or +cu118 / +cu121)
-```
-
-### 3b. Install PyTorch Geometric
-
-```bash
-pip install torch-geometric
-
-# Sparse ops — replace +cpu with +cu118 or +cu121 to match your torch build
-pip install torch-scatter torch-sparse \
-  -f https://data.pyg.org/whl/torch-2.1.0+cpu.html
-```
-
-Verify:
-```bash
-python -c "import torch_geometric; print(torch_geometric.__version__)"
-# Expected: 2.4.x or later
-```
-
-### 3c. Install all other dependencies
-
-```bash
-pip install -r requirements.txt
+# Windows
+install.bat        # CPU
+install.bat cu118  # NVIDIA GPU
 ```
 
 ### Final check
@@ -100,13 +74,12 @@ python scripts/check_env.py
 This confirms the checkpoint retained its fine-tuning signal. Note: 8GLA was part of fine-tuning, so this is a **sanity check** (positive control), not independent validation. A PASS means the checkpoint is intact; novel predictions on other structures are hypotheses requiring experimental follow-up.
 
 ```bash
-# Using the recommended checkpoint (best_pcna_v3_fixed.ckpt)
-python scripts/aoh_gate_check.py --ckpt checkpoints/pcna/best_pcna_v3_fixed.ckpt --model xl
+python scripts/aoh_gate_check.py
 ```
 
 Expected output:
 ```
-AOH1996 pocket mean score : 0.8250
+AOH1996 pocket mean score : 0.8676
 Gate threshold            : 0.700
 Verdict                   : PASS
 ```
@@ -118,7 +91,7 @@ Verdict                   : PASS
 Evaluates the model on 5 proteins never seen during training or validation.
 
 ```bash
-python scripts/run_test_eval.py --ckpt checkpoints/pcna/best_pcna_v3_fixed.ckpt --model xl
+python scripts/run_test_eval.py
 ```
 
 Results written to `data/results/test_split_eval.json`.
@@ -137,7 +110,7 @@ If you see `11 skipped` with a message about `torch_geometric not installed`, go
 
 ---
 
-## Step 7 — Run per-structure analysis (all 59 PCNA structures)
+## Step 7 — Run per-structure analysis
 
 ```bash
 python scripts/per_structure_analysis.py
@@ -153,7 +126,7 @@ Output: `results/per_structure/{PDB_ID}/` for each structure (~5–15 min on CPU
 streamlit run src/ui/app.py
 ```
 
-Opens at `http://localhost:8501`. The UI defaults to `best_pcna_v3_fixed.ckpt`.
+Opens at `http://localhost:8501`. The UI defaults to `checkpoints/pcna_reproduced/best.ckpt`.
 
 ---
 
@@ -173,8 +146,8 @@ Results written to `data/results/nma_1W60.json` and `data/results/nma_8GLA.json`
 
 | File | Model | Use |
 |---|---|---|
-| `checkpoints/pcna/best_pcna_v3_fixed.ckpt` | PocketGNNXL (~13.4M params) | **Recommended** — apo-negative fix applied |
-| `checkpoints/pcna/best_pcna_v3.ckpt` | PocketGNNXL (~13.4M params) | Superseded — 8GLA training leak present |
+| `checkpoints/pcna_reproduced/best.ckpt` | PocketGNNXL (~13.4M params) | **Recommended** — full provenance, seed=42, AOH gate PASS 0.8676 |
+| `checkpoints/pcna/best_pcna_v3_fixed.ckpt` | PocketGNNXL (~13.4M params) | Superseded by `pcna_reproduced` |
 | `checkpoints/pcna/best_pcna.ckpt` | PocketGNN small (~907k params) | Baseline comparison only |
 
 ---
@@ -189,7 +162,7 @@ These files are committed — no recomputation needed to verify numbers:
 | `data/results/v3_summary.csv` | V3 per-structure scores |
 | `data/results/nma_apo_holo_comparison.json` | ANM flexibility comparison |
 | `data/splits/cryptosite_split.json` | Train/val/test split manifest |
-| `data/manifests/pdb_checksums.json` | SHA256 checksums for all 150 PDB files |
+| `data/manifests/pdb_checksums.json` | SHA256 checksums for all 149 PDB files |
 | `VERIFICATION_REPORT.md` | Automated claim verification (52 VERIFIED, 0 WRONG) |
 
 ---

@@ -1,10 +1,10 @@
 # data/raw/ — Raw PDB Files
 
-All 59 PDB files are **committed directly to this repo** and can be cloned without running any download script.
+All PDB files are **committed directly to this repo** and can be cloned without running any download script.
 
 ## What goes here
 
-All 59 PCNA PDB files used in this project, named `{PDB_ID}.pdb`.
+All PDB files used in this project (59 PCNA structures + 91 CryptoSite benchmark proteins, 149 total), named `{PDB_ID}.pdb`.
 
 ## How to reproduce
 
@@ -23,7 +23,7 @@ python scripts/download_data.py --force
 ```
 
 The script:
-1. Downloads all 59 PDB files from `https://files.rcsb.org/download/{PDB_ID}.pdb`
+1. Downloads all PDB files from `https://files.rcsb.org/download/{PDB_ID}.pdb`
 2. Verifies each file contains `ATOM` records
 3. Computes SHA256 checksums and saves them to `data/manifests/pdb_checksums.json`
 4. Builds PyG graph tensors and saves them to `data/graphs/`

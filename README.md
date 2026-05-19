@@ -166,11 +166,11 @@ python scripts/make_split.py
 
 # Pre-train on ligand-proximity labeled structures
 python -m src.training.train \
-  --train_dir data/cryptosite/train \
-  --val_dir   data/cryptosite/val \
-  --model_size large --phase pretrain \
+  --train_manifest data/splits/cryptosite_split.json \
+  --graph_dir data/graphs \
+  --model_size xl --phase pretrain \
   --checkpoint_dir checkpoints/pretrain/ \
-  --epochs 100 --lr 1e-3 --patience 15
+  --epochs 100 --lr 3e-4 --patience 15
 
 # Fine-tune on PCNA
 python scripts/finetune_pcna.py \

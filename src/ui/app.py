@@ -73,12 +73,6 @@ def load_model(config: str) -> tuple[torch.nn.Module, bool, str]:
     if config == "v3-xl":
         m = PocketGNNXL().eval()
         ckpt = CKPT_V3
-    elif config == "v2-large":
-        m = PocketGNN().eval()
-        ckpt = CKPT_V2
-    elif config == "v2-medium":
-        m = PocketGNN.medium().eval()
-        ckpt = CKPT_V2
     elif config == "v2-small":
         m = PocketGNN.small().eval()
         ckpt = CKPT_V2
@@ -401,8 +395,6 @@ with st.sidebar:
             [
                 "v3-xl (13.4M params, ESM2) [BEST]",
                 "v2-small (~907k params)",
-                "v2-medium (~3.6M params)",
-                "v2-large (~10.4M params)",
                 "v1-baseline",
             ],
             index=0,
@@ -434,7 +426,7 @@ with st.sidebar:
 
 if tab_mode == "Results Browser":
     st.title("V3 Results Browser")
-    st.caption("Pre-computed PocketGNNXL (v3) scores across all 59 PCNA structures")
+    st.caption("Pre-computed PocketGNNXL (v3) scores across PCNA structures")
 
     import pandas as pd
 

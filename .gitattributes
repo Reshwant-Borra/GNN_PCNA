@@ -1,0 +1,16 @@
+# Prevent git from converting line endings in binary / quasi-binary files.
+# Without this, Windows git (core.autocrlf=true) converts PDB/PT/CKPT files
+# to CRLF on checkout, breaking SHA-256 checksum verification.
+
+*.pdb    binary
+*.pt     binary
+*.ckpt   binary
+*.npy    binary
+*.npz    binary
+*.json   text eol=lf
+*.py     text eol=lf
+*.sh     text eol=lf
+*.md     text eol=lf
+*.txt    text eol=lf
+*.csv    text eol=lf
+*.bat    text eol=crlf

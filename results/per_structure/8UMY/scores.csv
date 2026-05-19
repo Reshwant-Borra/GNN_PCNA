@@ -765,7 +765,7 @@ B,249,GLU,0.0269,124.54,73.21,H,C-terminal loop — AOH1996 cryptic pocket region,
 B,250,ASN,0.0273,15.2,61.72,H,C-terminal loop — AOH1996 cryptic pocket region,1,0
 B,251,VAL,0.0229,0.0,59.16,H,C-terminal loop — AOH1996 cryptic pocket region,1,0
 B,252,PHE,0.0248,97.51,62.9,H,C-terminal loop — AOH1996 cryptic pocket region,1,0
-B,253,LYS,0.0272,84.36,63.1,H,C-terminal loop — AOH1996 cryptic pocket region,1,0
+B,253,LYS,0.0272,84.36,63.1,H,C-terminal loop — AOH1996 cryptic pocket region,0,0
 B,254,VAL,0.0339,7.5,55.69,H,C-terminal tail (protein-protein interface),0,0
 B,255,CYS,0.033,6.2,65.57,H,C-terminal tail (protein-protein interface),0,0
 B,256,ASP,0.0366,43.24,87.13,C,C-terminal tail (protein-protein interface),0,0
@@ -873,9 +873,9 @@ C,21,PRO,0.0304,1.21,53.1,H,N-terminal beta sheet (domain 1),0,0
 C,22,TRP,0.0239,15.47,51.4,H,N-terminal beta sheet (domain 1),0,0
 C,23,VAL,0.0242,4.83,43.11,H,N-terminal beta sheet (domain 1),0,1
 C,24,GLU,0.0221,28.27,52.82,H,N-terminal beta sheet (domain 1),0,1
-C,25,LYS,0.0216,57.82,53.44,H,N-terminal beta sheet (domain 1),1,0
-C,26,TYR,0.023,23.34,51.5,H,N-terminal beta sheet (domain 1),1,1
-C,27,ARG,0.0226,24.06,50.85,C,N-terminal beta sheet (domain 1),1,1
+C,25,LYS,0.0216,57.82,53.44,H,N-terminal beta sheet (domain 1),0,0
+C,26,TYR,0.023,23.34,51.5,H,N-terminal beta sheet (domain 1),0,1
+C,27,ARG,0.0226,24.06,50.85,C,N-terminal beta sheet (domain 1),0,1
 C,28,PRO,0.0274,2.14,49.59,C,N-terminal beta sheet (domain 1),0,1
 C,29,GLN,0.0264,91.95,62.49,C,N-terminal beta sheet (domain 1),0,0
 C,30,THR,0.0292,72.71,59.34,H,N-terminal beta sheet (domain 1),0,0
@@ -886,16 +886,16 @@ C,34,LEU,0.0232,9.78,50.59,H,N-terminal beta sheet (domain 1),0,1
 C,35,ILE,0.0241,25.34,61.9,C,N-terminal beta sheet (domain 1),0,1
 C,36,SER,0.0235,22.5,52.74,C,N-terminal beta sheet (domain 1),0,1
 C,37,HIS,0.0235,21.62,50.84,H,N-terminal beta sheet (domain 1),0,0
-C,38,GLN,0.0228,92.8,57.31,H,N-terminal beta sheet (domain 1),1,0
-C,39,ASP,0.0234,52.8,59.16,H,N-terminal beta sheet (domain 1),1,0
-C,40,ILE,0.0223,9.66,43.83,H,N-terminal beta sheet (domain 1),1,0
-C,41,LEU,0.0223,10.73,43.23,H,Front-face loop (PIP-box groove),1,0
-C,42,SER,0.0225,51.49,49.56,H,Front-face loop (PIP-box groove),1,0
+C,38,GLN,0.0228,92.8,57.31,H,N-terminal beta sheet (domain 1),0,0
+C,39,ASP,0.0234,52.8,59.16,H,N-terminal beta sheet (domain 1),0,0
+C,40,ILE,0.0223,9.66,43.83,H,N-terminal beta sheet (domain 1),0,0
+C,41,LEU,0.0223,10.73,43.23,H,Front-face loop (PIP-box groove),0,0
+C,42,SER,0.0225,51.49,49.56,H,Front-face loop (PIP-box groove),0,0
 C,43,THR,0.0229,0.0,47.89,H,Front-face loop (PIP-box groove),0,0
-C,44,ILE,0.0225,1.21,48.61,H,Front-face loop (PIP-box groove),1,0
-C,45,GLN,0.0225,51.17,47.49,H,Front-face loop (PIP-box groove),1,0
-C,46,LYS,0.0225,86.69,56.34,H,Front-face loop (PIP-box groove),1,0
-C,47,PHE,0.0222,0.0,46.76,H,Front-face loop (PIP-box groove),1,0
+C,44,ILE,0.0225,1.21,48.61,H,Front-face loop (PIP-box groove),0,0
+C,45,GLN,0.0225,51.17,47.49,H,Front-face loop (PIP-box groove),0,0
+C,46,LYS,0.0225,86.69,56.34,H,Front-face loop (PIP-box groove),0,0
+C,47,PHE,0.0222,0.0,46.76,H,Front-face loop (PIP-box groove),0,0
 C,48,ILE,0.0228,15.15,56.4,H,Core beta sheet,0,0
 C,49,ASN,0.0217,105.07,60.84,H,Core beta sheet,0,0
 C,50,GLU,0.0213,76.79,70.15,H,Core beta sheet,0,0
@@ -971,12 +971,12 @@ C,119,PHE,0.078,18.11,57.71,C,IDCL — Interdomain Connecting Loop (key interactio
 C,120,LYS,0.0746,0.0,48.05,E,IDCL — Interdomain Connecting Loop (key interaction hub),0,0
 C,121,LEU,0.0756,4.83,41.28,E,IDCL — Interdomain Connecting Loop (key interaction hub),0,0
 C,122,VAL,0.0755,0.0,36.64,E,IDCL — Interdomain Connecting Loop (key interaction hub),0,0
-C,123,ILE,0.0649,3.62,37.26,E,IDCL — Interdomain Connecting Loop (key interaction hub),1,0
+C,123,ILE,0.0649,3.62,37.26,E,IDCL — Interdomain Connecting Loop (key interaction hub),0,0
 C,124,LEU,0.0864,0.0,47.21,E,IDCL — Interdomain Connecting Loop (key interaction hub),0,0
-C,125,ASP,0.077,0.0,48.0,C,IDCL — Interdomain Connecting Loop (key interaction hub),1,0
-C,126,GLU,0.0409,2.42,47.75,H,IDCL — Interdomain Connecting Loop (key interaction hub),1,0
+C,125,ASP,0.077,0.0,48.0,C,IDCL — Interdomain Connecting Loop (key interaction hub),0,0
+C,126,GLU,0.0409,2.42,47.75,H,IDCL — Interdomain Connecting Loop (key interaction hub),0,0
 C,127,ALA,0.04,4.69,45.76,H,IDCL — Interdomain Connecting Loop (key interaction hub),0,0
-C,128,ASP,0.0323,9.64,52.48,H,IDCL — Interdomain Connecting Loop (key interaction hub),1,0
+C,128,ASP,0.0323,9.64,52.48,H,IDCL — Interdomain Connecting Loop (key interaction hub),0,0
 C,129,ALA,0.0333,53.88,59.62,H,IDCL — Interdomain Connecting Loop (key interaction hub),0,0
 C,130,MET,0.0358,14.69,61.62,H,IDCL — Interdomain Connecting Loop (key interaction hub),0,0
 C,131,THR,0.0421,39.74,63.03,H,IDCL — Interdomain Connecting Loop (key interaction hub),0,0
@@ -1079,10 +1079,10 @@ C,227,PHE,0.0323,86.08,51.96,H,Domain 2 core beta sheet,0,0
 C,228,GLY,0.0391,27.76,56.81,C,Domain 2 core beta sheet,0,0
 C,229,LYS,0.0451,87.54,53.25,C,Domain 2 core beta sheet,0,0
 C,230,VAL,0.0531,0.0,56.28,C,Domain 2 core beta sheet,0,0
-C,231,THR,0.0535,28.57,60.24,H,C-terminal loop — AOH1996 cryptic pocket region,1,0
-C,232,GLU,0.044,73.4,59.09,H,C-terminal loop — AOH1996 cryptic pocket region,1,0
-C,233,GLU,0.0306,139.11,60.68,H,C-terminal loop — AOH1996 cryptic pocket region,1,0
-C,234,THR,0.0253,8.45,54.25,H,C-terminal loop — AOH1996 cryptic pocket region,1,0
+C,231,THR,0.0535,28.57,60.24,H,C-terminal loop — AOH1996 cryptic pocket region,0,0
+C,232,GLU,0.044,73.4,59.09,H,C-terminal loop — AOH1996 cryptic pocket region,0,0
+C,233,GLU,0.0306,139.11,60.68,H,C-terminal loop — AOH1996 cryptic pocket region,0,0
+C,234,THR,0.0253,8.45,54.25,H,C-terminal loop — AOH1996 cryptic pocket region,0,0
 C,235,VAL,0.0237,0.0,51.11,H,C-terminal loop — AOH1996 cryptic pocket region,0,0
 C,236,TYR,0.0232,23.18,54.64,H,C-terminal loop — AOH1996 cryptic pocket region,0,0
 C,237,THR,0.0277,51.35,48.88,H,C-terminal loop — AOH1996 cryptic pocket region,0,0
@@ -1098,10 +1098,10 @@ C,246,ASP,0.0212,12.86,56.2,H,C-terminal loop — AOH1996 cryptic pocket region,0,
 C,247,ILE,0.0226,0.0,60.83,H,C-terminal loop — AOH1996 cryptic pocket region,0,0
 C,248,ALA,0.0226,43.87,51.96,H,C-terminal loop — AOH1996 cryptic pocket region,0,0
 C,249,ASN,0.0235,61.78,56.38,H,C-terminal loop — AOH1996 cryptic pocket region,0,0
-C,250,ILE,0.0229,2.42,54.37,H,C-terminal loop — AOH1996 cryptic pocket region,1,0
-C,251,LEU,0.0229,3.62,55.38,H,C-terminal loop — AOH1996 cryptic pocket region,1,0
-C,252,ASP,0.0226,66.58,62.62,H,C-terminal loop — AOH1996 cryptic pocket region,1,0
-C,253,TRP,0.0225,60.86,49.87,H,C-terminal loop — AOH1996 cryptic pocket region,1,0
+C,250,ILE,0.0229,2.42,54.37,H,C-terminal loop — AOH1996 cryptic pocket region,0,0
+C,251,LEU,0.0229,3.62,55.38,H,C-terminal loop — AOH1996 cryptic pocket region,0,0
+C,252,ASP,0.0226,66.58,62.62,H,C-terminal loop — AOH1996 cryptic pocket region,0,0
+C,253,TRP,0.0225,60.86,49.87,H,C-terminal loop — AOH1996 cryptic pocket region,0,0
 C,254,MET,0.0222,1.29,67.73,H,C-terminal tail (protein-protein interface),0,0
 C,255,LEU,0.0227,0.0,69.32,H,C-terminal tail (protein-protein interface),0,0
 C,256,ASN,0.0221,31.23,76.67,H,C-terminal tail (protein-protein interface),0,0
@@ -1192,16 +1192,16 @@ C,340,ALA,0.024,61.67,120.53,H,Core beta sheet,0,0
 D,35,ALA,0.022,150.87,102.27,C,N-terminal beta sheet (domain 1),0,0
 D,36,LYS,0.0225,90.01,102.61,C,N-terminal beta sheet (domain 1),0,0
 D,37,PRO,0.0398,52.86,90.73,C,N-terminal beta sheet (domain 1),0,0
-D,38,VAL,0.0459,44.43,77.04,C,N-terminal beta sheet (domain 1),1,0
-D,39,PRO,0.0691,0.0,66.56,H,N-terminal beta sheet (domain 1),1,0
-D,40,TRP,0.0411,2.42,63.48,H,N-terminal beta sheet (domain 1),1,0
-D,41,VAL,0.0372,18.11,58.39,H,Front-face loop (PIP-box groove),1,1
-D,42,GLU,0.0221,53.05,63.34,H,Front-face loop (PIP-box groove),1,1
+D,38,VAL,0.0459,44.43,77.04,C,N-terminal beta sheet (domain 1),0,0
+D,39,PRO,0.0691,0.0,66.56,H,N-terminal beta sheet (domain 1),0,0
+D,40,TRP,0.0411,2.42,63.48,H,N-terminal beta sheet (domain 1),0,0
+D,41,VAL,0.0372,18.11,58.39,H,Front-face loop (PIP-box groove),0,1
+D,42,GLU,0.0221,53.05,63.34,H,Front-face loop (PIP-box groove),0,1
 D,43,LYS,0.0237,73.67,61.05,H,Front-face loop (PIP-box groove),0,0
-D,44,TYR,0.0233,45.85,64.6,H,Front-face loop (PIP-box groove),1,1
-D,45,ARG,0.0253,27.91,65.87,C,Front-face loop (PIP-box groove),1,1
-D,46,PRO,0.0301,7.64,66.34,C,Front-face loop (PIP-box groove),1,1
-D,47,LYS,0.0306,84.47,63.61,C,Front-face loop (PIP-box groove),1,0
+D,44,TYR,0.0233,45.85,64.6,H,Front-face loop (PIP-box groove),0,1
+D,45,ARG,0.0253,27.91,65.87,C,Front-face loop (PIP-box groove),0,1
+D,46,PRO,0.0301,7.64,66.34,C,Front-face loop (PIP-box groove),0,1
+D,47,LYS,0.0306,84.47,63.61,C,Front-face loop (PIP-box groove),0,0
 D,48,CYS,0.0288,25.26,66.64,H,Core beta sheet,0,0
 D,49,VAL,0.033,0.0,62.84,H,Core beta sheet,0,0
 D,50,ASP,0.0265,100.63,65.59,H,Core beta sheet,0,0
@@ -1277,12 +1277,12 @@ D,119,VAL,0.0222,3.62,56.61,H,IDCL — Interdomain Connecting Loop (key interactio
 D,120,ARG,0.0219,33.36,54.75,H,IDCL — Interdomain Connecting Loop (key interaction hub),0,0
 D,121,GLU,0.0216,105.45,52.38,H,IDCL — Interdomain Connecting Loop (key interaction hub),0,0
 D,122,LYS,0.0212,71.66,54.42,H,IDCL — Interdomain Connecting Loop (key interaction hub),0,0
-D,123,VAL,0.0238,3.62,47.35,H,IDCL — Interdomain Connecting Loop (key interaction hub),1,0
+D,123,VAL,0.0238,3.62,47.35,H,IDCL — Interdomain Connecting Loop (key interaction hub),0,0
 D,124,LYS,0.0231,37.8,44.24,H,IDCL — Interdomain Connecting Loop (key interaction hub),0,0
-D,125,ASN,0.0236,80.56,53.13,H,IDCL — Interdomain Connecting Loop (key interaction hub),1,0
-D,126,PHE,0.0267,25.25,45.35,H,IDCL — Interdomain Connecting Loop (key interaction hub),1,0
+D,125,ASN,0.0236,80.56,53.13,H,IDCL — Interdomain Connecting Loop (key interaction hub),0,0
+D,126,PHE,0.0267,25.25,45.35,H,IDCL — Interdomain Connecting Loop (key interaction hub),0,0
 D,127,ALA,0.0353,0.0,47.19,H,IDCL — Interdomain Connecting Loop (key interaction hub),0,0
-D,128,GLN,0.0364,53.78,46.21,H,IDCL — Interdomain Connecting Loop (key interaction hub),1,0
+D,128,GLN,0.0364,53.78,46.21,H,IDCL — Interdomain Connecting Loop (key interaction hub),0,0
 D,129,LEU,0.0458,24.15,34.01,C,IDCL — Interdomain Connecting Loop (key interaction hub),0,0
 D,130,THR,0.127,24.41,57.54,C,IDCL — Interdomain Connecting Loop (key interaction hub),0,0
 D,131,VAL,0.1676,41.16,61.23,C,IDCL — Interdomain Connecting Loop (key interaction hub),0,0
@@ -1385,10 +1385,10 @@ D,227,ILE,0.0209,3.62,81.53,H,Domain 2 core beta sheet,0,0
 D,228,ALA,0.0212,49.77,72.51,H,Domain 2 core beta sheet,0,0
 D,229,TYR,0.0217,46.81,77.77,H,Domain 2 core beta sheet,0,0
 D,230,LEU,0.0214,0.0,66.44,H,Domain 2 core beta sheet,0,0
-D,231,VAL,0.0372,7.91,58.81,H,C-terminal loop — AOH1996 cryptic pocket region,1,0
-D,232,LYS,0.0446,124.0,67.43,H,C-terminal loop — AOH1996 cryptic pocket region,1,0
-D,233,VAL,0.0555,18.23,62.82,H,C-terminal loop — AOH1996 cryptic pocket region,1,0
-D,234,SER,0.2597,3.21,58.58,H,C-terminal loop — AOH1996 cryptic pocket region,1,0
+D,231,VAL,0.0372,7.91,58.81,H,C-terminal loop — AOH1996 cryptic pocket region,0,0
+D,232,LYS,0.0446,124.0,67.43,H,C-terminal loop — AOH1996 cryptic pocket region,0,0
+D,233,VAL,0.0555,18.23,62.82,H,C-terminal loop — AOH1996 cryptic pocket region,0,0
+D,234,SER,0.2597,3.21,58.58,H,C-terminal loop — AOH1996 cryptic pocket region,0,0
 D,235,GLU,0.3828,119.94,62.36,H,C-terminal loop — AOH1996 cryptic pocket region,0,0
 D,236,GLY,0.4391,5.7,51.57,C,C-terminal loop — AOH1996 cryptic pocket region,0,0
 D,237,ASP,0.253,15.41,53.29,H,C-terminal loop — AOH1996 cryptic pocket region,0,0
@@ -1404,10 +1404,10 @@ D,246,GLN,0.0356,2.28,56.41,H,C-terminal loop — AOH1996 cryptic pocket region,0,
 D,247,SER,0.0398,0.0,52.77,H,C-terminal loop — AOH1996 cryptic pocket region,0,0
 D,248,ALA,0.0337,0.0,52.93,H,C-terminal loop — AOH1996 cryptic pocket region,0,0
 D,249,THR,0.0378,12.88,62.62,H,C-terminal loop — AOH1996 cryptic pocket region,0,0
-D,250,ARG,0.0387,47.07,59.09,H,C-terminal loop — AOH1996 cryptic pocket region,1,0
-D,251,LEU,0.047,30.7,64.85,H,C-terminal loop — AOH1996 cryptic pocket region,1,0
-D,252,THR,0.0612,28.4,87.42,H,C-terminal loop — AOH1996 cryptic pocket region,1,0
-D,253,GLY,0.0823,67.01,93.5,H,C-terminal loop — AOH1996 cryptic pocket region,1,0
+D,250,ARG,0.0387,47.07,59.09,H,C-terminal loop — AOH1996 cryptic pocket region,0,0
+D,251,LEU,0.047,30.7,64.85,H,C-terminal loop — AOH1996 cryptic pocket region,0,0
+D,252,THR,0.0612,28.4,87.42,H,C-terminal loop — AOH1996 cryptic pocket region,0,0
+D,253,GLY,0.0823,67.01,93.5,H,C-terminal loop — AOH1996 cryptic pocket region,0,0
 D,254,GLY,0.0811,47.18,104.42,C,C-terminal tail (protein-protein interface),0,0
 D,255,LYS,0.0379,142.38,110.14,C,C-terminal tail (protein-protein interface),0,0
 D,256,GLU,0.0845,87.77,104.14,C,C-terminal tail (protein-protein interface),0,0
@@ -1541,9 +1541,9 @@ E,21,GLU,0.0243,131.62,61.74,H,N-terminal beta sheet (domain 1),0,0
 E,22,GLN,0.0218,34.09,54.88,H,N-terminal beta sheet (domain 1),0,0
 E,23,ALA,0.023,3.51,62.11,H,N-terminal beta sheet (domain 1),0,0
 E,24,ALA,0.0231,34.89,66.62,H,N-terminal beta sheet (domain 1),0,0
-E,25,GLN,0.0237,74.04,59.4,H,N-terminal beta sheet (domain 1),1,0
-E,26,LEU,0.0239,12.08,57.66,H,N-terminal beta sheet (domain 1),1,0
-E,27,ARG,0.0236,77.62,63.21,H,N-terminal beta sheet (domain 1),1,0
+E,25,GLN,0.0237,74.04,59.4,H,N-terminal beta sheet (domain 1),0,0
+E,26,LEU,0.0239,12.08,57.66,H,N-terminal beta sheet (domain 1),0,0
+E,27,ARG,0.0236,77.62,63.21,H,N-terminal beta sheet (domain 1),0,0
 E,28,ASN,0.0232,59.11,62.93,H,N-terminal beta sheet (domain 1),0,0
 E,29,LEU,0.0234,2.28,58.96,H,N-terminal beta sheet (domain 1),0,0
 E,30,VAL,0.0243,2.14,69.65,H,N-terminal beta sheet (domain 1),0,0
@@ -1554,16 +1554,16 @@ E,34,ASP,0.0867,4.42,68.43,C,N-terminal beta sheet (domain 1),0,0
 E,35,PHE,0.1411,1.21,59.55,C,N-terminal beta sheet (domain 1),0,0
 E,36,PRO,0.2498,4.83,62.39,C,N-terminal beta sheet (domain 1),0,0
 E,37,HIS,0.5514,0.0,42.1,E,N-terminal beta sheet (domain 1),0,0
-E,38,LEU,0.5459,0.0,41.22,E,N-terminal beta sheet (domain 1),1,0
-E,39,LEU,0.2975,2.42,40.64,E,N-terminal beta sheet (domain 1),1,0
-E,40,VAL,0.2812,6.04,35.85,E,N-terminal beta sheet (domain 1),1,0
-E,41,TYR,0.2227,21.17,38.31,E,Front-face loop (PIP-box groove),1,0
-E,42,GLY,0.231,1.21,25.86,C,Front-face loop (PIP-box groove),1,0
+E,38,LEU,0.5459,0.0,41.22,E,N-terminal beta sheet (domain 1),0,0
+E,39,LEU,0.2975,2.42,40.64,E,N-terminal beta sheet (domain 1),0,0
+E,40,VAL,0.2812,6.04,35.85,E,N-terminal beta sheet (domain 1),0,0
+E,41,TYR,0.2227,21.17,38.31,E,Front-face loop (PIP-box groove),0,0
+E,42,GLY,0.231,1.21,25.86,C,Front-face loop (PIP-box groove),0,0
 E,43,PRO,0.1981,20.53,33.89,C,Front-face loop (PIP-box groove),0,0
-E,44,SER,0.3311,48.5,42.66,C,Front-face loop (PIP-box groove),1,1
-E,45,GLY,0.1933,0.0,28.92,C,Front-face loop (PIP-box groove),1,1
-E,46,ALA,0.1157,0.0,42.3,C,Front-face loop (PIP-box groove),1,1
-E,47,GLY,0.0885,0.0,43.13,H,Front-face loop (PIP-box groove),1,1
+E,44,SER,0.3311,48.5,42.66,C,Front-face loop (PIP-box groove),0,1
+E,45,GLY,0.1933,0.0,28.92,C,Front-face loop (PIP-box groove),0,1
+E,46,ALA,0.1157,0.0,42.3,C,Front-face loop (PIP-box groove),0,1
+E,47,GLY,0.0885,0.0,43.13,H,Front-face loop (PIP-box groove),0,1
 E,48,LYS,0.0665,6.9,46.51,H,Core beta sheet,0,1
 E,49,LYS,0.0484,16.45,44.55,H,Core beta sheet,0,1
 E,50,THR,0.0331,0.0,56.61,H,Core beta sheet,0,1
@@ -1639,12 +1639,12 @@ E,119,GLN,0.074,90.56,125.48,C,IDCL — Interdomain Connecting Loop (key interacti
 E,120,GLN,0.0807,36.19,118.72,C,IDCL — Interdomain Connecting Loop (key interaction hub),0,0
 E,121,LEU,0.189,111.53,126.48,C,IDCL — Interdomain Connecting Loop (key interaction hub),0,0
 E,122,GLU,0.0463,82.81,128.01,C,IDCL — Interdomain Connecting Loop (key interaction hub),0,0
-E,123,THR,0.0393,78.71,130.37,C,IDCL — Interdomain Connecting Loop (key interaction hub),1,0
+E,123,THR,0.0393,78.71,130.37,C,IDCL — Interdomain Connecting Loop (key interaction hub),0,0
 E,124,ASN,0.0247,136.79,132.44,C,IDCL — Interdomain Connecting Loop (key interaction hub),0,0
-E,125,SER,0.0253,82.09,128.74,C,IDCL — Interdomain Connecting Loop (key interaction hub),1,0
-E,126,GLN,0.025,25.16,119.35,C,IDCL — Interdomain Connecting Loop (key interaction hub),1,0
+E,125,SER,0.0253,82.09,128.74,C,IDCL — Interdomain Connecting Loop (key interaction hub),0,0
+E,126,GLN,0.025,25.16,119.35,C,IDCL — Interdomain Connecting Loop (key interaction hub),0,0
 E,127,ARG,0.0439,63.86,99.56,C,IDCL — Interdomain Connecting Loop (key interaction hub),0,0
-E,128,ASP,0.0627,82.59,93.48,C,IDCL — Interdomain Connecting Loop (key interaction hub),1,0
+E,128,ASP,0.0627,82.59,93.48,C,IDCL — Interdomain Connecting Loop (key interaction hub),0,0
 E,129,PHE,0.1204,7.25,79.85,C,IDCL — Interdomain Connecting Loop (key interaction hub),0,0
 E,130,LYS,0.3723,23.76,75.95,E,IDCL — Interdomain Connecting Loop (key interaction hub),0,0
 E,131,VAL,0.6621,1.07,57.31,E,IDCL — Interdomain Connecting Loop (key interaction hub),0,0
@@ -1747,10 +1747,10 @@ E,227,LEU,0.0289,2.42,61.07,H,Domain 2 core beta sheet,0,0
 E,228,LEU,0.0275,1.21,68.91,H,Domain 2 core beta sheet,0,0
 E,229,MET,0.0276,0.0,69.8,H,Domain 2 core beta sheet,0,0
 E,230,CYS,0.026,0.0,74.24,H,Domain 2 core beta sheet,0,0
-E,231,GLU,0.0255,10.71,75.43,H,C-terminal loop — AOH1996 cryptic pocket region,1,0
-E,232,ALA,0.0248,0.0,80.39,H,C-terminal loop — AOH1996 cryptic pocket region,1,0
-E,233,CYS,0.0242,0.0,90.8,H,C-terminal loop — AOH1996 cryptic pocket region,1,0
-E,234,ARG,0.0235,61.22,87.2,H,C-terminal loop — AOH1996 cryptic pocket region,1,0
+E,231,GLU,0.0255,10.71,75.43,H,C-terminal loop — AOH1996 cryptic pocket region,0,0
+E,232,ALA,0.0248,0.0,80.39,H,C-terminal loop — AOH1996 cryptic pocket region,0,0
+E,233,CYS,0.0242,0.0,90.8,H,C-terminal loop — AOH1996 cryptic pocket region,0,0
+E,234,ARG,0.0235,61.22,87.2,H,C-terminal loop — AOH1996 cryptic pocket region,0,0
 E,235,VAL,0.0244,21.19,83.93,H,C-terminal loop — AOH1996 cryptic pocket region,0,0
 E,236,GLN,0.0241,43.11,91.05,H,C-terminal loop — AOH1996 cryptic pocket region,0,0
 E,237,GLN,0.0336,58.87,102.62,H,C-terminal loop — AOH1996 cryptic pocket region,0,0
@@ -1766,10 +1766,10 @@ E,246,ILE,0.0828,12.58,96.26,C,C-terminal loop — AOH1996 cryptic pocket region,0
 E,247,PRO,0.0939,10.87,93.2,C,C-terminal loop — AOH1996 cryptic pocket region,0,0
 E,248,GLU,0.0874,97.45,86.26,C,C-terminal loop — AOH1996 cryptic pocket region,0,0
 E,249,THR,0.064,4.58,73.81,H,C-terminal loop — AOH1996 cryptic pocket region,0,0
-E,250,ASP,0.0549,2.14,79.05,H,C-terminal loop — AOH1996 cryptic pocket region,1,0
-E,251,TRP,0.0236,32.61,61.24,H,C-terminal loop — AOH1996 cryptic pocket region,1,0
-E,252,GLU,0.0224,63.51,61.36,H,C-terminal loop — AOH1996 cryptic pocket region,1,0
-E,253,VAL,0.0227,28.98,64.97,H,C-terminal loop — AOH1996 cryptic pocket region,1,0
+E,250,ASP,0.0549,2.14,79.05,H,C-terminal loop — AOH1996 cryptic pocket region,0,0
+E,251,TRP,0.0236,32.61,61.24,H,C-terminal loop — AOH1996 cryptic pocket region,0,0
+E,252,GLU,0.0224,63.51,61.36,H,C-terminal loop — AOH1996 cryptic pocket region,0,0
+E,253,VAL,0.0227,28.98,64.97,H,C-terminal loop — AOH1996 cryptic pocket region,0,0
 E,254,TYR,0.0223,4.29,60.06,H,C-terminal tail (protein-protein interface),0,0
 E,255,LEU,0.0225,3.62,46.06,H,C-terminal tail (protein-protein interface),0,0
 E,256,ARG,0.0241,106.67,62.82,H,C-terminal tail (protein-protein interface),0,0
@@ -1890,9 +1890,9 @@ F,21,ASP,0.0262,92.2,94.3,C,N-terminal beta sheet (domain 1),0,0
 F,22,LEU,0.0267,9.78,90.62,C,N-terminal beta sheet (domain 1),0,0
 F,23,ILE,0.0444,5.9,89.09,C,N-terminal beta sheet (domain 1),0,0
 F,24,ASN,0.0582,106.3,97.19,C,N-terminal beta sheet (domain 1),0,0
-F,25,GLU,0.0902,34.7,87.87,E,N-terminal beta sheet (domain 1),1,0
-F,26,ALA,0.1573,1.07,74.34,E,N-terminal beta sheet (domain 1),1,0
-F,27,CYS,0.1943,33.46,81.33,E,N-terminal beta sheet (domain 1),1,0
+F,25,GLU,0.0902,34.7,87.87,E,N-terminal beta sheet (domain 1),0,0
+F,26,ALA,0.1573,1.07,74.34,E,N-terminal beta sheet (domain 1),0,0
+F,27,CYS,0.1943,33.46,81.33,E,N-terminal beta sheet (domain 1),0,0
 F,28,TRP,0.1883,14.26,75.16,E,N-terminal beta sheet (domain 1),0,0
 F,29,ASP,0.1873,62.84,83.06,E,N-terminal beta sheet (domain 1),0,0
 F,30,ILE,0.139,6.56,95.54,E,N-terminal beta sheet (domain 1),0,0
@@ -1903,16 +1903,16 @@ F,34,GLY,0.2709,0.0,89.27,E,N-terminal beta sheet (domain 1),0,0
 F,35,VAL,0.3186,7.11,81.44,E,N-terminal beta sheet (domain 1),0,0
 F,36,ASN,0.5064,49.04,82.34,E,N-terminal beta sheet (domain 1),0,0
 F,37,LEU,0.5672,2.3,77.64,E,N-terminal beta sheet (domain 1),0,0
-F,38,GLN,0.6499,71.45,80.98,E,N-terminal beta sheet (domain 1),1,0
-F,39,SER,0.663,7.11,76.67,E,N-terminal beta sheet (domain 1),1,0
-F,40,MET,0.6692,47.04,77.41,E,N-terminal beta sheet (domain 1),1,0
-F,41,ASP,0.6181,19.83,79.5,C,Front-face loop (PIP-box groove),1,0
-F,42,SER,0.6299,78.97,82.47,C,Front-face loop (PIP-box groove),1,0
+F,38,GLN,0.6499,71.45,80.98,E,N-terminal beta sheet (domain 1),0,0
+F,39,SER,0.663,7.11,76.67,E,N-terminal beta sheet (domain 1),0,0
+F,40,MET,0.6692,47.04,77.41,E,N-terminal beta sheet (domain 1),0,0
+F,41,ASP,0.6181,19.83,79.5,C,Front-face loop (PIP-box groove),0,0
+F,42,SER,0.6299,78.97,82.47,C,Front-face loop (PIP-box groove),0,0
 F,43,SER,0.5784,6.43,70.33,C,Front-face loop (PIP-box groove),0,0
-F,44,HIS,0.5962,40.21,78.5,C,Front-face loop (PIP-box groove),1,0
-F,45,VAL,0.55,2.42,70.77,C,Front-face loop (PIP-box groove),1,0
-F,46,SER,0.583,0.0,71.98,E,Front-face loop (PIP-box groove),1,0
-F,47,LEU,0.5618,9.66,67.8,E,Front-face loop (PIP-box groove),1,0
+F,44,HIS,0.5962,40.21,78.5,C,Front-face loop (PIP-box groove),0,0
+F,45,VAL,0.55,2.42,70.77,C,Front-face loop (PIP-box groove),0,0
+F,46,SER,0.583,0.0,71.98,E,Front-face loop (PIP-box groove),0,0
+F,47,LEU,0.5618,9.66,67.8,E,Front-face loop (PIP-box groove),0,0
 F,48,VAL,0.597,0.0,68.13,E,Core beta sheet,0,0
 F,49,GLN,0.5507,29.82,78.82,E,Core beta sheet,0,0
 F,50,LEU,0.5849,5.9,81.94,E,Core beta sheet,0,0
@@ -1988,12 +1988,12 @@ F,119,MET,0.185,23.92,57.88,C,IDCL — Interdomain Connecting Loop (key interactio
 F,120,ASP,0.1694,60.72,69.76,C,IDCL — Interdomain Connecting Loop (key interaction hub),0,0
 F,121,LEU,0.1355,71.69,94.93,C,IDCL — Interdomain Connecting Loop (key interaction hub),0,0
 F,122,ASP,0.2384,104.41,114.26,C,IDCL — Interdomain Connecting Loop (key interaction hub),0,0
-F,123,VAL,0.237,116.77,119.8,C,IDCL — Interdomain Connecting Loop (key interaction hub),1,0
+F,123,VAL,0.237,116.77,119.8,C,IDCL — Interdomain Connecting Loop (key interaction hub),0,0
 F,124,GLU,0.2441,124.42,122.72,C,IDCL — Interdomain Connecting Loop (key interaction hub),0,0
-F,125,GLN,0.195,155.38,125.87,C,IDCL — Interdomain Connecting Loop (key interaction hub),1,0
-F,126,LEU,0.1103,68.82,115.99,C,IDCL — Interdomain Connecting Loop (key interaction hub),1,0
+F,125,GLN,0.195,155.38,125.87,C,IDCL — Interdomain Connecting Loop (key interaction hub),0,0
+F,126,LEU,0.1103,68.82,115.99,C,IDCL — Interdomain Connecting Loop (key interaction hub),0,0
 F,127,GLY,0.0935,63.07,122.66,C,IDCL — Interdomain Connecting Loop (key interaction hub),0,0
-F,128,ILE,0.0386,128.04,118.28,C,IDCL — Interdomain Connecting Loop (key interaction hub),1,0
+F,128,ILE,0.0386,128.04,118.28,C,IDCL — Interdomain Connecting Loop (key interaction hub),0,0
 F,129,PRO,0.0434,35.82,117.62,C,IDCL — Interdomain Connecting Loop (key interaction hub),0,0
 F,130,GLU,0.0623,141.61,122.63,C,IDCL — Interdomain Connecting Loop (key interaction hub),0,0
 F,131,GLN,0.1032,142.12,118.04,C,IDCL — Interdomain Connecting Loop (key interaction hub),0,0
@@ -2096,10 +2096,10 @@ F,227,LEU,0.6957,2.42,85.38,E,Domain 2 core beta sheet,0,0
 F,228,SER,0.7092,16.21,87.73,E,Domain 2 core beta sheet,0,0
 F,229,MET,0.6867,3.78,97.29,E,Domain 2 core beta sheet,0,0
 F,230,SER,0.6797,7.77,97.33,E,Domain 2 core beta sheet,0,0
-F,231,ALA,0.6375,56.78,95.01,C,C-terminal loop — AOH1996 cryptic pocket region,1,0
-F,232,ASP,0.3934,104.82,96.97,C,C-terminal loop — AOH1996 cryptic pocket region,1,0
-F,233,VAL,0.5904,44.57,89.16,E,C-terminal loop — AOH1996 cryptic pocket region,1,0
-F,234,PRO,0.6865,8.45,82.01,E,C-terminal loop — AOH1996 cryptic pocket region,1,0
+F,231,ALA,0.6375,56.78,95.01,C,C-terminal loop — AOH1996 cryptic pocket region,0,0
+F,232,ASP,0.3934,104.82,96.97,C,C-terminal loop — AOH1996 cryptic pocket region,0,0
+F,233,VAL,0.5904,44.57,89.16,E,C-terminal loop — AOH1996 cryptic pocket region,0,0
+F,234,PRO,0.6865,8.45,82.01,E,C-terminal loop — AOH1996 cryptic pocket region,0,0
 F,235,LEU,0.7141,3.49,77.32,E,C-terminal loop — AOH1996 cryptic pocket region,0,0
 F,236,VAL,0.7205,12.08,68.32,E,C-terminal loop — AOH1996 cryptic pocket region,0,0
 F,237,VAL,0.6754,1.21,77.3,E,C-terminal loop — AOH1996 cryptic pocket region,0,0
@@ -2115,10 +2115,10 @@ F,246,HIS,0.4419,58.33,95.26,E,C-terminal loop — AOH1996 cryptic pocket region,0
 F,247,LEU,0.5526,1.21,82.15,E,C-terminal loop — AOH1996 cryptic pocket region,0,0
 F,248,LYS,0.5396,36.89,84.06,E,C-terminal loop — AOH1996 cryptic pocket region,0,0
 F,249,TYR,0.5752,2.14,77.79,E,C-terminal loop — AOH1996 cryptic pocket region,0,0
-F,250,TYR,0.5586,16.62,70.75,E,C-terminal loop — AOH1996 cryptic pocket region,1,0
-F,251,LEU,0.5223,0.0,76.08,E,C-terminal loop — AOH1996 cryptic pocket region,1,0
-F,252,ALA,0.4777,1.07,73.66,C,C-terminal loop — AOH1996 cryptic pocket region,1,0
-F,253,PRO,0.4471,10.87,80.78,C,C-terminal loop — AOH1996 cryptic pocket region,1,0
+F,250,TYR,0.5586,16.62,70.75,E,C-terminal loop — AOH1996 cryptic pocket region,0,0
+F,251,LEU,0.5223,0.0,76.08,E,C-terminal loop — AOH1996 cryptic pocket region,0,0
+F,252,ALA,0.4777,1.07,73.66,C,C-terminal loop — AOH1996 cryptic pocket region,0,0
+F,253,PRO,0.4471,10.87,80.78,C,C-terminal loop — AOH1996 cryptic pocket region,0,0
 F,254,LYS,0.088,39.92,85.77,C,C-terminal tail (protein-protein interface),0,0
 F,255,ILE,0.0593,39.02,98.05,C,C-terminal tail (protein-protein interface),0,0
 F,256,GLU,0.029,71.32,108.74,C,C-terminal tail (protein-protein interface),0,0
@@ -2148,9 +2148,9 @@ G,21,ASP,0.0312,93.8,85.02,C,N-terminal beta sheet (domain 1),0,0
 G,22,LEU,0.0355,5.63,72.24,C,N-terminal beta sheet (domain 1),0,0
 G,23,ILE,0.0913,8.98,64.64,C,N-terminal beta sheet (domain 1),0,0
 G,24,ASN,0.1252,66.19,65.87,C,N-terminal beta sheet (domain 1),0,0
-G,25,GLU,0.2246,19.17,67.92,E,N-terminal beta sheet (domain 1),1,0
-G,26,ALA,0.3363,4.83,69.44,E,N-terminal beta sheet (domain 1),1,0
-G,27,CYS,0.3783,16.1,73.0,E,N-terminal beta sheet (domain 1),1,0
+G,25,GLU,0.2246,19.17,67.92,E,N-terminal beta sheet (domain 1),0,0
+G,26,ALA,0.3363,4.83,69.44,E,N-terminal beta sheet (domain 1),0,0
+G,27,CYS,0.3783,16.1,73.0,E,N-terminal beta sheet (domain 1),0,0
 G,28,TRP,0.3438,26.57,66.23,E,N-terminal beta sheet (domain 1),0,0
 G,29,ASP,0.3246,58.83,78.76,E,N-terminal beta sheet (domain 1),0,0
 G,30,ILE,0.2439,4.29,79.07,E,N-terminal beta sheet (domain 1),0,0
@@ -2161,16 +2161,16 @@ G,34,GLY,0.3563,0.0,74.16,E,N-terminal beta sheet (domain 1),0,0
 G,35,VAL,0.4234,7.25,69.85,E,N-terminal beta sheet (domain 1),0,0
 G,36,ASN,0.5539,58.74,64.58,E,N-terminal beta sheet (domain 1),0,0
 G,37,LEU,0.6149,3.62,54.07,E,N-terminal beta sheet (domain 1),0,0
-G,38,GLN,0.6934,46.26,68.35,E,N-terminal beta sheet (domain 1),1,0
-G,39,SER,0.7005,3.35,54.4,E,N-terminal beta sheet (domain 1),1,0
-G,40,MET,0.6837,18.67,59.53,E,N-terminal beta sheet (domain 1),1,0
-G,41,ASP,0.6231,2.14,55.25,C,Front-face loop (PIP-box groove),1,0
-G,42,SER,0.3105,72.0,48.6,C,Front-face loop (PIP-box groove),1,0
+G,38,GLN,0.6934,46.26,68.35,E,N-terminal beta sheet (domain 1),0,0
+G,39,SER,0.7005,3.35,54.4,E,N-terminal beta sheet (domain 1),0,0
+G,40,MET,0.6837,18.67,59.53,E,N-terminal beta sheet (domain 1),0,0
+G,41,ASP,0.6231,2.14,55.25,C,Front-face loop (PIP-box groove),0,0
+G,42,SER,0.3105,72.0,48.6,C,Front-face loop (PIP-box groove),0,0
 G,43,SER,0.1813,6.43,47.23,C,Front-face loop (PIP-box groove),0,0
-G,44,HIS,0.5362,50.08,48.66,C,Front-face loop (PIP-box groove),1,0
-G,45,VAL,0.5643,2.28,47.46,C,Front-face loop (PIP-box groove),1,0
-G,46,SER,0.6387,0.0,32.63,E,Front-face loop (PIP-box groove),1,0
-G,47,LEU,0.6444,2.42,43.76,E,Front-face loop (PIP-box groove),1,0
+G,44,HIS,0.5362,50.08,48.66,C,Front-face loop (PIP-box groove),0,0
+G,45,VAL,0.5643,2.28,47.46,C,Front-face loop (PIP-box groove),0,0
+G,46,SER,0.6387,0.0,32.63,E,Front-face loop (PIP-box groove),0,0
+G,47,LEU,0.6444,2.42,43.76,E,Front-face loop (PIP-box groove),0,0
 G,48,VAL,0.6685,1.21,53.18,E,Core beta sheet,0,0
 G,49,GLN,0.6393,16.68,53.68,E,Core beta sheet,0,0
 G,50,LEU,0.6497,1.07,53.1,E,Core beta sheet,0,0
@@ -2246,12 +2246,12 @@ G,119,MET,0.287,29.55,63.32,C,IDCL — Interdomain Connecting Loop (key interactio
 G,120,ASP,0.187,49.56,65.19,C,IDCL — Interdomain Connecting Loop (key interaction hub),0,0
 G,121,LEU,0.1255,64.77,86.38,C,IDCL — Interdomain Connecting Loop (key interaction hub),0,0
 G,122,ASP,0.1287,117.66,114.03,C,IDCL — Interdomain Connecting Loop (key interaction hub),0,0
-G,123,VAL,0.1268,84.64,126.47,C,IDCL — Interdomain Connecting Loop (key interaction hub),1,0
+G,123,VAL,0.1268,84.64,126.47,C,IDCL — Interdomain Connecting Loop (key interaction hub),0,0
 G,124,GLU,0.0992,84.92,126.11,C,IDCL — Interdomain Connecting Loop (key interaction hub),0,0
-G,125,GLN,0.1001,154.07,120.82,C,IDCL — Interdomain Connecting Loop (key interaction hub),1,0
-G,126,LEU,0.2907,13.01,103.97,C,IDCL — Interdomain Connecting Loop (key interaction hub),1,0
+G,125,GLN,0.1001,154.07,120.82,C,IDCL — Interdomain Connecting Loop (key interaction hub),0,0
+G,126,LEU,0.2907,13.01,103.97,C,IDCL — Interdomain Connecting Loop (key interaction hub),0,0
 G,127,GLY,0.0866,36.07,99.27,C,IDCL — Interdomain Connecting Loop (key interaction hub),0,0
-G,128,ILE,0.1186,40.18,103.12,C,IDCL — Interdomain Connecting Loop (key interaction hub),1,0
+G,128,ILE,0.1186,40.18,103.12,C,IDCL — Interdomain Connecting Loop (key interaction hub),0,0
 G,129,PRO,0.1292,52.44,120.95,C,IDCL — Interdomain Connecting Loop (key interaction hub),0,0
 G,130,GLU,0.2211,140.57,121.65,C,IDCL — Interdomain Connecting Loop (key interaction hub),0,0
 G,131,GLN,0.2572,115.1,122.58,C,IDCL — Interdomain Connecting Loop (key interaction hub),0,0
@@ -2354,10 +2354,10 @@ G,227,LEU,0.6912,6.97,54.37,E,Domain 2 core beta sheet,0,0
 G,228,SER,0.6871,3.21,48.23,E,Domain 2 core beta sheet,0,0
 G,229,MET,0.6254,7.48,62.43,E,Domain 2 core beta sheet,0,0
 G,230,SER,0.5953,17.17,59.81,C,Domain 2 core beta sheet,0,0
-G,231,ALA,0.5789,52.87,72.63,C,C-terminal loop — AOH1996 cryptic pocket region,1,0
-G,232,ASP,0.5743,116.57,70.65,C,C-terminal loop — AOH1996 cryptic pocket region,1,0
-G,233,VAL,0.5606,28.98,62.73,C,C-terminal loop — AOH1996 cryptic pocket region,1,0
-G,234,PRO,0.6166,6.04,54.29,C,C-terminal loop — AOH1996 cryptic pocket region,1,0
+G,231,ALA,0.5789,52.87,72.63,C,C-terminal loop — AOH1996 cryptic pocket region,0,0
+G,232,ASP,0.5743,116.57,70.65,C,C-terminal loop — AOH1996 cryptic pocket region,0,0
+G,233,VAL,0.5606,28.98,62.73,C,C-terminal loop — AOH1996 cryptic pocket region,0,0
+G,234,PRO,0.6166,6.04,54.29,C,C-terminal loop — AOH1996 cryptic pocket region,0,0
 G,235,LEU,0.6415,1.21,47.4,E,C-terminal loop — AOH1996 cryptic pocket region,0,0
 G,236,VAL,0.6679,4.83,38.55,E,C-terminal loop — AOH1996 cryptic pocket region,0,0
 G,237,VAL,0.6784,0.0,53.21,E,C-terminal loop — AOH1996 cryptic pocket region,0,0
@@ -2373,10 +2373,10 @@ G,246,HIS,0.4189,41.76,66.57,E,C-terminal loop — AOH1996 cryptic pocket region,0
 G,247,LEU,0.5634,3.62,54.89,E,C-terminal loop — AOH1996 cryptic pocket region,0,0
 G,248,LYS,0.5356,52.2,52.49,E,C-terminal loop — AOH1996 cryptic pocket region,0,0
 G,249,TYR,0.5873,0.0,54.01,E,C-terminal loop — AOH1996 cryptic pocket region,0,0
-G,250,TYR,0.5692,18.1,39.26,E,C-terminal loop — AOH1996 cryptic pocket region,1,0
-G,251,LEU,0.5637,0.0,39.47,E,C-terminal loop — AOH1996 cryptic pocket region,1,0
-G,252,ALA,0.5749,0.0,39.7,C,C-terminal loop — AOH1996 cryptic pocket region,1,0
-G,253,PRO,0.6049,0.0,40.96,C,C-terminal loop — AOH1996 cryptic pocket region,1,0
+G,250,TYR,0.5692,18.1,39.26,E,C-terminal loop — AOH1996 cryptic pocket region,0,0
+G,251,LEU,0.5637,0.0,39.47,E,C-terminal loop — AOH1996 cryptic pocket region,0,0
+G,252,ALA,0.5749,0.0,39.7,C,C-terminal loop — AOH1996 cryptic pocket region,0,0
+G,253,PRO,0.6049,0.0,40.96,C,C-terminal loop — AOH1996 cryptic pocket region,0,0
 G,254,LYS,0.6481,51.25,45.95,C,C-terminal tail (protein-protein interface),0,0
 G,255,ILE,0.6389,50.41,58.31,C,C-terminal tail (protein-protein interface),0,0
 G,256,GLU,0.6387,123.33,101.16,C,C-terminal tail (protein-protein interface),0,0
@@ -2409,9 +2409,9 @@ H,21,ASP,0.0267,68.76,129.31,C,N-terminal beta sheet (domain 1),0,0
 H,22,LEU,0.0351,6.56,123.35,C,N-terminal beta sheet (domain 1),0,0
 H,23,ILE,0.0554,9.12,127.82,C,N-terminal beta sheet (domain 1),0,0
 H,24,ASN,0.0698,72.71,128.3,C,N-terminal beta sheet (domain 1),0,0
-H,25,GLU,0.1346,34.83,132.46,E,N-terminal beta sheet (domain 1),1,0
-H,26,ALA,0.2424,2.42,130.49,E,N-terminal beta sheet (domain 1),1,0
-H,27,CYS,0.3012,29.26,130.0,E,N-terminal beta sheet (domain 1),1,0
+H,25,GLU,0.1346,34.83,132.46,E,N-terminal beta sheet (domain 1),0,0
+H,26,ALA,0.2424,2.42,130.49,E,N-terminal beta sheet (domain 1),0,0
+H,27,CYS,0.3012,29.26,130.0,E,N-terminal beta sheet (domain 1),0,0
 H,28,TRP,0.32,46.07,131.27,E,N-terminal beta sheet (domain 1),0,0
 H,29,ASP,0.2974,67.13,133.89,E,N-terminal beta sheet (domain 1),0,0
 H,30,ILE,0.1779,4.83,139.15,E,N-terminal beta sheet (domain 1),0,0
@@ -2422,16 +2422,16 @@ H,34,GLY,0.2269,5.81,128.77,E,N-terminal beta sheet (domain 1),0,0
 H,35,VAL,0.2726,9.66,128.44,E,N-terminal beta sheet (domain 1),0,0
 H,36,ASN,0.4966,52.24,126.18,E,N-terminal beta sheet (domain 1),0,0
 H,37,LEU,0.5646,0.0,125.75,E,N-terminal beta sheet (domain 1),0,0
-H,38,GLN,0.6568,48.91,121.84,E,N-terminal beta sheet (domain 1),1,0
-H,39,SER,0.6572,3.62,120.16,E,N-terminal beta sheet (domain 1),1,0
-H,40,MET,0.6502,72.55,121.95,E,N-terminal beta sheet (domain 1),1,0
-H,41,ASP,0.5804,19.42,123.75,C,Front-face loop (PIP-box groove),1,0
-H,42,SER,0.5716,16.75,123.19,C,Front-face loop (PIP-box groove),1,0
+H,38,GLN,0.6568,48.91,121.84,E,N-terminal beta sheet (domain 1),0,0
+H,39,SER,0.6572,3.62,120.16,E,N-terminal beta sheet (domain 1),0,0
+H,40,MET,0.6502,72.55,121.95,E,N-terminal beta sheet (domain 1),0,0
+H,41,ASP,0.5804,19.42,123.75,C,Front-face loop (PIP-box groove),0,0
+H,42,SER,0.5716,16.75,123.19,C,Front-face loop (PIP-box groove),0,0
 H,43,SER,0.5145,50.3,125.75,C,Front-face loop (PIP-box groove),0,0
-H,44,HIS,0.5637,52.25,119.23,C,Front-face loop (PIP-box groove),1,0
-H,45,VAL,0.554,39.97,117.77,C,Front-face loop (PIP-box groove),1,0
-H,46,SER,0.5966,0.0,119.63,E,Front-face loop (PIP-box groove),1,0
-H,47,LEU,0.594,20.53,118.34,E,Front-face loop (PIP-box groove),1,0
+H,44,HIS,0.5637,52.25,119.23,C,Front-face loop (PIP-box groove),0,0
+H,45,VAL,0.554,39.97,117.77,C,Front-face loop (PIP-box groove),0,0
+H,46,SER,0.5966,0.0,119.63,E,Front-face loop (PIP-box groove),0,0
+H,47,LEU,0.594,20.53,118.34,E,Front-face loop (PIP-box groove),0,0
 H,48,VAL,0.6116,2.42,119.9,E,Core beta sheet,0,0
 H,49,GLN,0.5936,15.56,120.67,E,Core beta sheet,0,0
 H,50,LEU,0.5969,10.87,124.15,E,Core beta sheet,0,0
@@ -2507,12 +2507,12 @@ H,119,MET,0.3662,91.73,126.44,C,IDCL — Interdomain Connecting Loop (key interact
 H,120,ASP,0.3865,146.86,128.26,C,IDCL — Interdomain Connecting Loop (key interaction hub),0,0
 H,121,LEU,0.3282,91.09,130.06,C,IDCL — Interdomain Connecting Loop (key interaction hub),0,0
 H,122,ASP,0.4304,127.05,127.22,C,IDCL — Interdomain Connecting Loop (key interaction hub),0,0
-H,123,VAL,0.4281,84.21,128.59,C,IDCL — Interdomain Connecting Loop (key interaction hub),1,0
+H,123,VAL,0.4281,84.21,128.59,C,IDCL — Interdomain Connecting Loop (key interaction hub),0,0
 H,124,GLU,0.5063,136.0,126.19,C,IDCL — Interdomain Connecting Loop (key interaction hub),0,0
-H,125,GLN,0.5356,109.5,123.77,C,IDCL — Interdomain Connecting Loop (key interaction hub),1,0
-H,126,LEU,0.562,110.98,126.61,C,IDCL — Interdomain Connecting Loop (key interaction hub),1,0
+H,125,GLN,0.5356,109.5,123.77,C,IDCL — Interdomain Connecting Loop (key interaction hub),0,0
+H,126,LEU,0.562,110.98,126.61,C,IDCL — Interdomain Connecting Loop (key interaction hub),0,0
 H,127,GLY,0.5961,46.95,114.48,C,IDCL — Interdomain Connecting Loop (key interaction hub),0,0
-H,128,ILE,0.5758,47.33,122.21,C,IDCL — Interdomain Connecting Loop (key interaction hub),1,0
+H,128,ILE,0.5758,47.33,122.21,C,IDCL — Interdomain Connecting Loop (key interaction hub),0,0
 H,129,PRO,0.5595,86.9,130.52,C,IDCL — Interdomain Connecting Loop (key interaction hub),0,0
 H,130,GLU,0.5469,129.43,130.73,C,IDCL — Interdomain Connecting Loop (key interaction hub),0,0
 H,131,GLN,0.5407,113.71,131.65,C,IDCL — Interdomain Connecting Loop (key interaction hub),0,0
@@ -2615,10 +2615,10 @@ H,227,LEU,0.6673,11.94,106.63,E,Domain 2 core beta sheet,0,0
 H,228,SER,0.6684,8.57,112.91,E,Domain 2 core beta sheet,0,0
 H,229,MET,0.6496,4.83,115.24,E,Domain 2 core beta sheet,0,0
 H,230,SER,0.6435,9.64,121.22,C,Domain 2 core beta sheet,0,0
-H,231,ALA,0.6357,74.56,116.47,C,C-terminal loop — AOH1996 cryptic pocket region,1,0
-H,232,ASP,0.6473,121.15,120.57,C,C-terminal loop — AOH1996 cryptic pocket region,1,0
-H,233,VAL,0.6551,14.49,119.04,C,C-terminal loop — AOH1996 cryptic pocket region,1,0
-H,234,PRO,0.6727,28.98,114.2,C,C-terminal loop — AOH1996 cryptic pocket region,1,0
+H,231,ALA,0.6357,74.56,116.47,C,C-terminal loop — AOH1996 cryptic pocket region,0,0
+H,232,ASP,0.6473,121.15,120.57,C,C-terminal loop — AOH1996 cryptic pocket region,0,0
+H,233,VAL,0.6551,14.49,119.04,C,C-terminal loop — AOH1996 cryptic pocket region,0,0
+H,234,PRO,0.6727,28.98,114.2,C,C-terminal loop — AOH1996 cryptic pocket region,0,0
 H,235,LEU,0.6838,11.96,106.15,E,C-terminal loop — AOH1996 cryptic pocket region,0,0
 H,236,VAL,0.6908,0.0,109.21,E,C-terminal loop — AOH1996 cryptic pocket region,0,0
 H,237,VAL,0.5961,0.0,115.18,E,C-terminal loop — AOH1996 cryptic pocket region,0,0
@@ -2634,10 +2634,10 @@ H,246,HIS,0.3665,80.75,124.74,E,C-terminal loop — AOH1996 cryptic pocket region,
 H,247,LEU,0.566,9.66,123.52,E,C-terminal loop — AOH1996 cryptic pocket region,0,0
 H,248,LYS,0.5782,33.2,119.1,E,C-terminal loop — AOH1996 cryptic pocket region,0,0
 H,249,TYR,0.633,1.21,114.8,E,C-terminal loop — AOH1996 cryptic pocket region,0,0
-H,250,TYR,0.6244,14.36,115.74,E,C-terminal loop — AOH1996 cryptic pocket region,1,0
-H,251,LEU,0.6014,0.0,105.27,E,C-terminal loop — AOH1996 cryptic pocket region,1,0
-H,252,ALA,0.5894,11.53,102.25,C,C-terminal loop — AOH1996 cryptic pocket region,1,0
-H,253,PRO,0.5513,32.04,98.0,C,C-terminal loop — AOH1996 cryptic pocket region,1,0
+H,250,TYR,0.6244,14.36,115.74,E,C-terminal loop — AOH1996 cryptic pocket region,0,0
+H,251,LEU,0.6014,0.0,105.27,E,C-terminal loop — AOH1996 cryptic pocket region,0,0
+H,252,ALA,0.5894,11.53,102.25,C,C-terminal loop — AOH1996 cryptic pocket region,0,0
+H,253,PRO,0.5513,32.04,98.0,C,C-terminal loop — AOH1996 cryptic pocket region,0,0
 H,254,LYS,0.4531,67.15,103.27,C,C-terminal tail (protein-protein interface),0,0
 H,255,ILE,0.2717,42.39,119.9,C,C-terminal tail (protein-protein interface),0,0
 H,256,GLU,0.3276,111.39,132.49,C,C-terminal tail (protein-protein interface),0,0

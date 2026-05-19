@@ -1,16 +1,16 @@
 {
   "pdb": "1AXC",
   "title": "COMPLEX (DNA-BINDING PROTEIN/DNA)HUMAN PCNA",
-  "n_residues": 804,
-  "n_chains": 6,
+  "n_residues": 750,
+  "n_chains": 3,
   "ligands": [],
   "auroc": null,
   "n_pocket_labeled": null,
-  "n_clusters": 5,
-  "top_cluster_mean": 0.5916,
-  "top_cluster_n": 141,
-  "top_aoh_overlap": 22,
-  "top_concavity": 0.496,
-  "score_max": 0.7838,
-  "score_mean": 0.2351
+  "n_clusters": 4,
+  "top_cluster_mean": 0.5893,
+  "top_cluster_n": 105,
+  "top_aoh_overlap": 23,
+  "top_concavity": 0.467,
+  "score_max": 0.803,
+  "score_mean": 0.2759
 }

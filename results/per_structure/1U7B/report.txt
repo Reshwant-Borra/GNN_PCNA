@@ -1,4 +1,4 @@
-﻿======================================================================
+======================================================================
 PDB: 1U7B
 Title: REPLICATIONCRYSTAL STRUCTURE OF HPCNA BOUND TO RESIDUES 331-350 OF THE FLAP ENDONUCLEASE-1 (FEN1)
 Chains: A, B  |  Residues: 264
@@ -19,7 +19,7 @@ Predicted cryptic pockets: 2
       4 residues in: IDCL — Interdomain Connecting Loop (key interaction hub)
       2 residues in: N-terminal beta sheet (domain 1)
       1 residues in: C-terminal tail (protein-protein interface)
-  AOH1996 pocket overlap: 16/24 GT residues
+  AOH1996 pocket overlap: 16/25 GT residues
   --> HIGH overlap: this pocket is the known AOH1996 cryptic site
   Geometric concavity: 0.53 (concave — geometrically pocket-like)
   Top residues: A139(MET)=0.789, A138(LYS)=0.784, A137(VAL)=0.778, A140(PRO)=0.764, A141(SER)=0.761, A46(SER)=0.761, A136(VAL)=0.757, A236(VAL)=0.756
@@ -37,7 +37,7 @@ Predicted cryptic pockets: 2
      14 residues in: Core beta sheet
       6 residues in: IDCL — Interdomain Connecting Loop (key interaction hub)
       4 residues in: N-terminal beta sheet (domain 1)
-  AOH1996 pocket overlap: 4/24 GT residues
+  AOH1996 pocket overlap: 4/25 GT residues
   --> LOW overlap: model predicts a distinct site (hypothesis — requires experimental validation)
   Geometric concavity: 0.42 (convex — surface protrusion, interpret cautiously)
   Top residues: A116(MET)=0.765, A117(LYS)=0.761, A118(LEU)=0.760, A26(ALA)=0.747, A27(CYS)=0.721, A119(MET)=0.718, A25(GLU)=0.717, A115(GLU)=0.712

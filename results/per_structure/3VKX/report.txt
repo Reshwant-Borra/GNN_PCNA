@@ -1,4 +1,4 @@
-﻿======================================================================
+======================================================================
 PDB: 3VKX
 Title: DNA BINDING PROTEINSTRUCTURE OF PCNA
 Chains: A  |  Residues: 248
@@ -20,7 +20,7 @@ Predicted cryptic pockets: 1
       8 residues in: N-terminal beta sheet (domain 1)
       7 residues in: Front-face loop (PIP-box groove)
       1 residues in: C-terminal tail (protein-protein interface)
-  AOH1996 pocket overlap: 24/24 GT residues
+  AOH1996 pocket overlap: 24/25 GT residues
   --> HIGH overlap: this pocket is the known AOH1996 cryptic site
   Geometric concavity: 0.48 (convex — surface protrusion, interpret cautiously)
   Top residues: A46(SER)=0.833, A41(ASP)=0.827, A45(VAL)=0.817, A44(HIS)=0.814, A42(SER)=0.813, A251(LEU)=0.786, A139(MET)=0.782, A250(TYR)=0.781

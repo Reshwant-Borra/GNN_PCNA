@@ -1,4 +1,4 @@
-﻿======================================================================
+======================================================================
 PDB: 9N3L
 Title: DNA BINDING PROTEINCO-CRYSTAL STRUCTURE OF PCNA BOUND TO HSP90ALPHA INHIBITOR, SNX2112
 Chains: A  |  Residues: 246
@@ -20,7 +20,7 @@ Predicted cryptic pockets: 1
       6 residues in: N-terminal beta sheet (domain 1)
       6 residues in: Front-face loop (PIP-box groove)
       1 residues in: C-terminal tail (protein-protein interface)
-  AOH1996 pocket overlap: 22/24 GT residues
+  AOH1996 pocket overlap: 22/25 GT residues
   --> HIGH overlap: this pocket is the known AOH1996 cryptic site
   Geometric concavity: 0.47 (convex — surface protrusion, interpret cautiously)
   Top residues: A41(ASP)=0.799, A249(TYR)=0.789, A250(TYR)=0.787, A251(LEU)=0.785, A139(MET)=0.785, A235(LEU)=0.778, A40(MET)=0.778, A137(VAL)=0.778

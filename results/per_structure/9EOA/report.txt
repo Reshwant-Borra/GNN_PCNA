@@ -1,4 +1,4 @@
-﻿======================================================================
+======================================================================
 PDB: 9EOA
 Title: DNA BINDING PROTEINCRYO_EM STRUCTURE OF HUMAN FAN1 IN COMPLEX WITH 5' FLAP DNA SUBSTRATE AND PCNA
 Chains: A, F, G, H  |  Residues: 1337
@@ -18,7 +18,7 @@ Predicted cryptic pockets: 10
       9 residues in: Core beta sheet
       5 residues in: IDCL — Interdomain Connecting Loop (key interaction hub)
       3 residues in: Front-face loop (PIP-box groove)
-  AOH1996 pocket overlap: 16/24 GT residues
+  AOH1996 pocket overlap: 16/25 GT residues
   --> HIGH overlap: this pocket is the known AOH1996 cryptic site
   Geometric concavity: 0.60 (concave — geometrically pocket-like)
   Top residues: H234(PRO)=0.723, H235(LEU)=0.720, H233(VAL)=0.718, H232(ASP)=0.717, H236(VAL)=0.713, H230(SER)=0.706, H231(ALA)=0.703, H229(MET)=0.685
@@ -39,7 +39,7 @@ Predicted cryptic pockets: 10
       9 residues in: Core beta sheet
       6 residues in: N-terminal beta sheet (domain 1)
       3 residues in: Front-face loop (PIP-box groove)
-  AOH1996 pocket overlap: 13/24 GT residues
+  AOH1996 pocket overlap: 13/25 GT residues
   --> HIGH overlap: this pocket is the known AOH1996 cryptic site
   Geometric concavity: 0.59 (concave — geometrically pocket-like)
   Top residues: F228(SER)=0.676, F236(VAL)=0.673, F237(VAL)=0.667, F235(LEU)=0.666, F229(MET)=0.665, F227(LEU)=0.659, F226(THR)=0.652, F230(SER)=0.652
@@ -54,7 +54,7 @@ Predicted cryptic pockets: 10
   Residues: 25  |  Mean score: 0.639  |  Max score: 0.733
   Center (A): (167.1, 144.1, 114.0)
   Structural region: Core beta sheet
-  AOH1996 pocket overlap: 0/24 GT residues
+  AOH1996 pocket overlap: 0/25 GT residues
   --> LOW overlap: model predicts a distinct site (hypothesis — requires experimental validation)
   Geometric concavity: 0.60 (concave — geometrically pocket-like)
   Top residues: A960(ASP)=0.733, A1002(GLU)=0.724, A1004(CYS)=0.723, A1003(VAL)=0.723, A959(PRO)=0.717, A961(LEU)=0.715, A974(VAL)=0.691, A975(GLU)=0.686
@@ -74,7 +74,7 @@ Predicted cryptic pockets: 10
       3 residues in: N-terminal beta sheet (domain 1)
       1 residues in: Front-face loop (PIP-box groove)
       1 residues in: Core beta sheet
-  AOH1996 pocket overlap: 7/24 GT residues
+  AOH1996 pocket overlap: 7/25 GT residues
   --> PARTIAL overlap: pocket partially covers the AOH1996 site
   Geometric concavity: 0.59 (concave — geometrically pocket-like)
   Top residues: G236(VAL)=0.663, G226(THR)=0.627, G225(VAL)=0.622, G228(SER)=0.614, G227(LEU)=0.610, G237(VAL)=0.606, G235(LEU)=0.601, G230(SER)=0.592
@@ -89,7 +89,7 @@ Predicted cryptic pockets: 10
   Residues: 10  |  Mean score: 0.574  |  Max score: 0.642
   Center (A): (127.3, 145.9, 173.7)
   Structural region: Core beta sheet
-  AOH1996 pocket overlap: 0/24 GT residues
+  AOH1996 pocket overlap: 0/25 GT residues
   --> LOW overlap: model predicts a distinct site (hypothesis — requires experimental validation)
   Geometric concavity: 0.70 (concave — geometrically pocket-like)
   Top residues: H99(LEU)=0.642, H100(ALA)=0.622, H98(THR)=0.614, H101(LEU)=0.590, H117(LYS)=0.579, H115(GLU)=0.569, H102(VAL)=0.565, H97(ASP)=0.563
@@ -104,7 +104,7 @@ Predicted cryptic pockets: 10
   Residues: 9  |  Mean score: 0.539  |  Max score: 0.614
   Center (A): (128.6, 164.4, 179.1)
   Structural region: Domain 2 core beta sheet
-  AOH1996 pocket overlap: 0/24 GT residues
+  AOH1996 pocket overlap: 0/25 GT residues
   --> LOW overlap: model predicts a distinct site (hypothesis — requires experimental validation)
   Geometric concavity: 0.78 (concave — geometrically pocket-like)
   Top residues: F170(SER)=0.614, F168(LYS)=0.588, F169(PHE)=0.583, F205(LEU)=0.552, F206(THR)=0.543, F207(PHE)=0.519, F159(VAL)=0.499, F204(GLN)=0.485
@@ -119,7 +119,7 @@ Predicted cryptic pockets: 10
   Residues: 3  |  Mean score: 0.602  |  Max score: 0.660
   Center (A): (164.6, 168.9, 118.2)
   Structural region: Core beta sheet
-  AOH1996 pocket overlap: 0/24 GT residues
+  AOH1996 pocket overlap: 0/25 GT residues
   --> LOW overlap: model predicts a distinct site (hypothesis — requires experimental validation)
   Geometric concavity: 1.00 (concave — geometrically pocket-like)
   Top residues: A865(ALA)=0.660, A866(PHE)=0.607, A915(SER)=0.539
@@ -134,7 +134,7 @@ Predicted cryptic pockets: 10
   Residues: 5  |  Mean score: 0.450  |  Max score: 0.534
   Center (A): (160.1, 117.3, 178.1)
   Structural region: Domain 2 core beta sheet
-  AOH1996 pocket overlap: 0/24 GT residues
+  AOH1996 pocket overlap: 0/25 GT residues
   --> LOW overlap: model predicts a distinct site (hypothesis — requires experimental validation)
   Geometric concavity: 0.80 (concave — geometrically pocket-like)
   Top residues: H205(LEU)=0.534, H170(SER)=0.481, H204(GLN)=0.418, H159(VAL)=0.416, H158(VAL)=0.401
@@ -149,7 +149,7 @@ Predicted cryptic pockets: 10
   Residues: 3  |  Mean score: 0.517  |  Max score: 0.604
   Center (A): (177.3, 123.2, 187.4)
   Structural region: Core beta sheet
-  AOH1996 pocket overlap: 0/24 GT residues
+  AOH1996 pocket overlap: 0/25 GT residues
   --> LOW overlap: model predicts a distinct site (hypothesis — requires experimental validation)
   Geometric concavity: 0.67 (concave — geometrically pocket-like)
   Top residues: G98(THR)=0.604, G99(LEU)=0.523, G100(ALA)=0.423
@@ -164,7 +164,7 @@ Predicted cryptic pockets: 10
   Residues: 3  |  Mean score: 0.507  |  Max score: 0.511
   Center (A): (122.4, 157.9, 203.0)
   Structural region: Domain 2 core beta sheet
-  AOH1996 pocket overlap: 0/24 GT residues
+  AOH1996 pocket overlap: 0/25 GT residues
   --> LOW overlap: model predicts a distinct site (hypothesis — requires experimental validation)
   Geometric concavity: 0.00 (convex — surface protrusion, interpret cautiously)
   Top residues: F186(SER)=0.511, F188(VAL)=0.511, F187(ASN)=0.500

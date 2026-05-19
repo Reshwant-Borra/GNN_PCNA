@@ -225,8 +225,9 @@ Add to Claude Code via `.claude/mcp.json` (already configured in this repo).
 |---|---|---|---|
 | AOH1996 pocket mean score on 8GLA | > 0.7 | — | **PASS** — reproduced fine-tuned XL: 0.8676, rank 1 (small: FAIL 0.5998) |
 | AOH1996 pocket rank | top-3 | top-1 | **PASS** — rank 1 (reproduced fine-tuned XL) |
-| Test AUROC, protein-level held-out (5 proteins) | > 0.65 | > 0.80 | **PASS** — reproduced fine-tuned XL: 0.9390 (seed=42 end-to-end) |
-| ANM apo/holo fold-change delta | > 0 | > 0.2 | **PASS** — delta = +0.247 (apo 0.857 → holo 1.104) |
+| Test AUROC, protein-level held-out (5 proteins, 3 different families) | > 0.65 | > 0.80 | **PASS** — reproduced fine-tuned XL: 0.9390; note AUROC inflated by class imbalance |
+| Test AUPRC (average precision), same 5 proteins | > trivial baseline (~0.08) | > 0.40 | **Partial** — 0.3706 (4.6× above trivial baseline of ~0.08; not strong absolute performance) |
+| ANM apo/holo fold-change delta | > 0 | > 0.2 | **PASS** — delta = +0.247 (apo 0.857 → holo 1.104); consistent with flexibility difference, not proof of opening |
 | Internal pocket DCCM (apo) | > 0 | > 0.3 | **Partial** — 0.0995 (mild positive coherent motion) |
 | Novel pocket transient volume (MD) | — | > 100 Å³ | Not measured — no MD trajectories |
 

@@ -1,6 +1,6 @@
-﻿# 3VKX — DNA BINDING
+# 3VKX — DNA BINDING
 
-> Generated: 2026-05-16  |  Category: Other PCNA structure  **AOH1996 CANDIDATE**
+> Generated: 2026-05-19  |  Category: Other PCNA structure  **AOH1996 CANDIDATE**
 
 ## Quick Stats
 
@@ -9,16 +9,16 @@
 | PDB ID | [3VKX](https://www.rcsb.org/structure/3VKX) |
 | Residues | 248 across 1 chains |
 | Ligands detected | T3 |
-| AUROC | 0.9042 (drug-like ligand, PCNA-chain filtered) |
+| AUROC | 0.9042 (raw, ligand-proximity labels) |
 | Top pocket mean score | 0.6737 (128 residues) |
 | AOH1996 GT overlap | ####################  24/24 |
 | Top pocket concavity | 0.477 (convex) |
 
 ## AOH1996 Pocket Assessment
 
-The GNN-PCNA model recovered **24/24 AOH1996 ground-truth residues** in its top predicted cluster. This represents >100% overlap with the experimentally confirmed cryptic pocket from PDB 8GLA. The model assigns a high prioritization score (0.674 mean) to this region. **This is a hypothesis only** — druggability requires MD simulation, docking, or experimental validation.
+The model's top predicted cluster overlaps with **24/24 AOH1996 ground-truth residues** (100% of the confirmed pocket from PDB 8GLA). Top cluster mean score: 0.674. **Note: mean score 0.674 is below the 0.7 project-defined threshold — the AOH1996 pocket is not confidently recovered by this checkpoint.**
 
-**Implication:** AOH1996 (or its derivatives AOH1160/AOH1996-1LE) would be predicted to bind this structure with similar affinity to the confirmed holo structure 8GLA.
+**Hypothesis (unvalidated):** This region may be compatible with AOH1996 binding. Molecular docking or MD simulation is required to test this hypothesis. Labels are derived from ligand-proximity heuristics, not curated benchmark labels.
 
 ## Full Analysis Report
 
@@ -45,7 +45,7 @@ Predicted cryptic pockets: 1
       8 residues in: N-terminal beta sheet (domain 1)
       7 residues in: Front-face loop (PIP-box groove)
       1 residues in: C-terminal tail (protein-protein interface)
-  AOH1996 pocket overlap: 24/24 GT residues
+  AOH1996 pocket overlap: 24/25 GT residues
   --> HIGH overlap: this pocket is the known AOH1996 cryptic site
   Geometric concavity: 0.48 (convex — surface protrusion, interpret cautiously)
   Top residues: A46(SER)=0.833, A41(ASP)=0.827, A45(VAL)=0.817, A44(HIS)=0.814, A42(SER)=0.813, A251(LEU)=0.786, A139(MET)=0.782, A250(TYR)=0.781

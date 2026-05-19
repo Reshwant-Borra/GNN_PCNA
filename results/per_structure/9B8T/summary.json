@@ -1,19 +1,19 @@
 {
   "pdb": "9B8T",
   "title": "DNA BINDING PROTEIN/DNAHUMAN POLYMERASE EPSILON BOUND TO PCNA AND DNA IN THE NUCLEOTIDE BOUND STATE",
-  "n_residues": 1929,
-  "n_chains": 4,
+  "n_residues": 783,
+  "n_chains": 3,
   "ligands": [
     "TTP",
     "SF4"
   ],
-  "auroc": 0.4719,
-  "n_pocket_labeled": 22,
-  "n_clusters": 12,
-  "top_cluster_mean": 0.7044,
-  "top_cluster_n": 72,
-  "top_aoh_overlap": 0,
-  "top_concavity": 0.653,
-  "score_max": 0.8141,
-  "score_mean": 0.1729
+  "auroc": null,
+  "n_pocket_labeled": 0,
+  "n_clusters": 5,
+  "top_cluster_mean": 0.5671,
+  "top_cluster_n": 61,
+  "top_aoh_overlap": 16,
+  "top_concavity": 0.59,
+  "score_max": 0.7826,
+  "score_mean": 0.1971
 }

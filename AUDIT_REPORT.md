@@ -83,20 +83,22 @@ Source: `data/results/aoh_gate_results.json`
 ## 3. Independent Test-Split Evaluation
 
 Split file: `data/splits/cryptosite_split.json` (seed=42). 5 proteins withheld from ALL training.  
-Test structures: 1V48, 3CL7, 1D09, 1M17, 2VO5 — different protein families from PCNA.
+Test structures: 1V48, 3CL7, 1D09, 1M17, 2VO5 — different protein families from PCNA (kinase, protease, transferase, oxidoreductase, hydrolase).
 
-| Model | Test AUROC | Test AUPRC | Provenance |
-|---|---|---|---|
-| **pcna_reproduced (primary)** | **0.9390** | **0.3706** | seed=42 end-to-end |
-| reproduced_xl pretrain | 0.9494 | 0.4011 | seed=42 |
-| original XL fixed | 0.9627 | 0.4035 | seed=UNKNOWN (superseded) |
-| reproduced small | 0.7414 | 0.1094 | seed=42 |
+Trivial AUPRC baseline (random classifier at ~8% pocket prevalence): **~0.08**
+
+| Model | Test AUROC | Test AUPRC | AUPRC vs baseline | Provenance |
+|---|---|---|---|---|
+| **pcna_reproduced (primary)** | **0.9390** | **0.3706** | **4.6× above baseline** | seed=42 end-to-end |
+| reproduced_xl pretrain | 0.9494 | 0.4011 | 5.0× above baseline | seed=42 |
+| original XL fixed | 0.9627 | 0.4035 | 5.0× above baseline | seed=UNKNOWN (superseded) |
+| reproduced small | 0.7414 | 0.1094 | 1.4× above baseline | seed=42 |
 
 Command: `python scripts/run_test_eval.py --ckpt checkpoints/pcna_reproduced/best.ckpt --model xl --graphs data/graphs_xl`
 
 Full results: `data/results/test_split_eval_pcna_reproduced.json`
 
-**VERDICT: PASS.** Evaluation is protein-level, held-out, 5 proteins not seen during training or validation. Primary metric is AUPRC (0.3706) — AUROC (0.9390) is reported for completeness but is inflated by class imbalance (pocket residues are ~5–15% of each structure). AUPRC of 0.3706 is above the trivial baseline (~0.08) but does not constitute strong performance. Prior audit: no independent evaluation existed.
+**VERDICT: PASS.** Evaluation is protein-level, held-out, 5 proteins not seen during training or validation, spanning different protein families. Primary metric is AUPRC (0.3706, 4.6× above trivial baseline of ~0.08) — AUROC (0.9390) is also reported but inflated by class imbalance (~5–15% pocket residues per structure). AUPRC of 0.3706 is meaningful signal above chance but does not constitute strong absolute performance; a 5-protein test set limits statistical power. Prior audit: no independent evaluation existed.
 
 ---
 

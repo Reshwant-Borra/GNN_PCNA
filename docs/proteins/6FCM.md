@@ -1,6 +1,6 @@
-﻿# 6FCM — NUCLEAR
+# 6FCM — NUCLEAR
 
-> Generated: 2026-05-16  |  Category: Other PCNA structure  **AOH1996 CANDIDATE**
+> Generated: 2026-05-19  |  Category: Other PCNA structure  **AOH1996 CANDIDATE**
 
 ## Quick Stats
 
@@ -16,9 +16,9 @@
 
 ## AOH1996 Pocket Assessment
 
-The GNN-PCNA model recovered **20/24 AOH1996 ground-truth residues** in its top predicted cluster. This represents >83% overlap with the experimentally confirmed cryptic pocket from PDB 8GLA. The model assigns a high prioritization score (0.565 mean) to this region. **This is a hypothesis only** — druggability requires MD simulation, docking, or experimental validation.
+The model's top predicted cluster overlaps with **20/24 AOH1996 ground-truth residues** (83% of the confirmed pocket from PDB 8GLA). Top cluster mean score: 0.565. **Note: mean score 0.565 is below the 0.7 project-defined threshold — the AOH1996 pocket is not confidently recovered by this checkpoint.**
 
-**Implication:** AOH1996 (or its derivatives AOH1160/AOH1996-1LE) would be predicted to bind this structure with similar affinity to the confirmed holo structure 8GLA.
+**Hypothesis (unvalidated):** This region may be compatible with AOH1996 binding. Molecular docking or MD simulation is required to test this hypothesis. Labels are derived from ligand-proximity heuristics, not curated benchmark labels.
 
 ## Full Analysis Report
 
@@ -43,7 +43,7 @@ Predicted cryptic pockets: 4
      10 residues in: Core beta sheet
       6 residues in: N-terminal beta sheet (domain 1)
       4 residues in: Front-face loop (PIP-box groove)
-  AOH1996 pocket overlap: 20/24 GT residues
+  AOH1996 pocket overlap: 20/25 GT residues
   --> HIGH overlap: this pocket is the known AOH1996 cryptic site
   Geometric concavity: 0.45 (convex — surface protrusion, interpret cautiously)
   Top residues: C226(THR)=0.665, C228(SER)=0.660, C227(LEU)=0.660, C237(VAL)=0.646, C46(SER)=0.642, C238(GLU)=0.641, C225(VAL)=0.638, C236(VAL)=0.630
@@ -63,7 +63,7 @@ Predicted cryptic pockets: 4
      10 residues in: Domain 2 core beta sheet
       5 residues in: Front-face loop (PIP-box groove)
       4 residues in: N-terminal beta sheet (domain 1)
-  AOH1996 pocket overlap: 20/24 GT residues
+  AOH1996 pocket overlap: 20/25 GT residues
   --> HIGH overlap: this pocket is the known AOH1996 cryptic site
   Geometric concavity: 0.40 (convex — surface protrusion, interpret cautiously)
   Top residues: A232(ASP)=0.810, A231(ALA)=0.809, A233(VAL)=0.804, A234(PRO)=0.803, A235(LEU)=0.800, A230(SER)=0.796, A40(MET)=0.790, A39(SER)=0.782
@@ -84,7 +84,7 @@ Predicted cryptic pockets: 4
       3 residues in: IDCL — Interdomain Connecting Loop (key interaction hub)
       2 residues in: Front-face loop (PIP-box groove)
       2 residues in: Core beta sheet
-  AOH1996 pocket overlap: 7/24 GT residues
+  AOH1996 pocket overlap: 7/25 GT residues
   --> PARTIAL overlap: pocket partially covers the AOH1996 site
   Geometric concavity: 0.44 (convex — surface protrusion, interpret cautiously)
   Top residues: E236(VAL)=0.594, E226(THR)=0.589, E237(VAL)=0.583, E228(SER)=0.571, E227(LEU)=0.568, E47(LEU)=0.562, E238(GLU)=0.551, E225(VAL)=0.548
@@ -99,7 +99,7 @@ Predicted cryptic pockets: 4
   Residues: 3  |  Mean score: 0.532  |  Max score: 0.545
   Center (A): (9.6, 2.6, -51.3)
   Structural region: Domain 2 core beta sheet
-  AOH1996 pocket overlap: 0/24 GT residues
+  AOH1996 pocket overlap: 0/25 GT residues
   --> LOW overlap: model predicts a distinct site (hypothesis — requires experimental validation)
   Geometric concavity: 0.33 (convex — surface protrusion, interpret cautiously)
   Top residues: C168(LYS)=0.545, C170(SER)=0.537, C169(PHE)=0.516

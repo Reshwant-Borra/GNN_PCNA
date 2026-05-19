@@ -1,5 +1,9 @@
 # GNN-PCNA Full-Depth Verification Report
 
+> **WARNING: This report was auto-generated on 2026-05-18 and has not been fully verified against current code.**
+> ANM numbers in this report (fold-change 1.104, delta +0.247) are stale — corrected values are 1.157 and +0.300.
+> For authoritative results, refer to `data/results/` JSON files and `LIMITATIONS.md`.
+
 **Generated:** 2026-05-18 23:51  
 **Verifier:** `scripts/verify_all_claims.py` — fully automated, no manual input  
 **Method:** Every claim re-executed or read from authoritative source (CSV / checkpoint / source code)  

@@ -137,7 +137,7 @@ python scripts/run_nma.py --pdb data/raw/1W60.pdb --cutoff 7.5 --n_modes 20
 python scripts/run_nma.py --pdb data/raw/8GLA.pdb --cutoff 7.5 --n_modes 20
 ```
 
-Expected: apo fold-change = 0.857, holo fold-change = 1.104.
+Expected: apo fold-change = 0.857, holo fold-change = 1.157.
 Results written to `data/results/nma_1W60.json` and `data/results/nma_8GLA.json`.
 
 ---

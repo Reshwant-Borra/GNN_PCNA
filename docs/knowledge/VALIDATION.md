@@ -16,7 +16,7 @@
 | AUROC combined val+test (13 proteins) — reproduced fine-tuned XL | > 0.70 | **0.8081** ✓ |
 | AUPRC combined val+test (13 proteins) — reproduced fine-tuned XL | > 0.30 | **0.3441** (6.2× above trivial baseline) ✓ |
 | AUROC on held-out test split — reproduced pretrain XL | > 0.80 | **0.9494** (5 proteins, seed=42) ✓ |
-| ANM apo/holo fold-change delta | > 0 | **+0.247** (0.857→1.104) ✓ |
+| ANM apo/holo fold-change delta | > 0 | **+0.300** (0.857→1.157) ✓ |
 
 See `data/results/aoh_gate_results.json` and `data/results/test_split_eval_pcna_reproduced.json`.
 
@@ -104,8 +104,8 @@ Full results: `data/results/nma_apo_holo_comparison.json`
 | Structure | State | Pocket fold-change | Internal DCCM | Interpretation |
 |-----------|-------|--------------------|---------------|----------------|
 | 1W60 | apo (no ligand) | **0.857** | 0.0995 | Pocket rigidly packed, closed ✓ |
-| 8GLA | holo (AOH1996 bound) | **1.104** | 0.0780 | Pocket open, residues more flexible ✓ |
-| Delta (holo − apo) | — | **+0.247** | — | Consistent with ligand-induced opening hypothesis |
+| 8GLA | holo (AOH1996 bound) | **1.157** | 0.2093 | Pocket open, residues more flexible ✓ |
+| Delta (holo − apo) | — | **+0.300** | — | Consistent with ligand-induced opening hypothesis |
 
 Method: ANM, 7.5 Å cutoff, 20 non-trivial modes. Correlates with MD-RMSF at r~0.6–0.8 (Eyal et al. 2006).
 
@@ -115,7 +115,7 @@ python scripts/run_nma.py --pdb data/raw/1W60.pdb
 python scripts/run_nma.py --pdb data/raw/8GLA.pdb
 ```
 
-**Interpretation:** The apo→holo fold-change shift (0.857→1.104, Δ=+0.247) is consistent with the expected structural
+**Interpretation:** The apo→holo fold-change shift (0.857→1.157, Δ=+0.300) is consistent with the expected structural
 signature of a ligand-induced cryptic pocket opening. This is a coarse-grained physics-based indicator computed from
 crystallographic coordinates using normal modes — it supports but does not confirm the hypothesis. Independent MD
 simulation would be required for confirmation.

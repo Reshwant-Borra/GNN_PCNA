@@ -1,7 +1,7 @@
 ﻿# System Overview
 
 ## Goal
-Identify **cryptic binding pockets** on PCNA (Proliferating Cell Nuclear Antigen) using a GNN-based detection pipeline. ANM flexibility analysis completed (apo/holo comparison: fold-change delta +0.247). Full MD trajectory not yet generated.
+Identify **cryptic binding pockets** on PCNA (Proliferating Cell Nuclear Antigen) using a GNN-based detection pipeline. ANM flexibility analysis completed (apo/holo comparison: fold-change delta +0.300). Full MD trajectory pending.
 
 ## Why PCNA
 - Homotrimeric sliding clamp, essential for DNA replication and repair

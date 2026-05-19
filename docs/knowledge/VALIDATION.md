@@ -13,12 +13,14 @@
 | AOH1996 pocket mean score (small) | > 0.7 on 8GLA | **FAIL** — 0.5998 |
 | AOH1996 pocket mean score (XL fixed) | > 0.7 on 8GLA | **PASS** — 0.8969 |
 | AOH1996 pocket rank (XL fixed) | Top-3 on 8GLA | **PASS** — rank 1 |
-| AUROC on held-out test split — small | > 0.65 | **0.6484** (5 proteins, protein-level split) |
-| AUROC on held-out test split — XL fixed | > 0.80 | **0.9627** (5 proteins, protein-level split) ✓ |
-| AUPRC on held-out test split — XL fixed | > 0.30 | **0.4035** ✓ |
+| AUROC on held-out test split — reproduced XL | > 0.80 | **0.9494** (5 proteins, seed=42) ✓ |
+| AUPRC on held-out test split — reproduced XL | > 0.30 | **0.4011** ✓ |
+| AUROC on held-out test split — small (reproduced) | > 0.65 | **0.7414** ✓ |
 | ANM apo/holo fold-change delta | > 0 | **+0.247** (0.857→1.104) ✓ |
 
-See `data/results/aoh_gate_results.json` and `data/results/test_split_eval_best_pcna_v3_fixed.json`.
+See `data/results/aoh_gate_results.json` and `data/results/test_split_eval_reproduced_xl.json`.
+
+**Recommended checkpoint**: `checkpoints/reproduced_xl/best.ckpt` — full provenance (seed=42, lr=3e-4, epoch=10).
 
 If these fail → debug before proceeding. See [[RESEARCH_QUESTION]] failure criteria.
 
@@ -31,17 +33,24 @@ from ALL training as a held-out test set. These are different protein families f
 Labels use ligand-proximity (Cα within 6 Å) — same methodology as training, applied
 consistently to unseen structures.
 
-| Model | Checkpoint | Val AUROC (8) | Test AUROC (5) | Test AUPRC |
-|-------|-----------|---------------|----------------|------------|
-| PocketGNN small (reproduced, full provenance) | `checkpoints/reproduced/best.ckpt` | 0.6093 | 0.7414 | 0.1094 |
-| PocketGNN small (original, provenance UNKNOWN) | `checkpoints/pcna/best_pcna.ckpt` | 0.5253 | 0.6484 | 0.1659 |
-| PocketGNNXL fixed | `checkpoints/pcna/best_pcna_v3_fixed.ckpt` | 0.7717 | **0.9627** | **0.4035** |
+| Model | Checkpoint | Val AUROC (8) | Test AUROC (5) | Test AUPRC | Provenance |
+|-------|-----------|---------------|----------------|------------|------------|
+| PocketGNNXL (reproduced, full provenance) | `checkpoints/reproduced_xl/best.ckpt` | 0.7256 | **0.9494** | **0.4011** | seed=42, lr=3e-4, epoch 10, all known |
+| PocketGNNXL fixed (original) | `checkpoints/pcna/best_pcna_v3_fixed.ckpt` | 0.7717 | 0.9627 | 0.4035 | seed=UNKNOWN, lr=UNKNOWN (superseded) |
+| PocketGNN small (reproduced, full provenance) | `checkpoints/reproduced/best.ckpt` | 0.6093 | 0.7414 | 0.1094 | seed=42, lr=3e-4, epoch 12, all known |
+| PocketGNN small (original, provenance UNKNOWN) | `checkpoints/pcna/best_pcna.ckpt` | 0.5253 | 0.6484 | 0.1659 | SUPERSEDED |
 
 Test structures (never seen during any training): 1V48, 3CL7, 1D09, 1M17, 2VO5
 
-Command: `python scripts/run_test_eval.py --ckpt checkpoints/pcna/best_pcna_v3_fixed.ckpt --model xl --graphs data/graphs_xl`
+Commands:
+```
+python scripts/run_test_eval.py --ckpt checkpoints/reproduced_xl/best.ckpt --model xl --graphs data/graphs_xl
+python scripts/run_test_eval.py --ckpt checkpoints/pcna/best_pcna_v3_fixed.ckpt --model xl --graphs data/graphs_xl
+```
 
-Full results: `data/results/test_split_eval_best_pcna_v3_fixed.json`
+Full results:
+- `data/results/test_split_eval_reproduced_xl.json` (reproduced — recommended)
+- `data/results/test_split_eval_best_pcna_v3_fixed.json` (original XL fixed)
 
 ---
 

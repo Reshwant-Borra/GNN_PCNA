@@ -1,0 +1,21 @@
+{
+  "topology": "data/md/1W60_solvated.pdb",
+  "trajectory": "data/md/1W60_production.dcd",
+  "sim_time_ns": 6.36000001896174,
+  "n_frames": 636,
+  "aoh_pocket_residues": 50,
+  "md_rmsf": {
+    "pocket_angstrom": 3.3547,
+    "background_angstrom": 4.0318,
+    "fold_change": 0.832
+  },
+  "md_dccm": {
+    "pocket_internal": 0.3018,
+    "matrix_file": "data/results/md_dccm_1W60.npy"
+  },
+  "anm_comparison": {
+    "anm_fold_change_apo": 0.857,
+    "md_fold_change_apo": 0.832,
+    "note": "ANM fold-change was 0.857; MD fold-change here is the all-atom equivalent"
+  }
+}

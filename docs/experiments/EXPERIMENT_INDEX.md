@@ -12,7 +12,7 @@
 |---|---|---|---|---|---|---|
 | E001 | Baseline GNN | Planned | Verify CrypticGNN forward pass works on PCNA graph | 1W60 (apo) | CrypticGNN (untrained) | — |
 | E002 | PCNA Pocket Prediction | Planned | Recover AOH1996 pocket from 8GLA | 8GLA (holo) | CrypticGNN (fine-tuned) | — |
-| E003 | MD Validation | Planned | RMSF + DCCM on predicted novel pockets | MD trajectory (TBD) | — | — |
+| E003 | MD Validation | smoketest complete | RMSF + DCCM on AOH1996 pocket, apo 1W60 | 6.4 ns DCD (636 frames, 10 ps/frame) | MDAnalysis 2.10 | fold-change 0.832, DCCM 0.3018 — pipeline PASS, full 100 ns pending |
 
 ---
 

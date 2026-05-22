@@ -2,7 +2,7 @@
 MD trajectory analysis for GNN-PCNA.
 
 Reads a trajectory produced by colab_md_simulation.ipynb and computes:
-  - Per-residue Cα RMSF
+  - Per-residue Ca RMSF
   - Dynamic Cross-Correlation Matrix (DCCM)
   - Pocket volume time series (rolling convex-hull approximation)
   - Apo pocket vs. background fold-change (MD version of the ANM comparison)
@@ -39,7 +39,7 @@ AOH_GT = set().union(*AOH_GT_BY_CHAIN.values())
 
 
 def compute_rmsf(u, stride: int = 1):
-    """Align trajectory to first frame on backbone, then compute Cα RMSF."""
+    """Align trajectory to first frame on backbone, then compute Ca RMSF."""
     try:
         from MDAnalysis.analysis import rms, align
     except ImportError:
@@ -49,16 +49,19 @@ def compute_rmsf(u, stride: int = 1):
 
     ref = mda.Universe(u.filename)
     print("  Aligning trajectory to reference (backbone)...")
-    align.AlignTraj(u, ref, select="backbone", in_memory=False).run(step=stride)
+    # in_memory=False streams to a temp file (safe for large DCD); run() with no step aligns
+    # all frames so RMSF.run(step=stride) below doesn't double-skip frames
+    align.AlignTraj(u, ref, select="backbone", in_memory=False).run()
 
     ca = u.select_atoms("name CA")
-    print(f"  Computing RMSF over {len(u.trajectory)//stride} frames ({ca.n_atoms} Cα atoms)...")
+    n_frames = len(u.trajectory) // stride
+    print(f"  Computing RMSF over {n_frames} frames ({ca.n_atoms} Ca atoms)...")
     rmsf_calc = rms.RMSF(ca).run(step=stride)
     return ca.resids.copy(), ca.segids.copy(), rmsf_calc.rmsf.copy()
 
 
 def compute_dccm(u, stride: int = 10):
-    """Compute Dynamic Cross-Correlation Matrix from Cα displacement."""
+    """Compute Dynamic Cross-Correlation Matrix from Ca displacement."""
     ca = u.select_atoms("name CA")
     N = ca.n_atoms
     n_frames = len(u.trajectory) // stride
@@ -92,7 +95,7 @@ def compute_dccm(u, stride: int = 10):
 
 
 def compute_pocket_volume(u, pocket_resids: set, stride: int = 10):
-    """Estimate pocket volume per frame using Cα convex hull approximation."""
+    """Estimate pocket volume per frame using Ca convex hull approximation."""
     try:
         from scipy.spatial import ConvexHull
     except ImportError:
@@ -161,7 +164,7 @@ def main():
     print(f"  Simulation length: {sim_time_ns:.1f} ns")
 
     # ── 1. RMSF ───────────────────────────────────────────────────────────────
-    print("\n[1/3] Computing Cα RMSF...")
+    print("\n[1/3] Computing Ca RMSF...")
     resids, chains, rmsf = compute_rmsf(u, stride=args.stride)
 
     pocket_mask = np.array([r in AOH_GT for r in resids])
@@ -174,7 +177,7 @@ def main():
     print(f"  Fold-change : {fold_change:.3f}")
 
     rmsf_result = {
-        "source": "MDAnalysis Cα RMSF",
+        "source": "MDAnalysis Ca RMSF",
         "topology": args.top,
         "trajectory": args.traj,
         "n_frames": len(u.trajectory),
@@ -224,7 +227,7 @@ def main():
         print(f"  Mean pocket volume: {mean_vol:.1f} Å³")
         print(f"  Max pocket volume:  {max_vol:.1f} Å³")
         vol_data = {
-            "method": "Cα convex hull (approximate)",
+            "method": "Ca convex hull (approximate)",
             "note": "Convex hull overestimates true pocket volume; use fpocket/MDpocket for accurate cavity volume",
             "mean_volume_angstrom3": round(mean_vol, 1),
             "max_volume_angstrom3": round(max_vol, 1),

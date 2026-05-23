@@ -8,6 +8,7 @@ import json
 from datetime import datetime
 from pathlib import Path
 
+import random
 import torch
 import numpy as np
 from tqdm import tqdm
@@ -166,9 +167,19 @@ def eval_epoch(model, loader: DataLoader, device: str) -> dict:
 
 # ── main ──────────────────────────────────────────────────────────────────────
 
+def seed_everything(seed: int) -> None:
+    random.seed(seed)
+    np.random.seed(seed)
+    torch.manual_seed(seed)
+    torch.cuda.manual_seed_all(seed)
+    torch.backends.cudnn.deterministic = True
+    torch.backends.cudnn.benchmark = False
+
+
 def main(args: argparse.Namespace) -> None:
+    seed_everything(args.seed)
     device = 'cuda' if torch.cuda.is_available() else 'cpu'
-    print(f"Device: {device}")
+    print(f"Device: {device}  |  seed={args.seed}")
 
     # ── model ─────────────────────────────────────────────────────────────────
     if args.model_size == 'small':

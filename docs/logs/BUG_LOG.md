@@ -7,7 +7,35 @@
 
 ## Active Bugs
 
-_None yet._
+### BUG-011: Random CryptoSite split has homology leakage
+
+**Date found:** 2026-05-22
+**Date resolved:** 2026-05-22
+**Status:** resolved
+**Severity:** critical
+**Affected file(s):** `data/splits/cryptosite_split.json`, benchmark reports
+**Found by:** prior audit
+
+**Description:**
+The old random split placed homologous structures across train and held-out sets, invalidating headline benchmark claims.
+
+**Fix:**
+Added MMseqs2 30% homology-clean splitting, split integrity validation, clean-split ablation training, and clean evaluation scripts. Final four-condition, three-seed rerun completed in E004.
+
+### BUG-012: Clean benchmark provenance was insufficient
+
+**Date found:** 2026-05-22
+**Date resolved:** 2026-05-22
+**Status:** resolved
+**Severity:** warning
+**Affected file(s):** `src/training/train.py`
+**Found by:** remediation plan
+
+**Description:**
+Checkpoints did not record enough provenance to defend split hash, graph hash, command, environment, condition, node dimension, seed, and git commit.
+
+**Fix:**
+New `best_meta.json` files record clean benchmark provenance fields.
 
 ---
 

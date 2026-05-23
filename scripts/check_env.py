@@ -52,10 +52,10 @@ def main():
     ok_sklearn= check("scikit-learn", "sklearn",    min_version="1.3.0")
     print()
 
-    print("PyTorch Geometric (required for model inference + training):")
+    print("PyTorch Geometric (required for all ML training/evaluation commands):")
     ok_pyg     = check("torch_geometric", min_version="2.4.0")
-    check("torch_scatter")   # optional sparse kernel — speeds up some ops
-    check("torch_sparse")    # optional sparse kernel
+    ok_scatter = check("torch_scatter")
+    ok_sparse  = check("torch_sparse")
     print()
 
     print("UI and reporting:")
@@ -92,9 +92,9 @@ def main():
             "pip install torch==2.1.0 --index-url https://download.pytorch.org/whl/cpu\n"
             "  (replace +cpu with +cu118 or +cu121 for NVIDIA GPU)"
         ))
-    if not ok_pyg:
+    if not ok_pyg or not ok_scatter or not ok_sparse:
         issues.append((
-            "Install PyTorch Geometric",
+            "Install PyTorch Geometric and sparse kernels",
             "pip install torch-geometric\n"
             "  pip install torch-scatter torch-sparse \\\n"
             "    -f https://data.pyg.org/whl/torch-2.1.0+cpu.html\n"

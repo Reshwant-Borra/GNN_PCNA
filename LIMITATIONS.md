@@ -134,53 +134,94 @@ positive classes, AUROC is systematically optimistic.
 
 **AUPRC (mean precision at different recall levels) is the correct primary metric.**
 
-Current evaluation uses all 13 held-out proteins (8 val + 5 test), all withheld from
-pre-training and fine-tuning, evaluated with the XL checkpoint on pre-built XL graphs:
+The earlier 13-protein random split evaluation is superseded because homology leakage was
+detected between train and held-out structures. Final reports must use the MMseqs2
+homology-clean split and cite AUPRC with structure-bootstrap confidence intervals:
 
-| Split | N | Mean AUROC | Mean AUPRC | Trivial baseline | Fold above trivial |
-|-------|---|-----------|-----------|-----------------|-------------------|
-| Val   | 8 | 0.7263    | 0.3276    | ~0.07           | ~4.7×             |
-| Test  | 5 | 0.9390    | 0.3706    | ~0.08           | ~4.6×             |
-| Combined | 13 | 0.8081 | 0.3441  | ~0.056          | **6.2×**          |
+| Artifact | Required status |
+|---|---|
+| `data/splits/cryptosite_homology30_split.json` | created by MMseqs2 30% clustering |
+| `data/results/homology30_audit.json` | zero train-to-val/test cluster overlap |
+| `data/results/clean_split_evaluation.json` | three seeds and all ablations complete |
+| `data/results/clean_split_summary.md` | AUPRC primary, AUROC secondary |
 
-A model that randomly ranks residues achieves AUPRC = pos_fraction (trivial baseline).
+A model that randomly ranks residues achieves AUPRC = positive residue fraction.
 A model that perfectly ranks all pocket residues first achieves AUPRC = 1.0.
-The project mean AUPRC of 0.3441 (13 proteins) is **6.2× above the trivial baseline** —
-meaningful signal above chance — but not strong absolute performance.
+Degenerate structures with fewer than 5 positive residues must be reported individually
+and excluded from aggregate claims.
 
 The 13 protein set spans kinase, protease, transferase, oxidoreductase, hydrolase, and
 other families distinct from PCNA, making this a cross-family transfer check. The sample
 size is still small enough that confidence intervals are wide — these numbers should not
 be overinterpreted.
 
-Full per-structure results: `data/results/test_split_eval_best.json`
+Full clean-split results: `data/results/clean_split_evaluation.json`
 
-**Cross-method comparison caveat:** The closest published baseline is PocketMiner (Meller et al. 2023, *Nature Communications*), which reports PR-AUC = 0.44 on ~39 proteins using curated experimentally confirmed cryptic pockets. Our mean AUPRC of 0.344 (13 proteins) is lower than PocketMiner's 0.44. However, AUPRC is only directly comparable between datasets with the same positive residue fraction (ours: ~5–15%; PocketMiner's: ~5–10%) and the same label quality (ours: Cα-proximity heuristics; PocketMiner: curated annotations). A fair comparison requires running both models on the same benchmark split (e.g., CryptoBench, Skrhak et al. 2024).
+Clean-split summary:
 
-### 4.3 Held-out evaluation covers 13 proteins (8 val + 5 test)
+| Condition | Seeds | Test AUPRC mean | 95% CI | Test AUROC mean | Degenerate test structures |
+|---|---:|---:|---|---:|---:|
+| small_geometry | 3 | 0.1551 | 0.0549-0.2426 | 0.7626 | 2 |
+| xl_geometry | 3 | 0.1923 | 0.1161-0.2682 | 0.8325 | 2 |
+| xl_esm_zero | 3 | 0.1071 | 0.0465-0.1773 | 0.6815 | 2 |
+| xl_esm_full | 3 | 0.2513 | 0.1267-0.3815 | 0.8649 | 2 |
 
-Val: `2QKH`, `1JBP`, `2P54`, `2XBP`, `1K3Y`, `1O3P`, `1PZO`, `1Q5H`  
-Test: `1V48`, `3CL7`, `1D09`, `1M17`, `2VO5`
+The best condition is `xl_esm_full`, so the clean benchmark should be framed as ESM2-augmented. Because `xl_esm_zero` falls to AUPRC 0.1071 and `xl_geometry` reaches 0.1923, ESM2/sequence context is a major contributor and the result should not be described as pure structural learning.
 
-All 13 proteins have pre-built XL graphs in `data/graphs_xl/` and are evaluated with
-the same XL checkpoint used for the PCNA AOH gate. None appeared in training or fine-tuning.
+**Cross-method comparison caveat:** Comparisons to PocketMiner, CryptoSite, or CryptoBench are not valid until this project is evaluated on the same split with the same label standard. This repository currently uses C-alpha ligand-proximity labels, not curated cryptic-pocket annotations.
 
-### 4.4 ANM flexibility is a coarse-grained approximation
+### 4.3 Homology-clean evaluation is required
+
+Validation and test structures must come from structure-level connected components, not
+individual proteins or chains. Training refuses to start when the homology audit is
+missing or reports leakage.
+
+### 4.4 PCNA xl_esm_full regeneration downgrades the final PCNA claim
+
+PCNA-specific reporting must use the clean-split `xl_esm_full` checkpoint:
+
+`checkpoints/clean_split/xl_esm_full/seed_42/best.ckpt`
+
+All PCNA tables and figures should be labeled:
+
+> ESM2-augmented GNN prioritization results.
+
+The regenerated PCNA outputs do not support a hidden-pocket discovery claim:
+
+| Item | Regenerated result |
+|---|---:|
+| PCNA structures regenerated | 59 |
+| Structures with thresholded clusters | 22 |
+| Top structure | `1W60` |
+| Top `1W60` cluster mean score | 0.710175 |
+| Top `1W60` cluster size | 4 residues |
+| Top `1W60` AOH/MD-region overlap | 3 residues |
+| `8GLA` thresholded clusters | 0 |
+| Maximum top-cluster AOH overlap across structures | 3 residues |
+
+The top `1W60` signal is biologically locatable near the front-face/PIP-box groove, but
+it is too sparse to call a recovered pocket. The full AOH1996/MD pocket is not recovered
+as a ranked cluster. Therefore the safest claim is residue prioritization and hypothesis
+generation, not hidden pocket discovery, druggability, docking readiness, or validated
+apo-to-holo opening.
+
+### 4.5 ANM and MD evidence are preliminary
 
 The ANM (Anisotropic Network Model) analysis uses a physics-based normal-mode model with
 a 7.5 Å cutoff and 20 non-trivial modes. It is a rapid coarse-grained approximation that
 correlates with full MD RMSF at r~0.6–0.8 (Eyal et al. 2006) but is not a substitute for
-all-atom molecular dynamics. The fold-change values (apo 0.857, holo 1.157, delta +0.300)
-are consistent with a ligand-induced flexibility increase — this is a **hypothesis**, not a confirmation.
-Full MD simulation would be required to confirm.
+all-atom molecular dynamics. Current dynamics evidence is preliminary and should not be
+treated as validation of enhanced apo pocket flexibility. Full MD simulation would be
+required before making dynamics claims.
 
 **Literature context for the fold-change value:** No published paper reports an ANM fold-change scalar as a standard benchmark metric for cryptic pockets. CryptoBench (Skrhak et al. 2024, *Bioinformatics*) reports that apo–holo backbone RMSD at cryptic sites ranges from 0.45–22.45 Å across 1,107 structures, with 67% of pairs differing by less than 3 Å. This suggests that small conformational changes (including the subtle flexibility difference we measure via ANM) are consistent with the majority of known cryptic pocket transitions, but the fold-change value is not directly comparable to any published reference range.
 
-### 4.5 No MD trajectories were generated
+### 4.6 MD trajectories are not final validation
 
-The MD analysis infrastructure exists in `src/md/` but no trajectories were generated —
-there is no trajectory data available. RMSF, DCCM, and transient volume analyses listed
-in `docs/knowledge/VALIDATION.md` describe methodology only and were not run.
+The MD analysis infrastructure exists in `src/md/`, and E003 records a short 6.4 ns
+apo-PCNA smoketest. This is a workflow check, not final validation. The current MD
+fold-change is below 1.0 and does not support enhanced apo pocket flexibility. Do not use
+MD figures to claim pocket opening or druggability.
 
 ---
 
@@ -216,9 +257,9 @@ pocket-like.
 | 8GLA in fine-tuning data | Yes | Yes | 8GLA AUROC is invalid as performance metric |
 | AUROC vs AUPRC framing | No | No | How results are described |
 | 0.7 threshold not calibrated | No | No | How the gate is described |
-| No MD trajectories | No | No | ANM claims: described as hypothesis |
+| Preliminary MD only | No | No | Dynamics claims: workflow check only, not validation |
 | chain_onehot encoding beyond C | Minor | Minor | Structures with >3 chains or non-A/B/C chains |
 
 ---
 
-*Last updated: 2026-05-19*
+*Last updated: 2026-05-23*

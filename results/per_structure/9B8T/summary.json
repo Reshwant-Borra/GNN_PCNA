@@ -1,19 +1,22 @@
 {
+  "result_label": "ESM2-augmented GNN prioritization results.",
   "pdb": "9B8T",
   "title": "DNA BINDING PROTEIN/DNAHUMAN POLYMERASE EPSILON BOUND TO PCNA AND DNA IN THE NUCLEOTIDE BOUND STATE",
   "n_residues": 783,
   "n_chains": 3,
-  "ligands": [
-    "TTP",
-    "SF4"
-  ],
-  "auroc": null,
-  "n_pocket_labeled": 0,
-  "n_clusters": 5,
-  "top_cluster_mean": 0.5671,
-  "top_cluster_n": 61,
-  "top_aoh_overlap": 16,
-  "top_concavity": 0.59,
-  "score_max": 0.7826,
-  "score_mean": 0.1971
+  "chains": "B,C,D",
+  "ligands": "",
+  "auto_ligand_auroc_sanity": "",
+  "n_clusters": 1,
+  "top_cluster_mean": 0.703150749206543,
+  "top_cluster_max": 0.7083048820495605,
+  "top_cluster_n": 3,
+  "top_aoh_overlap": 0,
+  "top_concavity": 0.6666666666666666,
+  "score_max": 0.7083048820495605,
+  "score_mean": 0.22800695896148682,
+  "score_std": 0.10557708889245987,
+  "n_above_threshold": 3,
+  "threshold": 0.7001100182533264,
+  "checkpoint": "checkpoints\\clean_split\\xl_esm_full\\seed_42\\best.ckpt"
 }

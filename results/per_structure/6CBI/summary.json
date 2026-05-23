@@ -1,18 +1,22 @@
 {
+  "result_label": "ESM2-augmented GNN prioritization results.",
   "pdb": "6CBI",
   "title": "CELL CYCLEPCNA IN COMPLEX WITH INHIBITOR",
   "n_residues": 1535,
   "n_chains": 10,
-  "ligands": [
-    "DAB"
-  ],
-  "auroc": 0.4066,
-  "n_pocket_labeled": 39,
-  "n_clusters": 11,
-  "top_cluster_mean": 0.597,
-  "top_cluster_n": 222,
-  "top_aoh_overlap": 24,
-  "top_concavity": 0.523,
-  "score_max": 0.7724,
-  "score_mean": 0.2492
+  "chains": "A,B,C,D,E,F,H,I,J,K",
+  "ligands": "DAB",
+  "auto_ligand_auroc_sanity": "0.948324",
+  "n_clusters": 0,
+  "top_cluster_mean": 0.0,
+  "top_cluster_max": 0.0,
+  "top_cluster_n": 0,
+  "top_aoh_overlap": 0,
+  "top_concavity": 0.0,
+  "score_max": 0.7022167444229126,
+  "score_mean": 0.22827106714248657,
+  "score_std": 0.10092360526323318,
+  "n_above_threshold": 1,
+  "threshold": 0.7001100182533264,
+  "checkpoint": "checkpoints\\clean_split\\xl_esm_full\\seed_42\\best.ckpt"
 }

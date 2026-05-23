@@ -5,14 +5,14 @@
 > For scope limitations (asymmetric units, labeling approximations, metric caveats) see **[LIMITATIONS.md](LIMITATIONS.md)**.
 
 ### BUG-007: Core ML scripts require torch_geometric not installed by default
-- **Status**: open
+- **Status**: fixed (2026-05-22)
 - **Affected**: `scripts/run_test_eval.py`, `scripts/aoh_gate_check.py`, `src/training/train.py`
 - **Description**: All model scripts fail with `ModuleNotFoundError: No module named 'torch_geometric'` in a fresh Python environment. PyTorch Geometric requires a separate install step that most users miss.
 - **Reproduction**: `python scripts/run_test_eval.py --help` in a clean venv.
 - **Fix**: Follow setup instructions step 3 exactly — PyG must be installed before PyTorch.
 
 ### BUG-008: pytest skips all model tests with "torch missing" even when torch is installed
-- **Status**: open
+- **Status**: fixed (2026-05-22)
 - **Affected**: `tests/`
 - **Description**: 11 of 16 tests are skipped even with torch 2.x installed, because the skip guard checks for `torch_geometric` (absent), not `torch`. False confidence from "5 passed" result.
 - **Fix**: Separate skip guards for torch vs torch_geometric; CI should fail hard when PyG unavailable.
@@ -28,6 +28,18 @@
 - **Affected**: `results/per_structure/*/report.txt` and related files
 - **Description**: Per-structure reports were generated before the apo-negative fix; scores in those files reflect the superseded checkpoint.
 - **Fix**: Regenerate with `python scripts/per_structure_analysis.py` using `best_pcna_v3_fixed.ckpt`.
+
+### BUG-011: Random CryptoSite split has homology leakage
+- **Status**: fixed (2026-05-22)
+- **Affected**: `data/splits/cryptosite_split.json`, previous benchmark reporting
+- **Description**: The old random split placed homologous structures across train and held-out sets, invalidating headline benchmark claims.
+- **Fix**: Added MMseqs2 30% homology-clean splitting, split integrity validation, clean-split ablation training, and clean evaluation scripts. Final four-condition, three-seed rerun completed in E004.
+
+### BUG-012: Clean benchmark provenance was insufficient
+- **Status**: fixed (2026-05-22)
+- **Affected**: `src/training/train.py`
+- **Description**: Checkpoints did not record enough provenance to defend split hash, graph hash, command, environment, condition, node dimension, seed, and git commit.
+- **Fix**: `best_meta.json` now records clean benchmark provenance fields for new runs. Final clean-split checkpoints include the required provenance.
 
 ## Template
 

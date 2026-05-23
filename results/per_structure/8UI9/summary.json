@@ -1,19 +1,22 @@
 {
+  "result_label": "ESM2-augmented GNN prioritization results.",
   "pdb": "8UI9",
   "title": "MOTOR PROTEINCRYO-EM MAP OF HUMAN CLAMP-CLAMP LOADER ATAD5-RFC-CRACKED PCNA COMPLEX IN INTERMEDIATE STATE 2",
   "n_residues": 2760,
   "n_chains": 8,
-  "ligands": [
-    "AGS",
-    "ADP"
-  ],
-  "auroc": 0.464,
-  "n_pocket_labeled": 88,
-  "n_clusters": 8,
-  "top_cluster_mean": 0.5523,
-  "top_cluster_n": 106,
-  "top_aoh_overlap": 21,
-  "top_concavity": 0.528,
-  "score_max": 0.7742,
-  "score_mean": 0.1252
+  "chains": "A,B,C,D,E,F,G,H",
+  "ligands": "",
+  "auto_ligand_auroc_sanity": "",
+  "n_clusters": 1,
+  "top_cluster_mean": 0.7029348611831665,
+  "top_cluster_max": 0.7052493095397949,
+  "top_cluster_n": 7,
+  "top_aoh_overlap": 0,
+  "top_concavity": 0.8571428571428571,
+  "score_max": 0.7052493095397949,
+  "score_mean": 0.23291926085948944,
+  "score_std": 0.15951110422611237,
+  "n_above_threshold": 7,
+  "threshold": 0.7001100182533264,
+  "checkpoint": "checkpoints\\clean_split\\xl_esm_full\\seed_42\\best.ckpt"
 }

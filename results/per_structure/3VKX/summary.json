@@ -1,18 +1,22 @@
 {
+  "result_label": "ESM2-augmented GNN prioritization results.",
   "pdb": "3VKX",
   "title": "DNA BINDING PROTEINSTRUCTURE OF PCNA",
   "n_residues": 248,
   "n_chains": 1,
-  "ligands": [
-    "T3"
-  ],
-  "auroc": 0.9042,
-  "n_pocket_labeled": 14,
-  "n_clusters": 1,
-  "top_cluster_mean": 0.6737,
-  "top_cluster_n": 128,
-  "top_aoh_overlap": 24,
-  "top_concavity": 0.477,
-  "score_max": 0.8329,
-  "score_mean": 0.3931
+  "chains": "A",
+  "ligands": "T3",
+  "auto_ligand_auroc_sanity": "0.641941",
+  "n_clusters": 0,
+  "top_cluster_mean": 0.0,
+  "top_cluster_max": 0.0,
+  "top_cluster_n": 0,
+  "top_aoh_overlap": 0,
+  "top_concavity": 0.0,
+  "score_max": 0.6841062903404236,
+  "score_mean": 0.22254815697669983,
+  "score_std": 0.1030040979385376,
+  "n_above_threshold": 0,
+  "threshold": 0.7001100182533264,
+  "checkpoint": "checkpoints\\clean_split\\xl_esm_full\\seed_42\\best.ckpt"
 }

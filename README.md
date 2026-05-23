@@ -6,7 +6,7 @@
 
 ## What This Project Does
 
-This project develops a residue-level GNN scoring pipeline for PCNA and related protein structures. It uses ligand-proximity labels, including the ZQZ/AOH1996-1LE ligand-contact region in PDB 8GLA as a PCNA positive control, and reports high AUROC but mixed precision-recall behavior on a small held-out ligand-proximity-labeled benchmark. **The current evidence supports using the model to prioritize candidate residue clusters for follow-up study, but it does not yet establish novel cryptic pockets, druggability, docking readiness, apo-to-holo opening, or AOH1996 mechanism.**
+This project develops a residue-level GNN scoring pipeline for PCNA and related protein structures. It uses ligand-proximity labels, including the ZQZ/AOH1996-1LE ligand-contact region in PDB 8GLA as a PCNA positive control. **Previous random-split benchmark numbers are superseded because homology leakage was detected. The current clean-split benchmark is an MMseqs2 30% homology-clean, three-seed ablation suite. The best condition is ESM2-augmented XL (`xl_esm_full`): test AUPRC 0.2513 (95% CI 0.1267-0.3815), AUROC 0.8649. Geometry-only XL is weaker but above the small model (AUPRC 0.1923), while ESM-zero XL drops to 0.1071, so sequence/ESM2 contribution is a major confound. The current evidence supports using the model to prioritize candidate residue clusters for follow-up study, but it does not yet establish novel cryptic pockets, druggability, docking readiness, apo-to-holo opening, or AOH1996 mechanism.**
 
 Human PCNA (UniProt P12004) is a homotrimeric sliding clamp involved in DNA replication and repair. PDB 8GLA contains PCNA bound to AOH1996 derivative AOH1996-1LE (ligand ZQZ, resolution 3.77 Å, chains A–D in asymmetric unit) and is used here as a positive-control ligand-contact region. PDB 1W60 is apo/native PCNA (chains A/B in asymmetric unit, resolution 3.15 Å).
 
@@ -16,7 +16,7 @@ This pipeline:
 2. Represents a protein structure as a dual-view graph (spatial contacts + backbone connectivity)
 3. Trains a dual-branch GNN (PocketGNN v2; ~907k–10.4M params depending on variant) to score per-residue prioritization likelihood
 4. Visualises predictions in a Streamlit UI with PyMOL-ready export
-5. **ANM flexibility analysis** completed on apo PCNA (1W60): pocket residues are 14% less flexible than background (fold-change 0.857), consistent with a rigidly packed cryptic site. Full MD trajectories not yet generated.
+5. **Preliminary dynamics checks** exist for apo PCNA (1W60), but they do not validate pocket opening. Current final reporting treats PCNA outputs as residue prioritization / hypothesis generation.
 
 > **Read before interpreting results:** [LIMITATIONS.md](LIMITATIONS.md) documents every known constraint — labeling approximations, asymmetric-unit caveats, metric interpretation, and what the model can and cannot claim.
 
@@ -33,7 +33,7 @@ PDB Structure
   → parse_pdb.py           residues + Cα coordinates
   → graph_construction.py  dual-graph PyG Data (40-dim nodes, 6-dim edges)
   ↓
-PocketGNNXL  (src/models/cryptic_gnn.py — primary checkpoint: checkpoints/pcna_reproduced/best.ckpt)
+PocketGNNXL  (src/models/cryptic_gnn.py — final reporting checkpoint: checkpoints/clean_split/xl_esm_full/seed_42/best.ckpt)
   Branch 1: 5× GATv2Conv on spatial contact graph (8 Å)
   Branch 2: 4× GATv2Conv on backbone sequential graph (|i−j| ≤ 2)
   → gated fusion → virtual-node → MLP head → per-residue sigmoid score
@@ -44,7 +44,7 @@ Streamlit UI  (src/ui/app.py)
   → B-factor PDB export (PyMOL) + CSV
   ↓
 MD Validation  (src/md/parse_trajectory.py)
-  → RMSF, DCCM, transient volume analysis  [future work — infrastructure ready, no trajectories generated]
+  → RMSF, DCCM, transient volume analysis  [preliminary only; current MD fold-change <1.0 is not supportive of enhanced apo pocket flexibility]
 ```
 
 ---
@@ -61,7 +61,7 @@ MD Validation  (src/md/parse_trajectory.py)
 | Fusion | Learned gate per residue: `gate * h_spatial + (1-gate) * h_seq` |
 | Scoring head | Linear(768→384→192→96→1) + ReLU + Dropout at each layer |
 | Output | Per-residue prioritization score (not a calibrated probability) ∈ [0, 1] |
-| Parameters | ~13.4M (XL) · ~10.4M (large) · ~3.6M (medium) · ~907k (small) — **primary results use `checkpoints/pcna_reproduced/best.ckpt` (fully reproduced XL, seed=42 end-to-end)** |
+| Parameters | ~13.4M (XL) · ~10.4M (large) · ~3.6M (medium) · ~907k (small) — **final PCNA reporting uses `checkpoints/clean_split/xl_esm_full/seed_42/best.ckpt`** |
 | Loss | Focal(γ=2, α=auto-calibrated from class balance) + 0.05×Ranking(margin=0.2) + 0.10×Symmetry (finetune only) |
 
 CrypticGNN v1 (~556k params, single-branch, 26-dim nodes) is preserved for comparison.
@@ -77,14 +77,14 @@ CrypticGNN v1 (~556k params, single-branch, 26-dim nodes) is preserved for compa
 | CryptoSite | SVM + coevolution features | 93 proteins | 0.83 | not reported | Cimermancic et al. 2016, JMB |
 | PocketMiner | GVP-GNN (equivariant) | 39 proteins (test) | **0.87** | **0.44** (5-fold CV) | Meller et al. 2023, Nat Comms |
 | 3D-CNN baseline | 3D CNN | same | 0.79 | 0.41 | Meller et al. 2023 |
-| **This work (XL, test 5)** | Dual-branch GATv2Conv | 5 proteins (test) | **0.939** | **0.371** | This repo |
-| **This work (XL, combined 13)** | Dual-branch GATv2Conv | 13 proteins (val+test) | **0.808** | **0.344** | This repo |
+| **This work (clean split)** | Dual-branch GATv2Conv + ESM2 | MMseqs2 30% homology-clean split | 0.8649 | 0.2513 (95% CI 0.1267-0.3815) | This repo |
 | Random baseline | — | any, ~5–10% pos | 0.50 | ~pos_fraction | — |
 
 **Important caveats for this comparison:**
 - AUPRC is only directly comparable between datasets with the same positive residue fraction. PocketMiner's positive rate (~5–10% of residues) may differ from ours (~5–15%). A fair comparison requires evaluating on the same benchmark split.
 - Our training labels use Cα-proximity heuristics; PocketMiner uses curated experimentally confirmed cryptic pockets. This makes our task harder to evaluate but easier to scale.
-- Our 5-protein test set has wide confidence intervals; the 13-protein combined result is more reliable.
+- Earlier 5-protein and 13-protein random-split results are superseded by the homology leakage audit and must not be used as headline benchmark claims.
+- The best clean-split result is ESM2-augmented. Geometry-only XL is lower (AUPRC 0.1923), and ESM-zero XL is lower still (AUPRC 0.1071), so final framing must disclose ESM2/sequence contribution.
 - A 2024 benchmark (CryptoBench, Skrhak et al., *Bioinformatics*) scales to 1,107 structures with a pLM-NN baseline outperforming PocketMiner — future work should evaluate on CryptoBench.
 
 ---
@@ -96,9 +96,29 @@ CrypticGNN v1 (~556k params, single-branch, 26-dim nodes) is preserved for compa
 | Apo structure | PDB **1W60** — no AOH1996 pocket visible |
 | Holo structure | PDB **8GLA** — AOH1996 bound, cryptic pocket open |
 | Ground truth labels | Residues whose Cα is within 6 Å of any heavy atom of ligand ZQZ (AOH1996) in PDB 8GLA |
-| Positive-control check | Score > 0.7 on 8GLA AOH pocket confirms the checkpoint retained fine-tuning signal (8GLA was in fine-tuning data — this is a sanity check, not independent validation) |
-| Pre-training data | Ligand-proximity labeled structures (87 proteins from a CryptoSite-derived set, labeled via Cα–ligand distance, **not** curated CryptoSite benchmark labels) |
+| Positive-control check | Score > 0.7 on 8GLA AOH pocket confirms the checkpoint retained fine-tuning signal (8GLA was in fine-tuning data — this is a positive-control sanity check, not independent performance) |
+| Pre-training data | Ligand-proximity labeled structures from a CryptoSite-derived set, labeled via Cα–ligand distance, **not** curated CryptoSite benchmark labels. Final clean-split metrics use `data/splits/cryptosite_homology30_split.json`. |
 | PCNA UniProt | P12004 · homotrimer (chains A, B, C) |
+
+---
+
+## Current PCNA Reporting Result
+
+Final PCNA reports use `xl_esm_full` as the clean-split reporting checkpoint and must be labeled:
+
+> ESM2-augmented GNN prioritization results.
+
+The regenerated PCNA outputs changed the old conclusion materially. The highest-ranked structure is `1W60`, but its top cluster is only four residues (`B42-B45`), with mean score 0.710175 and three overlaps with the MD/AOH-region residue set. The complete AOH1996/MD pocket is not recovered as a ranked cluster, and `8GLA` has no thresholded DBSCAN cluster under the regenerated clean-split checkpoint.
+
+Final defensible conclusion: using the homology-clean `xl_esm_full` checkpoint, the PCNA analysis identifies sparse, biologically plausible residue-prioritization signals near the AOH/PIP-groove region, but does not robustly recover the known AOH1996 pocket and should be framed as hypothesis generation rather than hidden-pocket discovery.
+
+Primary regenerated outputs:
+
+- `results/per_structure/pcna_rankings.csv`
+- `results/per_structure/pocket_score_summaries.csv`
+- `results/per_structure/summary_table.csv`
+- `results/per_structure/regeneration_manifest_xl_esm_full.json`
+- `results/figures/pcna_xl_esm_full_*.png`
 
 ---
 
@@ -266,19 +286,26 @@ Add to Claude Code via `.claude/mcp.json` (already configured in this repo).
 
 > **Note:** 8GLA was in the fine-tuning data. This is a sanity check that the model retained its training signal, not a performance metric. See `LIMITATIONS.md §4.1`.
 
-### Held-out generalization (genuine unseen evaluation)
+### Homology-clean generalization
 
-All 13 val+test proteins (from `data/splits/cryptosite_split.json`) were withheld from both pre-training and fine-tuning. They span diverse protein families (kinase, protease, transferase, oxidoreductase, hydrolase, and others) distinct from PCNA.
+The earlier `data/splits/cryptosite_split.json` benchmark is superseded because homology leakage was detected across train and held-out structures. The clean split workflow is:
 
-| Split | N proteins | Mean AUROC | Mean AUPRC | Trivial AUPRC baseline | AUPRC ratio |
-|---|---|---|---|---|---|
-| Val (8 proteins) | 8 | 0.7263 | 0.3276 | ~0.07 | ~4.7× |
-| Test (5 proteins) | 5 | 0.9390 | 0.3706 | ~0.08 | ~4.6× |
-| **Combined (13 proteins)** | **13** | **0.8081** | **0.3441** | **~0.056** | **~6.2×** |
+```
+python scripts/make_homology_split.py
+python scripts/train_ablation_suite.py
+python scripts/evaluate_clean_split.py
+```
 
-AUROC is elevated by class imbalance (~5–15% positive residues); **AUPRC is the honest primary metric**. The model achieves 6.2× above the trivial random-ranking baseline on 13 held-out proteins. This is meaningful signal but not strong absolute performance.
+Headline metrics are clean-split AUPRC with structure-bootstrap confidence intervals. AUROC is secondary. Degenerate structures with fewer than 5 positive residues are listed individually and excluded from aggregate claims.
 
-Full per-structure breakdown: `data/results/test_split_eval_best.json`
+| Condition | Seeds | Test AUPRC mean | 95% CI | Test AUROC mean | Degenerate test structures |
+|---|---:|---:|---|---:|---:|
+| small_geometry | 3 | 0.1551 | 0.0549-0.2426 | 0.7626 | 2 |
+| xl_geometry | 3 | 0.1923 | 0.1161-0.2682 | 0.8325 | 2 |
+| xl_esm_zero | 3 | 0.1071 | 0.0465-0.1773 | 0.6815 | 2 |
+| xl_esm_full | 3 | 0.2513 | 0.1267-0.3815 | 0.8649 | 2 |
+
+Interpretation: the best result is ESM2-augmented and exploratory. The ESM-zero ablation underperforms geometry-only XL, so ESM2/sequence context is a major contributor and must not be framed as pure structural learning.
 
 ### Structural dynamics validation
 

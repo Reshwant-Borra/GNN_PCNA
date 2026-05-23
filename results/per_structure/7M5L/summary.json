@@ -1,19 +1,22 @@
 {
+  "result_label": "ESM2-augmented GNN prioritization results.",
   "pdb": "7M5L",
   "title": "REPLICATIONPCNA BOUND TO PEPTIDE MIMETIC WITH LINKER",
   "n_residues": 799,
   "n_chains": 6,
-  "ligands": [
-    "NH2",
-    "TME"
-  ],
-  "auroc": 0.3571,
-  "n_pocket_labeled": 15,
-  "n_clusters": 7,
-  "top_cluster_mean": 0.5449,
-  "top_cluster_n": 61,
-  "top_aoh_overlap": 6,
-  "top_concavity": 0.689,
-  "score_max": 0.7551,
-  "score_mean": 0.1741
+  "chains": "A,B,C,D,E,F",
+  "ligands": "NH2|TME",
+  "auto_ligand_auroc_sanity": "0.843622",
+  "n_clusters": 0,
+  "top_cluster_mean": 0.0,
+  "top_cluster_max": 0.0,
+  "top_cluster_n": 0,
+  "top_aoh_overlap": 0,
+  "top_concavity": 0.0,
+  "score_max": 0.6974244117736816,
+  "score_mean": 0.231172576546669,
+  "score_std": 0.10167638957500458,
+  "n_above_threshold": 0,
+  "threshold": 0.7001100182533264,
+  "checkpoint": "checkpoints\\clean_split\\xl_esm_full\\seed_42\\best.ckpt"
 }

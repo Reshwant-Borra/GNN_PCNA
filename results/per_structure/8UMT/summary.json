@@ -1,19 +1,22 @@
 {
+  "result_label": "ESM2-augmented GNN prioritization results.",
   "pdb": "8UMT",
   "title": "REPLICATION/DNAATOMIC MODEL OF THE HUMAN CTF18-RFC-PCNA BINARY COMPLEX IN THE THREE- SUBUNIT BINDING STATE (STATE 2)",
   "n_residues": 2625,
   "n_chains": 8,
-  "ligands": [
-    "AGS",
-    "ADP"
-  ],
-  "auroc": 0.4986,
-  "n_pocket_labeled": 71,
-  "n_clusters": 10,
-  "top_cluster_mean": 0.58,
-  "top_cluster_n": 180,
-  "top_aoh_overlap": 23,
-  "top_concavity": 0.578,
-  "score_max": 0.7285,
-  "score_mean": 0.1325
+  "chains": "A,B,C,D,E,F,G,H",
+  "ligands": "",
+  "auto_ligand_auroc_sanity": "",
+  "n_clusters": 0,
+  "top_cluster_mean": 0.0,
+  "top_cluster_max": 0.0,
+  "top_cluster_n": 0,
+  "top_aoh_overlap": 0,
+  "top_concavity": 0.0,
+  "score_max": 0.6996568441390991,
+  "score_mean": 0.24260710179805756,
+  "score_std": 0.1610487997531891,
+  "n_above_threshold": 0,
+  "threshold": 0.7001100182533264,
+  "checkpoint": "checkpoints\\clean_split\\xl_esm_full\\seed_42\\best.ckpt"
 }

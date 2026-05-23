@@ -4,7 +4,11 @@ Pre-train on CryptoSite, fine-tune on PCNA (8GLA labels).
 """
 from __future__ import annotations
 import argparse
+import hashlib
 import json
+import random
+import subprocess
+import sys
 from datetime import datetime
 from pathlib import Path
 
@@ -18,6 +22,90 @@ from sklearn.metrics import roc_auc_score
 from src.models import CrypticGNN, PocketGNN, PocketGNNXL
 from src.models.cryptic_gnn import pocket_loss, focal_loss
 from .dataset import PocketDataset
+
+
+def _set_seed(seed: int) -> None:
+    """Seed Python, NumPy, and Torch for reproducible training runs."""
+    random.seed(seed)
+    np.random.seed(seed)
+    torch.manual_seed(seed)
+    if torch.cuda.is_available():
+        torch.cuda.manual_seed_all(seed)
+
+
+def _sha256_file(path: Path) -> str:
+    """Return the SHA256 digest for one file."""
+    h = hashlib.sha256()
+    with path.open("rb") as fh:
+        for chunk in iter(lambda: fh.read(1024 * 1024), b""):
+            h.update(chunk)
+    return h.hexdigest()
+
+
+def _split_hash(path: str | None) -> str | None:
+    """Return a stable hash of the split manifest, if provided."""
+    if not path:
+        return None
+    return _sha256_file(Path(path))
+
+
+def _graph_manifest_hash(split_path: str | None, graph_dir: str | Path) -> str | None:
+    """Hash the graph files referenced by a split manifest."""
+    if not split_path:
+        return None
+    manifest = json.loads(Path(split_path).read_text(encoding="utf-8"))
+    graph_dir = Path(graph_dir)
+    h = hashlib.sha256()
+    for split in ("train", "val", "test"):
+        for stem in sorted(manifest["splits"].get(split, [])):
+            path = graph_dir / f"{stem}.pt"
+            h.update(split.encode("utf-8"))
+            h.update(stem.encode("utf-8"))
+            h.update(_sha256_file(path).encode("ascii"))
+    return h.hexdigest()
+
+
+def _git_commit() -> str | None:
+    """Return the current git commit, or None outside a git checkout."""
+    try:
+        return subprocess.check_output(
+            ["git", "rev-parse", "HEAD"],
+            cwd=Path(__file__).resolve().parents[2],
+            text=True,
+            stderr=subprocess.DEVNULL,
+        ).strip()
+    except Exception:
+        return None
+
+
+def _environment_summary() -> dict:
+    """Collect package and runtime versions needed to interpret a checkpoint."""
+    pkgs: dict[str, str | None] = {
+        "python": sys.version.split()[0],
+        "torch": getattr(torch, "__version__", None),
+        "cuda_available": str(torch.cuda.is_available()),
+    }
+    for mod_name in ("torch_geometric", "torch_scatter", "torch_sparse", "numpy", "sklearn"):
+        try:
+            mod = __import__(mod_name)
+            pkgs[mod_name] = getattr(mod, "__version__", "?")
+        except Exception:
+            pkgs[mod_name] = None
+    return pkgs
+
+
+def _check_homology_audit(path: str | None, require: bool) -> None:
+    """Fail fast when the selected split has no clean homology audit."""
+    if not require and not path:
+        return
+    if not path:
+        raise RuntimeError("--require_clean_audit was set but --homology_audit was not provided")
+    audit_path = Path(path)
+    if not audit_path.exists():
+        raise FileNotFoundError(f"Homology audit not found: {audit_path}")
+    audit = json.loads(audit_path.read_text(encoding="utf-8"))
+    if audit.get("leakage_detected", True):
+        raise RuntimeError(f"Homology leakage detected in {audit_path}; refusing to train")
 
 
 # ── sanity check ──────────────────────────────────────────────────────────────
@@ -90,11 +178,23 @@ def sanity_check(model: torch.nn.Module, device: str) -> None:
 
 # ── training ──────────────────────────────────────────────────────────────────
 
-def _forward(model, batch, use_symmetry: bool = False):
+def _maybe_zero_esm(x: torch.Tensor, zero_esm: bool) -> torch.Tensor:
+    """Zero ESM2 columns while preserving 40 hand-crafted geometry features."""
+    if not zero_esm:
+        return x
+    if x.shape[1] <= 40:
+        return x
+    x = x.clone()
+    x[:, 40:] = 0.0
+    return x
+
+
+def _forward(model, batch, use_symmetry: bool = False, zero_esm: bool = False):
+    x = _maybe_zero_esm(batch.x, zero_esm)
     if isinstance(model, (PocketGNN, PocketGNNXL)):
         chain_id = getattr(batch, "chain_id", None)
         scores = model(
-            batch.x, batch.edge_index, batch.edge_attr,
+            x, batch.edge_index, batch.edge_attr,
             batch.edge_index_seq, batch.edge_attr_seq,
             chain_id,
         )
@@ -105,7 +205,7 @@ def _forward(model, batch, use_symmetry: bool = False):
         loss = pocket_loss(scores, batch.y.float(), chain_id, resid, b,
                            use_symmetry=use_symmetry)
     else:
-        scores = model(batch.x, batch.edge_index, batch.edge_attr)
+        scores = model(x, batch.edge_index, batch.edge_attr)
         if batch.y is None:
             return scores, scores.sum() * 0.0
         loss = focal_loss(scores, batch.y.float())
@@ -114,14 +214,14 @@ def _forward(model, batch, use_symmetry: bool = False):
 
 def train_epoch(model, loader: DataLoader, optimizer: torch.optim.Optimizer,
                 device: str, use_symmetry: bool = False,
-                clip_grad: float = 1.0) -> float:
+                clip_grad: float = 1.0, zero_esm: bool = False) -> float:
     model.train()
     total_loss = 0.0
     bar = tqdm(loader, desc="  train", leave=False, ncols=100, unit="batch")
     for batch in bar:
         batch = batch.to(device)
         optimizer.zero_grad()
-        _, loss = _forward(model, batch, use_symmetry)
+        _, loss = _forward(model, batch, use_symmetry, zero_esm)
         loss.backward()
         if clip_grad > 0:
             torch.nn.utils.clip_grad_norm_(model.parameters(), clip_grad)
@@ -132,7 +232,7 @@ def train_epoch(model, loader: DataLoader, optimizer: torch.optim.Optimizer,
 
 
 @torch.no_grad()
-def eval_epoch(model, loader: DataLoader, device: str) -> dict:
+def eval_epoch(model, loader: DataLoader, device: str, zero_esm: bool = False) -> dict:
     model.eval()
     total_loss = 0.0
     all_scores: list[np.ndarray] = []
@@ -141,7 +241,7 @@ def eval_epoch(model, loader: DataLoader, device: str) -> dict:
     bar = tqdm(loader, desc="  val  ", leave=False, ncols=100, unit="batch")
     for batch in bar:
         batch = batch.to(device)
-        scores, loss = _forward(model, batch)
+        scores, loss = _forward(model, batch, zero_esm=zero_esm)
         total_loss += loss.item()
         if batch.y is None:
             continue
@@ -167,6 +267,9 @@ def eval_epoch(model, loader: DataLoader, device: str) -> dict:
 # ── main ──────────────────────────────────────────────────────────────────────
 
 def main(args: argparse.Namespace) -> None:
+    _set_seed(args.seed)
+    _check_homology_audit(args.homology_audit, args.require_clean_audit)
+
     device = 'cuda' if torch.cuda.is_available() else 'cpu'
     print(f"Device: {device}")
 
@@ -237,8 +340,8 @@ def main(args: argparse.Namespace) -> None:
     epoch_bar = tqdm(range(1, args.epochs + 1), desc="Epochs", ncols=100, unit="ep")
     for epoch in epoch_bar:
         train_loss  = train_epoch(model, train_loader, optimizer, device,
-                                  use_symmetry, args.clip_grad)
-        val_metrics = eval_epoch(model, val_loader, device)
+                                  use_symmetry, args.clip_grad, args.zero_esm)
+        val_metrics = eval_epoch(model, val_loader, device, args.zero_esm)
         if args.scheduler == 'plateau':
             scheduler.step(val_metrics['auroc'] if not np.isnan(val_metrics['auroc']) else 0.0)
         else:
@@ -268,6 +371,17 @@ def main(args: argparse.Namespace) -> None:
                 "resume_ckpt": args.resume or None,
                 "train_dir": str(args.train_dir),
                 "val_dir": str(args.val_dir),
+                "train_manifest": str(args.train_manifest) if args.train_manifest else None,
+                "graph_dir": str(args.graph_dir),
+                "split_hash": _split_hash(args.train_manifest),
+                "graph_manifest_hash": _graph_manifest_hash(args.train_manifest, args.graph_dir),
+                "condition": args.condition,
+                "node_dim": args.node_dim if args.model_size in {"xl", "xl-t6"} else 40,
+                "zero_esm": bool(args.zero_esm),
+                "homology_audit": str(args.homology_audit) if args.homology_audit else None,
+                "command": " ".join(sys.argv),
+                "git_commit": _git_commit(),
+                "environment": _environment_summary(),
                 "lr": args.lr,
                 "weight_decay": args.weight_decay,
                 "batch_size": args.batch_size,
@@ -322,6 +436,14 @@ if __name__ == '__main__':
                         help='epochs without improvement before LR halved (plateau only)')
     parser.add_argument('--seed',           type=int,   default=42,
                         help='random seed for reproducibility')
+    parser.add_argument('--condition',      default=None,
+                        help='Benchmark condition label saved into best_meta.json')
+    parser.add_argument('--zero_esm',       action='store_true',
+                        help='For 520-dim XL graphs, zero columns 40: before model forward')
+    parser.add_argument('--homology_audit', default=None,
+                        help='Path to homology audit JSON for fail-fast leakage checks')
+    parser.add_argument('--require_clean_audit', action='store_true',
+                        help='Refuse to train unless --homology_audit exists and reports no leakage')
     args = parser.parse_args()
     if not args.train_manifest and not args.train_dir:
         parser.error("Provide --train_manifest (preferred) or --train_dir")

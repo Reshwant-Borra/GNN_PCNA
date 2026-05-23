@@ -1,18 +1,22 @@
 {
+  "result_label": "ESM2-augmented GNN prioritization results.",
   "pdb": "8GL9",
   "title": "DNA BINDING PROTEINCO-CRYSTAL STRUCTURE OF CAPCNA BOUND TO AOH1160 DERIVATIVE 1LE",
   "n_residues": 962,
   "n_chains": 4,
-  "ligands": [
-    "ZQW"
-  ],
-  "auroc": 0.8129,
-  "n_pocket_labeled": 45,
-  "n_clusters": 7,
-  "top_cluster_mean": 0.6114,
-  "top_cluster_n": 97,
-  "top_aoh_overlap": 22,
-  "top_concavity": 0.567,
-  "score_max": 0.8092,
-  "score_mean": 0.2324
+  "chains": "A,B,C,D",
+  "ligands": "ZQW",
+  "auto_ligand_auroc_sanity": "0.783739",
+  "n_clusters": 2,
+  "top_cluster_mean": 0.7096773982048035,
+  "top_cluster_max": 0.7141822576522827,
+  "top_cluster_n": 3,
+  "top_aoh_overlap": 0,
+  "top_concavity": 0.0,
+  "score_max": 0.7141822576522827,
+  "score_mean": 0.2360966056585312,
+  "score_std": 0.0995396226644516,
+  "n_above_threshold": 6,
+  "threshold": 0.7001100182533264,
+  "checkpoint": "checkpoints\\clean_split\\xl_esm_full\\seed_42\\best.ckpt"
 }

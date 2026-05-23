@@ -6,7 +6,11 @@ __pycache__/
 
 # Virtual environments
 .venv/
+.venv-clean/
 venv/
+
+# Local binary tools downloaded for runs
+tools/
 
 # OS
 .DS_Store

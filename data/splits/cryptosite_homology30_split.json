@@ -1,0 +1,283 @@
+{
+  "seed": 42,
+  "val_frac": 0.1,
+  "test_frac": 0.1,
+  "homology_backend": "mmseqs2 easy-cluster",
+  "identity_threshold": 0.3,
+  "graph_dir": "C:\\Users\\reshw\\GNN_PNCA\\data\\graphs",
+  "splits": {
+    "train": [
+      "1C3I",
+      "1D09",
+      "1E3V",
+      "1FBO",
+      "1JBP",
+      "1K3Y",
+      "1O3P",
+      "1OG2",
+      "1OIN",
+      "1ONE",
+      "1P9Y",
+      "1PDZ",
+      "1PZO",
+      "1Q5H",
+      "1SQO",
+      "1V48",
+      "1XHY",
+      "1ZC3",
+      "2AM9",
+      "2B8H",
+      "2BKM",
+      "2DXX",
+      "2EUF",
+      "2J58",
+      "2JA3",
+      "2NWX",
+      "2P54",
+      "2PKT",
+      "2Q1T",
+      "2R8Q",
+      "2VGO",
+      "2VO5",
+      "2X6D",
+      "2XBP",
+      "2XHM",
+      "2YHW",
+      "3C0I",
+      "3D0E",
+      "3EML",
+      "3GXD",
+      "3KQ4",
+      "3N86",
+      "3PXF"
+    ],
+    "val": [
+      "1GQY",
+      "2CNN",
+      "2HNX",
+      "2K1V",
+      "2WER",
+      "3FU8"
+    ],
+    "test": [
+      "1M17",
+      "1XKK",
+      "2NMO",
+      "2P0R",
+      "2QKH",
+      "3CL7"
+    ]
+  },
+  "components": {
+    "comp_0000": [
+      "2VGO",
+      "2X6D"
+    ],
+    "comp_0001": [
+      "2EUF",
+      "3PXF"
+    ],
+    "comp_0002": [
+      "1ONE",
+      "1PDZ"
+    ],
+    "comp_0003": [
+      "1O3P",
+      "1SQO"
+    ],
+    "comp_0004": [
+      "1M17",
+      "1XKK"
+    ],
+    "comp_0005": [
+      "1JBP",
+      "3D0E"
+    ],
+    "comp_0006": [
+      "3N86"
+    ],
+    "comp_0007": [
+      "3KQ4"
+    ],
+    "comp_0008": [
+      "3GXD"
+    ],
+    "comp_0009": [
+      "3FU8"
+    ],
+    "comp_0010": [
+      "3EML"
+    ],
+    "comp_0011": [
+      "3CL7"
+    ],
+    "comp_0012": [
+      "3C0I"
+    ],
+    "comp_0013": [
+      "2YHW"
+    ],
+    "comp_0014": [
+      "2XHM"
+    ],
+    "comp_0015": [
+      "2XBP"
+    ],
+    "comp_0016": [
+      "2WER"
+    ],
+    "comp_0017": [
+      "2VO5"
+    ],
+    "comp_0018": [
+      "2R8Q"
+    ],
+    "comp_0019": [
+      "2QKH"
+    ],
+    "comp_0020": [
+      "2Q1T"
+    ],
+    "comp_0021": [
+      "2PKT"
+    ],
+    "comp_0022": [
+      "2P54"
+    ],
+    "comp_0023": [
+      "2P0R"
+    ],
+    "comp_0024": [
+      "2NWX"
+    ],
+    "comp_0025": [
+      "2NMO"
+    ],
+    "comp_0026": [
+      "2K1V"
+    ],
+    "comp_0027": [
+      "2JA3"
+    ],
+    "comp_0028": [
+      "2J58"
+    ],
+    "comp_0029": [
+      "2HNX"
+    ],
+    "comp_0030": [
+      "2DXX"
+    ],
+    "comp_0031": [
+      "2CNN"
+    ],
+    "comp_0032": [
+      "2BKM"
+    ],
+    "comp_0033": [
+      "2B8H"
+    ],
+    "comp_0034": [
+      "2AM9"
+    ],
+    "comp_0035": [
+      "1ZC3"
+    ],
+    "comp_0036": [
+      "1XHY"
+    ],
+    "comp_0037": [
+      "1V48"
+    ],
+    "comp_0038": [
+      "1Q5H"
+    ],
+    "comp_0039": [
+      "1PZO"
+    ],
+    "comp_0040": [
+      "1P9Y"
+    ],
+    "comp_0041": [
+      "1OIN"
+    ],
+    "comp_0042": [
+      "1OG2"
+    ],
+    "comp_0043": [
+      "1K3Y"
+    ],
+    "comp_0044": [
+      "1GQY"
+    ],
+    "comp_0045": [
+      "1FBO"
+    ],
+    "comp_0046": [
+      "1E3V"
+    ],
+    "comp_0047": [
+      "1D09"
+    ],
+    "comp_0048": [
+      "1C3I"
+    ]
+  },
+  "component_of": {
+    "2VGO": "comp_0000",
+    "2X6D": "comp_0000",
+    "2EUF": "comp_0001",
+    "3PXF": "comp_0001",
+    "1ONE": "comp_0002",
+    "1PDZ": "comp_0002",
+    "1O3P": "comp_0003",
+    "1SQO": "comp_0003",
+    "1M17": "comp_0004",
+    "1XKK": "comp_0004",
+    "1JBP": "comp_0005",
+    "3D0E": "comp_0005",
+    "3N86": "comp_0006",
+    "3KQ4": "comp_0007",
+    "3GXD": "comp_0008",
+    "3FU8": "comp_0009",
+    "3EML": "comp_0010",
+    "3CL7": "comp_0011",
+    "3C0I": "comp_0012",
+    "2YHW": "comp_0013",
+    "2XHM": "comp_0014",
+    "2XBP": "comp_0015",
+    "2WER": "comp_0016",
+    "2VO5": "comp_0017",
+    "2R8Q": "comp_0018",
+    "2QKH": "comp_0019",
+    "2Q1T": "comp_0020",
+    "2PKT": "comp_0021",
+    "2P54": "comp_0022",
+    "2P0R": "comp_0023",
+    "2NWX": "comp_0024",
+    "2NMO": "comp_0025",
+    "2K1V": "comp_0026",
+    "2JA3": "comp_0027",
+    "2J58": "comp_0028",
+    "2HNX": "comp_0029",
+    "2DXX": "comp_0030",
+    "2CNN": "comp_0031",
+    "2BKM": "comp_0032",
+    "2B8H": "comp_0033",
+    "2AM9": "comp_0034",
+    "1ZC3": "comp_0035",
+    "1XHY": "comp_0036",
+    "1V48": "comp_0037",
+    "1Q5H": "comp_0038",
+    "1PZO": "comp_0039",
+    "1P9Y": "comp_0040",
+    "1OIN": "comp_0041",
+    "1OG2": "comp_0042",
+    "1K3Y": "comp_0043",
+    "1GQY": "comp_0044",
+    "1FBO": "comp_0045",
+    "1E3V": "comp_0046",
+    "1D09": "comp_0047",
+    "1C3I": "comp_0048"
+  }
+}

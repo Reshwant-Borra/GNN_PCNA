@@ -1,27 +1,12 @@
 """Tests for graph construction shapes and feature dimensions."""
-import numpy as np
-import pytest
 import sys
 from pathlib import Path
 
+import numpy as np
+import torch  # noqa: F401
+import torch_geometric  # noqa: F401
+
 sys.path.insert(0, str(Path(__file__).parent.parent))
-
-try:
-    import torch
-    HAS_TORCH = True
-except ImportError:
-    HAS_TORCH = False
-
-try:
-    import torch_geometric  # noqa: F401
-    HAS_PYG = True
-except ImportError:
-    HAS_PYG = False
-
-pytestmark = pytest.mark.skipif(
-    not HAS_TORCH or not HAS_PYG,
-    reason="torch not installed" if not HAS_TORCH else "torch_geometric not installed — run: pip install torch-geometric torch-scatter torch-sparse"
-)
 
 NODE_DIM = 40
 EDGE_DIM = 6
@@ -90,7 +75,6 @@ def test_chain_id_assigned():
 
 
 def test_scores_in_range():
-    import torch
     from src.models import PocketGNN
     _, build_graph_v2 = _get_imports()
     residues = _make_chain(20)

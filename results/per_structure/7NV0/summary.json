@@ -1,19 +1,22 @@
 {
+  "result_label": "ESM2-augmented GNN prioritization results.",
   "pdb": "7NV0",
   "title": "REPLICATIONHUMAN POL KAPPA HOLOENZYME WITH WT PCNA",
   "n_residues": 1180,
   "n_chains": 4,
-  "ligands": [
-    "DOC",
-    "TTP"
-  ],
-  "auroc": 0.6388,
-  "n_pocket_labeled": 12,
-  "n_clusters": 7,
-  "top_cluster_mean": 0.5897,
-  "top_cluster_n": 128,
-  "top_aoh_overlap": 21,
-  "top_concavity": 0.578,
-  "score_max": 0.7913,
-  "score_mean": 0.1982
+  "chains": "A,B,C,D",
+  "ligands": "",
+  "auto_ligand_auroc_sanity": "",
+  "n_clusters": 0,
+  "top_cluster_mean": 0.0,
+  "top_cluster_max": 0.0,
+  "top_cluster_n": 0,
+  "top_aoh_overlap": 0,
+  "top_concavity": 0.0,
+  "score_max": 0.7044132351875305,
+  "score_mean": 0.2616454064846039,
+  "score_std": 0.12568186223506927,
+  "n_above_threshold": 2,
+  "threshold": 0.7001100182533264,
+  "checkpoint": "checkpoints\\clean_split\\xl_esm_full\\seed_42\\best.ckpt"
 }

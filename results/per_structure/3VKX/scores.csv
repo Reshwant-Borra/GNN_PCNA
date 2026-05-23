@@ -1,249 +1,249 @@
-chain,resid,resname,score,sasa,b_factor,secondary_structure,region,gt_aoh,gt_ligand
-A,1,MET,0.0242,68.08,104.75,C,N-terminal beta sheet (domain 1),0,0
-A,2,PHE,0.0255,1.09,73.35,E,N-terminal beta sheet (domain 1),0,0
-A,3,GLU,0.0227,45.0,58.78,E,N-terminal beta sheet (domain 1),0,0
-A,4,ALA,0.0227,1.07,50.94,E,N-terminal beta sheet (domain 1),0,0
-A,5,ARG,0.022,26.18,48.54,E,N-terminal beta sheet (domain 1),0,0
-A,6,LEU,0.0215,1.21,46.25,E,N-terminal beta sheet (domain 1),0,0
-A,7,VAL,0.0213,43.47,48.46,C,N-terminal beta sheet (domain 1),0,0
-A,8,GLN,0.0202,90.1,52.43,C,N-terminal beta sheet (domain 1),0,0
-A,9,GLY,0.0216,0.0,49.22,H,N-terminal beta sheet (domain 1),0,0
-A,10,SER,0.021,8.84,48.42,H,N-terminal beta sheet (domain 1),0,0
-A,11,ILE,0.0205,0.0,47.4,H,N-terminal beta sheet (domain 1),0,0
-A,12,LEU,0.0207,2.42,47.91,H,N-terminal beta sheet (domain 1),0,0
-A,13,LYS,0.0208,11.14,43.22,H,N-terminal beta sheet (domain 1),0,0
-A,14,LYS,0.0207,32.28,45.62,H,N-terminal beta sheet (domain 1),0,0
-A,15,VAL,0.022,0.0,45.21,H,N-terminal beta sheet (domain 1),0,0
-A,16,LEU,0.0216,1.21,48.21,H,N-terminal beta sheet (domain 1),0,0
-A,17,GLU,0.0215,32.16,52.92,H,N-terminal beta sheet (domain 1),0,0
-A,18,ALA,0.0352,0.0,52.99,H,N-terminal beta sheet (domain 1),0,0
-A,19,LEU,0.0218,0.0,50.88,C,N-terminal beta sheet (domain 1),0,0
-A,20,LYS,0.0202,38.44,51.71,C,N-terminal beta sheet (domain 1),0,0
-A,21,ASP,0.0235,51.31,58.06,C,N-terminal beta sheet (domain 1),0,0
-A,22,LEU,0.0791,0.0,49.68,C,N-terminal beta sheet (domain 1),0,0
-A,23,ILE,0.1259,0.0,50.18,C,N-terminal beta sheet (domain 1),0,0
-A,24,ASN,0.675,71.4,56.48,C,N-terminal beta sheet (domain 1),0,0
-A,25,GLU,0.6681,47.83,59.66,E,N-terminal beta sheet (domain 1),1,0
-A,26,ALA,0.7773,0.0,56.05,E,N-terminal beta sheet (domain 1),1,0
-A,27,CYS,0.7623,2.57,59.72,E,N-terminal beta sheet (domain 1),1,0
-A,28,TRP,0.2134,4.83,55.06,E,N-terminal beta sheet (domain 1),0,0
-A,29,ASP,0.0742,30.56,60.59,E,N-terminal beta sheet (domain 1),0,0
-A,30,ILE,0.0364,2.28,56.97,E,N-terminal beta sheet (domain 1),0,0
-A,31,SER,0.0986,11.4,60.1,E,N-terminal beta sheet (domain 1),0,0
-A,32,SER,0.1002,66.76,64.26,C,N-terminal beta sheet (domain 1),0,0
-A,33,SER,0.0969,67.34,63.24,C,N-terminal beta sheet (domain 1),0,0
-A,34,GLY,0.0944,0.0,59.5,E,N-terminal beta sheet (domain 1),0,0
-A,35,VAL,0.0633,3.62,57.37,E,N-terminal beta sheet (domain 1),0,0
-A,36,ASN,0.1082,29.76,61.72,E,N-terminal beta sheet (domain 1),0,0
-A,37,LEU,0.4843,2.42,55.02,E,N-terminal beta sheet (domain 1),0,0
-A,38,GLN,0.6403,17.5,55.68,E,N-terminal beta sheet (domain 1),1,0
-A,39,SER,0.7541,2.28,45.52,E,N-terminal beta sheet (domain 1),1,0
-A,40,MET,0.7805,6.04,46.02,E,N-terminal beta sheet (domain 1),1,1
-A,41,ASP,0.8275,1.21,46.03,C,Front-face loop (PIP-box groove),1,0
-A,42,SER,0.8133,29.2,50.37,C,Front-face loop (PIP-box groove),1,0
-A,43,SER,0.7427,41.94,52.06,C,Front-face loop (PIP-box groove),0,0
-A,44,HIS,0.8138,118.9,50.64,C,Front-face loop (PIP-box groove),1,1
-A,45,VAL,0.817,38.63,46.26,C,Front-face loop (PIP-box groove),1,0
-A,46,SER,0.8329,1.07,44.03,C,Front-face loop (PIP-box groove),1,1
-A,47,LEU,0.6839,0.0,42.8,E,Front-face loop (PIP-box groove),1,1
-A,48,VAL,0.5543,2.42,43.3,E,Core beta sheet,0,0
-A,49,GLN,0.2343,10.53,45.17,E,Core beta sheet,0,0
-A,50,LEU,0.1325,0.0,44.84,E,Core beta sheet,0,0
-A,51,THR,0.074,0.0,48.13,E,Core beta sheet,0,0
-A,52,LEU,0.0498,1.21,49.04,E,Core beta sheet,0,0
-A,53,ARG,0.0206,70.77,53.68,E,Core beta sheet,0,0
-A,54,SER,0.0247,22.11,50.98,C,Core beta sheet,0,0
-A,55,GLU,0.0229,136.73,57.07,H,Core beta sheet,0,0
-A,56,GLY,0.0407,0.0,51.06,H,Core beta sheet,0,0
-A,57,PHE,0.0462,15.27,48.76,H,Core beta sheet,0,0
-A,58,ASP,0.0565,67.79,52.31,C,Core beta sheet,0,0
-A,59,THR,0.0367,61.18,49.1,E,Core beta sheet,0,0
-A,60,TYR,0.0323,52.81,53.31,E,Core beta sheet,0,0
-A,61,ARG,0.022,93.55,67.65,E,Core beta sheet,0,0
-A,62,CYS,0.022,20.63,68.43,C,Core beta sheet,0,0
-A,63,ASP,0.0227,81.47,80.99,C,Core beta sheet,0,0
-A,64,ARG,0.0219,163.98,88.32,C,Core beta sheet,0,0
-A,65,ASN,0.0475,69.48,78.03,C,Core beta sheet,0,0
-A,66,LEU,0.0525,23.74,73.95,E,Core beta sheet,0,0
-A,67,ALA,0.0936,50.84,63.06,E,Core beta sheet,0,0
-A,68,MET,0.6175,6.04,59.45,E,Core beta sheet,0,0
-A,69,GLY,0.595,0.0,56.94,E,Core beta sheet,0,0
-A,70,VAL,0.6182,0.0,53.38,E,Core beta sheet,0,0
-A,71,ASN,0.5392,14.22,50.1,E,Core beta sheet,0,0
-A,72,LEU,0.1545,0.0,49.09,H,Core beta sheet,0,0
-A,73,THR,0.1312,34.99,49.89,H,Core beta sheet,0,0
-A,74,SER,0.2842,19.44,45.29,H,Core beta sheet,0,0
-A,75,MET,0.2215,2.42,43.88,H,Core beta sheet,0,0
-A,76,SER,0.0415,9.64,46.01,H,Core beta sheet,0,0
-A,77,LYS,0.0273,98.59,48.88,H,Core beta sheet,0,0
-A,78,ILE,0.0216,20.53,44.58,H,Core beta sheet,0,0
-A,79,LEU,0.0232,6.04,45.11,H,Core beta sheet,0,0
-A,80,LYS,0.0251,115.02,54.15,H,Core beta sheet,0,0
-A,81,CYS,0.0299,40.72,49.86,C,Core beta sheet,0,0
-A,82,ALA,0.0508,2.14,49.12,C,Core beta sheet,0,0
-A,83,GLY,0.0577,0.0,50.76,C,Core beta sheet,0,0
-A,84,ASN,0.059,65.23,57.58,C,Core beta sheet,0,0
-A,85,GLU,0.0522,123.58,58.57,C,Core beta sheet,0,0
-A,86,ASP,0.0532,6.43,47.53,C,Core beta sheet,0,0
-A,87,ILE,0.0312,12.08,47.45,E,Core beta sheet,0,0
-A,88,ILE,0.0329,0.0,44.91,E,Core beta sheet,0,0
-A,89,THR,0.03,4.83,47.7,E,Core beta sheet,0,0
-A,90,LEU,0.027,9.66,53.09,E,Core beta sheet,0,0
-A,91,ARG,0.0213,63.91,63.67,E,Core beta sheet,0,0
-A,92,ALA,0.0906,2.42,62.4,E,Core beta sheet,0,0
-A,93,GLU,0.031,75.1,79.81,C,Core beta sheet,0,0
-A,94,ASP,0.0345,63.52,100.9,C,Core beta sheet,0,0
-A,95,ASN,0.0659,147.7,101.89,C,Core beta sheet,0,0
-A,96,ALA,0.6645,20.65,86.28,C,Core beta sheet,0,0
-A,97,ASP,0.714,104.14,76.17,C,Core beta sheet,0,0
-A,98,THR,0.7366,33.51,59.18,E,Core beta sheet,0,0
-A,99,LEU,0.7097,2.42,53.64,E,Core beta sheet,0,0
-A,100,ALA,0.6807,33.7,50.16,E,Core beta sheet,0,0
-A,101,LEU,0.6525,0.0,52.9,E,Core beta sheet,0,0
-A,102,VAL,0.6509,32.61,47.93,E,Core beta sheet,0,0
-A,103,PHE,0.6429,0.0,46.62,E,Core beta sheet,0,0
-A,104,GLU,0.2047,0.0,51.1,E,Core beta sheet,0,0
-A,105,ALA,0.1215,8.45,57.01,C,Core beta sheet,0,0
-A,106,PRO,0.0603,94.55,60.73,C,Core beta sheet,0,0
-A,107,ASN,0.0214,78.78,56.75,C,Core beta sheet,0,0
-A,108,GLN,0.0213,85.76,59.67,C,Core beta sheet,0,0
-A,109,GLU,0.0219,129.31,59.39,C,Core beta sheet,0,0
-A,110,LYS,0.0269,109.73,52.89,C,Core beta sheet,0,0
-A,111,VAL,0.0932,72.79,48.32,E,Core beta sheet,0,0
-A,112,SER,0.1338,12.47,45.66,E,Core beta sheet,0,0
-A,113,ASP,0.5377,114.05,50.72,E,Core beta sheet,0,0
-A,114,TYR,0.5471,66.11,45.84,E,Core beta sheet,0,0
-A,115,GLU,0.7108,139.41,50.51,E,Core beta sheet,0,0
-A,116,MET,0.7369,6.04,51.29,E,Core beta sheet,0,0
-A,117,LYS,0.7493,169.61,58.12,E,Core beta sheet,0,0
-A,118,LEU,0.7487,29.34,56.44,C,Core beta sheet,0,0
-A,119,MET,0.6748,59.43,71.41,C,IDCL — Interdomain Connecting Loop (key interaction hub),0,0
-A,120,ASP,0.6461,129.47,86.77,C,IDCL — Interdomain Connecting Loop (key interaction hub),0,0
-A,121,LEU,0.5332,46.14,88.34,C,IDCL — Interdomain Connecting Loop (key interaction hub),0,0
-A,122,ASP,0.6248,144.21,108.15,C,IDCL — Interdomain Connecting Loop (key interaction hub),0,0
-A,123,VAL,0.6732,74.02,98.83,C,IDCL — Interdomain Connecting Loop (key interaction hub),1,0
-A,124,GLU,0.7515,140.02,84.7,C,IDCL — Interdomain Connecting Loop (key interaction hub),0,0
-A,125,GLN,0.7541,92.07,72.12,C,IDCL — Interdomain Connecting Loop (key interaction hub),1,0
-A,126,LEU,0.7418,48.17,57.26,C,IDCL — Interdomain Connecting Loop (key interaction hub),1,1
-A,127,GLY,0.7276,48.56,55.65,C,IDCL — Interdomain Connecting Loop (key interaction hub),0,1
-A,128,ILE,0.7002,29.08,53.38,C,IDCL — Interdomain Connecting Loop (key interaction hub),1,1
-A,129,PRO,0.6805,29.94,55.26,C,IDCL — Interdomain Connecting Loop (key interaction hub),0,1
-A,130,GLU,0.6673,117.12,62.65,C,IDCL — Interdomain Connecting Loop (key interaction hub),0,0
-A,131,GLN,0.6772,41.23,54.43,C,IDCL — Interdomain Connecting Loop (key interaction hub),0,1
-A,132,GLU,0.7303,114.67,59.3,C,IDCL — Interdomain Connecting Loop (key interaction hub),0,0
-A,133,TYR,0.7221,3.21,56.8,C,IDCL — Interdomain Connecting Loop (key interaction hub),0,0
-A,134,SER,0.7379,11.96,62.3,C,IDCL — Interdomain Connecting Loop (key interaction hub),0,0
-A,135,CYS,0.7261,0.0,63.33,E,Domain 2 core beta sheet,0,0
-A,136,VAL,0.7346,34.75,53.03,E,Domain 2 core beta sheet,0,0
-A,137,VAL,0.7625,0.0,53.42,E,Domain 2 core beta sheet,0,0
-A,138,LYS,0.7731,64.89,57.18,E,Domain 2 core beta sheet,0,0
-A,139,MET,0.7825,0.0,49.23,E,Domain 2 core beta sheet,0,0
-A,140,PRO,0.7578,16.91,51.3,E,Domain 2 core beta sheet,0,0
-A,141,SER,0.7553,1.07,46.92,H,Domain 2 core beta sheet,0,0
-A,142,GLY,0.5795,4.42,44.34,H,Domain 2 core beta sheet,0,0
-A,143,GLU,0.0677,51.58,48.32,H,Domain 2 core beta sheet,0,0
-A,144,PHE,0.1747,0.0,42.55,H,Domain 2 core beta sheet,0,0
-A,145,ALA,0.0298,14.36,45.18,H,Domain 2 core beta sheet,0,0
-A,146,ARG,0.026,32.56,50.16,H,Domain 2 core beta sheet,0,0
-A,147,ILE,0.0494,3.62,44.05,H,Domain 2 core beta sheet,0,0
-A,148,CYS,0.0766,1.29,44.05,H,Domain 2 core beta sheet,0,0
-A,149,ARG,0.03,92.62,47.89,H,Domain 2 core beta sheet,0,0
-A,150,ASP,0.0367,63.64,46.61,H,Domain 2 core beta sheet,0,0
-A,151,LEU,0.098,7.25,42.85,H,Domain 2 core beta sheet,0,0
-A,152,SER,0.1324,39.25,47.15,H,Domain 2 core beta sheet,0,0
-A,153,HIS,0.0293,128.58,55.03,C,Domain 2 core beta sheet,0,0
-A,154,ILE,0.0386,40.92,46.71,C,Domain 2 core beta sheet,0,0
-A,155,GLY,0.4795,3.49,45.45,C,Domain 2 core beta sheet,0,0
-A,156,ASP,0.4731,93.78,50.89,C,Domain 2 core beta sheet,0,0
-A,157,ALA,0.6435,12.08,46.72,E,Domain 2 core beta sheet,0,0
-A,158,VAL,0.6534,1.21,42.48,E,Domain 2 core beta sheet,0,0
-A,159,VAL,0.6592,7.25,41.85,E,Domain 2 core beta sheet,0,0
-A,160,ILE,0.5873,0.0,44.33,E,Domain 2 core beta sheet,0,0
-A,161,SER,0.6153,9.66,52.23,E,Domain 2 core beta sheet,0,0
-A,162,CYS,0.6027,3.21,61.87,E,Domain 2 core beta sheet,0,0
-A,163,ALA,0.599,24.15,73.27,C,Domain 2 core beta sheet,0,0
-A,164,LYS,0.6011,140.63,85.13,C,Domain 2 core beta sheet,0,0
-A,165,ASP,0.5568,110.04,84.42,C,Domain 2 core beta sheet,0,0
-A,166,GLY,0.6151,3.62,66.44,E,Domain 2 core beta sheet,0,0
-A,167,VAL,0.5932,2.17,54.63,E,Domain 2 core beta sheet,0,0
-A,168,LYS,0.7257,0.0,50.68,E,Domain 2 core beta sheet,0,0
-A,169,PHE,0.7163,1.21,43.86,E,Domain 2 core beta sheet,0,0
-A,170,SER,0.7057,3.62,45.42,E,Domain 2 core beta sheet,0,0
-A,171,ALA,0.61,2.14,42.47,E,Domain 2 core beta sheet,0,0
-A,172,SER,0.5605,43.01,49.67,E,Domain 2 core beta sheet,0,0
-A,173,GLY,0.1805,17.57,50.81,C,Domain 2 core beta sheet,0,0
-A,174,GLU,0.0757,187.09,63.77,C,Domain 2 core beta sheet,0,0
-A,175,LEU,0.0486,127.96,57.11,C,Domain 2 core beta sheet,0,0
-A,176,GLY,0.1552,18.11,52.29,C,Domain 2 core beta sheet,0,0
-A,177,ASN,0.5349,111.24,51.93,E,Domain 2 core beta sheet,0,0
-A,178,GLY,0.633,21.46,53.82,E,Domain 2 core beta sheet,0,0
-A,179,ASN,0.6498,69.06,53.54,E,Domain 2 core beta sheet,0,0
-A,180,ILE,0.7097,48.31,46.53,E,Domain 2 core beta sheet,0,0
-A,181,LYS,0.659,125.78,55.7,E,Domain 2 core beta sheet,0,0
-A,182,LEU,0.6724,32.33,53.25,E,Domain 2 core beta sheet,0,0
-A,183,SER,0.6422,82.35,63.61,E,Domain 2 core beta sheet,0,0
-A,184,GLN,0.6152,71.95,67.91,C,Domain 2 core beta sheet,0,0
-A,185,THR,0.3881,131.13,78.1,C,Domain 2 core beta sheet,0,0
-A,193,GLU,0.2459,150.92,82.53,C,Domain 2 core beta sheet,0,0
-A,194,ALA,0.5784,26.11,64.75,C,Domain 2 core beta sheet,0,0
-A,195,VAL,0.5672,13.15,57.48,C,Domain 2 core beta sheet,0,0
-A,196,THR,0.5803,43.44,62.26,E,Domain 2 core beta sheet,0,0
-A,197,ILE,0.5769,2.14,60.62,E,Domain 2 core beta sheet,0,0
-A,198,GLU,0.5878,114.19,72.8,E,Domain 2 core beta sheet,0,0
-A,199,MET,0.5582,39.45,75.42,E,Domain 2 core beta sheet,0,0
-A,200,ASN,0.5648,108.28,82.67,C,Domain 2 core beta sheet,0,0
-A,201,GLU,0.3717,109.6,75.81,C,Domain 2 core beta sheet,0,0
-A,202,PRO,0.5754,83.31,65.78,C,Domain 2 core beta sheet,0,0
-A,203,VAL,0.7039,5.63,61.11,E,Domain 2 core beta sheet,0,0
-A,204,GLN,0.7107,76.14,56.78,E,Domain 2 core beta sheet,0,0
-A,205,LEU,0.737,10.87,46.24,E,Domain 2 core beta sheet,0,0
-A,206,THR,0.7381,19.71,43.45,E,Domain 2 core beta sheet,0,0
-A,207,PHE,0.7394,0.0,40.22,E,Domain 2 core beta sheet,0,0
-A,208,ALA,0.5426,0.0,40.08,E,Domain 2 core beta sheet,0,0
-A,209,LEU,0.3654,0.0,39.6,H,Domain 2 core beta sheet,0,0
-A,210,ARG,0.0464,74.16,45.08,H,Domain 2 core beta sheet,0,0
-A,211,TYR,0.1855,9.78,39.83,H,Domain 2 core beta sheet,0,0
-A,212,LEU,0.2229,0.0,39.64,H,Domain 2 core beta sheet,0,0
-A,213,ASN,0.1724,12.67,43.34,H,Domain 2 core beta sheet,0,0
-A,214,PHE,0.2769,21.74,45.96,H,Domain 2 core beta sheet,0,0
-A,215,PHE,0.6622,0.0,40.73,H,Domain 2 core beta sheet,0,0
-A,216,THR,0.4241,0.0,41.85,H,Domain 2 core beta sheet,0,0
-A,217,LYS,0.2764,25.72,47.71,H,Domain 2 core beta sheet,0,0
-A,218,ALA,0.2827,0.0,45.37,H,Domain 2 core beta sheet,0,0
-A,219,THR,0.337,15.43,46.17,H,Domain 2 core beta sheet,0,0
-A,220,PRO,0.1376,35.55,46.57,H,Domain 2 core beta sheet,0,0
-A,221,LEU,0.2432,0.0,47.93,H,Domain 2 core beta sheet,0,0
-A,222,SER,0.6395,3.35,49.82,H,Domain 2 core beta sheet,0,0
-A,223,SER,0.6706,39.03,51.83,C,Domain 2 core beta sheet,0,0
-A,224,THR,0.708,21.72,52.16,E,Domain 2 core beta sheet,0,0
-A,225,VAL,0.7162,0.0,45.33,E,Domain 2 core beta sheet,0,0
-A,226,THR,0.7217,17.03,47.53,E,Domain 2 core beta sheet,0,0
-A,227,LEU,0.7245,0.0,46.14,E,Domain 2 core beta sheet,0,0
-A,228,SER,0.7411,0.0,48.16,E,Domain 2 core beta sheet,0,0
-A,229,MET,0.7588,0.0,51.55,E,Domain 2 core beta sheet,0,0
-A,230,SER,0.7767,3.35,50.39,C,Domain 2 core beta sheet,0,0
-A,231,ALA,0.7661,24.15,50.16,C,C-terminal loop — AOH1996 cryptic pocket region,1,0
-A,232,ASP,0.7659,111.83,51.06,C,C-terminal loop — AOH1996 cryptic pocket region,1,0
-A,233,VAL,0.7633,14.49,44.82,C,C-terminal loop — AOH1996 cryptic pocket region,1,1
-A,234,PRO,0.7637,3.62,42.51,C,C-terminal loop — AOH1996 cryptic pocket region,1,1
-A,235,LEU,0.7664,0.0,41.16,E,C-terminal loop — AOH1996 cryptic pocket region,0,0
-A,236,VAL,0.7641,0.0,41.28,E,C-terminal loop — AOH1996 cryptic pocket region,0,0
-A,237,VAL,0.7537,0.0,40.59,E,C-terminal loop — AOH1996 cryptic pocket region,0,0
-A,238,GLU,0.7409,6.43,47.49,E,C-terminal loop — AOH1996 cryptic pocket region,0,0
-A,239,TYR,0.7397,0.0,47.02,E,C-terminal loop — AOH1996 cryptic pocket region,0,0
-A,240,LYS,0.6134,43.84,52.87,E,C-terminal loop — AOH1996 cryptic pocket region,0,0
-A,241,ILE,0.4487,3.35,53.27,E,C-terminal loop — AOH1996 cryptic pocket region,0,0
-A,242,ALA,0.4322,44.14,60.53,C,C-terminal loop — AOH1996 cryptic pocket region,0,0
-A,243,ASP,0.0861,114.08,73.79,C,C-terminal loop — AOH1996 cryptic pocket region,0,0
-A,244,MET,0.085,1.21,63.78,C,C-terminal loop — AOH1996 cryptic pocket region,0,0
-A,245,GLY,0.211,0.0,54.66,E,C-terminal loop — AOH1996 cryptic pocket region,0,0
-A,246,HIS,0.5363,0.0,49.21,E,C-terminal loop — AOH1996 cryptic pocket region,0,0
-A,247,LEU,0.6672,0.0,48.16,E,C-terminal loop — AOH1996 cryptic pocket region,0,0
-A,248,LYS,0.6759,7.66,46.06,E,C-terminal loop — AOH1996 cryptic pocket region,0,0
-A,249,TYR,0.7811,0.0,41.5,E,C-terminal loop — AOH1996 cryptic pocket region,0,0
-A,250,TYR,0.7813,1.07,39.42,E,C-terminal loop — AOH1996 cryptic pocket region,1,1
-A,251,LEU,0.786,1.21,39.12,E,C-terminal loop — AOH1996 cryptic pocket region,1,1
-A,252,ALA,0.7584,22.94,42.05,C,C-terminal loop — AOH1996 cryptic pocket region,1,1
-A,253,PRO,0.6578,10.32,48.55,C,C-terminal loop — AOH1996 cryptic pocket region,1,0
-A,254,LYS,0.5497,78.56,56.15,C,C-terminal tail (protein-protein interface),0,0
-A,255,ILE,0.0622,182.83,69.98,C,C-terminal tail (protein-protein interface),0,0
+result_label,chain,resid,resname,score,above_threshold,threshold,region,gt_aoh,auto_ligand_label
+ESM2-augmented GNN prioritization results.,A,1,MET,0.162728,0,0.700110,N-terminal beta sheet (domain 1),0,0
+ESM2-augmented GNN prioritization results.,A,2,PHE,0.166940,0,0.700110,N-terminal beta sheet (domain 1),0,0
+ESM2-augmented GNN prioritization results.,A,3,GLU,0.171764,0,0.700110,N-terminal beta sheet (domain 1),0,0
+ESM2-augmented GNN prioritization results.,A,4,ALA,0.176984,0,0.700110,N-terminal beta sheet (domain 1),0,0
+ESM2-augmented GNN prioritization results.,A,5,ARG,0.182854,0,0.700110,N-terminal beta sheet (domain 1),0,0
+ESM2-augmented GNN prioritization results.,A,6,LEU,0.183376,0,0.700110,N-terminal beta sheet (domain 1),0,0
+ESM2-augmented GNN prioritization results.,A,7,VAL,0.182602,0,0.700110,N-terminal beta sheet (domain 1),0,0
+ESM2-augmented GNN prioritization results.,A,8,GLN,0.178022,0,0.700110,N-terminal beta sheet (domain 1),0,0
+ESM2-augmented GNN prioritization results.,A,9,GLY,0.173478,0,0.700110,N-terminal beta sheet (domain 1),0,0
+ESM2-augmented GNN prioritization results.,A,10,SER,0.165809,0,0.700110,N-terminal beta sheet (domain 1),0,0
+ESM2-augmented GNN prioritization results.,A,11,ILE,0.163171,0,0.700110,N-terminal beta sheet (domain 1),0,0
+ESM2-augmented GNN prioritization results.,A,12,LEU,0.155490,0,0.700110,N-terminal beta sheet (domain 1),0,0
+ESM2-augmented GNN prioritization results.,A,13,LYS,0.153518,0,0.700110,N-terminal beta sheet (domain 1),0,0
+ESM2-augmented GNN prioritization results.,A,14,LYS,0.153273,0,0.700110,N-terminal beta sheet (domain 1),0,0
+ESM2-augmented GNN prioritization results.,A,15,VAL,0.153969,0,0.700110,N-terminal beta sheet (domain 1),0,0
+ESM2-augmented GNN prioritization results.,A,16,LEU,0.157174,0,0.700110,N-terminal beta sheet (domain 1),0,0
+ESM2-augmented GNN prioritization results.,A,17,GLU,0.161763,0,0.700110,N-terminal beta sheet (domain 1),0,0
+ESM2-augmented GNN prioritization results.,A,18,ALA,0.170797,0,0.700110,N-terminal beta sheet (domain 1),0,0
+ESM2-augmented GNN prioritization results.,A,19,LEU,0.174307,0,0.700110,N-terminal beta sheet (domain 1),0,0
+ESM2-augmented GNN prioritization results.,A,20,LYS,0.180372,0,0.700110,N-terminal beta sheet (domain 1),0,0
+ESM2-augmented GNN prioritization results.,A,21,ASP,0.180336,0,0.700110,N-terminal beta sheet (domain 1),0,0
+ESM2-augmented GNN prioritization results.,A,22,LEU,0.197300,0,0.700110,N-terminal beta sheet (domain 1),0,0
+ESM2-augmented GNN prioritization results.,A,23,ILE,0.212740,0,0.700110,N-terminal beta sheet (domain 1),0,0
+ESM2-augmented GNN prioritization results.,A,24,ASN,0.215017,0,0.700110,N-terminal beta sheet (domain 1),0,0
+ESM2-augmented GNN prioritization results.,A,25,GLU,0.229621,0,0.700110,N-terminal beta sheet (domain 1),1,0
+ESM2-augmented GNN prioritization results.,A,26,ALA,0.234300,0,0.700110,N-terminal beta sheet (domain 1),1,0
+ESM2-augmented GNN prioritization results.,A,27,CYS,0.227445,0,0.700110,N-terminal beta sheet (domain 1),1,0
+ESM2-augmented GNN prioritization results.,A,28,TRP,0.211589,0,0.700110,N-terminal beta sheet (domain 1),0,0
+ESM2-augmented GNN prioritization results.,A,29,ASP,0.190791,0,0.700110,N-terminal beta sheet (domain 1),0,0
+ESM2-augmented GNN prioritization results.,A,30,ILE,0.172953,0,0.700110,N-terminal beta sheet (domain 1),0,0
+ESM2-augmented GNN prioritization results.,A,31,SER,0.156254,0,0.700110,N-terminal beta sheet (domain 1),0,0
+ESM2-augmented GNN prioritization results.,A,32,SER,0.148591,0,0.700110,N-terminal beta sheet (domain 1),0,0
+ESM2-augmented GNN prioritization results.,A,33,SER,0.142591,0,0.700110,N-terminal beta sheet (domain 1),0,0
+ESM2-augmented GNN prioritization results.,A,34,GLY,0.151512,0,0.700110,N-terminal beta sheet (domain 1),0,0
+ESM2-augmented GNN prioritization results.,A,35,VAL,0.163162,0,0.700110,N-terminal beta sheet (domain 1),0,0
+ESM2-augmented GNN prioritization results.,A,36,ASN,0.179578,0,0.700110,N-terminal beta sheet (domain 1),0,0
+ESM2-augmented GNN prioritization results.,A,37,LEU,0.213240,0,0.700110,N-terminal beta sheet (domain 1),0,0
+ESM2-augmented GNN prioritization results.,A,38,GLN,0.234730,0,0.700110,N-terminal beta sheet (domain 1),1,0
+ESM2-augmented GNN prioritization results.,A,39,SER,0.508253,0,0.700110,N-terminal beta sheet (domain 1),1,0
+ESM2-augmented GNN prioritization results.,A,40,MET,0.622886,0,0.700110,N-terminal beta sheet (domain 1),1,1
+ESM2-augmented GNN prioritization results.,A,41,ASP,0.662201,0,0.700110,Front-face loop (PIP-box groove),1,0
+ESM2-augmented GNN prioritization results.,A,42,SER,0.675787,0,0.700110,Front-face loop (PIP-box groove),1,0
+ESM2-augmented GNN prioritization results.,A,43,SER,0.684106,0,0.700110,Front-face loop (PIP-box groove),0,0
+ESM2-augmented GNN prioritization results.,A,44,HIS,0.678562,0,0.700110,Front-face loop (PIP-box groove),1,1
+ESM2-augmented GNN prioritization results.,A,45,VAL,0.660374,0,0.700110,Front-face loop (PIP-box groove),1,0
+ESM2-augmented GNN prioritization results.,A,46,SER,0.613897,0,0.700110,Front-face loop (PIP-box groove),1,1
+ESM2-augmented GNN prioritization results.,A,47,LEU,0.458272,0,0.700110,Front-face loop (PIP-box groove),1,1
+ESM2-augmented GNN prioritization results.,A,48,VAL,0.357278,0,0.700110,Core beta sheet,0,0
+ESM2-augmented GNN prioritization results.,A,49,GLN,0.253082,0,0.700110,Core beta sheet,0,0
+ESM2-augmented GNN prioritization results.,A,50,LEU,0.218296,0,0.700110,Core beta sheet,0,0
+ESM2-augmented GNN prioritization results.,A,51,THR,0.194486,0,0.700110,Core beta sheet,0,0
+ESM2-augmented GNN prioritization results.,A,52,LEU,0.174876,0,0.700110,Core beta sheet,0,0
+ESM2-augmented GNN prioritization results.,A,53,ARG,0.160670,0,0.700110,Core beta sheet,0,0
+ESM2-augmented GNN prioritization results.,A,54,SER,0.153745,0,0.700110,Core beta sheet,0,0
+ESM2-augmented GNN prioritization results.,A,55,GLU,0.154443,0,0.700110,Core beta sheet,0,0
+ESM2-augmented GNN prioritization results.,A,56,GLY,0.169513,0,0.700110,Core beta sheet,0,0
+ESM2-augmented GNN prioritization results.,A,57,PHE,0.178246,0,0.700110,Core beta sheet,0,0
+ESM2-augmented GNN prioritization results.,A,58,ASP,0.186980,0,0.700110,Core beta sheet,0,0
+ESM2-augmented GNN prioritization results.,A,59,THR,0.197711,0,0.700110,Core beta sheet,0,0
+ESM2-augmented GNN prioritization results.,A,60,TYR,0.185113,0,0.700110,Core beta sheet,0,0
+ESM2-augmented GNN prioritization results.,A,61,ARG,0.184407,0,0.700110,Core beta sheet,0,0
+ESM2-augmented GNN prioritization results.,A,62,CYS,0.178165,0,0.700110,Core beta sheet,0,0
+ESM2-augmented GNN prioritization results.,A,63,ASP,0.174784,0,0.700110,Core beta sheet,0,0
+ESM2-augmented GNN prioritization results.,A,64,ARG,0.173499,0,0.700110,Core beta sheet,0,0
+ESM2-augmented GNN prioritization results.,A,65,ASN,0.185460,0,0.700110,Core beta sheet,0,0
+ESM2-augmented GNN prioritization results.,A,66,LEU,0.194733,0,0.700110,Core beta sheet,0,0
+ESM2-augmented GNN prioritization results.,A,67,ALA,0.228149,0,0.700110,Core beta sheet,0,0
+ESM2-augmented GNN prioritization results.,A,68,MET,0.240313,0,0.700110,Core beta sheet,0,0
+ESM2-augmented GNN prioritization results.,A,69,GLY,0.271456,0,0.700110,Core beta sheet,0,0
+ESM2-augmented GNN prioritization results.,A,70,VAL,0.260363,0,0.700110,Core beta sheet,0,0
+ESM2-augmented GNN prioritization results.,A,71,ASN,0.251831,0,0.700110,Core beta sheet,0,0
+ESM2-augmented GNN prioritization results.,A,72,LEU,0.215890,0,0.700110,Core beta sheet,0,0
+ESM2-augmented GNN prioritization results.,A,73,THR,0.201053,0,0.700110,Core beta sheet,0,0
+ESM2-augmented GNN prioritization results.,A,74,SER,0.191013,0,0.700110,Core beta sheet,0,0
+ESM2-augmented GNN prioritization results.,A,75,MET,0.184455,0,0.700110,Core beta sheet,0,0
+ESM2-augmented GNN prioritization results.,A,76,SER,0.164764,0,0.700110,Core beta sheet,0,0
+ESM2-augmented GNN prioritization results.,A,77,LYS,0.162136,0,0.700110,Core beta sheet,0,0
+ESM2-augmented GNN prioritization results.,A,78,ILE,0.161893,0,0.700110,Core beta sheet,0,0
+ESM2-augmented GNN prioritization results.,A,79,LEU,0.157699,0,0.700110,Core beta sheet,0,0
+ESM2-augmented GNN prioritization results.,A,80,LYS,0.156932,0,0.700110,Core beta sheet,0,0
+ESM2-augmented GNN prioritization results.,A,81,CYS,0.157933,0,0.700110,Core beta sheet,0,0
+ESM2-augmented GNN prioritization results.,A,82,ALA,0.167050,0,0.700110,Core beta sheet,0,0
+ESM2-augmented GNN prioritization results.,A,83,GLY,0.163843,0,0.700110,Core beta sheet,0,0
+ESM2-augmented GNN prioritization results.,A,84,ASN,0.162067,0,0.700110,Core beta sheet,0,0
+ESM2-augmented GNN prioritization results.,A,85,GLU,0.168868,0,0.700110,Core beta sheet,0,0
+ESM2-augmented GNN prioritization results.,A,86,ASP,0.172886,0,0.700110,Core beta sheet,0,0
+ESM2-augmented GNN prioritization results.,A,87,ILE,0.184007,0,0.700110,Core beta sheet,0,0
+ESM2-augmented GNN prioritization results.,A,88,ILE,0.187184,0,0.700110,Core beta sheet,0,0
+ESM2-augmented GNN prioritization results.,A,89,THR,0.192118,0,0.700110,Core beta sheet,0,0
+ESM2-augmented GNN prioritization results.,A,90,LEU,0.188520,0,0.700110,Core beta sheet,0,0
+ESM2-augmented GNN prioritization results.,A,91,ARG,0.183917,0,0.700110,Core beta sheet,0,0
+ESM2-augmented GNN prioritization results.,A,92,ALA,0.179719,0,0.700110,Core beta sheet,0,0
+ESM2-augmented GNN prioritization results.,A,93,GLU,0.175541,0,0.700110,Core beta sheet,0,0
+ESM2-augmented GNN prioritization results.,A,94,ASP,0.174423,0,0.700110,Core beta sheet,0,0
+ESM2-augmented GNN prioritization results.,A,95,ASN,0.182517,0,0.700110,Core beta sheet,0,0
+ESM2-augmented GNN prioritization results.,A,96,ALA,0.191131,0,0.700110,Core beta sheet,0,0
+ESM2-augmented GNN prioritization results.,A,97,ASP,0.200118,0,0.700110,Core beta sheet,0,0
+ESM2-augmented GNN prioritization results.,A,98,THR,0.195961,0,0.700110,Core beta sheet,0,0
+ESM2-augmented GNN prioritization results.,A,99,LEU,0.200024,0,0.700110,Core beta sheet,0,0
+ESM2-augmented GNN prioritization results.,A,100,ALA,0.205701,0,0.700110,Core beta sheet,0,0
+ESM2-augmented GNN prioritization results.,A,101,LEU,0.221138,0,0.700110,Core beta sheet,0,0
+ESM2-augmented GNN prioritization results.,A,102,VAL,0.237571,0,0.700110,Core beta sheet,0,0
+ESM2-augmented GNN prioritization results.,A,103,PHE,0.252657,0,0.700110,Core beta sheet,0,0
+ESM2-augmented GNN prioritization results.,A,104,GLU,0.260452,0,0.700110,Core beta sheet,0,0
+ESM2-augmented GNN prioritization results.,A,105,ALA,0.266595,0,0.700110,Core beta sheet,0,0
+ESM2-augmented GNN prioritization results.,A,106,PRO,0.250287,0,0.700110,Core beta sheet,0,0
+ESM2-augmented GNN prioritization results.,A,107,ASN,0.246557,0,0.700110,Core beta sheet,0,0
+ESM2-augmented GNN prioritization results.,A,108,GLN,0.226055,0,0.700110,Core beta sheet,0,0
+ESM2-augmented GNN prioritization results.,A,109,GLU,0.221377,0,0.700110,Core beta sheet,0,0
+ESM2-augmented GNN prioritization results.,A,110,LYS,0.209328,0,0.700110,Core beta sheet,0,0
+ESM2-augmented GNN prioritization results.,A,111,VAL,0.204119,0,0.700110,Core beta sheet,0,0
+ESM2-augmented GNN prioritization results.,A,112,SER,0.197439,0,0.700110,Core beta sheet,0,0
+ESM2-augmented GNN prioritization results.,A,113,ASP,0.195234,0,0.700110,Core beta sheet,0,0
+ESM2-augmented GNN prioritization results.,A,114,TYR,0.191743,0,0.700110,Core beta sheet,0,0
+ESM2-augmented GNN prioritization results.,A,115,GLU,0.195352,0,0.700110,Core beta sheet,0,0
+ESM2-augmented GNN prioritization results.,A,116,MET,0.205719,0,0.700110,Core beta sheet,0,0
+ESM2-augmented GNN prioritization results.,A,117,LYS,0.215843,0,0.700110,Core beta sheet,0,0
+ESM2-augmented GNN prioritization results.,A,118,LEU,0.241972,0,0.700110,Core beta sheet,0,0
+ESM2-augmented GNN prioritization results.,A,119,MET,0.253946,0,0.700110,IDCL - Interdomain Connecting Loop,0,0
+ESM2-augmented GNN prioritization results.,A,120,ASP,0.277195,0,0.700110,IDCL - Interdomain Connecting Loop,0,0
+ESM2-augmented GNN prioritization results.,A,121,LEU,0.258501,0,0.700110,IDCL - Interdomain Connecting Loop,0,0
+ESM2-augmented GNN prioritization results.,A,122,ASP,0.238694,0,0.700110,IDCL - Interdomain Connecting Loop,0,0
+ESM2-augmented GNN prioritization results.,A,123,VAL,0.205929,0,0.700110,IDCL - Interdomain Connecting Loop,1,0
+ESM2-augmented GNN prioritization results.,A,124,GLU,0.183279,0,0.700110,IDCL - Interdomain Connecting Loop,0,0
+ESM2-augmented GNN prioritization results.,A,125,GLN,0.158258,0,0.700110,IDCL - Interdomain Connecting Loop,1,0
+ESM2-augmented GNN prioritization results.,A,126,LEU,0.147557,0,0.700110,IDCL - Interdomain Connecting Loop,1,1
+ESM2-augmented GNN prioritization results.,A,127,GLY,0.134820,0,0.700110,IDCL - Interdomain Connecting Loop,0,1
+ESM2-augmented GNN prioritization results.,A,128,ILE,0.133205,0,0.700110,IDCL - Interdomain Connecting Loop,1,1
+ESM2-augmented GNN prioritization results.,A,129,PRO,0.135852,0,0.700110,IDCL - Interdomain Connecting Loop,0,1
+ESM2-augmented GNN prioritization results.,A,130,GLU,0.142829,0,0.700110,IDCL - Interdomain Connecting Loop,0,0
+ESM2-augmented GNN prioritization results.,A,131,GLN,0.169019,0,0.700110,IDCL - Interdomain Connecting Loop,0,1
+ESM2-augmented GNN prioritization results.,A,132,GLU,0.179412,0,0.700110,IDCL - Interdomain Connecting Loop,0,0
+ESM2-augmented GNN prioritization results.,A,133,TYR,0.201113,0,0.700110,IDCL - Interdomain Connecting Loop,0,0
+ESM2-augmented GNN prioritization results.,A,134,SER,0.193327,0,0.700110,IDCL - Interdomain Connecting Loop,0,0
+ESM2-augmented GNN prioritization results.,A,135,CYS,0.196802,0,0.700110,Domain 2 core beta sheet,0,0
+ESM2-augmented GNN prioritization results.,A,136,VAL,0.192811,0,0.700110,Domain 2 core beta sheet,0,0
+ESM2-augmented GNN prioritization results.,A,137,VAL,0.196293,0,0.700110,Domain 2 core beta sheet,0,0
+ESM2-augmented GNN prioritization results.,A,138,LYS,0.178658,0,0.700110,Domain 2 core beta sheet,0,0
+ESM2-augmented GNN prioritization results.,A,139,MET,0.167616,0,0.700110,Domain 2 core beta sheet,0,0
+ESM2-augmented GNN prioritization results.,A,140,PRO,0.153738,0,0.700110,Domain 2 core beta sheet,0,0
+ESM2-augmented GNN prioritization results.,A,141,SER,0.147565,0,0.700110,Domain 2 core beta sheet,0,0
+ESM2-augmented GNN prioritization results.,A,142,GLY,0.140800,0,0.700110,Domain 2 core beta sheet,0,0
+ESM2-augmented GNN prioritization results.,A,143,GLU,0.146531,0,0.700110,Domain 2 core beta sheet,0,0
+ESM2-augmented GNN prioritization results.,A,144,PHE,0.157022,0,0.700110,Domain 2 core beta sheet,0,0
+ESM2-augmented GNN prioritization results.,A,145,ALA,0.160965,0,0.700110,Domain 2 core beta sheet,0,0
+ESM2-augmented GNN prioritization results.,A,146,ARG,0.160960,0,0.700110,Domain 2 core beta sheet,0,0
+ESM2-augmented GNN prioritization results.,A,147,ILE,0.172987,0,0.700110,Domain 2 core beta sheet,0,0
+ESM2-augmented GNN prioritization results.,A,148,CYS,0.184227,0,0.700110,Domain 2 core beta sheet,0,0
+ESM2-augmented GNN prioritization results.,A,149,ARG,0.183635,0,0.700110,Domain 2 core beta sheet,0,0
+ESM2-augmented GNN prioritization results.,A,150,ASP,0.195542,0,0.700110,Domain 2 core beta sheet,0,0
+ESM2-augmented GNN prioritization results.,A,151,LEU,0.218725,0,0.700110,Domain 2 core beta sheet,0,0
+ESM2-augmented GNN prioritization results.,A,152,SER,0.222796,0,0.700110,Domain 2 core beta sheet,0,0
+ESM2-augmented GNN prioritization results.,A,153,HIS,0.211552,0,0.700110,Domain 2 core beta sheet,0,0
+ESM2-augmented GNN prioritization results.,A,154,ILE,0.217990,0,0.700110,Domain 2 core beta sheet,0,0
+ESM2-augmented GNN prioritization results.,A,155,GLY,0.216440,0,0.700110,Domain 2 core beta sheet,0,0
+ESM2-augmented GNN prioritization results.,A,156,ASP,0.214245,0,0.700110,Domain 2 core beta sheet,0,0
+ESM2-augmented GNN prioritization results.,A,157,ALA,0.225702,0,0.700110,Domain 2 core beta sheet,0,0
+ESM2-augmented GNN prioritization results.,A,158,VAL,0.227979,0,0.700110,Domain 2 core beta sheet,0,0
+ESM2-augmented GNN prioritization results.,A,159,VAL,0.233548,0,0.700110,Domain 2 core beta sheet,0,0
+ESM2-augmented GNN prioritization results.,A,160,ILE,0.220332,0,0.700110,Domain 2 core beta sheet,0,0
+ESM2-augmented GNN prioritization results.,A,161,SER,0.201706,0,0.700110,Domain 2 core beta sheet,0,0
+ESM2-augmented GNN prioritization results.,A,162,CYS,0.177298,0,0.700110,Domain 2 core beta sheet,0,0
+ESM2-augmented GNN prioritization results.,A,163,ALA,0.161588,0,0.700110,Domain 2 core beta sheet,0,0
+ESM2-augmented GNN prioritization results.,A,164,LYS,0.152716,0,0.700110,Domain 2 core beta sheet,0,0
+ESM2-augmented GNN prioritization results.,A,165,ASP,0.142937,0,0.700110,Domain 2 core beta sheet,0,0
+ESM2-augmented GNN prioritization results.,A,166,GLY,0.147348,0,0.700110,Domain 2 core beta sheet,0,0
+ESM2-augmented GNN prioritization results.,A,167,VAL,0.157062,0,0.700110,Domain 2 core beta sheet,0,0
+ESM2-augmented GNN prioritization results.,A,168,LYS,0.169167,0,0.700110,Domain 2 core beta sheet,0,0
+ESM2-augmented GNN prioritization results.,A,169,PHE,0.186036,0,0.700110,Domain 2 core beta sheet,0,0
+ESM2-augmented GNN prioritization results.,A,170,SER,0.198270,0,0.700110,Domain 2 core beta sheet,0,0
+ESM2-augmented GNN prioritization results.,A,171,ALA,0.213118,0,0.700110,Domain 2 core beta sheet,0,0
+ESM2-augmented GNN prioritization results.,A,172,SER,0.213147,0,0.700110,Domain 2 core beta sheet,0,0
+ESM2-augmented GNN prioritization results.,A,173,GLY,0.222931,0,0.700110,Domain 2 core beta sheet,0,0
+ESM2-augmented GNN prioritization results.,A,174,GLU,0.230999,0,0.700110,Domain 2 core beta sheet,0,0
+ESM2-augmented GNN prioritization results.,A,175,LEU,0.238302,0,0.700110,Domain 2 core beta sheet,0,0
+ESM2-augmented GNN prioritization results.,A,176,GLY,0.237574,0,0.700110,Domain 2 core beta sheet,0,0
+ESM2-augmented GNN prioritization results.,A,177,ASN,0.229900,0,0.700110,Domain 2 core beta sheet,0,0
+ESM2-augmented GNN prioritization results.,A,178,GLY,0.212346,0,0.700110,Domain 2 core beta sheet,0,0
+ESM2-augmented GNN prioritization results.,A,179,ASN,0.193698,0,0.700110,Domain 2 core beta sheet,0,0
+ESM2-augmented GNN prioritization results.,A,180,ILE,0.175999,0,0.700110,Domain 2 core beta sheet,0,0
+ESM2-augmented GNN prioritization results.,A,181,LYS,0.164379,0,0.700110,Domain 2 core beta sheet,0,0
+ESM2-augmented GNN prioritization results.,A,182,LEU,0.163770,0,0.700110,Domain 2 core beta sheet,0,0
+ESM2-augmented GNN prioritization results.,A,183,SER,0.163288,0,0.700110,Domain 2 core beta sheet,0,0
+ESM2-augmented GNN prioritization results.,A,184,GLN,0.172354,0,0.700110,Domain 2 core beta sheet,0,0
+ESM2-augmented GNN prioritization results.,A,185,THR,0.185087,0,0.700110,Domain 2 core beta sheet,0,0
+ESM2-augmented GNN prioritization results.,A,193,GLU,0.180604,0,0.700110,Domain 2 core beta sheet,0,0
+ESM2-augmented GNN prioritization results.,A,194,ALA,0.192492,0,0.700110,Domain 2 core beta sheet,0,0
+ESM2-augmented GNN prioritization results.,A,195,VAL,0.192969,0,0.700110,Domain 2 core beta sheet,0,0
+ESM2-augmented GNN prioritization results.,A,196,THR,0.204217,0,0.700110,Domain 2 core beta sheet,0,0
+ESM2-augmented GNN prioritization results.,A,197,ILE,0.200648,0,0.700110,Domain 2 core beta sheet,0,0
+ESM2-augmented GNN prioritization results.,A,198,GLU,0.211126,0,0.700110,Domain 2 core beta sheet,0,0
+ESM2-augmented GNN prioritization results.,A,199,MET,0.202865,0,0.700110,Domain 2 core beta sheet,0,0
+ESM2-augmented GNN prioritization results.,A,200,ASN,0.203671,0,0.700110,Domain 2 core beta sheet,0,0
+ESM2-augmented GNN prioritization results.,A,201,GLU,0.200268,0,0.700110,Domain 2 core beta sheet,0,0
+ESM2-augmented GNN prioritization results.,A,202,PRO,0.198140,0,0.700110,Domain 2 core beta sheet,0,0
+ESM2-augmented GNN prioritization results.,A,203,VAL,0.222625,0,0.700110,Domain 2 core beta sheet,0,0
+ESM2-augmented GNN prioritization results.,A,204,GLN,0.243455,0,0.700110,Domain 2 core beta sheet,0,0
+ESM2-augmented GNN prioritization results.,A,205,LEU,0.277304,0,0.700110,Domain 2 core beta sheet,0,0
+ESM2-augmented GNN prioritization results.,A,206,THR,0.292394,0,0.700110,Domain 2 core beta sheet,0,0
+ESM2-augmented GNN prioritization results.,A,207,PHE,0.279019,0,0.700110,Domain 2 core beta sheet,0,0
+ESM2-augmented GNN prioritization results.,A,208,ALA,0.253885,0,0.700110,Domain 2 core beta sheet,0,0
+ESM2-augmented GNN prioritization results.,A,209,LEU,0.222238,0,0.700110,Domain 2 core beta sheet,0,0
+ESM2-augmented GNN prioritization results.,A,210,ARG,0.211244,0,0.700110,Domain 2 core beta sheet,0,0
+ESM2-augmented GNN prioritization results.,A,211,TYR,0.226482,0,0.700110,Domain 2 core beta sheet,0,0
+ESM2-augmented GNN prioritization results.,A,212,LEU,0.222530,0,0.700110,Domain 2 core beta sheet,0,0
+ESM2-augmented GNN prioritization results.,A,213,ASN,0.199385,0,0.700110,Domain 2 core beta sheet,0,0
+ESM2-augmented GNN prioritization results.,A,214,PHE,0.197577,0,0.700110,Domain 2 core beta sheet,0,0
+ESM2-augmented GNN prioritization results.,A,215,PHE,0.187114,0,0.700110,Domain 2 core beta sheet,0,0
+ESM2-augmented GNN prioritization results.,A,216,THR,0.170807,0,0.700110,Domain 2 core beta sheet,0,0
+ESM2-augmented GNN prioritization results.,A,217,LYS,0.167272,0,0.700110,Domain 2 core beta sheet,0,0
+ESM2-augmented GNN prioritization results.,A,218,ALA,0.175712,0,0.700110,Domain 2 core beta sheet,0,0
+ESM2-augmented GNN prioritization results.,A,219,THR,0.170736,0,0.700110,Domain 2 core beta sheet,0,0
+ESM2-augmented GNN prioritization results.,A,220,PRO,0.169250,0,0.700110,Domain 2 core beta sheet,0,0
+ESM2-augmented GNN prioritization results.,A,221,LEU,0.169377,0,0.700110,Domain 2 core beta sheet,0,0
+ESM2-augmented GNN prioritization results.,A,222,SER,0.170464,0,0.700110,Domain 2 core beta sheet,0,0
+ESM2-augmented GNN prioritization results.,A,223,SER,0.155279,0,0.700110,Domain 2 core beta sheet,0,0
+ESM2-augmented GNN prioritization results.,A,224,THR,0.166725,0,0.700110,Domain 2 core beta sheet,0,0
+ESM2-augmented GNN prioritization results.,A,225,VAL,0.179728,0,0.700110,Domain 2 core beta sheet,0,0
+ESM2-augmented GNN prioritization results.,A,226,THR,0.209007,0,0.700110,Domain 2 core beta sheet,0,0
+ESM2-augmented GNN prioritization results.,A,227,LEU,0.232652,0,0.700110,Domain 2 core beta sheet,0,0
+ESM2-augmented GNN prioritization results.,A,228,SER,0.254292,0,0.700110,Domain 2 core beta sheet,0,0
+ESM2-augmented GNN prioritization results.,A,229,MET,0.269363,0,0.700110,Domain 2 core beta sheet,0,0
+ESM2-augmented GNN prioritization results.,A,230,SER,0.281552,0,0.700110,Domain 2 core beta sheet,0,0
+ESM2-augmented GNN prioritization results.,A,231,ALA,0.304557,0,0.700110,C-terminal loop - AOH1996 cryptic pocket region,1,0
+ESM2-augmented GNN prioritization results.,A,232,ASP,0.321869,0,0.700110,C-terminal loop - AOH1996 cryptic pocket region,1,0
+ESM2-augmented GNN prioritization results.,A,233,VAL,0.324395,0,0.700110,C-terminal loop - AOH1996 cryptic pocket region,1,1
+ESM2-augmented GNN prioritization results.,A,234,PRO,0.338744,0,0.700110,C-terminal loop - AOH1996 cryptic pocket region,1,1
+ESM2-augmented GNN prioritization results.,A,235,LEU,0.330512,0,0.700110,C-terminal loop - AOH1996 cryptic pocket region,0,0
+ESM2-augmented GNN prioritization results.,A,236,VAL,0.305274,0,0.700110,C-terminal loop - AOH1996 cryptic pocket region,0,0
+ESM2-augmented GNN prioritization results.,A,237,VAL,0.264352,0,0.700110,C-terminal loop - AOH1996 cryptic pocket region,0,0
+ESM2-augmented GNN prioritization results.,A,238,GLU,0.228037,0,0.700110,C-terminal loop - AOH1996 cryptic pocket region,0,0
+ESM2-augmented GNN prioritization results.,A,239,TYR,0.196302,0,0.700110,C-terminal loop - AOH1996 cryptic pocket region,0,0
+ESM2-augmented GNN prioritization results.,A,240,LYS,0.186439,0,0.700110,C-terminal loop - AOH1996 cryptic pocket region,0,0
+ESM2-augmented GNN prioritization results.,A,241,ILE,0.188455,0,0.700110,C-terminal loop - AOH1996 cryptic pocket region,0,0
+ESM2-augmented GNN prioritization results.,A,242,ALA,0.195044,0,0.700110,C-terminal loop - AOH1996 cryptic pocket region,0,0
+ESM2-augmented GNN prioritization results.,A,243,ASP,0.201787,0,0.700110,C-terminal loop - AOH1996 cryptic pocket region,0,0
+ESM2-augmented GNN prioritization results.,A,244,MET,0.189405,0,0.700110,C-terminal loop - AOH1996 cryptic pocket region,0,0
+ESM2-augmented GNN prioritization results.,A,245,GLY,0.198895,0,0.700110,C-terminal loop - AOH1996 cryptic pocket region,0,0
+ESM2-augmented GNN prioritization results.,A,246,HIS,0.199547,0,0.700110,C-terminal loop - AOH1996 cryptic pocket region,0,0
+ESM2-augmented GNN prioritization results.,A,247,LEU,0.208888,0,0.700110,C-terminal loop - AOH1996 cryptic pocket region,0,0
+ESM2-augmented GNN prioritization results.,A,248,LYS,0.232708,0,0.700110,C-terminal loop - AOH1996 cryptic pocket region,0,0
+ESM2-augmented GNN prioritization results.,A,249,TYR,0.274619,0,0.700110,C-terminal loop - AOH1996 cryptic pocket region,0,0
+ESM2-augmented GNN prioritization results.,A,250,TYR,0.372009,0,0.700110,C-terminal loop - AOH1996 cryptic pocket region,1,1
+ESM2-augmented GNN prioritization results.,A,251,LEU,0.530626,0,0.700110,C-terminal loop - AOH1996 cryptic pocket region,1,1
+ESM2-augmented GNN prioritization results.,A,252,ALA,0.573001,0,0.700110,C-terminal loop - AOH1996 cryptic pocket region,1,1
+ESM2-augmented GNN prioritization results.,A,253,PRO,0.600898,0,0.700110,C-terminal loop - AOH1996 cryptic pocket region,1,0
+ESM2-augmented GNN prioritization results.,A,254,LYS,0.601683,0,0.700110,C-terminal tail (protein-protein interface),0,0
+ESM2-augmented GNN prioritization results.,A,255,ILE,0.599136,0,0.700110,C-terminal tail (protein-protein interface),0,0

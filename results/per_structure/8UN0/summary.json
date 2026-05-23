@@ -1,19 +1,22 @@
 {
+  "result_label": "ESM2-augmented GNN prioritization results.",
   "pdb": "8UN0",
   "title": "REPLICATION/DNAATOMIC MODEL OF THE HUMAN CTF18-RFC-PCNA-DNA TERNARY COMPLEX WITH CRACKED AND CLOSED PCNA (STATE 7)",
   "n_residues": 2647,
   "n_chains": 8,
-  "ligands": [
-    "AGS",
-    "ADP"
-  ],
-  "auroc": 0.5477,
-  "n_pocket_labeled": 95,
-  "n_clusters": 14,
-  "top_cluster_mean": 0.5986,
-  "top_cluster_n": 80,
-  "top_aoh_overlap": 16,
-  "top_concavity": 0.537,
-  "score_max": 0.7927,
-  "score_mean": 0.1375
+  "chains": "A,B,C,D,E,F,G,H",
+  "ligands": "",
+  "auto_ligand_auroc_sanity": "",
+  "n_clusters": 0,
+  "top_cluster_mean": 0.0,
+  "top_cluster_max": 0.0,
+  "top_cluster_n": 0,
+  "top_aoh_overlap": 0,
+  "top_concavity": 0.0,
+  "score_max": 0.6970260739326477,
+  "score_mean": 0.2451259046792984,
+  "score_std": 0.1618468463420868,
+  "n_above_threshold": 0,
+  "threshold": 0.7001100182533264,
+  "checkpoint": "checkpoints\\clean_split\\xl_esm_full\\seed_42\\best.ckpt"
 }

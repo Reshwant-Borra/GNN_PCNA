@@ -204,6 +204,13 @@ def _cmd_bundle(o: "Orchestrator", t: Task) -> list[str]:
     return [_py(), "agents/docker_packager.py", "bundle", "--out", str(out)]
 
 
+def _cmd_shell(o: "Orchestrator", t: Task) -> list[str]:
+    cmd = t.args.get("cmd", "")
+    if not cmd:
+        raise ValueError("shell intent requires a cmd arg")
+    return ["bash", "-c", cmd]
+
+
 def _cmd_ingest(o: "Orchestrator", t: Task) -> list[str]:
     cmd = [_py(), "agents/ingest.py", "ingest"]
     for p in t.args.get("paths", []):
@@ -287,6 +294,11 @@ INTENTS: dict[str, Intent] = {
         name="bundle", description="Produce a stripped repo .zip bundle",
         min_role=Role.COLLABORATOR, risky=False, long_running=True,
         build_cmd=_cmd_bundle,
+    ),
+    "shell": Intent(
+        name="shell", description="Run any arbitrary bash command or script on the compute machine (cmd arg required)",
+        min_role=Role.OWNER, risky=True, long_running=True,
+        build_cmd=_cmd_shell,
     ),
     "ingest": Intent(
         name="ingest", description="Ingest documents into source registry + Obsidian vault (Agent 21)",

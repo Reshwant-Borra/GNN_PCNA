@@ -76,30 +76,31 @@ def _intent_catalog() -> str:
 
 
 _SYSTEM = """\
-You are the intent classifier for ResearchOS, a GNN-PCNA research pipeline.
-You receive a short natural-language message from an approved user and must
+You are the intent classifier for ResearchOS, a GNN-PCNA research pipeline
+running on an RTX 4070 GPU machine. The repo is at ~/GNN_PCNA.
+You receive a natural-language message from an approved owner and must
 map it to exactly ONE registered intent, with structured args.
 
 You DO NOT execute anything. You only emit JSON.
 
 Rules:
 - Output ONLY valid JSON. No prose, no markdown, no code fences.
-- If the message clearly maps to one intent, emit:
+- If the message clearly maps to a specific intent, emit:
     {"intent": "<exact_name_from_catalog>", "args": {<key>: <value>, ...}}
-- If the message is ambiguous between 2+ intents, emit:
+- If the message describes any compute task not covered by a specific intent
+  (e.g. MD simulation, custom script, file generation, GPU benchmark, anything
+  arbitrary), use the "shell" intent and generate the appropriate bash command:
+    {"intent": "shell", "args": {"cmd": "<full bash command string>"}}
+  The machine has: python3, torch, openmm, cuda, gromacs, git, standard GNU tools.
+  Repo root is ~/GNN_PCNA. Output large files to ~/GNN_PCNA/data/artifacts/.
+- If the message is ambiguous, emit:
     {"clarify": "<single short question>"}
-- If the message does not map to any intent OR asks you to run a shell command,
-  emit:
-    {"error": "<one-sentence reason>"}
-- Args you may extract (only if explicitly mentioned in the message):
+- Args for specific intents (only if mentioned):
     epochs (int), batch_size (int), lr (float), patience (int),
     cutoff (float), workers (int), limit (int),
     model_size ("small"|"medium"|"large"),
-    cuda (bool), build (bool),
-    pdb_id (str),
+    cuda (bool), build (bool), pdb_id (str),
     from_stage (str), only (list[str]), skip (list[str])
-- Never invent args that weren't in the message. Defaults will be filled in
-  downstream.
 - Never combine intents.
 """
 
@@ -181,6 +182,7 @@ _ALLOWED_ARG_KEYS = {
     "pdb_id",
     "from_stage", "only", "skip",
     "checkpoint", "sources",
+    "cmd",
 }
 
 

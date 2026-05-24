@@ -5,6 +5,7 @@
 *.pdb    binary
 *.pt     binary
 *.ckpt   binary
+*.dcd    filter=lfs diff=lfs merge=lfs -text
 *.npy    binary
 *.npz    binary
 *.json   text eol=lf

@@ -30,28 +30,40 @@ from pathlib import Path
 
 REPO_ROOT = Path(__file__).parent.parent
 
-BOT_USERNAME    = os.environ.get("WORMHOLE_BOT_USERNAME", "")
+# Load from .wormhole_client.env if present
+_env_file = REPO_ROOT / ".wormhole_client.env"
+if _env_file.exists():
+    for _line in _env_file.read_text().splitlines():
+        _line = _line.strip()
+        if _line and not _line.startswith("#") and "=" in _line:
+            _k, _v = _line.split("=", 1)
+            os.environ.setdefault(_k.strip(), _v.strip())
+
+BOT_USERNAME      = os.environ.get("WORMHOLE_BOT_USERNAME", "")
 TELEGRAM_API_ID   = os.environ.get("TELEGRAM_API_ID", "")
 TELEGRAM_API_HASH = os.environ.get("TELEGRAM_API_HASH", "")
 
 _CODE_RE = re.compile(r"wormhole receive\s+([0-9]+(?:-[a-z]+){2})", re.IGNORECASE)
 
 
+RECEIVE_DIR = Path.home() / "wormhole_received"
+
+
 def _open_terminal(cmd: str) -> None:
+    RECEIVE_DIR.mkdir(exist_ok=True)
     system = platform.system()
     if system == "Windows":
-        # Prefer Windows Terminal; fall back to plain cmd window
         try:
-            subprocess.Popen(["wt", "--", "cmd", "/k", cmd])
+            subprocess.Popen(["wt", "--", "cmd", "/k", f"cd /d \"{RECEIVE_DIR}\" && {cmd}"])
         except FileNotFoundError:
-            subprocess.Popen(f'start cmd /k "{cmd}"', shell=True)
+            subprocess.Popen(f'start cmd /k "cd /d "{RECEIVE_DIR}" && {cmd}"', shell=True)
     elif system == "Darwin":
-        apple_script = f'tell application "Terminal" to do script "{cmd}"'
+        apple_script = f'tell application "Terminal" to do script "cd {RECEIVE_DIR} && {cmd}"'
         subprocess.Popen(["osascript", "-e", apple_script])
     else:
         for term in ("gnome-terminal", "x-terminal-emulator", "xterm", "konsole"):
             try:
-                subprocess.Popen([term, "--", "bash", "-c", f"{cmd}; exec bash"])
+                subprocess.Popen([term, "--", "bash", "-c", f"cd {RECEIVE_DIR} && {cmd}; exec bash"])
                 return
             except FileNotFoundError:
                 continue

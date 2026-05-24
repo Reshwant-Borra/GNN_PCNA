@@ -232,6 +232,68 @@ class TelegramGateway:
         finally:
             self.orch.unsubscribe(q)
 
+    async def _wormhole_send(self, chat_ids: set[int], task_id: str, path: Path) -> None:
+        """Run `wormhole send <path>`, DM the code, wait for transfer completion."""
+        import shutil as _shutil
+        wh = _shutil.which("wormhole")
+        size_mb = path.stat().st_size / 1024 / 1024
+        if not wh:
+            msg = (f"[{task_id}] artifact ready: {path.name} ({size_mb:.1f} MB)\n"
+                   f"(install magic-wormhole on Rishi's machine for auto-send)")
+            for cid in chat_ids:
+                try: await self._app.bot.send_message(cid, msg)
+                except Exception: pass
+            return
+
+        for cid in chat_ids:
+            try:
+                await self._app.bot.send_message(
+                    cid, f"[{task_id}] Opening wormhole for {path.name} ({size_mb:.1f} MB)...")
+            except Exception:
+                pass
+
+        proc = await asyncio.create_subprocess_exec(
+            wh, "send", str(path),
+            stdout=asyncio.subprocess.PIPE,
+            stderr=asyncio.subprocess.STDOUT,
+        )
+
+        code: str | None = None
+        assert proc.stdout is not None
+        try:
+            async for raw in proc.stdout:
+                line = raw.decode(errors="replace").strip()
+                if not code and "Wormhole code is:" in line:
+                    code = line.split("Wormhole code is:")[-1].strip()
+                    receive_cmd = f"wormhole receive {code}"
+                    for cid in chat_ids:
+                        try:
+                            await self._app.bot.send_message(
+                                cid,
+                                f"[{task_id}] {path.name}\n"
+                                f"Run on your machine:\n`{receive_cmd}`"
+                            )
+                        except Exception:
+                            pass
+                elif any(kw in line for kw in ("Transfer complete", "File sent")):
+                    for cid in chat_ids:
+                        try:
+                            await self._app.bot.send_message(
+                                cid, f"[{task_id}] Wormhole transfer complete: {path.name}")
+                        except Exception:
+                            pass
+        except Exception as exc:
+            for cid in chat_ids:
+                try:
+                    await self._app.bot.send_message(
+                        cid, f"[{task_id}] Wormhole error for {path.name}: {exc}")
+                except Exception:
+                    pass
+        finally:
+            if proc.returncode is None:
+                proc.terminate()
+            await proc.wait()
+
     async def _dispatch_event(self, ev: Event) -> None:
         if self._app is None:
             return
@@ -267,10 +329,24 @@ class TelegramGateway:
         elif ev.kind == "cancelled":
             text = f"[{ev.task_id}] CANCELLED by {ev.payload.get('by')}"
         elif ev.kind == "finished":
-            t        = self.orch.get(ev.task_id)
-            arts     = "\n".join(f"  - {a}" for a in t.artifacts) or "  (none)"
-            text     = (f"[{ev.task_id}] FINISHED  state={t.state.value}  "
-                        f"exit={t.exit_code}\nartifacts:\n{arts}\nartifact_dir: {t.artifact_dir}")
+            t    = self.orch.get(ev.task_id)
+            arts = "\n".join(f"  - {a}" for a in t.artifacts) or "  (none)"
+            text = (f"[{ev.task_id}] FINISHED  state={t.state.value}  "
+                    f"exit={t.exit_code}\nartifacts:\n{arts}")
+            for chat_id in list(chats):
+                try:
+                    await self._app.bot.send_message(chat_id, text)
+                except Exception:
+                    pass
+            # Send each artifact file via wormhole
+            if t.artifact_dir:
+                for name in t.artifacts:
+                    p = Path(t.artifact_dir) / name
+                    if p.exists() and p.is_file():
+                        self._app.create_task(
+                            self._wormhole_send(set(chats), ev.task_id, p)
+                        )
+            return
         else:
             return
 

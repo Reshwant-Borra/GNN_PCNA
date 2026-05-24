@@ -1,0 +1,165 @@
+{
+  "analysis_date": "2026-05-23",
+  "working_repo": "C:\\Users\\reshw\\GNN_PNCA",
+  "input_topology_read_only": "C:\\Users\\reshw\\Desktop\\MDValidation\\GNN_PCNA\\data\\md\\1W60_topology.pdb",
+  "input_trajectory_read_only": "C:\\Users\\reshw\\Desktop\\MDValidation\\GNN_PCNA\\data\\md\\1W60_production.dcd",
+  "output_dir": "C:\\Users\\reshw\\GNN_PNCA\\reports\\md_validation_100ns_2026-05-23",
+  "software": {
+    "MDAnalysis": "2.10.0",
+    "numpy": "1.26.4"
+  },
+  "trajectory": {
+    "n_atoms": 356789,
+    "n_frames_total": 10000,
+    "dt_ps": 10.000000029814057,
+    "sim_time_ns": 100.00000029814058,
+    "stride": 10,
+    "n_frames_analyzed": 1000,
+    "analysis_dt_ps": 100.00000029814058
+  },
+  "thermodynamics": {
+    "source": "C:\\Users\\reshw\\Desktop\\MDValidation\\GNN_PCNA\\data\\md\\production.log",
+    "n_points": 100,
+    "time_range_ns": [
+      2.0,
+      101.0
+    ],
+    "temperature_mean_K": 311.1541,
+    "temperature_std_K": 0.5055,
+    "potential_energy_mean_kj_mol": -5008541.7127,
+    "potential_energy_std_kj_mol": 2078.5354,
+    "box_volume_mean_nm3": 3546.193,
+    "box_volume_std_nm3": 3.223
+  },
+  "selection": {
+    "protein_atoms": 8024,
+    "protein_residues": 522,
+    "ca_atoms": 522,
+    "chains": [
+      "A",
+      "B"
+    ],
+    "aoh_pocket_ca_chain_aware": 48,
+    "aoh_pocket_ca_old_union_mask_would_select": 50,
+    "old_mask_overcount_note": "The repository script uses residue-number union and would include A23 and B253; this analysis uses chain-specific AOH sets."
+  },
+  "pbc_and_alignment": {
+    "method": "C-alpha minimum-image incremental unwrapping plus whole-chain imaging to nearest chain-A image, followed by Kabsch alignment to frame 0.",
+    "raw_max_per_ca_frame_jump_angstrom": 154.7739,
+    "unwrapped_max_per_ca_frame_jump_angstrom": 6.5444,
+    "initial_chain_imaging_required": true,
+    "note": "The topology begins with chains A and B in different periodic images; whole-chain imaging is required before cross-chain AOH metrics."
+  },
+  "stability": {
+    "rmsd_ca_angstrom": {
+      "mean": 14.3029,
+      "std": 3.3846,
+      "min": 0.0,
+      "max": 18.4966,
+      "final": 16.0138
+    },
+    "rg_ca_angstrom": {
+      "mean": 34.0843,
+      "std": 2.4091,
+      "min": 31.0007,
+      "max": 41.9982,
+      "final": 32.0261
+    },
+    "per_chain_rmsd_ca_angstrom": {
+      "A": {
+        "mean": 2.2802,
+        "final": 2.7725,
+        "max": 2.9875
+      },
+      "B": {
+        "mean": 2.5462,
+        "final": 3.3326,
+        "max": 3.4862
+      }
+    },
+    "per_chain_rmsf_ca_angstrom": {
+      "A": {
+        "mean": 1.1669,
+        "max": 4.6329
+      },
+      "B": {
+        "mean": 1.1964,
+        "max": 8.8372
+      }
+    }
+  },
+  "rmsf": {
+    "pocket_mean_angstrom": 5.6373,
+    "background_mean_angstrom": 6.7236,
+    "fold_change_pocket_vs_background": 0.8384,
+    "global_mean_angstrom": 6.6237,
+    "global_std_angstrom": 2.0051,
+    "subregions": {
+      "n_face_loop": {
+        "n_ca": 7,
+        "mean_rmsf_angstrom": 6.2513,
+        "fold_vs_background": 0.9298
+      },
+      "front_face_groove": {
+        "n_ca": 18,
+        "mean_rmsf_angstrom": 5.5331,
+        "fold_vs_background": 0.8229
+      },
+      "idcl": {
+        "n_ca": 8,
+        "mean_rmsf_angstrom": 6.6724,
+        "fold_vs_background": 0.9924
+      },
+      "c_terminal_tail": {
+        "n_ca": 15,
+        "mean_rmsf_angstrom": 4.9236,
+        "fold_vs_background": 0.7323
+      }
+    }
+  },
+  "dccm": {
+    "matrix_shape": [
+      522,
+      522
+    ],
+    "min": -0.9394,
+    "max": 1.0,
+    "pocket_internal_signed_mean_offdiag": 0.1967,
+    "pocket_internal_abs_mean_offdiag": 0.581,
+    "matrix_file": "dccm_ca.npy"
+  },
+  "contact_persistence": {
+    "definition": "AOH-AOH native CA contacts with frame-0 distance < 8.0 A; per-frame fraction retained below same cutoff.",
+    "n_native_aoh_contacts": 126,
+    "mean_fraction": 0.9254,
+    "min_fraction": 0.8571,
+    "final_fraction": 0.9286
+  },
+  "exploratory_openness_proxy": {
+    "method": "C-alpha convex hull and mean pairwise CA distance over chain-aware AOH residues after chain imaging; relative proxy only, not physical cavity volume.",
+    "hull_volume_a3_mean": 15656.3596,
+    "hull_volume_a3_std": 3281.2285,
+    "hull_volume_a3_min": 11074.7375,
+    "hull_volume_a3_max": 23117.3736,
+    "hull_volume_a3_final": 12713.7461,
+    "mean_pairwise_ca_distance_mean": 38.5283,
+    "mean_pairwise_ca_distance_max": 44.8558,
+    "frames_above_mean_plus_2std": 7
+  },
+  "interpretation_guardrails": {
+    "validated_claims_allowed": [
+      "100 ns apo 1W60 trajectory completed and is thermodynamically stable by OpenMM reporter log.",
+      "PBC-aware CA unwrapping plus whole-chain imaging is required before RMSD/RMSF/DCCM interpretation.",
+      "RMSF and DCCM quantify structural dynamics of the known AOH1996/ZQZ contact region."
+    ],
+    "exploratory_only": [
+      "C-alpha hull volume and pairwise distances are relative openness proxies.",
+      "Contact persistence describes local structural cohesion, not druggability."
+    ],
+    "unsupported": [
+      "Novel cryptic pocket discovery is not supported by this MD analysis alone.",
+      "Physical pocket volume or druggability is not established without MDpocket/fpocket or comparable cavity analysis.",
+      "AOH1996 mechanism is not established by apo MD alone."
+    ]
+  }
+}

@@ -1,0 +1,56 @@
+{
+  "pilot_validation": true,
+  "trajectory": "data/md/archive_interrupted_run/1W60_production_interrupted_15ns.dcd",
+  "topology": "data/md/1W60_topology.pdb",
+  "sim_time_ns_header": 14.61,
+  "sim_time_ns_actual": 14.61,
+  "n_frames_header": 1461,
+  "n_frames_valid": 1461,
+  "dt_ps": 10.0,
+  "stride_used": 2,
+  "truncated_dcd": false,
+  "pbc_artifact_detected": true,
+  "pbc_note": "PCNA trimer chains drift across periodic boundaries in NPT. RMSD/RMSF/Rg are inflated artifacts. Fix with: mdtraj image_molecules() or gmx trjconv -pbc mol.",
+  "rmsd_backbone": {
+    "min_angstrom": 0.0,
+    "max_angstrom": 56.725,
+    "mean_angstrom": 46.8,
+    "final_angstrom": 51.771,
+    "method": "Kabsch superposition (MDAnalysis mda_rmsd)"
+  },
+  "rmsf_ca": {
+    "n_residues": 522,
+    "min_angstrom": 33.0613,
+    "max_angstrom": 39.9299,
+    "mean_angstrom": 36.37,
+    "std_angstrom": 1.2401,
+    "method": "two-pass mean-reference (no global alignment)"
+  },
+  "radius_of_gyration": {
+    "frame0_angstrom": 37.061,
+    "min_angstrom": 35.922,
+    "max_angstrom": 82.322,
+    "mean_angstrom": 72.86,
+    "std_angstrom": 7.405,
+    "pbc_artifact": true,
+    "note": "Frame-0 Rg (~36 A) is reliable (no PBC split yet). Growing Rg is a chain-splitting artifact in NPT."
+  },
+  "reporter_energy": {
+    "n_points": 15,
+    "time_range_ns": [
+      2.0,
+      16.0
+    ],
+    "potential_mean_kJ": -5008391.9,
+    "potential_std_kJ": 2463.9,
+    "temperature_mean_K": 311.354,
+    "temperature_std_K": 0.61
+  },
+  "plots": {
+    "rmsd": "analysis_pilot/output/rmsd_backbone.png",
+    "rmsf": "analysis_pilot/output/rmsf_per_residue.png",
+    "rg": "analysis_pilot/output/radius_of_gyration.png",
+    "energy_temp": "analysis_pilot/output/energy_temperature.png",
+    "summary_panel": "analysis_pilot/output/summary_panel.png"
+  }
+}

@@ -57,12 +57,13 @@ def _get_client():
 
 def _health_check() -> bool:
     import urllib.request, time
-    for _ in range(5):
-        try:
-            urllib.request.urlopen("http://localhost:11434", timeout=3)
-            return True
-        except Exception:
-            time.sleep(1)
+    for url in ("http://localhost:11434", "http://127.0.0.1:11434"):
+        for _ in range(3):
+            try:
+                urllib.request.urlopen(url, timeout=3)
+                return True
+            except Exception:
+                time.sleep(1)
     return False
 
 
@@ -213,10 +214,6 @@ def parse(message: str, timeout_s: float = 15.0) -> dict[str, Any]:
     message = (message or "").strip()
     if not message:
         return {"error": "empty message"}
-
-    if not _health_check():
-        return {"error": "intent parser unavailable: Ollama not reachable at "
-                         "localhost:11434. Use /run <intent> directly."}
 
     prompt = _USER_TEMPLATE.format(
         catalog=_intent_catalog(),

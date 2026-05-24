@@ -27,6 +27,7 @@ def _route(router, msg):
         ("Review the metric script.", "code_review"),
         ("Run 100 ns MD on cloud.", "md_or_validation"),
         ("What should my friend pull?", "collaboration_sync"),
+        ("Ingest this source PDF into the registry.", "document_ingestion"),
         ("Find hidden contradictions before submission.", "submission_readiness"),
     ],
 )
@@ -74,3 +75,8 @@ def test_claim_or_paper_routes_to_validation_and_metrics(router):
 def test_empty_message_routes_general(router):
     plan = _route(router, "")
     assert "general" in plan.intents
+
+
+def test_document_ingestion_routes_to_agent_21(router):
+    plan = _route(router, "Ingest this transcript into the source registry.")
+    assert "document_knowledge_ingestion" in plan.selected_agents

@@ -124,6 +124,7 @@ INTENT_CLASSES = (
     "compute_planning",
     "submission_readiness",
     "collaboration_sync",
+    "document_ingestion",
     "contradiction_hunt",
     "general",
 )
@@ -149,6 +150,7 @@ AGENT_IDS = (
     "paper_claim",
     "visual_evidence",
     "reviewer_collaboration",
+    "document_knowledge_ingestion",
 )
 
 EVIDENCE_TYPES = (

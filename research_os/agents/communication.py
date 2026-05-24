@@ -166,6 +166,61 @@ class VisualEvidenceAgent(BaseAgent):
         )
 
 
+class DocumentKnowledgeIngestionAgent(BaseAgent):
+    agent_id = "document_knowledge_ingestion"
+    display_name = "Document and Knowledge Ingestion"
+
+    def run(self, packet: ContextPacket) -> AgentOutput:
+        findings = []
+        repo_root = Path(self.ctx.repo_root)
+        ingest_script = repo_root / "agents" / "ingest.py"
+        if not ingest_script.exists():
+            findings.append(
+                self._new_finding(
+                    severity="critical",
+                    title="Agent 21 ingest script is missing",
+                    description="The document ingestion intent requires agents/ingest.py.",
+                    required_action="Restore agents/ingest.py from the agents branch.",
+                    blocks_pipeline=True,
+                )
+            )
+
+        source_count = 0
+        store = self.ctx.registry_store
+        if store is not None:
+            try:
+                sources = store.all_entries("source_registry")
+                source_count = len(sources)
+            except Exception as exc:
+                findings.append(
+                    self._new_finding(
+                        severity="critical",
+                        title="source_registry cannot be read by ResearchOS",
+                        description=str(exc),
+                        required_action="Normalize source_registry.json to the RegistryStore entries schema.",
+                        blocks_pipeline=True,
+                    )
+                )
+
+        return self._output(
+            task=packet.task,
+            status="fail" if any(f.blocks_pipeline for f in findings) else "pass",
+            confidence=0.8,
+            summary=(
+                "Document ingestion integration: "
+                f"ingest_script={'present' if ingest_script.exists() else 'missing'}, "
+                f"sources_registered={source_count}."
+            ),
+            findings=findings,
+            evidence_used=[self._evidence_path("agents/ingest.py")],
+            notes={
+                "ingest_script": str(ingest_script),
+                "source_count": source_count,
+                "registry_shape": "research_os_registries/source_registry.json entries",
+            },
+        )
+
+
 _REVIEWER_QUESTIONS = (
     "How did you prevent homology leakage?",
     "How many independent test proteins?",
@@ -223,6 +278,7 @@ class ReviewerCollaborationAgent(BaseAgent):
 
 __all__ = [
     "CodeBuilderAgent",
+    "DocumentKnowledgeIngestionAgent",
     "PaperClaimAgent",
     "ReviewerCollaborationAgent",
     "VisualEvidenceAgent",

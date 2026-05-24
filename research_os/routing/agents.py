@@ -116,6 +116,12 @@ _AGENT_MAP: Dict[str, Tuple[str, ...]] = {
         "reviewer_collaboration",
         "provenance_artifacts",
     ),
+    "document_ingestion": (
+        "context_source_truth",
+        "document_knowledge_ingestion",
+        "literature_web",
+        "provenance_artifacts",
+    ),
     "contradiction_hunt": (
         "context_source_truth",
         "contradiction_hunter",

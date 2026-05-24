@@ -35,6 +35,7 @@ from research_os.agents.science_evaluation import (
 )
 from research_os.agents.communication import (
     CodeBuilderAgent,
+    DocumentKnowledgeIngestionAgent,
     PaperClaimAgent,
     ReviewerCollaborationAgent,
     VisualEvidenceAgent,
@@ -62,6 +63,7 @@ AGENT_REGISTRY: Dict[str, Callable[[AgentContext], BaseAgent]] = {
     "paper_claim": PaperClaimAgent,
     "visual_evidence": VisualEvidenceAgent,
     "reviewer_collaboration": ReviewerCollaborationAgent,
+    "document_knowledge_ingestion": DocumentKnowledgeIngestionAgent,
 }
 
 
@@ -75,6 +77,7 @@ __all__ = [
     "ContextSourceTruthAgent",
     "ContradictionHunterAgent",
     "DatasetIntegrityAgent",
+    "DocumentKnowledgeIngestionAgent",
     "LeakageSplitAgent",
     "LiteratureWebAgent",
     "MasterResearchOrchestratorAgent",

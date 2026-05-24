@@ -73,6 +73,8 @@ class Router:
             actions.append("Require explicit MD evidence classification before any validation claim.")
         if "submission_readiness" in intents:
             actions.append("Produce readiness matrix and request human signoff.")
+        if "document_ingestion" in intents:
+            actions.append("Ingest sources through Agent 21 and update source_registry with provenance.")
         if risk in ("high", "critical"):
             actions.append("Run contradiction hunter at end of pipeline.")
         return actions
@@ -89,6 +91,8 @@ class Router:
             out.append("Claim audit report with safe-wording replacements")
         if "submission_readiness" in intents:
             out.append("Readiness matrix + human signoff prompt")
+        if "document_ingestion" in intents:
+            out.append("Source registry entries + ingest report")
         return out
 
 

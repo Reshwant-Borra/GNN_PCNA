@@ -24,6 +24,7 @@ All agents must return `../schemas/AGENT_OUTPUT_SCHEMA.md`.
 | 18 | Paper, Claim and Documentation | `18_paper_claim_documentation.md` |
 | 19 | Visual Evidence and Figure | `19_visual_evidence_figure.md` |
 | 20 | Reviewer and Collaboration | `20_reviewer_collaboration.md` |
+| 21 | Document and Knowledge Ingestion | `21_document_knowledge_ingestion.md` |
 
 ## MVP Priority
 

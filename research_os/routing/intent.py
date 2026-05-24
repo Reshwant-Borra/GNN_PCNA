@@ -178,6 +178,19 @@ _INTENT_PATTERNS: Tuple[Tuple[str, List[str]], ...] = (
         ],
     ),
     (
+        "document_ingestion",
+        [
+            r"\bingest\b",
+            r"\bupload\b.*\b(source|paper|document|pdf|transcript|note)",
+            r"\badd\b.*\b(source|paper|document|pdf|transcript|note)",
+            r"\bindex\b.*\b(source|paper|document|pdf|transcript|note)",
+            r"\bsource registry\b",
+            r"\bdocument ingestion\b",
+            r"\bknowledge ingestion\b",
+            r"\bagent 21\b",
+        ],
+    ),
+    (
         "contradiction_hunt",
         [
             r"\bcontradict\w*\b",

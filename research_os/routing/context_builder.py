@@ -82,6 +82,11 @@ _INTENT_MEMORY: Dict[str, tuple[str, ...]] = {
         "CURRENT_CLAIMS.md",
         "HUMAN_DECISIONS.md",
     ),
+    "document_ingestion": (
+        "PROJECT_CANONICAL_STATUS.md",
+        "CURRENT_CLAIMS.md",
+        "HUMAN_DECISIONS.md",
+    ),
     "contradiction_hunt": (
         "PROJECT_CANONICAL_STATUS.md",
         "CURRENT_CLAIMS.md",
@@ -109,6 +114,7 @@ _INTENT_REGISTRIES: Dict[str, tuple[str, ...]] = {
     "submission_readiness": REGISTRY_NAMES,
     "contradiction_hunt": ("artifact_registry", "claim_registry", "experiment_registry", "issue_registry"),
     "collaboration_sync": ("artifact_registry", "decision_registry"),
+    "document_ingestion": ("source_registry", "claim_registry", "experiment_registry", "artifact_registry"),
     "general": ("artifact_registry",),
     "research_design": ("claim_registry",),
     "code_build": ("issue_registry",),

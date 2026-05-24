@@ -25,6 +25,7 @@ from __future__ import annotations
 
 import argparse
 import json
+import os
 import re
 import sys
 from pathlib import Path
@@ -108,11 +109,50 @@ _USER_TEMPLATE = """\
 Available intents:
 {catalog}
 
+Live repo context:
+{repo_context}
+
 User message:
 {message}
 
 Emit the JSON now.
 """
+
+
+def _gather_repo_context() -> str:
+    """Read live repo structure and key files to give Gemma real context."""
+    lines = []
+
+    # Directory tree (2 levels, skip noise)
+    skip = {".git", "__pycache__", ".obsidian", "node_modules", ".venv", "venv"}
+    for root, dirs, files in os.walk(REPO_ROOT):
+        dirs[:] = [d for d in sorted(dirs) if d not in skip]
+        depth = len(Path(root).relative_to(REPO_ROOT).parts)
+        if depth > 2:
+            continue
+        indent = "  " * depth
+        label = Path(root).name if depth > 0 else str(REPO_ROOT)
+        lines.append(f"{indent}{label}/")
+        for f in sorted(files):
+            lines.append(f"{indent}  {f}")
+
+    context = "=== repo tree ===\n" + "\n".join(lines[:150])
+
+    # Key reference files
+    for fname in ["REPO_MAP.md", "AGENTS.md", "CLAUDE.md", "README.md"]:
+        p = REPO_ROOT / fname
+        if p.exists():
+            content = p.read_text(encoding="utf-8", errors="replace")[:2000]
+            context += f"\n\n=== {fname} ===\n{content}"
+
+    # What's actually in data/ and checkpoints/
+    for folder in ["data", "checkpoints", "scripts", "src"]:
+        p = REPO_ROOT / folder
+        if p.exists():
+            entries = sorted(str(x.relative_to(REPO_ROOT)) for x in p.rglob("*") if x.is_file())[:40]
+            context += f"\n\n=== {folder}/ files ===\n" + "\n".join(entries)
+
+    return context
 
 
 def parse(message: str, timeout_s: float = 15.0) -> dict[str, Any]:
@@ -132,7 +172,11 @@ def parse(message: str, timeout_s: float = 15.0) -> dict[str, Any]:
         return {"error": "intent parser unavailable: Ollama not reachable at "
                          "localhost:11434. Use /run <intent> directly."}
 
-    prompt = _USER_TEMPLATE.format(catalog=_intent_catalog(), message=message)
+    prompt = _USER_TEMPLATE.format(
+        catalog=_intent_catalog(),
+        repo_context=_gather_repo_context(),
+        message=message,
+    )
     try:
         client = _get_client()
         resp = client.chat.completions.create(

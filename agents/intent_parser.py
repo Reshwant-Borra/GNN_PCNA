@@ -37,7 +37,8 @@ sys.path.insert(0, str(REPO_ROOT))
 from agents.orchestrator import INTENTS  # noqa: E402
 
 MODEL    = "gemma3:4b"
-ENDPOINT = "http://localhost:11434/api/chat"
+_OLLAMA_HOST = os.environ.get("OLLAMA_HOST", "http://host.docker.internal:11434")
+ENDPOINT = f"{_OLLAMA_HOST.rstrip('/')}/api/chat"
 
 
 def _health_check() -> bool:

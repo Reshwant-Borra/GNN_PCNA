@@ -1,5 +1,0 @@
-streamlit>=1.35
-pandas
-matplotlib
-requests
-mcp>=1.0

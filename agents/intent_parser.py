@@ -56,12 +56,14 @@ def _get_client():
 
 
 def _health_check() -> bool:
-    try:
-        import urllib.request
-        urllib.request.urlopen("http://localhost:11434", timeout=2)
-        return True
-    except Exception:
-        return False
+    import urllib.request, time
+    for _ in range(5):
+        try:
+            urllib.request.urlopen("http://localhost:11434", timeout=3)
+            return True
+        except Exception:
+            time.sleep(1)
+    return False
 
 
 def _intent_catalog() -> str:

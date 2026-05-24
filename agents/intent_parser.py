@@ -37,22 +37,7 @@ sys.path.insert(0, str(REPO_ROOT))
 from agents.orchestrator import INTENTS  # noqa: E402
 
 MODEL    = "gemma3:4b"
-ENDPOINT = "http://localhost:11434/v1"
-
-_client = None
-
-
-def _get_client():
-    global _client
-    if _client is None:
-        try:
-            from openai import OpenAI
-        except ImportError as exc:
-            raise RuntimeError(
-                "openai package required for intent_parser (pip install openai)"
-            ) from exc
-        _client = OpenAI(base_url=ENDPOINT, api_key="ollama")
-    return _client
+ENDPOINT = "http://localhost:11434/api/chat"
 
 
 def _health_check() -> bool:
@@ -221,18 +206,20 @@ def parse(message: str, timeout_s: float = 15.0) -> dict[str, Any]:
         message=message,
     )
     try:
-        client = _get_client()
-        resp = client.chat.completions.create(
-            model=MODEL,
-            messages=[
+        import urllib.request, json as _json
+        payload = _json.dumps({
+            "model": MODEL,
+            "messages": [
                 {"role": "system", "content": _SYSTEM},
                 {"role": "user",   "content": prompt},
             ],
-            temperature=0.0,
-            max_tokens=200,
-            timeout=timeout_s,
-        )
-        raw = resp.choices[0].message.content or ""
+            "stream": False,
+            "options": {"temperature": 0},
+        }).encode()
+        req = urllib.request.Request(ENDPOINT, data=payload,
+                                     headers={"Content-Type": "application/json"})
+        with urllib.request.urlopen(req, timeout=timeout_s) as resp:
+            raw = _json.loads(resp.read())["message"]["content"]
     except Exception as e:
         return {"error": f"llm call failed: {str(e)[:120]}"}
 

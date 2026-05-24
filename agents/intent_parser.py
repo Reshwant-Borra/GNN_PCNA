@@ -119,11 +119,43 @@ Emit the JSON now.
 """
 
 
-def _gather_repo_context() -> str:
-    """Read live repo structure and key files to give Gemma real context."""
-    lines = []
+def _run(cmd: str) -> str:
+    """Run a shell command, return stdout, never raise."""
+    try:
+        import subprocess as _sp
+        return _sp.check_output(cmd, shell=True, cwd=str(REPO_ROOT),
+                                stderr=_sp.DEVNULL, timeout=10,
+                                encoding="utf-8", errors="replace").strip()
+    except Exception:
+        return ""
 
-    # Directory tree (2 levels, skip noise)
+
+def _gather_repo_context() -> str:
+    """Read live repo structure, all branches, and environment so Gemma has full context."""
+    context = ""
+
+    # --- current branch + all branches + files on each ---
+    current_branch = _run("git rev-parse --abbrev-ref HEAD")
+    all_branches = _run("git branch -a --format=%(refname:short)").splitlines()
+    context += f"=== current branch ===\n{current_branch}\n"
+    context += f"\n=== all branches ===\n" + "\n".join(all_branches)
+
+    # Files on every branch (ls-tree)
+    seen = set()
+    branch_files: list[str] = []
+    for branch in all_branches:
+        branch = branch.strip().lstrip("* ")
+        if branch.startswith("origin/HEAD"):
+            continue
+        files = _run(f"git ls-tree -r --name-only {branch}")
+        for f in files.splitlines():
+            if f not in seen:
+                seen.add(f)
+                branch_files.append(f"[{branch}] {f}")
+    context += "\n\n=== all files across all branches ===\n" + "\n".join(branch_files[:300])
+
+    # --- checked-out tree (2 levels) ---
+    lines = []
     skip = {".git", "__pycache__", ".obsidian", "node_modules", ".venv", "venv"}
     for root, dirs, files in os.walk(REPO_ROOT):
         dirs[:] = [d for d in sorted(dirs) if d not in skip]
@@ -131,26 +163,38 @@ def _gather_repo_context() -> str:
         if depth > 2:
             continue
         indent = "  " * depth
-        label = Path(root).name if depth > 0 else str(REPO_ROOT)
+        label = Path(root).name if depth > 0 else "."
         lines.append(f"{indent}{label}/")
         for f in sorted(files):
             lines.append(f"{indent}  {f}")
+    context += "\n\n=== checked-out tree ===\n" + "\n".join(lines[:150])
 
-    context = "=== repo tree ===\n" + "\n".join(lines[:150])
-
-    # Key reference files
+    # --- key reference files ---
     for fname in ["REPO_MAP.md", "AGENTS.md", "CLAUDE.md", "README.md"]:
         p = REPO_ROOT / fname
         if p.exists():
             content = p.read_text(encoding="utf-8", errors="replace")[:2000]
             context += f"\n\n=== {fname} ===\n{content}"
 
-    # What's actually in data/ and checkpoints/
+    # --- data / checkpoints / scripts / src file listing ---
     for folder in ["data", "checkpoints", "scripts", "src"]:
         p = REPO_ROOT / folder
         if p.exists():
-            entries = sorted(str(x.relative_to(REPO_ROOT)) for x in p.rglob("*") if x.is_file())[:40]
-            context += f"\n\n=== {folder}/ files ===\n" + "\n".join(entries)
+            entries = sorted(str(x.relative_to(REPO_ROOT))
+                             for x in p.rglob("*") if x.is_file())[:40]
+            context += f"\n\n=== {folder}/ ===\n" + "\n".join(entries)
+
+    # --- Python / conda environment ---
+    context += "\n\n=== python env ==="
+    context += "\n" + _run("which python || which python3")
+    context += "\n" + _run("python --version 2>&1 || python3 --version 2>&1")
+    context += "\n" + _run("conda info --envs 2>/dev/null || echo 'no conda'")
+    context += "\n" + _run("pip list 2>/dev/null | grep -iE 'torch|openmm|cuda|numpy|scipy|sklearn' || true")
+
+    # --- CUDA / GPU ---
+    context += "\n\n=== gpu ==="
+    context += "\n" + _run("nvidia-smi --query-gpu=name,memory.total,driver_version --format=csv,noheader 2>/dev/null || echo 'no nvidia-smi'")
+    context += "\n" + _run("python -c \"import torch; print('torch', torch.__version__, 'cuda:', torch.cuda.is_available(), torch.cuda.get_device_name(0) if torch.cuda.is_available() else '')\" 2>/dev/null || echo 'torch not available'")
 
     return context
 

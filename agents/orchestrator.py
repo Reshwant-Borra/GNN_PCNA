@@ -204,6 +204,17 @@ def _cmd_bundle(o: "Orchestrator", t: Task) -> list[str]:
     return [_py(), "agents/docker_packager.py", "bundle", "--out", str(out)]
 
 
+def _cmd_dummy(o: "Orchestrator", t: Task) -> list[str]:
+    size_mb = int(t.args.get("size_mb", 2048))
+    out = str(Path(t.artifact_dir) / "dummy_output.bin") if t.artifact_dir else "dummy_output.bin"
+    script = (
+        f"import os, sys; n={size_mb}; f=open(r'{out}','wb'); "
+        f"[f.write(os.urandom(1024*1024)) or sys.stdout.write(f'{{i+1}}/{n} MB written\\n') or sys.stdout.flush() for i in range(n)]; "
+        f"f.close(); print('done — {size_mb} MB written to {out}')"
+    )
+    return [_py(), "-c", script]
+
+
 def _cmd_ingest(o: "Orchestrator", t: Task) -> list[str]:
     cmd = [_py(), "agents/ingest.py", "ingest"]
     for p in t.args.get("paths", []):
@@ -287,6 +298,11 @@ INTENTS: dict[str, Intent] = {
         name="bundle", description="Produce a stripped repo .zip bundle",
         min_role=Role.COLLABORATOR, risky=False, long_running=True,
         build_cmd=_cmd_bundle,
+    ),
+    "dummy": Intent(
+        name="dummy", description="Generate a test file (default 2048 MB) to verify the full wormhole loop",
+        min_role=Role.COLLABORATOR, risky=False, long_running=True,
+        build_cmd=_cmd_dummy,
     ),
     "ingest": Intent(
         name="ingest", description="Ingest documents into source registry + Obsidian vault (Agent 21)",

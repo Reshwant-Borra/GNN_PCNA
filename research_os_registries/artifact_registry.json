@@ -1,0 +1,79 @@
+{
+  "_schema_version": "1.0",
+  "_description": "Artifact Registry — one entry per significant output file. Written by agents and orchestrator.",
+  "_id_prefix": "ART",
+  "artifacts": [
+    {
+      "id": "ART-0001",
+      "created": "2026-05-19T00:00:00Z",
+      "updated": "2026-05-24T00:00:00Z",
+      "status": "current",
+      "created_by": "human",
+      "type": "checkpoint",
+      "path": "checkpoints/pcna_reproduced/best.ckpt",
+      "description": "PocketGNNXL V3 best checkpoint (seed=42). Primary model artifact.",
+      "command": "python scripts/train.py --config configs/pocketgnnxl.yaml --seed 42",
+      "git_commit": null,
+      "dataset_hash": null,
+      "checkpoint_hash": null,
+      "environment": "pcna_md conda env",
+      "machine": "local",
+      "associated_claims": ["CLAIM-0001", "CLAIM-0002", "CLAIM-0003", "CLAIM-0004"],
+      "notes": "See best_meta.json for full provenance. split_file=data/splits/cryptosite_split.json"
+    },
+    {
+      "id": "ART-0002",
+      "created": "2026-05-19T00:00:00Z",
+      "updated": "2026-05-24T00:00:00Z",
+      "status": "current",
+      "created_by": "human",
+      "type": "evaluation_result",
+      "path": "data/results/test_split_eval_best.json",
+      "description": "Held-out CryptoSite evaluation results. Contains combined_val_test block with AUROC 0.8081.",
+      "command": "python scripts/evaluate.py --checkpoint checkpoints/pcna_reproduced/best.ckpt",
+      "git_commit": null,
+      "dataset_hash": null,
+      "associated_claims": ["CLAIM-0001"],
+      "notes": "combined_val_test: AUROC 0.8081, AUPRC 0.3441"
+    },
+    {
+      "id": "ART-0003",
+      "created": "2026-05-19T00:00:00Z",
+      "updated": "2026-05-24T00:00:00Z",
+      "status": "current",
+      "created_by": "human",
+      "type": "analysis_result",
+      "path": "data/results/nma_apo_holo_comparison.json",
+      "description": "ANM analysis: apo fold-change 0.857, holo 1.157, delta +0.300, DCCM apo 0.0995, holo 0.2093.",
+      "command": "python scripts/run_nma.py",
+      "associated_claims": ["CLAIM-0003", "CLAIM-0005"],
+      "notes": "CORRECTED 2026-05-19. Chains A+B only for 8GLA. Old numbers (holo=1.104) are invalid."
+    },
+    {
+      "id": "ART-0004",
+      "created": "2026-05-19T00:00:00Z",
+      "updated": "2026-05-24T00:00:00Z",
+      "status": "current",
+      "created_by": "human",
+      "type": "paper_draft",
+      "path": "docs/GNN_PCNA_Research_Paper_v2.docx",
+      "description": "Research paper v2. Built by scripts/build_paper_docx.py. Section 3.8 pending MD results.",
+      "command": "python scripts/build_paper_docx.py",
+      "associated_claims": ["CLAIM-0001", "CLAIM-0002", "CLAIM-0003", "CLAIM-0004", "CLAIM-0005"],
+      "notes": "Never edit docx directly. Re-run builder after any change. Kill Word before running."
+    },
+    {
+      "id": "ART-0005",
+      "created": "2026-05-24T00:00:00Z",
+      "updated": "2026-05-24T00:00:00Z",
+      "status": "pending",
+      "created_by": "human",
+      "type": "md_trajectory",
+      "path": "data/md/1W60_production.dcd",
+      "description": "100 ns OpenMM MD trajectory of 1W60 apo. Likely complete on Google Cloud L4. Needs transfer.",
+      "command": "wormhole receive <code> OR gcloud storage cp gs://bucket/1W60_production.dcd data/md/",
+      "associated_claims": ["CLAIM-0005"],
+      "notes": "Transfer from Reshwant's L4 instance. After transfer run scripts/run_md_analysis.py."
+    }
+  ]
+}

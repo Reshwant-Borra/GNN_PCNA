@@ -1,0 +1,82 @@
+{
+  "_schema_version": "1.0",
+  "_description": "Claim Registry — one entry per scientific claim. Controls allowed/disallowed wording.",
+  "_id_prefix": "CLAIM",
+  "claims": [
+    {
+      "id": "CLAIM-0001",
+      "created": "2026-05-24T00:00:00Z",
+      "updated": "2026-05-24T00:00:00Z",
+      "status": "strongly_supported_computationally",
+      "created_by": "human",
+      "text": "PocketGNNXL V3 achieves AUROC 0.8081 on 13 held-out CryptoSite proteins (8 val + 5 test), with AUPRC 0.3441 (6.2× above trivial baseline 0.0557).",
+      "allowed_wording": "held-out AUROC 0.8081 on 13 CryptoSite proteins",
+      "disallowed_wording": "validated on all proteins; AUROC without specifying N=13",
+      "evidence_for": ["data/results/test_split_eval_best.json"],
+      "evidence_against": [],
+      "requires_human_approval": false,
+      "human_approved": true,
+      "notes": "Primary generalization metric. Fine-tuning structures NOT included."
+    },
+    {
+      "id": "CLAIM-0002",
+      "created": "2026-05-24T00:00:00Z",
+      "updated": "2026-05-24T00:00:00Z",
+      "status": "strongly_supported_computationally",
+      "created_by": "human",
+      "text": "PocketGNNXL V3 recovers the AOH1996 binding site on 8GLA with mean pocket score 0.8676 (threshold 0.700 → PASS). Recovers ≥20/24 ground-truth residues in 23/59 PCNA structures.",
+      "allowed_wording": "recovers AOH1996 binding site; mean score 0.8676",
+      "disallowed_wording": "discovers novel pocket at AOH1996 site (it is the ground truth, not a novel finding)",
+      "evidence_for": ["data/results/aoh_gate_check.json"],
+      "evidence_against": [],
+      "requires_human_approval": false,
+      "human_approved": true,
+      "notes": "Ground truth: 24 residues within 6 Å of ZQZ in 8GLA chains A+B only."
+    },
+    {
+      "id": "CLAIM-0003",
+      "created": "2026-05-24T00:00:00Z",
+      "updated": "2026-05-24T00:00:00Z",
+      "status": "moderately_supported",
+      "created_by": "human",
+      "text": "ANM analysis shows the holo PCNA pocket (8GLA) has elevated flexibility vs global (fold-change 1.157, delta +0.300 vs apo 0.857); holo internal DCCM 0.2093 vs apo 0.0995.",
+      "allowed_wording": "elevated ANM flexibility in holo pocket; fold-change delta +0.300",
+      "disallowed_wording": "MD-validated pocket opening; confirmed dynamic pocket (requires trajectory evidence)",
+      "evidence_for": ["data/results/nma_apo_holo_comparison.json"],
+      "evidence_against": [],
+      "requires_human_approval": false,
+      "human_approved": true,
+      "notes": "ANM is normal-mode approximation, not MD. Supports but does not prove dynamic pocket."
+    },
+    {
+      "id": "CLAIM-0004",
+      "created": "2026-05-24T00:00:00Z",
+      "updated": "2026-05-24T00:00:00Z",
+      "status": "strongly_supported_computationally",
+      "created_by": "human",
+      "text": "PocketGNNXL V3 (+ESM2) outperforms PocketGNN V1 by +0.228 AUROC on 7 internal fine-tuning structures (0.9067 vs 0.6782).",
+      "allowed_wording": "internal fine-tuning evaluation showing +0.228 improvement",
+      "disallowed_wording": "generalization improvement (these are fine-tuning structures, not held-out)",
+      "evidence_for": [],
+      "evidence_against": [],
+      "requires_human_approval": false,
+      "human_approved": true,
+      "notes": "⚠️ Table 1 data only. Always label as internal, not generalization."
+    },
+    {
+      "id": "CLAIM-0005",
+      "created": "2026-05-24T00:00:00Z",
+      "updated": "2026-05-24T00:00:00Z",
+      "status": "suggestive",
+      "created_by": "human",
+      "text": "The AOH1996 binding pocket on PCNA is a cryptic site: invisible in apo structure but exhibiting elevated flexibility in the ligand-bound form by ANM.",
+      "allowed_wording": "candidate cryptic site; suggestive of dynamic accessibility",
+      "disallowed_wording": "validated cryptic pocket; confirmed pocket opening",
+      "evidence_for": ["data/results/nma_apo_holo_comparison.json"],
+      "evidence_against": [],
+      "requires_human_approval": true,
+      "human_approved": false,
+      "notes": "Upgrade to moderately_supported requires MD RMSF + volume evidence. Pending E003."
+    }
+  ]
+}

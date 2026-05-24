@@ -204,6 +204,19 @@ def _cmd_bundle(o: "Orchestrator", t: Task) -> list[str]:
     return [_py(), "agents/docker_packager.py", "bundle", "--out", str(out)]
 
 
+def _cmd_ingest(o: "Orchestrator", t: Task) -> list[str]:
+    cmd = [_py(), "agents/ingest.py", "ingest"]
+    for p in t.args.get("paths", []):
+        cmd += ["--path", str(p)]
+    if t.args.get("dir"):
+        cmd += ["--dir", str(t.args["dir"])]
+    if t.args.get("transcript"):
+        cmd += ["--transcript", str(t.args["transcript"])]
+    if t.args.get("source_type"):
+        cmd += ["--source-type", t.args["source_type"]]
+    return cmd
+
+
 INTENTS: dict[str, Intent] = {
     "status": Intent(
         name="status", description="Show orchestrator + repo status",
@@ -274,6 +287,11 @@ INTENTS: dict[str, Intent] = {
         name="bundle", description="Produce a stripped repo .zip bundle",
         min_role=Role.COLLABORATOR, risky=False, long_running=True,
         build_cmd=_cmd_bundle,
+    ),
+    "ingest": Intent(
+        name="ingest", description="Ingest documents into source registry + Obsidian vault (Agent 21)",
+        min_role=Role.COLLABORATOR, risky=False, long_running=False,
+        build_cmd=_cmd_ingest,
     ),
 }
 

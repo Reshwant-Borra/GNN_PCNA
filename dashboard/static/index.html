@@ -94,7 +94,7 @@
 <main class="flex flex-1 overflow-hidden min-h-0">
 
   <!-- LEFT: per-tab content area -->
-  <section class="flex flex-col border-r border-slate-700 overflow-hidden" style="width:62%">
+  <section class="flex flex-col border-r border-slate-700 overflow-hidden" style="width:68%">
 
     <!-- Tab: Graph -->
     <div data-tab-panel="graph" class="flex flex-col flex-1 overflow-hidden">
@@ -106,6 +106,7 @@
         <button class="chip px-2 py-0.5 text-xs rounded-full border border-slate-700 text-slate-400" data-filter="registry">Registry</button>
         <button class="chip px-2 py-0.5 text-xs rounded-full border border-slate-700 text-slate-400" data-filter="gate">Gates</button>
         <button class="chip px-2 py-0.5 text-xs rounded-full border border-slate-700 text-slate-400" data-filter="workflow">Workflows</button>
+        <button id="reset-layout-btn" class="ml-2 px-2 py-0.5 text-xs rounded border border-slate-700 text-slate-300 hover:bg-slate-800">Reset layout</button>
 
         <div class="ml-auto flex flex-wrap gap-2 text-xs text-slate-500">
           <span class="flex items-center gap-1"><span class="w-2.5 h-2.5 rounded-full bg-slate-600 inline-block"></span>idle</span>
@@ -119,7 +120,7 @@
         </div>
       </div>
       <div class="flex-1 overflow-hidden relative">
-        <svg id="graph-svg" width="100%" height="100%" viewBox="0 0 1100 720" preserveAspectRatio="xMidYMid meet">
+        <svg id="graph-svg" width="100%" height="100%" viewBox="0 0 1400 900" preserveAspectRatio="xMidYMid meet">
           <defs>
             <marker id="arrow" markerWidth="8" markerHeight="8" refX="7" refY="3" orient="auto" markerUnits="strokeWidth">
               <path d="M0,0 L0,6 L8,3 z" fill="#475569"/>
@@ -128,8 +129,10 @@
               <path d="M0,0 L0,7 L9,3.5 z" fill="#3b82f6"/>
             </marker>
           </defs>
-          <g id="graph-edges"></g>
-          <g id="graph-nodes"></g>
+          <g id="graph-viewport">
+            <g id="graph-edges"></g>
+            <g id="graph-nodes"></g>
+          </g>
         </svg>
       </div>
     </div>
@@ -342,6 +345,9 @@ function applyFilters() {
 // ─── Force-simulation graph ─────────────────────────────────────────────────
 let _sim = null;
 let _nodeMap = null;
+let _zoom = null;
+const GRAPH_W = 1400;
+const GRAPH_H = 900;
 function nodeMap() {
   if (!_nodeMap || _nodeMap.length !== state.graph.nodes.length) {
     _nodeMap = {};
@@ -364,8 +370,9 @@ async function loadGraph() {
 
 function renderGraph() {
   const svg = d3.select("#graph-svg");
-  const W = 1100, H = 720;
+  const W = GRAPH_W, H = GRAPH_H;
   svg.attr("viewBox", `0 0 ${W} ${H}`);
+  setupGraphInteraction();
 
   // Edges
   const edgeSel = svg.select("#graph-edges").selectAll("g.gedge")
@@ -432,36 +439,129 @@ function formatLabel(d) {
   return s;
 }
 
+function setupGraphInteraction() {
+  const svg = d3.select("#graph-svg");
+  if (_zoom) return;
+  _zoom = d3.zoom()
+    .scaleExtent([0.45, 2.4])
+    .on("start", () => svg.classed("dragging", true))
+    .on("zoom", (event) => {
+      d3.select("#graph-viewport").attr("transform", event.transform);
+    })
+    .on("end", () => svg.classed("dragging", false));
+  svg.call(_zoom);
+  document.getElementById("reset-layout-btn")?.addEventListener("click", resetLayout);
+}
+
+function ringRadius(d, W, H) {
+  const span = Math.min(W, H);
+  if (d.type === "agent") return span * 0.28;
+  if (d.type === "memory" || d.type === "registry") return span * 0.42;
+  if (d.type === "gate" || d.type === "workflow") return span * 0.47;
+  return 0;
+}
+
+function initializeNodePositions(W, H, force = false) {
+  const center = { x: W / 2, y: H / 2 };
+  const groups = { agent: [], memory: [], registry: [], gate: [], workflow: [] };
+  state.graph.nodes.forEach(n => {
+    if (groups[n.type]) groups[n.type].push(n);
+  });
+
+  state.graph.nodes.forEach(n => {
+    if (n.id === "master_orchestrator") {
+      n.x = center.x;
+      n.y = center.y;
+      n.fx = center.x;
+      n.fy = center.y;
+      n.layoutX = center.x;
+      n.layoutY = center.y;
+      return;
+    }
+    const group = groups[n.type] || state.graph.nodes;
+    const i = Math.max(0, group.indexOf(n));
+    const count = Math.max(1, group.length);
+    let start = -Math.PI / 2;
+    let arc = Math.PI * 2;
+    if (n.type === "memory") { start = Math.PI * 0.82; arc = Math.PI * 0.42; }
+    if (n.type === "registry") { start = Math.PI * 1.70; arc = Math.PI * 0.38; }
+    if (n.type === "gate") { start = Math.PI * 1.12; arc = Math.PI * 0.78; }
+    if (n.type === "workflow") { start = Math.PI * 0.14; arc = Math.PI * 0.72; }
+    const angle = start + (arc * (i + 0.5)) / count;
+    const radius = ringRadius(n, W, H);
+    n.layoutX = center.x + Math.cos(angle) * radius;
+    n.layoutY = center.y + Math.sin(angle) * radius;
+    if (force || n.x == null || n.y == null) {
+      n.x = n.layoutX;
+      n.y = n.layoutY;
+      n.vx = 0;
+      n.vy = 0;
+      n.fx = null;
+      n.fy = null;
+    }
+  });
+}
+
+function linkDistance(d) {
+  const s = typeof d.source === "object" ? d.source : nodeMap()[d.source];
+  const t = typeof d.target === "object" ? d.target : nodeMap()[d.target];
+  const types = new Set([s?.type, t?.type]);
+  if (types.has("orchestrator") && types.has("agent")) return 230;
+  if (types.has("agent") && (types.has("memory") || types.has("registry") || types.has("artifact") || types.has("claim"))) return 340;
+  if (types.has("gate") || types.has("workflow")) return 320;
+  if (d.kind === "reads") return 300;
+  return 260;
+}
+
+function collisionRadius(d) {
+  const label = formatLabel(d);
+  const labelFootprint = Math.min(96, Math.max(28, label.length * 4.8));
+  return (d.radius || 14) + labelFootprint;
+}
+
 function startSimulation(W, H) {
   if (_sim) _sim.stop();
-  const center = { x: W / 2, y: H / 2 };
-
-  // Pin master_orchestrator to center
-  state.graph.nodes.forEach(n => {
-    if (n.id === "master_orchestrator") { n.fx = center.x; n.fy = center.y; }
-  });
+  initializeNodePositions(W, H);
 
   _sim = d3.forceSimulation(state.graph.nodes)
     .force("link", d3.forceLink(state.graph.edges)
       .id(d => d.id)
-      .distance(d => {
-        const kindBoost = d.kind === "selects" ? 130 : d.kind === "owns_gate" ? 90 : d.kind === "reads" ? 110 : d.kind === "includes" ? 80 : 100;
-        return kindBoost;
-      })
-      .strength(d => d.kind === "selects" ? 0.35 : 0.18))
-    .force("charge", d3.forceManyBody().strength(d => d.type === "orchestrator" ? -1200 : -160))
-    .force("center", d3.forceCenter(center.x, center.y).strength(0.04))
-    .force("collide", d3.forceCollide().radius(d => (d.radius || 14) + 4))
-    .alpha(0.9)
+      .distance(linkDistance)
+      .strength(d => d.kind === "selects" ? 0.22 : d.kind === "owns_gate" ? 0.12 : 0.08))
+    .force("charge", d3.forceManyBody().strength(d => d.type === "orchestrator" ? -2800 : d.type === "agent" ? -720 : -520))
+    .force("radial", d3.forceRadial(d => ringRadius(d, W, H), W / 2, H / 2)
+      .strength(d => d.type === "orchestrator" ? 0 : d.type === "agent" ? 0.05 : 0.09))
+    .force("clusterX", d3.forceX(d => d.layoutX || W / 2).strength(d => d.type === "agent" ? 0.045 : 0.085))
+    .force("clusterY", d3.forceY(d => d.layoutY || H / 2).strength(d => d.type === "agent" ? 0.045 : 0.085))
+    .force("center", d3.forceCenter(W / 2, H / 2).strength(0.015))
+    .force("collide", d3.forceCollide().radius(collisionRadius).strength(0.95).iterations(4))
+    .alpha(1)
+    .alphaDecay(0.025)
     .on("tick", tick);
 }
 
 function restartSimulation() {
-  if (_sim) _sim.alpha(0.5).restart();
+  if (_sim) _sim.alpha(0.65).restart();
+}
+
+function resetLayout() {
+  initializeNodePositions(GRAPH_W, GRAPH_H, true);
+  d3.select("#graph-svg").transition().duration(250).call(_zoom.transform, d3.zoomIdentity);
+  if (_sim) _sim.alpha(1).restart();
 }
 
 function tick() {
   const svg = d3.select("#graph-svg");
+  const margin = 56;
+  state.graph.nodes.forEach(d => {
+    if (d.id === "master_orchestrator") {
+      d.x = GRAPH_W / 2;
+      d.y = GRAPH_H / 2;
+      return;
+    }
+    d.x = Math.max(margin, Math.min(GRAPH_W - margin, d.x || margin));
+    d.y = Math.max(margin, Math.min(GRAPH_H - margin, d.y || margin));
+  });
   svg.select("#graph-edges").selectAll("g.gedge line")
     .attr("x1", d => (typeof d.source === "object" ? d.source.x : nodeMap()[d.source]?.x) || 0)
     .attr("y1", d => (typeof d.source === "object" ? d.source.y : nodeMap()[d.source]?.y) || 0)

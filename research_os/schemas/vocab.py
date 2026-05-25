@@ -30,6 +30,7 @@ GATE_STATUSES = (
 )
 
 ARTIFACT_STATUSES = (
+    "pending",
     "current",
     "stale",
     "invalid",

@@ -1,0 +1,1012 @@
+{
+  "request_summary": "Produce a concise literature-style research report on graph neural networks (GNNs). Include: (1) what GNNs are and why graphs need specialized neural architectures, (2) core message-passing formulation, (3) seminal and widely-used architectures such as spectral GCN/ChebNet, GCN, ",
+  "intents": [
+    "split_or_leakage",
+    "document_ingestion",
+    "source_of_truth_query"
+  ],
+  "risk_level": "high",
+  "selected_agents": [
+    "context_source_truth",
+    "literature_web",
+    "document_knowledge_ingestion",
+    "paper_claim",
+    "biological_realism",
+    "contradiction_hunter",
+    "visual_evidence",
+    "metrics_statistics",
+    "leakage_split",
+    "dataset_integrity",
+    "provenance_artifacts"
+  ],
+  "required_gates": [
+    "dataset",
+    "leakage"
+  ],
+  "context_packet": {
+    "task": "Produce a concise literature-style research report on graph neural networks (GNNs). Include: (1) what GNNs are and why graphs need specialized neural architectures, (2) core message-passing formulation, (3) seminal and widely-used architectures such as spectral GCN/ChebNet, GCN, GraphSAGE, GAT, GIN, MPNN, graph transformers, and equivariant GNNs, (4) key application domains, with special attention to molecular/protein/biomedical uses, (5) main limitations and failure modes such as over-smoothing, over-squashing, heterophily, scalability, data leakage, explainability, and OOD generalization, (6) current research directions as of 2026, and (7) a short bibliography of important papers with provenance/citations. Keep it grounded and avoid overclaiming.",
+    "intents": [
+      "split_or_leakage",
+      "document_ingestion",
+      "source_of_truth_query"
+    ],
+    "risk_level": "high",
+    "memory_files": [
+      "C:\\Users\\reshw\\ResearchOS\\research_os_memory\\DATASET_REGISTRY.md",
+      "C:\\Users\\reshw\\ResearchOS\\research_os_memory\\MODEL_REGISTRY.md",
+      "C:\\Users\\reshw\\ResearchOS\\research_os_memory\\KNOWN_BUGS_AND_RISKS.md",
+      "C:\\Users\\reshw\\ResearchOS\\research_os_memory\\PROJECT_CANONICAL_STATUS.md",
+      "C:\\Users\\reshw\\ResearchOS\\research_os_memory\\CURRENT_CLAIMS.md",
+      "C:\\Users\\reshw\\ResearchOS\\research_os_memory\\HUMAN_DECISIONS.md",
+      "C:\\Users\\reshw\\ResearchOS\\research_os_memory\\VALIDATION_STATUS.md"
+    ],
+    "registry_entries": {
+      "artifact_registry": [
+        {
+          "id": "ART-0001",
+          "created": "2026-05-19T00:00:00Z",
+          "updated": "2026-05-24T00:00:00Z",
+          "status": "current",
+          "created_by": "human",
+          "type": "checkpoint",
+          "path": "checkpoints/pcna_reproduced/best.ckpt",
+          "description": "PocketGNNXL V3 best checkpoint (seed=42). Primary model artifact.",
+          "command": "python scripts/train.py --config configs/pocketgnnxl.yaml --seed 42",
+          "git_commit": null,
+          "dataset_hash": null,
+          "checkpoint_hash": null,
+          "environment": "pcna_md conda env",
+          "machine": "local",
+          "associated_claims": [
+            "CLAIM-0001",
+            "CLAIM-0002",
+            "CLAIM-0003",
+            "CLAIM-0004"
+          ],
+          "notes": "See best_meta.json for full provenance. split_file=data/splits/cryptosite_split.json",
+          "artifact_id": "ART-0001",
+          "artifact_type": "checkpoint",
+          "created_at": "2026-05-19T00:00:00Z",
+          "updated_at": "2026-05-24T00:00:00Z",
+          "created_by_agent": "human",
+          "_legacy": {
+            "id": "ART-0001",
+            "created": "2026-05-19T00:00:00Z",
+            "updated": "2026-05-24T00:00:00Z",
+            "status": "current",
+            "created_by": "human",
+            "type": "checkpoint",
+            "path": "checkpoints/pcna_reproduced/best.ckpt",
+            "description": "PocketGNNXL V3 best checkpoint (seed=42). Primary model artifact.",
+            "command": "python scripts/train.py --config configs/pocketgnnxl.yaml --seed 42",
+            "git_commit": null,
+            "dataset_hash": null,
+            "checkpoint_hash": null,
+            "environment": "pcna_md conda env",
+            "machine": "local",
+            "associated_claims": [
+              "CLAIM-0001",
+              "CLAIM-0002",
+              "CLAIM-0003",
+              "CLAIM-0004"
+            ],
+            "notes": "See best_meta.json for full provenance. split_file=data/splits/cryptosite_split.json"
+          }
+        },
+        {
+          "id": "ART-0002",
+          "created": "2026-05-19T00:00:00Z",
+          "updated": "2026-05-24T00:00:00Z",
+          "status": "current",
+          "created_by": "human",
+          "type": "evaluation_result",
+          "path": "data/results/test_split_eval_best.json",
+          "description": "Held-out CryptoSite evaluation results. Contains combined_val_test block with AUROC 0.8081.",
+          "command": "python scripts/evaluate.py --checkpoint checkpoints/pcna_reproduced/best.ckpt",
+          "git_commit": null,
+          "dataset_hash": null,
+          "associated_claims": [
+            "CLAIM-0001"
+          ],
+          "notes": "combined_val_test: AUROC 0.8081, AUPRC 0.3441",
+          "artifact_id": "ART-0002",
+          "artifact_type": "other",
+          "legacy_artifact_type": "evaluation_result",
+          "created_at": "2026-05-19T00:00:00Z",
+          "updated_at": "2026-05-24T00:00:00Z",
+          "created_by_agent": "human",
+          "_legacy": {
+            "id": "ART-0002",
+            "created": "2026-05-19T00:00:00Z",
+            "updated": "2026-05-24T00:00:00Z",
+            "status": "current",
+            "created_by": "human",
+            "type": "evaluation_result",
+            "path": "data/results/test_split_eval_best.json",
+            "description": "Held-out CryptoSite evaluation results. Contains combined_val_test block with AUROC 0.8081.",
+            "command": "python scripts/evaluate.py --checkpoint checkpoints/pcna_reproduced/best.ckpt",
+            "git_commit": null,
+            "dataset_hash": null,
+            "associated_claims": [
+              "CLAIM-0001"
+            ],
+            "notes": "combined_val_test: AUROC 0.8081, AUPRC 0.3441"
+          }
+        },
+        {
+          "id": "ART-0003",
+          "created": "2026-05-19T00:00:00Z",
+          "updated": "2026-05-24T00:00:00Z",
+          "status": "current",
+          "created_by": "human",
+          "type": "analysis_result",
+          "path": "data/results/nma_apo_holo_comparison.json",
+          "description": "ANM analysis: apo fold-change 0.857, holo 1.157, delta +0.300, DCCM apo 0.0995, holo 0.2093.",
+          "command": "python scripts/run_nma.py",
+          "associated_claims": [
+            "CLAIM-0003",
+            "CLAIM-0005"
+          ],
+          "notes": "CORRECTED 2026-05-19. Chains A+B only for 8GLA. Old numbers (holo=1.104) are invalid.",
+          "artifact_id": "ART-0003",
+          "artifact_type": "other",
+          "legacy_artifact_type": "analysis_result",
+          "created_at": "2026-05-19T00:00:00Z",
+          "updated_at": "2026-05-24T00:00:00Z",
+          "created_by_agent": "human",
+          "_legacy": {
+            "id": "ART-0003",
+            "created": "2026-05-19T00:00:00Z",
+            "updated": "2026-05-24T00:00:00Z",
+            "status": "current",
+            "created_by": "human",
+            "type": "analysis_result",
+            "path": "data/results/nma_apo_holo_comparison.json",
+            "description": "ANM analysis: apo fold-change 0.857, holo 1.157, delta +0.300, DCCM apo 0.0995, holo 0.2093.",
+            "command": "python scripts/run_nma.py",
+            "associated_claims": [
+              "CLAIM-0003",
+              "CLAIM-0005"
+            ],
+            "notes": "CORRECTED 2026-05-19. Chains A+B only for 8GLA. Old numbers (holo=1.104) are invalid."
+          }
+        },
+        {
+          "id": "ART-0004",
+          "created": "2026-05-19T00:00:00Z",
+          "updated": "2026-05-24T00:00:00Z",
+          "status": "current",
+          "created_by": "human",
+          "type": "paper_draft",
+          "path": "docs/GNN_PCNA_Research_Paper_v2.docx",
+          "description": "Research paper v2. Built by scripts/build_paper_docx.py. Section 3.8 pending MD results.",
+          "command": "python scripts/build_paper_docx.py",
+          "associated_claims": [
+            "CLAIM-0001",
+            "CLAIM-0002",
+            "CLAIM-0003",
+            "CLAIM-0004",
+            "CLAIM-0005"
+          ],
+          "notes": "Never edit docx directly. Re-run builder after any change. Kill Word before running.",
+          "artifact_id": "ART-0004",
+          "artifact_type": "paper_draft",
+          "created_at": "2026-05-19T00:00:00Z",
+          "updated_at": "2026-05-24T00:00:00Z",
+          "created_by_agent": "human",
+          "_legacy": {
+            "id": "ART-0004",
+            "created": "2026-05-19T00:00:00Z",
+            "updated": "2026-05-24T00:00:00Z",
+            "status": "current",
+            "created_by": "human",
+            "type": "paper_draft",
+            "path": "docs/GNN_PCNA_Research_Paper_v2.docx",
+            "description": "Research paper v2. Built by scripts/build_paper_docx.py. Section 3.8 pending MD results.",
+            "command": "python scripts/build_paper_docx.py",
+            "associated_claims": [
+              "CLAIM-0001",
+              "CLAIM-0002",
+              "CLAIM-0003",
+              "CLAIM-0004",
+              "CLAIM-0005"
+            ],
+            "notes": "Never edit docx directly. Re-run builder after any change. Kill Word before running."
+          }
+        },
+        {
+          "id": "ART-0005",
+          "created": "2026-05-24T00:00:00Z",
+          "updated": "2026-05-24T00:00:00Z",
+          "status": "pending",
+          "created_by": "human",
+          "type": "md_trajectory",
+          "path": "data/md/1W60_production.dcd",
+          "description": "100 ns OpenMM MD trajectory of 1W60 apo. Likely complete on Google Cloud L4. Needs transfer.",
+          "command": "wormhole receive <code> OR gcloud storage cp gs://bucket/1W60_production.dcd data/md/",
+          "associated_claims": [
+            "CLAIM-0005"
+          ],
+          "notes": "Transfer from Reshwant's L4 instance. After transfer run scripts/run_md_analysis.py.",
+          "artifact_id": "ART-0005",
+          "artifact_type": "md_trajectory",
+          "created_at": "2026-05-24T00:00:00Z",
+          "updated_at": "2026-05-24T00:00:00Z",
+          "created_by_agent": "human",
+          "_legacy": {
+            "id": "ART-0005",
+            "created": "2026-05-24T00:00:00Z",
+            "updated": "2026-05-24T00:00:00Z",
+            "status": "pending",
+            "created_by": "human",
+            "type": "md_trajectory",
+            "path": "data/md/1W60_production.dcd",
+            "description": "100 ns OpenMM MD trajectory of 1W60 apo. Likely complete on Google Cloud L4. Needs transfer.",
+            "command": "wormhole receive <code> OR gcloud storage cp gs://bucket/1W60_production.dcd data/md/",
+            "associated_claims": [
+              "CLAIM-0005"
+            ],
+            "notes": "Transfer from Reshwant's L4 instance. After transfer run scripts/run_md_analysis.py."
+          }
+        }
+      ],
+      "issue_registry": [
+        {
+          "id": "ISSUE-0001",
+          "created": "2026-05-19T00:00:00Z",
+          "updated": "2026-05-24T00:00:00Z",
+          "status": "open",
+          "severity": "critical",
+          "created_by": "human",
+          "title": "9B8T chain assignment wrong",
+          "description": "Chain A in 9B8T is DNA polymerase epsilon, not PCNA. PCNA = chains B/C/D. All 9B8T outputs are biologically incorrect.",
+          "stale_artifacts": [
+            "all 9B8T inference output files"
+          ],
+          "fix_required": "Re-run inference on 9B8T with chains B/C/D",
+          "notes": "Do not cite any 9B8T result until regenerated.",
+          "issue_id": "ISSUE-0001",
+          "created_at": "2026-05-19T00:00:00Z",
+          "updated_at": "2026-05-24T00:00:00Z",
+          "_legacy": {
+            "id": "ISSUE-0001",
+            "created": "2026-05-19T00:00:00Z",
+            "updated": "2026-05-24T00:00:00Z",
+            "status": "open",
+            "severity": "critical",
+            "created_by": "human",
+            "title": "9B8T chain assignment wrong",
+            "description": "Chain A in 9B8T is DNA polymerase epsilon, not PCNA. PCNA = chains B/C/D. All 9B8T outputs are biologically incorrect.",
+            "stale_artifacts": [
+              "all 9B8T inference output files"
+            ],
+            "fix_required": "Re-run inference on 9B8T with chains B/C/D",
+            "notes": "Do not cite any 9B8T result until regenerated."
+          },
+          "affected_artifacts": [
+            "all 9B8T inference output files"
+          ]
+        },
+        {
+          "id": "ISSUE-0002",
+          "created": "2026-05-19T00:00:00Z",
+          "updated": "2026-05-24T00:00:00Z",
+          "status": "open",
+          "severity": "moderate",
+          "created_by": "human",
+          "title": "Stale ANM outputs with wrong numbers (pre-2026-05-19)",
+          "description": "Old holo=1.104, delta=+0.247. Correct: holo=1.157, delta=+0.300. Any pre-fix output file is stale.",
+          "stale_artifacts": [
+            "any ANM report or figure before 2026-05-19"
+          ],
+          "fix_required": "Replace with data/results/nma_apo_holo_comparison.json values",
+          "notes": "Main repo and paper are already corrected.",
+          "issue_id": "ISSUE-0002",
+          "created_at": "2026-05-19T00:00:00Z",
+          "updated_at": "2026-05-24T00:00:00Z",
+          "_legacy": {
+            "id": "ISSUE-0002",
+            "created": "2026-05-19T00:00:00Z",
+            "updated": "2026-05-24T00:00:00Z",
+            "status": "open",
+            "severity": "moderate",
+            "created_by": "human",
+            "title": "Stale ANM outputs with wrong numbers (pre-2026-05-19)",
+            "description": "Old holo=1.104, delta=+0.247. Correct: holo=1.157, delta=+0.300. Any pre-fix output file is stale.",
+            "stale_artifacts": [
+              "any ANM report or figure before 2026-05-19"
+            ],
+            "fix_required": "Replace with data/results/nma_apo_holo_comparison.json values",
+            "notes": "Main repo and paper are already corrected."
+          },
+          "affected_artifacts": [
+            "any ANM report or figure before 2026-05-19"
+          ]
+        },
+        {
+          "id": "ISSUE-0003",
+          "created": "2026-05-19T00:00:00Z",
+          "updated": "2026-05-24T00:00:00Z",
+          "status": "fixed",
+          "severity": "low",
+          "created_by": "human",
+          "title": "LIMITATIONS.md line 26 claimed 8GLA absent from all training",
+          "description": "Wrong: 8GLA IS in PCNA fine-tuning. Absent from held-out CryptoSite eval only.",
+          "stale_artifacts": [
+            "old copies of LIMITATIONS.md"
+          ],
+          "fix_required": "Corrected in main repo 2026-05-19",
+          "notes": "External shared copies may still carry wrong claim.",
+          "issue_id": "ISSUE-0003",
+          "created_at": "2026-05-19T00:00:00Z",
+          "updated_at": "2026-05-24T00:00:00Z",
+          "_legacy": {
+            "id": "ISSUE-0003",
+            "created": "2026-05-19T00:00:00Z",
+            "updated": "2026-05-24T00:00:00Z",
+            "status": "fixed",
+            "severity": "low",
+            "created_by": "human",
+            "title": "LIMITATIONS.md line 26 claimed 8GLA absent from all training",
+            "description": "Wrong: 8GLA IS in PCNA fine-tuning. Absent from held-out CryptoSite eval only.",
+            "stale_artifacts": [
+              "old copies of LIMITATIONS.md"
+            ],
+            "fix_required": "Corrected in main repo 2026-05-19",
+            "notes": "External shared copies may still carry wrong claim."
+          },
+          "affected_artifacts": [
+            "old copies of LIMITATIONS.md"
+          ]
+        },
+        {
+          "id": "ISSUE-0004",
+          "created": "2026-05-18T00:00:00Z",
+          "updated": "2026-05-24T00:00:00Z",
+          "status": "open",
+          "severity": "low",
+          "created_by": "human",
+          "title": "T6 sanity test fails (chain_id one-hot equivariance)",
+          "description": "6/7 model sanity tests pass. T6 fails because chain_id one-hot breaks permutation equivariance.",
+          "stale_artifacts": [],
+          "fix_required": "Document as limitation, or remove chain_id feature",
+          "notes": "Does not affect held-out AUROC 0.8081.",
+          "issue_id": "ISSUE-0004",
+          "created_at": "2026-05-18T00:00:00Z",
+          "updated_at": "2026-05-24T00:00:00Z",
+          "_legacy": {
+            "id": "ISSUE-0004",
+            "created": "2026-05-18T00:00:00Z",
+            "updated": "2026-05-24T00:00:00Z",
+            "status": "open",
+            "severity": "low",
+            "created_by": "human",
+            "title": "T6 sanity test fails (chain_id one-hot equivariance)",
+            "description": "6/7 model sanity tests pass. T6 fails because chain_id one-hot breaks permutation equivariance.",
+            "stale_artifacts": [],
+            "fix_required": "Document as limitation, or remove chain_id feature",
+            "notes": "Does not affect held-out AUROC 0.8081."
+          },
+          "affected_artifacts": []
+        }
+      ],
+      "source_registry": [
+        {
+          "id": "SRC-0001",
+          "created": "2026-05-24T20:52:58.571444+00:00",
+          "updated": "2026-05-24T20:52:58.571444+00:00",
+          "status": "current",
+          "created_by": "agent-21",
+          "title": "Pocketminer Notes",
+          "source_type": "markdown",
+          "original_path": "C:\\Users\\advay\\Obsidian\\GNN_PNCA\\docs\\notebooklm\\distilled_notes\\pocketminer_notes.md",
+          "path_hash": "5a56e5ec07479473",
+          "doi": null,
+          "url": null,
+          "authors": [],
+          "date_published": null,
+          "topics": [
+            "pcna",
+            "cryptic pocket",
+            "gnn",
+            "cryptosite",
+            "pocketminer",
+            "auroc"
+          ],
+          "relevance_score": 0.78,
+          "short_summary": "**Source:** PocketMiner paper (Durrant Lab, ~2023)\n**Status:** Needs NotebookLM extraction \u2014 notes below from paper_notes.md only\n\n---",
+          "abstract_summary": "**Source:** PocketMiner paper (Durrant Lab, ~2023)\n**Status:** Needs NotebookLM extraction \u2014 notes below from paper_notes.md only\n\n--- - GNN trained on CryptoSite dataset (~93 apo/holo protein pairs)\n- Graph: residue-level, edges by C\u03b1\u2013C\u03b1 distance\n- Labels: residues near cryptic pocket in holo structure\n- Key result: AUROC ~0.85 on held-out CryptoSite proteins\n- Needs NotebookLM extraction: exact architecture (layer type, hidden dim, edge features)\n- Needs NotebookLM extraction: exact feature set used\n\n---",
+          "extracted_claims": [
+            {
+              "claim_text": "AUROC ~0.",
+              "evidence_type": "computational",
+              "section": "Architecture",
+              "strength": "suggestive"
+            },
+            {
+              "claim_text": "AUROC | ~0.",
+              "evidence_type": "computational",
+              "section": "Metrics",
+              "strength": "suggestive"
+            }
+          ],
+          "linked_claims": [
+            "CLAIM-0001",
+            "CLAIM-0002"
+          ],
+          "linked_experiments": [
+            "EXP-0001"
+          ],
+          "linked_artifacts": [],
+          "obsidian_note": "C:\\Users\\advay\\Obsidian\\GNN_PNCA\\docs\\sources\\SRC-0001_pocketminer_notes.md",
+          "notes": "",
+          "source_id": "SRC-0001",
+          "created_at": "2026-05-24T20:52:58.571444+00:00",
+          "updated_at": "2026-05-24T20:52:58.571444+00:00",
+          "_legacy": {
+            "id": "SRC-0001",
+            "created": "2026-05-24T20:52:58.571444+00:00",
+            "updated": "2026-05-24T20:52:58.571444+00:00",
+            "status": "current",
+            "created_by": "agent-21",
+            "title": "Pocketminer Notes",
+            "source_type": "markdown",
+            "original_path": "C:\\Users\\advay\\Obsidian\\GNN_PNCA\\docs\\notebooklm\\distilled_notes\\pocketminer_notes.md",
+            "path_hash": "5a56e5ec07479473",
+            "doi": null,
+            "url": null,
+            "authors": [],
+            "date_published": null,
+            "topics": [
+              "pcna",
+              "cryptic pocket",
+              "gnn",
+              "cryptosite",
+              "pocketminer",
+              "auroc"
+            ],
+            "relevance_score": 0.78,
+            "short_summary": "**Source:** PocketMiner paper (Durrant Lab, ~2023)\n**Status:** Needs NotebookLM extraction \u2014 notes below from paper_notes.md only\n\n---",
+            "abstract_summary": "**Source:** PocketMiner paper (Durrant Lab, ~2023)\n**Status:** Needs NotebookLM extraction \u2014 notes below from paper_notes.md only\n\n--- - GNN trained on CryptoSite dataset (~93 apo/holo protein pairs)\n- Graph: residue-level, edges by C\u03b1\u2013C\u03b1 distance\n- Labels: residues near cryptic pocket in holo structure\n- Key result: AUROC ~0.85 on held-out CryptoSite proteins\n- Needs NotebookLM extraction: exact architecture (layer type, hidden dim, edge features)\n- Needs NotebookLM extraction: exact feature set used\n\n---",
+            "extracted_claims": [
+              {
+                "claim_text": "AUROC ~0.",
+                "evidence_type": "computational",
+                "section": "Architecture",
+                "strength": "suggestive"
+              },
+              {
+                "claim_text": "AUROC | ~0.",
+                "evidence_type": "computational",
+                "section": "Metrics",
+                "strength": "suggestive"
+              }
+            ],
+            "linked_claims": [
+              "CLAIM-0001",
+              "CLAIM-0002"
+            ],
+            "linked_experiments": [
+              "EXP-0001"
+            ],
+            "linked_artifacts": [],
+            "obsidian_note": "C:\\Users\\advay\\Obsidian\\GNN_PNCA\\docs\\sources\\SRC-0001_pocketminer_notes.md",
+            "notes": ""
+          },
+          "source": "C:\\Users\\advay\\Obsidian\\GNN_PNCA\\docs\\notebooklm\\distilled_notes\\pocketminer_notes.md",
+          "topic": "pcna, cryptic pocket, gnn, cryptosite, pocketminer, auroc"
+        }
+      ],
+      "claim_registry": [
+        {
+          "id": "CLAIM-0001",
+          "created": "2026-05-24T00:00:00Z",
+          "updated": "2026-05-24T00:00:00Z",
+          "status": "strongly_supported_computationally",
+          "created_by": "human",
+          "text": "PocketGNNXL V3 achieves AUROC 0.8081 on 13 held-out CryptoSite proteins (8 val + 5 test), with AUPRC 0.3441 (6.2\u00d7 above trivial baseline 0.0557).",
+          "allowed_wording": [
+            "held-out AUROC 0.8081 on 13 CryptoSite proteins"
+          ],
+          "disallowed_wording": [
+            "validated on all proteins; AUROC without specifying N=13"
+          ],
+          "evidence_for": [
+            "data/results/test_split_eval_best.json"
+          ],
+          "evidence_against": [],
+          "requires_human_approval": false,
+          "human_approved": true,
+          "notes": "Primary generalization metric. Fine-tuning structures NOT included.",
+          "claim_id": "CLAIM-0001",
+          "claim_text": "PocketGNNXL V3 achieves AUROC 0.8081 on 13 held-out CryptoSite proteins (8 val + 5 test), with AUPRC 0.3441 (6.2\u00d7 above trivial baseline 0.0557).",
+          "created_at": "2026-05-24T00:00:00Z",
+          "updated_at": "2026-05-24T00:00:00Z",
+          "claim_strength": "strongly_supported_computationally",
+          "human_approval": {
+            "required": false,
+            "decision_id": "",
+            "approval_status": "approved"
+          },
+          "_legacy": {
+            "id": "CLAIM-0001",
+            "created": "2026-05-24T00:00:00Z",
+            "updated": "2026-05-24T00:00:00Z",
+            "status": "strongly_supported_computationally",
+            "created_by": "human",
+            "text": "PocketGNNXL V3 achieves AUROC 0.8081 on 13 held-out CryptoSite proteins (8 val + 5 test), with AUPRC 0.3441 (6.2\u00d7 above trivial baseline 0.0557).",
+            "allowed_wording": "held-out AUROC 0.8081 on 13 CryptoSite proteins",
+            "disallowed_wording": "validated on all proteins; AUROC without specifying N=13",
+            "evidence_for": [
+              "data/results/test_split_eval_best.json"
+            ],
+            "evidence_against": [],
+            "requires_human_approval": false,
+            "human_approved": true,
+            "notes": "Primary generalization metric. Fine-tuning structures NOT included."
+          }
+        },
+        {
+          "id": "CLAIM-0002",
+          "created": "2026-05-24T00:00:00Z",
+          "updated": "2026-05-24T00:00:00Z",
+          "status": "strongly_supported_computationally",
+          "created_by": "human",
+          "text": "PocketGNNXL V3 recovers the AOH1996 binding site on 8GLA with mean pocket score 0.8676 (threshold 0.700 \u2192 PASS). Recovers \u226520/24 ground-truth residues in 23/59 PCNA structures.",
+          "allowed_wording": [
+            "recovers AOH1996 binding site; mean score 0.8676"
+          ],
+          "disallowed_wording": [
+            "discovers novel pocket at AOH1996 site (it is the ground truth, not a novel finding)"
+          ],
+          "evidence_for": [
+            "data/results/aoh_gate_check.json"
+          ],
+          "evidence_against": [],
+          "requires_human_approval": false,
+          "human_approved": true,
+          "notes": "Ground truth: 24 residues within 6 \u00c5 of ZQZ in 8GLA chains A+B only.",
+          "claim_id": "CLAIM-0002",
+          "claim_text": "PocketGNNXL V3 recovers the AOH1996 binding site on 8GLA with mean pocket score 0.8676 (threshold 0.700 \u2192 PASS). Recovers \u226520/24 ground-truth residues in 23/59 PCNA structures.",
+          "created_at": "2026-05-24T00:00:00Z",
+          "updated_at": "2026-05-24T00:00:00Z",
+          "claim_strength": "strongly_supported_computationally",
+          "human_approval": {
+            "required": false,
+            "decision_id": "",
+            "approval_status": "approved"
+          },
+          "_legacy": {
+            "id": "CLAIM-0002",
+            "created": "2026-05-24T00:00:00Z",
+            "updated": "2026-05-24T00:00:00Z",
+            "status": "strongly_supported_computationally",
+            "created_by": "human",
+            "text": "PocketGNNXL V3 recovers the AOH1996 binding site on 8GLA with mean pocket score 0.8676 (threshold 0.700 \u2192 PASS). Recovers \u226520/24 ground-truth residues in 23/59 PCNA structures.",
+            "allowed_wording": "recovers AOH1996 binding site; mean score 0.8676",
+            "disallowed_wording": "discovers novel pocket at AOH1996 site (it is the ground truth, not a novel finding)",
+            "evidence_for": [
+              "data/results/aoh_gate_check.json"
+            ],
+            "evidence_against": [],
+            "requires_human_approval": false,
+            "human_approved": true,
+            "notes": "Ground truth: 24 residues within 6 \u00c5 of ZQZ in 8GLA chains A+B only."
+          }
+        },
+        {
+          "id": "CLAIM-0003",
+          "created": "2026-05-24T00:00:00Z",
+          "updated": "2026-05-24T00:00:00Z",
+          "status": "moderately_supported",
+          "created_by": "human",
+          "text": "ANM analysis shows the holo PCNA pocket (8GLA) has elevated flexibility vs global (fold-change 1.157, delta +0.300 vs apo 0.857); holo internal DCCM 0.2093 vs apo 0.0995.",
+          "allowed_wording": [
+            "elevated ANM flexibility in holo pocket; fold-change delta +0.300"
+          ],
+          "disallowed_wording": [
+            "MD-validated pocket opening; confirmed dynamic pocket (requires trajectory evidence)"
+          ],
+          "evidence_for": [
+            "data/results/nma_apo_holo_comparison.json"
+          ],
+          "evidence_against": [],
+          "requires_human_approval": false,
+          "human_approved": true,
+          "notes": "ANM is normal-mode approximation, not MD. Supports but does not prove dynamic pocket.",
+          "claim_id": "CLAIM-0003",
+          "claim_text": "ANM analysis shows the holo PCNA pocket (8GLA) has elevated flexibility vs global (fold-change 1.157, delta +0.300 vs apo 0.857); holo internal DCCM 0.2093 vs apo 0.0995.",
+          "created_at": "2026-05-24T00:00:00Z",
+          "updated_at": "2026-05-24T00:00:00Z",
+          "claim_strength": "moderately_supported",
+          "human_approval": {
+            "required": false,
+            "decision_id": "",
+            "approval_status": "approved"
+          },
+          "_legacy": {
+            "id": "CLAIM-0003",
+            "created": "2026-05-24T00:00:00Z",
+            "updated": "2026-05-24T00:00:00Z",
+            "status": "moderately_supported",
+            "created_by": "human",
+            "text": "ANM analysis shows the holo PCNA pocket (8GLA) has elevated flexibility vs global (fold-change 1.157, delta +0.300 vs apo 0.857); holo internal DCCM 0.2093 vs apo 0.0995.",
+            "allowed_wording": "elevated ANM flexibility in holo pocket; fold-change delta +0.300",
+            "disallowed_wording": "MD-validated pocket opening; confirmed dynamic pocket (requires trajectory evidence)",
+            "evidence_for": [
+              "data/results/nma_apo_holo_comparison.json"
+            ],
+            "evidence_against": [],
+            "requires_human_approval": false,
+            "human_approved": true,
+            "notes": "ANM is normal-mode approximation, not MD. Supports but does not prove dynamic pocket."
+          }
+        },
+        {
+          "id": "CLAIM-0004",
+          "created": "2026-05-24T00:00:00Z",
+          "updated": "2026-05-24T00:00:00Z",
+          "status": "strongly_supported_computationally",
+          "created_by": "human",
+          "text": "PocketGNNXL V3 (+ESM2) outperforms PocketGNN V1 by +0.228 AUROC on 7 internal fine-tuning structures (0.9067 vs 0.6782).",
+          "allowed_wording": [
+            "internal fine-tuning evaluation showing +0.228 improvement"
+          ],
+          "disallowed_wording": [
+            "generalization improvement (these are fine-tuning structures, not held-out)"
+          ],
+          "evidence_for": [],
+          "evidence_against": [],
+          "requires_human_approval": false,
+          "human_approved": true,
+          "notes": "\u26a0\ufe0f Table 1 data only. Always label as internal, not generalization.",
+          "claim_id": "CLAIM-0004",
+          "claim_text": "PocketGNNXL V3 (+ESM2) outperforms PocketGNN V1 by +0.228 AUROC on 7 internal fine-tuning structures (0.9067 vs 0.6782).",
+          "created_at": "2026-05-24T00:00:00Z",
+          "updated_at": "2026-05-24T00:00:00Z",
+          "claim_strength": "strongly_supported_computationally",
+          "human_approval": {
+            "required": false,
+            "decision_id": "",
+            "approval_status": "approved"
+          },
+          "_legacy": {
+            "id": "CLAIM-0004",
+            "created": "2026-05-24T00:00:00Z",
+            "updated": "2026-05-24T00:00:00Z",
+            "status": "strongly_supported_computationally",
+            "created_by": "human",
+            "text": "PocketGNNXL V3 (+ESM2) outperforms PocketGNN V1 by +0.228 AUROC on 7 internal fine-tuning structures (0.9067 vs 0.6782).",
+            "allowed_wording": "internal fine-tuning evaluation showing +0.228 improvement",
+            "disallowed_wording": "generalization improvement (these are fine-tuning structures, not held-out)",
+            "evidence_for": [],
+            "evidence_against": [],
+            "requires_human_approval": false,
+            "human_approved": true,
+            "notes": "\u26a0\ufe0f Table 1 data only. Always label as internal, not generalization."
+          }
+        },
+        {
+          "id": "CLAIM-0005",
+          "created": "2026-05-24T00:00:00Z",
+          "updated": "2026-05-24T00:00:00Z",
+          "status": "suggestive",
+          "created_by": "human",
+          "text": "The AOH1996 binding pocket on PCNA is a cryptic site: invisible in apo structure but exhibiting elevated flexibility in the ligand-bound form by ANM.",
+          "allowed_wording": [
+            "candidate cryptic site; suggestive of dynamic accessibility"
+          ],
+          "disallowed_wording": [
+            "validated cryptic pocket; confirmed pocket opening"
+          ],
+          "evidence_for": [
+            "data/results/nma_apo_holo_comparison.json"
+          ],
+          "evidence_against": [],
+          "requires_human_approval": true,
+          "human_approved": false,
+          "notes": "Upgrade to moderately_supported requires MD RMSF + volume evidence. Pending E003.",
+          "claim_id": "CLAIM-0005",
+          "claim_text": "The AOH1996 binding pocket on PCNA is a cryptic site: invisible in apo structure but exhibiting elevated flexibility in the ligand-bound form by ANM.",
+          "created_at": "2026-05-24T00:00:00Z",
+          "updated_at": "2026-05-24T00:00:00Z",
+          "claim_strength": "suggestive",
+          "human_approval": {
+            "required": true,
+            "decision_id": "",
+            "approval_status": "pending"
+          },
+          "_legacy": {
+            "id": "CLAIM-0005",
+            "created": "2026-05-24T00:00:00Z",
+            "updated": "2026-05-24T00:00:00Z",
+            "status": "suggestive",
+            "created_by": "human",
+            "text": "The AOH1996 binding pocket on PCNA is a cryptic site: invisible in apo structure but exhibiting elevated flexibility in the ligand-bound form by ANM.",
+            "allowed_wording": "candidate cryptic site; suggestive of dynamic accessibility",
+            "disallowed_wording": "validated cryptic pocket; confirmed pocket opening",
+            "evidence_for": [
+              "data/results/nma_apo_holo_comparison.json"
+            ],
+            "evidence_against": [],
+            "requires_human_approval": true,
+            "human_approved": false,
+            "notes": "Upgrade to moderately_supported requires MD RMSF + volume evidence. Pending E003."
+          }
+        }
+      ],
+      "experiment_registry": [
+        {
+          "id": "EXP-0001",
+          "created": "2026-05-24T00:00:00Z",
+          "updated": "2026-05-24T00:00:00Z",
+          "status": "completed",
+          "created_by": "human",
+          "name": "Baseline GNN + Full Training",
+          "purpose": "Train PocketGNN V1 and PocketGNNXL V3; evaluate on held-out CryptoSite and PCNA structures",
+          "hypothesis": "GATv2Conv + ESM2 will outperform baseline GATv2Conv on held-out cryptic pocket detection",
+          "inputs": [
+            "data/graphs/",
+            "data/splits/cryptosite_split.json"
+          ],
+          "script": "scripts/train.py",
+          "checkpoint": "checkpoints/pcna_reproduced/best.ckpt",
+          "expected_outcome": "V3 AUROC > 0.80 on held-out; AOH1996 gate PASS",
+          "actual_outcome": "V3 held-out AUROC 0.8081; AOH gate 0.8676 PASS",
+          "metrics": {
+            "held_out_auroc": 0.8081,
+            "held_out_auprc": 0.3441,
+            "trivial_baseline_auprc": 0.0557,
+            "lift": 6.2,
+            "aoh_gate_score": 0.8676,
+            "internal_v3_auroc": 0.9067,
+            "internal_v1_auroc": 0.6782
+          },
+          "associated_claims": [
+            "CLAIM-0001",
+            "CLAIM-0002",
+            "CLAIM-0004"
+          ],
+          "associated_artifacts": [
+            "ART-0001",
+            "ART-0002"
+          ],
+          "experiment_id": "EXP-0001",
+          "created_at": "2026-05-24T00:00:00Z",
+          "updated_at": "2026-05-24T00:00:00Z",
+          "_legacy": {
+            "id": "EXP-0001",
+            "created": "2026-05-24T00:00:00Z",
+            "updated": "2026-05-24T00:00:00Z",
+            "status": "completed",
+            "created_by": "human",
+            "name": "Baseline GNN + Full Training",
+            "purpose": "Train PocketGNN V1 and PocketGNNXL V3; evaluate on held-out CryptoSite and PCNA structures",
+            "hypothesis": "GATv2Conv + ESM2 will outperform baseline GATv2Conv on held-out cryptic pocket detection",
+            "inputs": [
+              "data/graphs/",
+              "data/splits/cryptosite_split.json"
+            ],
+            "script": "scripts/train.py",
+            "checkpoint": "checkpoints/pcna_reproduced/best.ckpt",
+            "expected_outcome": "V3 AUROC > 0.80 on held-out; AOH1996 gate PASS",
+            "actual_outcome": "V3 held-out AUROC 0.8081; AOH gate 0.8676 PASS",
+            "metrics": {
+              "held_out_auroc": 0.8081,
+              "held_out_auprc": 0.3441,
+              "trivial_baseline_auprc": 0.0557,
+              "lift": 6.2,
+              "aoh_gate_score": 0.8676,
+              "internal_v3_auroc": 0.9067,
+              "internal_v1_auroc": 0.6782
+            },
+            "associated_claims": [
+              "CLAIM-0001",
+              "CLAIM-0002",
+              "CLAIM-0004"
+            ],
+            "associated_artifacts": [
+              "ART-0001",
+              "ART-0002"
+            ]
+          },
+          "title": "Baseline GNN + Full Training",
+          "hypothesis_tested": "GATv2Conv + ESM2 will outperform baseline GATv2Conv on held-out cryptic pocket detection",
+          "script_or_workflow": "scripts/train.py",
+          "input_artifacts": [
+            "data/graphs/",
+            "data/splits/cryptosite_split.json"
+          ],
+          "output_artifacts": [
+            "ART-0001",
+            "ART-0002"
+          ],
+          "created_by_agent": "human"
+        },
+        {
+          "id": "EXP-0002",
+          "created": "2026-05-24T00:00:00Z",
+          "updated": "2026-05-24T00:00:00Z",
+          "status": "completed",
+          "created_by": "human",
+          "name": "ANM Structural Dynamics",
+          "purpose": "Compare ANM flexibility of predicted pocket in apo (1W60) vs holo (8GLA) PCNA",
+          "hypothesis": "Holo pocket will show elevated fold-change and DCCM vs apo",
+          "inputs": [
+            "1W60.pdb",
+            "8GLA.pdb (chains A+B only)"
+          ],
+          "script": "scripts/run_nma.py",
+          "expected_outcome": "Holo fold-change > apo fold-change",
+          "actual_outcome": "Apo 0.857, holo 1.157, delta +0.300; DCCM 0.0995\u21920.2093",
+          "metrics": {
+            "apo_fold_change": 0.857,
+            "holo_fold_change": 1.157,
+            "delta_fold_change": 0.3,
+            "apo_dccm": 0.0995,
+            "holo_dccm": 0.2093
+          },
+          "associated_claims": [
+            "CLAIM-0003",
+            "CLAIM-0005"
+          ],
+          "associated_artifacts": [
+            "ART-0003"
+          ],
+          "experiment_id": "EXP-0002",
+          "created_at": "2026-05-24T00:00:00Z",
+          "updated_at": "2026-05-24T00:00:00Z",
+          "_legacy": {
+            "id": "EXP-0002",
+            "created": "2026-05-24T00:00:00Z",
+            "updated": "2026-05-24T00:00:00Z",
+            "status": "completed",
+            "created_by": "human",
+            "name": "ANM Structural Dynamics",
+            "purpose": "Compare ANM flexibility of predicted pocket in apo (1W60) vs holo (8GLA) PCNA",
+            "hypothesis": "Holo pocket will show elevated fold-change and DCCM vs apo",
+            "inputs": [
+              "1W60.pdb",
+              "8GLA.pdb (chains A+B only)"
+            ],
+            "script": "scripts/run_nma.py",
+            "expected_outcome": "Holo fold-change > apo fold-change",
+            "actual_outcome": "Apo 0.857, holo 1.157, delta +0.300; DCCM 0.0995\u21920.2093",
+            "metrics": {
+              "apo_fold_change": 0.857,
+              "holo_fold_change": 1.157,
+              "delta_fold_change": 0.3,
+              "apo_dccm": 0.0995,
+              "holo_dccm": 0.2093
+            },
+            "associated_claims": [
+              "CLAIM-0003",
+              "CLAIM-0005"
+            ],
+            "associated_artifacts": [
+              "ART-0003"
+            ]
+          },
+          "title": "ANM Structural Dynamics",
+          "hypothesis_tested": "Holo pocket will show elevated fold-change and DCCM vs apo",
+          "script_or_workflow": "scripts/run_nma.py",
+          "input_artifacts": [
+            "1W60.pdb",
+            "8GLA.pdb (chains A+B only)"
+          ],
+          "output_artifacts": [
+            "ART-0003"
+          ],
+          "created_by_agent": "human"
+        },
+        {
+          "id": "EXP-0003",
+          "created": "2026-05-24T00:00:00Z",
+          "updated": "2026-05-24T00:00:00Z",
+          "status": "running",
+          "created_by": "human",
+          "name": "MD Validation \u2014 100 ns OpenMM",
+          "purpose": "Confirm cryptic pocket opens dynamically in apo 1W60 via RMSF + pocket volume tracking",
+          "hypothesis": "Predicted pocket residues will show RMSF > 1.5 \u00c5 and transient volume > 100 \u00c5\u00b3",
+          "inputs": [
+            "1W60 apo structure"
+          ],
+          "script": "scripts/run_md_analysis.py (after DCD transfer)",
+          "expected_outcome": "RMSF elevation + pocket volume opening",
+          "actual_outcome": null,
+          "metrics": {},
+          "associated_claims": [
+            "CLAIM-0005"
+          ],
+          "associated_artifacts": [
+            "ART-0005"
+          ],
+          "notes": "Running on Google Cloud L4. DCD: data/md/1W60_production.dcd. ~140 ns/day, 100 ns likely done.",
+          "experiment_id": "EXP-0003",
+          "created_at": "2026-05-24T00:00:00Z",
+          "updated_at": "2026-05-24T00:00:00Z",
+          "_legacy": {
+            "id": "EXP-0003",
+            "created": "2026-05-24T00:00:00Z",
+            "updated": "2026-05-24T00:00:00Z",
+            "status": "running",
+            "created_by": "human",
+            "name": "MD Validation \u2014 100 ns OpenMM",
+            "purpose": "Confirm cryptic pocket opens dynamically in apo 1W60 via RMSF + pocket volume tracking",
+            "hypothesis": "Predicted pocket residues will show RMSF > 1.5 \u00c5 and transient volume > 100 \u00c5\u00b3",
+            "inputs": [
+              "1W60 apo structure"
+            ],
+            "script": "scripts/run_md_analysis.py (after DCD transfer)",
+            "expected_outcome": "RMSF elevation + pocket volume opening",
+            "actual_outcome": null,
+            "metrics": {},
+            "associated_claims": [
+              "CLAIM-0005"
+            ],
+            "associated_artifacts": [
+              "ART-0005"
+            ],
+            "notes": "Running on Google Cloud L4. DCD: data/md/1W60_production.dcd. ~140 ns/day, 100 ns likely done."
+          },
+          "title": "MD Validation \u2014 100 ns OpenMM",
+          "hypothesis_tested": "Predicted pocket residues will show RMSF > 1.5 \u00c5 and transient volume > 100 \u00c5\u00b3",
+          "script_or_workflow": "scripts/run_md_analysis.py (after DCD transfer)",
+          "input_artifacts": [
+            "1W60 apo structure"
+          ],
+          "output_artifacts": [
+            "ART-0005"
+          ],
+          "created_by_agent": "human"
+        }
+      ]
+    },
+    "repo_files": [],
+    "artifacts": [],
+    "known_risks": [],
+    "allowed_actions": [],
+    "forbidden_actions": [],
+    "expected_output_schema": "AgentOutput",
+    "prior_agent_outputs": []
+  },
+  "actions": [
+    "Run agents in order: context_source_truth, literature_web, document_knowledge_ingestion, paper_claim, biological_realism, contradiction_hunter, visual_evidence, metrics_statistics, leakage_split, dataset_integrity, provenance_artifacts",
+    "Evaluate gates: dataset, leakage",
+    "Ingest sources through Agent 21 and update source_registry with provenance.",
+    "Run contradiction hunter at end of pipeline."
+  ],
+  "blocked": false,
+  "block_reason": "",
+  "human_review_required": true,
+  "human_review_reason": "Semantic router flagged human approval.",
+  "expected_outputs": [
+    "AgentOutput per agent",
+    "OrchestrationPlan JSON",
+    "Source registry entries + ingest report"
+  ],
+  "routing_decision": "semantic",
+  "routing_confidence": 0.95,
+  "routing_reason": "compound: literature search + report generation on GNNs, including architecture, applications, limitations, and future directions, with provenance tracking",
+  "ollama_response_raw": {
+    "intent": "literature_plus_paper",
+    "selected_agents": [
+      "context_source_truth",
+      "literature_web",
+      "document_knowledge_ingestion",
+      "paper_claim",
+      "biological_realism",
+      "contradiction_hunter",
+      "visual_evidence",
+      "metrics_statistics"
+    ],
+    "selected_workflow": "gnn_literature_review",
+    "confidence": 0.95,
+    "risk_level": "high",
+    "reasoning_summary": "compound: literature search + report generation on GNNs, including architecture, applications, limitations, and future directions, with provenance tracking",
+    "requires_claude_fallback": true,
+    "requires_human_approval": true
+  },
+  "requires_claude_fallback": true,
+  "selected_workflow": "gnn_literature_review"
+}

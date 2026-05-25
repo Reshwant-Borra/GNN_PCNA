@@ -55,6 +55,15 @@ def test_mcp_tools_list():
     assert {"route_request", "run_request", "run_workflow"}.issubset(names)
 
 
+def test_project_mcp_config_registers_researchos():
+    config_path = Path(__file__).resolve().parents[1] / ".mcp.json"
+    data = json.loads(config_path.read_text(encoding="utf-8"))
+    server = data["mcpServers"]["researchos"]
+    assert server["type"] == "stdio"
+    assert server["args"] == ["-m", "research_os.integrations.claude_code.mcp_server"]
+    assert server["env"]["RESEARCH_OS_REPO"] == "."
+
+
 def test_mcp_route_tool_call(tmp_path: Path):
     response = mcp_server._handle(
         {
@@ -75,4 +84,3 @@ def test_mcp_route_tool_call(tmp_path: Path):
     payload = json.loads(text)
     assert payload["status"] == "routed"
     assert "metric_verification" in payload["plan"]["intents"]
-

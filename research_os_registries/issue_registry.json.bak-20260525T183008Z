@@ -1,0 +1,59 @@
+{
+  "_schema_version": "1.0",
+  "_description": "Issue and Bug Registry.",
+  "_id_prefix": "ISSUE",
+  "issues": [
+    {
+      "id": "ISSUE-0001",
+      "created": "2026-05-19T00:00:00Z",
+      "updated": "2026-05-24T00:00:00Z",
+      "status": "open",
+      "severity": "critical",
+      "created_by": "human",
+      "title": "9B8T chain assignment wrong",
+      "description": "Chain A in 9B8T is DNA polymerase epsilon, not PCNA. PCNA = chains B/C/D. All 9B8T outputs are biologically incorrect.",
+      "stale_artifacts": ["all 9B8T inference output files"],
+      "fix_required": "Re-run inference on 9B8T with chains B/C/D",
+      "notes": "Do not cite any 9B8T result until regenerated."
+    },
+    {
+      "id": "ISSUE-0002",
+      "created": "2026-05-19T00:00:00Z",
+      "updated": "2026-05-24T00:00:00Z",
+      "status": "open",
+      "severity": "moderate",
+      "created_by": "human",
+      "title": "Stale ANM outputs with wrong numbers (pre-2026-05-19)",
+      "description": "Old holo=1.104, delta=+0.247. Correct: holo=1.157, delta=+0.300. Any pre-fix output file is stale.",
+      "stale_artifacts": ["any ANM report or figure before 2026-05-19"],
+      "fix_required": "Replace with data/results/nma_apo_holo_comparison.json values",
+      "notes": "Main repo and paper are already corrected."
+    },
+    {
+      "id": "ISSUE-0003",
+      "created": "2026-05-19T00:00:00Z",
+      "updated": "2026-05-24T00:00:00Z",
+      "status": "fixed",
+      "severity": "low",
+      "created_by": "human",
+      "title": "LIMITATIONS.md line 26 claimed 8GLA absent from all training",
+      "description": "Wrong: 8GLA IS in PCNA fine-tuning. Absent from held-out CryptoSite eval only.",
+      "stale_artifacts": ["old copies of LIMITATIONS.md"],
+      "fix_required": "Corrected in main repo 2026-05-19",
+      "notes": "External shared copies may still carry wrong claim."
+    },
+    {
+      "id": "ISSUE-0004",
+      "created": "2026-05-18T00:00:00Z",
+      "updated": "2026-05-24T00:00:00Z",
+      "status": "open",
+      "severity": "low",
+      "created_by": "human",
+      "title": "T6 sanity test fails (chain_id one-hot equivariance)",
+      "description": "6/7 model sanity tests pass. T6 fails because chain_id one-hot breaks permutation equivariance.",
+      "stale_artifacts": [],
+      "fix_required": "Document as limitation, or remove chain_id feature",
+      "notes": "Does not affect held-out AUROC 0.8081."
+    }
+  ]
+}

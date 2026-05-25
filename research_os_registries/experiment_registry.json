@@ -2,7 +2,22 @@
   "_schema_version": "1.0",
   "_description": "Experiment Registry.",
   "_id_prefix": "EXP",
-  "experiments": [
+  "registry": "experiment_registry",
+  "id_prefix": "EXP",
+  "created_at": "2026-05-25T18:30:08Z",
+  "updated_at": "2026-05-25T18:30:08Z",
+  "schema_version": "2.0",
+  "migrated_at": "2026-05-25T18:30:08Z",
+  "migrated_from": {
+    "entry_key": "experiments",
+    "schema_version": "1.0"
+  },
+  "_legacy_metadata": {
+    "_schema_version": "1.0",
+    "_description": "Experiment Registry.",
+    "_id_prefix": "EXP"
+  },
+  "entries": [
     {
       "id": "EXP-0001",
       "created": "2026-05-24T00:00:00Z",
@@ -12,7 +27,10 @@
       "name": "Baseline GNN + Full Training",
       "purpose": "Train PocketGNN V1 and PocketGNNXL V3; evaluate on held-out CryptoSite and PCNA structures",
       "hypothesis": "GATv2Conv + ESM2 will outperform baseline GATv2Conv on held-out cryptic pocket detection",
-      "inputs": ["data/graphs/", "data/splits/cryptosite_split.json"],
+      "inputs": [
+        "data/graphs/",
+        "data/splits/cryptosite_split.json"
+      ],
       "script": "scripts/train.py",
       "checkpoint": "checkpoints/pcna_reproduced/best.ckpt",
       "expected_outcome": "V3 AUROC > 0.80 on held-out; AOH1996 gate PASS",
@@ -26,8 +44,66 @@
         "internal_v3_auroc": 0.9067,
         "internal_v1_auroc": 0.6782
       },
-      "associated_claims": ["CLAIM-0001", "CLAIM-0002", "CLAIM-0004"],
-      "associated_artifacts": ["ART-0001", "ART-0002"]
+      "associated_claims": [
+        "CLAIM-0001",
+        "CLAIM-0002",
+        "CLAIM-0004"
+      ],
+      "associated_artifacts": [
+        "ART-0001",
+        "ART-0002"
+      ],
+      "experiment_id": "EXP-0001",
+      "created_at": "2026-05-24T00:00:00Z",
+      "updated_at": "2026-05-24T00:00:00Z",
+      "_legacy": {
+        "id": "EXP-0001",
+        "created": "2026-05-24T00:00:00Z",
+        "updated": "2026-05-24T00:00:00Z",
+        "status": "completed",
+        "created_by": "human",
+        "name": "Baseline GNN + Full Training",
+        "purpose": "Train PocketGNN V1 and PocketGNNXL V3; evaluate on held-out CryptoSite and PCNA structures",
+        "hypothesis": "GATv2Conv + ESM2 will outperform baseline GATv2Conv on held-out cryptic pocket detection",
+        "inputs": [
+          "data/graphs/",
+          "data/splits/cryptosite_split.json"
+        ],
+        "script": "scripts/train.py",
+        "checkpoint": "checkpoints/pcna_reproduced/best.ckpt",
+        "expected_outcome": "V3 AUROC > 0.80 on held-out; AOH1996 gate PASS",
+        "actual_outcome": "V3 held-out AUROC 0.8081; AOH gate 0.8676 PASS",
+        "metrics": {
+          "held_out_auroc": 0.8081,
+          "held_out_auprc": 0.3441,
+          "trivial_baseline_auprc": 0.0557,
+          "lift": 6.2,
+          "aoh_gate_score": 0.8676,
+          "internal_v3_auroc": 0.9067,
+          "internal_v1_auroc": 0.6782
+        },
+        "associated_claims": [
+          "CLAIM-0001",
+          "CLAIM-0002",
+          "CLAIM-0004"
+        ],
+        "associated_artifacts": [
+          "ART-0001",
+          "ART-0002"
+        ]
+      },
+      "title": "Baseline GNN + Full Training",
+      "hypothesis_tested": "GATv2Conv + ESM2 will outperform baseline GATv2Conv on held-out cryptic pocket detection",
+      "script_or_workflow": "scripts/train.py",
+      "input_artifacts": [
+        "data/graphs/",
+        "data/splits/cryptosite_split.json"
+      ],
+      "output_artifacts": [
+        "ART-0001",
+        "ART-0002"
+      ],
+      "created_by_agent": "human"
     },
     {
       "id": "EXP-0002",
@@ -38,19 +114,72 @@
       "name": "ANM Structural Dynamics",
       "purpose": "Compare ANM flexibility of predicted pocket in apo (1W60) vs holo (8GLA) PCNA",
       "hypothesis": "Holo pocket will show elevated fold-change and DCCM vs apo",
-      "inputs": ["1W60.pdb", "8GLA.pdb (chains A+B only)"],
+      "inputs": [
+        "1W60.pdb",
+        "8GLA.pdb (chains A+B only)"
+      ],
       "script": "scripts/run_nma.py",
       "expected_outcome": "Holo fold-change > apo fold-change",
-      "actual_outcome": "Apo 0.857, holo 1.157, delta +0.300; DCCM 0.0995→0.2093",
+      "actual_outcome": "Apo 0.857, holo 1.157, delta +0.300; DCCM 0.0995\u21920.2093",
       "metrics": {
         "apo_fold_change": 0.857,
         "holo_fold_change": 1.157,
-        "delta_fold_change": 0.300,
+        "delta_fold_change": 0.3,
         "apo_dccm": 0.0995,
         "holo_dccm": 0.2093
       },
-      "associated_claims": ["CLAIM-0003", "CLAIM-0005"],
-      "associated_artifacts": ["ART-0003"]
+      "associated_claims": [
+        "CLAIM-0003",
+        "CLAIM-0005"
+      ],
+      "associated_artifacts": [
+        "ART-0003"
+      ],
+      "experiment_id": "EXP-0002",
+      "created_at": "2026-05-24T00:00:00Z",
+      "updated_at": "2026-05-24T00:00:00Z",
+      "_legacy": {
+        "id": "EXP-0002",
+        "created": "2026-05-24T00:00:00Z",
+        "updated": "2026-05-24T00:00:00Z",
+        "status": "completed",
+        "created_by": "human",
+        "name": "ANM Structural Dynamics",
+        "purpose": "Compare ANM flexibility of predicted pocket in apo (1W60) vs holo (8GLA) PCNA",
+        "hypothesis": "Holo pocket will show elevated fold-change and DCCM vs apo",
+        "inputs": [
+          "1W60.pdb",
+          "8GLA.pdb (chains A+B only)"
+        ],
+        "script": "scripts/run_nma.py",
+        "expected_outcome": "Holo fold-change > apo fold-change",
+        "actual_outcome": "Apo 0.857, holo 1.157, delta +0.300; DCCM 0.0995\u21920.2093",
+        "metrics": {
+          "apo_fold_change": 0.857,
+          "holo_fold_change": 1.157,
+          "delta_fold_change": 0.3,
+          "apo_dccm": 0.0995,
+          "holo_dccm": 0.2093
+        },
+        "associated_claims": [
+          "CLAIM-0003",
+          "CLAIM-0005"
+        ],
+        "associated_artifacts": [
+          "ART-0003"
+        ]
+      },
+      "title": "ANM Structural Dynamics",
+      "hypothesis_tested": "Holo pocket will show elevated fold-change and DCCM vs apo",
+      "script_or_workflow": "scripts/run_nma.py",
+      "input_artifacts": [
+        "1W60.pdb",
+        "8GLA.pdb (chains A+B only)"
+      ],
+      "output_artifacts": [
+        "ART-0003"
+      ],
+      "created_by_agent": "human"
     },
     {
       "id": "EXP-0003",
@@ -58,17 +187,60 @@
       "updated": "2026-05-24T00:00:00Z",
       "status": "running",
       "created_by": "human",
-      "name": "MD Validation — 100 ns OpenMM",
+      "name": "MD Validation \u2014 100 ns OpenMM",
       "purpose": "Confirm cryptic pocket opens dynamically in apo 1W60 via RMSF + pocket volume tracking",
-      "hypothesis": "Predicted pocket residues will show RMSF > 1.5 Å and transient volume > 100 Å³",
-      "inputs": ["1W60 apo structure"],
+      "hypothesis": "Predicted pocket residues will show RMSF > 1.5 \u00c5 and transient volume > 100 \u00c5\u00b3",
+      "inputs": [
+        "1W60 apo structure"
+      ],
       "script": "scripts/run_md_analysis.py (after DCD transfer)",
       "expected_outcome": "RMSF elevation + pocket volume opening",
       "actual_outcome": null,
       "metrics": {},
-      "associated_claims": ["CLAIM-0005"],
-      "associated_artifacts": ["ART-0005"],
-      "notes": "Running on Google Cloud L4. DCD: data/md/1W60_production.dcd. ~140 ns/day, 100 ns likely done."
+      "associated_claims": [
+        "CLAIM-0005"
+      ],
+      "associated_artifacts": [
+        "ART-0005"
+      ],
+      "notes": "Running on Google Cloud L4. DCD: data/md/1W60_production.dcd. ~140 ns/day, 100 ns likely done.",
+      "experiment_id": "EXP-0003",
+      "created_at": "2026-05-24T00:00:00Z",
+      "updated_at": "2026-05-24T00:00:00Z",
+      "_legacy": {
+        "id": "EXP-0003",
+        "created": "2026-05-24T00:00:00Z",
+        "updated": "2026-05-24T00:00:00Z",
+        "status": "running",
+        "created_by": "human",
+        "name": "MD Validation \u2014 100 ns OpenMM",
+        "purpose": "Confirm cryptic pocket opens dynamically in apo 1W60 via RMSF + pocket volume tracking",
+        "hypothesis": "Predicted pocket residues will show RMSF > 1.5 \u00c5 and transient volume > 100 \u00c5\u00b3",
+        "inputs": [
+          "1W60 apo structure"
+        ],
+        "script": "scripts/run_md_analysis.py (after DCD transfer)",
+        "expected_outcome": "RMSF elevation + pocket volume opening",
+        "actual_outcome": null,
+        "metrics": {},
+        "associated_claims": [
+          "CLAIM-0005"
+        ],
+        "associated_artifacts": [
+          "ART-0005"
+        ],
+        "notes": "Running on Google Cloud L4. DCD: data/md/1W60_production.dcd. ~140 ns/day, 100 ns likely done."
+      },
+      "title": "MD Validation \u2014 100 ns OpenMM",
+      "hypothesis_tested": "Predicted pocket residues will show RMSF > 1.5 \u00c5 and transient volume > 100 \u00c5\u00b3",
+      "script_or_workflow": "scripts/run_md_analysis.py (after DCD transfer)",
+      "input_artifacts": [
+        "1W60 apo structure"
+      ],
+      "output_artifacts": [
+        "ART-0005"
+      ],
+      "created_by_agent": "human"
     }
   ]
 }

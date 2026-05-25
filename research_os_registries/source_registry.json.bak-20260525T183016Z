@@ -1,0 +1,57 @@
+{
+  "_schema_version": "1.0",
+  "_description": "Source Registry — one entry per ingested document or paper. Written by agents/ingest.py.",
+  "_id_prefix": "SRC",
+  "sources": [
+    {
+      "id": "SRC-0001",
+      "created": "2026-05-24T20:52:58.571444+00:00",
+      "updated": "2026-05-24T20:52:58.571444+00:00",
+      "status": "current",
+      "created_by": "agent-21",
+      "title": "Pocketminer Notes",
+      "source_type": "markdown",
+      "original_path": "C:\\Users\\advay\\Obsidian\\GNN_PNCA\\docs\\notebooklm\\distilled_notes\\pocketminer_notes.md",
+      "path_hash": "5a56e5ec07479473",
+      "doi": null,
+      "url": null,
+      "authors": [],
+      "date_published": null,
+      "topics": [
+        "pcna",
+        "cryptic pocket",
+        "gnn",
+        "cryptosite",
+        "pocketminer",
+        "auroc"
+      ],
+      "relevance_score": 0.78,
+      "short_summary": "**Source:** PocketMiner paper (Durrant Lab, ~2023)\n**Status:** Needs NotebookLM extraction — notes below from paper_notes.md only\n\n---",
+      "abstract_summary": "**Source:** PocketMiner paper (Durrant Lab, ~2023)\n**Status:** Needs NotebookLM extraction — notes below from paper_notes.md only\n\n--- - GNN trained on CryptoSite dataset (~93 apo/holo protein pairs)\n- Graph: residue-level, edges by Cα–Cα distance\n- Labels: residues near cryptic pocket in holo structure\n- Key result: AUROC ~0.85 on held-out CryptoSite proteins\n- Needs NotebookLM extraction: exact architecture (layer type, hidden dim, edge features)\n- Needs NotebookLM extraction: exact feature set used\n\n---",
+      "extracted_claims": [
+        {
+          "claim_text": "AUROC ~0.",
+          "evidence_type": "computational",
+          "section": "Architecture",
+          "strength": "suggestive"
+        },
+        {
+          "claim_text": "AUROC | ~0.",
+          "evidence_type": "computational",
+          "section": "Metrics",
+          "strength": "suggestive"
+        }
+      ],
+      "linked_claims": [
+        "CLAIM-0001",
+        "CLAIM-0002"
+      ],
+      "linked_experiments": [
+        "EXP-0001"
+      ],
+      "linked_artifacts": [],
+      "obsidian_note": "C:\\Users\\advay\\Obsidian\\GNN_PNCA\\docs\\sources\\SRC-0001_pocketminer_notes.md",
+      "notes": ""
+    }
+  ]
+}

@@ -15,6 +15,8 @@ import json
 import os
 import tempfile
 import threading
+import shutil
+from dataclasses import fields
 from dataclasses import is_dataclass, asdict
 from datetime import datetime, timezone
 from pathlib import Path
@@ -29,6 +31,7 @@ from research_os.schemas.registries import (
     IssueEntry,
     SourceEntry,
 )
+from research_os.schemas.vocab import ARTIFACT_TYPES, CLAIM_STRENGTHS
 
 
 REGISTRY_NAMES: Tuple[str, ...] = (
@@ -40,6 +43,8 @@ REGISTRY_NAMES: Tuple[str, ...] = (
     "environment_registry",
     "decision_registry",
 )
+
+REGISTRY_SCHEMA_VERSION = "2.0"
 
 REGISTRY_ID_PREFIXES: Dict[str, str] = {
     "artifact_registry": "ART",
@@ -71,6 +76,21 @@ _REGISTRY_ID_FIELDS: Dict[str, str] = {
     "decision_registry": "decision_id",
 }
 
+_LEGACY_ENTRY_KEYS: Dict[str, str] = {
+    "artifact_registry": "artifacts",
+    "claim_registry": "claims",
+    "experiment_registry": "experiments",
+    "issue_registry": "issues",
+    "source_registry": "sources",
+    "environment_registry": "environments",
+    "decision_registry": "decisions",
+}
+
+_DATACLASS_FIELD_NAMES: Dict[str, set[str]] = {
+    name: {f.name for f in fields(cls)}
+    for name, cls in _REGISTRY_DATACLASSES.items()
+}
+
 
 class RegistryValidationError(ValueError):
     """Raised when a registry entry fails closed-vocabulary or shape validation."""
@@ -94,6 +114,18 @@ def _to_dict(entry: Any) -> Dict[str, Any]:
     if is_dataclass(entry):
         return asdict(entry)
     raise TypeError(f"Cannot serialize entry of type {type(entry).__name__}")
+
+
+def _coerce_list(value: Any) -> List[Any]:
+    if value is None:
+        return []
+    if isinstance(value, list):
+        return value
+    return [value]
+
+
+def _filter_for_dataclass(name: str, raw: Dict[str, Any]) -> Dict[str, Any]:
+    return {k: v for k, v in raw.items() if k in _DATACLASS_FIELD_NAMES[name]}
 
 
 class RegistryStore:
@@ -124,20 +156,200 @@ class RegistryStore:
             raise RegistryValidationError(
                 f"{path} contains invalid JSON: {e}"
             ) from e
+        data, migrated = self._migrate_if_needed(name, data, path)
+        if migrated:
+            self._atomic_write(path, data)
         if not isinstance(data, dict) or "entries" not in data:
             raise RegistryValidationError(
                 f"{path} is malformed; expected an object with an 'entries' list"
             )
+        if not isinstance(data["entries"], list):
+            raise RegistryValidationError(
+                f"{path} is malformed; expected 'entries' to be a list"
+            )
         return data
 
     def _empty_registry(self, name: str) -> Dict[str, Any]:
+        now = _utc_now_iso()
         return {
             "registry": name,
             "id_prefix": REGISTRY_ID_PREFIXES[name],
-            "created_at": _utc_now_iso(),
-            "updated_at": _utc_now_iso(),
+            "schema_version": REGISTRY_SCHEMA_VERSION,
+            "created_at": now,
+            "updated_at": now,
             "entries": [],
         }
+
+    def _backup_before_migration(self, path: Path) -> Path:
+        timestamp = datetime.now(timezone.utc).strftime("%Y%m%dT%H%M%SZ")
+        backup_path = path.with_name(f"{path.name}.bak-{timestamp}")
+        suffix = 1
+        while backup_path.exists():
+            backup_path = path.with_name(f"{path.name}.bak-{timestamp}-{suffix}")
+            suffix += 1
+        shutil.copy2(path, backup_path)
+        return backup_path
+
+    def _migrate_if_needed(
+        self, name: str, data: Any, path: Path
+    ) -> Tuple[Dict[str, Any], bool]:
+        if not isinstance(data, dict):
+            raise RegistryValidationError(
+                f"{path} is malformed; expected a JSON object"
+            )
+
+        legacy_key = _LEGACY_ENTRY_KEYS.get(name)
+        has_legacy_entries = bool(
+            legacy_key and legacy_key in data and "entries" not in data
+        )
+        needs_version = data.get("schema_version") != REGISTRY_SCHEMA_VERSION
+        if not has_legacy_entries and "entries" in data and not needs_version:
+            return data, False
+
+        if "entries" not in data and not has_legacy_entries:
+            raise RegistryValidationError(
+                f"{path} is malformed; expected an object with an 'entries' list"
+            )
+
+        if path.exists():
+            self._backup_before_migration(path)
+
+        now = _utc_now_iso()
+        source_entries = data.get(legacy_key) if has_legacy_entries else data.get("entries", [])
+        if not isinstance(source_entries, list):
+            raise RegistryValidationError(
+                f"{path} is malformed; expected '{legacy_key or 'entries'}' to be a list"
+            )
+
+        migrated = dict(data)
+        if legacy_key:
+            migrated.pop(legacy_key, None)
+        migrated.setdefault("registry", name)
+        migrated["id_prefix"] = migrated.get("id_prefix") or migrated.get("_id_prefix") or REGISTRY_ID_PREFIXES[name]
+        migrated.setdefault("created_at", data.get("created_at") or now)
+        migrated["updated_at"] = now
+        migrated["schema_version"] = REGISTRY_SCHEMA_VERSION
+        if has_legacy_entries:
+            migrated["migrated_at"] = now
+            migrated["migrated_from"] = {
+                "entry_key": legacy_key,
+                "schema_version": data.get("schema_version") or data.get("_schema_version", ""),
+            }
+            migrated["_legacy_metadata"] = {
+                k: v for k, v in data.items() if k != legacy_key
+            }
+        migrated["entries"] = [
+            self._migrate_entry(name, raw) for raw in source_entries
+        ]
+        return migrated, True
+
+    def _migrate_entry(self, name: str, raw: Any) -> Any:
+        if not isinstance(raw, dict):
+            return raw
+        if name == "claim_registry":
+            return self._migrate_claim_entry(raw)
+        if name == "artifact_registry":
+            return self._migrate_artifact_entry(raw)
+        if name == "experiment_registry":
+            return self._migrate_experiment_entry(raw)
+        if name == "issue_registry":
+            return self._migrate_issue_entry(raw)
+        if name == "source_registry":
+            return self._migrate_source_entry(raw)
+        return self._migrate_common_entry(name, raw)
+
+    def _migrate_common_entry(self, name: str, raw: Dict[str, Any]) -> Dict[str, Any]:
+        entry = dict(raw)
+        id_field = _REGISTRY_ID_FIELDS[name]
+        if id_field not in entry and "id" in raw:
+            entry[id_field] = raw["id"]
+        if "created_at" not in entry and "created" in raw:
+            entry["created_at"] = raw["created"]
+        if "updated_at" not in entry and "updated" in raw:
+            entry["updated_at"] = raw["updated"]
+        entry.setdefault("_legacy", dict(raw))
+        return entry
+
+    def _migrate_claim_entry(self, raw: Dict[str, Any]) -> Dict[str, Any]:
+        entry = self._migrate_common_entry("claim_registry", raw)
+        if "claim_id" not in entry and "id" in raw:
+            entry["claim_id"] = raw["id"]
+        if "claim_text" not in entry and "text" in raw:
+            entry["claim_text"] = raw["text"]
+        if "created_at" not in entry and "created" in raw:
+            entry["created_at"] = raw["created"]
+        if "updated_at" not in entry and "updated" in raw:
+            entry["updated_at"] = raw["updated"]
+        if "claim_strength" not in entry:
+            entry["claim_strength"] = raw.get("status") or "hypothesis_generating"
+        if entry.get("claim_strength") not in CLAIM_STRENGTHS:
+            entry["legacy_claim_strength"] = entry.get("claim_strength")
+            entry["claim_strength"] = "hypothesis_generating"
+        if entry.get("status") not in CLAIM_STRENGTHS:
+            entry["legacy_status"] = entry.get("status")
+            entry["status"] = entry["claim_strength"]
+        if "allowed_wording" in entry:
+            entry["allowed_wording"] = _coerce_list(entry["allowed_wording"])
+        if "disallowed_wording" in entry:
+            entry["disallowed_wording"] = _coerce_list(entry["disallowed_wording"])
+        if "human_approval" not in entry:
+            required = bool(raw.get("requires_human_approval", False))
+            approved = bool(raw.get("human_approved", False))
+            entry["human_approval"] = {
+                "required": required,
+                "decision_id": "",
+                "approval_status": "approved" if approved else ("pending" if required else "not_required"),
+            }
+        return entry
+
+    def _migrate_artifact_entry(self, raw: Dict[str, Any]) -> Dict[str, Any]:
+        entry = self._migrate_common_entry("artifact_registry", raw)
+        if "artifact_id" not in entry and "id" in raw:
+            entry["artifact_id"] = raw["id"]
+        if "artifact_type" not in entry and "type" in raw:
+            entry["artifact_type"] = raw["type"]
+        if "artifact_type" not in entry:
+            entry["artifact_type"] = "other"
+        elif entry["artifact_type"] not in ARTIFACT_TYPES:
+            entry["legacy_artifact_type"] = entry["artifact_type"]
+            entry["artifact_type"] = "other"
+        if "created_by_agent" not in entry and "created_by" in raw:
+            entry["created_by_agent"] = raw["created_by"]
+        return entry
+
+    def _migrate_experiment_entry(self, raw: Dict[str, Any]) -> Dict[str, Any]:
+        entry = self._migrate_common_entry("experiment_registry", raw)
+        if "title" not in entry and "name" in raw:
+            entry["title"] = raw["name"]
+        if "hypothesis_tested" not in entry and "hypothesis" in raw:
+            entry["hypothesis_tested"] = raw["hypothesis"]
+        if "script_or_workflow" not in entry and "script" in raw:
+            entry["script_or_workflow"] = raw["script"]
+        if "input_artifacts" not in entry and "inputs" in raw:
+            entry["input_artifacts"] = _coerce_list(raw["inputs"])
+        if "output_artifacts" not in entry and "associated_artifacts" in raw:
+            entry["output_artifacts"] = _coerce_list(raw["associated_artifacts"])
+        if "created_by_agent" not in entry and "created_by" in raw:
+            entry["created_by_agent"] = raw["created_by"]
+        return entry
+
+    def _migrate_issue_entry(self, raw: Dict[str, Any]) -> Dict[str, Any]:
+        entry = self._migrate_common_entry("issue_registry", raw)
+        if "affected_artifacts" not in entry and "stale_artifacts" in raw:
+            entry["affected_artifacts"] = _coerce_list(raw["stale_artifacts"])
+        return entry
+
+    def _migrate_source_entry(self, raw: Dict[str, Any]) -> Dict[str, Any]:
+        entry = self._migrate_common_entry("source_registry", raw)
+        if "source" not in entry:
+            entry["source"] = raw.get("original_path") or raw.get("url") or raw.get("title", "")
+        if "topic" not in entry:
+            topics = raw.get("topics")
+            if isinstance(topics, list):
+                entry["topic"] = ", ".join(str(t) for t in topics)
+            else:
+                entry["topic"] = str(topics or "")
+        return entry
 
     def _atomic_write(self, path: Path, data: Dict[str, Any]) -> None:
         """Write JSON atomically: temp file -> fsync -> os.replace."""
@@ -183,7 +395,7 @@ class RegistryStore:
                 seen_ids.add(eid)
             # Construct dataclass instance to leverage its validator.
             try:
-                instance = cls(**raw)
+                instance = cls(**_filter_for_dataclass(name, raw))
                 if hasattr(instance, "validate"):
                     instance.validate()
             except TypeError as e:
@@ -235,7 +447,7 @@ class RegistryStore:
             # Validate against dataclass.
             cls = _REGISTRY_DATACLASSES[name]
             try:
-                instance = cls(**entry_dict)
+                instance = cls(**_filter_for_dataclass(name, entry_dict))
                 if hasattr(instance, "validate"):
                     instance.validate()
             except (TypeError, ValueError) as e:
@@ -266,7 +478,7 @@ class RegistryStore:
                 if entry.get(id_field) == entry_id:
                     merged = {**entry, **patch, "updated_at": _utc_now_iso()}
                     try:
-                        instance = cls(**merged)
+                        instance = cls(**_filter_for_dataclass(name, merged))
                         if hasattr(instance, "validate"):
                             instance.validate()
                     except (TypeError, ValueError) as e:

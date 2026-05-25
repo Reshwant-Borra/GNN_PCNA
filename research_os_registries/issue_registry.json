@@ -2,7 +2,22 @@
   "_schema_version": "1.0",
   "_description": "Issue and Bug Registry.",
   "_id_prefix": "ISSUE",
-  "issues": [
+  "registry": "issue_registry",
+  "id_prefix": "ISSUE",
+  "created_at": "2026-05-25T18:30:08Z",
+  "updated_at": "2026-05-25T18:30:08Z",
+  "schema_version": "2.0",
+  "migrated_at": "2026-05-25T18:30:08Z",
+  "migrated_from": {
+    "entry_key": "issues",
+    "schema_version": "1.0"
+  },
+  "_legacy_metadata": {
+    "_schema_version": "1.0",
+    "_description": "Issue and Bug Registry.",
+    "_id_prefix": "ISSUE"
+  },
+  "entries": [
     {
       "id": "ISSUE-0001",
       "created": "2026-05-19T00:00:00Z",
@@ -12,9 +27,32 @@
       "created_by": "human",
       "title": "9B8T chain assignment wrong",
       "description": "Chain A in 9B8T is DNA polymerase epsilon, not PCNA. PCNA = chains B/C/D. All 9B8T outputs are biologically incorrect.",
-      "stale_artifacts": ["all 9B8T inference output files"],
+      "stale_artifacts": [
+        "all 9B8T inference output files"
+      ],
       "fix_required": "Re-run inference on 9B8T with chains B/C/D",
-      "notes": "Do not cite any 9B8T result until regenerated."
+      "notes": "Do not cite any 9B8T result until regenerated.",
+      "issue_id": "ISSUE-0001",
+      "created_at": "2026-05-19T00:00:00Z",
+      "updated_at": "2026-05-24T00:00:00Z",
+      "_legacy": {
+        "id": "ISSUE-0001",
+        "created": "2026-05-19T00:00:00Z",
+        "updated": "2026-05-24T00:00:00Z",
+        "status": "open",
+        "severity": "critical",
+        "created_by": "human",
+        "title": "9B8T chain assignment wrong",
+        "description": "Chain A in 9B8T is DNA polymerase epsilon, not PCNA. PCNA = chains B/C/D. All 9B8T outputs are biologically incorrect.",
+        "stale_artifacts": [
+          "all 9B8T inference output files"
+        ],
+        "fix_required": "Re-run inference on 9B8T with chains B/C/D",
+        "notes": "Do not cite any 9B8T result until regenerated."
+      },
+      "affected_artifacts": [
+        "all 9B8T inference output files"
+      ]
     },
     {
       "id": "ISSUE-0002",
@@ -25,9 +63,32 @@
       "created_by": "human",
       "title": "Stale ANM outputs with wrong numbers (pre-2026-05-19)",
       "description": "Old holo=1.104, delta=+0.247. Correct: holo=1.157, delta=+0.300. Any pre-fix output file is stale.",
-      "stale_artifacts": ["any ANM report or figure before 2026-05-19"],
+      "stale_artifacts": [
+        "any ANM report or figure before 2026-05-19"
+      ],
       "fix_required": "Replace with data/results/nma_apo_holo_comparison.json values",
-      "notes": "Main repo and paper are already corrected."
+      "notes": "Main repo and paper are already corrected.",
+      "issue_id": "ISSUE-0002",
+      "created_at": "2026-05-19T00:00:00Z",
+      "updated_at": "2026-05-24T00:00:00Z",
+      "_legacy": {
+        "id": "ISSUE-0002",
+        "created": "2026-05-19T00:00:00Z",
+        "updated": "2026-05-24T00:00:00Z",
+        "status": "open",
+        "severity": "moderate",
+        "created_by": "human",
+        "title": "Stale ANM outputs with wrong numbers (pre-2026-05-19)",
+        "description": "Old holo=1.104, delta=+0.247. Correct: holo=1.157, delta=+0.300. Any pre-fix output file is stale.",
+        "stale_artifacts": [
+          "any ANM report or figure before 2026-05-19"
+        ],
+        "fix_required": "Replace with data/results/nma_apo_holo_comparison.json values",
+        "notes": "Main repo and paper are already corrected."
+      },
+      "affected_artifacts": [
+        "any ANM report or figure before 2026-05-19"
+      ]
     },
     {
       "id": "ISSUE-0003",
@@ -38,9 +99,32 @@
       "created_by": "human",
       "title": "LIMITATIONS.md line 26 claimed 8GLA absent from all training",
       "description": "Wrong: 8GLA IS in PCNA fine-tuning. Absent from held-out CryptoSite eval only.",
-      "stale_artifacts": ["old copies of LIMITATIONS.md"],
+      "stale_artifacts": [
+        "old copies of LIMITATIONS.md"
+      ],
       "fix_required": "Corrected in main repo 2026-05-19",
-      "notes": "External shared copies may still carry wrong claim."
+      "notes": "External shared copies may still carry wrong claim.",
+      "issue_id": "ISSUE-0003",
+      "created_at": "2026-05-19T00:00:00Z",
+      "updated_at": "2026-05-24T00:00:00Z",
+      "_legacy": {
+        "id": "ISSUE-0003",
+        "created": "2026-05-19T00:00:00Z",
+        "updated": "2026-05-24T00:00:00Z",
+        "status": "fixed",
+        "severity": "low",
+        "created_by": "human",
+        "title": "LIMITATIONS.md line 26 claimed 8GLA absent from all training",
+        "description": "Wrong: 8GLA IS in PCNA fine-tuning. Absent from held-out CryptoSite eval only.",
+        "stale_artifacts": [
+          "old copies of LIMITATIONS.md"
+        ],
+        "fix_required": "Corrected in main repo 2026-05-19",
+        "notes": "External shared copies may still carry wrong claim."
+      },
+      "affected_artifacts": [
+        "old copies of LIMITATIONS.md"
+      ]
     },
     {
       "id": "ISSUE-0004",
@@ -53,7 +137,24 @@
       "description": "6/7 model sanity tests pass. T6 fails because chain_id one-hot breaks permutation equivariance.",
       "stale_artifacts": [],
       "fix_required": "Document as limitation, or remove chain_id feature",
-      "notes": "Does not affect held-out AUROC 0.8081."
+      "notes": "Does not affect held-out AUROC 0.8081.",
+      "issue_id": "ISSUE-0004",
+      "created_at": "2026-05-18T00:00:00Z",
+      "updated_at": "2026-05-24T00:00:00Z",
+      "_legacy": {
+        "id": "ISSUE-0004",
+        "created": "2026-05-18T00:00:00Z",
+        "updated": "2026-05-24T00:00:00Z",
+        "status": "open",
+        "severity": "low",
+        "created_by": "human",
+        "title": "T6 sanity test fails (chain_id one-hot equivariance)",
+        "description": "6/7 model sanity tests pass. T6 fails because chain_id one-hot breaks permutation equivariance.",
+        "stale_artifacts": [],
+        "fix_required": "Document as limitation, or remove chain_id feature",
+        "notes": "Does not affect held-out AUROC 0.8081."
+      },
+      "affected_artifacts": []
     }
   ]
 }

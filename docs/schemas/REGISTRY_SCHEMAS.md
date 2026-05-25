@@ -38,6 +38,7 @@ Suggested IDs:
 
 Artifacts:
 
+- `pending`
 - `current`
 - `stale`
 - `invalid`

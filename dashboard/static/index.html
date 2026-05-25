@@ -1,0 +1,1066 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>ResearchOS Dashboard</title>
+<script src="https://cdn.tailwindcss.com"></script>
+<script src="https://d3js.org/d3.v7.min.js"></script>
+<style>
+  body { background: #0b1120; color: #e2e8f0; font-family: 'Inter', 'SF Pro Display', system-ui, sans-serif; }
+
+  /* Node pulse ring */
+  @keyframes pulse-ring {
+    0%   { r: 26; opacity: 0.7; }
+    100% { r: 42; opacity: 0; }
+  }
+  .pulse-ring { animation: pulse-ring 1.4s ease-out infinite; pointer-events: none; }
+
+  /* Scrollbar */
+  ::-webkit-scrollbar { width: 6px; height: 6px; }
+  ::-webkit-scrollbar-track { background: #0f172a; }
+  ::-webkit-scrollbar-thumb { background: #475569; border-radius: 3px; }
+
+  /* Gate badge */
+  .gate-badge { transition: background 0.3s, color 0.3s; }
+
+  /* Detail panel mono blocks */
+  .detail-pre { white-space: pre-wrap; word-break: break-all; font-family: 'JetBrains Mono', 'Fira Code', monospace; font-size: 0.72rem; }
+
+  /* Node tooltip */
+  #tooltip {
+    position: fixed; pointer-events: none; background: #1e293b; border: 1px solid #334155;
+    border-radius: 8px; padding: 8px 12px; font-size: 12px; z-index: 100;
+    box-shadow: 0 8px 32px rgba(0,0,0,0.5); max-width: 320px;
+  }
+
+  /* Tab buttons */
+  .tab-btn { transition: color 0.15s, border-color 0.15s; }
+  .tab-btn.active { color: #f8fafc; border-bottom-color: #3b82f6; }
+
+  /* Filter chips */
+  .chip { transition: background 0.15s, color 0.15s, border-color 0.15s; }
+  .chip.active { background: #1e3a8a; color: #dbeafe; border-color: #3b82f6; }
+
+  /* Node label color helper */
+  .node-label { paint-order: stroke; stroke: #0b1120; stroke-width: 3px; }
+
+  /* SVG cursor */
+  #graph-svg { cursor: grab; }
+  #graph-svg.dragging { cursor: grabbing; }
+</style>
+</head>
+<body class="min-h-screen flex flex-col">
+
+<!-- ── Header ── -->
+<header class="flex items-center gap-4 px-5 py-3 border-b border-slate-700 bg-slate-900/80 backdrop-blur sticky top-0 z-20 flex-shrink-0">
+  <span class="text-slate-100 font-bold tracking-tight text-lg">ResearchOS</span>
+  <span class="text-slate-500 text-xs font-mono hidden sm:block">/ obsidian-style graph</span>
+
+  <!-- tabs -->
+  <nav class="flex items-center gap-1 ml-6">
+    <button data-tab="graph" class="tab-btn active px-3 py-1 text-sm border-b-2 border-transparent text-slate-400">Graph</button>
+    <button data-tab="logs" class="tab-btn px-3 py-1 text-sm border-b-2 border-transparent text-slate-400">Logs / Transcript</button>
+    <button data-tab="memory" class="tab-btn px-3 py-1 text-sm border-b-2 border-transparent text-slate-400">Memory</button>
+    <button data-tab="runs" class="tab-btn px-3 py-1 text-sm border-b-2 border-transparent text-slate-400">Runs</button>
+  </nav>
+
+  <div class="flex-1"></div>
+
+  <!-- workflow info -->
+  <div id="hdr-workflow" class="text-xs text-slate-400 hidden">
+    <span id="hdr-wf-name" class="text-slate-200 font-medium"></span>
+    <span class="mx-2 text-slate-600">·</span>
+    <span id="hdr-routing" class="font-mono text-slate-500"></span>
+    <span class="mx-2 text-slate-600">·</span>
+    <span id="hdr-risk" class="uppercase tracking-wide"></span>
+    <span class="mx-2 text-slate-600">·</span>
+    <span id="hdr-progress"></span>
+  </div>
+
+  <!-- live indicator -->
+  <div id="live-indicator" class="flex items-center gap-1.5">
+    <span id="live-dot" class="w-2 h-2 rounded-full bg-slate-600"></span>
+    <span id="live-label" class="text-xs text-slate-500">connecting…</span>
+  </div>
+</header>
+
+<!-- ── Progress bar ── -->
+<div id="progress-bar-wrap" class="h-1 bg-slate-800 hidden">
+  <div id="progress-bar" class="h-full bg-blue-500 transition-all duration-500" style="width:0%"></div>
+</div>
+
+<!-- ── Main view container ── -->
+<main class="flex flex-1 overflow-hidden min-h-0">
+
+  <!-- LEFT: per-tab content area -->
+  <section class="flex flex-col border-r border-slate-700 overflow-hidden" style="width:62%">
+
+    <!-- Tab: Graph -->
+    <div data-tab-panel="graph" class="flex flex-col flex-1 overflow-hidden">
+      <div class="flex items-center gap-2 px-3 py-2 border-b border-slate-700 flex-shrink-0">
+        <span class="text-xs font-semibold text-slate-400 uppercase tracking-wider mr-2">Filters</span>
+        <button class="chip active px-2 py-0.5 text-xs rounded-full border border-slate-700 text-slate-400" data-filter="orchestrator">Orchestrator</button>
+        <button class="chip active px-2 py-0.5 text-xs rounded-full border border-slate-700 text-slate-400" data-filter="agent">Agents</button>
+        <button class="chip px-2 py-0.5 text-xs rounded-full border border-slate-700 text-slate-400" data-filter="memory">Memory</button>
+        <button class="chip px-2 py-0.5 text-xs rounded-full border border-slate-700 text-slate-400" data-filter="registry">Registry</button>
+        <button class="chip px-2 py-0.5 text-xs rounded-full border border-slate-700 text-slate-400" data-filter="gate">Gates</button>
+        <button class="chip px-2 py-0.5 text-xs rounded-full border border-slate-700 text-slate-400" data-filter="workflow">Workflows</button>
+
+        <div class="ml-auto flex flex-wrap gap-2 text-xs text-slate-500">
+          <span class="flex items-center gap-1"><span class="w-2.5 h-2.5 rounded-full bg-slate-600 inline-block"></span>idle</span>
+          <span class="flex items-center gap-1"><span class="w-2.5 h-2.5 rounded-full bg-blue-500 inline-block"></span>queued</span>
+          <span class="flex items-center gap-1"><span class="w-2.5 h-2.5 rounded-full bg-yellow-400 inline-block"></span>active</span>
+          <span class="flex items-center gap-1"><span class="w-2.5 h-2.5 rounded-full bg-green-500 inline-block"></span>pass</span>
+          <span class="flex items-center gap-1"><span class="w-2.5 h-2.5 rounded-full bg-orange-500 inline-block"></span>warn</span>
+          <span class="flex items-center gap-1"><span class="w-2.5 h-2.5 rounded-full bg-red-500 inline-block"></span>fail</span>
+          <span class="flex items-center gap-1"><span class="w-2.5 h-2.5 rounded-full bg-red-900 inline-block"></span>blocked</span>
+          <span class="flex items-center gap-1"><span class="w-2.5 h-2.5 rounded-full bg-violet-500 inline-block"></span>inconclusive</span>
+        </div>
+      </div>
+      <div class="flex-1 overflow-hidden relative">
+        <svg id="graph-svg" width="100%" height="100%" viewBox="0 0 1100 720" preserveAspectRatio="xMidYMid meet">
+          <defs>
+            <marker id="arrow" markerWidth="8" markerHeight="8" refX="7" refY="3" orient="auto" markerUnits="strokeWidth">
+              <path d="M0,0 L0,6 L8,3 z" fill="#475569"/>
+            </marker>
+            <marker id="arrow-active" markerWidth="9" markerHeight="9" refX="8" refY="3.5" orient="auto" markerUnits="strokeWidth">
+              <path d="M0,0 L0,7 L9,3.5 z" fill="#3b82f6"/>
+            </marker>
+          </defs>
+          <g id="graph-edges"></g>
+          <g id="graph-nodes"></g>
+        </svg>
+      </div>
+    </div>
+
+    <!-- Tab: Logs / Transcript -->
+    <div data-tab-panel="logs" class="hidden flex-col flex-1 overflow-hidden">
+      <div class="flex items-center gap-2 px-3 py-2 border-b border-slate-700 flex-shrink-0">
+        <span class="text-xs font-semibold text-slate-400 uppercase tracking-wider mr-2">Run</span>
+        <select id="transcript-select" class="bg-slate-800 border border-slate-700 text-slate-200 text-xs rounded px-2 py-1">
+          <option value="">(select run)</option>
+        </select>
+        <span id="transcript-meta" class="text-xs text-slate-500 ml-auto"></span>
+      </div>
+      <div id="transcript-body" class="flex-1 overflow-auto p-3 space-y-1 text-xs">
+        <div class="text-slate-500">Pick a run from the dropdown to see its event-by-event transcript.</div>
+      </div>
+    </div>
+
+    <!-- Tab: Memory -->
+    <div data-tab-panel="memory" class="hidden flex flex-1 overflow-hidden">
+      <div class="w-56 border-r border-slate-700 overflow-y-auto p-2 space-y-0.5" id="memory-file-list">
+        <div class="text-xs text-slate-500 px-2 py-1">Loading…</div>
+      </div>
+      <div class="flex-1 overflow-auto p-4">
+        <pre id="memory-file-content" class="detail-pre text-slate-300"></pre>
+      </div>
+    </div>
+
+    <!-- Tab: Runs -->
+    <div data-tab-panel="runs" class="hidden flex flex-col flex-1 overflow-hidden">
+      <div class="flex-1 overflow-y-auto p-3">
+        <table class="w-full text-xs">
+          <thead>
+            <tr class="text-slate-500 border-b border-slate-700">
+              <th class="text-left py-1 pr-3 font-medium">Workflow</th>
+              <th class="text-left py-1 pr-3 font-medium">Timestamp</th>
+              <th class="text-left py-1 pr-3 font-medium">Agents</th>
+              <th class="text-left py-1 pr-3 font-medium">Status</th>
+              <th class="text-left py-1 font-medium">Path</th>
+            </tr>
+          </thead>
+          <tbody id="run-history-body" class="text-slate-300"></tbody>
+        </table>
+      </div>
+    </div>
+
+  </section>
+
+  <!-- RIGHT: Gates + Detail panel (shared across tabs) -->
+  <section class="flex flex-col overflow-hidden flex-1">
+
+    <!-- Gates panel -->
+    <div class="border-b border-slate-700 p-3 flex-shrink-0">
+      <div class="flex items-center justify-between mb-2">
+        <span class="text-xs font-semibold text-slate-400 uppercase tracking-wider">Gates</span>
+        <span id="gate-summary" class="text-xs text-slate-500"></span>
+      </div>
+      <div id="gates-grid" class="grid grid-cols-2 gap-1.5"></div>
+    </div>
+
+    <!-- Detail panel -->
+    <div class="flex-1 overflow-y-auto p-3 min-h-0">
+      <div id="detail-empty" class="flex flex-col items-center justify-center h-full text-slate-600 text-sm gap-2">
+        <svg width="32" height="32" fill="none" stroke="currentColor" viewBox="0 0 24 24"><circle cx="12" cy="12" r="9" stroke-width="1.5"/><path d="M12 8v4l3 3" stroke-width="1.5" stroke-linecap="round"/></svg>
+        <span>Click a node to inspect</span>
+      </div>
+      <div id="detail-content" class="hidden"></div>
+    </div>
+
+  </section>
+</main>
+
+<!-- ── Bottom: Blockers + Approvals + Routing reason ── -->
+<footer class="border-t border-slate-700 bg-slate-900 flex-shrink-0">
+  <div id="routing-strip" class="hidden px-4 py-2 bg-indigo-950/40 border-b border-indigo-900/50">
+    <div class="flex items-center gap-2">
+      <span class="text-xs font-semibold text-indigo-300 uppercase tracking-wider">Routing</span>
+      <span id="routing-decision-label" class="text-xs px-1.5 py-0.5 rounded bg-indigo-900 text-indigo-200 font-mono"></span>
+      <span id="routing-confidence-label" class="text-xs text-indigo-300 font-mono"></span>
+      <span id="routing-reason" class="text-xs text-indigo-300/80 truncate ml-2 flex-1"></span>
+      <span id="claude-fallback-badge" class="hidden text-xs px-1.5 py-0.5 rounded bg-amber-900 text-amber-200 font-mono">claude-fallback</span>
+    </div>
+  </div>
+  <div id="blockers-section" class="hidden px-4 py-2 bg-red-950/40 border-b border-red-900/50">
+    <div class="flex items-center gap-2 mb-1">
+      <span class="text-xs font-semibold text-red-400 uppercase tracking-wider">Blockers</span>
+    </div>
+    <div id="blockers-list" class="space-y-1"></div>
+  </div>
+  <div id="human-section" class="hidden px-4 py-2 bg-orange-950/40 border-b border-orange-900/50">
+    <div class="flex items-center gap-2 mb-1">
+      <span class="text-xs font-semibold text-orange-400 uppercase tracking-wider">Human Approval Required</span>
+    </div>
+    <div id="human-list" class="space-y-1"></div>
+  </div>
+</footer>
+
+<!-- Tooltip -->
+<div id="tooltip" style="display:none"></div>
+
+<script>
+// ─── Constants ──────────────────────────────────────────────────────────────
+const NODE_COLORS = {
+  not_started:  "#334155",
+  queued:       "#3b82f6",
+  active:       "#facc15",
+  pass:         "#22c55e",
+  warning:      "#f97316",
+  fail:         "#ef4444",
+  blocked:      "#7f1d1d",
+  inconclusive: "#8b5cf6",
+};
+const TYPE_COLORS = {
+  orchestrator: "#a855f7",
+  agent:        "#334155",
+  memory:       "#0891b2",
+  registry:     "#0d9488",
+  gate:         "#475569",
+  workflow:     "#9333ea",
+  report:       "#65a30d",
+  artifact:     "#ca8a04",
+  claim:        "#dc2626",
+};
+const GATE_CLASSES = {
+  not_started: "bg-slate-700 text-slate-400",
+  in_progress: "bg-blue-900 text-blue-300",
+  pass:        "bg-green-900 text-green-300",
+  warning:     "bg-orange-900 text-orange-300",
+  fail:        "bg-red-900 text-red-300",
+  blocked:     "bg-red-950 text-red-200 font-bold",
+  stale:       "bg-yellow-900 text-yellow-300",
+};
+const GATE_ICONS = {
+  not_started: ".", in_progress: ">", pass: "+", warning: "!",
+  fail: "x", blocked: "x", stale: "~",
+};
+const ALL_GATES = [
+  "research_design","dataset","leakage","preprocessing","code",
+  "evaluation","validation","claim","figure","submission"
+];
+const ICON_FOR_STATUS = { pass: "+", warning: "!", fail: "x", blocked: "x", inconclusive: "?", active: ">" };
+
+// ─── State ──────────────────────────────────────────────────────────────────
+const state = {
+  workflowId: null,
+  workflowName: "",
+  riskLevel: "",
+  routingDecision: "",
+  routingConfidence: 0,
+  routingReason: "",
+  requiresClaudeFallback: false,
+  selectedAgents: [],
+  totalAgents: 0,
+  completedAgents: 0,
+  nodeStatus: {},       // agentId → status
+  gateStatus: {},       // gate → status
+  agentDetails: {},     // agentId → detail object
+  agentEvents: {},      // agentId → list of raw events (for transcript reconstruction)
+  blockers: [],
+  humanReviews: [],
+  graph: { nodes: [], edges: [] },
+  activeFilters: new Set(["orchestrator", "agent"]),
+  selectedNode: null,
+  currentTab: "graph",
+  agentRegistry: {},    // agent_id → full registry entry (purpose, etc.)
+  memoryFiles: [],
+};
+ALL_GATES.forEach(g => { state.gateStatus[g] = "not_started"; });
+
+// ─── Tabs ───────────────────────────────────────────────────────────────────
+document.querySelectorAll(".tab-btn").forEach(btn => {
+  btn.addEventListener("click", () => switchTab(btn.dataset.tab));
+});
+function switchTab(name) {
+  state.currentTab = name;
+  document.querySelectorAll(".tab-btn").forEach(b => b.classList.toggle("active", b.dataset.tab === name));
+  document.querySelectorAll("[data-tab-panel]").forEach(p => {
+    const show = p.dataset.tabPanel === name;
+    p.classList.toggle("hidden", !show);
+    if (show) p.classList.add("flex");
+    else p.classList.remove("flex");
+  });
+  if (name === "graph") restartSimulation();
+  if (name === "logs")   loadTranscriptList();
+  if (name === "memory") loadMemoryList();
+  if (name === "runs")   refreshRunHistory();
+}
+
+// ─── Filters ────────────────────────────────────────────────────────────────
+document.querySelectorAll(".chip").forEach(chip => {
+  chip.addEventListener("click", () => {
+    const f = chip.dataset.filter;
+    if (state.activeFilters.has(f)) state.activeFilters.delete(f);
+    else state.activeFilters.add(f);
+    chip.classList.toggle("active");
+    applyFilters();
+  });
+});
+function applyFilters() {
+  const svg = d3.select("#graph-svg");
+  svg.selectAll("g.gnode").style("display", d => state.activeFilters.has(d.type) ? null : "none");
+  svg.selectAll("g.gedge").style("display", function(d) {
+    const s = (typeof d.source === "object" ? d.source : nodeMap()[d.source]);
+    const t = (typeof d.target === "object" ? d.target : nodeMap()[d.target]);
+    if (!s || !t) return "none";
+    return (state.activeFilters.has(s.type) && state.activeFilters.has(t.type)) ? null : "none";
+  });
+}
+
+// ─── Force-simulation graph ─────────────────────────────────────────────────
+let _sim = null;
+let _nodeMap = null;
+function nodeMap() {
+  if (!_nodeMap || _nodeMap.length !== state.graph.nodes.length) {
+    _nodeMap = {};
+    state.graph.nodes.forEach(n => { _nodeMap[n.id] = n; });
+  }
+  return _nodeMap;
+}
+
+async function loadGraph() {
+  try {
+    const data = await fetch("/api/graph").then(r => r.json());
+    state.graph = data;
+    const reg = await fetch("/api/agent-registry").then(r => r.json());
+    (reg.agents || []).forEach(a => { state.agentRegistry[a.agent_id] = a; });
+    renderGraph();
+  } catch(e) {
+    console.error("loadGraph failed", e);
+  }
+}
+
+function renderGraph() {
+  const svg = d3.select("#graph-svg");
+  const W = 1100, H = 720;
+  svg.attr("viewBox", `0 0 ${W} ${H}`);
+
+  // Edges
+  const edgeSel = svg.select("#graph-edges").selectAll("g.gedge")
+    .data(state.graph.edges, d => `${d.source}>${d.target}>${d.kind}`);
+  edgeSel.exit().remove();
+  const edgeEnter = edgeSel.enter().append("g").attr("class", "gedge");
+  edgeEnter.append("line")
+    .attr("stroke", "#1e293b")
+    .attr("stroke-width", 1)
+    .attr("stroke-dasharray", d => d.kind === "reads" || d.kind === "owns_gate" ? "3,3" : null);
+
+  // Nodes
+  const nodeSel = svg.select("#graph-nodes").selectAll("g.gnode")
+    .data(state.graph.nodes, d => d.id);
+  nodeSel.exit().remove();
+  const nodeEnter = nodeSel.enter().append("g")
+    .attr("class", "gnode cursor-pointer")
+    .on("click", (_, d) => selectNode(d.id))
+    .on("mouseenter", (e, d) => showTooltip(e, d))
+    .on("mousemove", moveTooltip)
+    .on("mouseleave", hideTooltip)
+    .call(d3.drag()
+      .on("start", (event, d) => { if (!event.active) _sim.alphaTarget(0.3).restart(); d.fx = d.x; d.fy = d.y; })
+      .on("drag",  (event, d) => { d.fx = event.x; d.fy = event.y; })
+      .on("end",   (event, d) => { if (!event.active) _sim.alphaTarget(0); /* keep pinned */ }));
+  // Pulse ring (hidden by default)
+  nodeEnter.append("circle")
+    .attr("class", "pulse-ring")
+    .attr("fill", "none")
+    .attr("stroke", "#facc15")
+    .attr("stroke-width", 2)
+    .style("display", "none");
+  nodeEnter.append("circle")
+    .attr("class", "main-circle")
+    .attr("stroke", "#0f172a")
+    .attr("stroke-width", 1.5);
+  nodeEnter.append("text")
+    .attr("class", "status-icon")
+    .attr("text-anchor", "middle")
+    .attr("dy", "0.35em")
+    .attr("font-size", "13")
+    .attr("font-weight", "700")
+    .attr("fill", "#94a3b8")
+    .text("");
+  nodeEnter.append("text")
+    .attr("class", "node-label")
+    .attr("text-anchor", "middle")
+    .attr("font-size", "10")
+    .attr("font-weight", "600")
+    .attr("fill", "#cbd5e1")
+    .text(d => formatLabel(d));
+
+  // Restart simulation
+  _nodeMap = null;
+  startSimulation(W, H);
+  renderNodeStyles();
+  applyFilters();
+}
+
+function formatLabel(d) {
+  let s = (d.label || d.id).replace(/^memory:|^registry:|^gate:|^workflow:/, "");
+  if (d.type === "orchestrator") return "ORCH";
+  if (s.length > 18) s = s.slice(0, 17) + "..";
+  return s;
+}
+
+function startSimulation(W, H) {
+  if (_sim) _sim.stop();
+  const center = { x: W / 2, y: H / 2 };
+
+  // Pin master_orchestrator to center
+  state.graph.nodes.forEach(n => {
+    if (n.id === "master_orchestrator") { n.fx = center.x; n.fy = center.y; }
+  });
+
+  _sim = d3.forceSimulation(state.graph.nodes)
+    .force("link", d3.forceLink(state.graph.edges)
+      .id(d => d.id)
+      .distance(d => {
+        const kindBoost = d.kind === "selects" ? 130 : d.kind === "owns_gate" ? 90 : d.kind === "reads" ? 110 : d.kind === "includes" ? 80 : 100;
+        return kindBoost;
+      })
+      .strength(d => d.kind === "selects" ? 0.35 : 0.18))
+    .force("charge", d3.forceManyBody().strength(d => d.type === "orchestrator" ? -1200 : -160))
+    .force("center", d3.forceCenter(center.x, center.y).strength(0.04))
+    .force("collide", d3.forceCollide().radius(d => (d.radius || 14) + 4))
+    .alpha(0.9)
+    .on("tick", tick);
+}
+
+function restartSimulation() {
+  if (_sim) _sim.alpha(0.5).restart();
+}
+
+function tick() {
+  const svg = d3.select("#graph-svg");
+  svg.select("#graph-edges").selectAll("g.gedge line")
+    .attr("x1", d => (typeof d.source === "object" ? d.source.x : nodeMap()[d.source]?.x) || 0)
+    .attr("y1", d => (typeof d.source === "object" ? d.source.y : nodeMap()[d.source]?.y) || 0)
+    .attr("x2", d => (typeof d.target === "object" ? d.target.x : nodeMap()[d.target]?.x) || 0)
+    .attr("y2", d => (typeof d.target === "object" ? d.target.y : nodeMap()[d.target]?.y) || 0)
+    .attr("stroke", d => {
+      const s = (typeof d.source === "object" ? d.source : nodeMap()[d.source]);
+      const t = (typeof d.target === "object" ? d.target : nodeMap()[d.target]);
+      if (s && t && s.type === "orchestrator" && t.type === "agent" && state.selectedAgents.includes(t.id)) {
+        return "#3b82f6";
+      }
+      return "#1e293b";
+    })
+    .attr("stroke-width", d => {
+      const s = (typeof d.source === "object" ? d.source : nodeMap()[d.source]);
+      const t = (typeof d.target === "object" ? d.target : nodeMap()[d.target]);
+      if (s && t && s.type === "orchestrator" && t.type === "agent" && state.selectedAgents.includes(t.id)) return 2;
+      return 1;
+    });
+  svg.select("#graph-nodes").selectAll("g.gnode")
+    .attr("transform", d => `translate(${d.x || 0},${d.y || 0})`);
+  svg.select("#graph-nodes").selectAll("g.gnode .pulse-ring")
+    .attr("r", d => (d.radius || 14) + 4);
+  svg.select("#graph-nodes").selectAll("g.gnode .node-label")
+    .attr("y", d => (d.radius || 14) + 13);
+}
+
+function renderNodeStyles() {
+  const svg = d3.select("#graph-svg");
+  svg.select("#graph-nodes").selectAll("g.gnode").each(function(d) {
+    const el = d3.select(this);
+    const isAgent = d.type === "agent";
+    const status = isAgent ? (state.nodeStatus[d.id] || "not_started") : null;
+    const baseFill = isAgent ? (NODE_COLORS[status] || NODE_COLORS.not_started) : (TYPE_COLORS[d.type] || "#475569");
+
+    el.select(".main-circle")
+      .attr("r", d.radius || 14)
+      .attr("fill", baseFill)
+      .attr("stroke", state.selectedNode === d.id ? "#e2e8f0" :
+                       isAgent && status === "active" ? "#facc15" :
+                       isAgent && status === "fail"   ? "#ef4444" : "#0f172a")
+      .attr("stroke-width", state.selectedNode === d.id ? 3 : (isAgent && status === "active" ? 2.5 : 1.5))
+      .attr("opacity", () => {
+        if (!isAgent) return 0.95;
+        if (state.selectedAgents.length === 0) return 1;
+        return state.selectedAgents.includes(d.id) ? 1 : 0.35;
+      });
+
+    el.select(".pulse-ring")
+      .style("display", isAgent && status === "active" ? null : "none")
+      .attr("stroke", "#facc15");
+
+    el.select(".status-icon")
+      .text(isAgent ? (ICON_FOR_STATUS[status] || "") : "")
+      .attr("fill", status === "pass" ? "#052e16" : status === "warning" ? "#7c2d12" : status === "active" ? "#713f12" : status === "fail" ? "#7f1d1d" : "#94a3b8");
+
+    el.select(".node-label")
+      .attr("fill", () => {
+        if (!isAgent) return "#cbd5e1";
+        if (status === "not_started") return "#64748b";
+        if (status === "queued")      return "#93c5fd";
+        if (status === "active")      return "#fde68a";
+        if (status === "pass")        return "#86efac";
+        if (status === "warning")     return "#fdba74";
+        if (status === "fail")        return "#fca5a5";
+        return "#cbd5e1";
+      });
+  });
+}
+
+// ─── Gates ──────────────────────────────────────────────────────────────────
+function renderGates() {
+  const grid = document.getElementById("gates-grid");
+  grid.innerHTML = "";
+  let passCount = 0, failCount = 0;
+  ALL_GATES.forEach(gate => {
+    const status = state.gateStatus[gate] || "not_started";
+    if (status === "pass") passCount++;
+    if (status === "fail" || status === "blocked") failCount++;
+    const cls = GATE_CLASSES[status] || GATE_CLASSES.not_started;
+    const icon = GATE_ICONS[status] || ".";
+    const badge = document.createElement("div");
+    badge.className = `gate-badge ${cls} rounded px-2 py-1 text-xs flex items-center gap-1.5 cursor-pointer`;
+    badge.innerHTML = `<span class="font-mono text-xs w-3 text-center">${icon}</span><span class="truncate">${gate.replace(/_/g, ' ')}</span><span class="ml-auto font-mono text-xs opacity-60">${status}</span>`;
+    badge.onclick = () => selectNode(`gate:${gate}`);
+    grid.appendChild(badge);
+  });
+  document.getElementById("gate-summary").textContent = `${passCount}/${ALL_GATES.length} pass${failCount > 0 ? ` · ${failCount} fail` : ""}`;
+}
+
+// ─── Blockers / human approval / routing ────────────────────────────────────
+function renderBlockers() {
+  const sec = document.getElementById("blockers-section");
+  const list = document.getElementById("blockers-list");
+  if (state.blockers.length === 0) sec.classList.add("hidden");
+  else {
+    sec.classList.remove("hidden");
+    list.innerHTML = state.blockers.map(b =>
+      `<div class="text-xs text-red-300 flex gap-2">
+         <span class="font-mono text-red-500 font-semibold shrink-0">${escHtml(b.agent_id)}</span>
+         <span class="text-red-400">${escHtml(b.summary || b.reason || "")}</span>
+       </div>`
+    ).join("");
+  }
+  const humSec = document.getElementById("human-section");
+  const humList = document.getElementById("human-list");
+  if (state.humanReviews.length === 0) humSec.classList.add("hidden");
+  else {
+    humSec.classList.remove("hidden");
+    humList.innerHTML = state.humanReviews.map(h =>
+      `<div class="text-xs text-orange-300 flex gap-2">
+         <span class="font-mono text-orange-400 font-semibold shrink-0">${escHtml(h.agent_id || "workflow")}</span>
+         <span>${escHtml(h.reason || "")}</span>
+       </div>`
+    ).join("");
+  }
+}
+function renderRoutingStrip() {
+  const strip = document.getElementById("routing-strip");
+  if (!state.routingDecision) { strip.classList.add("hidden"); return; }
+  strip.classList.remove("hidden");
+  document.getElementById("routing-decision-label").textContent = state.routingDecision;
+  document.getElementById("routing-confidence-label").textContent = state.routingConfidence ? `conf ${state.routingConfidence.toFixed(2)}` : "";
+  document.getElementById("routing-reason").textContent = state.routingReason || "";
+  document.getElementById("claude-fallback-badge").classList.toggle("hidden", !state.requiresClaudeFallback);
+}
+
+// ─── Header ─────────────────────────────────────────────────────────────────
+function renderHeader() {
+  if (!state.workflowId) return;
+  document.getElementById("hdr-workflow").classList.remove("hidden");
+  document.getElementById("hdr-wf-name").textContent = state.workflowName || state.workflowId;
+  document.getElementById("hdr-routing").textContent = state.routingDecision ? `route:${state.routingDecision}` : "";
+  document.getElementById("hdr-risk").textContent = state.riskLevel;
+  document.getElementById("hdr-progress").textContent = `${state.completedAgents}/${state.totalAgents} agents`;
+  const pct = state.totalAgents > 0 ? (state.completedAgents / state.totalAgents) * 100 : 0;
+  document.getElementById("progress-bar-wrap").classList.remove("hidden");
+  document.getElementById("progress-bar").style.width = pct + "%";
+}
+
+// ─── Detail panel ───────────────────────────────────────────────────────────
+function selectNode(nodeId) {
+  state.selectedNode = nodeId;
+  renderNodeStyles();
+  renderDetailPanel(nodeId);
+}
+
+function renderDetailPanel(nodeId) {
+  const empty = document.getElementById("detail-empty");
+  const content = document.getElementById("detail-content");
+  empty.classList.add("hidden");
+  content.classList.remove("hidden");
+
+  // Memory or registry node
+  if (nodeId.startsWith("memory:") || nodeId.startsWith("registry:")) {
+    const [kind, name] = nodeId.split(":");
+    content.innerHTML = `
+      <div class="flex items-start gap-2 mb-3">
+        <div>
+          <div class="font-semibold text-slate-100">${escHtml(name)}</div>
+          <div class="text-xs text-slate-500 font-mono">${kind}</div>
+        </div>
+      </div>
+      <div class="text-xs text-slate-500">Loading…</div>`;
+    if (kind === "memory") {
+      fetch(`/api/memory/${name}`).then(r => r.json()).then(m => {
+        content.querySelector(".text-xs.text-slate-500").remove();
+        const pre = document.createElement("pre");
+        pre.className = "detail-pre text-slate-300";
+        pre.textContent = (m.content || "").slice(0, 12000);
+        content.appendChild(pre);
+      }).catch(() => {});
+    } else {
+      fetch("/api/state").then(r => r.json()).then(s => {
+        const count = (s.registries || {})[name];
+        content.innerHTML += `<div class="text-xs text-slate-400">${count != null ? count + " entries" : "(no data)"}</div>`;
+      });
+    }
+    return;
+  }
+
+  // Gate node
+  if (nodeId.startsWith("gate:")) {
+    const gateName = nodeId.split(":")[1];
+    const status = state.gateStatus[gateName] || "not_started";
+    content.innerHTML = `
+      <div class="flex items-start gap-2 mb-3">
+        <div>
+          <div class="font-semibold text-slate-100">Gate · ${escHtml(gateName)}</div>
+          <div class="text-xs text-slate-500 font-mono">${nodeId}</div>
+        </div>
+        <span class="ml-auto text-xs px-2 py-0.5 rounded-full font-medium ${GATE_CLASSES[status] || GATE_CLASSES.not_started}">${status}</span>
+      </div>
+      <div class="text-xs text-slate-400">Owning agent: see AGENT_REGISTRY.md for required_gates.</div>`;
+    return;
+  }
+
+  // Workflow node
+  if (nodeId.startsWith("workflow:")) {
+    const wfName = nodeId.split(":")[1];
+    content.innerHTML = `
+      <div class="flex items-start gap-2 mb-3">
+        <div>
+          <div class="font-semibold text-slate-100">Workflow · ${escHtml(wfName)}</div>
+          <div class="text-xs text-slate-500 font-mono">${nodeId}</div>
+        </div>
+      </div>
+      <div class="text-xs text-slate-400">See WORKFLOW_REGISTRY.md for participating agents and gates.</div>`;
+    return;
+  }
+
+  // Orchestrator
+  if (nodeId === "master_orchestrator") {
+    content.innerHTML = `
+      <div class="flex items-start gap-2 mb-3">
+        <div>
+          <div class="font-semibold text-slate-100">Master Orchestrator</div>
+          <div class="text-xs text-slate-500 font-mono">${nodeId}</div>
+        </div>
+      </div>
+      <div class="text-xs text-slate-400 space-y-2">
+        <p>Central dispatcher. Reads AGENT_REGISTRY.md + ROUTING_GUIDE.md to select agents via the Ollama semantic router.</p>
+        <p>Falls back to deterministic keyword routing when Ollama is unavailable.</p>
+      </div>`;
+    return;
+  }
+
+  // Agent node
+  const agentId = nodeId;
+  const details = state.agentDetails[agentId];
+  const status = state.nodeStatus[agentId] || "not_started";
+  const reg = state.agentRegistry[agentId] || {};
+  const BADGE_CLS = {
+    not_started: "bg-slate-700 text-slate-400",
+    queued:      "bg-blue-900 text-blue-300",
+    active:      "bg-yellow-800 text-yellow-300",
+    pass:        "bg-green-900 text-green-300",
+    warning:     "bg-orange-900 text-orange-300",
+    fail:        "bg-red-900 text-red-300",
+    blocked:     "bg-red-950 text-red-200",
+    inconclusive:"bg-violet-900 text-violet-300",
+  };
+  let html = `
+    <div class="flex items-start gap-2 mb-3">
+      <div>
+        <div class="flex items-center gap-2">
+          <span class="font-semibold text-slate-100">${escHtml(reg.name || toDisplay(agentId))}</span>
+          <span class="text-xs px-2 py-0.5 rounded-full font-medium ${BADGE_CLS[status] || BADGE_CLS.not_started}">${status}</span>
+        </div>
+        <div class="text-xs text-slate-500 font-mono mt-0.5">${escHtml(agentId)}</div>
+      </div>
+      <div class="ml-auto text-right">
+        <div class="text-xs text-slate-500">confidence</div>
+        <div class="text-sm font-mono text-slate-200">${details && details.confidence != null ? Math.round(details.confidence * 100) + "%" : "—"}</div>
+      </div>
+    </div>`;
+  if (reg.purpose) {
+    html += `<div class="mb-3"><div class="text-xs font-semibold text-slate-500 uppercase tracking-wider mb-1">Purpose</div>
+              <div class="text-xs text-slate-400">${escHtml(reg.purpose)}</div></div>`;
+  }
+  if (details && details.summary) {
+    html += `<div class="mb-3"><div class="text-xs font-semibold text-slate-500 uppercase tracking-wider mb-1">Summary</div>
+              <div class="text-sm text-slate-300 leading-relaxed">${escHtml(details.summary)}</div></div>`;
+  }
+  if (details && details.findings && details.findings.length > 0) {
+    html += `<div class="mb-3"><div class="text-xs font-semibold text-slate-500 uppercase tracking-wider mb-1">Findings (${details.findings.length})</div>
+              <div class="space-y-1.5">` +
+      details.findings.map(f => {
+        const SEV = {
+          critical: "bg-red-950 text-red-300 border-red-800",
+          high:     "bg-red-900 text-red-300 border-red-700",
+          medium:   "bg-orange-900 text-orange-300 border-orange-700",
+          low:      "bg-yellow-900 text-yellow-300 border-yellow-700",
+          info:     "bg-slate-700 text-slate-300 border-slate-600",
+        };
+        const cls = SEV[f.severity] || SEV.info;
+        return `<div class="rounded border ${cls} p-2">
+          <div class="flex items-center gap-1.5 mb-0.5">
+            <span class="text-xs font-semibold uppercase">${escHtml(f.severity || 'info')}</span>
+            <span class="text-xs font-medium">${escHtml(f.title || '')}</span>
+          </div>
+          ${f.description ? `<div class="text-xs opacity-80">${escHtml(f.description)}</div>` : ''}
+          ${f.required_action ? `<div class="text-xs mt-1 font-medium opacity-90">-> ${escHtml(f.required_action)}</div>` : ''}
+        </div>`;
+      }).join("") + "</div></div>";
+  }
+  if (details && details.gate_updates && details.gate_updates.length > 0) {
+    html += `<div class="mb-3"><div class="text-xs font-semibold text-slate-500 uppercase tracking-wider mb-1">Gate updates</div>
+              <div class="space-y-1">` +
+      details.gate_updates.map(gu => {
+        const cls = GATE_CLASSES[gu.new_status] || GATE_CLASSES.not_started;
+        return `<div class="flex items-center gap-2 text-xs">
+          <span class="${cls} rounded px-1.5 py-0.5">${escHtml(gu.new_status)}</span>
+          <span class="text-slate-300 font-mono">${escHtml(gu.gate)}</span>
+          ${gu.reason ? `<span class="text-slate-500 truncate">— ${escHtml(gu.reason)}</span>` : ''}
+        </div>`;
+      }).join("") + "</div></div>";
+  }
+  if (details && details.human_review_required) {
+    html += `<div class="mb-3"><div class="text-xs font-semibold text-orange-400 uppercase tracking-wider mb-1">Human review required</div>
+              <div class="text-sm text-orange-300">${escHtml(details.human_review_reason || 'Required')}</div></div>`;
+  }
+  // Agent's recent events from the live transcript
+  const evs = state.agentEvents[agentId] || [];
+  if (evs.length > 0) {
+    html += `<div class="mb-3"><div class="text-xs font-semibold text-slate-500 uppercase tracking-wider mb-1">Recent events</div>
+              <div class="space-y-0.5">` +
+      evs.slice(-12).map(e => `<div class="text-xs font-mono text-slate-500">${escHtml(e.type)}</div>`).join("") +
+      `</div></div>`;
+  }
+  content.innerHTML = html;
+}
+
+// ─── Runs / transcripts / memory loaders ────────────────────────────────────
+async function refreshRunHistory() {
+  try {
+    const runs = await fetch("/api/runs").then(r => r.json());
+    document.getElementById("run-history-body").innerHTML = runs.map(r => {
+      const badge = r.blocked
+        ? `<span class="text-red-400">blocked</span>`
+        : r.human_review_required
+          ? `<span class="text-orange-400">needs review</span>`
+          : `<span class="text-green-400">ok</span>`;
+      return `<tr class="border-b border-slate-800 hover:bg-slate-800/50 cursor-pointer" onclick="loadRun('${escAttr(r.workflow)}','${escAttr(r.ts)}')">
+        <td class="py-1.5 pr-3 font-mono text-slate-300">${escHtml(r.workflow)}</td>
+        <td class="py-1.5 pr-3 text-slate-500">${escHtml(r.ts)}</td>
+        <td class="py-1.5 pr-3 text-slate-400">${r.agent_count || "—"}</td>
+        <td class="py-1.5 pr-3">${badge}</td>
+        <td class="py-1.5 text-slate-600 font-mono text-[10px] truncate" style="max-width:160px">${escHtml(r.path || "")}</td>
+      </tr>`;
+    }).join("");
+  } catch(e) {}
+}
+
+async function loadRun(workflow, ts) {
+  try {
+    const result = await fetch(`/api/run/${workflow}/${ts}`).then(r => r.json());
+    if (result.gate_status) { Object.assign(state.gateStatus, result.gate_status); renderGates(); }
+    if (result.agent_outputs) {
+      result.agent_outputs.forEach(ao => {
+        state.nodeStatus[ao.agent_id] = ao.status;
+        state.agentDetails[ao.agent_id] = {
+          status: ao.status,
+          confidence: ao.confidence,
+          summary: ao.summary,
+          findings: ao.findings || [],
+          gate_updates: ao.gate_updates || [],
+          human_review_required: ao.human_review_required,
+          human_review_reason: ao.human_review_reason,
+        };
+      });
+      state.selectedAgents = result.agent_outputs.map(ao => ao.agent_id);
+      renderNodeStyles();
+    }
+    const plan = result.plan || {};
+    state.routingDecision = plan.routing_decision || "";
+    state.routingConfidence = plan.routing_confidence || 0;
+    state.routingReason = plan.routing_reason || "";
+    state.requiresClaudeFallback = !!plan.requires_claude_fallback;
+    renderRoutingStrip();
+    switchTab("graph");
+  } catch(e) {}
+}
+
+async function loadTranscriptList() {
+  try {
+    const list = await fetch("/api/transcripts").then(r => r.json());
+    const sel = document.getElementById("transcript-select");
+    sel.innerHTML = '<option value="">(select run)</option>' + list.map(t =>
+      `<option value="${escAttr(t.workflow)}|${escAttr(t.ts)}">${escHtml(t.workflow)} · ${escHtml(t.ts)} (${t.size}B)</option>`
+    ).join("");
+    sel.onchange = () => {
+      if (!sel.value) return;
+      const [w, ts] = sel.value.split("|");
+      loadTranscript(w, ts);
+    };
+  } catch(e) {}
+}
+
+async function loadTranscript(workflow, ts) {
+  try {
+    const data = await fetch(`/api/transcripts/${workflow}/${ts}`).then(r => r.json());
+    document.getElementById("transcript-meta").textContent = `${data.event_count} events`;
+    const body = document.getElementById("transcript-body");
+    body.innerHTML = (data.events || []).map(e => {
+      const color = {
+        routing_started: "text-indigo-300", routing_completed: "text-indigo-300",
+        ollama_router_started: "text-cyan-400", ollama_router_completed: "text-cyan-400",
+        claude_fallback_started: "text-amber-400", claude_fallback_completed: "text-amber-400",
+        workflow_started: "text-blue-300", workflow_completed: "text-blue-300",
+        agent_queued: "text-blue-500", agent_started: "text-yellow-300", agent_completed: "text-green-400",
+        agent_error: "text-red-400", gate_updated: "text-orange-300",
+        memory_update_proposed: "text-cyan-300", memory_update_applied: "text-cyan-200",
+        blocker_detected: "text-red-400", human_approval_requested: "text-orange-400",
+      }[e.type] || "text-slate-400";
+      const detail = Object.entries(e)
+        .filter(([k]) => !["ts","type","workflow_id"].includes(k))
+        .slice(0, 4)
+        .map(([k,v]) => `<span class="text-slate-600">${escHtml(k)}=</span><span class="text-slate-400">${escHtml(JSON.stringify(v).slice(0, 80))}</span>`)
+        .join(" ");
+      return `<div class="font-mono text-[11px] flex gap-2">
+        <span class="text-slate-600 shrink-0">${escHtml((e.ts || "").slice(11, 19))}</span>
+        <span class="${color} font-semibold shrink-0 w-44">${escHtml(e.type)}</span>
+        <span class="text-slate-500 truncate">${detail}</span>
+      </div>`;
+    }).join("");
+  } catch(e) {}
+}
+
+async function loadMemoryList() {
+  try {
+    const data = await fetch("/api/state").then(r => r.json());
+    const list = document.getElementById("memory-file-list");
+    const items = data.memory || [];
+    state.memoryFiles = items;
+    list.innerHTML = items.map(m =>
+      `<button class="block w-full text-left px-2 py-1 text-xs rounded hover:bg-slate-800/60 text-slate-300" onclick="showMemoryFile('${escAttr(m.name)}')">
+        <div class="font-medium">${escHtml(m.name)}</div>
+        <div class="text-[10px] text-slate-500">${escHtml(m.status)} · ${escHtml(m.last_updated || '')}</div>
+      </button>`
+    ).join("");
+  } catch(e) {}
+}
+
+async function showMemoryFile(name) {
+  try {
+    const data = await fetch(`/api/memory/${name}`).then(r => r.json());
+    document.getElementById("memory-file-content").textContent = data.content || "";
+  } catch(e) {}
+}
+
+// ─── Tooltip ─────────────────────────────────────────────────────────────────
+function showTooltip(event, d) {
+  let html = `<div class="font-semibold text-slate-200 mb-1">${escHtml(d.label || d.id)}</div>`;
+  html += `<div class="text-slate-500 font-mono text-xs mb-2">${escHtml(d.id)} · ${escHtml(d.type)}</div>`;
+  if (d.type === "agent") {
+    const status = state.nodeStatus[d.id] || "not_started";
+    html += `<div class="text-xs">Status: <span class="font-medium">${status}</span></div>`;
+    const reg = state.agentRegistry[d.id];
+    if (reg && reg.purpose) html += `<div class="text-xs mt-1 text-slate-400">${escHtml(reg.purpose.slice(0, 140))}</div>`;
+  }
+  html += `<div class="text-xs text-slate-600 mt-1.5 italic">click to inspect</div>`;
+  const tt = document.getElementById("tooltip");
+  tt.innerHTML = html;
+  tt.style.display = "block";
+  moveTooltip(event);
+}
+function moveTooltip(event) {
+  const tt = document.getElementById("tooltip");
+  const x = event.clientX + 16, y = event.clientY + 16;
+  tt.style.left  = ((x + 320 > window.innerWidth) ? event.clientX - 336 : x) + "px";
+  tt.style.top   = y + "px";
+}
+function hideTooltip() { document.getElementById("tooltip").style.display = "none"; }
+
+// ─── SSE ────────────────────────────────────────────────────────────────────
+function setLive(connected) {
+  const dot = document.getElementById("live-dot");
+  const label = document.getElementById("live-label");
+  if (connected) { dot.className = "w-2 h-2 rounded-full bg-green-400"; label.className = "text-xs text-green-400"; label.textContent = "live"; }
+  else { dot.className = "w-2 h-2 rounded-full bg-red-500"; label.className = "text-xs text-red-400"; label.textContent = "disconnected"; }
+}
+
+function handleEvent(raw) {
+  let ev;
+  try { ev = JSON.parse(raw); } catch { return; }
+  // Track per-agent events
+  if (ev.agent_id) {
+    if (!state.agentEvents[ev.agent_id]) state.agentEvents[ev.agent_id] = [];
+    state.agentEvents[ev.agent_id].push(ev);
+  }
+  switch (ev.type) {
+    case "workflow_started": {
+      state.workflowId = ev.workflow_id;
+      state.workflowName = ev.workflow_name || ev.workflow_id;
+      state.riskLevel = ev.risk_level || "";
+      state.routingDecision = ev.routing_decision || "";
+      state.routingConfidence = ev.routing_confidence || 0;
+      state.requiresClaudeFallback = !!ev.requires_claude_fallback;
+      state.selectedAgents = ev.selected_agents || [];
+      state.totalAgents = (ev.selected_agents || []).length;
+      state.completedAgents = 0;
+      state.blockers = [];
+      state.humanReviews = [];
+      state.agentEvents = {};
+      // Reset all agent node statuses
+      Object.keys(state.nodeStatus).forEach(k => delete state.nodeStatus[k]);
+      (state.graph.nodes || []).forEach(n => {
+        if (n.type === "agent") {
+          state.nodeStatus[n.id] = state.selectedAgents.includes(n.id) ? "queued" : "not_started";
+        }
+      });
+      (ev.required_gates || []).forEach(g => { state.gateStatus[g] = "not_started"; });
+      renderNodeStyles();
+      renderGates();
+      renderBlockers();
+      renderHeader();
+      renderRoutingStrip();
+      break;
+    }
+    case "routing_completed": {
+      state.routingDecision = ev.routing_decision || state.routingDecision;
+      state.routingConfidence = ev.routing_confidence || state.routingConfidence;
+      state.routingReason = ev.routing_reason || "";
+      state.requiresClaudeFallback = !!ev.requires_claude_fallback;
+      state.selectedAgents = ev.selected_agents || state.selectedAgents;
+      renderRoutingStrip();
+      renderHeader();
+      renderNodeStyles();
+      break;
+    }
+    case "agent_queued": {
+      state.nodeStatus[ev.agent_id] = "queued";
+      renderNodeStyles();
+      break;
+    }
+    case "agent_started": {
+      state.nodeStatus[ev.agent_id] = "active";
+      renderNodeStyles();
+      renderHeader();
+      if (state.selectedNode === ev.agent_id) renderDetailPanel(ev.agent_id);
+      break;
+    }
+    case "agent_completed": {
+      state.nodeStatus[ev.agent_id] = ev.status;
+      state.completedAgents++;
+      state.agentDetails[ev.agent_id] = {
+        status: ev.status, confidence: ev.confidence, summary: ev.summary,
+        findings: ev.findings || [], gate_updates: ev.gate_updates || [],
+        human_review_required: ev.human_review_required,
+        human_review_reason: ev.human_review_reason || "",
+      };
+      if (ev.human_review_required) state.humanReviews.push({ agent_id: ev.agent_id, reason: ev.human_review_reason });
+      if (ev.blocks_pipeline) state.blockers.push({ agent_id: ev.agent_id, summary: ev.summary });
+      renderNodeStyles();
+      renderHeader();
+      renderBlockers();
+      if (state.selectedNode === ev.agent_id) renderDetailPanel(ev.agent_id);
+      break;
+    }
+    case "agent_error": {
+      state.nodeStatus[ev.agent_id] = "fail";
+      state.blockers.push({ agent_id: ev.agent_id, summary: ev.error_message });
+      renderNodeStyles();
+      renderBlockers();
+      break;
+    }
+    case "gate_updated": {
+      state.gateStatus[ev.gate] = ev.new_status;
+      renderGates();
+      break;
+    }
+    case "blocker_detected": {
+      state.blockers.push({ agent_id: ev.agent_id, reason: ev.reason });
+      renderBlockers();
+      break;
+    }
+    case "human_approval_requested": {
+      state.humanReviews.push({ agent_id: ev.agent_id || "workflow", reason: ev.reason });
+      renderBlockers();
+      break;
+    }
+    case "workflow_completed": {
+      if (ev.gate_status) Object.assign(state.gateStatus, ev.gate_status);
+      renderGates();
+      renderBlockers();
+      renderHeader();
+      refreshRunHistory();
+      break;
+    }
+  }
+}
+
+function connectSSE() {
+  const es = new EventSource("/events/stream");
+  es.onopen = () => setLive(true);
+  es.onmessage = e => { if (!e.data || e.data.startsWith(":")) return; handleEvent(e.data); };
+  es.onerror = () => { setLive(false); es.close(); setTimeout(connectSSE, 3000); };
+}
+
+// ─── Utility ─────────────────────────────────────────────────────────────────
+function escHtml(s) {
+  return String(s == null ? "" : s).replace(/&/g,"&amp;").replace(/</g,"&lt;").replace(/>/g,"&gt;").replace(/"/g,"&quot;");
+}
+function escAttr(s) { return escHtml(s).replace(/'/g, "&#39;"); }
+function toDisplay(id) { return String(id).split('_').map(w => w[0].toUpperCase() + w.slice(1)).join(' '); }
+
+// ─── Init ─────────────────────────────────────────────────────────────────────
+(async () => {
+  await loadGraph();
+  // Populate gates from the most recent run, if any
+  try {
+    const s = await fetch("/api/state").then(r => r.json());
+    if (s.gates) Object.assign(state.gateStatus, s.gates);
+    renderGates();
+  } catch(e) {}
+  refreshRunHistory();
+  connectSSE();
+})();
+</script>
+</body>
+</html>

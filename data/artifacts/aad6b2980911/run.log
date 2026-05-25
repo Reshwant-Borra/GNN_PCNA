@@ -1,0 +1,3 @@
+[docker_packager] scanning repo for bundle...
+[docker_packager] including 90 files -> gnn-pcna-bundle-20260524-223239.zip
+[docker_packager] bundle -> /workspace/GNN_PCNA/data/artifacts/aad6b2980911/gnn-pcna-bundle-20260524-223239.zip

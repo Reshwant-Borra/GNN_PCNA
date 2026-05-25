@@ -1,0 +1,87 @@
+========================================================================
+ResearchOS routing evaluation
+========================================================================
+Backend:        ollama+keyword (timeout 8.0s)
+Cases:          70
+Avg latency:    2020 ms / prompt
+
+Overall:
+  exact pass:     64/70 ( 91.4%)
+  partial pass:   65/70 ( 92.9%)
+  fail:            5/70 (  7.1%)
+  forbidden:       2 case(s) selected a forbidden agent
+
+Fallback / approval correctness:
+  claude_fallback flag:   6/6 (100.0%)
+  human_review flag:      9/9 (100.0%)
+  high-risk/destructive prompts with NO forbidden: PASS
+
+Per category:
+  category                       exact   partial   avg #agents   forbid
+  artifact_provenance          3/3   100.0%    3/3     7.3           0
+  biological_realism           1/2    50.0%    1/2     7.0           0
+  claim_audit                  3/3   100.0%    3/3    10.0           0
+  code_review                  3/3   100.0%    3/3     6.0           0
+  compound_ambiguous           4/5    80.0%    4/5     8.8           0
+  compute_planning             3/3   100.0%    3/3     8.7           0
+  contradiction_detection      3/3   100.0%    3/3    10.7           0
+  dashboard_status_debug       3/4    75.0%    3/4     5.8           1
+  data_leakage                 4/4   100.0%    4/4     8.0           0
+  dataset_audit                3/3   100.0%    3/3     5.3           0
+  destructive_dangerous        3/3   100.0%    3/3    10.3           0
+  document_ingestion           3/3   100.0%    3/3     6.3           0
+  figure_generation            3/3   100.0%    3/3     6.0           0
+  literature                   4/5    80.0%    4/5     7.0           1
+  md_validation                4/4   100.0%    4/4     7.8           0
+  metric_verification          3/3   100.0%    3/3     6.0           0
+  model_training               2/3    66.7%    3/3     9.0           0
+  paper_writing                3/3   100.0%    3/3     9.3           0
+  preprocessing_audit          3/3   100.0%    3/3     5.0           0
+  reviewer_simulation          1/2    50.0%    1/2     7.0           0
+  statistical_analysis         2/2   100.0%    2/2     4.5           0
+  testing_environment          3/3   100.0%    3/3     3.7           0
+
+Targets:
+  simple exact >= 90%:       PASS (got 92.2%)
+  compound partial >= 95%:   FAIL (got 83.3%)
+  no forbidden on high-risk: PASS
+  fallback >= 90%:           PASS (got 100.0%)
+
+Worst 6 failures:
+  ----------------------------------------------------------------------
+  [lit-002] literature
+    prompt:   What's the recent literature on cryptic pockets?
+    selected: context_source_truth, literature_web, document_knowledge_ingestion, provenance_artifacts, validation_skeptic, biological_realism, metrics_statistics, contradiction_hunter
+    FORBIDDEN: validation_skeptic
+    routing:  semantic / conf 0.95
+  ----------------------------------------------------------------------
+  [stat-001b] dashboard_status_debug
+    prompt:   What's the latest checkpoint?
+    selected: context_source_truth, provenance_artifacts, leakage_split, dataset_integrity, preprocessing_auditor, model_training, metrics_statistics, contradiction_hunter
+    FORBIDDEN: model_training
+    risk:     got 'high'
+    routing:  semantic / conf 0.95
+  ----------------------------------------------------------------------
+  [comp-c002] compound_ambiguous
+    prompt:   Find papers on cryptic pockets and update the related work section
+    selected: context_source_truth, validation_skeptic, biological_realism, metrics_statistics, provenance_artifacts, contradiction_hunter
+    MISSING:  literature_web, paper_claim
+    routing:  keyword_only / conf 0.00
+  ----------------------------------------------------------------------
+  [bio-002] biological_realism
+    prompt:   Are the predicted residues near known AOH1996 contacts?
+    selected: context_source_truth, literature_web, dataset_integrity, metrics_statistics, provenance_artifacts, preprocessing_auditor, leakage_split
+    MISSING:  biological_realism
+    routing:  semantic / conf 0.85
+  ----------------------------------------------------------------------
+  [rev-002] reviewer_simulation
+    prompt:   Simulate reviewer concerns about the MD evidence
+    selected: context_source_truth, validation_skeptic, biological_realism, contradiction_hunter, paper_claim, metrics_statistics, provenance_artifacts
+    MISSING:  reviewer_collaboration
+    routing:  semantic / conf 0.95
+  ----------------------------------------------------------------------
+  [train-003] model_training
+    prompt:   Show me the training history for the v3 checkpoint
+    selected: context_source_truth, leakage_split, dataset_integrity, preprocessing_auditor, model_training, metrics_statistics, provenance_artifacts, contradiction_hunter
+    risk:     got 'high'
+    routing:  keyword_only / conf 0.00

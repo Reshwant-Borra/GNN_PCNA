@@ -1,0 +1,50 @@
+{
+  "kind": "bundle",
+  "created_at": "2026-05-24T22:32:42.137122+00:00",
+  "repo_root": "/workspace/GNN_PCNA",
+  "artifacts": [
+    {
+      "name": "gnn-pcna-bundle-20260524-223239.zip",
+      "path": "data/artifacts/aad6b2980911/gnn-pcna-bundle-20260524-223239.zip",
+      "kind": "zip",
+      "bytes": 109368
+    }
+  ],
+  "metadata": {
+    "file_count": 90,
+    "uncompressed_bytes": 255341,
+    "compressed_bytes": 109368,
+    "exclude_dirs": [
+      ".git",
+      ".venv",
+      "__pycache__",
+      "checkpoints",
+      "data/artifacts",
+      "data/cryptosite",
+      "data/graphs",
+      "data/pcna",
+      "data/processed",
+      "data/raw",
+      "data/trajectories",
+      "node_modules",
+      "reports",
+      "venv"
+    ],
+    "exclude_globs": [
+      "*.docx",
+      "*.dcd",
+      "*.xtc",
+      "*.gro",
+      "*.cif",
+      "*.pdb",
+      "*.pt",
+      "*.zip",
+      "*.tar",
+      "*.tar.gz",
+      "*.tmp",
+      "*.pyc",
+      "*.log"
+    ],
+    "large_ckpt_threshold": 52428800
+  }
+}

@@ -1,0 +1,212 @@
+{
+  "plan": {
+    "request_summary": "Research how Graph Neural Networks work and find PubMed articles on this topic",
+    "intents": [
+      "general"
+    ],
+    "risk_level": "medium",
+    "selected_agents": [
+      "context_source_truth"
+    ],
+    "required_gates": [],
+    "context_packet": {
+      "task": "Research how Graph Neural Networks work and find PubMed articles on this topic",
+      "intents": [
+        "general"
+      ],
+      "risk_level": "medium",
+      "memory_files": [
+        "C:\\Users\\reshw\\ResearchOS\\research_os_memory\\PROJECT_CANONICAL_STATUS.md"
+      ],
+      "registry_entries": {},
+      "repo_files": [],
+      "artifacts": [],
+      "known_risks": [],
+      "allowed_actions": [],
+      "forbidden_actions": [],
+      "expected_output_schema": "AgentOutput",
+      "prior_agent_outputs": []
+    },
+    "actions": [
+      "Run agents in order: context_source_truth"
+    ],
+    "blocked": false,
+    "block_reason": "",
+    "human_review_required": false,
+    "human_review_reason": "",
+    "expected_outputs": [
+      "AgentOutput per agent",
+      "OrchestrationPlan JSON"
+    ]
+  },
+  "agent_outputs": [
+    {
+      "agent": "Context and Source-of-Truth",
+      "agent_id": "context_source_truth",
+      "task": "Research how Graph Neural Networks work and find PubMed articles on this topic",
+      "status": "warning",
+      "confidence": 0.9,
+      "summary": "9 of 9 canonical files present; 4 need review. git=6efbaf4 branch=agents dirty=True.",
+      "evidence_used": [
+        {
+          "type": "memory",
+          "id": "PROJECT_CANONICAL_STATUS.md",
+          "path": "C:\\Users\\reshw\\ResearchOS\\research_os_memory\\PROJECT_CANONICAL_STATUS.md",
+          "description": "canonical state"
+        },
+        {
+          "type": "memory",
+          "id": "CURRENT_CLAIMS.md",
+          "path": "C:\\Users\\reshw\\ResearchOS\\research_os_memory\\CURRENT_CLAIMS.md",
+          "description": "canonical state"
+        },
+        {
+          "type": "memory",
+          "id": "KNOWN_BUGS_AND_RISKS.md",
+          "path": "C:\\Users\\reshw\\ResearchOS\\research_os_memory\\KNOWN_BUGS_AND_RISKS.md",
+          "description": "canonical state"
+        },
+        {
+          "type": "memory",
+          "id": "HUMAN_DECISIONS.md",
+          "path": "C:\\Users\\reshw\\ResearchOS\\research_os_memory\\HUMAN_DECISIONS.md",
+          "description": "canonical state"
+        },
+        {
+          "type": "memory",
+          "id": "VALIDATION_STATUS.md",
+          "path": "C:\\Users\\reshw\\ResearchOS\\research_os_memory\\VALIDATION_STATUS.md",
+          "description": "canonical state"
+        },
+        {
+          "type": "memory",
+          "id": "DATASET_REGISTRY.md",
+          "path": "C:\\Users\\reshw\\ResearchOS\\research_os_memory\\DATASET_REGISTRY.md",
+          "description": "canonical state"
+        },
+        {
+          "type": "memory",
+          "id": "MODEL_REGISTRY.md",
+          "path": "C:\\Users\\reshw\\ResearchOS\\research_os_memory\\MODEL_REGISTRY.md",
+          "description": "canonical state"
+        },
+        {
+          "type": "memory",
+          "id": "COMPUTE_REGISTRY.md",
+          "path": "C:\\Users\\reshw\\ResearchOS\\research_os_memory\\COMPUTE_REGISTRY.md",
+          "description": "canonical state"
+        },
+        {
+          "type": "memory",
+          "id": "REVIEWER_RISK_REGISTER.md",
+          "path": "C:\\Users\\reshw\\ResearchOS\\research_os_memory\\REVIEWER_RISK_REGISTER.md",
+          "description": "canonical state"
+        }
+      ],
+      "findings": [
+        {
+          "finding_id": "CONTEXT_SOURCE_TRUTH-001",
+          "severity": "medium",
+          "title": "DATASET_REGISTRY.md status=needs_review",
+          "description": "Last updated 2026-05-24T19:05:16Z \u2014 content should be re-confirmed.",
+          "evidence": [],
+          "affected_claims": [],
+          "affected_artifacts": [],
+          "required_action": "Have an authoritative agent refresh DATASET_REGISTRY.md and set status=current.",
+          "blocks_pipeline": false
+        },
+        {
+          "finding_id": "CONTEXT_SOURCE_TRUTH-002",
+          "severity": "medium",
+          "title": "MODEL_REGISTRY.md status=needs_review",
+          "description": "Last updated 2026-05-24T19:05:16Z \u2014 content should be re-confirmed.",
+          "evidence": [],
+          "affected_claims": [],
+          "affected_artifacts": [],
+          "required_action": "Have an authoritative agent refresh MODEL_REGISTRY.md and set status=current.",
+          "blocks_pipeline": false
+        },
+        {
+          "finding_id": "CONTEXT_SOURCE_TRUTH-003",
+          "severity": "medium",
+          "title": "COMPUTE_REGISTRY.md status=needs_review",
+          "description": "Last updated 2026-05-24T19:05:16Z \u2014 content should be re-confirmed.",
+          "evidence": [],
+          "affected_claims": [],
+          "affected_artifacts": [],
+          "required_action": "Have an authoritative agent refresh COMPUTE_REGISTRY.md and set status=current.",
+          "blocks_pipeline": false
+        },
+        {
+          "finding_id": "CONTEXT_SOURCE_TRUTH-004",
+          "severity": "medium",
+          "title": "REVIEWER_RISK_REGISTER.md status=needs_review",
+          "description": "Last updated 2026-05-24T19:05:16Z \u2014 content should be re-confirmed.",
+          "evidence": [],
+          "affected_claims": [],
+          "affected_artifacts": [],
+          "required_action": "Have an authoritative agent refresh REVIEWER_RISK_REGISTER.md and set status=current.",
+          "blocks_pipeline": false
+        },
+        {
+          "finding_id": "CONTEXT_SOURCE_TRUTH-005",
+          "severity": "low",
+          "title": "Working tree is dirty",
+          "description": "1 modified, 20 untracked. Provenance for any outputs produced now will record git_dirty=true.",
+          "evidence": [],
+          "affected_claims": [],
+          "affected_artifacts": [],
+          "required_action": "",
+          "blocks_pipeline": false
+        }
+      ],
+      "risks": [],
+      "required_actions": [],
+      "gate_updates": [],
+      "artifacts_created": [],
+      "artifacts_updated": [],
+      "artifacts_to_mark_stale": [],
+      "claims_supported": [],
+      "claims_weakened": [],
+      "claims_contradicted": [],
+      "human_review_required": false,
+      "human_review_reason": "",
+      "updates_to_memory": [],
+      "next_recommended_agents": [
+        "contradiction_hunter",
+        "provenance_artifacts"
+      ],
+      "machine_readable_notes": {
+        "git": {
+          "inside_repo": true,
+          "commit": "6efbaf40a90035048b2e91b1b423e1e47bd4d30e",
+          "short_commit": "6efbaf4",
+          "branch": "agents",
+          "dirty": true,
+          "remote": "https://github.com/Reshwant-Borra/GNN_PCNA.git",
+          "untracked_count": 20,
+          "modified_count": 1,
+          "error": ""
+        }
+      }
+    }
+  ],
+  "gate_status": {},
+  "blocked": false,
+  "block_reason": "",
+  "human_review_required": false,
+  "human_review_reasons": [],
+  "applied_memory_updates": [],
+  "pending_memory_updates": [],
+  "git": {
+    "inside_repo": true,
+    "commit": "6efbaf40a90035048b2e91b1b423e1e47bd4d30e",
+    "short_commit": "6efbaf4",
+    "branch": "agents",
+    "dirty": true,
+    "remote": "https://github.com/Reshwant-Borra/GNN_PCNA.git",
+    "untracked_count": 20,
+    "modified_count": 1,
+    "error": ""
+  }
+}

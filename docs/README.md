@@ -16,6 +16,7 @@ The system should behave like a conservative autonomous research lab with intern
 8. `06_IMPLEMENTATION_ROADMAP.md`
 9. `07_CLAUDE_CODE_HANDOFF.md`
 10. `08_PROJECT_SPECIFIC_GNN_MD_RULES.md`
+11. `10_DASHBOARD.md` — local monitoring dashboard
 
 ## Folder Map
 

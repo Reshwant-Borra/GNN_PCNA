@@ -1,0 +1,48 @@
+========================================================================
+ResearchOS routing evaluation
+========================================================================
+Backend:        ollama+keyword (timeout 15.0s)
+Cases:          70
+Avg latency:    1910 ms / prompt
+
+Overall:
+  exact pass:     70/70 (100.0%)
+  partial pass:   70/70 (100.0%)
+  fail:            0/70 (  0.0%)
+  forbidden:       0 case(s) selected a forbidden agent
+
+Fallback / approval correctness:
+  claude_fallback flag:   6/6 (100.0%)
+  human_review flag:      9/9 (100.0%)
+  high-risk/destructive prompts with NO forbidden: PASS
+
+Per category:
+  category                       exact   partial   avg #agents   forbid
+  artifact_provenance          3/3   100.0%    3/3     7.3           0
+  biological_realism           2/2   100.0%    2/2     6.5           0
+  claim_audit                  3/3   100.0%    3/3    10.0           0
+  code_review                  3/3   100.0%    3/3     6.0           0
+  compound_ambiguous           5/5   100.0%    5/5     9.2           0
+  compute_planning             3/3   100.0%    3/3     7.7           0
+  contradiction_detection      3/3   100.0%    3/3    10.0           0
+  dashboard_status_debug       4/4   100.0%    4/4     4.8           0
+  data_leakage                 4/4   100.0%    4/4     8.2           0
+  dataset_audit                3/3   100.0%    3/3     5.7           0
+  destructive_dangerous        3/3   100.0%    3/3     9.3           0
+  document_ingestion           3/3   100.0%    3/3     6.3           0
+  figure_generation            3/3   100.0%    3/3     5.7           0
+  literature                   5/5   100.0%    5/5     6.8           0
+  md_validation                4/4   100.0%    4/4     7.5           0
+  metric_verification          3/3   100.0%    3/3     6.0           0
+  model_training               3/3   100.0%    3/3     7.7           0
+  paper_writing                3/3   100.0%    3/3    10.3           0
+  preprocessing_audit          3/3   100.0%    3/3     6.3           0
+  reviewer_simulation          2/2   100.0%    2/2     8.0           0
+  statistical_analysis         2/2   100.0%    2/2     6.0           0
+  testing_environment          3/3   100.0%    3/3     4.0           0
+
+Targets:
+  simple exact >= 90%:       PASS (got 100.0%)
+  compound partial >= 95%:   PASS (got 100.0%)
+  no forbidden on high-risk: PASS
+  fallback >= 90%:           PASS (got 100.0%)

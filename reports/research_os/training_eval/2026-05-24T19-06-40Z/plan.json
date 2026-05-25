@@ -1,0 +1,77 @@
+{
+  "request_summary": "Plan and review a leakage-clean training + evaluation run.",
+  "intents": [
+    "source_of_truth_query",
+    "data_audit",
+    "split_or_leakage",
+    "preprocessing_audit",
+    "training",
+    "metric_verification",
+    "code_review",
+    "contradiction_hunt"
+  ],
+  "risk_level": "high",
+  "selected_agents": [
+    "context_source_truth",
+    "provenance_artifacts",
+    "contradiction_hunter",
+    "dataset_integrity",
+    "preprocessing_auditor",
+    "leakage_split",
+    "metrics_statistics",
+    "scientific_code_review",
+    "model_training",
+    "testing_environment",
+    "paper_claim"
+  ],
+  "required_gates": [
+    "dataset",
+    "leakage",
+    "preprocessing",
+    "code",
+    "evaluation"
+  ],
+  "context_packet": {
+    "task": "Plan and review a leakage-clean training + evaluation run.",
+    "intents": [
+      "source_of_truth_query",
+      "data_audit",
+      "split_or_leakage",
+      "preprocessing_audit",
+      "training",
+      "metric_verification",
+      "code_review",
+      "contradiction_hunt"
+    ],
+    "risk_level": "high",
+    "memory_files": [
+      "research_os_memory\\PROJECT_CANONICAL_STATUS.md",
+      "research_os_memory\\VALIDATION_STATUS.md",
+      "research_os_memory\\CURRENT_CLAIMS.md",
+      "research_os_memory\\KNOWN_BUGS_AND_RISKS.md",
+      "research_os_memory\\DATASET_REGISTRY.md",
+      "research_os_memory\\MODEL_REGISTRY.md",
+      "research_os_memory\\COMPUTE_REGISTRY.md"
+    ],
+    "registry_entries": {
+      "artifact_registry": [],
+      "claim_registry": [],
+      "issue_registry": [],
+      "experiment_registry": [],
+      "environment_registry": []
+    },
+    "repo_files": [],
+    "artifacts": [],
+    "known_risks": [],
+    "allowed_actions": [],
+    "forbidden_actions": [],
+    "expected_output_schema": "AgentOutput",
+    "prior_agent_outputs": []
+  },
+  "actions": [],
+  "blocked": false,
+  "block_reason": "",
+  "human_review_required": false,
+  "human_review_reason": "",
+  "expected_outputs": []
+}

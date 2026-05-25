@@ -1,0 +1,69 @@
+{
+  "request_summary": "Audit current paper / claim wording for overclaiming.",
+  "intents": [
+    "source_of_truth_query",
+    "claim_or_paper",
+    "metric_verification",
+    "md_or_validation",
+    "contradiction_hunt"
+  ],
+  "risk_level": "high",
+  "selected_agents": [
+    "context_source_truth",
+    "provenance_artifacts",
+    "contradiction_hunter",
+    "paper_claim",
+    "metrics_statistics",
+    "validation_skeptic",
+    "biological_realism",
+    "reviewer_collaboration",
+    "leakage_split"
+  ],
+  "required_gates": [
+    "claim",
+    "evaluation",
+    "validation",
+    "leakage"
+  ],
+  "context_packet": {
+    "task": "Audit current paper / claim wording for overclaiming.",
+    "intents": [
+      "source_of_truth_query",
+      "claim_or_paper",
+      "metric_verification",
+      "md_or_validation",
+      "contradiction_hunt"
+    ],
+    "risk_level": "high",
+    "memory_files": [
+      "research_os_memory\\PROJECT_CANONICAL_STATUS.md",
+      "research_os_memory\\VALIDATION_STATUS.md",
+      "research_os_memory\\CURRENT_CLAIMS.md",
+      "research_os_memory\\KNOWN_BUGS_AND_RISKS.md",
+      "research_os_memory\\REVIEWER_RISK_REGISTER.md",
+      "research_os_memory\\MODEL_REGISTRY.md",
+      "research_os_memory\\DATASET_REGISTRY.md",
+      "research_os_memory\\COMPUTE_REGISTRY.md"
+    ],
+    "registry_entries": {
+      "artifact_registry": [],
+      "claim_registry": [],
+      "issue_registry": [],
+      "decision_registry": [],
+      "experiment_registry": []
+    },
+    "repo_files": [],
+    "artifacts": [],
+    "known_risks": [],
+    "allowed_actions": [],
+    "forbidden_actions": [],
+    "expected_output_schema": "AgentOutput",
+    "prior_agent_outputs": []
+  },
+  "actions": [],
+  "blocked": false,
+  "block_reason": "",
+  "human_review_required": false,
+  "human_review_reason": "",
+  "expected_outputs": []
+}

@@ -1,0 +1,10 @@
+{
+  "total_tasks": 2,
+  "by_state": {
+    "succeeded": 1,
+    "running": 1
+  },
+  "pending_count": 0,
+  "running_count": 1,
+  "artifact_root": "/workspace/GNN_PCNA/data/artifacts"
+}

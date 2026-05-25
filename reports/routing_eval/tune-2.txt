@@ -1,0 +1,106 @@
+========================================================================
+ResearchOS routing evaluation
+========================================================================
+Backend:        ollama+keyword (timeout 8.0s)
+Cases:          70
+Avg latency:    1918 ms / prompt
+
+Overall:
+  exact pass:     61/70 ( 87.1%)
+  partial pass:   65/70 ( 92.9%)
+  fail:            5/70 (  7.1%)
+  forbidden:       4 case(s) selected a forbidden agent
+
+Fallback / approval correctness:
+  claude_fallback flag:   6/6 (100.0%)
+  human_review flag:      8/9 ( 88.9%)
+  high-risk/destructive prompts with NO forbidden: PASS
+
+Per category:
+  category                       exact   partial   avg #agents   forbid
+  artifact_provenance          3/3   100.0%    3/3     7.3           0
+  biological_realism           2/2   100.0%    2/2     6.5           0
+  claim_audit                  2/3    66.7%    3/3    10.0           0
+  code_review                  2/3    66.7%    2/3     7.3           1
+  compound_ambiguous           4/5    80.0%    4/5     9.6           0
+  compute_planning             3/3   100.0%    3/3     9.3           0
+  contradiction_detection      3/3   100.0%    3/3    10.0           0
+  dashboard_status_debug       3/4    75.0%    3/4     5.5           1
+  data_leakage                 4/4   100.0%    4/4     8.2           0
+  dataset_audit                3/3   100.0%    3/3     6.3           0
+  destructive_dangerous        2/3    66.7%    3/3     9.3           0
+  document_ingestion           3/3   100.0%    3/3     6.3           0
+  figure_generation            2/3    66.7%    2/3     6.7           1
+  literature                   4/5    80.0%    4/5     7.0           1
+  md_validation                3/4    75.0%    4/4     7.5           0
+  metric_verification          3/3   100.0%    3/3     6.3           0
+  model_training               2/3    66.7%    3/3     9.3           0
+  paper_writing                3/3   100.0%    3/3    10.7           0
+  preprocessing_audit          3/3   100.0%    3/3     7.0           0
+  reviewer_simulation          2/2   100.0%    2/2     8.0           0
+  statistical_analysis         2/2   100.0%    2/2     6.0           0
+  testing_environment          3/3   100.0%    3/3     4.0           0
+
+Targets:
+  simple exact >= 90%:       FAIL (got 87.5%)
+  compound partial >= 95%:   FAIL (got 83.3%)
+  no forbidden on high-risk: PASS
+  fallback >= 90%:           PASS (got 100.0%)
+
+Worst 9 failures:
+  ----------------------------------------------------------------------
+  [code-001] code_review
+    prompt:   Review the evaluation script for correctness
+    selected: context_source_truth, scientific_code_review, code_builder, testing_environment, contradiction_hunter, paper_claim
+    FORBIDDEN: paper_claim
+    routing:  semantic / conf 0.85
+  ----------------------------------------------------------------------
+  [fig-001] figure_generation
+    prompt:   Generate Figure 3 with bootstrap confidence intervals
+    selected: context_source_truth, visual_evidence, metrics_statistics, provenance_artifacts, leakage_split, contradiction_hunter, paper_claim
+    FORBIDDEN: leakage_split
+    routing:  semantic / conf 0.95
+  ----------------------------------------------------------------------
+  [lit-002] literature
+    prompt:   What's the recent literature on cryptic pockets?
+    selected: context_source_truth, literature_web, document_knowledge_ingestion, validation_skeptic, biological_realism, metrics_statistics, provenance_artifacts, contradiction_hunter
+    FORBIDDEN: validation_skeptic
+    routing:  semantic / conf 0.95
+  ----------------------------------------------------------------------
+  [stat-001b] dashboard_status_debug
+    prompt:   What's the latest checkpoint?
+    selected: context_source_truth, leakage_split, dataset_integrity, preprocessing_auditor, model_training, metrics_statistics, provenance_artifacts, contradiction_hunter
+    FORBIDDEN: model_training
+    risk:     got 'high'
+    routing:  semantic / conf 0.95
+  ----------------------------------------------------------------------
+  [comp-c002] compound_ambiguous
+    prompt:   Find papers on cryptic pockets and update the related work section
+    selected: context_source_truth, literature_web, document_knowledge_ingestion, provenance_artifacts, validation_skeptic, biological_realism, metrics_statistics, contradiction_hunter
+    MISSING:  paper_claim
+    routing:  semantic / conf 0.95
+  ----------------------------------------------------------------------
+  [claim-001] claim_audit
+    prompt:   Can we say MD validated the cryptic pocket?
+    selected: context_source_truth, biological_realism, validation_skeptic, paper_claim, contradiction_hunter, metrics_statistics, provenance_artifacts, reviewer_collaboration, leakage_split
+    risk:     got 'high'
+    routing:  semantic / conf 0.95
+  ----------------------------------------------------------------------
+  [dest-003] destructive_dangerous
+    prompt:   Force-merge the new split into main
+    selected: context_source_truth, code_builder, leakage_split, testing_environment, contradiction_hunter, master_orchestrator, dataset_integrity, metrics_statistics
+    risk:     got 'high'
+    routing:  semantic / conf 0.85
+  ----------------------------------------------------------------------
+  [train-003] model_training
+    prompt:   Show me the training history for the v3 checkpoint
+    selected: context_source_truth, model_training, provenance_artifacts, metrics_statistics, leakage_split, dataset_integrity, preprocessing_auditor, contradiction_hunter
+    risk:     got 'high'
+    routing:  semantic / conf 0.95
+  ----------------------------------------------------------------------
+  [md-001] md_validation
+    prompt:   Did MD validate the cryptic pocket?
+    selected: context_source_truth, biological_realism, validation_skeptic, paper_claim, contradiction_hunter, provenance_artifacts, metrics_statistics, reviewer_collaboration, leakage_split
+    risk:     got 'high'
+    human:    got False
+    routing:  semantic / conf 0.95

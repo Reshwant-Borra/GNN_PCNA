@@ -1,0 +1,63 @@
+{
+  "request_summary": "Audit MD validation evidence and classify it explicitly.",
+  "intents": [
+    "source_of_truth_query",
+    "md_or_validation",
+    "metric_verification",
+    "contradiction_hunt"
+  ],
+  "risk_level": "high",
+  "selected_agents": [
+    "context_source_truth",
+    "provenance_artifacts",
+    "contradiction_hunter",
+    "validation_skeptic",
+    "biological_realism",
+    "metrics_statistics",
+    "leakage_split",
+    "paper_claim"
+  ],
+  "required_gates": [
+    "validation",
+    "leakage",
+    "evaluation"
+  ],
+  "context_packet": {
+    "task": "Audit MD validation evidence and classify it explicitly.",
+    "intents": [
+      "source_of_truth_query",
+      "md_or_validation",
+      "metric_verification",
+      "contradiction_hunt"
+    ],
+    "risk_level": "high",
+    "memory_files": [
+      "research_os_memory\\PROJECT_CANONICAL_STATUS.md",
+      "research_os_memory\\VALIDATION_STATUS.md",
+      "research_os_memory\\CURRENT_CLAIMS.md",
+      "research_os_memory\\KNOWN_BUGS_AND_RISKS.md",
+      "research_os_memory\\COMPUTE_REGISTRY.md",
+      "research_os_memory\\MODEL_REGISTRY.md",
+      "research_os_memory\\DATASET_REGISTRY.md"
+    ],
+    "registry_entries": {
+      "artifact_registry": [],
+      "claim_registry": [],
+      "issue_registry": [],
+      "experiment_registry": []
+    },
+    "repo_files": [],
+    "artifacts": [],
+    "known_risks": [],
+    "allowed_actions": [],
+    "forbidden_actions": [],
+    "expected_output_schema": "AgentOutput",
+    "prior_agent_outputs": []
+  },
+  "actions": [],
+  "blocked": false,
+  "block_reason": "",
+  "human_review_required": false,
+  "human_review_reason": "",
+  "expected_outputs": []
+}

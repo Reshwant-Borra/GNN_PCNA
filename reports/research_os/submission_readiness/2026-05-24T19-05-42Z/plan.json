@@ -1,0 +1,75 @@
+{
+  "request_summary": "Run submission readiness audit. PI approval required to submit.",
+  "intents": [
+    "submission_readiness",
+    "contradiction_hunt"
+  ],
+  "risk_level": "critical",
+  "selected_agents": [
+    "context_source_truth",
+    "provenance_artifacts",
+    "leakage_split",
+    "preprocessing_auditor",
+    "metrics_statistics",
+    "biological_realism",
+    "validation_skeptic",
+    "paper_claim",
+    "visual_evidence",
+    "reviewer_collaboration",
+    "testing_environment",
+    "contradiction_hunter"
+  ],
+  "required_gates": [
+    "research_design",
+    "dataset",
+    "leakage",
+    "preprocessing",
+    "code",
+    "evaluation",
+    "validation",
+    "claim",
+    "figure",
+    "submission"
+  ],
+  "context_packet": {
+    "task": "Run submission readiness audit. PI approval required to submit.",
+    "intents": [
+      "submission_readiness",
+      "contradiction_hunt"
+    ],
+    "risk_level": "critical",
+    "memory_files": [
+      "research_os_memory\\PROJECT_CANONICAL_STATUS.md",
+      "research_os_memory\\CURRENT_CLAIMS.md",
+      "research_os_memory\\KNOWN_BUGS_AND_RISKS.md",
+      "research_os_memory\\HUMAN_DECISIONS.md",
+      "research_os_memory\\VALIDATION_STATUS.md",
+      "research_os_memory\\DATASET_REGISTRY.md",
+      "research_os_memory\\MODEL_REGISTRY.md",
+      "research_os_memory\\COMPUTE_REGISTRY.md",
+      "research_os_memory\\REVIEWER_RISK_REGISTER.md"
+    ],
+    "registry_entries": {
+      "artifact_registry": [],
+      "claim_registry": [],
+      "experiment_registry": [],
+      "issue_registry": [],
+      "source_registry": [],
+      "environment_registry": [],
+      "decision_registry": []
+    },
+    "repo_files": [],
+    "artifacts": [],
+    "known_risks": [],
+    "allowed_actions": [],
+    "forbidden_actions": [],
+    "expected_output_schema": "AgentOutput",
+    "prior_agent_outputs": []
+  },
+  "actions": [],
+  "blocked": false,
+  "block_reason": "",
+  "human_review_required": false,
+  "human_review_reason": "",
+  "expected_outputs": []
+}

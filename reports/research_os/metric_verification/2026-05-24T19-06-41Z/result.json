@@ -1,0 +1,684 @@
+{
+  "plan": {
+    "request_summary": "Independently verify metrics in the repo.",
+    "intents": [
+      "source_of_truth_query",
+      "metric_verification",
+      "split_or_leakage",
+      "code_review",
+      "contradiction_hunt"
+    ],
+    "risk_level": "high",
+    "selected_agents": [
+      "context_source_truth",
+      "provenance_artifacts",
+      "contradiction_hunter",
+      "metrics_statistics",
+      "leakage_split",
+      "dataset_integrity",
+      "scientific_code_review",
+      "testing_environment",
+      "paper_claim"
+    ],
+    "required_gates": [
+      "leakage",
+      "evaluation",
+      "dataset",
+      "code"
+    ],
+    "context_packet": {
+      "task": "Independently verify metrics in the repo.",
+      "intents": [
+        "source_of_truth_query",
+        "metric_verification",
+        "split_or_leakage",
+        "code_review",
+        "contradiction_hunt"
+      ],
+      "risk_level": "high",
+      "memory_files": [
+        "research_os_memory\\PROJECT_CANONICAL_STATUS.md",
+        "research_os_memory\\VALIDATION_STATUS.md",
+        "research_os_memory\\CURRENT_CLAIMS.md",
+        "research_os_memory\\KNOWN_BUGS_AND_RISKS.md",
+        "research_os_memory\\MODEL_REGISTRY.md",
+        "research_os_memory\\DATASET_REGISTRY.md"
+      ],
+      "registry_entries": {
+        "artifact_registry": [],
+        "claim_registry": [],
+        "issue_registry": [],
+        "experiment_registry": []
+      },
+      "repo_files": [],
+      "artifacts": [],
+      "known_risks": [],
+      "allowed_actions": [],
+      "forbidden_actions": [],
+      "expected_output_schema": "AgentOutput",
+      "prior_agent_outputs": []
+    },
+    "actions": [],
+    "blocked": false,
+    "block_reason": "",
+    "human_review_required": false,
+    "human_review_reason": "",
+    "expected_outputs": []
+  },
+  "agent_outputs": [
+    {
+      "agent": "Context and Source-of-Truth",
+      "agent_id": "context_source_truth",
+      "task": "Independently verify metrics in the repo.",
+      "status": "warning",
+      "confidence": 0.9,
+      "summary": "9 of 9 canonical files present; 9 need review. git=3f44ad5 branch=main dirty=True.",
+      "evidence_used": [
+        {
+          "type": "memory",
+          "id": "PROJECT_CANONICAL_STATUS.md",
+          "path": "research_os_memory\\PROJECT_CANONICAL_STATUS.md",
+          "description": "canonical state"
+        },
+        {
+          "type": "memory",
+          "id": "CURRENT_CLAIMS.md",
+          "path": "research_os_memory\\CURRENT_CLAIMS.md",
+          "description": "canonical state"
+        },
+        {
+          "type": "memory",
+          "id": "KNOWN_BUGS_AND_RISKS.md",
+          "path": "research_os_memory\\KNOWN_BUGS_AND_RISKS.md",
+          "description": "canonical state"
+        },
+        {
+          "type": "memory",
+          "id": "HUMAN_DECISIONS.md",
+          "path": "research_os_memory\\HUMAN_DECISIONS.md",
+          "description": "canonical state"
+        },
+        {
+          "type": "memory",
+          "id": "VALIDATION_STATUS.md",
+          "path": "research_os_memory\\VALIDATION_STATUS.md",
+          "description": "canonical state"
+        },
+        {
+          "type": "memory",
+          "id": "DATASET_REGISTRY.md",
+          "path": "research_os_memory\\DATASET_REGISTRY.md",
+          "description": "canonical state"
+        },
+        {
+          "type": "memory",
+          "id": "MODEL_REGISTRY.md",
+          "path": "research_os_memory\\MODEL_REGISTRY.md",
+          "description": "canonical state"
+        },
+        {
+          "type": "memory",
+          "id": "COMPUTE_REGISTRY.md",
+          "path": "research_os_memory\\COMPUTE_REGISTRY.md",
+          "description": "canonical state"
+        },
+        {
+          "type": "memory",
+          "id": "REVIEWER_RISK_REGISTER.md",
+          "path": "research_os_memory\\REVIEWER_RISK_REGISTER.md",
+          "description": "canonical state"
+        }
+      ],
+      "findings": [
+        {
+          "finding_id": "CONTEXT_SOURCE_TRUTH-001",
+          "severity": "medium",
+          "title": "PROJECT_CANONICAL_STATUS.md status=needs_review",
+          "description": "Last updated 2026-05-24T19:05:16Z \u2014 content should be re-confirmed.",
+          "evidence": [],
+          "affected_claims": [],
+          "affected_artifacts": [],
+          "required_action": "Have an authoritative agent refresh PROJECT_CANONICAL_STATUS.md and set status=current.",
+          "blocks_pipeline": false
+        },
+        {
+          "finding_id": "CONTEXT_SOURCE_TRUTH-002",
+          "severity": "medium",
+          "title": "CURRENT_CLAIMS.md status=needs_review",
+          "description": "Last updated 2026-05-24T19:05:16Z \u2014 content should be re-confirmed.",
+          "evidence": [],
+          "affected_claims": [],
+          "affected_artifacts": [],
+          "required_action": "Have an authoritative agent refresh CURRENT_CLAIMS.md and set status=current.",
+          "blocks_pipeline": false
+        },
+        {
+          "finding_id": "CONTEXT_SOURCE_TRUTH-003",
+          "severity": "medium",
+          "title": "KNOWN_BUGS_AND_RISKS.md status=needs_review",
+          "description": "Last updated 2026-05-24T19:05:16Z \u2014 content should be re-confirmed.",
+          "evidence": [],
+          "affected_claims": [],
+          "affected_artifacts": [],
+          "required_action": "Have an authoritative agent refresh KNOWN_BUGS_AND_RISKS.md and set status=current.",
+          "blocks_pipeline": false
+        },
+        {
+          "finding_id": "CONTEXT_SOURCE_TRUTH-004",
+          "severity": "medium",
+          "title": "HUMAN_DECISIONS.md status=needs_review",
+          "description": "Last updated 2026-05-24T19:05:16Z \u2014 content should be re-confirmed.",
+          "evidence": [],
+          "affected_claims": [],
+          "affected_artifacts": [],
+          "required_action": "Have an authoritative agent refresh HUMAN_DECISIONS.md and set status=current.",
+          "blocks_pipeline": false
+        },
+        {
+          "finding_id": "CONTEXT_SOURCE_TRUTH-005",
+          "severity": "medium",
+          "title": "VALIDATION_STATUS.md status=needs_review",
+          "description": "Last updated 2026-05-24T19:05:16Z \u2014 content should be re-confirmed.",
+          "evidence": [],
+          "affected_claims": [],
+          "affected_artifacts": [],
+          "required_action": "Have an authoritative agent refresh VALIDATION_STATUS.md and set status=current.",
+          "blocks_pipeline": false
+        },
+        {
+          "finding_id": "CONTEXT_SOURCE_TRUTH-006",
+          "severity": "medium",
+          "title": "DATASET_REGISTRY.md status=needs_review",
+          "description": "Last updated 2026-05-24T19:05:16Z \u2014 content should be re-confirmed.",
+          "evidence": [],
+          "affected_claims": [],
+          "affected_artifacts": [],
+          "required_action": "Have an authoritative agent refresh DATASET_REGISTRY.md and set status=current.",
+          "blocks_pipeline": false
+        },
+        {
+          "finding_id": "CONTEXT_SOURCE_TRUTH-007",
+          "severity": "medium",
+          "title": "MODEL_REGISTRY.md status=needs_review",
+          "description": "Last updated 2026-05-24T19:05:16Z \u2014 content should be re-confirmed.",
+          "evidence": [],
+          "affected_claims": [],
+          "affected_artifacts": [],
+          "required_action": "Have an authoritative agent refresh MODEL_REGISTRY.md and set status=current.",
+          "blocks_pipeline": false
+        },
+        {
+          "finding_id": "CONTEXT_SOURCE_TRUTH-008",
+          "severity": "medium",
+          "title": "COMPUTE_REGISTRY.md status=needs_review",
+          "description": "Last updated 2026-05-24T19:05:16Z \u2014 content should be re-confirmed.",
+          "evidence": [],
+          "affected_claims": [],
+          "affected_artifacts": [],
+          "required_action": "Have an authoritative agent refresh COMPUTE_REGISTRY.md and set status=current.",
+          "blocks_pipeline": false
+        },
+        {
+          "finding_id": "CONTEXT_SOURCE_TRUTH-009",
+          "severity": "medium",
+          "title": "REVIEWER_RISK_REGISTER.md status=needs_review",
+          "description": "Last updated 2026-05-24T19:05:16Z \u2014 content should be re-confirmed.",
+          "evidence": [],
+          "affected_claims": [],
+          "affected_artifacts": [],
+          "required_action": "Have an authoritative agent refresh REVIEWER_RISK_REGISTER.md and set status=current.",
+          "blocks_pipeline": false
+        },
+        {
+          "finding_id": "CONTEXT_SOURCE_TRUTH-010",
+          "severity": "low",
+          "title": "Working tree is dirty",
+          "description": "0 modified, 8 untracked. Provenance for any outputs produced now will record git_dirty=true.",
+          "evidence": [],
+          "affected_claims": [],
+          "affected_artifacts": [],
+          "required_action": "",
+          "blocks_pipeline": false
+        }
+      ],
+      "risks": [],
+      "required_actions": [],
+      "gate_updates": [],
+      "artifacts_created": [],
+      "artifacts_updated": [],
+      "artifacts_to_mark_stale": [],
+      "claims_supported": [],
+      "claims_weakened": [],
+      "claims_contradicted": [],
+      "human_review_required": false,
+      "human_review_reason": "",
+      "updates_to_memory": [],
+      "next_recommended_agents": [
+        "contradiction_hunter",
+        "provenance_artifacts"
+      ],
+      "machine_readable_notes": {
+        "git": {
+          "inside_repo": true,
+          "commit": "3f44ad5bd27be40f4c564109a538de47ab73df0f",
+          "short_commit": "3f44ad5",
+          "branch": "main",
+          "dirty": true,
+          "remote": "https://github.com/Reshwant-Borra/GNN_PCNA.git",
+          "untracked_count": 8,
+          "modified_count": 0,
+          "error": ""
+        }
+      }
+    },
+    {
+      "agent": "Provenance, Versioning and Artifact",
+      "agent_id": "provenance_artifacts",
+      "task": "Independently verify metrics in the repo.",
+      "status": "warning",
+      "confidence": 0.85,
+      "summary": "Reviewed 0 artifact entries; 1 provenance findings; 0 artifacts should be marked stale.",
+      "evidence_used": [],
+      "findings": [
+        {
+          "finding_id": "PROVENANCE_ARTIFACTS-001",
+          "severity": "medium",
+          "title": "Artifact registry is empty",
+          "description": "No outputs have been registered; provenance gate cannot pass.",
+          "evidence": [],
+          "affected_claims": [],
+          "affected_artifacts": [],
+          "required_action": "Register checkpoints, predictions, metrics, MD outputs, and figures.",
+          "blocks_pipeline": false
+        }
+      ],
+      "risks": [],
+      "required_actions": [],
+      "gate_updates": [
+        {
+          "gate": "code",
+          "new_status": "warning",
+          "reason": "no artifacts registered",
+          "evidence": []
+        }
+      ],
+      "artifacts_created": [],
+      "artifacts_updated": [],
+      "artifacts_to_mark_stale": [],
+      "claims_supported": [],
+      "claims_weakened": [],
+      "claims_contradicted": [],
+      "human_review_required": false,
+      "human_review_reason": "",
+      "updates_to_memory": [],
+      "next_recommended_agents": [],
+      "machine_readable_notes": {
+        "artifact_count": 0
+      }
+    },
+    {
+      "agent": "Contradiction and Error Hunter",
+      "agent_id": "contradiction_hunter",
+      "task": "Independently verify metrics in the repo.",
+      "status": "pass",
+      "confidence": 0.85,
+      "summary": "Contradiction sweep produced 0 findings.",
+      "evidence_used": [
+        {
+          "type": "memory",
+          "id": "VALIDATION_STATUS.md",
+          "path": "research_os_memory\\VALIDATION_STATUS.md",
+          "description": ""
+        }
+      ],
+      "findings": [],
+      "risks": [],
+      "required_actions": [],
+      "gate_updates": [],
+      "artifacts_created": [],
+      "artifacts_updated": [],
+      "artifacts_to_mark_stale": [],
+      "claims_supported": [],
+      "claims_weakened": [],
+      "claims_contradicted": [],
+      "human_review_required": false,
+      "human_review_reason": "",
+      "updates_to_memory": [],
+      "next_recommended_agents": [],
+      "machine_readable_notes": {
+        "validation_classification": "inconclusive"
+      }
+    },
+    {
+      "agent": "Metrics, Statistics and Uncertainty",
+      "agent_id": "metrics_statistics",
+      "task": "Independently verify metrics in the repo.",
+      "status": "pass",
+      "confidence": 0.75,
+      "summary": "Metrics audit: scanned 0 files; 0 findings.",
+      "evidence_used": [],
+      "findings": [],
+      "risks": [],
+      "required_actions": [],
+      "gate_updates": [
+        {
+          "gate": "evaluation",
+          "new_status": "pass",
+          "reason": "",
+          "evidence": []
+        }
+      ],
+      "artifacts_created": [],
+      "artifacts_updated": [],
+      "artifacts_to_mark_stale": [],
+      "claims_supported": [],
+      "claims_weakened": [],
+      "claims_contradicted": [],
+      "human_review_required": false,
+      "human_review_reason": "",
+      "updates_to_memory": [],
+      "next_recommended_agents": [],
+      "machine_readable_notes": {
+        "metric_files_seen": 0
+      }
+    },
+    {
+      "agent": "Leakage and Split Design",
+      "agent_id": "leakage_split",
+      "task": "Independently verify metrics in the repo.",
+      "status": "blocked",
+      "confidence": 0.9,
+      "summary": "Leakage gate cannot pass without a split protocol.",
+      "evidence_used": [
+        {
+          "type": "memory",
+          "id": "DATASET_REGISTRY.md",
+          "path": "research_os_memory\\DATASET_REGISTRY.md",
+          "description": ""
+        }
+      ],
+      "findings": [
+        {
+          "finding_id": "LEAKAGE_SPLIT-001",
+          "severity": "critical",
+          "title": "No documented split protocol",
+          "description": "The Leakage gate cannot pass without a documented, approved split.",
+          "evidence": [],
+          "affected_claims": [],
+          "affected_artifacts": [],
+          "required_action": "Document chain-/homology-/apo-holo-blocked splits.",
+          "blocks_pipeline": true
+        }
+      ],
+      "risks": [],
+      "required_actions": [],
+      "gate_updates": [
+        {
+          "gate": "leakage",
+          "new_status": "blocked",
+          "reason": "no split protocol documented",
+          "evidence": []
+        }
+      ],
+      "artifacts_created": [],
+      "artifacts_updated": [],
+      "artifacts_to_mark_stale": [],
+      "claims_supported": [],
+      "claims_weakened": [],
+      "claims_contradicted": [],
+      "human_review_required": false,
+      "human_review_reason": "",
+      "updates_to_memory": [],
+      "next_recommended_agents": [],
+      "machine_readable_notes": {}
+    },
+    {
+      "agent": "Dataset and Label Integrity",
+      "agent_id": "dataset_integrity",
+      "task": "Independently verify metrics in the repo.",
+      "status": "warning",
+      "confidence": 0.8,
+      "summary": "Dataset registry audit: 0 missing, 5 pending.",
+      "evidence_used": [
+        {
+          "type": "memory",
+          "id": "DATASET_REGISTRY.md",
+          "path": "research_os_memory\\DATASET_REGISTRY.md",
+          "description": ""
+        }
+      ],
+      "findings": [
+        {
+          "finding_id": "DATASET_INTEGRITY-001",
+          "severity": "medium",
+          "title": "DATASET_REGISTRY.md section 'Datasets in use' still pending",
+          "description": "",
+          "evidence": [],
+          "affected_claims": [],
+          "affected_artifacts": [],
+          "required_action": "Replace 'pending' content with the actual definition.",
+          "blocks_pipeline": false
+        },
+        {
+          "finding_id": "DATASET_INTEGRITY-002",
+          "severity": "medium",
+          "title": "DATASET_REGISTRY.md section 'Label definition' still pending",
+          "description": "",
+          "evidence": [],
+          "affected_claims": [],
+          "affected_artifacts": [],
+          "required_action": "Replace 'pending' content with the actual definition.",
+          "blocks_pipeline": false
+        },
+        {
+          "finding_id": "DATASET_INTEGRITY-003",
+          "severity": "medium",
+          "title": "DATASET_REGISTRY.md section 'Missing-data policy' still pending",
+          "description": "",
+          "evidence": [],
+          "affected_claims": [],
+          "affected_artifacts": [],
+          "required_action": "Replace 'pending' content with the actual definition.",
+          "blocks_pipeline": false
+        },
+        {
+          "finding_id": "DATASET_INTEGRITY-004",
+          "severity": "medium",
+          "title": "DATASET_REGISTRY.md section 'Residue/chain mapping rules' still pending",
+          "description": "",
+          "evidence": [],
+          "affected_claims": [],
+          "affected_artifacts": [],
+          "required_action": "Replace 'pending' content with the actual definition.",
+          "blocks_pipeline": false
+        },
+        {
+          "finding_id": "DATASET_INTEGRITY-005",
+          "severity": "medium",
+          "title": "DATASET_REGISTRY.md section 'Split protocol' still pending",
+          "description": "",
+          "evidence": [],
+          "affected_claims": [],
+          "affected_artifacts": [],
+          "required_action": "Replace 'pending' content with the actual definition.",
+          "blocks_pipeline": false
+        }
+      ],
+      "risks": [],
+      "required_actions": [],
+      "gate_updates": [
+        {
+          "gate": "dataset",
+          "new_status": "warning",
+          "reason": "Sections audited from DATASET_REGISTRY.md",
+          "evidence": []
+        }
+      ],
+      "artifacts_created": [],
+      "artifacts_updated": [],
+      "artifacts_to_mark_stale": [],
+      "claims_supported": [],
+      "claims_weakened": [],
+      "claims_contradicted": [],
+      "human_review_required": false,
+      "human_review_reason": "",
+      "updates_to_memory": [],
+      "next_recommended_agents": [],
+      "machine_readable_notes": {}
+    },
+    {
+      "agent": "Scientific Code Review",
+      "agent_id": "scientific_code_review",
+      "task": "Independently verify metrics in the repo.",
+      "status": "warning",
+      "confidence": 0.65,
+      "summary": "Scanned 51 Python files; 2 flagged; 2 findings.",
+      "evidence_used": [],
+      "findings": [
+        {
+          "finding_id": "SCIENTIFIC_CODE_REVIEW-001",
+          "severity": "low",
+          "title": "NotImplementedError left in code in research_os\\agents\\base.py",
+          "description": "",
+          "evidence": [
+            {
+              "type": "source_code",
+              "id": "",
+              "path": "research_os\\agents\\base.py",
+              "description": ""
+            }
+          ],
+          "affected_claims": [],
+          "affected_artifacts": [],
+          "required_action": "Audit, document, or remove the marker.",
+          "blocks_pipeline": false
+        },
+        {
+          "finding_id": "SCIENTIFIC_CODE_REVIEW-002",
+          "severity": "low",
+          "title": "skipped test marker in tests\\test_scientific_guardrails.py",
+          "description": "",
+          "evidence": [
+            {
+              "type": "source_code",
+              "id": "",
+              "path": "tests\\test_scientific_guardrails.py",
+              "description": ""
+            }
+          ],
+          "affected_claims": [],
+          "affected_artifacts": [],
+          "required_action": "Audit, document, or remove the marker.",
+          "blocks_pipeline": false
+        }
+      ],
+      "risks": [],
+      "required_actions": [],
+      "gate_updates": [
+        {
+          "gate": "code",
+          "new_status": "warning",
+          "reason": "",
+          "evidence": []
+        }
+      ],
+      "artifacts_created": [],
+      "artifacts_updated": [],
+      "artifacts_to_mark_stale": [],
+      "claims_supported": [],
+      "claims_weakened": [],
+      "claims_contradicted": [],
+      "human_review_required": false,
+      "human_review_reason": "",
+      "updates_to_memory": [],
+      "next_recommended_agents": [],
+      "machine_readable_notes": {}
+    },
+    {
+      "agent": "Testing and Fresh Environment",
+      "agent_id": "testing_environment",
+      "task": "Independently verify metrics in the repo.",
+      "status": "pass",
+      "confidence": 0.8,
+      "summary": "Tests/ present; 0 findings; pytest_run=False.",
+      "evidence_used": [],
+      "findings": [],
+      "risks": [],
+      "required_actions": [],
+      "gate_updates": [
+        {
+          "gate": "code",
+          "new_status": "pass",
+          "reason": "",
+          "evidence": []
+        }
+      ],
+      "artifacts_created": [],
+      "artifacts_updated": [],
+      "artifacts_to_mark_stale": [],
+      "claims_supported": [],
+      "claims_weakened": [],
+      "claims_contradicted": [],
+      "human_review_required": false,
+      "human_review_reason": "",
+      "updates_to_memory": [],
+      "next_recommended_agents": [],
+      "machine_readable_notes": {}
+    },
+    {
+      "agent": "Paper, Claim and Documentation",
+      "agent_id": "paper_claim",
+      "task": "Independently verify metrics in the repo.",
+      "status": "pass",
+      "confidence": 0.8,
+      "summary": "Paper/Claim audit: scanned 0 draft files; 0 findings.",
+      "evidence_used": [],
+      "findings": [],
+      "risks": [],
+      "required_actions": [],
+      "gate_updates": [
+        {
+          "gate": "claim",
+          "new_status": "pass",
+          "reason": "",
+          "evidence": []
+        }
+      ],
+      "artifacts_created": [],
+      "artifacts_updated": [],
+      "artifacts_to_mark_stale": [],
+      "claims_supported": [],
+      "claims_weakened": [],
+      "claims_contradicted": [],
+      "human_review_required": false,
+      "human_review_reason": "",
+      "updates_to_memory": [],
+      "next_recommended_agents": [],
+      "machine_readable_notes": {}
+    }
+  ],
+  "gate_status": {
+    "leakage": "not_started",
+    "evaluation": "not_started",
+    "dataset": "not_started",
+    "code": "not_started",
+    "claim": "pass"
+  },
+  "blocked": true,
+  "block_reason": "leakage_split flagged a blocker: Leakage gate cannot pass without a split protocol.",
+  "human_review_required": false,
+  "human_review_reasons": [],
+  "applied_memory_updates": [],
+  "pending_memory_updates": [],
+  "git": {
+    "inside_repo": true,
+    "commit": "3f44ad5bd27be40f4c564109a538de47ab73df0f",
+    "short_commit": "3f44ad5",
+    "branch": "main",
+    "dirty": true,
+    "remote": "https://github.com/Reshwant-Borra/GNN_PCNA.git",
+    "untracked_count": 8,
+    "modified_count": 0,
+    "error": ""
+  }
+}

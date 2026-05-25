@@ -1,0 +1,26 @@
+2026-05-24T23:55:42.499Z [DEBUG] MDM settings load completed in 13ms
+2026-05-24T23:55:42.519Z [DEBUG] Broken symlink or missing file encountered for settings.json at path: C:\Users\reshw\ResearchOS\.claude\settings.json
+2026-05-24T23:55:42.520Z [DEBUG] Broken symlink or missing file encountered for settings.json at path: C:\Users\reshw\ResearchOS\.claude\settings.local.json
+2026-05-24T23:55:42.520Z [DEBUG] Broken symlink or missing file encountered for settings.json at path: C:\Program Files\ClaudeCode\managed-settings.json
+2026-05-24T23:55:42.521Z [DEBUG] CA certs: Config fallback - globalEnv keys: , settingsEnv keys: none
+2026-05-24T23:55:42.522Z [DEBUG] [init] configureGlobalMTLS starting
+2026-05-24T23:55:42.523Z [DEBUG] [init] configureGlobalMTLS complete
+2026-05-24T23:55:42.523Z [DEBUG] [init] configureGlobalAgents starting
+2026-05-24T23:55:42.523Z [DEBUG] CA certs: stores=bundled,system, extraCertsPath=undefined
+2026-05-24T23:55:42.524Z [DEBUG] CA certs: Loaded 145 bundled root certificates
+2026-05-24T23:55:42.552Z [DEBUG] CA certs: Loaded 578 system CA certificates
+2026-05-24T23:55:42.553Z [DEBUG] mTLS: Creating HTTPS agent with custom certificates
+2026-05-24T23:55:42.554Z [DEBUG] [init] configureGlobalAgents complete
+2026-05-24T23:55:42.556Z [DEBUG] Using bash path: "C:\Program Files\Git\bin\bash.exe"
+2026-05-24T23:55:42.558Z [DEBUG] Error log sink initialized
+2026-05-24T23:55:42.571Z [DEBUG] MCP server "researchos": Starting connection with timeout of 30000ms
+2026-05-24T23:55:42.604Z [DEBUG] Git remote URL: https://github.com/Reshwant-Borra/GNN_PCNA.git
+2026-05-24T23:55:42.605Z [DEBUG] Parsed repository: github.com/Reshwant-Borra/GNN_PCNA from URL: https://github.com/Reshwant-Borra/GNN_PCNA.git
+2026-05-24T23:55:42.707Z [DEBUG] MCP server "researchos": Successfully connected (transport: stdio) in 138ms
+2026-05-24T23:55:42.707Z [DEBUG] MCP server "researchos": Connection established with capabilities: {"hasTools":true,"hasPrompts":false,"hasResources":false,"hasResourceSubscribe":false,"serverVersion":{"name":"researchos","version":"0.1.0"}}
+2026-05-24T23:55:42.708Z [DEBUG] [MCP] Server "researchos" connected with subscribe=false
+2026-05-24T23:55:42.708Z [WARN] [3P telemetry] Event dropped (no event logger initialized): mcp_server_connection
+2026-05-24T23:55:42.717Z [DEBUG] MCP server "researchos": Sending SIGINT to MCP server process
+2026-05-24T23:55:42.728Z [DEBUG] MCP server "researchos": STDIO connection closed after 0s (cleanly)
+2026-05-24T23:55:42.728Z [DEBUG] MCP server "researchos": Cleared connection cache for reconnection
+2026-05-24T23:55:42.787Z [DEBUG] MCP server "researchos": MCP server process exited cleanly

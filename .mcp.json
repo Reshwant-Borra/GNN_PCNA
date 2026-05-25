@@ -1,0 +1,15 @@
+{
+  "mcpServers": {
+    "researchos": {
+      "type": "stdio",
+      "command": "C:\\Users\\reshw\\AppData\\Local\\Programs\\Python\\Python311\\python.exe",
+      "args": [
+        "-m",
+        "research_os.integrations.claude_code.mcp_server"
+      ],
+      "env": {
+        "RESEARCH_OS_REPO": "."
+      }
+    }
+  }
+}

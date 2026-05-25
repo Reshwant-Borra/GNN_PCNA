@@ -1,0 +1,61 @@
+{
+  "request_summary": "Independently verify metrics in the repo.",
+  "intents": [
+    "source_of_truth_query",
+    "metric_verification",
+    "split_or_leakage",
+    "code_review",
+    "contradiction_hunt"
+  ],
+  "risk_level": "high",
+  "selected_agents": [
+    "context_source_truth",
+    "provenance_artifacts",
+    "contradiction_hunter",
+    "metrics_statistics",
+    "leakage_split",
+    "dataset_integrity",
+    "scientific_code_review",
+    "testing_environment",
+    "paper_claim"
+  ],
+  "required_gates": [
+    "leakage",
+    "evaluation",
+    "dataset",
+    "code"
+  ],
+  "context_packet": {
+    "task": "Independently verify metrics in the repo.",
+    "intents": [
+      "source_of_truth_query",
+      "metric_verification",
+      "split_or_leakage",
+      "code_review",
+      "contradiction_hunt"
+    ],
+    "risk_level": "high",
+    "memory_files": [
+      "research_os_memory\\PROJECT_CANONICAL_STATUS.md",
+      "research_os_memory\\VALIDATION_STATUS.md",
+      "research_os_memory\\CURRENT_CLAIMS.md",
+      "research_os_memory\\KNOWN_BUGS_AND_RISKS.md",
+      "research_os_memory\\MODEL_REGISTRY.md",
+      "research_os_memory\\DATASET_REGISTRY.md"
+    ],
+    "registry_entries": {},
+    "repo_files": [],
+    "artifacts": [],
+    "known_risks": [],
+    "allowed_actions": [],
+    "forbidden_actions": [],
+    "expected_output_schema": "AgentOutput",
+    "prior_agent_outputs": []
+  },
+  "actions": [],
+  "blocked": false,
+  "block_reason": "",
+  "human_review_required": false,
+  "human_review_reason": "",
+  "expected_outputs": []
+}

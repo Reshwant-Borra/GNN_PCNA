@@ -1,0 +1,17 @@
+{
+  "permissions": {
+    "allow": [
+      "Bash(python -m pytest tests/test_routing_regressions.py -v)",
+      "Bash(python -m pytest tests -q)",
+      "Bash(python -m research_os routing-eval --category literature --show-failures 5 --progress)",
+      "Bash(python -m research_os routing-eval --show-failures 20 --progress --out latest/routing-eval-baseline.txt)",
+      "Bash(python -m research_os routing-eval --show-failures 25 --progress --out reports/routing_eval/baseline.txt)",
+      "Bash(python -m research_os routing-eval --show-failures 25 --progress --out reports/routing_eval/tune-1.txt)",
+      "Bash(python -m research_os routing-eval --show-failures 25 --progress --out reports/routing_eval/tune-2.txt)",
+      "Bash(python -m research_os routing-eval --show-failures 25 --progress --out reports/routing_eval/tune-3.txt)",
+      "Bash(python -m pytest tests/test_router.py::test_claim_or_paper_routes_to_validation_and_metrics -v)",
+      "Bash(python -m research_os routing-eval --show-failures 15 --progress --out reports/routing_eval/tune-4.txt)",
+      "Bash(python -m research_os routing-eval --show-failures 10 --progress --out reports/routing_eval/confirm.txt)"
+    ]
+  }
+}

@@ -1,0 +1,40 @@
+{
+  "request_summary": "Research how Graph Neural Networks work and find PubMed articles on this topic",
+  "intents": [
+    "general"
+  ],
+  "risk_level": "medium",
+  "selected_agents": [
+    "context_source_truth"
+  ],
+  "required_gates": [],
+  "context_packet": {
+    "task": "Research how Graph Neural Networks work and find PubMed articles on this topic",
+    "intents": [
+      "general"
+    ],
+    "risk_level": "medium",
+    "memory_files": [
+      "C:\\Users\\reshw\\ResearchOS\\research_os_memory\\PROJECT_CANONICAL_STATUS.md"
+    ],
+    "registry_entries": {},
+    "repo_files": [],
+    "artifacts": [],
+    "known_risks": [],
+    "allowed_actions": [],
+    "forbidden_actions": [],
+    "expected_output_schema": "AgentOutput",
+    "prior_agent_outputs": []
+  },
+  "actions": [
+    "Run agents in order: context_source_truth"
+  ],
+  "blocked": false,
+  "block_reason": "",
+  "human_review_required": false,
+  "human_review_reason": "",
+  "expected_outputs": [
+    "AgentOutput per agent",
+    "OrchestrationPlan JSON"
+  ]
+}

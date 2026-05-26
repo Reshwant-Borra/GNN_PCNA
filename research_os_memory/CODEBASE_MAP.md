@@ -191,6 +191,27 @@ These signatures are stable — additive changes only.
 | `research_os/agents/data_audit.py` | Data + leakage + preprocessing + code-review + testing agents. |
 | `research_os/agents/orchestrator_role.py` | Master Research Orchestrator Agent (the role-agent, distinct from the |
 | `research_os/agents/science_evaluation.py` | Science / evaluation agents: ResearchDesign, BiologicalRealism, Literature, |
+| `research_os/autonomous/__init__.py` | Autonomous-agent framework for ResearchOS (Phase 3). |
+| `research_os/autonomous/agent.py` | AutonomousAgent — the planning-loop base class. |
+| `research_os/autonomous/agents/__init__.py` | Autonomous variants of existing ResearchOS scientific agents. |
+| `research_os/autonomous/agents/code_builder.py` | Autonomous Code Builder agent. |
+| `research_os/autonomous/agents/contradiction_hunter.py` | Autonomous Contradiction Hunter agent. |
+| `research_os/autonomous/agents/document_ingestion.py` | Autonomous Document/Knowledge Ingestion agent. |
+| `research_os/autonomous/agents/literature_web.py` | Autonomous Literature/Web agent. |
+| `research_os/autonomous/agents/paper_claim.py` | Autonomous Paper/Claim agent. |
+| `research_os/autonomous/agents/validation_skeptic.py` | Autonomous Validation Skeptic agent. |
+| `research_os/autonomous/controller.py` | AutonomousController — Phase 5 upgrade. |
+| `research_os/autonomous/coverage.py` | Coverage estimator. |
+| `research_os/autonomous/critique.py` | Critic abstraction for the autonomous loop. |
+| `research_os/autonomous/decomposer.py` | Goal decomposer. |
+| `research_os/autonomous/events.py` | Event-emission helpers for the autonomous framework. |
+| `research_os/autonomous/healer.py` | Self-healing infrastructure helper. |
+| `research_os/autonomous/memory.py` | Per-agent memory for the autonomous framework. |
+| `research_os/autonomous/planner.py` | Planners for the autonomous-agent loop. |
+| `research_os/autonomous/profile.py` | Agent Capability Profiles. |
+| `research_os/autonomous/reference_agent.py` | Reference autonomous agent for the framework tests + demo. |
+| `research_os/autonomous/schemas.py` | Schemas for the autonomous-agent framework. |
+| `research_os/autonomous/verification.py` | Multi-agent verification suite for autonomous campaigns. |
 | `research_os/eval/__init__.py` | Routing evaluation harness. |
 | `research_os/eval/routing_benchmark.py` | Hand-curated routing benchmark for ResearchOS. |
 | `research_os/eval/routing_eval.py` | Routing evaluator — run benchmark cases through the Router and grade them. |
@@ -227,11 +248,15 @@ These signatures are stable — additive changes only.
 | `research_os/schemas/registries.py` | Registry entry dataclasses: artifact, claim, experiment, issue, source, environment, decision. |
 | `research_os/schemas/vocab.py` | Closed vocabularies used by registries, agents, and the router. |
 | `research_os/tools/__init__.py` | Filesystem, git, hashing, environment, and dependency-graph helpers. |
+| `research_os/tools/builtin.py` | Built-in tools that are always available to autonomous agents. |
 | `research_os/tools/dependency_graph.py` | Stale-propagation graph for the artifact registry. |
 | `research_os/tools/environment.py` | Capture the current Python/OS environment for provenance. |
 | `research_os/tools/git.py` | Git state capture without depending on GitPython. |
 | `research_os/tools/hashing.py` | Content-addressed hashing for files, directories, and arbitrary text. |
+| `research_os/tools/llm.py` | LLM tool for autonomous agents — opt-in via RESEARCHOS_ENABLE_LLM_AGENTS=1. |
 | `research_os/tools/provenance.py` | Provenance capture: bundle git + environment + hashes + command into one record. |
+| `research_os/tools/registry.py` | Tool registry for the autonomous-agent framework. |
+| `research_os/tools/web.py` | External-web tools for autonomous agents — opt-in via RESEARCHOS_ENABLE_WEB=1. |
 | `research_os/transcripts/__init__.py` | Per-run transcript writer. |
 | `research_os/transcripts/writer.py` | Per-run JSONL transcript writer. |
 | `research_os/workflows/__init__.py` | Workflow runners: pre-built orchestration recipes. |
@@ -268,6 +293,24 @@ These signatures are stable — additive changes only.
 |---|---|
 | `tests/__init__.py` | — |
 | `tests/conftest.py` | Shared pytest fixtures for ResearchOS. |
+| `tests/test_autonomous_agent.py` | End-to-end tests for AutonomousAgent + ReferenceAutonomousAgent. |
+| `tests/test_autonomous_agent_migrations.py` | Phase 4 — tests for migrated autonomous agents. |
+| `tests/test_autonomous_controller.py` | Tests for AutonomousController. |
+| `tests/test_autonomous_controller_phase5.py` | Phase 5 — tests for the upgraded AutonomousController. |
+| `tests/test_autonomous_corpus_mock.py` | Phase 6 — corpus build with mock web backend. |
+| `tests/test_autonomous_critique_coverage.py` | Tests for critics + CoverageEstimator. |
+| `tests/test_autonomous_decomposer.py` | Tests for the goal Decomposer. |
+| `tests/test_autonomous_handoff_chain.py` | Phase 6 — handoff chain tests. |
+| `tests/test_autonomous_healer.py` | Tests for InfrastructureHealer — self-healing scaffolds. |
+| `tests/test_autonomous_long_running.py` | Phase 6 — long-running / retry / budget interaction tests. |
+| `tests/test_autonomous_mcp_pursue_goal.py` | Tests for the pursue_goal MCP tool (Phase 5). |
+| `tests/test_autonomous_memory.py` | Tests for AgentMemory — append-only per-agent JSONL state. |
+| `tests/test_autonomous_planner.py` | Tests for the autonomous planners (deterministic + LLM-backed). |
+| `tests/test_autonomous_resilience.py` | Phase 6 — resilience tests. |
+| `tests/test_autonomous_schemas.py` | Schema-shape tests for the autonomous-framework dataclasses. |
+| `tests/test_autonomous_synthesis.py` | Phase 6 — synthesis flow tests. |
+| `tests/test_autonomous_tools.py` | Tests for the autonomous-framework ToolRegistry + built-in tools. |
+| `tests/test_autonomous_verification.py` | Tests for VerificationSuite — runs the existing 21 agents through the |
 | `tests/test_claude_code_integration.py` | Claude Code integration tests. |
 | `tests/test_memory.py` | Memory loader and update protocol. |
 | `tests/test_memory_kb.py` | Tests for the memory / knowledge base files used by the semantic router. |

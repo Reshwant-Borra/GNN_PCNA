@@ -103,6 +103,37 @@ TOOL_DEFS = [
             "required": ["task_id", "decision"],
         },
     },
+    {
+        "name": "pursue_goal",
+        "description": (
+            "Run an autonomous campaign for a high-level goal. The controller "
+            "decomposes the goal into sub-goals, dispatches them across the "
+            "migrated AutonomousAgent variants, optionally runs the multi-agent "
+            "verification suite, and returns a compact CampaignResult."
+        ),
+        "inputSchema": {
+            "type": "object",
+            "properties": {
+                "objective": {"type": "string"},
+                "rationale": {"type": "string"},
+                "repo_root": {"type": "string"},
+                "budget": {
+                    "type": "object",
+                    "description": "Optional Budget kwargs (max_iterations, max_tool_calls, max_failures, max_seconds, max_tokens).",
+                    "additionalProperties": True,
+                },
+                "sub_goals": {
+                    "type": "array",
+                    "description": "Optional pre-decomposed sub-goals; each is {objective, rationale?, inputs?}.",
+                    "items": {"type": "object"},
+                },
+                "heal_first": {"type": "boolean", "default": False},
+                "heal_dry_run": {"type": "boolean", "default": True},
+                "run_verification": {"type": "boolean", "default": True},
+            },
+            "required": ["objective"],
+        },
+    },
 ]
 
 

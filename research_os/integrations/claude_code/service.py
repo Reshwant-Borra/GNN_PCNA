@@ -362,6 +362,79 @@ def approve_or_deny(
     return {"status": normalized + "d", "task": task.to_public()}
 
 
+def pursue_goal(
+    objective: str,
+    repo_root: str | Path | None = None,
+    *,
+    rationale: str = "",
+    budget: Dict[str, Any] | None = None,
+    sub_goals: list[Dict[str, Any]] | None = None,
+    heal_first: bool = False,
+    heal_dry_run: bool = True,
+    run_verification: bool = True,
+) -> Dict[str, Any]:
+    """Run an autonomous-campaign for a high-level goal.
+
+    The controller decomposes the goal (or uses ``sub_goals`` if supplied),
+    dispatches sub-goals across the migrated ``AutonomousAgent`` variants,
+    optionally runs the multi-agent verification suite, and returns a
+    compact ``CampaignResult`` dict.
+
+    All web/LLM tools remain env-gated; this MCP tool does NOT toggle them.
+    """
+    from research_os.agents.base import AgentContext
+    from research_os.autonomous import AUTONOMOUS_AGENTS
+    from research_os.autonomous.controller import AutonomousController
+    from research_os.autonomous.schemas import Budget, Goal
+
+    root = _repo_root(repo_root)
+    # Ensure memory + registries exist so the verification suite has state to read.
+    orch = _new_orchestrator(root)
+    ctx = AgentContext(
+        repo_root=root,
+        memory_store=orch.memory_store,
+        registry_store=orch.registry_store,
+        reports_root=orch.reports_dir,
+    )
+    budget_obj = Budget(**(budget or {})) if budget else Budget()
+    goal = Goal(objective=objective, rationale=rationale, budget=budget_obj)
+    sg_list = None
+    if sub_goals:
+        sg_list = [
+            Goal(
+                objective=str(sg.get("objective", "")),
+                rationale=str(sg.get("rationale", "")),
+                budget=budget_obj,
+                inputs=dict(sg.get("inputs") or {}),
+                parent_goal_id=goal.goal_id,
+            )
+            for sg in sub_goals
+        ]
+    controller = AutonomousController(
+        ctx,
+        agent_factories=dict(AUTONOMOUS_AGENTS),
+    )
+    try:
+        result = controller.pursue_goal(
+            goal,
+            sub_goals=sg_list,
+            heal_first=heal_first,
+            heal_dry_run=heal_dry_run,
+            run_verification=run_verification,
+        )
+    except Exception as exc:
+        return {"status": "error", "error": f"{type(exc).__name__}: {exc}"}
+    payload = result.to_dict()
+    payload["status"] = "completed"
+    payload["routing_hint"] = "autonomous_controller"
+    payload["counts"] = payload.get("counts") or {
+        "succeeded": result.succeeded_count,
+        "failed": result.failed_count,
+        "skipped": result.skipped_count,
+    }
+    return payload
+
+
 TOOLS: Dict[str, Callable[..., Dict[str, Any]]] = {
     "route_request": route_request,
     "run_request": run_request,
@@ -369,6 +442,7 @@ TOOLS: Dict[str, Callable[..., Dict[str, Any]]] = {
     "get_report": get_report,
     "submit_compute_intent": submit_compute_intent,
     "approve_or_deny": approve_or_deny,
+    "pursue_goal": pursue_goal,
 }
 
 
@@ -376,6 +450,7 @@ __all__ = [
     "TOOLS",
     "approve_or_deny",
     "get_report",
+    "pursue_goal",
     "route_request",
     "run_named_workflow",
     "run_request",

@@ -1,0 +1,144 @@
+# Extracted Project Goal Context
+
+## Page 1
+
+SARC 2026
+RESEARCH PROPOSAL
+The Cancer Clamp Exposed: Cryptic Binding Sites on
+Human PCNA Revealed by Graph Neural Networks
+Category: STEM (#1)
+Full Name: Reshwant Borra
+Email: reshwantb@gmail.com
+Date: April 30, 2026
+
+## Page 2
+
+Abstract
+Despite decades of drug discovery research, Proliferating Cell Nuclear Antigen (PCNA) remains
+without an approved therapy, even as it drives uncontrolled DNA replication across twenty-one
+tumor types. The two agents in Phase I clinical trials, AOH1996 and ATX-101, were both
+discovered by targeting a single pre-selected surface pocket, leaving most of PCNA’s molecular
+surface uncharacterized. This proposal applies a Graph Attention Network trained on allosteric
+protein databases to map hidden binding sites across the full PCNA surface that no prior study
+has examined. Molecular dynamics simulation will then confirm whether predicted sites affect
+PCNA’s functional interfaces, opening new chemical space that a resistance mutation at the
+known pocket cannot block.
+Research Problem & Introduction
+Many of the most important protein drivers of cancer are ‘undruggable’ meaning that they lack
+obvious binding sites and are therefore resistant to conventional drugs (Wang & Wang, 2025).
+One such target is PCNA, a ring-shaped molecular clamp that coordinates DNA replication,
+allowing cancer cells to divide uncontrollably. PCNA is over-expressed in twenty-one tumor
+types, and high expression is associated with hazard ratios for overall survival as high as 3.7 in
+adrenocortical carcinoma and poor outcomes across lung adenocarcinoma, mesothelioma and
+sarcoma (Pandit et al., 2025). It was considered undruggable because it has no enzymatic
+activity, it coordinates over six hundred protein partners using one shallow pocket, and it has no
+deep cavity for a drug to grab [Søgaard & Otterlei, 2024; Wang & Wang, 2025]. AOH1996 and
+ATX-101 have entered Phase I trials as the first PCNA-targeting agents, but both were found by
+screening only that pocket; a single resistance mutation could knock out both at once (Gu et al.,
+2023; Lemech et al., 2023). This proposal employs a graph neural network (GNN) (machine
+learning model representing proteins as graphs of connected amino acid residues) to map the
+hidden binding sites across the entire surface of PCNA.
+Literature Review
+The ring of PCNA positions the IDCL hydrophobic pocket as the core of partner interactions,
+where PIP-box and APIM motifs insert their hydrophobic residues to bind to this pocket
+(González-Magaña & Blanco, 2020; Søgaard & Otterlei, 2024). AOH1996 was identified via
+docking of 300,000 ligands against a fixed structure of PCNA using L126-Y133 as the target
+sub-pocket, while ATX-101 was based on mimicry of the APIM motif. Both agents were thus
+developed from just one selected pocket without further search (Gu et al., 2018; Gu et al., 2023;
+Lemech et al., 2023).
+GNN-based approaches have contributed tremendously to hidden pocket identification.
+PocketMiner was trained on residue-level GNN to identify hidden pockets using pocket labels of
+thirty-nine proteins with an ROC-AUC score of 0.87. The approach was scaled to the entire
+proteome (McNutt et al., 2023). DeepAllo uses protein language models and structural features
+to predict allosteric pockets, obtaining an F1 score of 89.66% on allosteric proteins (Khokhar et
+al., 2025). However, neither method considers human PCNA as a case study, leaving PCNA
+hidden pockets untouched. There has been one recent study using molecular dynamics on PCNA
+transcripts to examine stability but not pocket identification. No study has integrated the two
+techniques of GNN-based prediction and molecular dynamics to study human PCNA. This gap is
+what this study aims to close.
+Research Question
+Can a GNN trained on allosteric protein databases identify hidden binding sites on human PCNA
+beyond the single pocket that existing drug discovery has exclusively targeted?
+
+## Page 3
+
+Methodology
+Graph Construction and Model Training. Each PCNA residue will become a graph node
+carrying its identity, three-dimensional coordinates from crystal structures and AlphaFold2
+models, structural environment, and evolutionary conservation (Jumper et al., 2021). Edges will
+connect residues within 8–10 Å, along the sequence, or symmetrically across PCNA’s three
+subunits. A Graph Attention Network (GAT) will be trained on allosteric labels from the
+Allosteric Database 2023 and PocketMiner’s thirty-nine-protein dataset, learning which
+connections best predict hidden pocket formation (McNutt et al., 2023). Both datasets provide
+experimentally verified pocket labels, grounding the model in real structural examples of
+allostery.
+Pocket Prediction. The trained GNN will score the residues within the native PCNA
+homotrimer, caPCNA isIs it soform and DNA-bound complex structures from the Protein Data
+Bank with candidate pockets generated by fpocket and ranked by the summed GNN scores. As a
+positive control the model is required to rank the AOH1996 binding pocket (PDB 8GLA) highly
+before predictions at uncharacterized surfaces can be trusted (Gu et al., 2023).
+Molecular Dynamics Validation. For the best-predicted site outside the known PIP-box region,
+we will perform molecular dynamics simulations of unbound PCNA and PCNA with a small
+molecule computationally docked at the predicted site with the CHARMM36m force field and
+explicit water at physiological temperature (310 K) for 100-200 nanoseconds on a single GPU
+following previous PCNA simulation timescales (Flores-Macías et al., 2022). We will evaluate if
+the predicted site functionally disrupts partner-binding interfaces by using per-residue flexibility
+(RMSF), the size and shape of the predicted binding site over time, and dynamic cross-
+correlation matrices (mapping how motion at one site propagates to another).
+Validation Criteria: The GNN must be able to recover the AOH1996 pocket at high propensity
+before accepting novel predictions, and MD simulations are only confirmatory if ligand-bound
+PCNA shows measurably reduced partner-interface flexibility than unbound PCNA.
+Research Topic Justification
+No GNN has been applied to PCNA for hidden pocket prediction, both PocketMiner and
+DeepAllo exclude it as a benchmark, and all prior campaigns used rigid docking on one pre-
+selected site (Gu et al., 2018; McNutt et al., 2023; Khokhar et al., 2025). The full hidden pocket
+surface of this protein has never been systematically examined with modern machine learning.
+That is the gap this proposal addresses. With survival hazard ratios up to 3.7, no approved
+therapy, and both Phase I agents targeting one pocket, identifying additional druggable sites
+would protect against resistance and expand treatment options for patients who currently have
+none (Pandit et al., 2025; Wang & Wang, 2025).
+Conclusion & Feasibility
+This project examines if it is possible for a graph neural network to find sites missed in decades
+of screening on PCNA, and if MD simulations support or do not support the significance of the
+sites found; results for both cases will be included. Structures for each case are deposited in the
+PDB, all AlphaFold2 structures are available publicly, and all the software used (PyTorch
+Geometric, GROMACS, fpocket, and MDpocket) is open-source (Jumper et al., 2021; McNutt et
+al., 2023). There are three limitations associated with this project: first, AlphaFold2 structures
+only include single chains, not the whole trimer complex; second, MD simulation time frames of
+100–200 ns are likely too short to include any rare pocket openings, although this reflects
+previous work done on PCNA; third, the entire project is computer based, so the next step will be
+screening fragments against the best predicted pockets.
+
+## Page 4
+
+References
+Flores-Macías, A., et al. (2022). The proliferating cell nuclear antigen (PCNA) transcript variants
+encode proteins with distinct structural and functional features. Genes, 13(10), 1842.
+https://doi.org/10.3390/genes13101842
+González-Magaña, A., & Blanco, F. J. (2020). Human PCNA structure, function and
+interactions. Biomolecules, 10(4), 570. https://doi.org/10.3390/biom10040570
+Gu, L., et al. (2018). The anticancer activity of a first-in-class small-molecule targeting PCNA.
+Clinical Cancer Research, 24(23), 6053–6065. https://doi.org/10.1158/1078-0432.CCR-
+18-0592
+Gu, L., et al. (2023). Small molecule targeting of transcription–replication conflict for selective
+chemotherapy. Cell Chemical Biology, 30(10), 1235–1247.
+https://doi.org/10.1016/j.chembiol.2023.07.001
+Jumper, J., et al. (2021). Highly accurate protein structure prediction with AlphaFold. Nature,
+596(7873), 583–589. https://doi.org/10.1038/s41586-021-03819-2
+Khokhar, M., et al. (2025). DeepAllo: Allosteric site prediction using protein language model
+with multitask learning. Bioinformatics, 41(6), btaf294.
+https://doi.org/10.1093/bioinformatics/btaf294
+Lemech, C. R., et al. (2023). ATX-101, a cell-penetrating protein targeting PCNA, can be safely
+administered as intravenous infusion in patients and shows clinical activity in a phase 1
+study. Oncogene, 42(7), 541–544. https://doi.org/10.1038/s41388-022-02582-6
+McNutt, A. T., et al. (2023). Predicting locations of cryptic pockets from single protein structures
+using the PocketMiner graph neural network. Nature Communications, 14, 1177.
+https://doi.org/10.1038/s41467-023-36699-3
+Pandit, D., et al. (2025). PCNA in pan-cancer: A prognostic biomarker unveiled through a data-
+driven, multidimensional analysis of transcriptomics, immunity, and functional profiling.
+ACS Omega, 10(26), 28311–28326. https://doi.org/10.1021/acsomega.5c03331
+Søgaard, C. K., & Otterlei, M. (2024). Targeting proliferating cell nuclear antigen (PCNA) for
+cancer therapy. Advances in Pharmacology. https://doi.org/10.1016/bs.apha.2024.04.002
+Wang, Y., & Wang, H. (2025). Targeting the ‘undruggable’: Small-molecule inhibitors of
+proliferating cell nuclear antigen (PCNA) in the spotlight in cancer therapy. Journal of
+Medicinal Chemistry, 68(3), 2058–2088. https://doi.org/10.1021/acs.jmedchem.4c00526

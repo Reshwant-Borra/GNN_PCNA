@@ -169,7 +169,7 @@ EVIDENCE_TYPES = (
 # Event types emitted to the dashboard event stream + per-run transcript.
 # The original 6 (workflow_started, agent_started, agent_completed, agent_error,
 # gate_updated, workflow_completed) keep their schemas; the rest are added by
-# the semantic-routing + transcript upgrade.
+# the semantic-routing + transcript + autonomous-framework upgrades.
 EVENT_TYPES = (
     "workflow_started",
     "workflow_completed",
@@ -195,6 +195,25 @@ EVENT_TYPES = (
     "artifact_created",
     "blocker_detected",
     "human_approval_requested",
+    # --- Autonomous-framework additions (Phase 3) ---
+    "goal_started",
+    "goal_completed",
+    "plan_created",
+    "plan_revised",
+    "step_started",
+    "step_completed",
+    "step_failed",
+    "step_retried",
+    "critique_started",
+    "critique_completed",
+    "replan_started",
+    "replan_completed",
+    "coverage_evaluated",
+    "fallback_triggered",
+    "handoff_requested",
+    "budget_exhausted",
+    "campaign_started",
+    "campaign_completed",
 )
 
 

@@ -1,0 +1,1410 @@
+{
+  "plan": {
+    "request_summary": "Independently verify metrics in the repo.",
+    "intents": [
+      "source_of_truth_query",
+      "metric_verification",
+      "split_or_leakage",
+      "code_review",
+      "contradiction_hunt"
+    ],
+    "risk_level": "high",
+    "selected_agents": [
+      "context_source_truth",
+      "provenance_artifacts",
+      "contradiction_hunter",
+      "metrics_statistics",
+      "leakage_split",
+      "dataset_integrity",
+      "scientific_code_review",
+      "testing_environment",
+      "paper_claim"
+    ],
+    "required_gates": [
+      "leakage",
+      "evaluation",
+      "dataset",
+      "code"
+    ],
+    "context_packet": {
+      "task": "Independently verify metrics in the repo.",
+      "intents": [
+        "source_of_truth_query",
+        "metric_verification",
+        "split_or_leakage",
+        "code_review",
+        "contradiction_hunt"
+      ],
+      "risk_level": "high",
+      "memory_files": [
+        "research_os_memory\\PROJECT_CANONICAL_STATUS.md",
+        "research_os_memory\\VALIDATION_STATUS.md",
+        "research_os_memory\\CURRENT_CLAIMS.md",
+        "research_os_memory\\KNOWN_BUGS_AND_RISKS.md",
+        "research_os_memory\\MODEL_REGISTRY.md",
+        "research_os_memory\\DATASET_REGISTRY.md"
+      ],
+      "registry_entries": {
+        "artifact_registry": [
+          {
+            "id": "ART-0001",
+            "created": "2026-05-19T00:00:00Z",
+            "updated": "2026-05-24T00:00:00Z",
+            "status": "current",
+            "created_by": "human",
+            "type": "checkpoint",
+            "path": "checkpoints/pcna_reproduced/best.ckpt",
+            "description": "PocketGNNXL V3 best checkpoint (seed=42). Primary model artifact.",
+            "command": "python scripts/train.py --config configs/pocketgnnxl.yaml --seed 42",
+            "git_commit": null,
+            "dataset_hash": null,
+            "checkpoint_hash": null,
+            "environment": "pcna_md conda env",
+            "machine": "local",
+            "associated_claims": [
+              "CLAIM-0001",
+              "CLAIM-0002",
+              "CLAIM-0003",
+              "CLAIM-0004"
+            ],
+            "notes": "See best_meta.json for full provenance. split_file=data/splits/cryptosite_split.json",
+            "artifact_id": "ART-0001",
+            "artifact_type": "checkpoint",
+            "created_at": "2026-05-19T00:00:00Z",
+            "updated_at": "2026-05-24T00:00:00Z",
+            "created_by_agent": "human",
+            "_legacy": {
+              "id": "ART-0001",
+              "created": "2026-05-19T00:00:00Z",
+              "updated": "2026-05-24T00:00:00Z",
+              "status": "current",
+              "created_by": "human",
+              "type": "checkpoint",
+              "path": "checkpoints/pcna_reproduced/best.ckpt",
+              "description": "PocketGNNXL V3 best checkpoint (seed=42). Primary model artifact.",
+              "command": "python scripts/train.py --config configs/pocketgnnxl.yaml --seed 42",
+              "git_commit": null,
+              "dataset_hash": null,
+              "checkpoint_hash": null,
+              "environment": "pcna_md conda env",
+              "machine": "local",
+              "associated_claims": [
+                "CLAIM-0001",
+                "CLAIM-0002",
+                "CLAIM-0003",
+                "CLAIM-0004"
+              ],
+              "notes": "See best_meta.json for full provenance. split_file=data/splits/cryptosite_split.json"
+            }
+          },
+          {
+            "id": "ART-0002",
+            "created": "2026-05-19T00:00:00Z",
+            "updated": "2026-05-24T00:00:00Z",
+            "status": "current",
+            "created_by": "human",
+            "type": "evaluation_result",
+            "path": "data/results/test_split_eval_best.json",
+            "description": "Held-out CryptoSite evaluation results. Contains combined_val_test block with AUROC 0.8081.",
+            "command": "python scripts/evaluate.py --checkpoint checkpoints/pcna_reproduced/best.ckpt",
+            "git_commit": null,
+            "dataset_hash": null,
+            "associated_claims": [
+              "CLAIM-0001"
+            ],
+            "notes": "combined_val_test: AUROC 0.8081, AUPRC 0.3441",
+            "artifact_id": "ART-0002",
+            "artifact_type": "other",
+            "legacy_artifact_type": "evaluation_result",
+            "created_at": "2026-05-19T00:00:00Z",
+            "updated_at": "2026-05-24T00:00:00Z",
+            "created_by_agent": "human",
+            "_legacy": {
+              "id": "ART-0002",
+              "created": "2026-05-19T00:00:00Z",
+              "updated": "2026-05-24T00:00:00Z",
+              "status": "current",
+              "created_by": "human",
+              "type": "evaluation_result",
+              "path": "data/results/test_split_eval_best.json",
+              "description": "Held-out CryptoSite evaluation results. Contains combined_val_test block with AUROC 0.8081.",
+              "command": "python scripts/evaluate.py --checkpoint checkpoints/pcna_reproduced/best.ckpt",
+              "git_commit": null,
+              "dataset_hash": null,
+              "associated_claims": [
+                "CLAIM-0001"
+              ],
+              "notes": "combined_val_test: AUROC 0.8081, AUPRC 0.3441"
+            }
+          },
+          {
+            "id": "ART-0003",
+            "created": "2026-05-19T00:00:00Z",
+            "updated": "2026-05-24T00:00:00Z",
+            "status": "current",
+            "created_by": "human",
+            "type": "analysis_result",
+            "path": "data/results/nma_apo_holo_comparison.json",
+            "description": "ANM analysis: apo fold-change 0.857, holo 1.157, delta +0.300, DCCM apo 0.0995, holo 0.2093.",
+            "command": "python scripts/run_nma.py",
+            "associated_claims": [
+              "CLAIM-0003",
+              "CLAIM-0005"
+            ],
+            "notes": "CORRECTED 2026-05-19. Chains A+B only for 8GLA. Old numbers (holo=1.104) are invalid.",
+            "artifact_id": "ART-0003",
+            "artifact_type": "other",
+            "legacy_artifact_type": "analysis_result",
+            "created_at": "2026-05-19T00:00:00Z",
+            "updated_at": "2026-05-24T00:00:00Z",
+            "created_by_agent": "human",
+            "_legacy": {
+              "id": "ART-0003",
+              "created": "2026-05-19T00:00:00Z",
+              "updated": "2026-05-24T00:00:00Z",
+              "status": "current",
+              "created_by": "human",
+              "type": "analysis_result",
+              "path": "data/results/nma_apo_holo_comparison.json",
+              "description": "ANM analysis: apo fold-change 0.857, holo 1.157, delta +0.300, DCCM apo 0.0995, holo 0.2093.",
+              "command": "python scripts/run_nma.py",
+              "associated_claims": [
+                "CLAIM-0003",
+                "CLAIM-0005"
+              ],
+              "notes": "CORRECTED 2026-05-19. Chains A+B only for 8GLA. Old numbers (holo=1.104) are invalid."
+            }
+          },
+          {
+            "id": "ART-0004",
+            "created": "2026-05-19T00:00:00Z",
+            "updated": "2026-05-24T00:00:00Z",
+            "status": "current",
+            "created_by": "human",
+            "type": "paper_draft",
+            "path": "docs/GNN_PCNA_Research_Paper_v2.docx",
+            "description": "Research paper v2. Built by scripts/build_paper_docx.py. Section 3.8 pending MD results.",
+            "command": "python scripts/build_paper_docx.py",
+            "associated_claims": [
+              "CLAIM-0001",
+              "CLAIM-0002",
+              "CLAIM-0003",
+              "CLAIM-0004",
+              "CLAIM-0005"
+            ],
+            "notes": "Never edit docx directly. Re-run builder after any change. Kill Word before running.",
+            "artifact_id": "ART-0004",
+            "artifact_type": "paper_draft",
+            "created_at": "2026-05-19T00:00:00Z",
+            "updated_at": "2026-05-24T00:00:00Z",
+            "created_by_agent": "human",
+            "_legacy": {
+              "id": "ART-0004",
+              "created": "2026-05-19T00:00:00Z",
+              "updated": "2026-05-24T00:00:00Z",
+              "status": "current",
+              "created_by": "human",
+              "type": "paper_draft",
+              "path": "docs/GNN_PCNA_Research_Paper_v2.docx",
+              "description": "Research paper v2. Built by scripts/build_paper_docx.py. Section 3.8 pending MD results.",
+              "command": "python scripts/build_paper_docx.py",
+              "associated_claims": [
+                "CLAIM-0001",
+                "CLAIM-0002",
+                "CLAIM-0003",
+                "CLAIM-0004",
+                "CLAIM-0005"
+              ],
+              "notes": "Never edit docx directly. Re-run builder after any change. Kill Word before running."
+            }
+          },
+          {
+            "id": "ART-0005",
+            "created": "2026-05-24T00:00:00Z",
+            "updated": "2026-05-24T00:00:00Z",
+            "status": "pending",
+            "created_by": "human",
+            "type": "md_trajectory",
+            "path": "data/md/1W60_production.dcd",
+            "description": "100 ns OpenMM MD trajectory of 1W60 apo. Likely complete on Google Cloud L4. Needs transfer.",
+            "command": "wormhole receive <code> OR gcloud storage cp gs://bucket/1W60_production.dcd data/md/",
+            "associated_claims": [
+              "CLAIM-0005"
+            ],
+            "notes": "Transfer from Reshwant's L4 instance. After transfer run scripts/run_md_analysis.py.",
+            "artifact_id": "ART-0005",
+            "artifact_type": "md_trajectory",
+            "created_at": "2026-05-24T00:00:00Z",
+            "updated_at": "2026-05-24T00:00:00Z",
+            "created_by_agent": "human",
+            "_legacy": {
+              "id": "ART-0005",
+              "created": "2026-05-24T00:00:00Z",
+              "updated": "2026-05-24T00:00:00Z",
+              "status": "pending",
+              "created_by": "human",
+              "type": "md_trajectory",
+              "path": "data/md/1W60_production.dcd",
+              "description": "100 ns OpenMM MD trajectory of 1W60 apo. Likely complete on Google Cloud L4. Needs transfer.",
+              "command": "wormhole receive <code> OR gcloud storage cp gs://bucket/1W60_production.dcd data/md/",
+              "associated_claims": [
+                "CLAIM-0005"
+              ],
+              "notes": "Transfer from Reshwant's L4 instance. After transfer run scripts/run_md_analysis.py."
+            }
+          }
+        ],
+        "claim_registry": [
+          {
+            "id": "CLAIM-0001",
+            "created": "2026-05-24T00:00:00Z",
+            "updated": "2026-05-24T00:00:00Z",
+            "status": "strongly_supported_computationally",
+            "created_by": "human",
+            "text": "PocketGNNXL V3 achieves AUROC 0.8081 on 13 held-out CryptoSite proteins (8 val + 5 test), with AUPRC 0.3441 (6.2\u00d7 above trivial baseline 0.0557).",
+            "allowed_wording": [
+              "held-out AUROC 0.8081 on 13 CryptoSite proteins"
+            ],
+            "disallowed_wording": [
+              "validated on all proteins; AUROC without specifying N=13"
+            ],
+            "evidence_for": [
+              "data/results/test_split_eval_best.json"
+            ],
+            "evidence_against": [],
+            "requires_human_approval": false,
+            "human_approved": true,
+            "notes": "Primary generalization metric. Fine-tuning structures NOT included.",
+            "claim_id": "CLAIM-0001",
+            "claim_text": "PocketGNNXL V3 achieves AUROC 0.8081 on 13 held-out CryptoSite proteins (8 val + 5 test), with AUPRC 0.3441 (6.2\u00d7 above trivial baseline 0.0557).",
+            "created_at": "2026-05-24T00:00:00Z",
+            "updated_at": "2026-05-24T00:00:00Z",
+            "claim_strength": "strongly_supported_computationally",
+            "human_approval": {
+              "required": false,
+              "decision_id": "",
+              "approval_status": "approved"
+            },
+            "_legacy": {
+              "id": "CLAIM-0001",
+              "created": "2026-05-24T00:00:00Z",
+              "updated": "2026-05-24T00:00:00Z",
+              "status": "strongly_supported_computationally",
+              "created_by": "human",
+              "text": "PocketGNNXL V3 achieves AUROC 0.8081 on 13 held-out CryptoSite proteins (8 val + 5 test), with AUPRC 0.3441 (6.2\u00d7 above trivial baseline 0.0557).",
+              "allowed_wording": "held-out AUROC 0.8081 on 13 CryptoSite proteins",
+              "disallowed_wording": "validated on all proteins; AUROC without specifying N=13",
+              "evidence_for": [
+                "data/results/test_split_eval_best.json"
+              ],
+              "evidence_against": [],
+              "requires_human_approval": false,
+              "human_approved": true,
+              "notes": "Primary generalization metric. Fine-tuning structures NOT included."
+            }
+          },
+          {
+            "id": "CLAIM-0002",
+            "created": "2026-05-24T00:00:00Z",
+            "updated": "2026-05-24T00:00:00Z",
+            "status": "strongly_supported_computationally",
+            "created_by": "human",
+            "text": "PocketGNNXL V3 recovers the AOH1996 binding site on 8GLA with mean pocket score 0.8676 (threshold 0.700 \u2192 PASS). Recovers \u226520/24 ground-truth residues in 23/59 PCNA structures.",
+            "allowed_wording": [
+              "recovers AOH1996 binding site; mean score 0.8676"
+            ],
+            "disallowed_wording": [
+              "discovers novel pocket at AOH1996 site (it is the ground truth, not a novel finding)"
+            ],
+            "evidence_for": [
+              "data/results/aoh_gate_check.json"
+            ],
+            "evidence_against": [],
+            "requires_human_approval": false,
+            "human_approved": true,
+            "notes": "Ground truth: 24 residues within 6 \u00c5 of ZQZ in 8GLA chains A+B only.",
+            "claim_id": "CLAIM-0002",
+            "claim_text": "PocketGNNXL V3 recovers the AOH1996 binding site on 8GLA with mean pocket score 0.8676 (threshold 0.700 \u2192 PASS). Recovers \u226520/24 ground-truth residues in 23/59 PCNA structures.",
+            "created_at": "2026-05-24T00:00:00Z",
+            "updated_at": "2026-05-24T00:00:00Z",
+            "claim_strength": "strongly_supported_computationally",
+            "human_approval": {
+              "required": false,
+              "decision_id": "",
+              "approval_status": "approved"
+            },
+            "_legacy": {
+              "id": "CLAIM-0002",
+              "created": "2026-05-24T00:00:00Z",
+              "updated": "2026-05-24T00:00:00Z",
+              "status": "strongly_supported_computationally",
+              "created_by": "human",
+              "text": "PocketGNNXL V3 recovers the AOH1996 binding site on 8GLA with mean pocket score 0.8676 (threshold 0.700 \u2192 PASS). Recovers \u226520/24 ground-truth residues in 23/59 PCNA structures.",
+              "allowed_wording": "recovers AOH1996 binding site; mean score 0.8676",
+              "disallowed_wording": "discovers novel pocket at AOH1996 site (it is the ground truth, not a novel finding)",
+              "evidence_for": [
+                "data/results/aoh_gate_check.json"
+              ],
+              "evidence_against": [],
+              "requires_human_approval": false,
+              "human_approved": true,
+              "notes": "Ground truth: 24 residues within 6 \u00c5 of ZQZ in 8GLA chains A+B only."
+            }
+          },
+          {
+            "id": "CLAIM-0003",
+            "created": "2026-05-24T00:00:00Z",
+            "updated": "2026-05-24T00:00:00Z",
+            "status": "moderately_supported",
+            "created_by": "human",
+            "text": "ANM analysis shows the holo PCNA pocket (8GLA) has elevated flexibility vs global (fold-change 1.157, delta +0.300 vs apo 0.857); holo internal DCCM 0.2093 vs apo 0.0995.",
+            "allowed_wording": [
+              "elevated ANM flexibility in holo pocket; fold-change delta +0.300"
+            ],
+            "disallowed_wording": [
+              "MD-validated pocket opening; confirmed dynamic pocket (requires trajectory evidence)"
+            ],
+            "evidence_for": [
+              "data/results/nma_apo_holo_comparison.json"
+            ],
+            "evidence_against": [],
+            "requires_human_approval": false,
+            "human_approved": true,
+            "notes": "ANM is normal-mode approximation, not MD. Supports but does not prove dynamic pocket.",
+            "claim_id": "CLAIM-0003",
+            "claim_text": "ANM analysis shows the holo PCNA pocket (8GLA) has elevated flexibility vs global (fold-change 1.157, delta +0.300 vs apo 0.857); holo internal DCCM 0.2093 vs apo 0.0995.",
+            "created_at": "2026-05-24T00:00:00Z",
+            "updated_at": "2026-05-24T00:00:00Z",
+            "claim_strength": "moderately_supported",
+            "human_approval": {
+              "required": false,
+              "decision_id": "",
+              "approval_status": "approved"
+            },
+            "_legacy": {
+              "id": "CLAIM-0003",
+              "created": "2026-05-24T00:00:00Z",
+              "updated": "2026-05-24T00:00:00Z",
+              "status": "moderately_supported",
+              "created_by": "human",
+              "text": "ANM analysis shows the holo PCNA pocket (8GLA) has elevated flexibility vs global (fold-change 1.157, delta +0.300 vs apo 0.857); holo internal DCCM 0.2093 vs apo 0.0995.",
+              "allowed_wording": "elevated ANM flexibility in holo pocket; fold-change delta +0.300",
+              "disallowed_wording": "MD-validated pocket opening; confirmed dynamic pocket (requires trajectory evidence)",
+              "evidence_for": [
+                "data/results/nma_apo_holo_comparison.json"
+              ],
+              "evidence_against": [],
+              "requires_human_approval": false,
+              "human_approved": true,
+              "notes": "ANM is normal-mode approximation, not MD. Supports but does not prove dynamic pocket."
+            }
+          },
+          {
+            "id": "CLAIM-0004",
+            "created": "2026-05-24T00:00:00Z",
+            "updated": "2026-05-24T00:00:00Z",
+            "status": "strongly_supported_computationally",
+            "created_by": "human",
+            "text": "PocketGNNXL V3 (+ESM2) outperforms PocketGNN V1 by +0.228 AUROC on 7 internal fine-tuning structures (0.9067 vs 0.6782).",
+            "allowed_wording": [
+              "internal fine-tuning evaluation showing +0.228 improvement"
+            ],
+            "disallowed_wording": [
+              "generalization improvement (these are fine-tuning structures, not held-out)"
+            ],
+            "evidence_for": [],
+            "evidence_against": [],
+            "requires_human_approval": false,
+            "human_approved": true,
+            "notes": "\u26a0\ufe0f Table 1 data only. Always label as internal, not generalization.",
+            "claim_id": "CLAIM-0004",
+            "claim_text": "PocketGNNXL V3 (+ESM2) outperforms PocketGNN V1 by +0.228 AUROC on 7 internal fine-tuning structures (0.9067 vs 0.6782).",
+            "created_at": "2026-05-24T00:00:00Z",
+            "updated_at": "2026-05-24T00:00:00Z",
+            "claim_strength": "strongly_supported_computationally",
+            "human_approval": {
+              "required": false,
+              "decision_id": "",
+              "approval_status": "approved"
+            },
+            "_legacy": {
+              "id": "CLAIM-0004",
+              "created": "2026-05-24T00:00:00Z",
+              "updated": "2026-05-24T00:00:00Z",
+              "status": "strongly_supported_computationally",
+              "created_by": "human",
+              "text": "PocketGNNXL V3 (+ESM2) outperforms PocketGNN V1 by +0.228 AUROC on 7 internal fine-tuning structures (0.9067 vs 0.6782).",
+              "allowed_wording": "internal fine-tuning evaluation showing +0.228 improvement",
+              "disallowed_wording": "generalization improvement (these are fine-tuning structures, not held-out)",
+              "evidence_for": [],
+              "evidence_against": [],
+              "requires_human_approval": false,
+              "human_approved": true,
+              "notes": "\u26a0\ufe0f Table 1 data only. Always label as internal, not generalization."
+            }
+          },
+          {
+            "id": "CLAIM-0005",
+            "created": "2026-05-24T00:00:00Z",
+            "updated": "2026-05-24T00:00:00Z",
+            "status": "suggestive",
+            "created_by": "human",
+            "text": "The AOH1996 binding pocket on PCNA is a cryptic site: invisible in apo structure but exhibiting elevated flexibility in the ligand-bound form by ANM.",
+            "allowed_wording": [
+              "candidate cryptic site; suggestive of dynamic accessibility"
+            ],
+            "disallowed_wording": [
+              "validated cryptic pocket; confirmed pocket opening"
+            ],
+            "evidence_for": [
+              "data/results/nma_apo_holo_comparison.json"
+            ],
+            "evidence_against": [],
+            "requires_human_approval": true,
+            "human_approved": false,
+            "notes": "Upgrade to moderately_supported requires MD RMSF + volume evidence. Pending E003.",
+            "claim_id": "CLAIM-0005",
+            "claim_text": "The AOH1996 binding pocket on PCNA is a cryptic site: invisible in apo structure but exhibiting elevated flexibility in the ligand-bound form by ANM.",
+            "created_at": "2026-05-24T00:00:00Z",
+            "updated_at": "2026-05-24T00:00:00Z",
+            "claim_strength": "suggestive",
+            "human_approval": {
+              "required": true,
+              "decision_id": "",
+              "approval_status": "pending"
+            },
+            "_legacy": {
+              "id": "CLAIM-0005",
+              "created": "2026-05-24T00:00:00Z",
+              "updated": "2026-05-24T00:00:00Z",
+              "status": "suggestive",
+              "created_by": "human",
+              "text": "The AOH1996 binding pocket on PCNA is a cryptic site: invisible in apo structure but exhibiting elevated flexibility in the ligand-bound form by ANM.",
+              "allowed_wording": "candidate cryptic site; suggestive of dynamic accessibility",
+              "disallowed_wording": "validated cryptic pocket; confirmed pocket opening",
+              "evidence_for": [
+                "data/results/nma_apo_holo_comparison.json"
+              ],
+              "evidence_against": [],
+              "requires_human_approval": true,
+              "human_approved": false,
+              "notes": "Upgrade to moderately_supported requires MD RMSF + volume evidence. Pending E003."
+            }
+          }
+        ],
+        "issue_registry": [
+          {
+            "id": "ISSUE-0001",
+            "created": "2026-05-19T00:00:00Z",
+            "updated": "2026-05-24T00:00:00Z",
+            "status": "open",
+            "severity": "critical",
+            "created_by": "human",
+            "title": "9B8T chain assignment wrong",
+            "description": "Chain A in 9B8T is DNA polymerase epsilon, not PCNA. PCNA = chains B/C/D. All 9B8T outputs are biologically incorrect.",
+            "stale_artifacts": [
+              "all 9B8T inference output files"
+            ],
+            "fix_required": "Re-run inference on 9B8T with chains B/C/D",
+            "notes": "Do not cite any 9B8T result until regenerated.",
+            "issue_id": "ISSUE-0001",
+            "created_at": "2026-05-19T00:00:00Z",
+            "updated_at": "2026-05-24T00:00:00Z",
+            "_legacy": {
+              "id": "ISSUE-0001",
+              "created": "2026-05-19T00:00:00Z",
+              "updated": "2026-05-24T00:00:00Z",
+              "status": "open",
+              "severity": "critical",
+              "created_by": "human",
+              "title": "9B8T chain assignment wrong",
+              "description": "Chain A in 9B8T is DNA polymerase epsilon, not PCNA. PCNA = chains B/C/D. All 9B8T outputs are biologically incorrect.",
+              "stale_artifacts": [
+                "all 9B8T inference output files"
+              ],
+              "fix_required": "Re-run inference on 9B8T with chains B/C/D",
+              "notes": "Do not cite any 9B8T result until regenerated."
+            },
+            "affected_artifacts": [
+              "all 9B8T inference output files"
+            ]
+          },
+          {
+            "id": "ISSUE-0002",
+            "created": "2026-05-19T00:00:00Z",
+            "updated": "2026-05-24T00:00:00Z",
+            "status": "open",
+            "severity": "moderate",
+            "created_by": "human",
+            "title": "Stale ANM outputs with wrong numbers (pre-2026-05-19)",
+            "description": "Old holo=1.104, delta=+0.247. Correct: holo=1.157, delta=+0.300. Any pre-fix output file is stale.",
+            "stale_artifacts": [
+              "any ANM report or figure before 2026-05-19"
+            ],
+            "fix_required": "Replace with data/results/nma_apo_holo_comparison.json values",
+            "notes": "Main repo and paper are already corrected.",
+            "issue_id": "ISSUE-0002",
+            "created_at": "2026-05-19T00:00:00Z",
+            "updated_at": "2026-05-24T00:00:00Z",
+            "_legacy": {
+              "id": "ISSUE-0002",
+              "created": "2026-05-19T00:00:00Z",
+              "updated": "2026-05-24T00:00:00Z",
+              "status": "open",
+              "severity": "moderate",
+              "created_by": "human",
+              "title": "Stale ANM outputs with wrong numbers (pre-2026-05-19)",
+              "description": "Old holo=1.104, delta=+0.247. Correct: holo=1.157, delta=+0.300. Any pre-fix output file is stale.",
+              "stale_artifacts": [
+                "any ANM report or figure before 2026-05-19"
+              ],
+              "fix_required": "Replace with data/results/nma_apo_holo_comparison.json values",
+              "notes": "Main repo and paper are already corrected."
+            },
+            "affected_artifacts": [
+              "any ANM report or figure before 2026-05-19"
+            ]
+          },
+          {
+            "id": "ISSUE-0003",
+            "created": "2026-05-19T00:00:00Z",
+            "updated": "2026-05-24T00:00:00Z",
+            "status": "fixed",
+            "severity": "low",
+            "created_by": "human",
+            "title": "LIMITATIONS.md line 26 claimed 8GLA absent from all training",
+            "description": "Wrong: 8GLA IS in PCNA fine-tuning. Absent from held-out CryptoSite eval only.",
+            "stale_artifacts": [
+              "old copies of LIMITATIONS.md"
+            ],
+            "fix_required": "Corrected in main repo 2026-05-19",
+            "notes": "External shared copies may still carry wrong claim.",
+            "issue_id": "ISSUE-0003",
+            "created_at": "2026-05-19T00:00:00Z",
+            "updated_at": "2026-05-24T00:00:00Z",
+            "_legacy": {
+              "id": "ISSUE-0003",
+              "created": "2026-05-19T00:00:00Z",
+              "updated": "2026-05-24T00:00:00Z",
+              "status": "fixed",
+              "severity": "low",
+              "created_by": "human",
+              "title": "LIMITATIONS.md line 26 claimed 8GLA absent from all training",
+              "description": "Wrong: 8GLA IS in PCNA fine-tuning. Absent from held-out CryptoSite eval only.",
+              "stale_artifacts": [
+                "old copies of LIMITATIONS.md"
+              ],
+              "fix_required": "Corrected in main repo 2026-05-19",
+              "notes": "External shared copies may still carry wrong claim."
+            },
+            "affected_artifacts": [
+              "old copies of LIMITATIONS.md"
+            ]
+          },
+          {
+            "id": "ISSUE-0004",
+            "created": "2026-05-18T00:00:00Z",
+            "updated": "2026-05-24T00:00:00Z",
+            "status": "open",
+            "severity": "low",
+            "created_by": "human",
+            "title": "T6 sanity test fails (chain_id one-hot equivariance)",
+            "description": "6/7 model sanity tests pass. T6 fails because chain_id one-hot breaks permutation equivariance.",
+            "stale_artifacts": [],
+            "fix_required": "Document as limitation, or remove chain_id feature",
+            "notes": "Does not affect held-out AUROC 0.8081.",
+            "issue_id": "ISSUE-0004",
+            "created_at": "2026-05-18T00:00:00Z",
+            "updated_at": "2026-05-24T00:00:00Z",
+            "_legacy": {
+              "id": "ISSUE-0004",
+              "created": "2026-05-18T00:00:00Z",
+              "updated": "2026-05-24T00:00:00Z",
+              "status": "open",
+              "severity": "low",
+              "created_by": "human",
+              "title": "T6 sanity test fails (chain_id one-hot equivariance)",
+              "description": "6/7 model sanity tests pass. T6 fails because chain_id one-hot breaks permutation equivariance.",
+              "stale_artifacts": [],
+              "fix_required": "Document as limitation, or remove chain_id feature",
+              "notes": "Does not affect held-out AUROC 0.8081."
+            },
+            "affected_artifacts": []
+          }
+        ],
+        "experiment_registry": [
+          {
+            "id": "EXP-0001",
+            "created": "2026-05-24T00:00:00Z",
+            "updated": "2026-05-24T00:00:00Z",
+            "status": "completed",
+            "created_by": "human",
+            "name": "Baseline GNN + Full Training",
+            "purpose": "Train PocketGNN V1 and PocketGNNXL V3; evaluate on held-out CryptoSite and PCNA structures",
+            "hypothesis": "GATv2Conv + ESM2 will outperform baseline GATv2Conv on held-out cryptic pocket detection",
+            "inputs": [
+              "data/graphs/",
+              "data/splits/cryptosite_split.json"
+            ],
+            "script": "scripts/train.py",
+            "checkpoint": "checkpoints/pcna_reproduced/best.ckpt",
+            "expected_outcome": "V3 AUROC > 0.80 on held-out; AOH1996 gate PASS",
+            "actual_outcome": "V3 held-out AUROC 0.8081; AOH gate 0.8676 PASS",
+            "metrics": {
+              "held_out_auroc": 0.8081,
+              "held_out_auprc": 0.3441,
+              "trivial_baseline_auprc": 0.0557,
+              "lift": 6.2,
+              "aoh_gate_score": 0.8676,
+              "internal_v3_auroc": 0.9067,
+              "internal_v1_auroc": 0.6782
+            },
+            "associated_claims": [
+              "CLAIM-0001",
+              "CLAIM-0002",
+              "CLAIM-0004"
+            ],
+            "associated_artifacts": [
+              "ART-0001",
+              "ART-0002"
+            ],
+            "experiment_id": "EXP-0001",
+            "created_at": "2026-05-24T00:00:00Z",
+            "updated_at": "2026-05-24T00:00:00Z",
+            "_legacy": {
+              "id": "EXP-0001",
+              "created": "2026-05-24T00:00:00Z",
+              "updated": "2026-05-24T00:00:00Z",
+              "status": "completed",
+              "created_by": "human",
+              "name": "Baseline GNN + Full Training",
+              "purpose": "Train PocketGNN V1 and PocketGNNXL V3; evaluate on held-out CryptoSite and PCNA structures",
+              "hypothesis": "GATv2Conv + ESM2 will outperform baseline GATv2Conv on held-out cryptic pocket detection",
+              "inputs": [
+                "data/graphs/",
+                "data/splits/cryptosite_split.json"
+              ],
+              "script": "scripts/train.py",
+              "checkpoint": "checkpoints/pcna_reproduced/best.ckpt",
+              "expected_outcome": "V3 AUROC > 0.80 on held-out; AOH1996 gate PASS",
+              "actual_outcome": "V3 held-out AUROC 0.8081; AOH gate 0.8676 PASS",
+              "metrics": {
+                "held_out_auroc": 0.8081,
+                "held_out_auprc": 0.3441,
+                "trivial_baseline_auprc": 0.0557,
+                "lift": 6.2,
+                "aoh_gate_score": 0.8676,
+                "internal_v3_auroc": 0.9067,
+                "internal_v1_auroc": 0.6782
+              },
+              "associated_claims": [
+                "CLAIM-0001",
+                "CLAIM-0002",
+                "CLAIM-0004"
+              ],
+              "associated_artifacts": [
+                "ART-0001",
+                "ART-0002"
+              ]
+            },
+            "title": "Baseline GNN + Full Training",
+            "hypothesis_tested": "GATv2Conv + ESM2 will outperform baseline GATv2Conv on held-out cryptic pocket detection",
+            "script_or_workflow": "scripts/train.py",
+            "input_artifacts": [
+              "data/graphs/",
+              "data/splits/cryptosite_split.json"
+            ],
+            "output_artifacts": [
+              "ART-0001",
+              "ART-0002"
+            ],
+            "created_by_agent": "human"
+          },
+          {
+            "id": "EXP-0002",
+            "created": "2026-05-24T00:00:00Z",
+            "updated": "2026-05-24T00:00:00Z",
+            "status": "completed",
+            "created_by": "human",
+            "name": "ANM Structural Dynamics",
+            "purpose": "Compare ANM flexibility of predicted pocket in apo (1W60) vs holo (8GLA) PCNA",
+            "hypothesis": "Holo pocket will show elevated fold-change and DCCM vs apo",
+            "inputs": [
+              "1W60.pdb",
+              "8GLA.pdb (chains A+B only)"
+            ],
+            "script": "scripts/run_nma.py",
+            "expected_outcome": "Holo fold-change > apo fold-change",
+            "actual_outcome": "Apo 0.857, holo 1.157, delta +0.300; DCCM 0.0995\u21920.2093",
+            "metrics": {
+              "apo_fold_change": 0.857,
+              "holo_fold_change": 1.157,
+              "delta_fold_change": 0.3,
+              "apo_dccm": 0.0995,
+              "holo_dccm": 0.2093
+            },
+            "associated_claims": [
+              "CLAIM-0003",
+              "CLAIM-0005"
+            ],
+            "associated_artifacts": [
+              "ART-0003"
+            ],
+            "experiment_id": "EXP-0002",
+            "created_at": "2026-05-24T00:00:00Z",
+            "updated_at": "2026-05-24T00:00:00Z",
+            "_legacy": {
+              "id": "EXP-0002",
+              "created": "2026-05-24T00:00:00Z",
+              "updated": "2026-05-24T00:00:00Z",
+              "status": "completed",
+              "created_by": "human",
+              "name": "ANM Structural Dynamics",
+              "purpose": "Compare ANM flexibility of predicted pocket in apo (1W60) vs holo (8GLA) PCNA",
+              "hypothesis": "Holo pocket will show elevated fold-change and DCCM vs apo",
+              "inputs": [
+                "1W60.pdb",
+                "8GLA.pdb (chains A+B only)"
+              ],
+              "script": "scripts/run_nma.py",
+              "expected_outcome": "Holo fold-change > apo fold-change",
+              "actual_outcome": "Apo 0.857, holo 1.157, delta +0.300; DCCM 0.0995\u21920.2093",
+              "metrics": {
+                "apo_fold_change": 0.857,
+                "holo_fold_change": 1.157,
+                "delta_fold_change": 0.3,
+                "apo_dccm": 0.0995,
+                "holo_dccm": 0.2093
+              },
+              "associated_claims": [
+                "CLAIM-0003",
+                "CLAIM-0005"
+              ],
+              "associated_artifacts": [
+                "ART-0003"
+              ]
+            },
+            "title": "ANM Structural Dynamics",
+            "hypothesis_tested": "Holo pocket will show elevated fold-change and DCCM vs apo",
+            "script_or_workflow": "scripts/run_nma.py",
+            "input_artifacts": [
+              "1W60.pdb",
+              "8GLA.pdb (chains A+B only)"
+            ],
+            "output_artifacts": [
+              "ART-0003"
+            ],
+            "created_by_agent": "human"
+          },
+          {
+            "id": "EXP-0003",
+            "created": "2026-05-24T00:00:00Z",
+            "updated": "2026-05-24T00:00:00Z",
+            "status": "running",
+            "created_by": "human",
+            "name": "MD Validation \u2014 100 ns OpenMM",
+            "purpose": "Confirm cryptic pocket opens dynamically in apo 1W60 via RMSF + pocket volume tracking",
+            "hypothesis": "Predicted pocket residues will show RMSF > 1.5 \u00c5 and transient volume > 100 \u00c5\u00b3",
+            "inputs": [
+              "1W60 apo structure"
+            ],
+            "script": "scripts/run_md_analysis.py (after DCD transfer)",
+            "expected_outcome": "RMSF elevation + pocket volume opening",
+            "actual_outcome": null,
+            "metrics": {},
+            "associated_claims": [
+              "CLAIM-0005"
+            ],
+            "associated_artifacts": [
+              "ART-0005"
+            ],
+            "notes": "Running on Google Cloud L4. DCD: data/md/1W60_production.dcd. ~140 ns/day, 100 ns likely done.",
+            "experiment_id": "EXP-0003",
+            "created_at": "2026-05-24T00:00:00Z",
+            "updated_at": "2026-05-24T00:00:00Z",
+            "_legacy": {
+              "id": "EXP-0003",
+              "created": "2026-05-24T00:00:00Z",
+              "updated": "2026-05-24T00:00:00Z",
+              "status": "running",
+              "created_by": "human",
+              "name": "MD Validation \u2014 100 ns OpenMM",
+              "purpose": "Confirm cryptic pocket opens dynamically in apo 1W60 via RMSF + pocket volume tracking",
+              "hypothesis": "Predicted pocket residues will show RMSF > 1.5 \u00c5 and transient volume > 100 \u00c5\u00b3",
+              "inputs": [
+                "1W60 apo structure"
+              ],
+              "script": "scripts/run_md_analysis.py (after DCD transfer)",
+              "expected_outcome": "RMSF elevation + pocket volume opening",
+              "actual_outcome": null,
+              "metrics": {},
+              "associated_claims": [
+                "CLAIM-0005"
+              ],
+              "associated_artifacts": [
+                "ART-0005"
+              ],
+              "notes": "Running on Google Cloud L4. DCD: data/md/1W60_production.dcd. ~140 ns/day, 100 ns likely done."
+            },
+            "title": "MD Validation \u2014 100 ns OpenMM",
+            "hypothesis_tested": "Predicted pocket residues will show RMSF > 1.5 \u00c5 and transient volume > 100 \u00c5\u00b3",
+            "script_or_workflow": "scripts/run_md_analysis.py (after DCD transfer)",
+            "input_artifacts": [
+              "1W60 apo structure"
+            ],
+            "output_artifacts": [
+              "ART-0005"
+            ],
+            "created_by_agent": "human"
+          }
+        ]
+      },
+      "repo_files": [],
+      "artifacts": [],
+      "known_risks": [],
+      "allowed_actions": [],
+      "forbidden_actions": [],
+      "expected_output_schema": "AgentOutput",
+      "prior_agent_outputs": []
+    },
+    "actions": [],
+    "blocked": false,
+    "block_reason": "",
+    "human_review_required": false,
+    "human_review_reason": "",
+    "expected_outputs": [],
+    "routing_decision": "unspecified",
+    "routing_confidence": 0.0,
+    "routing_reason": "",
+    "ollama_response_raw": null,
+    "requires_claude_fallback": false,
+    "selected_workflow": null
+  },
+  "agent_outputs": [
+    {
+      "agent": "Context and Source-of-Truth",
+      "agent_id": "context_source_truth",
+      "task": "Independently verify metrics in the repo.",
+      "status": "warning",
+      "confidence": 0.9,
+      "summary": "9 of 9 canonical files present; 4 need review. git= branch= dirty=False.",
+      "evidence_used": [
+        {
+          "type": "memory",
+          "id": "PROJECT_CANONICAL_STATUS.md",
+          "path": "research_os_memory\\PROJECT_CANONICAL_STATUS.md",
+          "description": "canonical state"
+        },
+        {
+          "type": "memory",
+          "id": "CURRENT_CLAIMS.md",
+          "path": "research_os_memory\\CURRENT_CLAIMS.md",
+          "description": "canonical state"
+        },
+        {
+          "type": "memory",
+          "id": "KNOWN_BUGS_AND_RISKS.md",
+          "path": "research_os_memory\\KNOWN_BUGS_AND_RISKS.md",
+          "description": "canonical state"
+        },
+        {
+          "type": "memory",
+          "id": "HUMAN_DECISIONS.md",
+          "path": "research_os_memory\\HUMAN_DECISIONS.md",
+          "description": "canonical state"
+        },
+        {
+          "type": "memory",
+          "id": "VALIDATION_STATUS.md",
+          "path": "research_os_memory\\VALIDATION_STATUS.md",
+          "description": "canonical state"
+        },
+        {
+          "type": "memory",
+          "id": "DATASET_REGISTRY.md",
+          "path": "research_os_memory\\DATASET_REGISTRY.md",
+          "description": "canonical state"
+        },
+        {
+          "type": "memory",
+          "id": "MODEL_REGISTRY.md",
+          "path": "research_os_memory\\MODEL_REGISTRY.md",
+          "description": "canonical state"
+        },
+        {
+          "type": "memory",
+          "id": "COMPUTE_REGISTRY.md",
+          "path": "research_os_memory\\COMPUTE_REGISTRY.md",
+          "description": "canonical state"
+        },
+        {
+          "type": "memory",
+          "id": "REVIEWER_RISK_REGISTER.md",
+          "path": "research_os_memory\\REVIEWER_RISK_REGISTER.md",
+          "description": "canonical state"
+        }
+      ],
+      "findings": [
+        {
+          "finding_id": "CONTEXT_SOURCE_TRUTH-001",
+          "severity": "medium",
+          "title": "DATASET_REGISTRY.md status=needs_review",
+          "description": "Last updated 2026-05-24T19:05:16Z \u2014 content should be re-confirmed.",
+          "evidence": [],
+          "affected_claims": [],
+          "affected_artifacts": [],
+          "required_action": "Have an authoritative agent refresh DATASET_REGISTRY.md and set status=current.",
+          "blocks_pipeline": false
+        },
+        {
+          "finding_id": "CONTEXT_SOURCE_TRUTH-002",
+          "severity": "medium",
+          "title": "MODEL_REGISTRY.md status=needs_review",
+          "description": "Last updated 2026-05-24T19:05:16Z \u2014 content should be re-confirmed.",
+          "evidence": [],
+          "affected_claims": [],
+          "affected_artifacts": [],
+          "required_action": "Have an authoritative agent refresh MODEL_REGISTRY.md and set status=current.",
+          "blocks_pipeline": false
+        },
+        {
+          "finding_id": "CONTEXT_SOURCE_TRUTH-003",
+          "severity": "medium",
+          "title": "COMPUTE_REGISTRY.md status=needs_review",
+          "description": "Last updated 2026-05-24T19:05:16Z \u2014 content should be re-confirmed.",
+          "evidence": [],
+          "affected_claims": [],
+          "affected_artifacts": [],
+          "required_action": "Have an authoritative agent refresh COMPUTE_REGISTRY.md and set status=current.",
+          "blocks_pipeline": false
+        },
+        {
+          "finding_id": "CONTEXT_SOURCE_TRUTH-004",
+          "severity": "medium",
+          "title": "REVIEWER_RISK_REGISTER.md status=needs_review",
+          "description": "Last updated 2026-05-24T19:05:16Z \u2014 content should be re-confirmed.",
+          "evidence": [],
+          "affected_claims": [],
+          "affected_artifacts": [],
+          "required_action": "Have an authoritative agent refresh REVIEWER_RISK_REGISTER.md and set status=current.",
+          "blocks_pipeline": false
+        }
+      ],
+      "risks": [],
+      "required_actions": [],
+      "gate_updates": [],
+      "artifacts_created": [],
+      "artifacts_updated": [],
+      "artifacts_to_mark_stale": [],
+      "claims_supported": [],
+      "claims_weakened": [],
+      "claims_contradicted": [],
+      "human_review_required": false,
+      "human_review_reason": "",
+      "updates_to_memory": [],
+      "next_recommended_agents": [
+        "contradiction_hunter",
+        "provenance_artifacts"
+      ],
+      "machine_readable_notes": {
+        "git": {
+          "inside_repo": false,
+          "commit": "",
+          "short_commit": "",
+          "branch": "",
+          "dirty": false,
+          "remote": "",
+          "untracked_count": 0,
+          "modified_count": 0,
+          "error": "not inside a git repo"
+        }
+      }
+    },
+    {
+      "agent": "Provenance, Versioning and Artifact",
+      "agent_id": "provenance_artifacts",
+      "task": "Independently verify metrics in the repo.",
+      "status": "warning",
+      "confidence": 0.85,
+      "summary": "Reviewed 5 artifact entries; 1 provenance findings; 0 artifacts should be marked stale.",
+      "evidence_used": [],
+      "findings": [
+        {
+          "finding_id": "PROVENANCE_ARTIFACTS-001",
+          "severity": "high",
+          "title": "Artifact ART-0001 missing provenance fields: ['git_commit']",
+          "description": "Type=checkpoint is paper-grade and must record git_commit, command, and timestamp.",
+          "evidence": [
+            {
+              "type": "registry",
+              "id": "artifact_registry:ART-0001",
+              "path": "",
+              "description": ""
+            }
+          ],
+          "affected_claims": [],
+          "affected_artifacts": [
+            "ART-0001"
+          ],
+          "required_action": "Update artifact ART-0001 with full provenance.",
+          "blocks_pipeline": false
+        }
+      ],
+      "risks": [],
+      "required_actions": [],
+      "gate_updates": [],
+      "artifacts_created": [],
+      "artifacts_updated": [],
+      "artifacts_to_mark_stale": [],
+      "claims_supported": [],
+      "claims_weakened": [],
+      "claims_contradicted": [],
+      "human_review_required": false,
+      "human_review_reason": "",
+      "updates_to_memory": [],
+      "next_recommended_agents": [],
+      "machine_readable_notes": {
+        "artifact_count": 5
+      }
+    },
+    {
+      "agent": "Contradiction and Error Hunter",
+      "agent_id": "contradiction_hunter",
+      "task": "Independently verify metrics in the repo.",
+      "status": "pass",
+      "confidence": 0.85,
+      "summary": "Contradiction sweep produced 0 findings.",
+      "evidence_used": [
+        {
+          "type": "memory",
+          "id": "VALIDATION_STATUS.md",
+          "path": "research_os_memory\\VALIDATION_STATUS.md",
+          "description": ""
+        }
+      ],
+      "findings": [],
+      "risks": [],
+      "required_actions": [],
+      "gate_updates": [],
+      "artifacts_created": [],
+      "artifacts_updated": [],
+      "artifacts_to_mark_stale": [],
+      "claims_supported": [],
+      "claims_weakened": [],
+      "claims_contradicted": [],
+      "human_review_required": false,
+      "human_review_reason": "",
+      "updates_to_memory": [],
+      "next_recommended_agents": [],
+      "machine_readable_notes": {
+        "validation_classification": "Claim"
+      }
+    },
+    {
+      "agent": "Metrics, Statistics and Uncertainty",
+      "agent_id": "metrics_statistics",
+      "task": "Independently verify metrics in the repo.",
+      "status": "pass",
+      "confidence": 0.75,
+      "summary": "Metrics audit: scanned 0 files; 0 findings.",
+      "evidence_used": [],
+      "findings": [],
+      "risks": [],
+      "required_actions": [],
+      "gate_updates": [
+        {
+          "gate": "evaluation",
+          "new_status": "pass",
+          "reason": "",
+          "evidence": []
+        }
+      ],
+      "artifacts_created": [],
+      "artifacts_updated": [],
+      "artifacts_to_mark_stale": [],
+      "claims_supported": [],
+      "claims_weakened": [],
+      "claims_contradicted": [],
+      "human_review_required": false,
+      "human_review_reason": "",
+      "updates_to_memory": [],
+      "next_recommended_agents": [],
+      "machine_readable_notes": {
+        "metric_files_seen": 0
+      }
+    },
+    {
+      "agent": "Leakage and Split Design",
+      "agent_id": "leakage_split",
+      "task": "Independently verify metrics in the repo.",
+      "status": "blocked",
+      "confidence": 0.9,
+      "summary": "Leakage gate cannot pass without a split protocol.",
+      "evidence_used": [
+        {
+          "type": "memory",
+          "id": "DATASET_REGISTRY.md",
+          "path": "research_os_memory\\DATASET_REGISTRY.md",
+          "description": ""
+        }
+      ],
+      "findings": [
+        {
+          "finding_id": "LEAKAGE_SPLIT-001",
+          "severity": "critical",
+          "title": "No documented split protocol",
+          "description": "The Leakage gate cannot pass without a documented, approved split.",
+          "evidence": [],
+          "affected_claims": [],
+          "affected_artifacts": [],
+          "required_action": "Document chain-/homology-/apo-holo-blocked splits.",
+          "blocks_pipeline": true
+        }
+      ],
+      "risks": [],
+      "required_actions": [],
+      "gate_updates": [
+        {
+          "gate": "leakage",
+          "new_status": "blocked",
+          "reason": "no split protocol documented",
+          "evidence": []
+        }
+      ],
+      "artifacts_created": [],
+      "artifacts_updated": [],
+      "artifacts_to_mark_stale": [],
+      "claims_supported": [],
+      "claims_weakened": [],
+      "claims_contradicted": [],
+      "human_review_required": false,
+      "human_review_reason": "",
+      "updates_to_memory": [],
+      "next_recommended_agents": [],
+      "machine_readable_notes": {}
+    },
+    {
+      "agent": "Dataset and Label Integrity",
+      "agent_id": "dataset_integrity",
+      "task": "Independently verify metrics in the repo.",
+      "status": "warning",
+      "confidence": 0.8,
+      "summary": "Dataset registry audit: 0 missing, 5 pending.",
+      "evidence_used": [
+        {
+          "type": "memory",
+          "id": "DATASET_REGISTRY.md",
+          "path": "research_os_memory\\DATASET_REGISTRY.md",
+          "description": ""
+        }
+      ],
+      "findings": [
+        {
+          "finding_id": "DATASET_INTEGRITY-001",
+          "severity": "medium",
+          "title": "DATASET_REGISTRY.md section 'Datasets in use' still pending",
+          "description": "",
+          "evidence": [],
+          "affected_claims": [],
+          "affected_artifacts": [],
+          "required_action": "Replace 'pending' content with the actual definition.",
+          "blocks_pipeline": false
+        },
+        {
+          "finding_id": "DATASET_INTEGRITY-002",
+          "severity": "medium",
+          "title": "DATASET_REGISTRY.md section 'Label definition' still pending",
+          "description": "",
+          "evidence": [],
+          "affected_claims": [],
+          "affected_artifacts": [],
+          "required_action": "Replace 'pending' content with the actual definition.",
+          "blocks_pipeline": false
+        },
+        {
+          "finding_id": "DATASET_INTEGRITY-003",
+          "severity": "medium",
+          "title": "DATASET_REGISTRY.md section 'Missing-data policy' still pending",
+          "description": "",
+          "evidence": [],
+          "affected_claims": [],
+          "affected_artifacts": [],
+          "required_action": "Replace 'pending' content with the actual definition.",
+          "blocks_pipeline": false
+        },
+        {
+          "finding_id": "DATASET_INTEGRITY-004",
+          "severity": "medium",
+          "title": "DATASET_REGISTRY.md section 'Residue/chain mapping rules' still pending",
+          "description": "",
+          "evidence": [],
+          "affected_claims": [],
+          "affected_artifacts": [],
+          "required_action": "Replace 'pending' content with the actual definition.",
+          "blocks_pipeline": false
+        },
+        {
+          "finding_id": "DATASET_INTEGRITY-005",
+          "severity": "medium",
+          "title": "DATASET_REGISTRY.md section 'Split protocol' still pending",
+          "description": "",
+          "evidence": [],
+          "affected_claims": [],
+          "affected_artifacts": [],
+          "required_action": "Replace 'pending' content with the actual definition.",
+          "blocks_pipeline": false
+        }
+      ],
+      "risks": [],
+      "required_actions": [],
+      "gate_updates": [
+        {
+          "gate": "dataset",
+          "new_status": "warning",
+          "reason": "Sections audited from DATASET_REGISTRY.md",
+          "evidence": []
+        }
+      ],
+      "artifacts_created": [],
+      "artifacts_updated": [],
+      "artifacts_to_mark_stale": [],
+      "claims_supported": [],
+      "claims_weakened": [],
+      "claims_contradicted": [],
+      "human_review_required": false,
+      "human_review_reason": "",
+      "updates_to_memory": [],
+      "next_recommended_agents": [],
+      "machine_readable_notes": {}
+    },
+    {
+      "agent": "Scientific Code Review",
+      "agent_id": "scientific_code_review",
+      "task": "Independently verify metrics in the repo.",
+      "status": "pass",
+      "confidence": 0.65,
+      "summary": "Scanned 0 Python files; 0 flagged; 0 findings.",
+      "evidence_used": [],
+      "findings": [],
+      "risks": [],
+      "required_actions": [],
+      "gate_updates": [
+        {
+          "gate": "code",
+          "new_status": "pass",
+          "reason": "",
+          "evidence": []
+        }
+      ],
+      "artifacts_created": [],
+      "artifacts_updated": [],
+      "artifacts_to_mark_stale": [],
+      "claims_supported": [],
+      "claims_weakened": [],
+      "claims_contradicted": [],
+      "human_review_required": false,
+      "human_review_reason": "",
+      "updates_to_memory": [],
+      "next_recommended_agents": [],
+      "machine_readable_notes": {}
+    },
+    {
+      "agent": "Testing and Fresh Environment",
+      "agent_id": "testing_environment",
+      "task": "Independently verify metrics in the repo.",
+      "status": "warning",
+      "confidence": 0.8,
+      "summary": "No tests/ directory; testing gate degraded.",
+      "evidence_used": [],
+      "findings": [
+        {
+          "finding_id": "TESTING_ENVIRONMENT-001",
+          "severity": "medium",
+          "title": "No tests/ directory found",
+          "description": "",
+          "evidence": [],
+          "affected_claims": [],
+          "affected_artifacts": [],
+          "required_action": "Create at least smoke tests under tests/.",
+          "blocks_pipeline": false
+        }
+      ],
+      "risks": [],
+      "required_actions": [],
+      "gate_updates": [
+        {
+          "gate": "code",
+          "new_status": "warning",
+          "reason": "no tests directory",
+          "evidence": []
+        }
+      ],
+      "artifacts_created": [],
+      "artifacts_updated": [],
+      "artifacts_to_mark_stale": [],
+      "claims_supported": [],
+      "claims_weakened": [],
+      "claims_contradicted": [],
+      "human_review_required": false,
+      "human_review_reason": "",
+      "updates_to_memory": [],
+      "next_recommended_agents": [],
+      "machine_readable_notes": {}
+    },
+    {
+      "agent": "Paper, Claim and Documentation",
+      "agent_id": "paper_claim",
+      "task": "Independently verify metrics in the repo.",
+      "status": "pass",
+      "confidence": 0.8,
+      "summary": "Paper/Claim audit: scanned 0 draft files; 0 findings.",
+      "evidence_used": [],
+      "findings": [],
+      "risks": [],
+      "required_actions": [],
+      "gate_updates": [
+        {
+          "gate": "claim",
+          "new_status": "pass",
+          "reason": "",
+          "evidence": []
+        }
+      ],
+      "artifacts_created": [],
+      "artifacts_updated": [],
+      "artifacts_to_mark_stale": [],
+      "claims_supported": [],
+      "claims_weakened": [],
+      "claims_contradicted": [],
+      "human_review_required": false,
+      "human_review_reason": "",
+      "updates_to_memory": [],
+      "next_recommended_agents": [],
+      "machine_readable_notes": {}
+    }
+  ],
+  "gate_status": {
+    "leakage": "not_started",
+    "evaluation": "not_started",
+    "dataset": "not_started",
+    "code": "not_started",
+    "claim": "pass"
+  },
+  "blocked": true,
+  "block_reason": "leakage_split flagged a blocker: Leakage gate cannot pass without a split protocol.",
+  "human_review_required": false,
+  "human_review_reasons": [],
+  "applied_memory_updates": [],
+  "pending_memory_updates": [],
+  "git": {
+    "inside_repo": false,
+    "commit": "",
+    "short_commit": "",
+    "branch": "",
+    "dirty": false,
+    "remote": "",
+    "untracked_count": 0,
+    "modified_count": 0,
+    "error": "not inside a git repo"
+  }
+}

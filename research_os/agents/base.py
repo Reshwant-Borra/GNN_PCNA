@@ -7,10 +7,53 @@ never write to memory or registries directly — they emit `MemoryUpdate` /
 """
 from __future__ import annotations
 
+import json
+import os
 import re
+import urllib.request
 from dataclasses import dataclass, field
 from pathlib import Path
 from typing import Any, Dict, List, Optional, Sequence
+
+_OLLAMA_HOST = os.environ.get("OLLAMA_HOST", "http://localhost:11434")
+_OLLAMA_MODEL = "gemma3:4b"
+_OLLAMA_TIMEOUT = 60
+
+
+def call_ollama(prompt: str, *, system: str = "", timeout: int = _OLLAMA_TIMEOUT) -> str | None:
+    """Call local Ollama /api/chat and return the response content string, or None on error."""
+    messages = []
+    if system:
+        messages.append({"role": "system", "content": system})
+    messages.append({"role": "user", "content": prompt})
+    payload = json.dumps({
+        "model": _OLLAMA_MODEL,
+        "messages": messages,
+        "stream": False,
+        "options": {"temperature": 0.1},
+    }).encode()
+    try:
+        endpoint = f"{_OLLAMA_HOST.rstrip('/')}/api/chat"
+        req = urllib.request.Request(endpoint, data=payload,
+                                     headers={"Content-Type": "application/json"})
+        with urllib.request.urlopen(req, timeout=timeout) as resp:
+            return json.loads(resp.read())["message"]["content"]
+    except Exception:
+        return None
+
+
+def call_ollama_json(prompt: str, *, system: str = "", timeout: int = _OLLAMA_TIMEOUT) -> dict | None:
+    """Call Ollama and parse the first JSON object from the response. Returns None on failure."""
+    raw = call_ollama(prompt, system=system, timeout=timeout)
+    if not raw:
+        return None
+    m = re.search(r"\{.*\}", raw, re.DOTALL)
+    if m:
+        try:
+            return json.loads(m.group())
+        except json.JSONDecodeError:
+            pass
+    return None
 
 
 def phrase_in_text(phrase: str, text: str, *, gap: int = 2) -> bool:

@@ -8,7 +8,7 @@ import re
 from pathlib import Path
 from typing import Any, Dict, List
 
-from research_os.agents.base import BaseAgent, GateName, any_phrase_in_text, phrase_in_text
+from research_os.agents.base import BaseAgent, GateName, any_phrase_in_text, call_ollama_json, phrase_in_text
 from research_os.schemas.context import ContextPacket
 from research_os.schemas.core import AgentOutput, EvidenceRef
 
@@ -132,6 +132,26 @@ class BiologicalRealismAgent(BaseAgent):
         )
 
 
+_LIT_COVERAGE_PROMPT = """\
+You are auditing literature coverage for a GNN-PCNA cryptic pocket detection project.
+The project needs citations for: PCNA biology, AOH1996 compound, cryptic pocket detection methods
+(CryptoSite, PocketMiner), GNN architectures (GATv2), MD simulation validation, ESM2/protein language models,
+data leakage in ML benchmarks, AUROC/AUPRC reporting standards.
+
+Below are the registered sources (title + topics). Assess coverage gaps and return JSON only:
+{
+  "coverage_score": <0.0-1.0>,
+  "covered_areas": ["area1", ...],
+  "missing_critical": ["area1", ...],
+  "missing_recommended": ["area1", ...],
+  "weak_sources": ["source_title_snippet", ...],
+  "summary": "one sentence assessment"
+}
+
+SOURCES:
+"""
+
+
 class LiteratureWebAgent(BaseAgent):
     agent_id = "literature_web"
     display_name = "Deep Literature and Web Research"
@@ -139,7 +159,7 @@ class LiteratureWebAgent(BaseAgent):
     def run(self, packet: ContextPacket) -> AgentOutput:
         store = self.ctx.registry_store
         findings = []
-        notes: Dict[str, Any] = {"source_count": 0}
+        notes: Dict[str, Any] = {"source_count": 0, "ollama_used": False}
         if store is not None:
             sources = store.all_entries("source_registry")
             notes["source_count"] = len(sources)
@@ -155,11 +175,44 @@ class LiteratureWebAgent(BaseAgent):
                         required_action="Populate source_registry.json with the canonical references.",
                     )
                 )
+            else:
+                # Build a compact source list and ask Ollama to assess coverage.
+                source_lines = []
+                for s in sources[:30]:  # cap at 30 to stay within context
+                    title = s.get("source") or s.get("title") or "?"
+                    topic = s.get("topic") or ""
+                    source_lines.append(f"- {title} [{topic}]")
+                prompt = _LIT_COVERAGE_PROMPT + "\n".join(source_lines)
+                llm = call_ollama_json(prompt)
+                if llm:
+                    notes["ollama_used"] = True
+                    notes["coverage_score"] = llm.get("coverage_score", 0.5)
+                    notes["covered_areas"] = llm.get("covered_areas", [])
+                    for area in llm.get("missing_critical", []):
+                        findings.append(
+                            self._new_finding(
+                                severity="high",
+                                title=f"Literature gap — critical area not covered: {area}",
+                                required_action=f"Add at least one primary reference for '{area}'.",
+                            )
+                        )
+                    for area in llm.get("missing_recommended", []):
+                        findings.append(
+                            self._new_finding(
+                                severity="medium",
+                                title=f"Literature gap — recommended area missing: {area}",
+                            )
+                        )
+                    notes["llm_summary"] = llm.get("summary", "")
         return self._output(
             task=packet.task,
             status="warning" if findings else "pass",
-            confidence=0.6,
-            summary=f"Literature audit: {notes['source_count']} sources registered.",
+            confidence=0.75 if notes.get("ollama_used") else 0.5,
+            summary=(
+                f"Literature audit: {notes['source_count']} sources registered"
+                + (f"; {notes.get('llm_summary', '')}" if notes.get("llm_summary") else "")
+                + f"; {len(findings)} findings."
+            ),
             findings=findings,
             notes=notes,
         )

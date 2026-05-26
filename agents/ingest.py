@@ -20,13 +20,79 @@ from __future__ import annotations
 import argparse
 import hashlib
 import json
+import os
 import re
 import sys
+import urllib.request
 import uuid
 from dataclasses import asdict, dataclass, field
 from datetime import datetime, timezone
 from pathlib import Path
 from typing import Any
+
+# ── Ollama ────────────────────────────────────────────────────────────────────
+
+_OLLAMA_HOST  = os.environ.get("OLLAMA_HOST", "http://localhost:11434")
+_OLLAMA_MODEL = "gemma3:4b"
+_OLLAMA_TIMEOUT = 90
+
+_INGEST_SYSTEM = (
+    "You are a research assistant for a GNN-PCNA cryptic pocket detection project. "
+    "Respond with JSON only — no markdown fences, no extra text."
+)
+
+_INGEST_PROMPT = """\
+Analyze the following document excerpt and return this exact JSON schema:
+{
+  "relevance": <0.0-1.0 float>,
+  "topics": ["matched topics from the list below"],
+  "short_summary": "one sentence",
+  "abstract_summary": "2-3 sentences on key content",
+  "claims": [
+    {"claim_text": "...", "evidence_type": "computational|from_paper|method", "section": "...", "strength": "suggestive|moderate|strong"}
+  ],
+  "proposed_claim_ids": [],
+  "proposed_experiment_ids": []
+}
+
+Topic vocabulary (only return exact matches):
+pcna, cryptic pocket, gnn, graph neural network, esm2, md simulation, molecular dynamics,
+rmsf, dccm, pocket detection, binding site, aoh1996, cryptosite, pocketminer, auroc, auprc,
+benchmarking, protein flexibility, allostery, gatv2, focal loss, protein language model.
+
+Known claim IDs (include if relevant):
+CLAIM-0001 (held-out AUROC 0.8081), CLAIM-0002 (AOH1996 binding site recovery),
+CLAIM-0003 (ANM fold-change), CLAIM-0004 (ESM2 embeddings), CLAIM-0005 (MD cryptic pocket).
+Known experiment IDs: EXP-0001 (GNN evaluation), EXP-0002 (ANM analysis), EXP-0003 (MD validation).
+
+DOCUMENT:
+"""
+
+
+def _call_ollama_ingest(text: str) -> dict | None:
+    """Call local Ollama to LLM-analyze a document. Falls back to None on any error."""
+    prompt = _INGEST_PROMPT + text[:4000]
+    payload = json.dumps({
+        "model": _OLLAMA_MODEL,
+        "messages": [
+            {"role": "system", "content": _INGEST_SYSTEM},
+            {"role": "user", "content": prompt},
+        ],
+        "stream": False,
+        "options": {"temperature": 0.1},
+    }).encode()
+    try:
+        endpoint = f"{_OLLAMA_HOST.rstrip('/')}/api/chat"
+        req = urllib.request.Request(endpoint, data=payload,
+                                     headers={"Content-Type": "application/json"})
+        with urllib.request.urlopen(req, timeout=_OLLAMA_TIMEOUT) as resp:
+            raw = json.loads(resp.read())["message"]["content"]
+        m = re.search(r"\{.*\}", raw, re.DOTALL)
+        if m:
+            return json.loads(m.group())
+    except Exception:
+        pass
+    return None
 
 REPO_ROOT      = Path(__file__).parent.parent
 REGISTRY_DIR   = REPO_ROOT / "research_os_registries"
@@ -614,10 +680,35 @@ def ingest_file(path: Path, reg: dict,
     print(f"  [parse] {path.name}")
     src = extract_source(path, source_type_override)
 
-    topics = _auto_tag(src)
-    relevance = _relevance_score(topics)
-    claims = _extract_claims(src)
-    proposals = _propose_links(src, topics)
+    # Try Ollama first; fall back to heuristics if unavailable.
+    print(f"  [llm]   calling Ollama for {path.name} ...")
+    llm = _call_ollama_ingest(src.text)
+
+    if llm:
+        print(f"  [llm]   relevance={llm.get('relevance', '?')} topics={llm.get('topics', [])}")
+        topics = llm.get("topics") or _auto_tag(src)
+        relevance = float(llm.get("relevance") or _relevance_score(topics))
+        short_sum = llm.get("short_summary") or _short_summary(src)
+        abstract_sum = llm.get("abstract_summary") or _abstract_summary(src)
+        claims = llm.get("claims") or _extract_claims(src)
+        heuristic_props = _propose_links(src, topics)
+        proposals = {
+            "claims": list(dict.fromkeys(
+                llm.get("proposed_claim_ids", []) + heuristic_props.get("claims", [])
+            )),
+            "experiments": list(dict.fromkeys(
+                llm.get("proposed_experiment_ids", []) + heuristic_props.get("experiments", [])
+            )),
+            "artifacts": heuristic_props.get("artifacts", []),
+        }
+    else:
+        print(f"  [llm]   Ollama unavailable — using heuristics")
+        topics = _auto_tag(src)
+        relevance = _relevance_score(topics)
+        short_sum = _short_summary(src)
+        abstract_sum = _abstract_summary(src)
+        claims = _extract_claims(src)
+        proposals = _propose_links(src, topics)
 
     now = datetime.now(timezone.utc).isoformat()
     src_id = _next_src_id(reg)
@@ -636,8 +727,8 @@ def ingest_file(path: Path, reg: dict,
         date_published=src.metadata.get("date"),
         topics=topics,
         relevance_score=relevance,
-        short_summary=_short_summary(src),
-        abstract_summary=_abstract_summary(src),
+        short_summary=short_sum,
+        abstract_summary=abstract_sum,
         extracted_claims=claims,
         linked_claims=proposals.get("claims", []),
         linked_experiments=proposals.get("experiments", []),

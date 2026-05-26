@@ -5,7 +5,7 @@ import re
 from pathlib import Path
 from typing import Any, Dict, List
 
-from research_os.agents.base import BaseAgent, GateName, any_phrase_in_text
+from research_os.agents.base import BaseAgent, GateName, any_phrase_in_text, call_ollama_json
 from research_os.schemas.context import ContextPacket
 from research_os.schemas.core import AgentOutput
 
@@ -166,6 +166,21 @@ class VisualEvidenceAgent(BaseAgent):
         )
 
 
+_INGEST_QUALITY_PROMPT = """\
+You are reviewing ingested source entries for a GNN-PCNA cryptic pocket research project.
+Each entry below has a title, topic tags, and relevance. Assess quality and return JSON only:
+{
+  "quality_score": <0.0-1.0>,
+  "low_quality_entries": ["title_snippet..."],
+  "missing_metadata_count": <int>,
+  "topic_gaps": ["area_not_covered"],
+  "summary": "one sentence"
+}
+
+Entries:
+"""
+
+
 class DocumentKnowledgeIngestionAgent(BaseAgent):
     agent_id = "document_knowledge_ingestion"
     display_name = "Document and Knowledge Ingestion"
@@ -186,11 +201,49 @@ class DocumentKnowledgeIngestionAgent(BaseAgent):
             )
 
         source_count = 0
+        notes: Dict[str, Any] = {
+            "ingest_script": str(ingest_script),
+            "source_count": 0,
+            "registry_shape": "research_os_registries/source_registry.json entries",
+            "ollama_used": False,
+        }
         store = self.ctx.registry_store
         if store is not None:
             try:
                 sources = store.all_entries("source_registry")
                 source_count = len(sources)
+                notes["source_count"] = source_count
+
+                if sources:
+                    # Ask Ollama to assess entry quality.
+                    lines = []
+                    for s in sources[:20]:
+                        title = s.get("source") or s.get("title") or "?"
+                        topic = s.get("topic") or "(no topic)"
+                        rel = s.get("relevance_score") or s.get("relevance_to_project") or "?"
+                        lines.append(f"- {title} | topics: {topic} | relevance: {rel}")
+                    llm = call_ollama_json(_INGEST_QUALITY_PROMPT + "\n".join(lines))
+                    if llm:
+                        notes["ollama_used"] = True
+                        notes["quality_score"] = llm.get("quality_score", 0.5)
+                        notes["llm_summary"] = llm.get("summary", "")
+                        if llm.get("quality_score", 1.0) < 0.4:
+                            findings.append(
+                                self._new_finding(
+                                    severity="medium",
+                                    title="Ingested sources have low overall quality score",
+                                    description=llm.get("summary", ""),
+                                    required_action="Re-ingest with improved metadata or add higher-quality sources.",
+                                )
+                            )
+                        for gap in llm.get("topic_gaps", []):
+                            findings.append(
+                                self._new_finding(
+                                    severity="medium",
+                                    title=f"Ingestion coverage gap: {gap}",
+                                    required_action=f"Ingest at least one document covering '{gap}'.",
+                                )
+                            )
             except Exception as exc:
                 findings.append(
                     self._new_finding(
@@ -204,20 +257,20 @@ class DocumentKnowledgeIngestionAgent(BaseAgent):
 
         return self._output(
             task=packet.task,
-            status="fail" if any(f.blocks_pipeline for f in findings) else "pass",
-            confidence=0.8,
+            status="fail" if any(f.blocks_pipeline for f in findings) else (
+                "warning" if findings else "pass"
+            ),
+            confidence=0.85 if notes.get("ollama_used") else 0.8,
             summary=(
                 "Document ingestion integration: "
                 f"ingest_script={'present' if ingest_script.exists() else 'missing'}, "
-                f"sources_registered={source_count}."
+                f"sources_registered={source_count}"
+                + (f"; {notes.get('llm_summary', '')}" if notes.get("llm_summary") else "")
+                + "."
             ),
             findings=findings,
             evidence_used=[self._evidence_path("agents/ingest.py")],
-            notes={
-                "ingest_script": str(ingest_script),
-                "source_count": source_count,
-                "registry_shape": "research_os_registries/source_registry.json entries",
-            },
+            notes=notes,
         )
 
 

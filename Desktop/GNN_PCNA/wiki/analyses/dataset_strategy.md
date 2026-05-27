@@ -53,6 +53,12 @@ No dataset is adopted yet.
 - Exact label-definition choice is still proposed, not human-approved.
 - Human dataset-adoption, split-freeze, and label-freeze review records are missing.
 
+## Required Next Action
+
+Before dataset adoption continues, acquire official CryptoBench files into a governed raw intake and create a checksum-backed intake manifest. The manifest must record exact source URLs, retrieval date, license evidence, file names, sizes, SHA-256 hashes, schema notes, and whether each file is data, labels, splits, structures, scripts, or documentation. This action is required before parsing, graph construction, training, MD, split freeze, or label freeze.
+
+After intake, run a schema and provenance audit that resolves whether the files contain residue-level labels, pocket-level labels, apo/holo-paired records, official splits, and structure coordinates. If any required file is missing or the license is unclear, stop and update [[Open Questions]] rather than adopting the dataset.
+
 ## Governance
 
 `04_DATASET_CONSTRAINTS.md`, `05_SPLIT_PROTOCOL.md`, `06_LABELING_RULES.md`, `29_BENCHMARK_LIMITATIONS.md`, `31_DATA_LIFECYCLE_TRACKING.md`.

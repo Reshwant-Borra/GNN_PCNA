@@ -68,3 +68,12 @@ Append-only record of maintained wiki operations and durable project decisions.
 - Source path: `reports/phase2/local_dataset_discovery_report.md`, `crawls/`, `raw/`, `data/`, `docs/scientific_governance/04_DATASET_CONSTRAINTS.md`, `05_SPLIT_PROTOCOL.md`, `06_LABELING_RULES.md`, `15_PROVENANCE_AND_REPRODUCIBILITY.md`
 - Confidence: high
 - Evidence status: verified for local absence of usable assets; uncertain for external acquisition details
+
+## [2026-05-27] next action | CryptoBench governed intake required
+
+- Required next action: acquire official CryptoBench files into a governed raw intake and create a checksum-backed intake manifest before dataset adoption continues.
+- Required manifest fields: source URL, retrieval date, license evidence, file name, file size, SHA-256 hash, file role, schema notes, and whether the file provides data, labels, splits, structures, scripts, or documentation.
+- Stop condition: if official files, license evidence, label schema, split metadata, or structure coordinates are missing or unclear, do not adopt the dataset; update open questions and require human review.
+- Source path: `wiki/analyses/dataset_strategy.md`, `wiki/open_questions/open-questions.md`, `reports/phase2/local_dataset_discovery_report.md`, `docs/scientific_governance/04_DATASET_CONSTRAINTS.md`, `05_SPLIT_PROTOCOL.md`, `06_LABELING_RULES.md`, `15_PROVENANCE_AND_REPRODUCIBILITY.md`, `26_HUMAN_REVIEW_GATES.md`
+- Confidence: high
+- Evidence status: inferred from local absence of usable dataset assets and governance requirements

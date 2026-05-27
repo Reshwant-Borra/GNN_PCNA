@@ -21,6 +21,7 @@ evidence_status: inferred
 
 ## Dataset and Label Questions
 
+- Required next action: acquire official CryptoBench files into governed raw intake and create a checksum-backed intake manifest before any parsing, graph construction, training, MD, split freeze, label freeze, or dataset adoption.
 - What is the exact CryptoBench file inventory, license, and label schema?
 - Are CryptoBench labels residue-level, pocket-level, apo/holo-paired, or structure-level?
 - What is the exact OSF data license name for CryptoBench, beyond the locally crawled license relationship ID and copyright holder/year?

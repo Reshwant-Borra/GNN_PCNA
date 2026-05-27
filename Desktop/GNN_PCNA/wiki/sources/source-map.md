@@ -56,9 +56,15 @@ Each important source should eventually be classified as one of:
 | Gap closure | `crawls/pcna-gap-closure-datasets-tools-structures-pass6/` | baselines, datasets, methods, structures | raw crawl lead |
 | BioGRID interactions | `crawls/pcna-biogrid-full-pass5/`, `crawls/pcna-biogrid-interactions-pass4/` | interaction-network context | raw crawl lead |
 | General GNN context | `crawls/gnn-compbio-autonomous-kb-final/` | computational biology and GNN context | raw crawl lead |
+| Local raw intake | `raw/` | governed future immutable dataset intake | currently empty except placeholders |
+| Local Phase 2 data scaffolding | `data/` | registries, label template, split template | scaffold only; no adopted dataset files |
+
+## Local Dataset Discovery Note
+
+As of 2026-05-27, `crawls/`, `raw/`, and `data/` do not contain usable downloaded benchmark archives, coordinate files, residue-label files, or split assignments for CryptoBench, PocketMiner, BioLiP/BioLiP2, scPDB, ASD, or PDBbind. Crawl entries remain source leads pending official acquisition and verification.
 
 ## Provenance
 
-- Source paths: `docs/scientific_governance/`, `crawls/`, `wiki/sources/crawl-map.md`
+- Source paths: `docs/scientific_governance/`, `crawls/`, `raw/`, `data/`, `wiki/sources/crawl-map.md`, `reports/phase2/local_dataset_discovery_report.md`
 - Confidence: high for directory roles; low/uncertain for unreviewed crawl claims
 - Date last updated: 2026-05-27

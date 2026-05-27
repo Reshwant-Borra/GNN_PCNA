@@ -31,6 +31,9 @@ evidence_status: inferred
 - Should PDBbind be excluded from Phase 2 datasets because it is affinity-centered, or retained as background/context only?
 - Should ASD allosteric-site entries ever become labels, or remain literature/database context only?
 - Which candidate source should be verified first: CryptoBench, BioLiP/BioLiP2, scPDB, PDBbind, ASD, PocketMiner-related data, or PCNA PDB/UniProt records?
+- What governed raw intake path and manifest naming convention should store official CryptoBench downloads?
+- What exact OSF file endpoint or linked repository release should be used to acquire CryptoBench files?
+- Are any dataset archives intentionally stored outside `crawls/`, `raw/`, `data/`, `archives/`, `datasets/`, `outputs/`, `cache/`, or `artifacts/`?
 
 ## Split and Leakage Questions
 
@@ -60,6 +63,6 @@ evidence_status: inferred
 
 ## Provenance
 
-- Source paths: `docs/scientific_governance/37_PHASE2_IMPLEMENTATION_PLAN.md`, `wiki/sources/crawl-map.md`, `reports/phase2/scientific_uncertainty_register.md`, `reports/phase2/readiness_gate.md`, `reports/phase2/dataset_investigation_report.md`, `reports/phase2/proposed_split_strategy.md`, `reports/phase2/proposed_label_strategy.md`
+- Source paths: `docs/scientific_governance/37_PHASE2_IMPLEMENTATION_PLAN.md`, `wiki/sources/crawl-map.md`, `reports/phase2/scientific_uncertainty_register.md`, `reports/phase2/readiness_gate.md`, `reports/phase2/dataset_investigation_report.md`, `reports/phase2/proposed_split_strategy.md`, `reports/phase2/proposed_label_strategy.md`, `reports/phase2/local_dataset_discovery_report.md`
 - Confidence level: high for gaps; evidence status: inferred from current workspace inspection
 - Date last updated: 2026-05-27

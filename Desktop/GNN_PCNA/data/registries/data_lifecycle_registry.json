@@ -53,6 +53,30 @@
       "decision_date": "2026-05-27",
       "owner": "human reviewer",
       "rationale": "Crawls are source leads and raw/prior context, not adopted datasets."
+    },
+    {
+      "item_id": "RAW-INTAKE",
+      "item_type": "raw_intake_directory",
+      "path": "raw/",
+      "status": "candidate",
+      "reason_code": null,
+      "source_registry_id": null,
+      "hash": null,
+      "decision_date": "2026-05-27",
+      "owner": "human reviewer",
+      "rationale": "Local discovery found this directory is currently placeholder-only. It should become the governed immutable intake location for official dataset downloads after acquisition approval."
+    },
+    {
+      "item_id": "PHASE2-SPLIT-LABEL-TEMPLATES",
+      "item_type": "governance_template",
+      "path": "data/splits/phase2_split_TEMPLATE.json; data/labels/phase2_labels_TEMPLATE.json",
+      "status": "candidate",
+      "reason_code": null,
+      "source_registry_id": null,
+      "hash": null,
+      "decision_date": "2026-05-27",
+      "owner": "human reviewer",
+      "rationale": "Templates define expected governance shape but do not contain real split assignments or residue labels."
     }
   ]
 }

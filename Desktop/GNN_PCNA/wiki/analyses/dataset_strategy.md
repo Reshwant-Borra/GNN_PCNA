@@ -17,6 +17,8 @@ Build a registered, auditable dataset before graph generation or training. Treat
 
 Current investigation result: the workspace contains templates, registries, crawl metadata, and source leads, but no downloaded Phase 2 benchmark structure/label files are adopted. `data/` contains only registry, split, and label templates. CryptoBench is the strongest primary benchmark candidate, but the actual OSF dataset files must still be downloaded or otherwise inventoried, hashed, licensed, and audited before any freeze.
 
+Local dataset discovery result: `raw/` contains only placeholder `.gitkeep` files, `data/` contains only registries/templates, and no compressed archives, PDB/mmCIF/CIF coordinate files, ligand structure files, CSV/TSV/Parquet registries, usable split files, or residue-label files were found in `crawls/`, `raw/`, or `data/`. Crawl records for CryptoBench, BioLiP/BioLiP2, scPDB, ASD, PDBbind, and PocketMiner are useful acquisition leads only.
+
 ## Required before use
 
 License, citation, download method, biological system, structure IDs, chains, label definition, split assignment, leakage risks, lifecycle status, and hashes.
@@ -57,7 +59,7 @@ No dataset is adopted yet.
 
 ## Provenance
 
-- Source paths: governance docs above; `crawls/pcna-dataset-repositories-pass9/SOURCE_INDEX.md`; `crawls/pcna-dataset-repositories-pass9/raw/osf/osf-pz4a9.json`; `crawls/pcna-dataset-repositories-pass9/extracts/0015-cryptobench.md`; `crawls/pcna-curated-official-tools-data-structures-pass8/SOURCE_INDEX.md`; `crawls/pcna-gap-closure-datasets-tools-structures-pass6/`; `docs/scientific_governance/DATASET_REGISTRY.md`; reports added under `reports/phase2/`
+- Source paths: governance docs above; `crawls/pcna-dataset-repositories-pass9/SOURCE_INDEX.md`; `crawls/pcna-dataset-repositories-pass9/raw/osf/osf-pz4a9.json`; `crawls/pcna-dataset-repositories-pass9/extracts/0015-cryptobench.md`; `crawls/pcna-curated-official-tools-data-structures-pass8/SOURCE_INDEX.md`; `crawls/pcna-gap-closure-datasets-tools-structures-pass6/`; `raw/`; `data/`; `docs/scientific_governance/DATASET_REGISTRY.md`; `reports/phase2/local_dataset_discovery_report.md`; reports added under `reports/phase2/`
 - External primary/official sources used: CryptoBench paper DOI `10.1093/bioinformatics/btae745`; `https://github.com/skrhakv/CryptoBench`; `https://osf.io/pz4a9/`; BioLiP/BioLiP2 official page and NAR 2023 paper; scPDB NAR 2015 paper; ASD official page; PocketMiner Nature Communications 2023 paper
 - Confidence level: high for no local adopted dataset files and required process; medium for remote source summaries; low for final dataset suitability until local files are inspected
 - Evidence status: verified for local inventory; inferred for proposed roles; uncertain for freeze readiness

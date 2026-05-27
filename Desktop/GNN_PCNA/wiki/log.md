@@ -58,3 +58,13 @@ Append-only record of maintained wiki operations and durable project decisions.
 - Source path: `reports/phase2/dataset_investigation_report.md`, `reports/phase2/proposed_split_strategy.md`, `reports/phase2/proposed_label_strategy.md`, `wiki/analyses/dataset_strategy.md`, `wiki/analyses/benchmark_strategy.md`, `wiki/analyses/benchmark_limitations.md`
 - Confidence: high for local inventory; medium for remote dataset-role assessment
 - Evidence status: verified for no local adopted files; inferred for proposed roles; uncertain for freeze readiness
+
+## [2026-05-27] local discovery | Dataset assets not present locally
+
+- Discovery: `raw/` is placeholder-only and `data/` contains only registries/templates.
+- Discovery: no compressed dataset archives, PDB/mmCIF/CIF coordinate files, ligand structure files, CSV/TSV/Parquet registries, usable split assignments, residue-label files, benchmark manifests with hashes, or processed dataset artifacts were found under `crawls/`, `raw/`, or `data/`.
+- Decision: crawl records for CryptoBench, PocketMiner, BioLiP/BioLiP2, scPDB, ASD, and PDBbind remain candidate evidence/acquisition leads only. They are not adopted Phase 2 datasets.
+- Next governed step: acquire official CryptoBench files into a checksum-backed raw intake, then perform license, schema, label, and leakage audits before any freeze.
+- Source path: `reports/phase2/local_dataset_discovery_report.md`, `crawls/`, `raw/`, `data/`, `docs/scientific_governance/04_DATASET_CONSTRAINTS.md`, `05_SPLIT_PROTOCOL.md`, `06_LABELING_RULES.md`, `15_PROVENANCE_AND_REPRODUCIBILITY.md`
+- Confidence: high
+- Evidence status: verified for local absence of usable assets; uncertain for external acquisition details

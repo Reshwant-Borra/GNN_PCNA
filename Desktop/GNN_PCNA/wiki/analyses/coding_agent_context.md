@@ -85,8 +85,12 @@ Use `python scripts/phase2_foundation_check.py` to verify scaffold completeness.
 
 Dataset Investigation + Freeze phase has started, but no dataset is frozen. Local `data/` contains templates and registries only; no canonical CryptoBench, BioLiP/BioLiP2, scPDB, PDBbind, ASD, or PocketMiner-related structure/label files are adopted. CryptoBench is the leading primary benchmark candidate, but local file inventory, hashes, license resolution, schema audit, PCNA/homolog contamination checks, split audit, and human dataset/split/label review are still required.
 
+## 19. Local dataset discovery status
+
+As of 2026-05-27, local discovery found no usable dataset archives, coordinate files, CSV/TSV/Parquet registries, residue labels, split assignments, or processed dataset artifacts under `crawls/`, `raw/`, or `data/`. `raw/` is placeholder-only. `data/` is governance scaffolding only. Crawl hits for CryptoBench, PocketMiner, BioLiP/BioLiP2, scPDB, ASD, and PDBbind are acquisition leads, not local datasets.
+
 ## Provenance
 
-- Source paths: `AGENTS.md`, `docs/scientific_governance/00_README.md`, `16_CODING_AGENT_RULES.md`, `37_PHASE2_IMPLEMENTATION_PLAN.md`, `reports/phase2/readiness_gate.md`, `reports/phase2/dataset_investigation_report.md`, `reports/phase2/proposed_split_strategy.md`, `reports/phase2/proposed_label_strategy.md`
+- Source paths: `AGENTS.md`, `docs/scientific_governance/00_README.md`, `16_CODING_AGENT_RULES.md`, `37_PHASE2_IMPLEMENTATION_PLAN.md`, `reports/phase2/readiness_gate.md`, `reports/phase2/dataset_investigation_report.md`, `reports/phase2/proposed_split_strategy.md`, `reports/phase2/proposed_label_strategy.md`, `reports/phase2/local_dataset_discovery_report.md`
 - Confidence level: high
 - Date last updated: 2026-05-27

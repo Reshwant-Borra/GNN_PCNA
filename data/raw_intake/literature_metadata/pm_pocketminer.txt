@@ -1,0 +1,128 @@
+1. J Chem Theory Comput. 2026 Apr 28;22(8):3839-3850. doi: 
+10.1021/acs.jctc.6c00135. Epub 2026 Apr 7.
+
+How Well Can AI and Physics-Based Simulations Predict the Probability a Cryptic 
+Pocket Is Open?
+
+Zhang S(1), Miller JJ(1), Bowman GR(1).
+
+Author information:
+(1)Department of Biochemistry and Biophysics, University of Pennsylvania, 
+Philadelphia, Pennsylvania 19104, United States.
+
+Update of
+    bioRxiv. 2026 Apr 01:2026.01.21.700870. doi: 10.64898/2026.01.21.700870.
+
+Identifying and understanding cryptic pockets remains a compelling goal in drug 
+discovery, as they can offer new avenues for targeting proteins that are 
+otherwise challenging to modulate. While artificial intelligence (AI) methods 
+for structure prediction have been revolutionary, they have not learned enough 
+physics to characterize the rest of a protein's conformational ensemble, such as 
+structures with cryptic pockets. This limitation has motivated the development 
+of new AI-based methods for characterizing ensembles, or properties thereof, 
+such as AlphaFlow, BioEmu, PocketMiner, and CryptoBank. Here, we benchmark how 
+well these models and physics-based molecular dynamics (MD) simulations can 
+recapitulate the thermodynamics of known cryptic pockets in Ebola VP35 and TEM 
+β-lactamase. These two pockets were chosen because the probability that they are 
+open and the impact of point mutations have been well characterized 
+experimentally. Multiple methods are remarkably successful at predicting whether 
+a mutation will increase or decrease the probability of cryptic pocket opening. 
+However, none can reliably predict the absolute probability of pocket opening. 
+MD is very close for the two wild-type proteins, but all the methods struggle 
+for pockets with small probabilities of opening experimentally (e.g., less than 
+1%). BioEmu and PocketMiner capture some trends between variants with 
+experimental populations over 1% but have systematic errors and poorer 
+performance for rare pockets (e.g., < 1% open experimentally). These results 
+highlight the promise of AI- and simulation-based strategies for cryptic pocket 
+characterization while pointing to the need for further improvements to achieve 
+robust predictors.
+
+DOI: 10.1021/acs.jctc.6c00135
+PMID: 41945898 [Indexed for MEDLINE]
+
+
+2. bioRxiv [Preprint]. 2026 Apr 1:2026.01.21.700870. doi: 
+10.64898/2026.01.21.700870.
+
+How Well Can AI and Physics-Based Simulations Predict the Probability a Cryptic 
+Pocket Is Open?
+
+Zhang S, Miller JJ, Bowman GR.
+
+Update in
+    J Chem Theory Comput. 2026 Apr 28;22(8):3839-3850. doi: 
+10.1021/acs.jctc.6c00135.
+
+Identifying and understanding cryptic pockets remains a compelling goal in drug 
+discovery, as they can offer new avenues for targeting proteins that are 
+otherwise challenging to modulate. While artificial intelligence (AI) methods 
+for structure prediction have been revolutionary, they have not learned enough 
+physics to characterize the rest of a protein's conformational ensemble, such as 
+structures with cryptic pockets. This limitation has motivated the development 
+of new AI-based methods for characterizing ensembles, or properties thereof, 
+such as AlphaFlow, BioEmu, PocketMiner, and CryptoBank. Here, we benchmark how 
+well these models and physics-based molecular dynamics (MD) simulations can 
+recapitulate the thermodynamics of known cryptic pockets in Ebola VP35 and TEM 
+β-lactamase. These two pockets were chosen because the probability that they are 
+open and the impact of point mutations have been well characterized 
+experimentally. Multiple methods are remarkably successful at predicting whether 
+a mutation will increase or decrease the probability of cryptic pocket opening. 
+However, none can reliably predict the absolute probability of pocket opening. 
+MD is very close for the two wild-type proteins but all the methods struggle for 
+pockets with small probabilities of opening experimentally (e.g. less than 1%). 
+BioEmu and PocketMiner capture some trends between variants with experimental 
+populations over 1% but have systematic errors and poorer performance for rare 
+pockets (e.g. <1% open experimentally). These results highlight the promise of 
+AI- and simulation-based strategies for cryptic pocket characterization while 
+pointing to the need for further improvements to achieve robust predictors.
+
+DOI: 10.64898/2026.01.21.700870
+PMCID: PMC12871771
+PMID: 41648445
+
+
+3. Nat Commun. 2023 Mar 1;14(1):1177. doi: 10.1038/s41467-023-36699-3.
+
+Predicting locations of cryptic pockets from single protein structures using the 
+PocketMiner graph neural network.
+
+Meller A(#)(1)(2), Ward M(#)(1), Borowsky J(1), Kshirsagar M(3), Lotthammer 
+JM(1), Oviedo F(3), Ferres JL(3), Bowman GR(4)(5).
+
+Author information:
+(1)Department of Biochemistry and Molecular Biophysics, Washington University in 
+St. Louis, 660 S. Euclid Ave., Box 8231, St. Louis, MO, 63110, USA.
+(2)Medical Scientist Training Program, Washington University in St. Louis, 660 
+S. Euclid Ave., St. Louis, MO, 63110, USA.
+(3)AI for Good Research Lab, Microsoft, Redmond, WA, USA.
+(4)Department of Biochemistry and Molecular Biophysics, Washington University in 
+St. Louis, 660 S. Euclid Ave., Box 8231, St. Louis, MO, 63110, USA. 
+grbowman@seas.upenn.edu.
+(5)Department of Biochemistry and Molecular Biophysics, University of 
+Pennsylvania, 3620 Hamilton Walk, Philadelphia, PA, 19104, USA. 
+grbowman@seas.upenn.edu.
+(#)Contributed equally
+
+Cryptic pockets expand the scope of drug discovery by enabling targeting of 
+proteins currently considered undruggable because they lack pockets in their 
+ground state structures. However, identifying cryptic pockets is labor-intensive 
+and slow. The ability to accurately and rapidly predict if and where cryptic 
+pockets are likely to form from a structure would greatly accelerate the search 
+for druggable pockets. Here, we present PocketMiner, a graph neural network 
+trained to predict where pockets are likely to open in molecular dynamics 
+simulations. Applying PocketMiner to single structures from a newly curated 
+dataset of 39 experimentally confirmed cryptic pockets demonstrates that it 
+accurately identifies cryptic pockets (ROC-AUC: 0.87) >1,000-fold faster than 
+existing methods. We apply PocketMiner across the human proteome and show that 
+predicted pockets open in simulations, suggesting that over half of proteins 
+thought to lack pockets based on available structures likely contain cryptic 
+pockets, vastly expanding the potentially druggable proteome.
+
+© 2023. The Author(s).
+
+DOI: 10.1038/s41467-023-36699-3
+PMCID: PMC9977097
+PMID: 36859488 [Indexed for MEDLINE]
+
+Conflict of interest statement: GRB is a co-founder and equity holder in Decrypt 
+Biomedicine. The remaining authors declare no competing interests.

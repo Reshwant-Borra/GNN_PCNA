@@ -1,0 +1,220 @@
+
+
+<!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN" "http://www.w3.org/TR/html4/loose.dtd">
+<html>
+<head>
+<title>ASD Download</title>
+<script type="text/javascript">
+var path = "/ASD";
+var basePath = "http://127.0.0.1:81";
+var login = "false";
+var user_id = "0";
+var username = "";
+var tabIndex = "0";
+if(tabIndex=='1' && login=='true'){
+	tabIndex = '2';
+}
+</script>
+<link rel="stylesheet" type="text/css" href="/ASD/css/misc_help.css" />
+</head>
+<body>
+
+
+
+<!-- Page icon -->
+<link rel="icon" href="/ASD/css/images/common/shortcut.gif" type="image/x-icon">
+<link rel="shortcut icon" href="/ASD/css/images/common/shortcut.gif" type="image/x-icon">
+
+<!-- Customized css Package -->
+<link rel="stylesheet" href="/ASD/css/reset_extjs.css" />
+<link rel="stylesheet" type="text/css" href="https://mdl.shsmu.edu.cn//Ext5_1_0/ext5_1/build/packages/ext-theme-neptune/build/resources/ext-theme-neptune-all.css">
+<link rel="stylesheet" type="text/css" href="/ASD/css/home2023.css" />
+<link rel="stylesheet" type="text/css" href="/ASD/css/common2023.css" />
+<link href="http://cdnjs.cloudflare.com/ajax/libs/qtip2/2.2.0/jquery.qtip.min.css" rel="stylesheet" type="text/css" />
+
+<!-- ExtJS Package -->
+ <script type="text/javascript" src="https://mdl.shsmu.edu.cn//Ext5_1_0/ext5_1/build/ext-all.js"></script> 
+ <script type="text/javascript" src="https://mdl.shsmu.edu.cn//Ext5_1_0/ext5_1/build/packages/ext-theme-neptune/build/ext-theme-neptune.js"></script>
+ 
+<!-- Local js Package -->
+<script type="text/javascript" src="/ASD/js/util/extBugHack.js"></script>
+<script type="text/javascript" src="/ASD/js/util/publiccomponent.js"></script>
+<script type="text/javascript" src="/ASD/js/util/localcomponent.js"></script>
+<script type="text/javascript" src="/ASD/js/jquery/jquery.min.js"></script>
+
+<div class="header-box">
+			<div class="w fc-bet">
+				<a href="" class="logo fc">
+					<img src="/ASD/css/images/home2023/logo.png" alt="">
+				</a>
+				<div class="head-right fc">
+					<div class="head-so fc">
+						<i class="ico-so fcc">
+							<img src="/ASD/css/images/home2023/sousuo.png" alt="">
+						</i>
+						<div class="flex1">
+							<input type="text" placeholder="Search..." id="quick_full_text_search_text"/>
+						</div>
+					</div>
+					<a href="javascript:toFullTextSearch();" class="head-btn fcc">
+						Search
+					</a>
+					<a href="/ASD/module/search/text_search.jsp" class="head-btn fcc">
+						Advanced
+					</a>
+				</div>
+			</div>
+		</div>
+
+		<div class="nav-bar">
+			<div class="w">
+				<ul>
+					<li>
+						<h3>
+							<a href="/ASD/module/mainpage/mainpage.jsp">HOME</a></dd>
+						</h3>
+					</li>
+
+					<li>
+						<h3>
+							<a href="">MOLECULES</a>
+						</h3>
+						<dl class="sub">
+							<dd><a href="/ASD/module/proteins/proteins.jsp">PROTEIN</a></dd>
+							<dd><a href="/ASD/module/modulators/modulators.jsp">MODULATOR</a></dd>
+						</dl>
+					</li>
+
+					<li>
+						<h3>
+							<a href="">FEATURES</a>
+						</h3>
+						<dl class="sub">
+							<dd><a href="/ASD/module/allohit2lead/allohit2lead_record.jsp">ALLO-HITtoLEAD</a></dd>
+                    		<dd><a href="/ASD/module/alloppi/alloppi_record.jsp">ALLO-PPI</a></dd>
+                			<dd><a href="/ASD/module/dualsteric/dualsteric_record.jsp">DUALSTERIC-MODULATORS</a></dd>
+							<dd><a href="/ASD/module/allosite_potential/allosite_potential.jsp">ALLOSITE-POTENTIAL</a></dd>
+                    		<dd><a href="/ASD/module/site_distribution/allosterome.jsp">ALLOSTEROME</a></dd>
+                			<dd><a href="/ASD/module/mutation/mutation.jsp">ALLO-MUTATION</a></dd>
+                    		<dd><a href="/ASD/module/allodrug/allodrug.jsp">ALLO-DRUG</a></dd>
+                    		<dd><a href="/ASD/module/network/network.jsp">ALLO-NETWORK</a></dd>
+                    		<dd><a href="/ASD/module/site/site.jsp">SITE</a></dd>
+                    		<dd><a href="/ASD/module/pathway/pathway.jsp">PATHWAY</a></dd>
+						</dl>
+					</li>
+
+					<li>
+						<h3>
+							<a href="">TOOLS</a>
+						</h3>
+						<dl class="sub">
+							<dd><a href="https://mdl.shsmu.edu.cn/AlloReverse/">ALLO-REVERSE</a></dd>
+                			<dd><a href="https://mdl.shsmu.edu.cn/DeepAlloDriver/">DEEP-ALLODRIVER</a></dd>
+							<dd><a href="https://mdl.shsmu.edu.cn/AlloPharm">ALLO-PHARM</a></dd>
+                			<dd><a href="https://mdl.shsmu.edu.cn/ALD">ALLO-DRIVER</a></dd>
+                			<dd><a href="https://mdl.shsmu.edu.cn/ALF">ALLO-FINDER</a></dd>
+                			<dd><a href="https://mdl.shsmu.edu.cn/AST" target="_blank">ALLO-SITE</a></dd>
+                			<dd><a href="https://mdl.shsmu.edu.cn/alloscore" target="_blank">ALLO-SCORE</a></dd>
+                    		<dd><a href="https://mdl.shsmu.edu.cn/asbench/module/search/search.jsp?keyword=browse" target="_blank">ASBENCH</a></dd>
+                    		<dd><a href="https://mdl.shsmu.edu.cn/ASD/module/search/blast_search.jsp">P-SEARCH</a></dd>
+                    		<dd><a href="https://mdl.shsmu.edu.cn/ASD/module/search/modulator_search.jsp">M-SEARCH</a></dd>
+						</dl>
+					</li>
+					<li>
+						<h3>
+							<a href="">MISC</a>
+						</h3>
+						<dl class="sub">
+                    		<dd><a href="/ASD/module/misc/glossary.jsp">GLOSSARY</a></dd>
+                   			<dd><a href="/ASD/module/misc/literature.jsp">LITERATURE</a></dd>
+                    		<dd><a href="/ASD/module/misc/expert.jsp">EXPERT</a></dd>
+                    		<dd><a href="/ASD/module/misc/link.jsp">LINKS</a></dd>
+                    		<dd><a href="/ASD/module/misc/contact.jsp">CONTACT</a></dd>
+						</dl>
+					</li>
+					<li>
+						<h3>
+							<a href="">DOWNLOAD</a>
+						</h3>
+						<dl class="sub">
+							<dd><a href="/ASD/module/download/download.jsp?tabIndex=0">STATISTICS</a></dd>
+                    		<dd><a href="/ASD/module/download/download.jsp?tabIndex=1">DOWNLOAD</a></dd>
+						</dl>
+					</li>
+					<li>
+						<h3>
+							<a href="/ASD/module/help/help.jsp">HELP</a>
+						</h3>
+					</li>
+				</ul>
+			</div>
+		</div>
+<div>
+<div id="container" class="no_index_page">
+<div id="mainPage" class="mainpage"></div>
+</div>
+</div>
+<div class="footer-box">
+			<div class="w fc-bet footer">	
+				<div class="left">
+					<a href="/ASD/module/mainpage/mainpage.jsp">Home</a>
+					<em>|</em>
+					<a href="/ASD/module/misc/contact.jsp">Contact Us</a>
+					<em>|</em>
+					<a href="/ASD/module/misc/sitemap.jsp">Site Map</a>
+					<em>|</em>
+					<a href="/ASD/module/help/help.jsp">Help</a>
+				</div>
+				<div class="line-y"></div>
+				<div class="right">
+					<p>	
+						Address: No. 225 South Chongqing Road, Shanghai, China, 200025				
+					</p>
+					<p>
+						Email: jian.zhang@sjtu.edu.cn & jzhang.dr@gmail.com
+					</p>
+				</div>
+			</div>
+			<div class="fcc copyright">
+				Copyright © 2009-2023 Molecular Design Laboratory, SJTU All Rights Reserved. Designed by MDL.
+			</div>
+		</div>
+<script>
+function toFullTextSearch(){
+	var full_text_keyword = document.getElementById("quick_full_text_search_text").value;
+	if(full_text_keyword.length > 2){
+		window.location.href = path+'/module/search/text_search.jsp?quickSearch='+full_text_keyword;
+	}else{
+		alert('The KeyWord should contain at least 2 characters.');
+	}
+};
+$(document).ready(function(){
+    $('#quick_full_text_search_text').bind('keyup', function(event){
+        if (event.keyCode=="13"){
+        	toFullTextSearch();
+        }
+    });    
+});
+function setNowNav(nav_id){
+	document.getElementById(nav_id).className = "on";
+};
+//menu slides
+$(document).ready(function(){
+  $('li.mainlevel').mouseenter(function(){
+  $(this).find('ul').show(1);//you can give it a speed
+  });
+  $('li.mainlevel').mouseleave(function(){
+  $(this).find('ul').hide(1);
+  });
+});
+//
+</script>
+<link rel="stylesheet" type="text/css" href="/ASD/css/misc_help.css" />
+<script type="text/javascript" src="/ASD/js/util/util.js"></script>
+<script type="text/javascript" src="/ASD/module/download/js/download.js"></script>
+<script>
+var now_nav_id = "mav_mainlevel_download";
+setNowNav(now_nav_id);
+</script>
+</body>
+</html>

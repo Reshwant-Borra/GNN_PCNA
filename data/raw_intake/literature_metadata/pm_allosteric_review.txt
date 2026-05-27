@@ -1,0 +1,944 @@
+1. Foods. 2026 Feb 6;15(3):597. doi: 10.3390/foods15030597.
+
+Engineering Allosteric Transcription Factor-Based Biosensors: Advances and 
+Prospects for Modern Food Contaminant Monitoring.
+
+Lan X(1), Zhou Z(2), Liu Y(3), Li X(2), Shi W(1), Zhu L(1), Xu W(1).
+
+Author information:
+(1)Food Laboratory of Zhongyuan, Key Laboratory of Precision Nutrition and Food 
+Quality, Beijing Laboratory for Food Quality and Safety, Key Laboratory of 
+Safety Assessment of Genetically, Modified Organism (Food Safety), Department of 
+Nutrition and Health, China Agricultural University, Beijing 100193, China.
+(2)Beijing Laboratory of Food Quality and Safety, Beijing Key Laboratory of 
+Agricultural Product Detection and Control of Spoilage Organisms and Pesticide 
+Residue, Key Laboratory of Agricultural Product Processing and Quality Control 
+(Co-construction by Ministry and Province), Faculty of Food Science and 
+Engineering, Beijing University of Agriculture, Beijing 102206, China.
+(3)State Key Laboratory for Quality and Safety of Agro-Products, Institute of 
+Quality Standards and Testing Technology for Agro-Products, Chinese Academy of 
+Agricultural Sciences, Haidian, Beijing 100081, China.
+
+Allosteric transcription factor (aTF)-based in vitro biosensors constitute a 
+class of detection tools formed by the functional coupling of the ligand-binding 
+domain of aTFs with a reporter system. Owing to advantages such as high 
+specificity and sensitivity, these biosensors have emerged as a research hotspot 
+in the field of modern food contaminant monitoring. Our work centers on the core 
+aspect of engineering design and systematically elaborates on the modular design 
+strategies for aTF-based in vitro biosensors, with a focus on the design 
+principles of the molecular recognition system, signal amplification strategies, 
+signal output systems, and sensing systems. Furthermore, the article summarizes 
+the advances in the application of aTF biosensors for detecting various typical 
+food contaminants and analyzes their performance advantages. Finally, in light 
+of existing technical limitations, it prospectively discusses future directions 
+for enhancing specificity, improving stability, and promoting commercial 
+applications, aiming to provide a theoretical reference and application guidance 
+for transitioning this technology from laboratory platforms to on-site real-time 
+monitoring.
+
+DOI: 10.3390/foods15030597
+PMCID: PMC12897369
+PMID: 41683183
+
+Conflict of interest statement: The authors declare no conflicts of interest.
+
+
+2. Expert Opin Ther Targets. 2025 Mar;29(3):171-178. doi: 
+10.1080/14728222.2025.2482548. Epub 2025 Mar 31.
+
+Potential role of indole-3-propionic acid in tuberculosis: current perspectives 
+and future prospects.
+
+Baral T(1), Johnson AS(1), Unnikrishnan MK(2), Manu MK(3), Saravu K(4), Udyavara 
+Kudru C(5), Abdulsalim S(6), Singh J(7), Mukhopadhyay C(8), Rao M(1), Miraj 
+SS(1).
+
+Author information:
+(1)Department of Pharmacy Practice, Manipal College of Pharmaceutical Sciences, 
+Manipal Academy of Higher Education, Manipal, India.
+(2)Department of Pharmacy Practice, Amrita School of Pharmacy, Amrita Vishwa 
+Vidyapeetham, Kochi, India.
+(3)Department of Respiratory Medicine, Kasturba Medical College, Manipal, 
+Manipal Academy of Higher Education, Manipal, India.
+(4)Department of Infectious Diseases, Kasturba Medical College, Manipal, Manipal 
+Academy of Higher Education, Manipal, India.
+(5)Department of Medicine, Kasturba Medical College, Manipal, Manipal Academy of 
+Higher Education, Manipal, India.
+(6)Department of Pharmacy Practice, College of Pharmacy, Qassim University, 
+Buraidah, Saudi Arabia.
+(7)Department of Translational Medicine, All India Institute of Medical 
+Sciences, Bhopal, India.
+(8)Department of Microbiology, Kasturba Medical College, Manipal, Manipal 
+Academy of Higher Education, Manipal, India.
+
+INTRODUCTION: Indole-3-propionic acid (IPA), a tryptophan catabolite derived 
+from gut bacterial metabolism, has been identified as a functional link between 
+the gut microbiome and tuberculosis.
+AREA COVERED: IPA has gained ample attention over the past two decades on 
+account of its multiple physiological roles, besides being both detectable and 
+quantifiable. IPA is well studied across different health conditions, including 
+cardiovascular and neurological conditions. IPA blocks tryptophan synthesis in 
+Mycobacterium by binding to the allosteric tryptophan-binding site of TrpE, 
+thereby threatening Mycobacterium survival due to tryptophan deficit.
+EXPERT OPINION: Characterizing IPA would enable its use as a tool to investigate 
+the pathophysiology of tuberculosis. Integrating 'OMICS' techniques (through 
+next-generation sequencing) along with targeted microbial metabolomics may help 
+explore the possible association of serum IPA levels with TB in patients. This 
+will aid in identifying IPA-producing gut microbes and selecting probiotic 
+strains as a microbiome-targeting adjunct therapy, eventually enhancing our 
+understanding of the molecular dynamics of the pathophysiology of tuberculosis 
+in the context of the microbiome.
+
+DOI: 10.1080/14728222.2025.2482548
+PMID: 40160109 [Indexed for MEDLINE]
+
+
+3. Neuropharmacology. 2024 Nov 1;258:110092. doi:
+10.1016/j.neuropharm.2024.110092.  Epub 2024 Jul 25.
+
+Ligand bias at the muscarinic acetylcholine receptor family: Opportunities and 
+challenges.
+
+Kaoullas MG(1), Thal DM(1), Christopoulos A(2), Valant C(3).
+
+Author information:
+(1)Drug Discovery Biology, Monash Institute of Pharmaceutical Sciences, Monash 
+University, 399 Royal Parade, 3052, VIC, Parkville, Melbourne, Australia.
+(2)Drug Discovery Biology, Monash Institute of Pharmaceutical Sciences, Monash 
+University, 399 Royal Parade, 3052, VIC, Parkville, Melbourne, Australia. 
+Electronic address: Arthur.christopoulos@monash.edu.
+(3)Drug Discovery Biology, Monash Institute of Pharmaceutical Sciences, Monash 
+University, 399 Royal Parade, 3052, VIC, Parkville, Melbourne, Australia. 
+Electronic address: Celine.valant@monash.edu.
+
+Muscarinic acetylcholine receptors (mAChRs) are G protein-coupled receptors 
+(GPCRs) that are activated by the endogenous neurotransmitter, acetylcholine 
+(ACh). Disruption of mAChR signalling has been associated with a variety of 
+neurological disorders and non-neurological diseases. Consequently, the 
+development of agonists and antagonists of the mAChRs has been a major avenue in 
+drug discovery. Unfortunately, mAChR ligands are often associated with on-target 
+side effects for two reasons. The first reason is due to the high sequence 
+conservation at the orthosteric ACh binding site among all five receptor 
+subtypes (M1-M5), making on-target subtype selectivity a major challenge. The 
+second reason is due to on-target side effects of mAChR drugs that are 
+associated with the pleiotropic nature of mAChR signalling at the level of a 
+single mAChR subtype. Indeed, there is growing evidence that within the myriad 
+of signalling events produced by mAChR ligands, some will have therapeutic 
+benefits, whilst others may promote cholinergic side effects. This paradigm of 
+drug action, known as ligand bias or biased agonism, is an attractive feature 
+for next-generation mAChR drugs, as it holds the promise of developing drugs 
+devoid of on-target adverse effects. Although relatively simple to detect and 
+even quantify in vitro, ligand bias, as observed in recombinant systems, does 
+not always translate to in vivo systems, which remains a major hurdle in GPCR 
+drug discovery, including the mAChR family. Here we report recent studies that 
+have attempted to detect and quantify ligand bias at the mAChR family, and 
+briefly discuss the challenges associated with biased agonist drug development. 
+This article is part of the Special Issue on "Ligand Bias".
+
+Copyright © 2024 The Authors. Published by Elsevier Ltd.. All rights reserved.
+
+DOI: 10.1016/j.neuropharm.2024.110092
+PMID: 39067666 [Indexed for MEDLINE]
+
+Conflict of interest statement: Declaration of competing interest None.
+
+
+4. Curr Opin Struct Biol. 2024 Jun;86:102792. doi: 10.1016/j.sbi.2024.102792.
+Epub  2024 Mar 1.
+
+NMR tools to detect protein allostery.
+
+Gampp O(1), Kadavath H(2), Riek R(3).
+
+Author information:
+(1)Laboratory of Physical Chemistry, ETH Zurich, Switzerland.
+(2)Laboratory of Physical Chemistry, ETH Zurich, Switzerland; St. Jude 
+Children's Research Hospital, 262 Danny Thomas Place, 38105 Memphis, Tennessee, 
+USA. Electronic address: https://twitter.com/harijik.
+(3)Laboratory of Physical Chemistry, ETH Zurich, Switzerland. Electronic 
+address: roland.riek@phys.chem.ethz.ch.
+
+Allostery is a fundamental mechanism of cellular homeostasis by intra-protein 
+communication between distinct functional sites. It is an internal process of 
+proteins to steer interactions not only with each other but also with other 
+biomolecules such as ligands, lipids, and nucleic acids. In addition, allosteric 
+regulation is particularly important in enzymatic activities. A major challenge 
+in structural and molecular biology today is unraveling allosteric sites in 
+proteins, to elucidate the detailed mechanism of allostery and the development 
+of allosteric drugs. Here we summarize the recently developed tools and 
+approaches which enable the elucidation of regulatory hotspots and correlated 
+motion in biomolecules, focusing primarily on solution-state nuclear magnetic 
+resonance spectroscopy (NMR). These tools open an avenue towards a rational 
+understanding of the mechanism of allostery and provide essential information 
+for the design of allosteric drugs.
+
+Copyright © 2024 The Author(s). Published by Elsevier Ltd.. All rights reserved.
+
+DOI: 10.1016/j.sbi.2024.102792
+PMID: 38428364 [Indexed for MEDLINE]
+
+Conflict of interest statement: Declaration of competing interest The authors 
+declare that they have no known competing financial interests or personal 
+relationships that could have appeared to influence the work reported in this 
+paper.
+
+
+5. Curr Opin Struct Biol. 2024 Feb;84:102737. doi: 10.1016/j.sbi.2023.102737.
+Epub  2024 Jan 3.
+
+Allosteric communication and signal transduction in proteins.
+
+Wu N(1), Barahona M(2), Yaliraki SN(3).
+
+Author information:
+(1)Department of Chemistry, Imperial College London, United Kingdom.
+(2)Department of Mathematics, Imperial College London, United Kingdom. 
+Electronic address: https://twitter.com/@CMPHImperial.
+(3)Department of Chemistry, Imperial College London, United Kingdom. Electronic 
+address: s.yaliraki@imperial.ac.uk.
+
+Allostery is one of the cornerstones of biological function, as it plays a 
+fundamental role in regulating protein activity. The modelling of allostery has 
+gradually moved from a conformation-based framework, linked to structural 
+changes, to dynamics-based allostery, whereby the effects of ligand binding 
+propagate via signal transduction from the allosteric site to other regions of 
+the protein via inter-residue interactions. Characterising such allosteric 
+signalling pathways, which do not necessarily lead to conformational changes, 
+has been pursued experimentally and complemented by computational analysis of 
+protein networks to detect subtle dynamic propagation paths. Considering 
+allostery from the perspective of signal transduction broadens the understanding 
+of allosteric mechanisms, underscores the importance of protein topology, and 
+can provide insights into allosteric drug design.
+
+Copyright © 2023 The Author(s). Published by Elsevier Ltd.. All rights reserved.
+
+DOI: 10.1016/j.sbi.2023.102737
+PMID: 38171189 [Indexed for MEDLINE]
+
+Conflict of interest statement: Declaration of competing interest The authors 
+declare that they have no known competing financial interests or personal 
+relationships that could have appeared to influence the work reported in this 
+paper.
+
+
+6. RETRACTED ARTICLE
+
+Mol Biotechnol. 2024 Dec;66(12):3385-3397. doi: 10.1007/s12033-023-00951-4. Epub 
+2023 Nov 13.
+
+Advances of Predicting Allosteric Mechanisms Through Protein Contact in New 
+Technologies and Their Application.
+
+Raza SHA(1)(2)(3), Zhong R(2), Yu X(1), Zhao G(1), Wei X(1), Lei H(4)(5)(6).
+
+Author information:
+(1)Guangdong Provincial Key Laboratory of Food Quality and Safety/Nation-Local 
+Joint Engineering Research Center for Machining and Safety of Livestock and 
+Poultry Products, South China Agricultural University, Guangzhou, 510642, China.
+(2)Guangdong Provincial Key Laboratory of Utilization and Conservation of Food 
+and Medicinal Resources in Northern Region, Shaoguan University, Shaoguan, 
+512005, China.
+(3)College of Animal Science and Technology, Northwest A&F University, Yangling, 
+712100, Shaanxi, China.
+(4)Guangdong Provincial Key Laboratory of Food Quality and Safety/Nation-Local 
+Joint Engineering Research Center for Machining and Safety of Livestock and 
+Poultry Products, South China Agricultural University, Guangzhou, 510642, China. 
+hongtao@scau.edu.cn.
+(5)Guangdong Laboratory for Lingnan Modern Agriculture, Guangzhou, 510642, 
+China. hongtao@scau.edu.cn.
+(6)Licheng Detection and Certification Group Co., Ltd., Zhongshan, 528403, 
+Guangdong, China. hongtao@scau.edu.cn.
+
+Retraction in
+    Mol Biotechnol. 2026 Mar 18. doi: 10.1007/s12033-026-01571-4.
+
+Allostery is an intriguing phenomenon wherein the binding activity of a 
+biological macromolecule is modulated via non-canonical binding site, resulting 
+in synchronized functional changes. The mechanics underlying allostery are 
+relatively complex and this review is focused on common methodologies used to 
+study allostery, such as X-ray crystallography, NMR spectroscopy, and HDXMS. 
+Different methodological approaches are used to generate data in different 
+scenarios. For example, X-ray crystallography provides high-resolution 
+structural information, NMR spectroscopy offers dynamic insights into allosteric 
+interactions in solution, and HDXMS provides information on protein dynamics. 
+The residue transition state (RTS) approach has emerged as a critical tool in 
+understanding the energetics and conformational changes associated with 
+allosteric regulation. Allostery has significant implications in drug discovery, 
+gene transcription, disease diagnosis, and enzyme catalysis. Enzymes' catalytic 
+activity can be modulated by allosteric regulation, offering opportunities to 
+develop novel therapeutic alternatives. Understanding allosteric mechanisms 
+associated with infectious organisms like SARS-CoV and bacterial pathogens can 
+aid in the development of new antiviral drugs and antibiotics. Allosteric 
+mechanisms are crucial in the regulation of a variety of signal transduction and 
+cell metabolism pathways, which in turn govern various cellular processes. 
+Despite progress, challenges remain in identifying allosteric sites and 
+characterizing their contribution to a variety of biological processes. 
+Increased understanding of these mechanisms can help develop allosteric systems 
+specifically designed to modulate key biological mechanisms, providing novel 
+opportunities for the development of targeted therapeutics. Therefore, the 
+current review aims to summarize common methodologies that are used to further 
+our understanding of allosteric mechanisms. In conclusion, this review provides 
+insights into the methodologies used for the study of allostery, its 
+applications in in silico modeling, the mechanisms underlying antibody 
+allostery, and the ongoing challenges and prospects in advancing our 
+comprehension of this intriguing phenomenon.
+
+© 2023. The Author(s), under exclusive licence to Springer Science+Business 
+Media, LLC, part of Springer Nature.
+
+DOI: 10.1007/s12033-023-00951-4
+PMID: 37957479 [Indexed for MEDLINE]
+
+Conflict of interest statement: Declarations Competing interests The authors 
+declare no competing interests. Ethics Approval and Consent to Participate Not 
+applicable. Consent for Publication Not applicable.
+
+
+7. Cells. 2023 Sep 13;12(18):2265. doi: 10.3390/cells12182265.
+
+Virtual Screening of Protein Data Bank via Docking Simulation Identified the 
+Role of Integrins in Growth Factor Signaling, the Allosteric Activation of 
+Integrins, and P-Selectin as a New Integrin Ligand.
+
+Takada Y(1)(2), Fujita M(1), Takada YK(1).
+
+Author information:
+(1)Department of Dermatology, UC Davis School of Medicine, Sacramento, CA 95817, 
+USA.
+(2)Department of Biochemistry and Molecular Medicine, UC Davis School of 
+Medicine, Sacramento, CA 95817, USA.
+
+Integrins were originally identified as receptors for extracellular matrix (ECM) 
+and cell-surface molecules (e.g., VCAM-1 and ICAM-1). Later, we discovered that 
+many soluble growth factors/cytokines bind to integrins and play a critical role 
+in growth factor/cytokine signaling (growth factor-integrin crosstalk). We 
+performed a virtual screening of protein data bank (PDB) using docking 
+simulations with the integrin headpiece as a target. We showed that several 
+growth factors (e.g., FGF1 and IGF1) induce a integrin-growth factor-cognate 
+receptor ternary complex on the surface. Growth factor/cytokine mutants 
+defective in integrin binding were defective in signaling functions and act as 
+antagonists of growth factor signaling. Unexpectedly, several growth 
+factor/cytokines activated integrins by binding to the allosteric site (site 2) 
+in the integrin headpiece, which is distinct from the classical ligand 
+(RGD)-binding site (site 1). Since 25-hydroxycholesterol, a major inflammatory 
+mediator, binds to site 2, activates integrins, and induces inflammatory 
+signaling (e.g., IL-6 and TNFα secretion), it has been proposed that site 2 is 
+involved in inflammatory signaling. We showed that several inflammatory factors 
+(CX3CL1, CXCL12, CCL5, sPLA2-IIA, and P-selectin) bind to site 2 and activate 
+integrins. We propose that site 2 is involved in the pro-inflammatory action of 
+these proteins and a potential therapeutic target. It has been well-established 
+that platelet integrin αIIbβ3 is activated by signals from the inside of 
+platelets induced by platelet agonists (inside-out signaling). In addition to 
+the canonical inside-out signaling, we showed that αIIbβ3 can be allosterically 
+activated by inflammatory cytokines/chemokines that are stored in platelet 
+granules (e.g., CCL5, CXCL12) in the absence of inside-out signaling (e.g., 
+soluble integrins in cell-free conditions). Thus, the allosteric activation may 
+be involved in αIIbβ3 activation, platelet aggregation, and thrombosis. 
+Inhibitory chemokine PF4 (CXCL4) binds to site 2 but did not activate integrins, 
+Unexpectedly, we found that PF4/anti-PF4 complex was able to activate integrins, 
+indicating that the anti-PF4 antibody changed the phenotype of PF4 from 
+inhibitory to inflammatory. Since autoantibodies to PF4 are detected in 
+vaccine-induced thrombocytopenic thrombosis (VIPP) and autoimmune diseases 
+(e.g., SLE, and rheumatoid arthritis), we propose that this phenomenon is 
+related to the pathogenesis of these diseases. P-selectin is known to bind 
+exclusively to glycans (e.g., sLex) and involved in cell-cell interaction by 
+binding to PSGL-1 (CD62P glycoprotein ligand-1). Unexpectedly, through docking 
+simulation, we discovered that the P-selectin C-type lectin domain functions as 
+an integrin ligand. It is interesting that no one has studied whether P-selectin 
+binds to integrins in the last few decades. The integrin-binding site and 
+glycan-binding site were close but distinct. Also, P-selectin lectin domain 
+bound to site 2 and allosterically activated integrins.
+
+DOI: 10.3390/cells12182265
+PMCID: PMC10527219
+PMID: 37759488 [Indexed for MEDLINE]
+
+Conflict of interest statement: The authors declare no conflict of interest.
+
+
+8. Int J Mol Sci. 2022 Jul 15;23(14):7809. doi: 10.3390/ijms23147809.
+
+In Silico Study of Allosteric Communication Networks in GPCR Signaling Bias.
+
+Morales-Pastor A(1), Nerín-Fonz F(1), Aranda-García D(1), Dieguez-Eceolaza M(1), 
+Medel-Lacruz B(1), Torrens-Fontanals M(1), Peralta-García A(1), Selent J(1).
+
+Author information:
+(1)Research Programme on Biomedical Informatics, Hospital del Mar Medical 
+Research Institute, Department of Medicine and Life Sciences, Pompeu Fabra 
+University, 08003 Barcelona, Spain.
+
+Signaling bias is a promising characteristic of G protein-coupled receptors 
+(GPCRs) as it provides the opportunity to develop more efficacious and safer 
+drugs. This is because biased ligands can avoid the activation of pathways 
+linked to side effects whilst still producing the desired therapeutic effect. In 
+this respect, a deeper understanding of receptor dynamics and implicated 
+allosteric communication networks in signaling bias can accelerate the research 
+on novel biased drug candidates. In this review, we aim to provide an overview 
+of computational methods and techniques for studying allosteric communication 
+and signaling bias in GPCRs. This includes (i) the detection of allosteric 
+communication networks and (ii) the application of network theory for extracting 
+relevant information pipelines and highly communicated sites in GPCRs. We focus 
+on the most recent research and highlight structural insights obtained based on 
+the framework of allosteric communication networks and network theory for GPCR 
+signaling bias.
+
+DOI: 10.3390/ijms23147809
+PMCID: PMC9315799
+PMID: 35887157 [Indexed for MEDLINE]
+
+Conflict of interest statement: The authors declare no conflict of interest.
+
+
+9. Curr Opin Struct Biol. 2022 Apr;73:102334. doi: 10.1016/j.sbi.2022.102334.
+Epub  2022 Feb 15.
+
+Design and engineering of allosteric communications in proteins.
+
+Chen J(1), Vishweshwaraiah YL(2), Dokholyan NV(3).
+
+Author information:
+(1)Department of Pharmacology, Penn State College of Medicine, Hershey, PA, 
+17033-0850, USA. Electronic address: https://twitter.com/JiaxingChen18.
+(2)Department of Pharmacology, Penn State College of Medicine, Hershey, PA, 
+17033-0850, USA. Electronic address: https://twitter.com/IAmYashHegde.
+(3)Department of Pharmacology, Penn State College of Medicine, Hershey, PA, 
+17033-0850, USA; Department of Biochemistry & Molecular Biology, Penn State 
+College of Medicine, Hershey, PA, 17033-0850, USA; Department of Chemistry, 
+Pennsylvania State University, University Park, PA, 16802, USA; Department of 
+Biomedical Engineering, Pennsylvania State University, University Park, PA, 
+16802, USA. Electronic address: dokh@psu.edu.
+
+Allostery in proteins plays an important role in regulating protein activities 
+and influencing many biological processes such as gene expression, enzyme 
+catalysis, and cell signaling. The process of allostery takes place when a 
+signal detected at a site on a protein is transmitted via a mechanical pathway 
+to a functional site and, thus, influences its activity. The pathway of 
+allosteric communication consists of amino acids that form a network with 
+covalent and non-covalent bonds. By mutating residues in this allosteric 
+network, protein engineers have successfully established novel allosteric 
+pathways to achieve desired properties in the target protein. In this review, we 
+highlight the most recent and state-of-the-art techniques for allosteric 
+communication engineering. We also discuss the challenges that need to be 
+overcome and future directions for engineering protein allostery.
+
+Copyright © 2022 Elsevier Ltd. All rights reserved.
+
+DOI: 10.1016/j.sbi.2022.102334
+PMCID: PMC8957532
+PMID: 35180676 [Indexed for MEDLINE]
+
+Conflict of interest statement: Conflict of interest statement Nothing declared.
+
+
+10. J Med Chem. 2021 Dec 23;64(24):17728-17743. doi:
+10.1021/acs.jmedchem.1c01695.  Epub 2021 Dec 8.
+
+Harnessing Reversed Allosteric Communication: A Novel Strategy for Allosteric 
+Drug Discovery.
+
+Fan J(1)(2)(3), Liu Y(4), Kong R(5), Ni D(6), Yu Z(7), Lu S(1)(2)(4), Zhang 
+J(1)(2)(4)(8).
+
+Author information:
+(1)College of Pharmacy, Ningxia Medical University, Yinchuan, Ningxia Hui 
+Autonomous Region 750004, China.
+(2)State Key Laboratory of Oncogenes and Related Genes, Key Laboratory of Cell 
+Differentiation and Apoptosis of Chinese Ministry of Education, Shanghai Jiao 
+Tong University, School of Medicine, Shanghai 200025, China.
+(3)Zhiyuan Innovative Research Center, Shanghai Jiao Tong University, Shanghai 
+200240, China.
+(4)Medicinal Chemistry and Bioinformatics Center, Shanghai Jiao Tong University, 
+School of Medicine, Shanghai 200025, China.
+(5)Institute of Bioinformatics and Medical Engineering, School of Electrical and 
+Information Engineering, Jiangsu University of Technology, Changzhou 213001, 
+China.
+(6)The Charles Perkins Centre, University of Sydney, Sydney, New South Wales 
+2006, Australia.
+(7)Nutshell Therapeutics, Shanghai 201203, China.
+(8)School of Pharmaceutical Sciences, Zhengzhou University, Zhengzhou 450001, 
+China.
+
+Allostery is a fundamental and extensive mechanism of intramolecular signal 
+transmission. Allosteric drugs possess several unique pharmacological advantages 
+over traditional orthosteric drugs, including greater selectivity, better 
+physicochemical properties, and lower off-target toxicity. However, owing to the 
+complexity of allosteric regulation, experimental approaches for the development 
+of allosteric modulators are traditionally serendipitous. Recently, the reversed 
+allosteric communication theory has been proposed, providing a feasible tool for 
+the unbiased detection of allosteric sites. Herein, we review the latest 
+research on the reversed allosteric communication effect using the examples of 
+sirtuin 6, epidermal growth factor receptor, 3-phosphoinositide-dependent 
+protein kinase 1, and Related to A and C kinases (RAC) serine/threonine protein 
+kinase B and recapitulate the methodologies of reversed allosteric communication 
+strategy. The novel reversed allosteric communication strategy greatly expands 
+the horizon of allosteric site identification and allosteric mechanism 
+exploration and is expected to accelerate an end-to-end framework for drug 
+discovery.
+
+DOI: 10.1021/acs.jmedchem.1c01695
+PMID: 34878270 [Indexed for MEDLINE]
+
+
+11. Biophys Rev. 2020 Feb;12(1):155-174. doi: 10.1007/s12551-019-00609-z. Epub
+2019  Dec 14.
+
+NMR and computational methods for molecular resolution of allosteric pathways in 
+enzyme complexes.
+
+East KW(1), Skeens E(1), Cui JY(1), Belato HB(1), Mitchell B(2), Hsu R(2), 
+Batista VS(3), Palermo G(2), Lisi GP(4).
+
+Author information:
+(1)Department of Molecular Biology, Cell Biology & Biochemistry, Brown 
+University, Providence, RI, 02903, USA.
+(2)Department of Bioengineering and of Chemistry, University of California 
+Riverside, 900 University Avenue, Riverside, CA, 92521, USA.
+(3)Department of Chemistry, Yale University, New Haven, CT, 06520, USA.
+(4)Department of Molecular Biology, Cell Biology & Biochemistry, Brown 
+University, Providence, RI, 02903, USA. george_lisi@brown.edu.
+
+Allostery is a ubiquitous biological mechanism in which a distant binding site 
+is coupled to and drastically alters the function of a catalytic site in a 
+protein. Allostery provides a high level of spatial and temporal control of the 
+integrity and activity of biomolecular assembles composed of proteins, nucleic 
+acids, or small molecules. Understanding the physical forces that drive 
+allosteric coupling is critical to harnessing this process for use in 
+bioengineering, de novo protein design, and drug discovery. Current microscopic 
+models of allostery highlight the importance of energetics, structural 
+rearrangements, and conformational fluctuations, and in this review, we discuss 
+the synergistic use of solution NMR spectroscopy and computational methods to 
+probe these phenomena in allosteric systems, particularly protein-nucleic acid 
+complexes. This combination of experimental and theoretical techniques 
+facilitates an unparalleled detection of subtle changes to structural and 
+dynamic equilibria in biomolecules with atomic resolution, and we provide a 
+detailed discussion of specialized NMR experiments as well as the complementary 
+methods that provide valuable insight into allosteric pathways in silico. 
+Lastly, we highlight two case studies to demonstrate the adaptability of this 
+approach to enzymes of varying size and mechanistic complexity.
+
+DOI: 10.1007/s12551-019-00609-z
+PMCID: PMC7040152
+PMID: 31838649
+
+
+12. Clin Rheumatol. 2020 Mar;39(3):949-956. doi: 10.1007/s10067-019-04801-0. Epub
+ 2019 Nov 26.
+
+A novel mutation in gene of PRPS1 in a young Chinese woman with X-linked gout: a 
+case report and review of the literature.
+
+Yang BY(1), Yu HX(2), Min J(3), Song XX(4).
+
+Author information:
+(1)Department of Allergy, the Second Affiliated Hospital, Zhejiang University 
+School of Medicine, No. 88 Jiefang Road, Hangzhou, 310009, China.
+(2)Clinical Research Center, the Second Affiliated Hospital, Zhejiang University 
+School of Medicine, No. 88 Jiefang Road, Hangzhou, China.
+(3)Department of Radiology, the Second Affiliated Hospital, Zhejiang University 
+School of Medicine, No. 88 Jiefang Road, Hangzhou, China.
+(4)Department of Endocrinology and Metabolism, the Second Affiliated Hospital, 
+Zhejiang University School of Medicine, No. 88 Jiefang Road, Hangzhou, China. 
+xsong103@zju.edu.cn.
+
+Pyrophosphate synthetase-1(PRS-1) is a crucial enzyme that catalyzes the 
+synthesis of phosphoribosylpyrophosphate (PRPP) with substrate: adenosine 
+triphosphate (ATP) and ribose-5-phophate(R5P) in the de novo pathways of purine 
+and pyrimidine nucleotide synthesis. Mutation in PRPS1 can result in a series of 
+diseases of purine metabolism, which includes PRS-1 superactivity. The common 
+clinical phenotypes are hyperuricemia and hyperuricosuria. We identified a novel 
+missense mutation in X-chromosomal gene PRPS1 in a young Chinese woman while her 
+mother has heterogeneous genotype and phenotype. A 24-year-old Chinese female 
+patient suffered hyperuricemia, gout, and recurrent hyperpyrexia for more than 6 
+years, and then was diagnosed with hyperandrogenism, insulin resistance (IR), 
+and polycystic ovary syndrome (PCOS). A novel missense mutation, c.521(exon)G>T, 
+p.(Gly174Val) was detected by next-generation sequencing (NGS) and confirmed by 
+Sanger sequencing in the patient and her parents. Interestingly, her mother has 
+the same heterozygous missense mutation but without uric acid overproduction 
+which can be explained by the phenomenon of the skewed X-chromosome 
+inactivation. The substituted amino acid Val for Gly174 is positioned in the 
+pyrophosphate (PPi) binding loop, and this mutation impacts the binding rate of 
+Mg2+-ATP complex to PRS-1, thus the assembling of homodimer is affected by 
+changed Val174 leading to the instability of the allosteric site. Our report 
+highlights the X-linked inheritance of gout in females caused by mutation in 
+PRPS1 accompanied with severe metabolic disorders and recurrent hyperpyrexia.
+
+DOI: 10.1007/s10067-019-04801-0
+PMID: 31773495 [Indexed for MEDLINE]
+
+
+13. Prog Biophys Mol Biol. 2019 May;143:52-66. doi: 
+10.1016/j.pbiomolbio.2018.08.009. Epub 2018 Sep 11.
+
+Structurally- and dynamically-driven allostery of the chymotrypsin-like 
+proteases of SARS, Dengue and Zika viruses.
+
+Lim L(1), Gupta G(1), Roy A(1), Kang J(1), Srivastava S(1), Shi J(2), Song J(3).
+
+Author information:
+(1)Department of Biological Sciences, Faculty of Science, National University of 
+Singapore, Republic of Singapore.
+(2)Department of Biomedical Sciences, City University of Hong Kong, Kowloon, 
+Hong Kong Special Administrative Region. Electronic address: 
+jiahai.shi@cityu.edu.hk.
+(3)Department of Biological Sciences, Faculty of Science, National University of 
+Singapore, Republic of Singapore. Electronic address: dbssjx@nus.edu.sg.
+
+Coronavirus 3C-like and Flavivirus NS2B-NS3 proteases utilize the chymotrypsin 
+fold to harbor their catalytic machineries but also contain additional 
+domains/co-factors. Over the past decade, we aimed to decipher how the extra 
+domains/co-factors mediate the catalytic machineries of SARS 3C-like, Dengue and 
+Zika NS2B-NS3 proteases by characterizing their folding, structures, dynamics 
+and inhibition with NMR, X-ray crystallography and MD simulations, and the 
+results revealed: 1) the chymotrypsin fold of the SARS 3C-like protease can 
+independently fold, while, by contrast, those of Dengue and Zika proteases lack 
+the intrinsic capacity to fold without co-factors. 2) Mutations on the extra 
+domain of SARS 3C-like protease can transform the active catalytic machinery 
+into the inactive collapsed state by structurally-driven allostery. 3) 
+Amazingly, even without detectable structural changes, mutations on the extra 
+domain are sufficient to either inactivate or enhance the catalytic machinery of 
+SARS 3C-like protease by dynamically-driven allostery. 4) Global networks of 
+correlated motions have been identified: for SARS 3C-like protease, N214A 
+inactivates the catalytic machinery by decoupling the network, while STI/A and 
+STIF/A enhance by altering the patterns of the network. The global networks of 
+Dengue and Zika proteases are coordinated by their NS2B-cofactors. 5) Natural 
+products were identified to allosterically inhibit Zika and Dengue proteases 
+through binding a pocket on the back of the active site. Therefore, by 
+introducing extra domains/cofactors, nature develops diverse strategies to 
+regulate the catalytic machinery embedded on the chymotrypsin fold through 
+folding, structurally- and dynamically-driven allostery, all of which might be 
+exploited to develop antiviral drugs.
+
+Copyright © 2018 Elsevier Ltd. All rights reserved.
+
+DOI: 10.1016/j.pbiomolbio.2018.08.009
+PMCID: PMC7111307
+PMID: 30217495 [Indexed for MEDLINE]
+
+
+14. Front Mol Biosci. 2018 May 25;5:47. doi: 10.3389/fmolb.2018.00047.
+eCollection  2018.
+
+Thermodynamic and NMR Assessment of Ligand Cooperativity and Intersubunit 
+Communication in Symmetric Dimers: Application to Thymidylate Synthase.
+
+Lee AL(1), Sapienza PJ(1).
+
+Author information:
+(1)Division of Chemical Biology and Medicinal Chemistry, UNC Eshelman School of 
+Pharmacy, University of North Carolina at Chapel Hill, Chapel Hill, NC, United 
+States.
+
+Thymidylate synthase (TS) is a homodimeric enzyme with evidence for negative 
+regulation of one protomer while the other protomer acts on substrate, so called 
+half-the-sites reactivity. The mechanisms by which multisubunit allosteric 
+proteins communicate between protomers is not well understood, and the 
+simplicity of dimeric systems has advantages for observing conformational and 
+dynamic processes that functionally connect distance-separated active sites. 
+This review considers progress in overcoming the inherent challenges of accurate 
+thermodynamic and atomic-resolution characterization of interprotomer 
+communication mechanisms in symmetric protein dimers, with TS used as an 
+example. Isothermal titration calorimetry (ITC) is used to measure ligand 
+binding cooperativity, even in cases where the two binding enthalpies are 
+similar, and NMR spectroscopy is used to detect site-specific changes occurring 
+in the two protomers. The NMR approach makes use of mixed-labeled dimers, 
+enabling protomer-specific detection of signals in the singly ligated state. The 
+rich informational content of the NMR signals from the singly ligated state, 
+relative to the apo and saturated states, requires new considerations that do 
+not arise in simple cases of 1:1 protein-ligand interactions.
+
+DOI: 10.3389/fmolb.2018.00047
+PMCID: PMC5981203
+PMID: 29888227
+
+
+15. Acta Neuropathol Commun. 2018 Apr 11;6(1):27. doi: 10.1186/s40478-018-0530-4.
+
+Zidovudine ameliorates pathology in the mouse model of Duchenne muscular 
+dystrophy via P2RX7 purinoceptor antagonism.
+
+Al-Khalidi R(1)(2), Panicucci C(1)(3), Cox P(1), Chira N(1), Róg J(4), Young 
+CNJ(1)(5), McGeehan RE(1), Ambati K(6), Ambati J(6)(7), Zabłocki K(4), Gazzerro 
+E(3), Arkle S(1), Bruno C(3), Górecki DC(8).
+
+Author information:
+(1)Molecular Medicine Laboratory, School of Pharmacy and Biomedical Sciences, 
+University of Portsmouth, Portsmouth, UK.
+(2)Present Address: Biotechnology Department, Faculty of Science, University of 
+Baghdad, Baghdad, Iraq.
+(3)Center of Myology and Neurodegenerative Disorders, Department of Neuroscience 
+and Rehabilitation, Istituto Giannina Gaslini, Genoa, Italy.
+(4)Laboratory of Cellular Metabolism, Department of Biochemistry, Nencki 
+Institute of Experimental Biology of the Polish Academy of Sciences, Warsaw, 
+Poland.
+(5)Present Address: School of Allied Health Sciences, Faculty of Health and Life 
+Sciences, De Montfort University, Leicester, UK.
+(6)Department of Ophthalmology & Center for Advanced Vision Science, University 
+of Virginia, Charlottesville, VA, USA.
+(7)Department of Pathology, Microbiology, Immunology & Cancer Biology, 
+University of Virginia, Charlottesville, VA, USA.
+(8)Molecular Medicine Laboratory, School of Pharmacy and Biomedical Sciences, 
+University of Portsmouth, Portsmouth, UK. darek.gorecki@port.ac.uk.
+
+Duchenne muscular dystrophy (DMD) is the most common inherited muscle disorder 
+that causes severe disability and death of young men. This disease is 
+characterized by progressive muscle degeneration aggravated by sterile 
+inflammation and is also associated with cognitive impairment and low bone 
+density. Given that no current treatment can improve the long-term outcome, 
+approaches with a strong translational potential are urgently needed. Duchenne 
+muscular dystrophy (DMD) alters P2RX7 signaling in both muscle and inflammatory 
+cells and inhibition of this receptor resulted in a significant attenuation of 
+muscle and non-muscle symptoms in DMDmdx mouse model. As P2RX7 is an attractive 
+target in a range of human diseases, specific antagonists have been developed. 
+Yet, these will require lengthy safety testing in the pediatric population of 
+Duchenne muscular dystrophy (DMD) patients. In contrast, Nucleoside Reverse 
+Transcriptase Inhibitors (NRTIs) can act as P2RX7 antagonists and are drugs with 
+an established safety record, including in children. We demonstrate here that 
+AZT (Zidovudine) inhibits P2RX7 functions acting via the same allosteric site as 
+other antagonists. Moreover, short-term AZT treatment at the peak of disease in 
+DMDmdx mice attenuated the phenotype without any detectable side effects. 
+Recovery was evident in the key parameters such as reduced sarcolemma 
+permeability confirmed by lower serum creatine kinase levels and IgG influx into 
+myofibres, decreased inflammatory cell numbers and inflammation markers in leg 
+and heart muscles of treated mice. Moreover, this short-term therapy had some 
+positive impact on muscle strength in vivo and no detrimental effect on 
+mitochondria, which is the main side-effect of Nucleoside Reverse Transcriptase 
+Inhibitors (NRTIs). Given these results, we postulate that AZT could be quickly 
+re-purposed for the treatment of this highly debilitating and lethal disease. 
+This approach is not constrained by causative DMD mutations and may be effective 
+in alleviating both muscle and non-muscle abnormalities.
+
+DOI: 10.1186/s40478-018-0530-4
+PMCID: PMC5896059
+PMID: 29642926 [Indexed for MEDLINE]
+
+Conflict of interest statement: ETHICS APPROVAL: All animal experiments were 
+performed in accordance with the Principles of Laboratory Animal Care (NIH 
+publication No. 86–23, revised 1985) and approvals of the Institutional Ethical 
+Review Board and the Home Office UK (70/7479). CONSENT FOR PUBLICATION: Not 
+Applicable. COMPETING INTERESTS: J.A. is a cofounder of iVeena Holdings, iVeena 
+Delivery Systems and Inflammasome Therapeutics and has been a consultant for 
+Allergan, Biogen, Olix Pharmaceuticals, and Saksin LifeSciences in a capacity 
+unrelated to this work. J.A. and K.A. are named as inventors on patent 
+applications on macular degeneration filed by the University of Kentucky or the 
+University of Virginia. PUBLISHER’S NOTE: Springer Nature remains neutral with 
+regard to jurisdictional claims in published maps and institutional 
+affiliations.
+
+
+16. Adv Pharmacol. 2018;82:187-203. doi: 10.1016/bs.apha.2017.09.005. Epub 2017
+Oct  25.
+
+RNA-Based Fluorescent Biosensors for Detecting Metabolites in vitro and in 
+Living Cells.
+
+Jaffrey SR(1).
+
+Author information:
+(1)Weill Medical College, Cornell University, New York, NY, United States. 
+Electronic address: srj2003@med.cornell.edu.
+
+Genetically encoded sensors are important tools for measuring metabolites and 
+other small molecules in vitro and in live cells. Until recently, genetically 
+encoded sensors exclusively comprised fluorescent proteins that undergo changes 
+in Förster resonance energy transfer upon binding a target analyte. However, 
+recently a new class of fluorescent sensor has been developed composed of RNA. 
+These RNA-based sensors rely on Spinach and other RNA mimics of green 
+fluorescent protein. In each case, the RNA-based sensors contain an 
+analyte-binding aptamer domain which transduces binding of the analyte into a 
+conformational change in Spinach. Two types of sensors have been developed: 
+allosteric Spinach sensors and Spinach riboswitches. Allosteric Spinach sensors 
+exhibit metabolite-induced folding and subsequent fluorescence. Spinach 
+riboswitches are naturally occurring riboswitches that have been modified to 
+contain the Spinach aptamer. The resulting RNA is a fluorogenic riboswitch, and 
+produces fluorescence upon binding its cognate analyte. We describe the 
+development of this new technology, its uses, and future directions to 
+facilitate the use of this assay technology in mammalian cells and in 
+high-throughput applications.
+
+© 2018 Elsevier Inc. All rights reserved.
+
+DOI: 10.1016/bs.apha.2017.09.005
+PMID: 29413520 [Indexed for MEDLINE]
+
+
+17. Methods Enzymol. 2016;578:429-47. doi: 10.1016/bs.mie.2016.05.027. Epub 2016
+Jun  20.
+
+Detecting Allosteric Networks Using Molecular Dynamics Simulation.
+
+Bowerman S(1), Wereszczynski J(2).
+
+Author information:
+(1)Center for Molecular Study of Condensed Soft Matter, Illinois Institute of 
+Technology, Chicago, IL, United States.
+(2)Center for Molecular Study of Condensed Soft Matter, Illinois Institute of 
+Technology, Chicago, IL, United States. Electronic address: jwereszc@iit.edu.
+
+Allosteric networks allow enzymes to transmit information and regulate their 
+catalytic activities over vast distances. In principle, molecular dynamics (MD) 
+simulations can be used to reveal the mechanisms that underlie this phenomenon; 
+in practice, it can be difficult to discern allosteric signals from MD 
+trajectories. Here, we describe how MD simulations can be analyzed to reveal 
+correlated motions and allosteric networks, and provide an example of their use 
+on the coagulation enzyme thrombin. Methods are discussed for calculating 
+residue-pair correlations from atomic fluctuations and mutual information, which 
+can be combined with contact information to identify allosteric networks and to 
+dynamically cluster a system into highly correlated communities. In the case of 
+thrombin, these methods show that binding of the antagonist hirugen 
+significantly alters the enzyme's correlation landscape through a series of 
+pathways between Exosite I and the catalytic core. Results suggest that hirugen 
+binding curtails dynamic diversity and enforces stricter venues of influence, 
+thus reducing the accessibility of thrombin to other molecules.
+
+© 2016 Elsevier Inc. All rights reserved.
+
+DOI: 10.1016/bs.mie.2016.05.027
+PMCID: PMC5492730
+PMID: 27497176 [Indexed for MEDLINE]
+
+
+18. Adv Exp Med Biol. 2016;917:185-207. doi: 10.1007/978-3-319-32805-8_9.
+
+Allosteric Modulators of the Class A G Protein Coupled Receptors.
+
+Tschammer N(1).
+
+Author information:
+(1)Department of Chemistry and Pharmacy, Medicinal Chemistry, Emil Fischer 
+Center, Friedrich Alexander University, Schuhstraße 19, 91052, Erlangen, 
+Germany. nuska.tschammer@fau.de.
+
+Allosteric modulation is the regulation of a protein by binding of an effector 
+molecule at the proteins allosteric site (a site other than that of the 
+endogenous ligand). Allosteric modulators, by virtue of the fact that they may 
+stabilize different global conformations of a receptor, have the potential to 
+disrupt protein-protein interactions of very large proteins and elicit diverse 
+functional responses. The existence of ligands that allosterically modulate the 
+G protein receptor (GPCR) functions provides both challenges and opportunities 
+for drug development campaigns. A number of therapeutic advantages of allosteric 
+modulators over classic orthosteric ligands were proposed, involving nature of 
+response, improved selectivity and ligand-directed signaling. In this review I 
+discuss various aspects of allosteric modulation of GPCRs, which arise from the 
+interactions of receptors with synthetic or endogenous small molecules, ions, 
+lipids and diverse proteins. Detection and quantification of allosteric 
+modulation will be also addressed. In the conclusion I will present future 
+opportunities and challenges in the development of allosteric modulators as 
+therapeutics.
+
+DOI: 10.1007/978-3-319-32805-8_9
+PMID: 27236557 [Indexed for MEDLINE]
+
+
+19. Acc Chem Res. 2016 May 17;49(5):809-15. doi: 10.1021/acs.accounts.5b00516.
+Epub  2016 Apr 25.
+
+Protein Binding Pocket Dynamics.
+
+Stank A(1), Kokh DB(1), Fuller JC(1), Wade RC(1)(2).
+
+Author information:
+(1)Heidelberg Institute for Theoretical Studies (HITS) , Schloss-Wolfsbrunnenweg 
+35, 69118 Heidelberg, Germany.
+(2)Center for Molecular Biology of the University of Heidelberg (ZMBH), 
+DKFZ-ZMBH Alliance , Im Neuenheimer Feld 282, 69120 Heidelberg, Germany.
+
+The dynamics of protein binding pockets are crucial for their interaction 
+specificity. Structural flexibility allows proteins to adapt to their individual 
+molecular binding partners and facilitates the binding process. This implies the 
+necessity to consider protein internal motion in determining and predicting 
+binding properties and in designing new binders. Although accounting for protein 
+dynamics presents a challenge for computational approaches, it expands the 
+structural and physicochemical space for compound design and thus offers the 
+prospect of improved binding specificity and selectivity. A cavity on the 
+surface or in the interior of a protein that possesses suitable properties for 
+binding a ligand is usually referred to as a binding pocket. The set of amino 
+acid residues around a binding pocket determines its physicochemical 
+characteristics and, together with its shape and location in a protein, defines 
+its functionality. Residues outside the binding site can also have a long-range 
+effect on the properties of the binding pocket. Cavities with similar 
+functionalities are often conserved across protein families. For example, enzyme 
+active sites are usually concave surfaces that present amino acid residues in a 
+suitable configuration for binding low molecular weight compounds. 
+Macromolecular binding pockets, on the other hand, are located on the protein 
+surface and are often shallower. The mobility of proteins allows the opening, 
+closing, and adaptation of binding pockets to regulate binding processes and 
+specific protein functionalities. For example, channels and tunnels can exist 
+permanently or transiently to transport compounds to and from a binding site. 
+The influence of protein flexibility on binding pockets can vary from small 
+changes to an already existent pocket to the formation of a completely new 
+pocket. Here, we review recent developments in computational methods to detect 
+and define binding pockets and to study pocket dynamics. We introduce five 
+different classes of protein pocket dynamics: (1) appearance/disappearance of a 
+subpocket in an existing pocket; (2) appearance/disappearance of an adjacent 
+pocket on the protein surface in the direct vicinity of an already existing 
+pocket; (3) pocket breathing, which may be caused by side-chain fluctuations or 
+backbone or interdomain vibrational motion; (4) opening/closing of a channel or 
+tunnel, connecting a pocket inside the protein with solvent, including lid 
+motion; and (5) the appearance/disappearance of an allosteric pocket at a site 
+on a protein distinct from an already existing pocket with binding of a ligand 
+to the allosteric binding site affecting the original pocket. We suggest that 
+the class of pocket dynamics, as well as the type and extent of protein motion 
+affecting the binding pocket, should be factors considered in choosing the most 
+appropriate computational approach to study a given binding pocket. Furthermore, 
+we examine the relationship between pocket dynamics classes and induced fit, 
+conformational selection, and gating models of ligand binding on binding 
+kinetics and thermodynamics. We discuss the implications of protein binding 
+pocket dynamics for drug design and conclude with potential future directions 
+for computational analysis of protein binding pocket dynamics.
+
+DOI: 10.1021/acs.accounts.5b00516
+PMID: 27110726 [Indexed for MEDLINE]
+
+
+20. Biochim Biophys Acta. 2016 Jul;1858(7 Pt B):1652-62. doi: 
+10.1016/j.bbamem.2016.01.010. Epub 2016 Jan 22.
+
+Computational approaches to detect allosteric pathways in transmembrane 
+molecular machines.
+
+Stolzenberg S(1), Michino M(2), LeVine MV(3), Weinstein H(4), Shi L(5).
+
+Author information:
+(1)Computational Molecular Biology Group, Institute for Mathematics, Arnimallee 
+6, 14195, Berlin, Germany; Department of Physiology and Biophysics, Weill 
+Medical College of Cornell University, New York, NY 10065, USA; Department of 
+Physics, Cornell University, Ithaca, NY 14850, USA.
+(2)Computational Chemistry and Molecular Biophysics Unit, National Institute on 
+Drug Abuse - Intramural Research Program, National Institutes of Health, 
+Baltimore, MD 21224, USA.
+(3)Department of Physiology and Biophysics, Weill Medical College of Cornell 
+University, New York, NY 10065, USA.
+(4)Department of Physiology and Biophysics, Weill Medical College of Cornell 
+University, New York, NY 10065, USA; Institute for Computational Biomedicine, 
+Weill Medical College of Cornell University, New York, NY 10065, USA.
+(5)Department of Physiology and Biophysics, Weill Medical College of Cornell 
+University, New York, NY 10065, USA; Computational Chemistry and Molecular 
+Biophysics Unit, National Institute on Drug Abuse - Intramural Research Program, 
+National Institutes of Health, Baltimore, MD 21224, USA. Electronic address: 
+lei.shi2@nih.gov.
+
+Many of the functions of transmembrane proteins involved in signal processing 
+and transduction across the cell membrane are determined by allosteric couplings 
+that propagate the functional effects well beyond the original site of 
+activation. Data gathered from breakthroughs in biochemistry, crystallography, 
+and single molecule fluorescence have established a rich basis of information 
+for the study of molecular mechanisms in the allosteric couplings of such 
+transmembrane proteins. The mechanistic details of these couplings, many of 
+which have therapeutic implications, however, have only become accessible in 
+synergy with molecular modeling and simulations. Here, we review some recent 
+computational approaches that analyze allosteric coupling networks (ACNs) in 
+transmembrane proteins, and in particular the recently developed Protein 
+Interaction Analyzer (PIA) designed to study ACNs in the structural ensembles 
+sampled by molecular dynamics simulations. The power of these computational 
+approaches in interrogating the functional mechanisms of transmembrane proteins 
+is illustrated with selected examples of recent experimental and computational 
+studies pursued synergistically in the investigation of secondary active 
+transporters and GPCRs. This article is part of a Special Issue entitled: 
+Membrane Proteins edited by J.C. Gumbart and Sergei Noskov.
+
+Published by Elsevier B.V.
+
+DOI: 10.1016/j.bbamem.2016.01.010
+PMCID: PMC4877268
+PMID: 26806157 [Indexed for MEDLINE]

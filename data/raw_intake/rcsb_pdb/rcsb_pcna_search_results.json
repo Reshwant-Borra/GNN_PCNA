@@ -1,0 +1,207 @@
+{
+  "query_id": "df46a107-0636-4797-a4b0-7a1f96719756",
+  "result_type": "entry",
+  "total_count": 240,
+  "result_set": [
+    {
+      "identifier": "2HIK",
+      "score": 1.0
+    },
+    {
+      "identifier": "2HII",
+      "score": 0.9975448969288523
+    },
+    {
+      "identifier": "2NTI",
+      "score": 0.9956487046630422
+    },
+    {
+      "identifier": "3IFV",
+      "score": 0.9955584596831529
+    },
+    {
+      "identifier": "3HI8",
+      "score": 0.9941950271051302
+    },
+    {
+      "identifier": "2IX2",
+      "score": 0.9938846238166877
+    },
+    {
+      "identifier": "5AUJ",
+      "score": 0.991846562251739
+    },
+    {
+      "identifier": "5A6D",
+      "score": 0.9902833704694268
+    },
+    {
+      "identifier": "1RWZ",
+      "score": 0.9896699387952919
+    },
+    {
+      "identifier": "1IZ5",
+      "score": 0.9888082666620213
+    },
+    {
+      "identifier": "1GE8",
+      "score": 0.9887183503686054
+    },
+    {
+      "identifier": "1UD9",
+      "score": 0.9886910693913022
+    },
+    {
+      "identifier": "5DA7",
+      "score": 0.9882590521076529
+    },
+    {
+      "identifier": "5HAC",
+      "score": 0.9870865658278478
+    },
+    {
+      "identifier": "1IZ4",
+      "score": 0.9845785647773659
+    },
+    {
+      "identifier": "2IO4",
+      "score": 0.9844241026777102
+    },
+    {
+      "identifier": "1RXM",
+      "score": 0.983515448921629
+    },
+    {
+      "identifier": "2IJX",
+      "score": 0.9831951850389807
+    },
+    {
+      "identifier": "5H0T",
+      "score": 0.9817386314744252
+    },
+    {
+      "identifier": "5CFK",
+      "score": 0.980816049629028
+    },
+    {
+      "identifier": "3AIX",
+      "score": 0.9807752719634054
+    },
+    {
+      "identifier": "3LX2",
+      "score": 0.9803316479386592
+    },
+    {
+      "identifier": "3AIZ",
+      "score": 0.9799680385273137
+    },
+    {
+      "identifier": "3LX1",
+      "score": 0.9787458589612916
+    },
+    {
+      "identifier": "6J0J",
+      "score": 0.976451093260514
+    },
+    {
+      "identifier": "4CS5",
+      "score": 0.974815261767551
+    },
+    {
+      "identifier": "6T7X",
+      "score": 0.9743029217269319
+    },
+    {
+      "identifier": "7WP3",
+      "score": 0.9739217070463478
+    },
+    {
+      "identifier": "6AIG",
+      "score": 0.9735239347846595
+    },
+    {
+      "identifier": "1ISQ",
+      "score": 0.9724186648886921
+    },
+    {
+      "identifier": "6K2M",
+      "score": 0.9712228213263617
+    },
+    {
+      "identifier": "3P91",
+      "score": 0.9689104092705364
+    },
+    {
+      "identifier": "7N5M",
+      "score": 0.9658795707551868
+    },
+    {
+      "identifier": "7N5N",
+      "score": 0.9658795707551868
+    },
+    {
+      "identifier": "7O1E",
+      "score": 0.9625918226749623
+    },
+    {
+      "identifier": "6O09",
+      "score": 0.9621052023508972
+    },
+    {
+      "identifier": "1RXZ",
+      "score": 0.9611943710469288
+    },
+    {
+      "identifier": "8GJ5",
+      "score": 0.9611634128897031
+    },
+    {
+      "identifier": "7N5I",
+      "score": 0.9599503338304168
+    },
+    {
+      "identifier": "7N5J",
+      "score": 0.9599503338304168
+    },
+    {
+      "identifier": "7N5K",
+      "score": 0.9599503338304168
+    },
+    {
+      "identifier": "7N5L",
+      "score": 0.9599503338304168
+    },
+    {
+      "identifier": "7RPX",
+      "score": 0.9593135448737565
+    },
+    {
+      "identifier": "2IZO",
+      "score": 0.9580839904049846
+    },
+    {
+      "identifier": "3A2F",
+      "score": 0.9543647180708209
+    },
+    {
+      "identifier": "5DAI",
+      "score": 0.9492372090837109
+    },
+    {
+      "identifier": "7RPO",
+      "score": 0.9478732423901687
+    },
+    {
+      "identifier": "7RPW",
+      "score": 0.9478732423901687
+    },
+    {
+      "identifier": "7O1F",
+      "score": 0.9451731240959068
+    },
+    {
+      "identifier": "3K4X",
+      "score": 0.9440286377950661
+    }
+  ]
+}

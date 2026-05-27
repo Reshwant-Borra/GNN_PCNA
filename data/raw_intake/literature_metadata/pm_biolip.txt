@@ -1,0 +1,198 @@
+1. Front Genet. 2022 Aug 11;13:969412. doi: 10.3389/fgene.2022.969412.
+eCollection  2022.
+
+Prediction of metal ion ligand binding residues by adding disorder value and 
+propensity factors based on deep learning algorithm.
+
+Hao S(1)(2), Hu X(1)(2), Feng Z(1)(2), Sun K(1)(2), You X(1)(2), Wang Z(1)(2), 
+Yang C(1)(2).
+
+Author information:
+(1)College of Sciences, Inner Mongolia University of Technology, Hohhot, China.
+(2)Inner Mongolia Key Laboratory of Statistical Analysis Theory for Life Data 
+and Neural Network Modeling, Hohhot, China.
+
+Proteins need to interact with different ligands to perform their functions. 
+Among the ligands, the metal ion is a major ligand. At present, the prediction 
+of protein metal ion ligand binding residues is a challenge. In this study, we 
+selected Zn2+, Cu2+, Fe2+, Fe3+, Co2+, Mn2+, Ca2+ and Mg2+ metal ion ligands 
+from the BioLip database as the research objects. Based on the amino acids, the 
+physicochemical properties and predicted structural information, we introduced 
+the disorder value as the feature parameter. In addition, based on the component 
+information, position weight matrix and information entropy, we introduced the 
+propensity factor as prediction parameters. Then, we used the deep neural 
+network algorithm for the prediction. Furtherly, we made an optimization for the 
+hyper-parameters of the deep learning algorithm and obtained improved results 
+than the previous IonSeq method.
+
+Copyright © 2022 Hao, Hu, Feng, Sun, You, Wang and Yang.
+
+DOI: 10.3389/fgene.2022.969412
+PMCID: PMC9402973
+PMID: 36035120
+
+Conflict of interest statement: The authors declare that the research was 
+conducted in the absence of any commercial or financial relationships that could 
+be construed as a potential conflict of interest.
+
+
+2. BMC Mol Cell Biol. 2019 Dec 11;20(Suppl 3):52. doi: 10.1186/s12860-019-0238-8.
+
+Prediction of acid radical ion binding residues by K-nearest neighbors 
+classifier.
+
+Liu L, Hu X(1), Feng Z(2), Zhang X(2), Wang S(2), Xu S(2), Sun K(2).
+
+Author information:
+(1)College of Sciences, Inner Mongolia University of Technology, Hohhot, 010051, 
+China. hxz@imut.edu.cn.
+(2)College of Sciences, Inner Mongolia University of Technology, Hohhot, 010051, 
+China.
+
+BACKGROUND: Proteins perform their functions by interacting with acid radical 
+ions. Recently, it was a challenging work to precisely predict the binding 
+residues of acid radical ion ligands in the research field of molecular drug 
+design.
+RESULTS: In this study, we proposed an improved method to predict the acid 
+radical ion binding residues by using K-nearest Neighbors classifier. Meanwhile, 
+we constructed datasets of four acid radical ion ligand (NO2-, CO32-, SO42-, 
+PO43-) binding residues from BioLip database. Then, based on the optimal window 
+length for each acid radical ion ligand, we refined composition information and 
+position conservative information and extracted them as feature parameters for 
+K-nearest Neighbors classifier. In the results of 5-fold cross-validation, the 
+Matthew's correlation coefficient was higher than 0.45, the values of accuracy, 
+sensitivity and specificity were all higher than 69.2%, and the false positive 
+rate was lower than 30.8%. Further, we also performed an independent test to 
+test the practicability of the proposed method. In the obtained results, the 
+sensitivity was higher than 40.9%, the values of accuracy and specificity were 
+higher than 84.2%, the Matthew's correlation coefficient was higher than 0.116, 
+and the false positive rate was lower than 15.4%. Finally, we identified binding 
+residues of the six metal ion ligands. In the predicted results, the values of 
+accuracy, sensitivity and specificity were all higher than 77.6%, the Matthew's 
+correlation coefficient was higher than 0.6, and the false positive rate was 
+lower than 19.6%.
+CONCLUSIONS: Taken together, the good results of our prediction method added new 
+insights in the prediction of the binding residues of acid radical ion ligands.
+
+DOI: 10.1186/s12860-019-0238-8
+PMCID: PMC6904995
+PMID: 31823720 [Indexed for MEDLINE]
+
+Conflict of interest statement: The authors declare that they have no competing 
+interests.
+
+
+3. J Comput Chem. 2020 Jan 15;41(2):110-118. doi: 10.1002/jcc.26077. Epub 2019
+Oct  23.
+
+Recognizing five molecular ligand-binding sites with similar chemical structure.
+
+Hu X(1), Ge R(1), Feng Z(2).
+
+Author information:
+(1)Departments of Physics, College of Sciences, Inner Mongolia University of 
+Technology, Hohhot, 010051, China.
+(2)Departments of Mathematics, College of Sciences, Inner Mongolia University of 
+Technology, Hohhot, 010051, China.
+
+Accurate identification of ligand-binding sites and discovering the 
+protein-ligand interaction mechanism are important for understanding proteins' 
+functions and designing new drugs. Meanwhile, accurate computational prediction 
+and mechanism research are two grand challenges in proteomics. In this article, 
+ligand-binding residues of five ligands (ATP, ADP, GTP, GDP, and NAD) are 
+predicted as a group, due to their similar chemical structures and close 
+biological function relations. The data set of binding sites by five ligands 
+(ATP, ADP, GTP, GDP, and NAD) are collated from Biolip database. Then, five 
+features, containing increment of diversity value, matrix scoring value, 
+auto-covariance, secondary structure information, and surface accessibility 
+information are used in binding site predictions. The support vector machine 
+(SVM) model is used with the five features to predict ligand-binding sites. 
+Finally, prediction results are tested by fivefold cross validation. Accuracy 
+(Acc) of five ligands (ATP, ADP, GTP, GDP, and NAD) achieves 77.4%, 71.2%, 
+82.1%, 82.9%, and 85.3%, respectively; and Matthew correlation coefficient (MCC) 
+of the above five ligands achieves 0.549, 0.424, 0.643, 0.659, and 0.702, 
+respectively. The research result shows that for ligands with similar chemical 
+structures, microenvironment of their binding sites and their sensitivities to 
+features are similar, while, differences of their ligand-binding properties 
+exist at the same time. © 2019 Wiley Periodicals, Inc.
+
+© 2019 Wiley Periodicals, Inc.
+
+DOI: 10.1002/jcc.26077
+PMID: 31642535 [Indexed for MEDLINE]
+
+
+4. Biomed Res Int. 2015;2015:402536. doi: 10.1155/2015/402536. Epub 2015 Apr 27.
+
+Predicting flavin and nicotinamide adenine dinucleotide-binding sites in 
+proteins using the fragment transformation method.
+
+Lu CH(1), Yu CS(2), Lin YF(3), Chen JY(4).
+
+Author information:
+(1)Graduate Institute of Molecular Systems Biomedicine, China Medical 
+University, Taichung 40402, Taiwan ; Graduate Institute of Basic Medical 
+Science, China Medical University, Taichung 40402, Taiwan.
+(2)Department of Information Engineering and Computer Science, Feng Chia 
+University, Taichung 40724, Taiwan ; Master's Program in Biomedical Informatics 
+and Biomedical Engineering, Feng Chia University, Taichung 40724, Taiwan.
+(3)Institute of Bioinformatics and Systems Biology, National Chiao Tung 
+University, Hsinchu 30068, Taiwan.
+(4)Graduate Institute of Molecular Systems Biomedicine, China Medical 
+University, Taichung 40402, Taiwan.
+
+We developed a computational method to identify NAD- and FAD-binding sites in 
+proteins. First, we extracted from the Protein Data Bank structures of proteins 
+that bind to at least one of these ligands. NAD-/FAD-binding residue templates 
+were then constructed by identifying binding residues through the ligand-binding 
+database BioLiP. The fragment transformation method was used to identify 
+structures within query proteins that resembled the ligand-binding templates. By 
+comparing residue types and their relative spatial positions, potential binding 
+sites were identified and a ligand-binding potential for each residue was 
+calculated. Setting the false positive rate at 5%, our method predicted NAD- and 
+FAD-binding sites at true positive rates of 67.1% and 68.4%, respectively. Our 
+method provides excellent results for identifying FAD- and NAD-binding sites in 
+proteins, and the most important is that the requirement of conservation of 
+residue types and local structures in the FAD- and NAD-binding sites can be 
+verified.
+
+DOI: 10.1155/2015/402536
+PMCID: PMC4426894
+PMID: 26000290 [Indexed for MEDLINE]
+
+
+5. Nucleic Acids Res. 2013 Jan;41(Database issue):D1096-103. doi: 
+10.1093/nar/gks966. Epub 2012 Oct 18.
+
+BioLiP: a semi-manually curated database for biologically relevant 
+ligand-protein interactions.
+
+Yang J(1), Roy A, Zhang Y.
+
+Author information:
+(1)Department of Computational Medicine and Bioinformatics, University of 
+Michigan, 100 Washtenaw Avenue, Ann Arbor, MI 48109-2218, USA.
+
+BioLiP (http://zhanglab.ccmb.med.umich.edu/BioLiP/) is a semi-manually curated 
+database for biologically relevant ligand-protein interactions. Establishing 
+interactions between protein and biologically relevant ligands is an important 
+step toward understanding the protein functions. Most ligand-binding sites 
+prediction methods use the protein structures from the Protein Data Bank (PDB) 
+as templates. However, not all ligands present in the PDB are biologically 
+relevant, as small molecules are often used as additives for solving the protein 
+structures. To facilitate template-based ligand-protein docking, virtual ligand 
+screening and protein function annotations, we develop a hierarchical procedure 
+for assessing the biological relevance of ligands present in the PDB structures, 
+which involves a four-step biological feature filtering followed by careful 
+manual verifications. This procedure is used for BioLiP construction. Each entry 
+in BioLiP contains annotations on: ligand-binding residues, ligand-binding 
+affinity, catalytic sites, Enzyme Commission numbers, Gene Ontology terms and 
+cross-links to the other databases. In addition, to facilitate the use of BioLiP 
+for function annotation of uncharacterized proteins, a new consensus-based 
+algorithm COACH is developed to predict ligand-binding sites from protein 
+sequence or using 3D structure. The BioLiP database is updated weekly and the 
+current release contains 204 223 entries.
+
+DOI: 10.1093/nar/gks966
+PMCID: PMC3531193
+PMID: 23087378 [Indexed for MEDLINE]

@@ -1,0 +1,5307 @@
+{
+  "entity_poly": {
+    "nstd_linkage": "no",
+    "nstd_monomer": "no",
+    "pdbx_seq_one_letter_code": "GAGMSMPAPIRLRELIRTIRTARTQAEEREMIQKECAAIRSSFREEDNTYRCRNVAKLLYMHMLGYPAHFGQLECLKLIASQKFTDKRIGYLGAMLLLDERQDVHLLMTNCIKNDLNHSTQFVQGLALCTLGCMGSSEMCRDLAGEVEKLLKTSNSYLRKKAALCAVHVIRKVPELMEMFLPATKNLLNEKNHGVLHTSVVLLTEMCERSPDMLAHFRKLVPQLVRILKNLIMSGYSPEHDVSGISDPFLQVRILRLLRILGRNDDDSSEAMNDILAQVATNTETSKNVGNAILYETVLTIMDIKSESGLRVLAINILGRFLLNNDKNIRYVALTSLLKTVQTDHNAVQRHRSTIVDCLKDLDVSIKRRAMELSFALVNGNNIRGMMKELLYFLDSCEPEFKADCASGIFLAAEKYAPSKRWHIDTIMRVLTTAGSYVRDDAVPNLIQLITNSVEMHAYTVQRLYKAILGDYSQQPLVQVAAWCIGEYGDLLVSGQCEEEEPIQVTEDEVLDILESVLISNMSTSVTRGYALTAIMKLSTRFTCTVNRIKKVVSIYGSSIDVELQQRAVEYNALFKKYDHMRSALLERMPVMEKVTTNGPSEIVQTNGETEPAPLETK",
+    "pdbx_seq_one_letter_code_can": "GAGMSMPAPIRLRELIRTIRTARTQAEEREMIQKECAAIRSSFREEDNTYRCRNVAKLLYMHMLGYPAHFGQLECLKLIASQKFTDKRIGYLGAMLLLDERQDVHLLMTNCIKNDLNHSTQFVQGLALCTLGCMGSSEMCRDLAGEVEKLLKTSNSYLRKKAALCAVHVIRKVPELMEMFLPATKNLLNEKNHGVLHTSVVLLTEMCERSPDMLAHFRKLVPQLVRILKNLIMSGYSPEHDVSGISDPFLQVRILRLLRILGRNDDDSSEAMNDILAQVATNTETSKNVGNAILYETVLTIMDIKSESGLRVLAINILGRFLLNNDKNIRYVALTSLLKTVQTDHNAVQRHRSTIVDCLKDLDVSIKRRAMELSFALVNGNNIRGMMKELLYFLDSCEPEFKADCASGIFLAAEKYAPSKRWHIDTIMRVLTTAGSYVRDDAVPNLIQLITNSVEMHAYTVQRLYKAILGDYSQQPLVQVAAWCIGEYGDLLVSGQCEEEEPIQVTEDEVLDILESVLISNMSTSVTRGYALTAIMKLSTRFTCTVNRIKKVVSIYGSSIDVELQQRAVEYNALFKKYDHMRSALLERMPVMEKVTTNGPSEIVQTNGETEPAPLETK",
+    "pdbx_strand_id": "A,C,E,G,I,K",
+    "rcsb_artifact_monomer_count": 0,
+    "rcsb_conflict_count": 0,
+    "rcsb_deletion_count": 0,
+    "rcsb_entity_polymer_type": "Protein",
+    "rcsb_insertion_count": 0,
+    "rcsb_mutation_count": 0,
+    "rcsb_non_std_monomer_count": 0,
+    "rcsb_sample_sequence_length": 618,
+    "type": "polypeptide(L)"
+  },
+  "entity_src_gen": [
+    {
+      "gene_src_common_name": "MOUSE",
+      "pdbx_alt_source_flag": "sample",
+      "pdbx_gene_src_ncbi_taxonomy_id": "10090",
+      "pdbx_gene_src_scientific_name": "MUS MUSCULUS",
+      "pdbx_host_org_cell_line": "High Five",
+      "pdbx_host_org_ncbi_taxonomy_id": "7111",
+      "pdbx_host_org_scientific_name": "Trichoplusia ni",
+      "pdbx_host_org_vector_type": "BACULOVIRUS",
+      "pdbx_src_id": 1,
+      "plasmid_name": "PFASTBAC1, PFASTBACHTB"
+    }
+  ],
+  "rcsb_cluster_membership": [
+    {
+      "cluster_id": 22144,
+      "identity": 100
+    },
+    {
+      "cluster_id": 4448,
+      "identity": 95
+    },
+    {
+      "cluster_id": 3298,
+      "identity": 90
+    },
+    {
+      "cluster_id": 4569,
+      "identity": 70
+    },
+    {
+      "cluster_id": 3722,
+      "identity": 50
+    },
+    {
+      "cluster_id": 2911,
+      "identity": 30
+    }
+  ],
+  "rcsb_entity_host_organism": [
+    {
+      "ncbi_common_names": [
+        "cabbage looper"
+      ],
+      "ncbi_parent_scientific_name": "Eukaryota",
+      "ncbi_scientific_name": "Trichoplusia ni",
+      "ncbi_taxonomy_id": 7111,
+      "pdbx_src_id": 1,
+      "provenance_source": "Primary Data",
+      "scientific_name": "Trichoplusia ni",
+      "taxonomy_lineage": [
+        {
+          "depth": 1,
+          "id": "131567",
+          "name": "cellular organisms"
+        },
+        {
+          "depth": 1,
+          "id": "131567",
+          "name": "biota"
+        },
+        {
+          "depth": 2,
+          "id": "2759",
+          "name": "Eukaryota"
+        },
+        {
+          "depth": 2,
+          "id": "2759",
+          "name": "Eucarya"
+        },
+        {
+          "depth": 2,
+          "id": "2759",
+          "name": "Eucaryotae"
+        },
+        {
+          "depth": 2,
+          "id": "2759",
+          "name": "Eukarya"
+        },
+        {
+          "depth": 2,
+          "id": "2759",
+          "name": "Eukaryotae"
+        },
+        {
+          "depth": 2,
+          "id": "2759",
+          "name": "eukaryotes"
+        },
+        {
+          "depth": 3,
+          "id": "33154",
+          "name": "Opisthokonta"
+        },
+        {
+          "depth": 3,
+          "id": "33154",
+          "name": "Fungi/Metazoa group"
+        },
+        {
+          "depth": 3,
+          "id": "33154",
+          "name": "opisthokonts"
+        },
+        {
+          "depth": 4,
+          "id": "33208",
+          "name": "Metazoa"
+        },
+        {
+          "depth": 4,
+          "id": "33208",
+          "name": "Animalia"
+        },
+        {
+          "depth": 4,
+          "id": "33208",
+          "name": "animals"
+        },
+        {
+          "depth": 4,
+          "id": "33208",
+          "name": "metazoans"
+        },
+        {
+          "depth": 4,
+          "id": "33208",
+          "name": "multicellular animals"
+        },
+        {
+          "depth": 5,
+          "id": "6072",
+          "name": "Eumetazoa"
+        },
+        {
+          "depth": 6,
+          "id": "33213",
+          "name": "Bilateria"
+        },
+        {
+          "depth": 7,
+          "id": "33317",
+          "name": "Protostomia"
+        },
+        {
+          "depth": 8,
+          "id": "1206794",
+          "name": "Ecdysozoa"
+        },
+        {
+          "depth": 9,
+          "id": "88770",
+          "name": "Panarthropoda"
+        },
+        {
+          "depth": 10,
+          "id": "6656",
+          "name": "Arthropoda"
+        },
+        {
+          "depth": 10,
+          "id": "6656",
+          "name": "arthropods"
+        },
+        {
+          "depth": 11,
+          "id": "197563",
+          "name": "Mandibulata"
+        },
+        {
+          "depth": 11,
+          "id": "197563",
+          "name": "mandibulates"
+        },
+        {
+          "depth": 12,
+          "id": "197562",
+          "name": "Pancrustacea"
+        },
+        {
+          "depth": 12,
+          "id": "197562",
+          "name": "crustaceans and hexapods"
+        },
+        {
+          "depth": 13,
+          "id": "3701028",
+          "name": "Altocrustacea"
+        },
+        {
+          "depth": 14,
+          "id": "3701030",
+          "name": "Allotriocarida"
+        },
+        {
+          "depth": 15,
+          "id": "6960",
+          "name": "Hexapoda"
+        },
+        {
+          "depth": 15,
+          "id": "6960",
+          "name": "hexapods"
+        },
+        {
+          "depth": 16,
+          "id": "50557",
+          "name": "Insecta"
+        },
+        {
+          "depth": 16,
+          "id": "50557",
+          "name": "insects"
+        },
+        {
+          "depth": 16,
+          "id": "50557",
+          "name": "true insects"
+        },
+        {
+          "depth": 17,
+          "id": "85512",
+          "name": "Dicondylia"
+        },
+        {
+          "depth": 18,
+          "id": "7496",
+          "name": "Pterygota"
+        },
+        {
+          "depth": 18,
+          "id": "7496",
+          "name": "winged insects"
+        },
+        {
+          "depth": 19,
+          "id": "33340",
+          "name": "Neoptera"
+        },
+        {
+          "depth": 20,
+          "id": "3701061",
+          "name": "Eumetabola"
+        },
+        {
+          "depth": 21,
+          "id": "33392",
+          "name": "Endopterygota"
+        },
+        {
+          "depth": 21,
+          "id": "33392",
+          "name": "Holometabola"
+        },
+        {
+          "depth": 22,
+          "id": "3701062",
+          "name": "Aparaglossata"
+        },
+        {
+          "depth": 23,
+          "id": "3701063",
+          "name": "Panorpida"
+        },
+        {
+          "depth": 24,
+          "id": "85604",
+          "name": "Amphiesmenoptera"
+        },
+        {
+          "depth": 25,
+          "id": "7088",
+          "name": "Lepidoptera"
+        },
+        {
+          "depth": 25,
+          "id": "7088",
+          "name": "moths & butterflies"
+        },
+        {
+          "depth": 26,
+          "id": "41191",
+          "name": "Glossata"
+        },
+        {
+          "depth": 27,
+          "id": "41196",
+          "name": "Neolepidoptera"
+        },
+        {
+          "depth": 28,
+          "id": "41197",
+          "name": "Heteroneura"
+        },
+        {
+          "depth": 29,
+          "id": "37567",
+          "name": "Ditrysia"
+        },
+        {
+          "depth": 30,
+          "id": "104431",
+          "name": "Obtectomera"
+        },
+        {
+          "depth": 31,
+          "id": "37570",
+          "name": "Noctuoidea"
+        },
+        {
+          "depth": 32,
+          "id": "7100",
+          "name": "Noctuidae"
+        },
+        {
+          "depth": 32,
+          "id": "7100",
+          "name": "noctuid moths"
+        },
+        {
+          "depth": 32,
+          "id": "7100",
+          "name": "owlet moths"
+        },
+        {
+          "depth": 33,
+          "id": "95186",
+          "name": "Plusiinae"
+        },
+        {
+          "depth": 34,
+          "id": "7110",
+          "name": "Trichoplusia"
+        },
+        {
+          "depth": 35,
+          "id": "7111",
+          "name": "Trichoplusia ni"
+        },
+        {
+          "depth": 35,
+          "id": "7111",
+          "name": "cabbage looper"
+        }
+      ]
+    }
+  ],
+  "rcsb_entity_source_organism": [
+    {
+      "common_name": "MOUSE",
+      "ncbi_common_names": [
+        "house mouse",
+        "mouse"
+      ],
+      "ncbi_parent_scientific_name": "Eukaryota",
+      "ncbi_scientific_name": "Mus musculus",
+      "ncbi_taxonomy_id": 10090,
+      "pdbx_src_id": 1,
+      "provenance_source": "Primary Data",
+      "scientific_name": "MUS MUSCULUS",
+      "source_type": "genetically engineered",
+      "taxonomy_lineage": [
+        {
+          "depth": 1,
+          "id": "131567",
+          "name": "cellular organisms"
+        },
+        {
+          "depth": 1,
+          "id": "131567",
+          "name": "biota"
+        },
+        {
+          "depth": 2,
+          "id": "2759",
+          "name": "Eukaryota"
+        },
+        {
+          "depth": 2,
+          "id": "2759",
+          "name": "Eucarya"
+        },
+        {
+          "depth": 2,
+          "id": "2759",
+          "name": "Eucaryotae"
+        },
+        {
+          "depth": 2,
+          "id": "2759",
+          "name": "Eukarya"
+        },
+        {
+          "depth": 2,
+          "id": "2759",
+          "name": "Eukaryotae"
+        },
+        {
+          "depth": 2,
+          "id": "2759",
+          "name": "eukaryotes"
+        },
+        {
+          "depth": 3,
+          "id": "33154",
+          "name": "Opisthokonta"
+        },
+        {
+          "depth": 3,
+          "id": "33154",
+          "name": "Fungi/Metazoa group"
+        },
+        {
+          "depth": 3,
+          "id": "33154",
+          "name": "opisthokonts"
+        },
+        {
+          "depth": 4,
+          "id": "33208",
+          "name": "Metazoa"
+        },
+        {
+          "depth": 4,
+          "id": "33208",
+          "name": "Animalia"
+        },
+        {
+          "depth": 4,
+          "id": "33208",
+          "name": "animals"
+        },
+        {
+          "depth": 4,
+          "id": "33208",
+          "name": "metazoans"
+        },
+        {
+          "depth": 4,
+          "id": "33208",
+          "name": "multicellular animals"
+        },
+        {
+          "depth": 5,
+          "id": "6072",
+          "name": "Eumetazoa"
+        },
+        {
+          "depth": 6,
+          "id": "33213",
+          "name": "Bilateria"
+        },
+        {
+          "depth": 7,
+          "id": "33511",
+          "name": "Deuterostomia"
+        },
+        {
+          "depth": 7,
+          "id": "33511",
+          "name": "deuterostomes"
+        },
+        {
+          "depth": 8,
+          "id": "7711",
+          "name": "Chordata"
+        },
+        {
+          "depth": 8,
+          "id": "7711",
+          "name": "chordates"
+        },
+        {
+          "depth": 9,
+          "id": "89593",
+          "name": "Craniata"
+        },
+        {
+          "depth": 10,
+          "id": "7742",
+          "name": "Vertebrata"
+        },
+        {
+          "depth": 10,
+          "id": "7742",
+          "name": "vertebrates"
+        },
+        {
+          "depth": 11,
+          "id": "7776",
+          "name": "Gnathostomata"
+        },
+        {
+          "depth": 11,
+          "id": "7776",
+          "name": "jawed vertebrates"
+        },
+        {
+          "depth": 12,
+          "id": "117570",
+          "name": "Teleostomi"
+        },
+        {
+          "depth": 13,
+          "id": "117571",
+          "name": "Euteleostomi"
+        },
+        {
+          "depth": 13,
+          "id": "117571",
+          "name": "bony vertebrates"
+        },
+        {
+          "depth": 14,
+          "id": "8287",
+          "name": "Sarcopterygii"
+        },
+        {
+          "depth": 15,
+          "id": "1338369",
+          "name": "Dipnotetrapodomorpha"
+        },
+        {
+          "depth": 16,
+          "id": "32523",
+          "name": "Tetrapoda"
+        },
+        {
+          "depth": 16,
+          "id": "32523",
+          "name": "tetrapods"
+        },
+        {
+          "depth": 17,
+          "id": "32524",
+          "name": "Amniota"
+        },
+        {
+          "depth": 17,
+          "id": "32524",
+          "name": "amniotes"
+        },
+        {
+          "depth": 18,
+          "id": "40674",
+          "name": "Mammalia"
+        },
+        {
+          "depth": 18,
+          "id": "40674",
+          "name": "mammals"
+        },
+        {
+          "depth": 19,
+          "id": "32525",
+          "name": "Theria"
+        },
+        {
+          "depth": 20,
+          "id": "9347",
+          "name": "Eutheria"
+        },
+        {
+          "depth": 20,
+          "id": "9347",
+          "name": "Placentalia"
+        },
+        {
+          "depth": 20,
+          "id": "9347",
+          "name": "eutherian mammals"
+        },
+        {
+          "depth": 20,
+          "id": "9347",
+          "name": "placental mammals"
+        },
+        {
+          "depth": 20,
+          "id": "9347",
+          "name": "placentals"
+        },
+        {
+          "depth": 21,
+          "id": "1437010",
+          "name": "Boreoeutheria"
+        },
+        {
+          "depth": 21,
+          "id": "1437010",
+          "name": "Boreotheria"
+        },
+        {
+          "depth": 22,
+          "id": "314146",
+          "name": "Euarchontoglires"
+        },
+        {
+          "depth": 23,
+          "id": "314147",
+          "name": "Glires"
+        },
+        {
+          "depth": 23,
+          "id": "314147",
+          "name": "Rodents and rabbits"
+        },
+        {
+          "depth": 24,
+          "id": "9989",
+          "name": "Rodentia"
+        },
+        {
+          "depth": 24,
+          "id": "9989",
+          "name": "rodent"
+        },
+        {
+          "depth": 24,
+          "id": "9989",
+          "name": "rodents"
+        },
+        {
+          "depth": 25,
+          "id": "1963758",
+          "name": "Myomorpha"
+        },
+        {
+          "depth": 25,
+          "id": "1963758",
+          "name": "mice and others"
+        },
+        {
+          "depth": 26,
+          "id": "337687",
+          "name": "Muroidea"
+        },
+        {
+          "depth": 27,
+          "id": "10066",
+          "name": "Muridae"
+        },
+        {
+          "depth": 28,
+          "id": "39107",
+          "name": "Murinae"
+        },
+        {
+          "depth": 29,
+          "id": "10088",
+          "name": "Mus"
+        },
+        {
+          "depth": 29,
+          "id": "10088",
+          "name": "mice"
+        },
+        {
+          "depth": 29,
+          "id": "10088",
+          "name": "mouse"
+        },
+        {
+          "depth": 30,
+          "id": "862507",
+          "name": "Mus"
+        },
+        {
+          "depth": 31,
+          "id": "10090",
+          "name": "Mus musculus"
+        },
+        {
+          "depth": 31,
+          "id": "10090",
+          "name": "house mouse"
+        },
+        {
+          "depth": 31,
+          "id": "10090",
+          "name": "mouse"
+        }
+      ]
+    }
+  ],
+  "rcsb_polymer_entity": {
+    "formula_weight": 69.729,
+    "pdbx_description": "ADAPTER-RELATED PROTEIN COMPLEX 1 GAMMA 1 SUBUNIT",
+    "pdbx_fragment": "CORE, RESIDUES 0-612",
+    "pdbx_number_of_molecules": 6,
+    "rcsb_multiple_source_flag": "N",
+    "rcsb_source_part_count": 1,
+    "rcsb_source_taxonomy_count": 1,
+    "src_method": "man",
+    "rcsb_macromolecular_names_combined": [
+      {
+        "name": "ADAPTER-RELATED PROTEIN COMPLEX 1 GAMMA 1 SUBUNIT",
+        "provenance_code": "ECO:0000304",
+        "provenance_source": "PDB Preferred Name"
+      },
+      {
+        "name": "GAMMA-ADAPTIN",
+        "provenance_code": "ECO:0000303",
+        "provenance_source": "PDB Synonym"
+      },
+      {
+        "name": "ADAPTOR PROTEIN COMPLEX AP-1 GAMMA-1 SUBUNIT",
+        "provenance_code": "ECO:0000303",
+        "provenance_source": "PDB Synonym"
+      },
+      {
+        "name": "GOLGI ADAPTOR HA1/AP1 ADAPTIN GAMMA-1 SUBUNIT",
+        "provenance_code": "ECO:0000303",
+        "provenance_source": "PDB Synonym"
+      },
+      {
+        "name": "CLATHRIN ASSEMBLY PROTEIN COMPLEX 1 GAMMA-1 LARGE CHAIN",
+        "provenance_code": "ECO:0000303",
+        "provenance_source": "PDB Synonym"
+      }
+    ],
+    "rcsb_polymer_name_combined": {
+      "names": [
+        "AP-1 complex subunit gamma-1"
+      ],
+      "provenance_source": "UniProt Name"
+    }
+  },
+  "rcsb_polymer_entity_align": [
+    {
+      "provenance_source": "SIFTS",
+      "reference_database_accession": "P22892",
+      "reference_database_name": "UniProt",
+      "aligned_regions": [
+        {
+          "entity_beg_seq_id": 6,
+          "length": 613,
+          "ref_beg_seq_id": 1
+        }
+      ]
+    }
+  ],
+  "rcsb_polymer_entity_annotation": [
+    {
+      "annotation_id": "PF01602",
+      "assignment_version": "34.0",
+      "name": "Adaptin N terminal region (Adaptin_N)",
+      "provenance_source": "Pfam",
+      "type": "Pfam"
+    },
+    {
+      "annotation_id": "GO:0045954",
+      "name": "positive regulation of natural killer cell mediated cytotoxicity",
+      "provenance_source": "UNIPROT",
+      "type": "GO",
+      "annotation_lineage": [
+        {
+          "id": "GO:0002697",
+          "name": "regulation of immune effector process"
+        },
+        {
+          "id": "GO:0002449",
+          "name": "lymphocyte mediated immunity"
+        },
+        {
+          "id": "GO:0002705",
+          "name": "positive regulation of leukocyte mediated immunity"
+        },
+        {
+          "id": "GO:0002833",
+          "name": "positive regulation of response to biotic stimulus"
+        },
+        {
+          "id": "GO:0050794",
+          "name": "regulation of cellular process"
+        },
+        {
+          "id": "GO:0050896",
+          "name": "response to stimulus"
+        },
+        {
+          "id": "GO:0009607",
+          "name": "response to biotic stimulus"
+        },
+        {
+          "id": "GO:0001912",
+          "name": "positive regulation of leukocyte mediated cytotoxicity"
+        },
+        {
+          "id": "GO:0050778",
+          "name": "positive regulation of immune response"
+        },
+        {
+          "id": "GO:0002717",
+          "name": "positive regulation of natural killer cell mediated immunity"
+        },
+        {
+          "id": "GO:0008150",
+          "name": "biological_process"
+        },
+        {
+          "id": "GO:0002443",
+          "name": "leukocyte mediated immunity"
+        },
+        {
+          "id": "GO:0002682",
+          "name": "regulation of immune system process"
+        },
+        {
+          "id": "GO:0002228",
+          "name": "natural killer cell mediated immunity"
+        },
+        {
+          "id": "GO:0002684",
+          "name": "positive regulation of immune system process"
+        },
+        {
+          "id": "GO:0050789",
+          "name": "regulation of biological process"
+        },
+        {
+          "id": "GO:0002715",
+          "name": "regulation of natural killer cell mediated immunity"
+        },
+        {
+          "id": "GO:0006955",
+          "name": "immune response"
+        },
+        {
+          "id": "GO:0051707",
+          "name": "response to other organism"
+        },
+        {
+          "id": "GO:0045088",
+          "name": "regulation of innate immune response"
+        },
+        {
+          "id": "GO:0009605",
+          "name": "response to external stimulus"
+        },
+        {
+          "id": "GO:0001909",
+          "name": "leukocyte mediated cytotoxicity"
+        },
+        {
+          "id": "GO:0002252",
+          "name": "immune effector process"
+        },
+        {
+          "id": "GO:0002703",
+          "name": "regulation of leukocyte mediated immunity"
+        },
+        {
+          "id": "GO:0048583",
+          "name": "regulation of response to stimulus"
+        },
+        {
+          "id": "GO:0098542",
+          "name": "defense response to other organism"
+        },
+        {
+          "id": "GO:0031349",
+          "name": "positive regulation of defense response"
+        },
+        {
+          "id": "GO:0042267",
+          "name": "natural killer cell mediated cytotoxicity"
+        },
+        {
+          "id": "GO:0050776",
+          "name": "regulation of immune response"
+        },
+        {
+          "id": "GO:0045954",
+          "name": "positive regulation of natural killer cell mediated cytotoxicity"
+        },
+        {
+          "id": "GO:0031341",
+          "name": "regulation of cell killing"
+        },
+        {
+          "id": "GO:0031343",
+          "name": "positive regulation of cell killing"
+        },
+        {
+          "id": "GO:0031347",
+          "name": "regulation of defense response"
+        },
+        {
+          "id": "GO:0002831",
+          "name": "regulation of response to biotic stimulus"
+        },
+        {
+          "id": "GO:0042269",
+          "name": "regulation of natural killer cell mediated cytotoxicity"
+        },
+        {
+          "id": "GO:0044419",
+          "name": "biological process involved in interspecies interaction between organisms"
+        },
+        {
+          "id": "GO:0032101",
+          "name": "regulation of response to external stimulus"
+        },
+        {
+          "id": "GO:0002708",
+          "name": "positive regulation of lymphocyte mediated immunity"
+        },
+        {
+          "id": "GO:0048518",
+          "name": "positive regulation of biological process"
+        },
+        {
+          "id": "GO:0048584",
+          "name": "positive regulation of response to stimulus"
+        },
+        {
+          "id": "GO:0032103",
+          "name": "positive regulation of response to external stimulus"
+        },
+        {
+          "id": "GO:0080134",
+          "name": "regulation of response to stress"
+        },
+        {
+          "id": "GO:0006950",
+          "name": "response to stress"
+        },
+        {
+          "id": "GO:0045087",
+          "name": "innate immune response"
+        },
+        {
+          "id": "GO:0002699",
+          "name": "positive regulation of immune effector process"
+        },
+        {
+          "id": "GO:0043207",
+          "name": "response to external biotic stimulus"
+        },
+        {
+          "id": "GO:0048522",
+          "name": "positive regulation of cellular process"
+        },
+        {
+          "id": "GO:0045089",
+          "name": "positive regulation of innate immune response"
+        },
+        {
+          "id": "GO:0006952",
+          "name": "defense response"
+        },
+        {
+          "id": "GO:0001910",
+          "name": "regulation of leukocyte mediated cytotoxicity"
+        },
+        {
+          "id": "GO:0065007",
+          "name": "biological regulation"
+        },
+        {
+          "id": "GO:0140546",
+          "name": "defense response to symbiont"
+        },
+        {
+          "id": "GO:0002706",
+          "name": "regulation of lymphocyte mediated immunity"
+        },
+        {
+          "id": "GO:0002376",
+          "name": "immune system process"
+        },
+        {
+          "id": "GO:0009987",
+          "name": "cellular process"
+        },
+        {
+          "id": "GO:0001906",
+          "name": "cell killing"
+        }
+      ]
+    },
+    {
+      "annotation_id": "GO:0031267",
+      "name": "small GTPase binding",
+      "provenance_source": "UNIPROT",
+      "type": "GO",
+      "annotation_lineage": [
+        {
+          "id": "GO:0031267",
+          "name": "small GTPase binding"
+        },
+        {
+          "id": "GO:0005515",
+          "name": "protein binding"
+        },
+        {
+          "id": "GO:0005488",
+          "name": "binding"
+        },
+        {
+          "id": "GO:0019899",
+          "name": "enzyme binding"
+        },
+        {
+          "id": "GO:0051020",
+          "name": "GTPase binding"
+        },
+        {
+          "id": "GO:0003674",
+          "name": "molecular_function"
+        }
+      ]
+    },
+    {
+      "annotation_id": "GO:0048488",
+      "name": "synaptic vesicle endocytosis",
+      "provenance_source": "UNIPROT",
+      "type": "GO",
+      "annotation_lineage": [
+        {
+          "id": "GO:0048488",
+          "name": "synaptic vesicle endocytosis"
+        },
+        {
+          "id": "GO:0098657",
+          "name": "import into cell"
+        },
+        {
+          "id": "GO:0051641",
+          "name": "cellular localization"
+        },
+        {
+          "id": "GO:0006810",
+          "name": "transport"
+        },
+        {
+          "id": "GO:0099504",
+          "name": "synaptic vesicle cycle"
+        },
+        {
+          "id": "GO:0051234",
+          "name": "establishment of localization"
+        },
+        {
+          "id": "GO:0016192",
+          "name": "vesicle-mediated transport"
+        },
+        {
+          "id": "GO:0140238",
+          "name": "presynaptic endocytosis"
+        },
+        {
+          "id": "GO:0099003",
+          "name": "vesicle-mediated transport in synapse"
+        },
+        {
+          "id": "GO:0036465",
+          "name": "synaptic vesicle recycling"
+        },
+        {
+          "id": "GO:0051179",
+          "name": "localization"
+        },
+        {
+          "id": "GO:0051649",
+          "name": "establishment of localization in cell"
+        },
+        {
+          "id": "GO:0008150",
+          "name": "biological_process"
+        },
+        {
+          "id": "GO:0009987",
+          "name": "cellular process"
+        },
+        {
+          "id": "GO:0006897",
+          "name": "endocytosis"
+        }
+      ]
+    },
+    {
+      "annotation_id": "GO:0005905",
+      "name": "clathrin-coated pit",
+      "provenance_source": "UNIPROT",
+      "type": "GO",
+      "annotation_lineage": [
+        {
+          "id": "GO:0110165",
+          "name": "cellular anatomical structure"
+        },
+        {
+          "id": "GO:0005575",
+          "name": "cellular_component"
+        },
+        {
+          "id": "GO:0005905",
+          "name": "clathrin-coated pit"
+        },
+        {
+          "id": "GO:0016020",
+          "name": "membrane"
+        },
+        {
+          "id": "GO:0012505",
+          "name": "endomembrane system"
+        }
+      ]
+    },
+    {
+      "annotation_id": "IPR016024",
+      "name": "Armadillo-type fold",
+      "provenance_source": "UNIPROT",
+      "type": "InterPro",
+      "annotation_lineage": [
+        {
+          "id": "IPR016024",
+          "name": "Armadillo-type fold"
+        }
+      ]
+    },
+    {
+      "annotation_id": "GO:0006896",
+      "name": "Golgi to vacuole transport",
+      "provenance_source": "UNIPROT",
+      "type": "GO",
+      "annotation_lineage": [
+        {
+          "id": "GO:0051641",
+          "name": "cellular localization"
+        },
+        {
+          "id": "GO:0006892",
+          "name": "post-Golgi vesicle-mediated transport"
+        },
+        {
+          "id": "GO:0006810",
+          "name": "transport"
+        },
+        {
+          "id": "GO:0046907",
+          "name": "intracellular transport"
+        },
+        {
+          "id": "GO:0051234",
+          "name": "establishment of localization"
+        },
+        {
+          "id": "GO:0016192",
+          "name": "vesicle-mediated transport"
+        },
+        {
+          "id": "GO:0006896",
+          "name": "Golgi to vacuole transport"
+        },
+        {
+          "id": "GO:0051179",
+          "name": "localization"
+        },
+        {
+          "id": "GO:0010496",
+          "name": "intercellular transport"
+        },
+        {
+          "id": "GO:0051649",
+          "name": "establishment of localization in cell"
+        },
+        {
+          "id": "GO:0008150",
+          "name": "biological_process"
+        },
+        {
+          "id": "GO:0007034",
+          "name": "vacuolar transport"
+        },
+        {
+          "id": "GO:0009987",
+          "name": "cellular process"
+        },
+        {
+          "id": "GO:0048193",
+          "name": "Golgi vesicle transport"
+        }
+      ]
+    },
+    {
+      "annotation_id": "GO:0030742",
+      "name": "GTP-dependent protein binding",
+      "provenance_source": "UNIPROT",
+      "type": "GO",
+      "annotation_lineage": [
+        {
+          "id": "GO:0030742",
+          "name": "GTP-dependent protein binding"
+        },
+        {
+          "id": "GO:0005515",
+          "name": "protein binding"
+        },
+        {
+          "id": "GO:0005488",
+          "name": "binding"
+        },
+        {
+          "id": "GO:0003674",
+          "name": "molecular_function"
+        }
+      ]
+    },
+    {
+      "annotation_id": "GO:0110010",
+      "name": "basolateral protein secretion",
+      "provenance_source": "UNIPROT",
+      "type": "GO",
+      "annotation_lineage": [
+        {
+          "id": "GO:0045184",
+          "name": "establishment of protein localization"
+        },
+        {
+          "id": "GO:0006810",
+          "name": "transport"
+        },
+        {
+          "id": "GO:0046903",
+          "name": "secretion"
+        },
+        {
+          "id": "GO:0110010",
+          "name": "basolateral protein secretion"
+        },
+        {
+          "id": "GO:0035592",
+          "name": "establishment of protein localization to extracellular region"
+        },
+        {
+          "id": "GO:0140352",
+          "name": "export from cell"
+        },
+        {
+          "id": "GO:0009306",
+          "name": "protein secretion"
+        },
+        {
+          "id": "GO:0051234",
+          "name": "establishment of localization"
+        },
+        {
+          "id": "GO:0071692",
+          "name": "protein localization to extracellular region"
+        },
+        {
+          "id": "GO:0051179",
+          "name": "localization"
+        },
+        {
+          "id": "GO:0032940",
+          "name": "secretion by cell"
+        },
+        {
+          "id": "GO:0015031",
+          "name": "protein transport"
+        },
+        {
+          "id": "GO:0033036",
+          "name": "macromolecule localization"
+        },
+        {
+          "id": "GO:0008150",
+          "name": "biological_process"
+        },
+        {
+          "id": "GO:0009987",
+          "name": "cellular process"
+        },
+        {
+          "id": "GO:0008104",
+          "name": "intracellular protein localization"
+        }
+      ]
+    },
+    {
+      "annotation_id": "GO:0030136",
+      "name": "clathrin-coated vesicle",
+      "provenance_source": "UNIPROT",
+      "type": "GO",
+      "annotation_lineage": [
+        {
+          "id": "GO:0043227",
+          "name": "membrane-bounded organelle"
+        },
+        {
+          "id": "GO:0005575",
+          "name": "cellular_component"
+        },
+        {
+          "id": "GO:0005622",
+          "name": "intracellular anatomical structure"
+        },
+        {
+          "id": "GO:0097708",
+          "name": "intracellular vesicle"
+        },
+        {
+          "id": "GO:0043231",
+          "name": "intracellular membrane-bounded organelle"
+        },
+        {
+          "id": "GO:0043229",
+          "name": "intracellular organelle"
+        },
+        {
+          "id": "GO:0110165",
+          "name": "cellular anatomical structure"
+        },
+        {
+          "id": "GO:0031410",
+          "name": "cytoplasmic vesicle"
+        },
+        {
+          "id": "GO:0043226",
+          "name": "organelle"
+        },
+        {
+          "id": "GO:0030136",
+          "name": "clathrin-coated vesicle"
+        },
+        {
+          "id": "GO:0030135",
+          "name": "coated vesicle"
+        },
+        {
+          "id": "GO:0005737",
+          "name": "cytoplasm"
+        },
+        {
+          "id": "GO:0031982",
+          "name": "vesicle"
+        }
+      ]
+    },
+    {
+      "annotation_id": "IPR017107",
+      "name": "Adaptor protein complex AP-1, gamma subunit",
+      "provenance_source": "UNIPROT",
+      "type": "InterPro",
+      "annotation_lineage": [
+        {
+          "id": "IPR017107",
+          "name": "Adaptor protein complex AP-1, gamma subunit"
+        }
+      ]
+    },
+    {
+      "annotation_id": "GO:0019894",
+      "name": "kinesin binding",
+      "provenance_source": "UNIPROT",
+      "type": "GO",
+      "annotation_lineage": [
+        {
+          "id": "GO:0008092",
+          "name": "cytoskeletal protein binding"
+        },
+        {
+          "id": "GO:0005515",
+          "name": "protein binding"
+        },
+        {
+          "id": "GO:0005488",
+          "name": "binding"
+        },
+        {
+          "id": "GO:0019894",
+          "name": "kinesin binding"
+        },
+        {
+          "id": "GO:0003674",
+          "name": "molecular_function"
+        }
+      ]
+    },
+    {
+      "annotation_id": "GO:0005829",
+      "name": "cytosol",
+      "provenance_source": "UNIPROT",
+      "type": "GO",
+      "annotation_lineage": [
+        {
+          "id": "GO:0110165",
+          "name": "cellular anatomical structure"
+        },
+        {
+          "id": "GO:0005575",
+          "name": "cellular_component"
+        },
+        {
+          "id": "GO:0005622",
+          "name": "intracellular anatomical structure"
+        },
+        {
+          "id": "GO:0005737",
+          "name": "cytoplasm"
+        },
+        {
+          "id": "GO:0005829",
+          "name": "cytosol"
+        }
+      ]
+    },
+    {
+      "annotation_id": "GO:0030121",
+      "name": "AP-1 adaptor complex",
+      "provenance_source": "UNIPROT",
+      "type": "GO",
+      "annotation_lineage": [
+        {
+          "id": "GO:0043227",
+          "name": "membrane-bounded organelle"
+        },
+        {
+          "id": "GO:0032991",
+          "name": "protein-containing complex"
+        },
+        {
+          "id": "GO:0005575",
+          "name": "cellular_component"
+        },
+        {
+          "id": "GO:0005622",
+          "name": "intracellular anatomical structure"
+        },
+        {
+          "id": "GO:0030120",
+          "name": "vesicle coat"
+        },
+        {
+          "id": "GO:0097708",
+          "name": "intracellular vesicle"
+        },
+        {
+          "id": "GO:0098796",
+          "name": "membrane protein complex"
+        },
+        {
+          "id": "GO:0030658",
+          "name": "transport vesicle membrane"
+        },
+        {
+          "id": "GO:0030130",
+          "name": "clathrin coat of trans-Golgi network vesicle"
+        },
+        {
+          "id": "GO:0012505",
+          "name": "endomembrane system"
+        },
+        {
+          "id": "GO:0043229",
+          "name": "intracellular organelle"
+        },
+        {
+          "id": "GO:0030117",
+          "name": "membrane coat"
+        },
+        {
+          "id": "GO:0110165",
+          "name": "cellular anatomical structure"
+        },
+        {
+          "id": "GO:0098588",
+          "name": "bounding membrane of organelle"
+        },
+        {
+          "id": "GO:0012510",
+          "name": "trans-Golgi network transport vesicle membrane"
+        },
+        {
+          "id": "GO:0030140",
+          "name": "trans-Golgi network transport vesicle"
+        },
+        {
+          "id": "GO:0030119",
+          "name": "AP-type membrane coat adaptor complex"
+        },
+        {
+          "id": "GO:0030121",
+          "name": "AP-1 adaptor complex"
+        },
+        {
+          "id": "GO:0012506",
+          "name": "vesicle membrane"
+        },
+        {
+          "id": "GO:0031410",
+          "name": "cytoplasmic vesicle"
+        },
+        {
+          "id": "GO:0030136",
+          "name": "clathrin-coated vesicle"
+        },
+        {
+          "id": "GO:0030125",
+          "name": "clathrin vesicle coat"
+        },
+        {
+          "id": "GO:0030135",
+          "name": "coated vesicle"
+        },
+        {
+          "id": "GO:0005798",
+          "name": "Golgi-associated vesicle"
+        },
+        {
+          "id": "GO:0031982",
+          "name": "vesicle"
+        },
+        {
+          "id": "GO:0030665",
+          "name": "clathrin-coated vesicle membrane"
+        },
+        {
+          "id": "GO:0030133",
+          "name": "transport vesicle"
+        },
+        {
+          "id": "GO:0005794",
+          "name": "Golgi apparatus"
+        },
+        {
+          "id": "GO:0016020",
+          "name": "membrane"
+        },
+        {
+          "id": "GO:0043231",
+          "name": "intracellular membrane-bounded organelle"
+        },
+        {
+          "id": "GO:0048475",
+          "name": "coated membrane"
+        },
+        {
+          "id": "GO:0030118",
+          "name": "clathrin coat"
+        },
+        {
+          "id": "GO:0030662",
+          "name": "coated vesicle membrane"
+        },
+        {
+          "id": "GO:0030659",
+          "name": "cytoplasmic vesicle membrane"
+        },
+        {
+          "id": "GO:0043226",
+          "name": "organelle"
+        },
+        {
+          "id": "GO:0030660",
+          "name": "Golgi-associated vesicle membrane"
+        },
+        {
+          "id": "GO:0005737",
+          "name": "cytoplasm"
+        },
+        {
+          "id": "GO:0031090",
+          "name": "organelle membrane"
+        },
+        {
+          "id": "GO:0030131",
+          "name": "clathrin adaptor complex"
+        }
+      ]
+    },
+    {
+      "annotation_id": "IPR011989",
+      "name": "Armadillo-like helical",
+      "provenance_source": "UNIPROT",
+      "type": "InterPro",
+      "annotation_lineage": [
+        {
+          "id": "IPR011989",
+          "name": "Armadillo-like helical"
+        }
+      ]
+    },
+    {
+      "annotation_id": "GO:0016182",
+      "name": "synaptic vesicle budding from endosome",
+      "provenance_source": "UNIPROT",
+      "type": "GO",
+      "annotation_lineage": [
+        {
+          "id": "GO:0051656",
+          "name": "establishment of organelle localization"
+        },
+        {
+          "id": "GO:0006900",
+          "name": "vesicle budding from membrane"
+        },
+        {
+          "id": "GO:0051641",
+          "name": "cellular localization"
+        },
+        {
+          "id": "GO:0006810",
+          "name": "transport"
+        },
+        {
+          "id": "GO:0099504",
+          "name": "synaptic vesicle cycle"
+        },
+        {
+          "id": "GO:0016192",
+          "name": "vesicle-mediated transport"
+        },
+        {
+          "id": "GO:0099003",
+          "name": "vesicle-mediated transport in synapse"
+        },
+        {
+          "id": "GO:0016043",
+          "name": "cellular component organization"
+        },
+        {
+          "id": "GO:0016050",
+          "name": "vesicle organization"
+        },
+        {
+          "id": "GO:0051179",
+          "name": "localization"
+        },
+        {
+          "id": "GO:0036465",
+          "name": "synaptic vesicle recycling"
+        },
+        {
+          "id": "GO:0051640",
+          "name": "organelle localization"
+        },
+        {
+          "id": "GO:0051649",
+          "name": "establishment of localization in cell"
+        },
+        {
+          "id": "GO:0070142",
+          "name": "synaptic vesicle budding"
+        },
+        {
+          "id": "GO:0008150",
+          "name": "biological_process"
+        },
+        {
+          "id": "GO:0071840",
+          "name": "cellular component organization or biogenesis"
+        },
+        {
+          "id": "GO:0097479",
+          "name": "synaptic vesicle localization"
+        },
+        {
+          "id": "GO:0061024",
+          "name": "membrane organization"
+        },
+        {
+          "id": "GO:0051648",
+          "name": "vesicle localization"
+        },
+        {
+          "id": "GO:0016182",
+          "name": "synaptic vesicle budding from endosome"
+        },
+        {
+          "id": "GO:0051650",
+          "name": "establishment of vesicle localization"
+        },
+        {
+          "id": "GO:0046907",
+          "name": "intracellular transport"
+        },
+        {
+          "id": "GO:0051234",
+          "name": "establishment of localization"
+        },
+        {
+          "id": "GO:0016197",
+          "name": "endosomal transport"
+        },
+        {
+          "id": "GO:0099532",
+          "name": "synaptic vesicle endosomal processing"
+        },
+        {
+          "id": "GO:0036466",
+          "name": "synaptic vesicle recycling via endosome"
+        },
+        {
+          "id": "GO:0006996",
+          "name": "organelle organization"
+        },
+        {
+          "id": "GO:0009987",
+          "name": "cellular process"
+        },
+        {
+          "id": "GO:0048489",
+          "name": "synaptic vesicle transport"
+        }
+      ]
+    },
+    {
+      "annotation_id": "GO:0098793",
+      "name": "presynapse",
+      "provenance_source": "UNIPROT",
+      "type": "GO",
+      "annotation_lineage": [
+        {
+          "id": "GO:0098793",
+          "name": "presynapse"
+        },
+        {
+          "id": "GO:0110165",
+          "name": "cellular anatomical structure"
+        },
+        {
+          "id": "GO:0005575",
+          "name": "cellular_component"
+        },
+        {
+          "id": "GO:0045202",
+          "name": "synapse"
+        },
+        {
+          "id": "GO:0030054",
+          "name": "cell junction"
+        }
+      ]
+    },
+    {
+      "annotation_id": "IPR008153",
+      "name": "Gamma-adaptin ear (GAE) domain",
+      "provenance_source": "UNIPROT",
+      "type": "InterPro",
+      "annotation_lineage": [
+        {
+          "depth": 2,
+          "id": "IPR008153",
+          "name": "Gamma-adaptin ear (GAE) domain"
+        },
+        {
+          "depth": 1,
+          "id": "IPR008152",
+          "name": "Clathrin adaptor, alpha/beta/gamma-adaptin, appendage, Ig-like subdomain"
+        }
+      ]
+    },
+    {
+      "annotation_id": "GO:0005518",
+      "name": "collagen binding",
+      "provenance_source": "UNIPROT",
+      "type": "GO",
+      "annotation_lineage": [
+        {
+          "id": "GO:0005518",
+          "name": "collagen binding"
+        },
+        {
+          "id": "GO:0044877",
+          "name": "protein-containing complex binding"
+        },
+        {
+          "id": "GO:0005488",
+          "name": "binding"
+        },
+        {
+          "id": "GO:0003674",
+          "name": "molecular_function"
+        }
+      ]
+    },
+    {
+      "annotation_id": "GO:0035646",
+      "name": "endosome to melanosome transport",
+      "provenance_source": "UNIPROT",
+      "type": "GO",
+      "annotation_lineage": [
+        {
+          "id": "GO:0051716",
+          "name": "cellular response to stimulus"
+        },
+        {
+          "id": "GO:0051641",
+          "name": "cellular localization"
+        },
+        {
+          "id": "GO:0050931",
+          "name": "pigment cell differentiation"
+        },
+        {
+          "id": "GO:0050896",
+          "name": "response to stimulus"
+        },
+        {
+          "id": "GO:0048869",
+          "name": "cellular developmental process"
+        },
+        {
+          "id": "GO:0006810",
+          "name": "transport"
+        },
+        {
+          "id": "GO:0048066",
+          "name": "developmental pigmentation"
+        },
+        {
+          "id": "GO:0033059",
+          "name": "cellular pigmentation"
+        },
+        {
+          "id": "GO:0043485",
+          "name": "endosome to pigment granule transport"
+        },
+        {
+          "id": "GO:0051179",
+          "name": "localization"
+        },
+        {
+          "id": "GO:0043473",
+          "name": "pigmentation"
+        },
+        {
+          "id": "GO:0010496",
+          "name": "intercellular transport"
+        },
+        {
+          "id": "GO:0030154",
+          "name": "cell differentiation"
+        },
+        {
+          "id": "GO:0051649",
+          "name": "establishment of localization in cell"
+        },
+        {
+          "id": "GO:0043482",
+          "name": "cellular pigment accumulation"
+        },
+        {
+          "id": "GO:0008150",
+          "name": "biological_process"
+        },
+        {
+          "id": "GO:0032502",
+          "name": "developmental process"
+        },
+        {
+          "id": "GO:0035646",
+          "name": "endosome to melanosome transport"
+        },
+        {
+          "id": "GO:0043476",
+          "name": "pigment accumulation"
+        },
+        {
+          "id": "GO:0046907",
+          "name": "intracellular transport"
+        },
+        {
+          "id": "GO:0009605",
+          "name": "response to external stimulus"
+        },
+        {
+          "id": "GO:0021700",
+          "name": "developmental maturation"
+        },
+        {
+          "id": "GO:0048757",
+          "name": "pigment granule maturation"
+        },
+        {
+          "id": "GO:0051234",
+          "name": "establishment of localization"
+        },
+        {
+          "id": "GO:0009987",
+          "name": "cellular process"
+        }
+      ]
+    },
+    {
+      "annotation_id": "GO:0090160",
+      "name": "Golgi to lysosome transport",
+      "provenance_source": "UNIPROT",
+      "type": "GO",
+      "annotation_lineage": [
+        {
+          "id": "GO:0051641",
+          "name": "cellular localization"
+        },
+        {
+          "id": "GO:0006892",
+          "name": "post-Golgi vesicle-mediated transport"
+        },
+        {
+          "id": "GO:0006810",
+          "name": "transport"
+        },
+        {
+          "id": "GO:0046907",
+          "name": "intracellular transport"
+        },
+        {
+          "id": "GO:0007041",
+          "name": "lysosomal transport"
+        },
+        {
+          "id": "GO:0051234",
+          "name": "establishment of localization"
+        },
+        {
+          "id": "GO:0016192",
+          "name": "vesicle-mediated transport"
+        },
+        {
+          "id": "GO:0051179",
+          "name": "localization"
+        },
+        {
+          "id": "GO:0006896",
+          "name": "Golgi to vacuole transport"
+        },
+        {
+          "id": "GO:0010496",
+          "name": "intercellular transport"
+        },
+        {
+          "id": "GO:0016482",
+          "name": "cytosolic transport"
+        },
+        {
+          "id": "GO:0051649",
+          "name": "establishment of localization in cell"
+        },
+        {
+          "id": "GO:0008150",
+          "name": "biological_process"
+        },
+        {
+          "id": "GO:0007034",
+          "name": "vacuolar transport"
+        },
+        {
+          "id": "GO:0009987",
+          "name": "cellular process"
+        },
+        {
+          "id": "GO:0090160",
+          "name": "Golgi to lysosome transport"
+        },
+        {
+          "id": "GO:0048193",
+          "name": "Golgi vesicle transport"
+        }
+      ]
+    },
+    {
+      "annotation_id": "GO:0005769",
+      "name": "early endosome",
+      "provenance_source": "UNIPROT",
+      "type": "GO",
+      "annotation_lineage": [
+        {
+          "id": "GO:0043227",
+          "name": "membrane-bounded organelle"
+        },
+        {
+          "id": "GO:0005575",
+          "name": "cellular_component"
+        },
+        {
+          "id": "GO:0005622",
+          "name": "intracellular anatomical structure"
+        },
+        {
+          "id": "GO:0005769",
+          "name": "early endosome"
+        },
+        {
+          "id": "GO:0005768",
+          "name": "endosome"
+        },
+        {
+          "id": "GO:0097708",
+          "name": "intracellular vesicle"
+        },
+        {
+          "id": "GO:0043231",
+          "name": "intracellular membrane-bounded organelle"
+        },
+        {
+          "id": "GO:0012505",
+          "name": "endomembrane system"
+        },
+        {
+          "id": "GO:0043229",
+          "name": "intracellular organelle"
+        },
+        {
+          "id": "GO:0110165",
+          "name": "cellular anatomical structure"
+        },
+        {
+          "id": "GO:0031410",
+          "name": "cytoplasmic vesicle"
+        },
+        {
+          "id": "GO:0043226",
+          "name": "organelle"
+        },
+        {
+          "id": "GO:0005737",
+          "name": "cytoplasm"
+        },
+        {
+          "id": "GO:0031982",
+          "name": "vesicle"
+        }
+      ]
+    },
+    {
+      "annotation_id": "GO:0006886",
+      "name": "intracellular protein transport",
+      "provenance_source": "UNIPROT",
+      "type": "GO",
+      "annotation_lineage": [
+        {
+          "id": "GO:0051641",
+          "name": "cellular localization"
+        },
+        {
+          "id": "GO:0045184",
+          "name": "establishment of protein localization"
+        },
+        {
+          "id": "GO:0006810",
+          "name": "transport"
+        },
+        {
+          "id": "GO:0046907",
+          "name": "intracellular transport"
+        },
+        {
+          "id": "GO:0051234",
+          "name": "establishment of localization"
+        },
+        {
+          "id": "GO:0051179",
+          "name": "localization"
+        },
+        {
+          "id": "GO:0015031",
+          "name": "protein transport"
+        },
+        {
+          "id": "GO:0051649",
+          "name": "establishment of localization in cell"
+        },
+        {
+          "id": "GO:0033036",
+          "name": "macromolecule localization"
+        },
+        {
+          "id": "GO:0008150",
+          "name": "biological_process"
+        },
+        {
+          "id": "GO:0009987",
+          "name": "cellular process"
+        },
+        {
+          "id": "GO:0008104",
+          "name": "intracellular protein localization"
+        },
+        {
+          "id": "GO:0006886",
+          "name": "intracellular protein transport"
+        }
+      ]
+    },
+    {
+      "annotation_id": "GO:1903232",
+      "name": "melanosome assembly",
+      "provenance_source": "UNIPROT",
+      "type": "GO",
+      "annotation_lineage": [
+        {
+          "id": "GO:0070925",
+          "name": "organelle assembly"
+        },
+        {
+          "id": "GO:0033059",
+          "name": "cellular pigmentation"
+        },
+        {
+          "id": "GO:0048753",
+          "name": "pigment granule organization"
+        },
+        {
+          "id": "GO:0016050",
+          "name": "vesicle organization"
+        },
+        {
+          "id": "GO:0016043",
+          "name": "cellular component organization"
+        },
+        {
+          "id": "GO:0044085",
+          "name": "cellular component biogenesis"
+        },
+        {
+          "id": "GO:0032438",
+          "name": "melanosome organization"
+        },
+        {
+          "id": "GO:0006996",
+          "name": "organelle organization"
+        },
+        {
+          "id": "GO:0043473",
+          "name": "pigmentation"
+        },
+        {
+          "id": "GO:0022607",
+          "name": "cellular component assembly"
+        },
+        {
+          "id": "GO:0008150",
+          "name": "biological_process"
+        },
+        {
+          "id": "GO:0009987",
+          "name": "cellular process"
+        },
+        {
+          "id": "GO:0071840",
+          "name": "cellular component organization or biogenesis"
+        },
+        {
+          "id": "GO:1903232",
+          "name": "melanosome assembly"
+        }
+      ]
+    },
+    {
+      "annotation_id": "GO:0005765",
+      "name": "lysosomal membrane",
+      "provenance_source": "UNIPROT",
+      "type": "GO",
+      "annotation_lineage": [
+        {
+          "id": "GO:0005774",
+          "name": "vacuolar membrane"
+        },
+        {
+          "id": "GO:0043227",
+          "name": "membrane-bounded organelle"
+        },
+        {
+          "id": "GO:0005575",
+          "name": "cellular_component"
+        },
+        {
+          "id": "GO:0005622",
+          "name": "intracellular anatomical structure"
+        },
+        {
+          "id": "GO:0016020",
+          "name": "membrane"
+        },
+        {
+          "id": "GO:0000323",
+          "name": "lytic vacuole"
+        },
+        {
+          "id": "GO:0005773",
+          "name": "vacuole"
+        },
+        {
+          "id": "GO:0043231",
+          "name": "intracellular membrane-bounded organelle"
+        },
+        {
+          "id": "GO:0043229",
+          "name": "intracellular organelle"
+        },
+        {
+          "id": "GO:0098852",
+          "name": "lytic vacuole membrane"
+        },
+        {
+          "id": "GO:0098588",
+          "name": "bounding membrane of organelle"
+        },
+        {
+          "id": "GO:0110165",
+          "name": "cellular anatomical structure"
+        },
+        {
+          "id": "GO:0043226",
+          "name": "organelle"
+        },
+        {
+          "id": "GO:0005765",
+          "name": "lysosomal membrane"
+        },
+        {
+          "id": "GO:0005737",
+          "name": "cytoplasm"
+        },
+        {
+          "id": "GO:0031090",
+          "name": "organelle membrane"
+        },
+        {
+          "id": "GO:0005764",
+          "name": "lysosome"
+        }
+      ]
+    },
+    {
+      "annotation_id": "GO:0005802",
+      "name": "trans-Golgi network",
+      "provenance_source": "UNIPROT",
+      "type": "GO",
+      "annotation_lineage": [
+        {
+          "id": "GO:0043227",
+          "name": "membrane-bounded organelle"
+        },
+        {
+          "id": "GO:0005575",
+          "name": "cellular_component"
+        },
+        {
+          "id": "GO:0005622",
+          "name": "intracellular anatomical structure"
+        },
+        {
+          "id": "GO:0098791",
+          "name": "Golgi apparatus subcompartment"
+        },
+        {
+          "id": "GO:0005794",
+          "name": "Golgi apparatus"
+        },
+        {
+          "id": "GO:0031984",
+          "name": "organelle subcompartment"
+        },
+        {
+          "id": "GO:0043231",
+          "name": "intracellular membrane-bounded organelle"
+        },
+        {
+          "id": "GO:0012505",
+          "name": "endomembrane system"
+        },
+        {
+          "id": "GO:0043229",
+          "name": "intracellular organelle"
+        },
+        {
+          "id": "GO:0110165",
+          "name": "cellular anatomical structure"
+        },
+        {
+          "id": "GO:0043226",
+          "name": "organelle"
+        },
+        {
+          "id": "GO:0005802",
+          "name": "trans-Golgi network"
+        },
+        {
+          "id": "GO:0005737",
+          "name": "cytoplasm"
+        }
+      ]
+    },
+    {
+      "annotation_id": "IPR002553",
+      "name": "Clathrin/coatomer adaptor, adaptin-like, N-terminal",
+      "provenance_source": "UNIPROT",
+      "type": "InterPro",
+      "annotation_lineage": [
+        {
+          "id": "IPR002553",
+          "name": "Clathrin/coatomer adaptor, adaptin-like, N-terminal"
+        }
+      ]
+    },
+    {
+      "annotation_id": "GO:0005794",
+      "name": "Golgi apparatus",
+      "provenance_source": "UNIPROT",
+      "type": "GO",
+      "annotation_lineage": [
+        {
+          "id": "GO:0043227",
+          "name": "membrane-bounded organelle"
+        },
+        {
+          "id": "GO:0043229",
+          "name": "intracellular organelle"
+        },
+        {
+          "id": "GO:0110165",
+          "name": "cellular anatomical structure"
+        },
+        {
+          "id": "GO:0005575",
+          "name": "cellular_component"
+        },
+        {
+          "id": "GO:0005622",
+          "name": "intracellular anatomical structure"
+        },
+        {
+          "id": "GO:0005794",
+          "name": "Golgi apparatus"
+        },
+        {
+          "id": "GO:0043226",
+          "name": "organelle"
+        },
+        {
+          "id": "GO:0005737",
+          "name": "cytoplasm"
+        },
+        {
+          "id": "GO:0043231",
+          "name": "intracellular membrane-bounded organelle"
+        },
+        {
+          "id": "GO:0012505",
+          "name": "endomembrane system"
+        }
+      ]
+    },
+    {
+      "annotation_id": "GO:0055037",
+      "name": "recycling endosome",
+      "provenance_source": "UNIPROT",
+      "type": "GO",
+      "annotation_lineage": [
+        {
+          "id": "GO:0043227",
+          "name": "membrane-bounded organelle"
+        },
+        {
+          "id": "GO:0005575",
+          "name": "cellular_component"
+        },
+        {
+          "id": "GO:0005622",
+          "name": "intracellular anatomical structure"
+        },
+        {
+          "id": "GO:0005768",
+          "name": "endosome"
+        },
+        {
+          "id": "GO:0097708",
+          "name": "intracellular vesicle"
+        },
+        {
+          "id": "GO:0043231",
+          "name": "intracellular membrane-bounded organelle"
+        },
+        {
+          "id": "GO:0055037",
+          "name": "recycling endosome"
+        },
+        {
+          "id": "GO:0012505",
+          "name": "endomembrane system"
+        },
+        {
+          "id": "GO:0043229",
+          "name": "intracellular organelle"
+        },
+        {
+          "id": "GO:0110165",
+          "name": "cellular anatomical structure"
+        },
+        {
+          "id": "GO:0031410",
+          "name": "cytoplasmic vesicle"
+        },
+        {
+          "id": "GO:0043226",
+          "name": "organelle"
+        },
+        {
+          "id": "GO:0005737",
+          "name": "cytoplasm"
+        },
+        {
+          "id": "GO:0031982",
+          "name": "vesicle"
+        }
+      ]
+    },
+    {
+      "annotation_id": "GO:0035615",
+      "name": "clathrin adaptor activity",
+      "provenance_source": "UNIPROT",
+      "type": "GO",
+      "annotation_lineage": [
+        {
+          "id": "GO:0140312",
+          "name": "cargo adaptor activity"
+        },
+        {
+          "id": "GO:0030674",
+          "name": "protein-macromolecule adaptor activity"
+        },
+        {
+          "id": "GO:0003674",
+          "name": "molecular_function"
+        },
+        {
+          "id": "GO:0060090",
+          "name": "molecular adaptor activity"
+        },
+        {
+          "id": "GO:0035615",
+          "name": "clathrin-cargo adaptor activity"
+        }
+      ]
+    },
+    {
+      "annotation_id": "GO:0043323",
+      "name": "positive regulation of natural killer cell degranulation",
+      "provenance_source": "UNIPROT",
+      "type": "GO",
+      "annotation_lineage": [
+        {
+          "id": "GO:0032501",
+          "name": "multicellular organismal process"
+        },
+        {
+          "id": "GO:0002449",
+          "name": "lymphocyte mediated immunity"
+        },
+        {
+          "id": "GO:0002697",
+          "name": "regulation of immune effector process"
+        },
+        {
+          "id": "GO:0032879",
+          "name": "regulation of localization"
+        },
+        {
+          "id": "GO:0045055",
+          "name": "regulated exocytosis"
+        },
+        {
+          "id": "GO:0002705",
+          "name": "positive regulation of leukocyte mediated immunity"
+        },
+        {
+          "id": "GO:0002833",
+          "name": "positive regulation of response to biotic stimulus"
+        },
+        {
+          "id": "GO:0050794",
+          "name": "regulation of cellular process"
+        },
+        {
+          "id": "GO:0050896",
+          "name": "response to stimulus"
+        },
+        {
+          "id": "GO:0002263",
+          "name": "cell activation involved in immune response"
+        },
+        {
+          "id": "GO:0043299",
+          "name": "leukocyte degranulation"
+        },
+        {
+          "id": "GO:0009607",
+          "name": "response to biotic stimulus"
+        },
+        {
+          "id": "GO:0016192",
+          "name": "vesicle-mediated transport"
+        },
+        {
+          "id": "GO:0051179",
+          "name": "localization"
+        },
+        {
+          "id": "GO:0043302",
+          "name": "positive regulation of leukocyte degranulation"
+        },
+        {
+          "id": "GO:1903307",
+          "name": "positive regulation of regulated secretory pathway"
+        },
+        {
+          "id": "GO:0001912",
+          "name": "positive regulation of leukocyte mediated cytotoxicity"
+        },
+        {
+          "id": "GO:0050778",
+          "name": "positive regulation of immune response"
+        },
+        {
+          "id": "GO:0051649",
+          "name": "establishment of localization in cell"
+        },
+        {
+          "id": "GO:0002717",
+          "name": "positive regulation of natural killer cell mediated immunity"
+        },
+        {
+          "id": "GO:0008150",
+          "name": "biological_process"
+        },
+        {
+          "id": "GO:0002443",
+          "name": "leukocyte mediated immunity"
+        },
+        {
+          "id": "GO:0002682",
+          "name": "regulation of immune system process"
+        },
+        {
+          "id": "GO:0002228",
+          "name": "natural killer cell mediated immunity"
+        },
+        {
+          "id": "GO:0002684",
+          "name": "positive regulation of immune system process"
+        },
+        {
+          "id": "GO:0050789",
+          "name": "regulation of biological process"
+        },
+        {
+          "id": "GO:0002715",
+          "name": "regulation of natural killer cell mediated immunity"
+        },
+        {
+          "id": "GO:0006955",
+          "name": "immune response"
+        },
+        {
+          "id": "GO:0051707",
+          "name": "response to other organism"
+        },
+        {
+          "id": "GO:0045088",
+          "name": "regulation of innate immune response"
+        },
+        {
+          "id": "GO:0009605",
+          "name": "response to external stimulus"
+        },
+        {
+          "id": "GO:0030101",
+          "name": "natural killer cell activation"
+        },
+        {
+          "id": "GO:0001909",
+          "name": "leukocyte mediated cytotoxicity"
+        },
+        {
+          "id": "GO:0051234",
+          "name": "establishment of localization"
+        },
+        {
+          "id": "GO:0002252",
+          "name": "immune effector process"
+        },
+        {
+          "id": "GO:0051046",
+          "name": "regulation of secretion"
+        },
+        {
+          "id": "GO:0043323",
+          "name": "positive regulation of natural killer cell degranulation"
+        },
+        {
+          "id": "GO:0002703",
+          "name": "regulation of leukocyte mediated immunity"
+        },
+        {
+          "id": "GO:0043321",
+          "name": "regulation of natural killer cell degranulation"
+        },
+        {
+          "id": "GO:0006887",
+          "name": "exocytosis"
+        },
+        {
+          "id": "GO:0048583",
+          "name": "regulation of response to stimulus"
+        },
+        {
+          "id": "GO:0098542",
+          "name": "defense response to other organism"
+        },
+        {
+          "id": "GO:0043320",
+          "name": "natural killer cell degranulation"
+        },
+        {
+          "id": "GO:0042267",
+          "name": "natural killer cell mediated cytotoxicity"
+        },
+        {
+          "id": "GO:0031349",
+          "name": "positive regulation of defense response"
+        },
+        {
+          "id": "GO:0050776",
+          "name": "regulation of immune response"
+        },
+        {
+          "id": "GO:0031341",
+          "name": "regulation of cell killing"
+        },
+        {
+          "id": "GO:0045954",
+          "name": "positive regulation of natural killer cell mediated cytotoxicity"
+        },
+        {
+          "id": "GO:0031343",
+          "name": "positive regulation of cell killing"
+        },
+        {
+          "id": "GO:0031347",
+          "name": "regulation of defense response"
+        },
+        {
+          "id": "GO:0051641",
+          "name": "cellular localization"
+        },
+        {
+          "id": "GO:0042269",
+          "name": "regulation of natural killer cell mediated cytotoxicity"
+        },
+        {
+          "id": "GO:0002831",
+          "name": "regulation of response to biotic stimulus"
+        },
+        {
+          "id": "GO:0044419",
+          "name": "biological process involved in interspecies interaction between organisms"
+        },
+        {
+          "id": "GO:0032101",
+          "name": "regulation of response to external stimulus"
+        },
+        {
+          "id": "GO:0006810",
+          "name": "transport"
+        },
+        {
+          "id": "GO:0002708",
+          "name": "positive regulation of lymphocyte mediated immunity"
+        },
+        {
+          "id": "GO:0048518",
+          "name": "positive regulation of biological process"
+        },
+        {
+          "id": "GO:1903532",
+          "name": "positive regulation of secretion by cell"
+        },
+        {
+          "id": "GO:0046649",
+          "name": "lymphocyte activation"
+        },
+        {
+          "id": "GO:0045921",
+          "name": "positive regulation of exocytosis"
+        },
+        {
+          "id": "GO:0045321",
+          "name": "leukocyte activation"
+        },
+        {
+          "id": "GO:1903305",
+          "name": "regulation of regulated secretory pathway"
+        },
+        {
+          "id": "GO:0048584",
+          "name": "positive regulation of response to stimulus"
+        },
+        {
+          "id": "GO:0032940",
+          "name": "secretion by cell"
+        },
+        {
+          "id": "GO:1903530",
+          "name": "regulation of secretion by cell"
+        },
+        {
+          "id": "GO:0032103",
+          "name": "positive regulation of response to external stimulus"
+        },
+        {
+          "id": "GO:0051047",
+          "name": "positive regulation of secretion"
+        },
+        {
+          "id": "GO:0006950",
+          "name": "response to stress"
+        },
+        {
+          "id": "GO:0080134",
+          "name": "regulation of response to stress"
+        },
+        {
+          "id": "GO:0002323",
+          "name": "natural killer cell activation involved in immune response"
+        },
+        {
+          "id": "GO:0002366",
+          "name": "leukocyte activation involved in immune response"
+        },
+        {
+          "id": "GO:0045087",
+          "name": "innate immune response"
+        },
+        {
+          "id": "GO:0002699",
+          "name": "positive regulation of immune effector process"
+        },
+        {
+          "id": "GO:0043207",
+          "name": "response to external biotic stimulus"
+        },
+        {
+          "id": "GO:0043300",
+          "name": "regulation of leukocyte degranulation"
+        },
+        {
+          "id": "GO:0002285",
+          "name": "lymphocyte activation involved in immune response"
+        },
+        {
+          "id": "GO:0048522",
+          "name": "positive regulation of cellular process"
+        },
+        {
+          "id": "GO:0045089",
+          "name": "positive regulation of innate immune response"
+        },
+        {
+          "id": "GO:0006952",
+          "name": "defense response"
+        },
+        {
+          "id": "GO:0046903",
+          "name": "secretion"
+        },
+        {
+          "id": "GO:0051049",
+          "name": "regulation of transport"
+        },
+        {
+          "id": "GO:0001775",
+          "name": "cell activation"
+        },
+        {
+          "id": "GO:0065007",
+          "name": "biological regulation"
+        },
+        {
+          "id": "GO:0001910",
+          "name": "regulation of leukocyte mediated cytotoxicity"
+        },
+        {
+          "id": "GO:0140352",
+          "name": "export from cell"
+        },
+        {
+          "id": "GO:0140546",
+          "name": "defense response to symbiont"
+        },
+        {
+          "id": "GO:0060627",
+          "name": "regulation of vesicle-mediated transport"
+        },
+        {
+          "id": "GO:0002706",
+          "name": "regulation of lymphocyte mediated immunity"
+        },
+        {
+          "id": "GO:0051050",
+          "name": "positive regulation of transport"
+        },
+        {
+          "id": "GO:0002376",
+          "name": "immune system process"
+        },
+        {
+          "id": "GO:0017157",
+          "name": "regulation of exocytosis"
+        },
+        {
+          "id": "GO:0009987",
+          "name": "cellular process"
+        },
+        {
+          "id": "GO:0001906",
+          "name": "cell killing"
+        }
+      ]
+    },
+    {
+      "annotation_id": "IPR013041",
+      "name": "Clathrin adaptor, appendage, Ig-like subdomain superfamily",
+      "provenance_source": "UNIPROT",
+      "type": "InterPro",
+      "annotation_lineage": [
+        {
+          "id": "IPR013041",
+          "name": "Clathrin adaptor, appendage, Ig-like subdomain superfamily"
+        }
+      ]
+    },
+    {
+      "annotation_id": "GO:0032588",
+      "name": "trans-Golgi network membrane",
+      "provenance_source": "UNIPROT",
+      "type": "GO",
+      "annotation_lineage": [
+        {
+          "id": "GO:0043227",
+          "name": "membrane-bounded organelle"
+        },
+        {
+          "id": "GO:0005575",
+          "name": "cellular_component"
+        },
+        {
+          "id": "GO:0005622",
+          "name": "intracellular anatomical structure"
+        },
+        {
+          "id": "GO:0098791",
+          "name": "Golgi apparatus subcompartment"
+        },
+        {
+          "id": "GO:0005794",
+          "name": "Golgi apparatus"
+        },
+        {
+          "id": "GO:0031984",
+          "name": "organelle subcompartment"
+        },
+        {
+          "id": "GO:0016020",
+          "name": "membrane"
+        },
+        {
+          "id": "GO:0032588",
+          "name": "trans-Golgi network membrane"
+        },
+        {
+          "id": "GO:0043231",
+          "name": "intracellular membrane-bounded organelle"
+        },
+        {
+          "id": "GO:0012505",
+          "name": "endomembrane system"
+        },
+        {
+          "id": "GO:0043229",
+          "name": "intracellular organelle"
+        },
+        {
+          "id": "GO:0110165",
+          "name": "cellular anatomical structure"
+        },
+        {
+          "id": "GO:0043226",
+          "name": "organelle"
+        },
+        {
+          "id": "GO:0005802",
+          "name": "trans-Golgi network"
+        },
+        {
+          "id": "GO:0005737",
+          "name": "cytoplasm"
+        },
+        {
+          "id": "GO:0031090",
+          "name": "organelle membrane"
+        }
+      ]
+    },
+    {
+      "annotation_id": "GO:0016192",
+      "name": "vesicle-mediated transport",
+      "provenance_source": "UNIPROT",
+      "type": "GO",
+      "annotation_lineage": [
+        {
+          "id": "GO:0051179",
+          "name": "localization"
+        },
+        {
+          "id": "GO:0006810",
+          "name": "transport"
+        },
+        {
+          "id": "GO:0008150",
+          "name": "biological_process"
+        },
+        {
+          "id": "GO:0009987",
+          "name": "cellular process"
+        },
+        {
+          "id": "GO:0051234",
+          "name": "establishment of localization"
+        },
+        {
+          "id": "GO:0016192",
+          "name": "vesicle-mediated transport"
+        }
+      ]
+    },
+    {
+      "annotation_id": "GO:0048471",
+      "name": "perinuclear region of cytoplasm",
+      "provenance_source": "UNIPROT",
+      "type": "GO",
+      "annotation_lineage": [
+        {
+          "id": "GO:0110165",
+          "name": "cellular anatomical structure"
+        },
+        {
+          "id": "GO:0005575",
+          "name": "cellular_component"
+        },
+        {
+          "id": "GO:0005622",
+          "name": "intracellular anatomical structure"
+        },
+        {
+          "id": "GO:0048471",
+          "name": "perinuclear region of cytoplasm"
+        },
+        {
+          "id": "GO:0005737",
+          "name": "cytoplasm"
+        }
+      ]
+    },
+    {
+      "annotation_id": "GO:0060155",
+      "name": "platelet dense granule organization",
+      "provenance_source": "UNIPROT",
+      "type": "GO",
+      "annotation_lineage": [
+        {
+          "id": "GO:0016050",
+          "name": "vesicle organization"
+        },
+        {
+          "id": "GO:0016043",
+          "name": "cellular component organization"
+        },
+        {
+          "id": "GO:0060155",
+          "name": "platelet dense granule organization"
+        },
+        {
+          "id": "GO:0006996",
+          "name": "organelle organization"
+        },
+        {
+          "id": "GO:0033363",
+          "name": "secretory granule organization"
+        },
+        {
+          "id": "GO:0008150",
+          "name": "biological_process"
+        },
+        {
+          "id": "GO:0009987",
+          "name": "cellular process"
+        },
+        {
+          "id": "GO:0071840",
+          "name": "cellular component organization or biogenesis"
+        },
+        {
+          "id": "GO:0010256",
+          "name": "endomembrane system organization"
+        }
+      ]
+    },
+    {
+      "annotation_id": "IPR050840",
+      "name": "Adaptor Complexes Large Subunit",
+      "provenance_source": "UNIPROT",
+      "type": "InterPro",
+      "annotation_lineage": [
+        {
+          "id": "IPR050840",
+          "name": "Adaptor Complexes Large Subunit"
+        }
+      ]
+    },
+    {
+      "annotation_id": "IPR008152",
+      "name": "Clathrin adaptor, alpha/beta/gamma-adaptin, appendage, Ig-like subdomain",
+      "provenance_source": "UNIPROT",
+      "type": "InterPro",
+      "annotation_lineage": [
+        {
+          "depth": 1,
+          "id": "IPR008152",
+          "name": "Clathrin adaptor, alpha/beta/gamma-adaptin, appendage, Ig-like subdomain"
+        }
+      ]
+    }
+  ],
+  "rcsb_polymer_entity_container_identifiers": {
+    "asym_ids": [
+      "A",
+      "C",
+      "E",
+      "G",
+      "I",
+      "K"
+    ],
+    "auth_asym_ids": [
+      "A",
+      "C",
+      "E",
+      "G",
+      "I",
+      "K"
+    ],
+    "chem_comp_monomers": [
+      "ALA",
+      "ARG",
+      "ASN",
+      "ASP",
+      "CYS",
+      "GLN",
+      "GLU",
+      "GLY",
+      "HIS",
+      "ILE",
+      "LEU",
+      "LYS",
+      "MET",
+      "PHE",
+      "PRO",
+      "SER",
+      "THR",
+      "TRP",
+      "TYR",
+      "VAL"
+    ],
+    "entity_id": "1",
+    "entry_id": "1W63",
+    "rcsb_id": "1W63_1",
+    "uniprot_ids": [
+      "P22892"
+    ],
+    "reference_sequence_identifiers": [
+      {
+        "database_accession": "P22892",
+        "database_name": "UniProt",
+        "entity_sequence_coverage": 0.9919093851132686,
+        "provenance_source": "SIFTS",
+        "reference_sequence_coverage": 0.745742092457421
+      }
+    ]
+  },
+  "rcsb_polymer_entity_feature": [
+    {
+      "assignment_version": "34.0",
+      "feature_id": "PF01602",
+      "name": "Adaptin N terminal region (Adaptin_N)",
+      "provenance_source": "Pfam",
+      "type": "Pfam",
+      "feature_positions": [
+        {
+          "beg_seq_id": 28,
+          "end_seq_id": 579
+        }
+      ]
+    },
+    {
+      "name": "Hydropathy values",
+      "provenance_source": "biojava-7.2.4",
+      "type": "hydropathy",
+      "feature_positions": [
+        {
+          "beg_seq_id": 5,
+          "values": [
+            0.29,
+            0.83,
+            0.13,
+            0.6,
+            -0.11,
+            -0.41,
+            -0.2,
+            0.48,
+            -0.22,
+            -0.12,
+            -0.12,
+            -0.12,
+            -0.62,
+            0.08,
+            -0.03,
+            -0.53,
+            -1.42,
+            -0.72,
+            -1.03,
+            -1.92,
+            -1.92,
+            -2.23,
+            -2.22,
+            -1.22,
+            -1.53,
+            -1.58,
+            -2.17,
+            -1.5,
+            -0.91,
+            -0.21,
+            0.68,
+            -0.03,
+            -0.62,
+            -0.32,
+            0.42,
+            0.31,
+            -0.36,
+            -0.94,
+            -1.53,
+            -2.42,
+            -2.0,
+            -2.06,
+            -2.47,
+            -2.5,
+            -2.5,
+            -2.5,
+            -1.64,
+            -1.06,
+            -1.1,
+            -0.6,
+            -0.03,
+            0.32,
+            0.26,
+            0.4,
+            1.0,
+            0.96,
+            0.71,
+            1.0,
+            0.4,
+            0.18,
+            -0.03,
+            0.07,
+            0.38,
+            -0.22,
+            -0.22,
+            -0.57,
+            -0.14,
+            0.46,
+            -0.18,
+            0.6,
+            0.79,
+            1.03,
+            1.33,
+            0.52,
+            0.48,
+            0.51,
+            0.01,
+            0.06,
+            -0.8,
+            -1.8,
+            -1.5,
+            -1.46,
+            -1.21,
+            -0.36,
+            -0.71,
+            -0.43,
+            0.17,
+            1.02,
+            1.94,
+            1.87,
+            1.52,
+            1.28,
+            0.36,
+            0.01,
+            -0.58,
+            -0.32,
+            -1.1,
+            -1.1,
+            -1.1,
+            -0.5,
+            -0.19,
+            -0.08,
+            0.59,
+            1.48,
+            0.58,
+            0.54,
+            -0.27,
+            -0.27,
+            -0.87,
+            -1.14,
+            -0.84,
+            -1.2,
+            -2.09,
+            -1.34,
+            -0.49,
+            -0.49,
+            -0.96,
+            -0.14,
+            0.41,
+            0.92,
+            1.28,
+            1.59,
+            1.7,
+            1.19,
+            1.86,
+            2.11,
+            1.64,
+            1.36,
+            0.84,
+            0.18,
+            0.47,
+            0.32,
+            -0.13,
+            -0.8,
+            -0.59,
+            -0.34,
+            -0.3,
+            -0.6,
+            0.26,
+            -0.34,
+            -1.06,
+            -0.13,
+            0.68,
+            -0.18,
+            -0.46,
+            -0.5,
+            -0.5,
+            -1.06,
+            -0.81,
+            0.04,
+            -0.88,
+            -1.73,
+            -1.73,
+            -1.46,
+            -1.17,
+            -0.36,
+            0.01,
+            0.36,
+            0.4,
+            0.54,
+            1.44,
+            2.38,
+            1.68,
+            1.04,
+            1.09,
+            0.63,
+            0.04,
+            0.0,
+            0.57,
+            -0.29,
+            -0.58,
+            0.23,
+            1.09,
+            0.44,
+            0.82,
+            1.13,
+            0.28,
+            -0.32,
+            0.49,
+            0.7,
+            0.0,
+            -0.81,
+            -1.07,
+            -1.66,
+            -1.93,
+            -1.54,
+            -0.69,
+            -0.69,
+            -1.47,
+            -1.16,
+            -0.86,
+            0.04,
+            0.9,
+            1.68,
+            2.14,
+            1.6,
+            0.79,
+            1.36,
+            1.71,
+            1.41,
+            0.44,
+            -0.11,
+            -0.71,
+            -1.52,
+            -1.23,
+            -0.42,
+            -0.43,
+            -1.07,
+            -0.37,
+            -0.37,
+            -0.71,
+            -0.11,
+            0.74,
+            0.36,
+            -0.46,
+            -0.23,
+            0.59,
+            -0.22,
+            0.78,
+            1.63,
+            0.78,
+            -0.08,
+            0.52,
+            1.41,
+            1.2,
+            0.64,
+            1.1,
+            0.46,
+            -0.06,
+            0.2,
+            0.2,
+            -0.58,
+            -1.47,
+            -1.21,
+            -1.21,
+            -1.21,
+            -0.57,
+            -0.57,
+            -0.78,
+            -0.57,
+            0.1,
+            0.91,
+            0.06,
+            0.61,
+            0.16,
+            0.16,
+            0.67,
+            0.56,
+            1.16,
+            1.27,
+            0.34,
+            1.23,
+            1.19,
+            1.64,
+            0.64,
+            -0.17,
+            -0.06,
+            -0.87,
+            -1.68,
+            -1.27,
+            -1.86,
+            -2.67,
+            -2.42,
+            -1.71,
+            -1.71,
+            -1.71,
+            -0.82,
+            -0.01,
+            0.28,
+            -0.02,
+            0.83,
+            0.83,
+            0.54,
+            0.54,
+            0.86,
+            -0.03,
+            -0.53,
+            -0.82,
+            -0.87,
+            -1.72,
+            -1.46,
+            -1.42,
+            -1.42,
+            -1.14,
+            -0.26,
+            0.24,
+            0.19,
+            0.23,
+            0.54,
+            0.54,
+            1.01,
+            1.32,
+            1.62,
+            1.33,
+            0.52,
+            1.17,
+            1.12,
+            1.11,
+            0.26,
+            -0.26,
+            -0.22,
+            -0.3,
+            -1.01,
+            -0.16,
+            -0.23,
+            0.4,
+            0.99,
+            0.99,
+            1.58,
+            2.04,
+            1.58,
+            1.58,
+            1.42,
+            1.42,
+            1.64,
+            0.76,
+            0.76,
+            -0.13,
+            -0.99,
+            -1.33,
+            -0.33,
+            -1.14,
+            -1.71,
+            -1.67,
+            -1.08,
+            -0.27,
+            0.04,
+            0.39,
+            1.2,
+            1.12,
+            1.19,
+            1.26,
+            1.26,
+            0.67,
+            0.17,
+            -0.14,
+            -0.41,
+            -1.22,
+            -1.44,
+            -0.54,
+            -0.86,
+            -1.82,
+            -1.79,
+            -2.21,
+            -1.91,
+            -1.63,
+            -0.74,
+            -0.48,
+            -1.33,
+            -0.67,
+            0.26,
+            0.18,
+            0.29,
+            0.8,
+            0.49,
+            0.46,
+            -0.1,
+            0.79,
+            0.08,
+            -0.84,
+            -0.91,
+            -0.32,
+            -0.53,
+            -0.53,
+            -0.58,
+            -0.58,
+            -0.77,
+            -0.13,
+            0.79,
+            1.76,
+            1.17,
+            0.91,
+            0.91,
+            0.1,
+            0.69,
+            -0.12,
+            -0.37,
+            -0.58,
+            -0.83,
+            -0.88,
+            -1.22,
+            -0.41,
+            0.4,
+            -0.24,
+            0.57,
+            1.03,
+            0.43,
+            0.13,
+            0.84,
+            0.84,
+            0.24,
+            -0.57,
+            -0.11,
+            -0.86,
+            -1.08,
+            -1.08,
+            -0.71,
+            -0.79,
+            -0.49,
+            -0.36,
+            0.53,
+            0.53,
+            1.39,
+            1.39,
+            1.98,
+            1.31,
+            0.68,
+            0.62,
+            0.87,
+            0.19,
+            -0.21,
+            -1.07,
+            -1.77,
+            -2.07,
+            -2.03,
+            -1.1,
+            -1.34,
+            -1.62,
+            -0.94,
+            -0.64,
+            -0.71,
+            0.26,
+            0.78,
+            1.06,
+            0.48,
+            1.07,
+            1.1,
+            0.51,
+            0.16,
+            1.12,
+            0.16,
+            -0.66,
+            -0.97,
+            -0.69,
+            -0.42,
+            -0.56,
+            -0.86,
+            -0.29,
+            -0.26,
+            -0.14,
+            0.67,
+            1.56,
+            1.28,
+            0.42,
+            0.51,
+            1.37,
+            0.56,
+            0.27,
+            0.3,
+            0.08,
+            -0.57,
+            -0.57,
+            0.29,
+            -0.01,
+            -0.98,
+            -0.17,
+            -0.52,
+            -0.6,
+            -0.6,
+            0.04,
+            0.54,
+            0.03,
+            0.03,
+            0.39,
+            -0.12,
+            -0.37,
+            -0.32,
+            -0.7,
+            -0.78,
+            -0.73,
+            -1.08,
+            -0.22,
+            0.12,
+            0.41,
+            0.7,
+            1.37,
+            2.04,
+            1.58,
+            0.72,
+            0.97,
+            0.46,
+            -0.13,
+            0.09,
+            0.61,
+            0.8,
+            0.21,
+            0.21,
+            0.21,
+            0.63,
+            0.29,
+            0.29,
+            -0.52,
+            -1.33,
+            -1.98,
+            -1.39,
+            -1.73,
+            -0.88,
+            -1.23,
+            -1.23,
+            -1.23,
+            -1.23,
+            -0.38,
+            0.22,
+            -0.67,
+            0.22,
+            0.18,
+            -0.13,
+            0.17,
+            1.02,
+            1.83,
+            1.87,
+            1.36,
+            1.36,
+            1.07,
+            0.56,
+            0.87,
+            0.87,
+            0.87,
+            0.37,
+            -0.63,
+            -0.59,
+            -0.34,
+            -0.36,
+            0.16,
+            0.16,
+            0.44,
+            0.48,
+            0.77,
+            0.83,
+            1.3,
+            1.36,
+            1.08,
+            0.16,
+            0.54,
+            0.27,
+            0.04,
+            -0.24,
+            0.66,
+            -0.16,
+            -0.57,
+            0.01,
+            0.08,
+            -0.67,
+            -0.12,
+            0.07,
+            0.06,
+            0.09,
+            0.33,
+            0.79,
+            0.2,
+            0.54,
+            1.48,
+            0.62,
+            0.62,
+            0.32,
+            0.24,
+            0.0,
+            -0.34,
+            -0.76,
+            -0.47,
+            -0.5,
+            -0.5,
+            -1.11,
+            -1.11,
+            -1.33,
+            -0.52,
+            0.18,
+            0.24,
+            -0.39,
+            -1.0,
+            -1.0,
+            -1.21,
+            -0.61,
+            -1.31,
+            -1.82,
+            -1.93,
+            -1.08,
+            -0.22,
+            -0.47,
+            -0.58,
+            -0.01,
+            -0.4,
+            0.57,
+            0.87,
+            0.28,
+            -0.58,
+            -0.53,
+            -0.22,
+            0.2,
+            -0.4,
+            -0.27,
+            -0.91,
+            -1.21,
+            -1.21,
+            -0.28,
+            -0.28,
+            -0.59,
+            -0.59,
+            -0.59,
+            -0.59,
+            -0.8,
+            -0.79,
+            -0.79,
+            -1.47,
+            -1.73,
+            -1.52,
+            -1.02,
+            -1.02,
+            -1.06,
+            -1.1
+          ]
+        }
+      ]
+    },
+    {
+      "name": "Disordered regions",
+      "provenance_source": "IUPred2(short)",
+      "type": "disorder",
+      "feature_positions": [
+        {
+          "beg_seq_id": 1,
+          "values": [
+            0.96,
+            0.91,
+            0.88,
+            0.86,
+            0.76,
+            0.68,
+            0.64,
+            0.61,
+            0.51,
+            0.47,
+            0.43,
+            0.4,
+            0.42,
+            0.42,
+            0.45,
+            0.41,
+            0.43,
+            0.39,
+            0.42,
+            0.38,
+            0.43,
+            0.37,
+            0.43,
+            0.43,
+            0.42,
+            0.4,
+            0.44,
+            0.41,
+            0.34,
+            0.39,
+            0.4,
+            0.4,
+            0.34,
+            0.35,
+            0.35,
+            0.34,
+            0.36,
+            0.37,
+            0.37,
+            0.29,
+            0.28,
+            0.19,
+            0.24,
+            0.23,
+            0.17,
+            0.14,
+            0.2,
+            0.16,
+            0.12,
+            0.11,
+            0.09,
+            0.08,
+            0.06,
+            0.06,
+            0.06,
+            0.04,
+            0.04,
+            0.03,
+            0.03,
+            0.01,
+            0.02,
+            0.03,
+            0.03,
+            0.03,
+            0.01,
+            0.01,
+            0.02,
+            0.01,
+            0.01,
+            0.01,
+            0.02,
+            0.02,
+            0.03,
+            0.01,
+            0.03,
+            0.03,
+            0.05,
+            0.04,
+            0.03,
+            0.03,
+            0.03,
+            0.02,
+            0.02,
+            0.03,
+            0.02,
+            0.02,
+            0.03,
+            0.01,
+            0.02,
+            0.05,
+            0.06,
+            0.06,
+            0.06,
+            0.04,
+            0.07,
+            0.04,
+            0.02,
+            0.02,
+            0.02,
+            0.03,
+            0.01,
+            0.01,
+            0.03,
+            0.03,
+            0.03,
+            0.02,
+            0.04,
+            0.06,
+            0.11,
+            0.1,
+            0.1,
+            0.05,
+            0.04,
+            0.04,
+            0.06,
+            0.04,
+            0.05,
+            0.05,
+            0.03,
+            0.03,
+            0.02,
+            0.04,
+            0.03,
+            0.02,
+            0.02,
+            0.02,
+            0.04,
+            0.05,
+            0.04,
+            0.02,
+            0.02,
+            0.02,
+            0.02,
+            0.02,
+            0.02,
+            0.02,
+            0.03,
+            0.03,
+            0.05,
+            0.08,
+            0.05,
+            0.08,
+            0.08,
+            0.18,
+            0.2,
+            0.21,
+            0.13,
+            0.09,
+            0.09,
+            0.1,
+            0.2,
+            0.17,
+            0.14,
+            0.13,
+            0.1,
+            0.09,
+            0.06,
+            0.1,
+            0.06,
+            0.04,
+            0.06,
+            0.1,
+            0.07,
+            0.08,
+            0.08,
+            0.05,
+            0.04,
+            0.06,
+            0.09,
+            0.04,
+            0.03,
+            0.03,
+            0.03,
+            0.04,
+            0.06,
+            0.11,
+            0.08,
+            0.07,
+            0.07,
+            0.12,
+            0.18,
+            0.18,
+            0.17,
+            0.23,
+            0.16,
+            0.1,
+            0.16,
+            0.19,
+            0.19,
+            0.16,
+            0.2,
+            0.2,
+            0.12,
+            0.15,
+            0.15,
+            0.12,
+            0.08,
+            0.13,
+            0.2,
+            0.2,
+            0.21,
+            0.2,
+            0.17,
+            0.12,
+            0.1,
+            0.14,
+            0.12,
+            0.12,
+            0.12,
+            0.07,
+            0.07,
+            0.12,
+            0.18,
+            0.18,
+            0.13,
+            0.13,
+            0.1,
+            0.09,
+            0.09,
+            0.09,
+            0.05,
+            0.02,
+            0.02,
+            0.02,
+            0.04,
+            0.03,
+            0.03,
+            0.07,
+            0.07,
+            0.07,
+            0.13,
+            0.12,
+            0.11,
+            0.1,
+            0.09,
+            0.14,
+            0.15,
+            0.26,
+            0.24,
+            0.16,
+            0.18,
+            0.19,
+            0.27,
+            0.22,
+            0.15,
+            0.14,
+            0.15,
+            0.1,
+            0.07,
+            0.05,
+            0.03,
+            0.03,
+            0.05,
+            0.05,
+            0.05,
+            0.09,
+            0.09,
+            0.09,
+            0.07,
+            0.14,
+            0.18,
+            0.14,
+            0.2,
+            0.21,
+            0.2,
+            0.2,
+            0.18,
+            0.27,
+            0.27,
+            0.24,
+            0.31,
+            0.38,
+            0.37,
+            0.39,
+            0.39,
+            0.38,
+            0.36,
+            0.36,
+            0.3,
+            0.29,
+            0.28,
+            0.28,
+            0.21,
+            0.15,
+            0.09,
+            0.16,
+            0.23,
+            0.19,
+            0.11,
+            0.15,
+            0.1,
+            0.09,
+            0.09,
+            0.05,
+            0.04,
+            0.04,
+            0.04,
+            0.05,
+            0.05,
+            0.04,
+            0.04,
+            0.02,
+            0.01,
+            0.02,
+            0.01,
+            0.02,
+            0.01,
+            0.0,
+            0.01,
+            0.01,
+            0.01,
+            0.01,
+            0.01,
+            0.01,
+            0.01,
+            0.01,
+            0.01,
+            0.01,
+            0.01,
+            0.01,
+            0.01,
+            0.0,
+            0.01,
+            0.01,
+            0.01,
+            0.02,
+            0.01,
+            0.01,
+            0.03,
+            0.03,
+            0.02,
+            0.03,
+            0.06,
+            0.1,
+            0.1,
+            0.1,
+            0.09,
+            0.06,
+            0.06,
+            0.1,
+            0.1,
+            0.16,
+            0.22,
+            0.24,
+            0.26,
+            0.2,
+            0.19,
+            0.22,
+            0.23,
+            0.23,
+            0.24,
+            0.23,
+            0.21,
+            0.17,
+            0.18,
+            0.12,
+            0.11,
+            0.13,
+            0.17,
+            0.14,
+            0.12,
+            0.12,
+            0.07,
+            0.07,
+            0.04,
+            0.05,
+            0.05,
+            0.03,
+            0.05,
+            0.08,
+            0.07,
+            0.07,
+            0.07,
+            0.07,
+            0.1,
+            0.07,
+            0.1,
+            0.1,
+            0.1,
+            0.06,
+            0.05,
+            0.03,
+            0.02,
+            0.02,
+            0.02,
+            0.04,
+            0.03,
+            0.05,
+            0.09,
+            0.1,
+            0.05,
+            0.05,
+            0.04,
+            0.07,
+            0.05,
+            0.04,
+            0.05,
+            0.06,
+            0.04,
+            0.02,
+            0.02,
+            0.03,
+            0.04,
+            0.07,
+            0.12,
+            0.06,
+            0.05,
+            0.11,
+            0.1,
+            0.08,
+            0.07,
+            0.08,
+            0.09,
+            0.06,
+            0.07,
+            0.11,
+            0.08,
+            0.06,
+            0.06,
+            0.07,
+            0.07,
+            0.11,
+            0.13,
+            0.13,
+            0.12,
+            0.13,
+            0.13,
+            0.11,
+            0.1,
+            0.1,
+            0.11,
+            0.09,
+            0.09,
+            0.11,
+            0.17,
+            0.11,
+            0.06,
+            0.11,
+            0.08,
+            0.05,
+            0.07,
+            0.12,
+            0.12,
+            0.08,
+            0.11,
+            0.08,
+            0.08,
+            0.11,
+            0.1,
+            0.09,
+            0.05,
+            0.05,
+            0.06,
+            0.05,
+            0.03,
+            0.03,
+            0.03,
+            0.03,
+            0.02,
+            0.03,
+            0.06,
+            0.03,
+            0.03,
+            0.03,
+            0.05,
+            0.05,
+            0.04,
+            0.03,
+            0.03,
+            0.04,
+            0.03,
+            0.04,
+            0.02,
+            0.01,
+            0.01,
+            0.02,
+            0.03,
+            0.02,
+            0.04,
+            0.09,
+            0.06,
+            0.03,
+            0.04,
+            0.04,
+            0.04,
+            0.04,
+            0.02,
+            0.04,
+            0.07,
+            0.08,
+            0.14,
+            0.19,
+            0.16,
+            0.23,
+            0.25,
+            0.33,
+            0.35,
+            0.35,
+            0.45,
+            0.38,
+            0.28,
+            0.38,
+            0.38,
+            0.37,
+            0.38,
+            0.38,
+            0.32,
+            0.33,
+            0.24,
+            0.22,
+            0.19,
+            0.16,
+            0.13,
+            0.2,
+            0.2,
+            0.2,
+            0.19,
+            0.17,
+            0.16,
+            0.09,
+            0.11,
+            0.1,
+            0.08,
+            0.11,
+            0.1,
+            0.07,
+            0.06,
+            0.05,
+            0.08,
+            0.12,
+            0.12,
+            0.07,
+            0.08,
+            0.05,
+            0.05,
+            0.03,
+            0.05,
+            0.06,
+            0.03,
+            0.03,
+            0.05,
+            0.04,
+            0.05,
+            0.05,
+            0.03,
+            0.04,
+            0.04,
+            0.05,
+            0.08,
+            0.05,
+            0.05,
+            0.03,
+            0.05,
+            0.03,
+            0.05,
+            0.05,
+            0.08,
+            0.06,
+            0.04,
+            0.07,
+            0.04,
+            0.05,
+            0.06,
+            0.06,
+            0.03,
+            0.06,
+            0.1,
+            0.06,
+            0.07,
+            0.07,
+            0.1,
+            0.1,
+            0.16,
+            0.14,
+            0.16,
+            0.12,
+            0.12,
+            0.12,
+            0.13,
+            0.2,
+            0.16,
+            0.2,
+            0.21,
+            0.24,
+            0.26,
+            0.35,
+            0.36,
+            0.37,
+            0.46,
+            0.47,
+            0.47,
+            0.51,
+            0.46,
+            0.42,
+            0.47,
+            0.53,
+            0.58,
+            0.58,
+            0.6,
+            0.63,
+            0.62,
+            0.68,
+            0.69,
+            0.7,
+            0.68,
+            0.74,
+            0.74,
+            0.72,
+            0.75,
+            0.79,
+            0.8,
+            0.84,
+            0.86,
+            0.92,
+            0.96,
+            0.97,
+            0.98,
+            0.99
+          ]
+        }
+      ]
+    },
+    {
+      "name": "Disordered binding sites",
+      "provenance_source": "Anchor2",
+      "type": "disorder_binding",
+      "feature_positions": [
+        {
+          "beg_seq_id": 1,
+          "values": [
+            0.3,
+            0.3,
+            0.29,
+            0.29,
+            0.3,
+            0.29,
+            0.3,
+            0.3,
+            0.31,
+            0.31,
+            0.31,
+            0.31,
+            0.32,
+            0.33,
+            0.33,
+            0.34,
+            0.36,
+            0.37,
+            0.39,
+            0.41,
+            0.42,
+            0.43,
+            0.42,
+            0.41,
+            0.4,
+            0.38,
+            0.37,
+            0.37,
+            0.37,
+            0.37,
+            0.37,
+            0.36,
+            0.36,
+            0.35,
+            0.35,
+            0.34,
+            0.35,
+            0.35,
+            0.34,
+            0.34,
+            0.34,
+            0.33,
+            0.32,
+            0.3,
+            0.28,
+            0.26,
+            0.25,
+            0.23,
+            0.22,
+            0.21,
+            0.21,
+            0.21,
+            0.22,
+            0.24,
+            0.27,
+            0.3,
+            0.34,
+            0.38,
+            0.42,
+            0.42,
+            0.39,
+            0.39,
+            0.39,
+            0.42,
+            0.39,
+            0.34,
+            0.29,
+            0.25,
+            0.2,
+            0.16,
+            0.13,
+            0.11,
+            0.1,
+            0.09,
+            0.08,
+            0.08,
+            0.09,
+            0.1,
+            0.1,
+            0.1,
+            0.11,
+            0.11,
+            0.11,
+            0.11,
+            0.1,
+            0.1,
+            0.09,
+            0.09,
+            0.08,
+            0.08,
+            0.08,
+            0.08,
+            0.08,
+            0.09,
+            0.1,
+            0.11,
+            0.13,
+            0.15,
+            0.17,
+            0.19,
+            0.19,
+            0.18,
+            0.17,
+            0.15,
+            0.14,
+            0.13,
+            0.11,
+            0.09,
+            0.08,
+            0.06,
+            0.05,
+            0.05,
+            0.06,
+            0.06,
+            0.07,
+            0.08,
+            0.08,
+            0.1,
+            0.1,
+            0.11,
+            0.12,
+            0.13,
+            0.12,
+            0.1,
+            0.09,
+            0.08,
+            0.07,
+            0.06,
+            0.05,
+            0.04,
+            0.04,
+            0.04,
+            0.04,
+            0.04,
+            0.05,
+            0.05,
+            0.06,
+            0.07,
+            0.07,
+            0.08,
+            0.1,
+            0.11,
+            0.14,
+            0.16,
+            0.17,
+            0.19,
+            0.21,
+            0.23,
+            0.26,
+            0.3,
+            0.32,
+            0.31,
+            0.3,
+            0.3,
+            0.29,
+            0.28,
+            0.27,
+            0.26,
+            0.24,
+            0.23,
+            0.21,
+            0.2,
+            0.2,
+            0.21,
+            0.2,
+            0.22,
+            0.24,
+            0.27,
+            0.29,
+            0.32,
+            0.35,
+            0.38,
+            0.42,
+            0.42,
+            0.4,
+            0.37,
+            0.36,
+            0.36,
+            0.36,
+            0.37,
+            0.38,
+            0.4,
+            0.42,
+            0.43,
+            0.41,
+            0.39,
+            0.37,
+            0.36,
+            0.35,
+            0.33,
+            0.33,
+            0.33,
+            0.34,
+            0.34,
+            0.34,
+            0.35,
+            0.37,
+            0.37,
+            0.38,
+            0.39,
+            0.41,
+            0.41,
+            0.42,
+            0.43,
+            0.43,
+            0.42,
+            0.42,
+            0.43,
+            0.43,
+            0.42,
+            0.4,
+            0.39,
+            0.38,
+            0.36,
+            0.34,
+            0.32,
+            0.29,
+            0.27,
+            0.26,
+            0.24,
+            0.23,
+            0.22,
+            0.21,
+            0.21,
+            0.22,
+            0.22,
+            0.22,
+            0.24,
+            0.26,
+            0.27,
+            0.3,
+            0.31,
+            0.33,
+            0.34,
+            0.34,
+            0.35,
+            0.35,
+            0.36,
+            0.36,
+            0.37,
+            0.37,
+            0.37,
+            0.38,
+            0.37,
+            0.38,
+            0.39,
+            0.39,
+            0.4,
+            0.4,
+            0.39,
+            0.37,
+            0.35,
+            0.34,
+            0.32,
+            0.31,
+            0.3,
+            0.29,
+            0.28,
+            0.27,
+            0.27,
+            0.27,
+            0.28,
+            0.29,
+            0.29,
+            0.31,
+            0.32,
+            0.33,
+            0.33,
+            0.34,
+            0.34,
+            0.35,
+            0.35,
+            0.34,
+            0.33,
+            0.32,
+            0.31,
+            0.3,
+            0.29,
+            0.27,
+            0.26,
+            0.25,
+            0.24,
+            0.23,
+            0.22,
+            0.21,
+            0.2,
+            0.2,
+            0.19,
+            0.19,
+            0.19,
+            0.19,
+            0.19,
+            0.19,
+            0.2,
+            0.21,
+            0.21,
+            0.22,
+            0.22,
+            0.23,
+            0.23,
+            0.23,
+            0.24,
+            0.23,
+            0.23,
+            0.22,
+            0.22,
+            0.22,
+            0.21,
+            0.2,
+            0.2,
+            0.21,
+            0.21,
+            0.21,
+            0.21,
+            0.21,
+            0.22,
+            0.22,
+            0.22,
+            0.23,
+            0.23,
+            0.24,
+            0.23,
+            0.22,
+            0.21,
+            0.2,
+            0.19,
+            0.18,
+            0.17,
+            0.16,
+            0.16,
+            0.15,
+            0.14,
+            0.14,
+            0.14,
+            0.14,
+            0.15,
+            0.15,
+            0.15,
+            0.16,
+            0.16,
+            0.17,
+            0.18,
+            0.19,
+            0.2,
+            0.21,
+            0.21,
+            0.21,
+            0.21,
+            0.21,
+            0.21,
+            0.2,
+            0.19,
+            0.18,
+            0.17,
+            0.16,
+            0.16,
+            0.15,
+            0.16,
+            0.16,
+            0.16,
+            0.16,
+            0.17,
+            0.18,
+            0.19,
+            0.2,
+            0.21,
+            0.21,
+            0.22,
+            0.23,
+            0.23,
+            0.24,
+            0.23,
+            0.23,
+            0.22,
+            0.21,
+            0.2,
+            0.2,
+            0.19,
+            0.18,
+            0.18,
+            0.18,
+            0.17,
+            0.18,
+            0.19,
+            0.2,
+            0.22,
+            0.22,
+            0.21,
+            0.21,
+            0.2,
+            0.2,
+            0.19,
+            0.18,
+            0.16,
+            0.15,
+            0.14,
+            0.12,
+            0.12,
+            0.12,
+            0.12,
+            0.11,
+            0.11,
+            0.11,
+            0.11,
+            0.11,
+            0.11,
+            0.11,
+            0.11,
+            0.11,
+            0.11,
+            0.11,
+            0.11,
+            0.12,
+            0.13,
+            0.13,
+            0.14,
+            0.14,
+            0.15,
+            0.15,
+            0.16,
+            0.16,
+            0.16,
+            0.16,
+            0.15,
+            0.14,
+            0.14,
+            0.13,
+            0.13,
+            0.12,
+            0.12,
+            0.12,
+            0.12,
+            0.12,
+            0.13,
+            0.14,
+            0.15,
+            0.15,
+            0.16,
+            0.16,
+            0.15,
+            0.14,
+            0.13,
+            0.12,
+            0.11,
+            0.11,
+            0.1,
+            0.09,
+            0.09,
+            0.09,
+            0.09,
+            0.09,
+            0.1,
+            0.1,
+            0.11,
+            0.12,
+            0.12,
+            0.13,
+            0.13,
+            0.13,
+            0.13,
+            0.14,
+            0.14,
+            0.16,
+            0.17,
+            0.18,
+            0.18,
+            0.19,
+            0.2,
+            0.2,
+            0.2,
+            0.2,
+            0.19,
+            0.18,
+            0.16,
+            0.15,
+            0.15,
+            0.14,
+            0.14,
+            0.13,
+            0.14,
+            0.15,
+            0.17,
+            0.19,
+            0.2,
+            0.22,
+            0.24,
+            0.26,
+            0.28,
+            0.3,
+            0.31,
+            0.32,
+            0.32,
+            0.31,
+            0.29,
+            0.28,
+            0.28,
+            0.28,
+            0.28,
+            0.28,
+            0.27,
+            0.27,
+            0.27,
+            0.27,
+            0.27,
+            0.28,
+            0.3,
+            0.32,
+            0.33,
+            0.33,
+            0.33,
+            0.33,
+            0.34,
+            0.33,
+            0.33,
+            0.33,
+            0.31,
+            0.3,
+            0.28,
+            0.27,
+            0.26,
+            0.26,
+            0.26,
+            0.25,
+            0.25,
+            0.26,
+            0.26,
+            0.27,
+            0.28,
+            0.29,
+            0.31,
+            0.31,
+            0.32,
+            0.32,
+            0.32,
+            0.33,
+            0.34,
+            0.32,
+            0.32,
+            0.3,
+            0.29,
+            0.27,
+            0.26,
+            0.25,
+            0.24,
+            0.22,
+            0.2,
+            0.19,
+            0.18,
+            0.17,
+            0.17,
+            0.17,
+            0.17,
+            0.17,
+            0.18,
+            0.18,
+            0.19,
+            0.2,
+            0.21,
+            0.22,
+            0.23,
+            0.24,
+            0.25,
+            0.26,
+            0.27,
+            0.29,
+            0.31,
+            0.33,
+            0.36,
+            0.38,
+            0.4,
+            0.43,
+            0.41,
+            0.39,
+            0.37,
+            0.36,
+            0.35,
+            0.35,
+            0.34,
+            0.34,
+            0.34,
+            0.34,
+            0.35,
+            0.36,
+            0.37,
+            0.38,
+            0.39,
+            0.41,
+            0.42,
+            0.43,
+            0.43,
+            0.43,
+            0.44,
+            0.44,
+            0.44,
+            0.44,
+            0.44,
+            0.44,
+            0.44,
+            0.44,
+            0.44,
+            0.45,
+            0.45,
+            0.45,
+            0.45,
+            0.45,
+            0.46,
+            0.46,
+            0.46,
+            0.46,
+            0.47,
+            0.47,
+            0.48,
+            0.5,
+            0.5,
+            0.51,
+            0.52,
+            0.52,
+            0.53
+          ]
+        }
+      ]
+    }
+  ],
+  "rcsb_polymer_entity_feature_summary": [
+    {
+      "count": 1,
+      "coverage": 0.8932,
+      "type": "Pfam"
+    }
+  ],
+  "rcsb_polymer_entity_group_membership": [
+    {
+      "aggregation_method": "sequence_identity",
+      "group_id": "3298_90",
+      "similarity_cutoff": 90.0,
+      "aligned_regions": [
+        {
+          "entity_beg_seq_id": 1,
+          "length": 218,
+          "ref_beg_seq_id": 10
+        },
+        {
+          "entity_beg_seq_id": 219,
+          "length": 400,
+          "ref_beg_seq_id": 231
+        }
+      ]
+    },
+    {
+      "aggregation_method": "sequence_identity",
+      "group_id": "3722_50",
+      "similarity_cutoff": 50.0,
+      "aligned_regions": [
+        {
+          "entity_beg_seq_id": 1,
+          "length": 218,
+          "ref_beg_seq_id": 18
+        },
+        {
+          "entity_beg_seq_id": 219,
+          "length": 252,
+          "ref_beg_seq_id": 239
+        },
+        {
+          "entity_beg_seq_id": 471,
+          "length": 2,
+          "ref_beg_seq_id": 492
+        },
+        {
+          "entity_beg_seq_id": 473,
+          "length": 25,
+          "ref_beg_seq_id": 495
+        },
+        {
+          "entity_beg_seq_id": 498,
+          "length": 47,
+          "ref_beg_seq_id": 521
+        },
+        {
+          "entity_beg_seq_id": 545,
+          "length": 59,
+          "ref_beg_seq_id": 569
+        },
+        {
+          "entity_beg_seq_id": 604,
+          "length": 6,
+          "ref_beg_seq_id": 629
+        },
+        {
+          "entity_beg_seq_id": 610,
+          "length": 9,
+          "ref_beg_seq_id": 646
+        }
+      ]
+    },
+    {
+      "aggregation_method": "matching_uniprot_accession",
+      "group_id": "P22892",
+      "aligned_regions": [
+        {
+          "entity_beg_seq_id": 6,
+          "length": 613,
+          "ref_beg_seq_id": 1
+        }
+      ]
+    },
+    {
+      "aggregation_method": "sequence_identity",
+      "group_id": "2911_30",
+      "similarity_cutoff": 30.0,
+      "aligned_regions": [
+        {
+          "entity_beg_seq_id": 1,
+          "length": 47,
+          "ref_beg_seq_id": 57
+        },
+        {
+          "entity_beg_seq_id": 48,
+          "length": 69,
+          "ref_beg_seq_id": 107
+        },
+        {
+          "entity_beg_seq_id": 117,
+          "length": 37,
+          "ref_beg_seq_id": 185
+        },
+        {
+          "entity_beg_seq_id": 154,
+          "length": 32,
+          "ref_beg_seq_id": 223
+        },
+        {
+          "entity_beg_seq_id": 186,
+          "length": 27,
+          "ref_beg_seq_id": 259
+        },
+        {
+          "entity_beg_seq_id": 213,
+          "length": 6,
+          "ref_beg_seq_id": 296
+        },
+        {
+          "entity_beg_seq_id": 219,
+          "length": 48,
+          "ref_beg_seq_id": 309
+        },
+        {
+          "entity_beg_seq_id": 267,
+          "length": 58,
+          "ref_beg_seq_id": 365
+        },
+        {
+          "entity_beg_seq_id": 325,
+          "length": 73,
+          "ref_beg_seq_id": 424
+        },
+        {
+          "entity_beg_seq_id": 398,
+          "length": 16,
+          "ref_beg_seq_id": 498
+        },
+        {
+          "entity_beg_seq_id": 414,
+          "length": 41,
+          "ref_beg_seq_id": 518
+        },
+        {
+          "entity_beg_seq_id": 455,
+          "length": 12,
+          "ref_beg_seq_id": 561
+        },
+        {
+          "entity_beg_seq_id": 467,
+          "length": 3,
+          "ref_beg_seq_id": 574
+        },
+        {
+          "entity_beg_seq_id": 470,
+          "length": 26,
+          "ref_beg_seq_id": 582
+        },
+        {
+          "entity_beg_seq_id": 496,
+          "length": 2,
+          "ref_beg_seq_id": 609
+        },
+        {
+          "entity_beg_seq_id": 498,
+          "length": 4,
+          "ref_beg_seq_id": 613
+        },
+        {
+          "entity_beg_seq_id": 502,
+          "length": 19,
+          "ref_beg_seq_id": 618
+        },
+        {
+          "entity_beg_seq_id": 521,
+          "length": 4,
+          "ref_beg_seq_id": 640
+        },
+        {
+          "entity_beg_seq_id": 525,
+          "length": 20,
+          "ref_beg_seq_id": 645
+        },
+        {
+          "entity_beg_seq_id": 545,
+          "length": 1,
+          "ref_beg_seq_id": 666
+        },
+        {
+          "entity_beg_seq_id": 546,
+          "length": 55,
+          "ref_beg_seq_id": 668
+        },
+        {
+          "entity_beg_seq_id": 601,
+          "length": 3,
+          "ref_beg_seq_id": 725
+        },
+        {
+          "entity_beg_seq_id": 604,
+          "length": 4,
+          "ref_beg_seq_id": 729
+        },
+        {
+          "entity_beg_seq_id": 608,
+          "length": 4,
+          "ref_beg_seq_id": 735
+        },
+        {
+          "entity_beg_seq_id": 612,
+          "length": 5,
+          "ref_beg_seq_id": 741
+        },
+        {
+          "entity_beg_seq_id": 617,
+          "length": 2,
+          "ref_beg_seq_id": 808
+        }
+      ]
+    },
+    {
+      "aggregation_method": "sequence_identity",
+      "group_id": "22144_100",
+      "similarity_cutoff": 100.0,
+      "aligned_regions": [
+        {
+          "entity_beg_seq_id": 1,
+          "length": 618,
+          "ref_beg_seq_id": 10
+        }
+      ]
+    },
+    {
+      "aggregation_method": "sequence_identity",
+      "group_id": "4448_95",
+      "similarity_cutoff": 95.0,
+      "aligned_regions": [
+        {
+          "entity_beg_seq_id": 1,
+          "length": 618,
+          "ref_beg_seq_id": 10
+        }
+      ]
+    },
+    {
+      "aggregation_method": "sequence_identity",
+      "group_id": "4569_70",
+      "similarity_cutoff": 70.0,
+      "aligned_regions": [
+        {
+          "entity_beg_seq_id": 1,
+          "length": 218,
+          "ref_beg_seq_id": 10
+        },
+        {
+          "entity_beg_seq_id": 219,
+          "length": 400,
+          "ref_beg_seq_id": 231
+        }
+      ]
+    }
+  ],
+  "rcsb_polymer_entity_name_com": [
+    {
+      "name": "GAMMA-ADAPTIN, ADAPTOR PROTEIN COMPLEX AP-1 GAMMA-1 SUBUNIT, GOLGI ADAPTOR HA1/AP1 ADAPTIN GAMMA-1 SUBUNIT, CLATHRIN ASSEMBLY PROTEIN COMPLEX 1 GAMMA-1 LARGE CHAIN"
+    }
+  ],
+  "rcsb_related_target_references": [
+    {
+      "related_resource_name": "ChEMBL",
+      "related_resource_version": "36",
+      "related_target_id": "CHEMBL6067033",
+      "target_taxonomy_id": 9606,
+      "aligned_target": [
+        {
+          "entity_beg_seq_id": 6,
+          "length": 612,
+          "target_beg_seq_id": 1
+        }
+      ]
+    },
+    {
+      "related_resource_name": "Pharos",
+      "related_resource_version": "6.13.4",
+      "related_target_id": "13238",
+      "target_taxonomy_id": 9606,
+      "aligned_target": [
+        {
+          "entity_beg_seq_id": 6,
+          "length": 612,
+          "target_beg_seq_id": 1
+        }
+      ]
+    }
+  ],
+  "rcsb_id": "1W63_1"
+}

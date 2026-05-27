@@ -1,0 +1,1747 @@
+[
+  {
+    "name": "CryptoBench (OSF API search)",
+    "official_url": "https://api.osf.io/v2/nodes/?filter[title]=CryptoBench",
+    "download_date": "2026-05-27T18:53:33Z",
+    "license": "UNKNOWN",
+    "file_path": "",
+    "file_size": "",
+    "sha256": "",
+    "file_type": "",
+    "schema_preview": "",
+    "contains": [],
+    "trust_level": "UNVERIFIED",
+    "intended_role": "",
+    "warnings": "OSF API returned no result",
+    "status": "INACCESSIBLE"
+  },
+  {
+    "name": "CryptoBench OSF search page",
+    "official_url": "https://osf.io/search/?q=CryptoBench",
+    "download_date": "2026-05-27T18:53:33Z",
+    "license": "UNKNOWN",
+    "file_path": "data\\raw_intake\\cryptobench\\osf_search_page.html",
+    "file_size": "4.2 KB",
+    "sha256": "b822066d7d70e4af25ab91701580983fd38ae77401008bf5dd770eb50145332f",
+    "file_type": "HTML",
+    "schema_preview": "",
+    "contains": [
+      "metadata"
+    ],
+    "trust_level": "LINKED_ONLY",
+    "intended_role": "CryptoBench discovery",
+    "warnings": "",
+    "status": "ACQUIRED"
+  },
+  {
+    "name": "CryptoBench GitHub search results",
+    "official_url": "https://api.github.com/search/repositories?q=CryptoBench+cryptic+pocket",
+    "download_date": "2026-05-27T18:53:33Z",
+    "license": "UNKNOWN",
+    "file_path": "data\\raw_intake\\cryptobench\\github_search_cryptobench.json",
+    "file_size": "72 B",
+    "sha256": "53895997f5e07566d90a3f34b7fbb880fb1acf32d885aa31fbb268a6d7769d2a",
+    "file_type": "JSON",
+    "schema_preview": "",
+    "contains": [
+      "metadata"
+    ],
+    "trust_level": "OFFICIAL_API",
+    "intended_role": "CryptoBench repo discovery",
+    "warnings": "",
+    "status": "ACQUIRED"
+  },
+  {
+    "name": "RCSB PCNA full-text search results",
+    "official_url": "https://search.rcsb.org/rcsbsearch/v2/query",
+    "download_date": "2026-05-27T18:53:33Z",
+    "license": "Public Domain (PDB data policy)",
+    "file_path": "data\\raw_intake\\rcsb_pdb\\rcsb_pcna_search_results.json",
+    "file_size": "4.1 KB",
+    "sha256": "95ed9ca58c4a8cd2ce6ddf15ea132a38e9fe5e1ac087fb3fb3579df1358ba9c1",
+    "file_type": "JSON",
+    "schema_preview": "",
+    "contains": [
+      "metadata"
+    ],
+    "trust_level": "OFFICIAL_API",
+    "intended_role": "PCNA structure discovery",
+    "warnings": "Full-text search; check each structure relevance manually",
+    "status": "ACQUIRED"
+  },
+  {
+    "name": "RCSB PDB 8GLA metadata",
+    "official_url": "https://www.rcsb.org/structure/8GLA",
+    "download_date": "2026-05-27T18:53:33Z",
+    "license": "Public Domain (wwPDB open access)",
+    "file_path": "data\\raw_intake\\pcna_structures\\8GLA_metadata.json",
+    "file_size": "19.7 KB",
+    "sha256": "f5281ca8fad1055dfeaf32b9de3070dd87a9131577790a28250ef173f3f4dead",
+    "file_type": "JSON (RCSB REST API)",
+    "schema_preview": "method=X-ray, resolution=3.77\u00c5, organism=Homo sapiens, chains=1, nonpoly=2, ligands=[]",
+    "contains": [
+      "structures",
+      "metadata"
+    ],
+    "trust_level": "OFFICIAL_API",
+    "intended_role": "positive-control (cryptic pocket ligand)",
+    "warnings": "8GLA contains AOH1996 bound at cryptic PCNA pocket \u2014 use as positive control only",
+    "status": "ACQUIRED"
+  },
+  {
+    "name": "RCSB PDB 8GLA mmCIF",
+    "official_url": "https://files.rcsb.org/download/8GLA.cif",
+    "download_date": "2026-05-27T18:53:33Z",
+    "license": "Public Domain (wwPDB open access)",
+    "file_path": "data\\raw_intake\\pcna_structures\\8GLA.cif",
+    "file_size": "826.0 KB",
+    "sha256": "8c88e5ef1fe2df0403bcd2e56e5e626711949600bbcee6d51b749ffabb630bec",
+    "file_type": "mmCIF",
+    "schema_preview": "data_8GLA",
+    "contains": [
+      "structures"
+    ],
+    "trust_level": "OFFICIAL_DOWNLOAD",
+    "intended_role": "PCNA positive-control structure",
+    "warnings": "Not adopted for training \u2014 experimental structure only",
+    "status": "ACQUIRED"
+  },
+  {
+    "name": "RCSB PDB 1W60 metadata",
+    "official_url": "https://www.rcsb.org/structure/1W60",
+    "download_date": "2026-05-27T18:53:33Z",
+    "license": "Public Domain (wwPDB open access)",
+    "file_path": "data\\raw_intake\\pcna_structures\\1W60_metadata.json",
+    "file_size": "14.8 KB",
+    "sha256": "58b5ebde62c0412880214d60ae499c225c331b75bf75bdb1dddcc4db1ae39924",
+    "file_type": "JSON (RCSB REST API)",
+    "schema_preview": "method=X-ray, resolution=3.15\u00c5, organism=HOMO SAPIENS, chains=1, nonpoly=0, ligands=[]",
+    "contains": [
+      "structures",
+      "metadata"
+    ],
+    "trust_level": "OFFICIAL_API",
+    "intended_role": "PCNA reference structure",
+    "warnings": "",
+    "status": "ACQUIRED"
+  },
+  {
+    "name": "RCSB PDB 1W60 mmCIF",
+    "official_url": "https://files.rcsb.org/download/1W60.cif",
+    "download_date": "2026-05-27T18:53:33Z",
+    "license": "Public Domain (wwPDB open access)",
+    "file_path": "data\\raw_intake\\pcna_structures\\1W60.cif",
+    "file_size": "434.5 KB",
+    "sha256": "bceb8eaede5fb7a356ef8b293aae75ef3f8cd3564b81c60c4f16827afcddf9a8",
+    "file_type": "mmCIF",
+    "schema_preview": "data_1W60",
+    "contains": [
+      "structures"
+    ],
+    "trust_level": "OFFICIAL_DOWNLOAD",
+    "intended_role": "PCNA reference structure",
+    "warnings": "Not adopted for training \u2014 experimental structure only",
+    "status": "ACQUIRED"
+  },
+  {
+    "name": "RCSB PDB 1AXC metadata",
+    "official_url": "https://www.rcsb.org/structure/1AXC",
+    "download_date": "2026-05-27T18:53:33Z",
+    "license": "Public Domain (wwPDB open access)",
+    "file_path": "data\\raw_intake\\pcna_structures\\1AXC_metadata.json",
+    "file_size": "15.8 KB",
+    "sha256": "40181cdc665d9d7ddab317e0d8ac96539b837d985f80626deb6b071626f3493f",
+    "file_type": "JSON (RCSB REST API)",
+    "schema_preview": "method=X-ray, resolution=2.6\u00c5, organism=Homo sapiens, chains=2, nonpoly=0, ligands=[]",
+    "contains": [
+      "structures",
+      "metadata"
+    ],
+    "trust_level": "OFFICIAL_API",
+    "intended_role": "PCNA structure inventory",
+    "warnings": "",
+    "status": "ACQUIRED"
+  },
+  {
+    "name": "RCSB PDB 1AXC mmCIF",
+    "official_url": "https://files.rcsb.org/download/1AXC.cif",
+    "download_date": "2026-05-27T18:53:33Z",
+    "license": "Public Domain (wwPDB open access)",
+    "file_path": "data\\raw_intake\\pcna_structures\\1AXC.cif",
+    "file_size": "853.7 KB",
+    "sha256": "f9472769dcbceec05533fa1a85e617dd50e2dde66f2c9f6554d52a2ecc1ec135",
+    "file_type": "mmCIF",
+    "schema_preview": "data_1AXC",
+    "contains": [
+      "structures"
+    ],
+    "trust_level": "OFFICIAL_DOWNLOAD",
+    "intended_role": "PCNA reference structure",
+    "warnings": "Not adopted for training \u2014 experimental structure only",
+    "status": "ACQUIRED"
+  },
+  {
+    "name": "RCSB PDB 1W63 metadata",
+    "official_url": "https://www.rcsb.org/structure/1W63",
+    "download_date": "2026-05-27T18:53:33Z",
+    "license": "Public Domain (wwPDB open access)",
+    "file_path": "data\\raw_intake\\pcna_structures\\1W63_metadata.json",
+    "file_size": "18.8 KB",
+    "sha256": "53ee4a1ddfa938e31766bf9bb994fba7d3cd91c10a53d1ef567974e67287719a",
+    "file_type": "JSON (RCSB REST API)",
+    "schema_preview": "method=X-ray, resolution=4.0\u00c5, organism=MUS MUSCULUS, chains=4, nonpoly=0, ligands=[]",
+    "contains": [
+      "structures",
+      "metadata"
+    ],
+    "trust_level": "OFFICIAL_API",
+    "intended_role": "PCNA structure inventory",
+    "warnings": "",
+    "status": "ACQUIRED"
+  },
+  {
+    "name": "RCSB PDB 1W63 mmCIF",
+    "official_url": "https://files.rcsb.org/download/1W63.cif",
+    "download_date": "2026-05-27T18:53:33Z",
+    "license": "Public Domain (wwPDB open access)",
+    "file_path": "data\\raw_intake\\pcna_structures\\1W63.cif",
+    "file_size": "7.98 MB",
+    "sha256": "589a2a1e36ae13268d6551ea9b475aeb3a18cceab77a47238fe2ff8e7089a09b",
+    "file_type": "mmCIF",
+    "schema_preview": "data_1W63",
+    "contains": [
+      "structures"
+    ],
+    "trust_level": "OFFICIAL_DOWNLOAD",
+    "intended_role": "PCNA reference structure",
+    "warnings": "Not adopted for training \u2014 experimental structure only",
+    "status": "ACQUIRED"
+  },
+  {
+    "name": "RCSB PDB 3JAB metadata",
+    "official_url": "https://www.rcsb.org/structure/3JAB",
+    "download_date": "2026-05-27T18:53:33Z",
+    "license": "Public Domain (wwPDB open access)",
+    "file_path": "data\\raw_intake\\pcna_structures\\3JAB_metadata.json",
+    "file_size": "17.8 KB",
+    "sha256": "6681eada583adfc1699a1ea60463342811aa0eb36a0c29e2ab90a8b30e7aa508",
+    "file_type": "JSON (RCSB REST API)",
+    "schema_preview": "method=EM, resolution=11.0\u00c5, organism=Bos taurus, chains=6, nonpoly=1, ligands=[]",
+    "contains": [
+      "structures",
+      "metadata"
+    ],
+    "trust_level": "OFFICIAL_API",
+    "intended_role": "PCNA structure inventory",
+    "warnings": "",
+    "status": "ACQUIRED"
+  },
+  {
+    "name": "RCSB PDB 3JAB mmCIF",
+    "official_url": "https://files.rcsb.org/download/3JAB.cif",
+    "download_date": "2026-05-27T18:53:33Z",
+    "license": "Public Domain (wwPDB open access)",
+    "file_path": "data\\raw_intake\\pcna_structures\\3JAB.cif",
+    "file_size": "1.80 MB",
+    "sha256": "ff031a497ddc10992f40a658ab9e78ba5b5c243d5ccd9b7627876bbd65a6b9d5",
+    "file_type": "mmCIF",
+    "schema_preview": "data_3JAB",
+    "contains": [
+      "structures"
+    ],
+    "trust_level": "OFFICIAL_DOWNLOAD",
+    "intended_role": "PCNA reference structure",
+    "warnings": "Not adopted for training \u2014 experimental structure only",
+    "status": "ACQUIRED"
+  },
+  {
+    "name": "RCSB PDB 6GIS metadata",
+    "official_url": "https://www.rcsb.org/structure/6GIS",
+    "download_date": "2026-05-27T18:53:33Z",
+    "license": "Public Domain (wwPDB open access)",
+    "file_path": "data\\raw_intake\\pcna_structures\\6GIS_metadata.json",
+    "file_size": "30.4 KB",
+    "sha256": "07759ecbce59147a1b2483b71d3e3d36669e7dd104bc53347c485c344e9e7db5",
+    "file_type": "JSON (RCSB REST API)",
+    "schema_preview": "method=X-ray, resolution=2.82\u00c5, organism=Homo sapiens, chains=3, nonpoly=0, ligands=[]",
+    "contains": [
+      "structures",
+      "metadata"
+    ],
+    "trust_level": "OFFICIAL_API",
+    "intended_role": "PCNA structure inventory",
+    "warnings": "",
+    "status": "ACQUIRED"
+  },
+  {
+    "name": "RCSB PDB 6GIS mmCIF",
+    "official_url": "https://files.rcsb.org/download/6GIS.cif",
+    "download_date": "2026-05-27T18:53:33Z",
+    "license": "Public Domain (wwPDB open access)",
+    "file_path": "data\\raw_intake\\pcna_structures\\6GIS.cif",
+    "file_size": "1.20 MB",
+    "sha256": "11abcc8d33f474a8eb01574d2480e3b1aebc2a93ddff78632f89d6b8ee7ebe35",
+    "file_type": "mmCIF",
+    "schema_preview": "data_6GIS",
+    "contains": [
+      "structures"
+    ],
+    "trust_level": "OFFICIAL_DOWNLOAD",
+    "intended_role": "PCNA reference structure",
+    "warnings": "Not adopted for training \u2014 experimental structure only",
+    "status": "ACQUIRED"
+  },
+  {
+    "name": "RCSB PDB 1VYJ metadata",
+    "official_url": "https://www.rcsb.org/structure/1VYJ",
+    "download_date": "2026-05-27T18:53:33Z",
+    "license": "Public Domain (wwPDB open access)",
+    "file_path": "data\\raw_intake\\pcna_structures\\1VYJ_metadata.json",
+    "file_size": "17.7 KB",
+    "sha256": "324496643c428ec5fda3e9a04a628bde80b737607fa0120e98e362883543576f",
+    "file_type": "JSON (RCSB REST API)",
+    "schema_preview": "method=X-ray, resolution=2.8\u00c5, organism=HOMO SAPIENS, chains=2, nonpoly=0, ligands=[]",
+    "contains": [
+      "structures",
+      "metadata"
+    ],
+    "trust_level": "OFFICIAL_API",
+    "intended_role": "PCNA structure inventory",
+    "warnings": "",
+    "status": "ACQUIRED"
+  },
+  {
+    "name": "RCSB PDB 1VYJ mmCIF",
+    "official_url": "https://files.rcsb.org/download/1VYJ.cif",
+    "download_date": "2026-05-27T18:53:33Z",
+    "license": "Public Domain (wwPDB open access)",
+    "file_path": "data\\raw_intake\\pcna_structures\\1VYJ.cif",
+    "file_size": "1.35 MB",
+    "sha256": "77c759a0a0998e31b1456b9315e4d6cf04949d556bebb4584b9cf42d50878555",
+    "file_type": "mmCIF",
+    "schema_preview": "data_1VYJ",
+    "contains": [
+      "structures"
+    ],
+    "trust_level": "OFFICIAL_DOWNLOAD",
+    "intended_role": "PCNA reference structure",
+    "warnings": "Not adopted for training \u2014 experimental structure only",
+    "status": "ACQUIRED"
+  },
+  {
+    "name": "RCSB PDB 1UL1 metadata",
+    "official_url": "https://www.rcsb.org/structure/1UL1",
+    "download_date": "2026-05-27T18:53:33Z",
+    "license": "Public Domain (wwPDB open access)",
+    "file_path": "data\\raw_intake\\pcna_structures\\1UL1_metadata.json",
+    "file_size": "19.7 KB",
+    "sha256": "56806b028947bce8dab039cfeaf9ec3f038c9b4250e8381d494ef3d467871fbe",
+    "file_type": "JSON (RCSB REST API)",
+    "schema_preview": "method=X-ray, resolution=2.9\u00c5, organism=Homo sapiens, chains=2, nonpoly=1, ligands=[]",
+    "contains": [
+      "structures",
+      "metadata"
+    ],
+    "trust_level": "OFFICIAL_API",
+    "intended_role": "PCNA structure inventory",
+    "warnings": "",
+    "status": "ACQUIRED"
+  },
+  {
+    "name": "RCSB PDB 1UL1 mmCIF",
+    "official_url": "https://files.rcsb.org/download/1UL1.cif",
+    "download_date": "2026-05-27T18:53:33Z",
+    "license": "Public Domain (wwPDB open access)",
+    "file_path": "data\\raw_intake\\pcna_structures\\1UL1.cif",
+    "file_size": "1.40 MB",
+    "sha256": "7f11d6c7d5b8135108d143ab07c2412075914e45bcc75427cbda68d7c695a3a9",
+    "file_type": "mmCIF",
+    "schema_preview": "data_1UL1",
+    "contains": [
+      "structures"
+    ],
+    "trust_level": "OFFICIAL_DOWNLOAD",
+    "intended_role": "PCNA reference structure",
+    "warnings": "Not adopted for training \u2014 experimental structure only",
+    "status": "ACQUIRED"
+  },
+  {
+    "name": "RCSB PDB 2ZVK metadata",
+    "official_url": "https://www.rcsb.org/structure/2ZVK",
+    "download_date": "2026-05-27T18:53:33Z",
+    "license": "Public Domain (wwPDB open access)",
+    "file_path": "data\\raw_intake\\pcna_structures\\2ZVK_metadata.json",
+    "file_size": "21.2 KB",
+    "sha256": "625873bf1df0a438a50138d982df311d78d30433ab4854286a81c04bf6a311ae",
+    "file_type": "JSON (RCSB REST API)",
+    "schema_preview": "method=X-ray, resolution=2.7\u00c5, organism=Homo sapiens, chains=2, nonpoly=0, ligands=[]",
+    "contains": [
+      "structures",
+      "metadata"
+    ],
+    "trust_level": "OFFICIAL_API",
+    "intended_role": "PCNA structure inventory",
+    "warnings": "",
+    "status": "ACQUIRED"
+  },
+  {
+    "name": "RCSB PDB 2ZVK mmCIF",
+    "official_url": "https://files.rcsb.org/download/2ZVK.cif",
+    "download_date": "2026-05-27T18:53:33Z",
+    "license": "Public Domain (wwPDB open access)",
+    "file_path": "data\\raw_intake\\pcna_structures\\2ZVK.cif",
+    "file_size": "636.9 KB",
+    "sha256": "a071a7609090c7227c60cae39b90c197aaa8dbe07b9c54dc454ca54f8fdb9e76",
+    "file_type": "mmCIF",
+    "schema_preview": "data_2ZVK",
+    "contains": [
+      "structures"
+    ],
+    "trust_level": "OFFICIAL_DOWNLOAD",
+    "intended_role": "PCNA reference structure",
+    "warnings": "Not adopted for training \u2014 experimental structure only",
+    "status": "ACQUIRED"
+  },
+  {
+    "name": "RCSB PDB 4D2G metadata",
+    "official_url": "https://www.rcsb.org/structure/4D2G",
+    "download_date": "2026-05-27T18:53:33Z",
+    "license": "Public Domain (wwPDB open access)",
+    "file_path": "data\\raw_intake\\pcna_structures\\4D2G_metadata.json",
+    "file_size": "16.6 KB",
+    "sha256": "a194808a7c12469260ef2fb3d1294e2c7869d19e571718cce16c7ce0920bd032",
+    "file_type": "JSON (RCSB REST API)",
+    "schema_preview": "method=X-ray, resolution=2.65\u00c5, organism=HOMO SAPIENS, chains=2, nonpoly=0, ligands=[]",
+    "contains": [
+      "structures",
+      "metadata"
+    ],
+    "trust_level": "OFFICIAL_API",
+    "intended_role": "PCNA structure inventory",
+    "warnings": "",
+    "status": "ACQUIRED"
+  },
+  {
+    "name": "RCSB PDB 4D2G mmCIF",
+    "official_url": "https://files.rcsb.org/download/4D2G.cif",
+    "download_date": "2026-05-27T18:53:33Z",
+    "license": "Public Domain (wwPDB open access)",
+    "file_path": "data\\raw_intake\\pcna_structures\\4D2G.cif",
+    "file_size": "1.26 MB",
+    "sha256": "0405ce41ced9ab78d964bd8d5e716eda901d19430e8cbff2042174ac61488c20",
+    "file_type": "mmCIF",
+    "schema_preview": "data_4D2G",
+    "contains": [
+      "structures"
+    ],
+    "trust_level": "OFFICIAL_DOWNLOAD",
+    "intended_role": "PCNA reference structure",
+    "warnings": "Not adopted for training \u2014 experimental structure only",
+    "status": "ACQUIRED"
+  },
+  {
+    "name": "RCSB PDB 2HIK metadata",
+    "official_url": "https://www.rcsb.org/structure/2HIK",
+    "download_date": "2026-05-27T18:53:33Z",
+    "license": "Public Domain (wwPDB open access)",
+    "file_path": "data\\raw_intake\\rcsb_pdb\\2HIK_metadata.json",
+    "file_size": "22.9 KB",
+    "sha256": "2214c30b751b70a94fb17e4442a3428babb4a292c39dfacabb441ccbc05f495d",
+    "file_type": "JSON (RCSB REST API)",
+    "schema_preview": "method=X-ray, resolution=3.3\u00c5, organism=Sulfolobus solfataricus, chains=3, nonpoly=0, ligands=[]",
+    "contains": [
+      "structures",
+      "metadata"
+    ],
+    "trust_level": "OFFICIAL_API",
+    "intended_role": "PCNA structure inventory",
+    "warnings": "",
+    "status": "ACQUIRED"
+  },
+  {
+    "name": "RCSB PDB 2HIK mmCIF",
+    "official_url": "https://files.rcsb.org/download/2HIK.cif",
+    "download_date": "2026-05-27T18:53:33Z",
+    "license": "Public Domain (wwPDB open access)",
+    "file_path": "data\\raw_intake\\rcsb_pdb\\2HIK.cif",
+    "file_size": "1.78 MB",
+    "sha256": "2190e9f9e0940575619273e9f345c97d64394eedba00de4f6962be288df6c667",
+    "file_type": "mmCIF",
+    "schema_preview": "data_2HIK",
+    "contains": [
+      "structures"
+    ],
+    "trust_level": "OFFICIAL_DOWNLOAD",
+    "intended_role": "PCNA reference structure",
+    "warnings": "Not adopted for training \u2014 experimental structure only",
+    "status": "ACQUIRED"
+  },
+  {
+    "name": "RCSB PDB 2HII metadata",
+    "official_url": "https://www.rcsb.org/structure/2HII",
+    "download_date": "2026-05-27T18:53:33Z",
+    "license": "Public Domain (wwPDB open access)",
+    "file_path": "data\\raw_intake\\rcsb_pdb\\2HII_metadata.json",
+    "file_size": "23.4 KB",
+    "sha256": "c3f86d3b65e60ef51fdd6632b146d627c94ccb1e798aff4f7a5223d5185af65d",
+    "file_type": "JSON (RCSB REST API)",
+    "schema_preview": "method=X-ray, resolution=2.79\u00c5, organism=Sulfolobus solfataricus, chains=3, nonpoly=0, ligands=[]",
+    "contains": [
+      "structures",
+      "metadata"
+    ],
+    "trust_level": "OFFICIAL_API",
+    "intended_role": "PCNA structure inventory",
+    "warnings": "",
+    "status": "ACQUIRED"
+  },
+  {
+    "name": "RCSB PDB 2HII mmCIF",
+    "official_url": "https://files.rcsb.org/download/2HII.cif",
+    "download_date": "2026-05-27T18:53:33Z",
+    "license": "Public Domain (wwPDB open access)",
+    "file_path": "data\\raw_intake\\rcsb_pdb\\2HII.cif",
+    "file_size": "1.21 MB",
+    "sha256": "52e93986c92a0a2a16982d66a79b80c994423fc6681f6c95b9523bb97bcd805a",
+    "file_type": "mmCIF",
+    "schema_preview": "data_2HII",
+    "contains": [
+      "structures"
+    ],
+    "trust_level": "OFFICIAL_DOWNLOAD",
+    "intended_role": "PCNA reference structure",
+    "warnings": "Not adopted for training \u2014 experimental structure only",
+    "status": "ACQUIRED"
+  },
+  {
+    "name": "RCSB PDB 2NTI metadata",
+    "official_url": "https://www.rcsb.org/structure/2NTI",
+    "download_date": "2026-05-27T18:53:33Z",
+    "license": "Public Domain (wwPDB open access)",
+    "file_path": "data\\raw_intake\\rcsb_pdb\\2NTI_metadata.json",
+    "file_size": "19.9 KB",
+    "sha256": "1c69e8eb8861673c188942af135f41f6537350cc20eb17cbb40866e92f191e08",
+    "file_type": "JSON (RCSB REST API)",
+    "schema_preview": "method=X-ray, resolution=2.5\u00c5, organism=Sulfolobus solfataricus, chains=3, nonpoly=3, ligands=[]",
+    "contains": [
+      "structures",
+      "metadata"
+    ],
+    "trust_level": "OFFICIAL_API",
+    "intended_role": "PCNA structure inventory",
+    "warnings": "",
+    "status": "ACQUIRED"
+  },
+  {
+    "name": "RCSB PDB 2NTI mmCIF",
+    "official_url": "https://files.rcsb.org/download/2NTI.cif",
+    "download_date": "2026-05-27T18:53:33Z",
+    "license": "Public Domain (wwPDB open access)",
+    "file_path": "data\\raw_intake\\rcsb_pdb\\2NTI.cif",
+    "file_size": "1.96 MB",
+    "sha256": "dc21b9ed81dd97a18621bd532f650c8e3ea492cfd98d2e83387db76d4babf930",
+    "file_type": "mmCIF",
+    "schema_preview": "data_2NTI",
+    "contains": [
+      "structures"
+    ],
+    "trust_level": "OFFICIAL_DOWNLOAD",
+    "intended_role": "PCNA reference structure",
+    "warnings": "Not adopted for training \u2014 experimental structure only",
+    "status": "ACQUIRED"
+  },
+  {
+    "name": "RCSB PDB 3IFV metadata",
+    "official_url": "https://www.rcsb.org/structure/3IFV",
+    "download_date": "2026-05-27T18:53:33Z",
+    "license": "Public Domain (wwPDB open access)",
+    "file_path": "data\\raw_intake\\rcsb_pdb\\3IFV_metadata.json",
+    "file_size": "23.5 KB",
+    "sha256": "5bc17143765a15199e02f6410f70f9ecedd31088b11bad2626d8ab9e204de01d",
+    "file_type": "JSON (RCSB REST API)",
+    "schema_preview": "method=X-ray, resolution=2.0\u00c5, organism=Haloferax volcanii, chains=1, nonpoly=1, ligands=[]",
+    "contains": [
+      "structures",
+      "metadata"
+    ],
+    "trust_level": "OFFICIAL_API",
+    "intended_role": "PCNA structure inventory",
+    "warnings": "",
+    "status": "ACQUIRED"
+  },
+  {
+    "name": "RCSB PDB 3IFV mmCIF",
+    "official_url": "https://files.rcsb.org/download/3IFV.cif",
+    "download_date": "2026-05-27T18:53:33Z",
+    "license": "Public Domain (wwPDB open access)",
+    "file_path": "data\\raw_intake\\rcsb_pdb\\3IFV.cif",
+    "file_size": "617.3 KB",
+    "sha256": "fbc10313be1b8f7e49b73d737995fd52e7b5c9f72cb78de171708b9a036cf79d",
+    "file_type": "mmCIF",
+    "schema_preview": "data_3IFV",
+    "contains": [
+      "structures"
+    ],
+    "trust_level": "OFFICIAL_DOWNLOAD",
+    "intended_role": "PCNA reference structure",
+    "warnings": "Not adopted for training \u2014 experimental structure only",
+    "status": "ACQUIRED"
+  },
+  {
+    "name": "RCSB PDB 3HI8 metadata",
+    "official_url": "https://www.rcsb.org/structure/3HI8",
+    "download_date": "2026-05-27T18:53:33Z",
+    "license": "Public Domain (wwPDB open access)",
+    "file_path": "data\\raw_intake\\rcsb_pdb\\3HI8_metadata.json",
+    "file_size": "17.8 KB",
+    "sha256": "b7b5cf723a679c0246778247d821813dabf5e613436ec2fa6e2316714fb379a6",
+    "file_type": "JSON (RCSB REST API)",
+    "schema_preview": "method=X-ray, resolution=3.202\u00c5, organism=Haloferax volcanii, chains=1, nonpoly=0, ligands=[]",
+    "contains": [
+      "structures",
+      "metadata"
+    ],
+    "trust_level": "OFFICIAL_API",
+    "intended_role": "PCNA structure inventory",
+    "warnings": "",
+    "status": "ACQUIRED"
+  },
+  {
+    "name": "RCSB PDB 3HI8 mmCIF",
+    "official_url": "https://files.rcsb.org/download/3HI8.cif",
+    "download_date": "2026-05-27T18:53:33Z",
+    "license": "Public Domain (wwPDB open access)",
+    "file_path": "data\\raw_intake\\rcsb_pdb\\3HI8.cif",
+    "file_size": "1.15 MB",
+    "sha256": "1786225b5854205208427bbc8bc55f373c057faf3e22ad3b543fed82856dbf0c",
+    "file_type": "mmCIF",
+    "schema_preview": "data_3HI8",
+    "contains": [
+      "structures"
+    ],
+    "trust_level": "OFFICIAL_DOWNLOAD",
+    "intended_role": "PCNA reference structure",
+    "warnings": "Not adopted for training \u2014 experimental structure only",
+    "status": "ACQUIRED"
+  },
+  {
+    "name": "RCSB PDB 2IX2 metadata",
+    "official_url": "https://www.rcsb.org/structure/2IX2",
+    "download_date": "2026-05-27T18:53:33Z",
+    "license": "Public Domain (wwPDB open access)",
+    "file_path": "data\\raw_intake\\rcsb_pdb\\2IX2_metadata.json",
+    "file_size": "20.9 KB",
+    "sha256": "6de68641b3f26a47a0c044f81a43ecdc808acb8f8e8f1b56c2c5de741a0f68c1",
+    "file_type": "JSON (RCSB REST API)",
+    "schema_preview": "method=X-ray, resolution=2.2\u00c5, organism=SULFOLOBUS SOLFATARICUS, chains=3, nonpoly=0, ligands=[]",
+    "contains": [
+      "structures",
+      "metadata"
+    ],
+    "trust_level": "OFFICIAL_API",
+    "intended_role": "PCNA structure inventory",
+    "warnings": "",
+    "status": "ACQUIRED"
+  },
+  {
+    "name": "RCSB PDB 2IX2 mmCIF",
+    "official_url": "https://files.rcsb.org/download/2IX2.cif",
+    "download_date": "2026-05-27T18:53:33Z",
+    "license": "Public Domain (wwPDB open access)",
+    "file_path": "data\\raw_intake\\rcsb_pdb\\2IX2.cif",
+    "file_size": "618.2 KB",
+    "sha256": "369f3310ac09d25e19560c477cc6ab65ba446baf6d23fe8b5a62d26c4a257779",
+    "file_type": "mmCIF",
+    "schema_preview": "data_2IX2",
+    "contains": [
+      "structures"
+    ],
+    "trust_level": "OFFICIAL_DOWNLOAD",
+    "intended_role": "PCNA reference structure",
+    "warnings": "Not adopted for training \u2014 experimental structure only",
+    "status": "ACQUIRED"
+  },
+  {
+    "name": "RCSB PDB 5AUJ metadata",
+    "official_url": "https://www.rcsb.org/structure/5AUJ",
+    "download_date": "2026-05-27T18:53:33Z",
+    "license": "Public Domain (wwPDB open access)",
+    "file_path": "data\\raw_intake\\rcsb_pdb\\5AUJ_metadata.json",
+    "file_size": "15.0 KB",
+    "sha256": "5d120ebe50fd5b497838e4bf2b051aab347b65638fe74e4c14e757e525a3dd4e",
+    "file_type": "JSON (RCSB REST API)",
+    "schema_preview": "method=X-ray, resolution=2.5\u00c5, organism=Pyrococcus furiosus DSM 3638, chains=1, nonpoly=0, ligands=[]",
+    "contains": [
+      "structures",
+      "metadata"
+    ],
+    "trust_level": "OFFICIAL_API",
+    "intended_role": "PCNA structure inventory",
+    "warnings": "",
+    "status": "ACQUIRED"
+  },
+  {
+    "name": "RCSB PDB 5AUJ mmCIF",
+    "official_url": "https://files.rcsb.org/download/5AUJ.cif",
+    "download_date": "2026-05-27T18:53:33Z",
+    "license": "Public Domain (wwPDB open access)",
+    "file_path": "data\\raw_intake\\rcsb_pdb\\5AUJ.cif",
+    "file_size": "243.4 KB",
+    "sha256": "2be984c311029198e8a537b7f2028f072872c1656e82e0f72e56787700e47dfb",
+    "file_type": "mmCIF",
+    "schema_preview": "data_5AUJ",
+    "contains": [
+      "structures"
+    ],
+    "trust_level": "OFFICIAL_DOWNLOAD",
+    "intended_role": "PCNA reference structure",
+    "warnings": "Not adopted for training \u2014 experimental structure only",
+    "status": "ACQUIRED"
+  },
+  {
+    "name": "RCSB PDB 5A6D metadata",
+    "official_url": "https://www.rcsb.org/structure/5A6D",
+    "download_date": "2026-05-27T18:53:33Z",
+    "license": "Public Domain (wwPDB open access)",
+    "file_path": "data\\raw_intake\\rcsb_pdb\\5A6D_metadata.json",
+    "file_size": "16.7 KB",
+    "sha256": "5e6d1a3b61ed9a1311a36366f64f30ce3b95c2f2a117cb8e1a07a4cf5157f013",
+    "file_type": "JSON (RCSB REST API)",
+    "schema_preview": "method=X-ray, resolution=2.8\u00c5, organism=THERMOCOCCUS GAMMATOLERANS, chains=1, nonpoly=0, ligands=[]",
+    "contains": [
+      "structures",
+      "metadata"
+    ],
+    "trust_level": "OFFICIAL_API",
+    "intended_role": "PCNA structure inventory",
+    "warnings": "",
+    "status": "ACQUIRED"
+  },
+  {
+    "name": "RCSB PDB 5A6D mmCIF",
+    "official_url": "https://files.rcsb.org/download/5A6D.cif",
+    "download_date": "2026-05-27T18:53:33Z",
+    "license": "Public Domain (wwPDB open access)",
+    "file_path": "data\\raw_intake\\rcsb_pdb\\5A6D.cif",
+    "file_size": "411.6 KB",
+    "sha256": "868cc56e80c5ff0ecd71e22df221e2dcb049d5b336270fb5b8bb14423b349de0",
+    "file_type": "mmCIF",
+    "schema_preview": "data_5A6D",
+    "contains": [
+      "structures"
+    ],
+    "trust_level": "OFFICIAL_DOWNLOAD",
+    "intended_role": "PCNA reference structure",
+    "warnings": "Not adopted for training \u2014 experimental structure only",
+    "status": "ACQUIRED"
+  },
+  {
+    "name": "RCSB PDB 1RWZ metadata",
+    "official_url": "https://www.rcsb.org/structure/1RWZ",
+    "download_date": "2026-05-27T18:53:33Z",
+    "license": "Public Domain (wwPDB open access)",
+    "file_path": "data\\raw_intake\\rcsb_pdb\\1RWZ_metadata.json",
+    "file_size": "15.9 KB",
+    "sha256": "845e0f6620951fec323412599510e421972f6ea13c5f559627a9914c7254df64",
+    "file_type": "JSON (RCSB REST API)",
+    "schema_preview": "method=X-ray, resolution=1.8\u00c5, organism=Archaeoglobus fulgidus, chains=1, nonpoly=0, ligands=[]",
+    "contains": [
+      "structures",
+      "metadata"
+    ],
+    "trust_level": "OFFICIAL_API",
+    "intended_role": "PCNA structure inventory",
+    "warnings": "",
+    "status": "ACQUIRED"
+  },
+  {
+    "name": "RCSB PDB 1RWZ mmCIF",
+    "official_url": "https://files.rcsb.org/download/1RWZ.cif",
+    "download_date": "2026-05-27T18:53:33Z",
+    "license": "Public Domain (wwPDB open access)",
+    "file_path": "data\\raw_intake\\rcsb_pdb\\1RWZ.cif",
+    "file_size": "271.5 KB",
+    "sha256": "4bbe7970efd7ed105dfa88c3f27d5e1425343506bbbfe95fd685bdde56fe6e76",
+    "file_type": "mmCIF",
+    "schema_preview": "data_1RWZ",
+    "contains": [
+      "structures"
+    ],
+    "trust_level": "OFFICIAL_DOWNLOAD",
+    "intended_role": "PCNA reference structure",
+    "warnings": "Not adopted for training \u2014 experimental structure only",
+    "status": "ACQUIRED"
+  },
+  {
+    "name": "RCSB PDB 1IZ5 metadata",
+    "official_url": "https://www.rcsb.org/structure/1IZ5",
+    "download_date": "2026-05-27T18:53:33Z",
+    "license": "Public Domain (wwPDB open access)",
+    "file_path": "data\\raw_intake\\rcsb_pdb\\1IZ5_metadata.json",
+    "file_size": "16.6 KB",
+    "sha256": "7568e1352246e2daa73625f4d4f687a1d9e85da3c676aa05cd8133821169bf6a",
+    "file_type": "JSON (RCSB REST API)",
+    "schema_preview": "method=X-ray, resolution=1.8\u00c5, organism=Pyrococcus furiosus, chains=1, nonpoly=0, ligands=[]",
+    "contains": [
+      "structures",
+      "metadata"
+    ],
+    "trust_level": "OFFICIAL_API",
+    "intended_role": "PCNA structure inventory",
+    "warnings": "",
+    "status": "ACQUIRED"
+  },
+  {
+    "name": "RCSB PDB 1IZ5 mmCIF",
+    "official_url": "https://files.rcsb.org/download/1IZ5.cif",
+    "download_date": "2026-05-27T18:53:33Z",
+    "license": "Public Domain (wwPDB open access)",
+    "file_path": "data\\raw_intake\\rcsb_pdb\\1IZ5.cif",
+    "file_size": "421.9 KB",
+    "sha256": "8a26f060f9eed206108cd585fa5c8bd760ec2fa0ce8caa8dfb174cf9b64be0cc",
+    "file_type": "mmCIF",
+    "schema_preview": "data_1IZ5",
+    "contains": [
+      "structures"
+    ],
+    "trust_level": "OFFICIAL_DOWNLOAD",
+    "intended_role": "PCNA reference structure",
+    "warnings": "Not adopted for training \u2014 experimental structure only",
+    "status": "ACQUIRED"
+  },
+  {
+    "name": "RCSB PDB 1GE8 metadata",
+    "official_url": "https://www.rcsb.org/structure/1GE8",
+    "download_date": "2026-05-27T18:53:33Z",
+    "license": "Public Domain (wwPDB open access)",
+    "file_path": "data\\raw_intake\\rcsb_pdb\\1GE8_metadata.json",
+    "file_size": "17.0 KB",
+    "sha256": "77982a1999494041afc16e20c6e08dcdad8aa44c30f10360025fe57ef02f23c9",
+    "file_type": "JSON (RCSB REST API)",
+    "schema_preview": "method=X-ray, resolution=2.1\u00c5, organism=Pyrococcus furiosus, chains=1, nonpoly=0, ligands=[]",
+    "contains": [
+      "structures",
+      "metadata"
+    ],
+    "trust_level": "OFFICIAL_API",
+    "intended_role": "PCNA structure inventory",
+    "warnings": "",
+    "status": "ACQUIRED"
+  },
+  {
+    "name": "RCSB PDB 1GE8 mmCIF",
+    "official_url": "https://files.rcsb.org/download/1GE8.cif",
+    "download_date": "2026-05-27T18:53:33Z",
+    "license": "Public Domain (wwPDB open access)",
+    "file_path": "data\\raw_intake\\rcsb_pdb\\1GE8.cif",
+    "file_size": "231.4 KB",
+    "sha256": "57c6fb10840e4ee18ab4460248383a8dfb52f6be4b248603ea828b8eb6f9abc0",
+    "file_type": "mmCIF",
+    "schema_preview": "data_1GE8",
+    "contains": [
+      "structures"
+    ],
+    "trust_level": "OFFICIAL_DOWNLOAD",
+    "intended_role": "PCNA reference structure",
+    "warnings": "Not adopted for training \u2014 experimental structure only",
+    "status": "ACQUIRED"
+  },
+  {
+    "name": "RCSB PDB 1UD9 metadata",
+    "official_url": "https://www.rcsb.org/structure/1UD9",
+    "download_date": "2026-05-27T18:53:33Z",
+    "license": "Public Domain (wwPDB open access)",
+    "file_path": "data\\raw_intake\\rcsb_pdb\\1UD9_metadata.json",
+    "file_size": "21.6 KB",
+    "sha256": "41b99eba25b04e98e33f410ad46aec51c8c23896c54c65536a8c5a44ed8d478d",
+    "file_type": "JSON (RCSB REST API)",
+    "schema_preview": "method=X-ray, resolution=1.68\u00c5, organism=Sulfolobus tokodaii, chains=1, nonpoly=1, ligands=[]",
+    "contains": [
+      "structures",
+      "metadata"
+    ],
+    "trust_level": "OFFICIAL_API",
+    "intended_role": "PCNA structure inventory",
+    "warnings": "",
+    "status": "ACQUIRED"
+  },
+  {
+    "name": "RCSB PDB 1UD9 mmCIF",
+    "official_url": "https://files.rcsb.org/download/1UD9.cif",
+    "download_date": "2026-05-27T18:53:33Z",
+    "license": "Public Domain (wwPDB open access)",
+    "file_path": "data\\raw_intake\\rcsb_pdb\\1UD9.cif",
+    "file_size": "885.2 KB",
+    "sha256": "d15434fab6317218f808bf24fccb45db3cd9f2227352e043f3d3244799fdc506",
+    "file_type": "mmCIF",
+    "schema_preview": "data_1UD9",
+    "contains": [
+      "structures"
+    ],
+    "trust_level": "OFFICIAL_DOWNLOAD",
+    "intended_role": "PCNA reference structure",
+    "warnings": "Not adopted for training \u2014 experimental structure only",
+    "status": "ACQUIRED"
+  },
+  {
+    "name": "RCSB PDB 5DA7 metadata",
+    "official_url": "https://www.rcsb.org/structure/5DA7",
+    "download_date": "2026-05-27T18:53:33Z",
+    "license": "Public Domain (wwPDB open access)",
+    "file_path": "data\\raw_intake\\rcsb_pdb\\5DA7_metadata.json",
+    "file_size": "16.1 KB",
+    "sha256": "23d50f3ceb2fbbf3eb053b6a6cad0aace391177057e2b66e47b13deec98d38e2",
+    "file_type": "JSON (RCSB REST API)",
+    "schema_preview": "method=X-ray, resolution=2.802\u00c5, organism=Thermococcus kodakarensis (strain ATCC BAA-918 / JCM 12380 / KOD1), chains=2, nonpoly=1, ligands=[]",
+    "contains": [
+      "structures",
+      "metadata"
+    ],
+    "trust_level": "OFFICIAL_API",
+    "intended_role": "PCNA structure inventory",
+    "warnings": "",
+    "status": "ACQUIRED"
+  },
+  {
+    "name": "RCSB PDB 5DA7 mmCIF",
+    "official_url": "https://files.rcsb.org/download/5DA7.cif",
+    "download_date": "2026-05-27T18:53:33Z",
+    "license": "Public Domain (wwPDB open access)",
+    "file_path": "data\\raw_intake\\rcsb_pdb\\5DA7.cif",
+    "file_size": "511.7 KB",
+    "sha256": "1e6b9021bc82d9826f5b0a7c586c6bf0f1302e8136c851ef75f7b7b7f719b9fd",
+    "file_type": "mmCIF",
+    "schema_preview": "data_5DA7",
+    "contains": [
+      "structures"
+    ],
+    "trust_level": "OFFICIAL_DOWNLOAD",
+    "intended_role": "PCNA reference structure",
+    "warnings": "Not adopted for training \u2014 experimental structure only",
+    "status": "ACQUIRED"
+  },
+  {
+    "name": "RCSB PDB 5HAC metadata",
+    "official_url": "https://www.rcsb.org/structure/5HAC",
+    "download_date": "2026-05-27T18:53:33Z",
+    "license": "Public Domain (wwPDB open access)",
+    "file_path": "data\\raw_intake\\rcsb_pdb\\5HAC_metadata.json",
+    "file_size": "21.6 KB",
+    "sha256": "54fd4eaa3910cba63e1acd2051fa81ffe355ea8fff9a88e3fbad1fe7bd65673e",
+    "file_type": "JSON (RCSB REST API)",
+    "schema_preview": "method=X-ray, resolution=2.95\u00c5, organism=Leishmania donovani, chains=1, nonpoly=0, ligands=[]",
+    "contains": [
+      "structures",
+      "metadata"
+    ],
+    "trust_level": "OFFICIAL_API",
+    "intended_role": "PCNA structure inventory",
+    "warnings": "",
+    "status": "ACQUIRED"
+  },
+  {
+    "name": "RCSB PDB 5HAC mmCIF",
+    "official_url": "https://files.rcsb.org/download/5HAC.cif",
+    "download_date": "2026-05-27T18:53:33Z",
+    "license": "Public Domain (wwPDB open access)",
+    "file_path": "data\\raw_intake\\rcsb_pdb\\5HAC.cif",
+    "file_size": "1.27 MB",
+    "sha256": "41b7148134a6ec6b82cae2a7b622e05d2f535957391bac1e7ae0c421547f3dd4",
+    "file_type": "mmCIF",
+    "schema_preview": "data_5HAC",
+    "contains": [
+      "structures"
+    ],
+    "trust_level": "OFFICIAL_DOWNLOAD",
+    "intended_role": "PCNA reference structure",
+    "warnings": "Not adopted for training \u2014 experimental structure only",
+    "status": "ACQUIRED"
+  },
+  {
+    "name": "RCSB PDB 1IZ4 metadata",
+    "official_url": "https://www.rcsb.org/structure/1IZ4",
+    "download_date": "2026-05-27T18:53:33Z",
+    "license": "Public Domain (wwPDB open access)",
+    "file_path": "data\\raw_intake\\rcsb_pdb\\1IZ4_metadata.json",
+    "file_size": "17.3 KB",
+    "sha256": "549bfe1a26b859ec01314b83264d8b4cfb0a6fc3c87e0b243f8f83d5af54f368",
+    "file_type": "JSON (RCSB REST API)",
+    "schema_preview": "method=X-ray, resolution=2.0\u00c5, organism=Pyrococcus furiosus, chains=1, nonpoly=0, ligands=[]",
+    "contains": [
+      "structures",
+      "metadata"
+    ],
+    "trust_level": "OFFICIAL_API",
+    "intended_role": "PCNA structure inventory",
+    "warnings": "",
+    "status": "ACQUIRED"
+  },
+  {
+    "name": "RCSB PDB 1IZ4 mmCIF",
+    "official_url": "https://files.rcsb.org/download/1IZ4.cif",
+    "download_date": "2026-05-27T18:53:33Z",
+    "license": "Public Domain (wwPDB open access)",
+    "file_path": "data\\raw_intake\\rcsb_pdb\\1IZ4.cif",
+    "file_size": "231.4 KB",
+    "sha256": "e14dd1763bed723e60ad42866e9235ea3b5939bcbec21d65c3b5badb460e5c6c",
+    "file_type": "mmCIF",
+    "schema_preview": "data_1IZ4",
+    "contains": [
+      "structures"
+    ],
+    "trust_level": "OFFICIAL_DOWNLOAD",
+    "intended_role": "PCNA reference structure",
+    "warnings": "Not adopted for training \u2014 experimental structure only",
+    "status": "ACQUIRED"
+  },
+  {
+    "name": "RCSB PDB 2IO4 metadata",
+    "official_url": "https://www.rcsb.org/structure/2IO4",
+    "download_date": "2026-05-27T18:53:33Z",
+    "license": "Public Domain (wwPDB open access)",
+    "file_path": "data\\raw_intake\\rcsb_pdb\\2IO4_metadata.json",
+    "file_size": "25.7 KB",
+    "sha256": "51b9da410fd5973ab8ab7513ad9a360dad73cd176d3ff7800e18c484bb486369",
+    "file_type": "JSON (RCSB REST API)",
+    "schema_preview": "method=X-ray, resolution=2.6\u00c5, organism=Sulfolobus solfataricus, chains=2, nonpoly=2, ligands=[]",
+    "contains": [
+      "structures",
+      "metadata"
+    ],
+    "trust_level": "OFFICIAL_API",
+    "intended_role": "PCNA structure inventory",
+    "warnings": "",
+    "status": "ACQUIRED"
+  },
+  {
+    "name": "RCSB PDB 2IO4 mmCIF",
+    "official_url": "https://files.rcsb.org/download/2IO4.cif",
+    "download_date": "2026-05-27T18:53:33Z",
+    "license": "Public Domain (wwPDB open access)",
+    "file_path": "data\\raw_intake\\rcsb_pdb\\2IO4.cif",
+    "file_size": "843.8 KB",
+    "sha256": "3c36e22368115985e74ff36c5d7b12b19ca2c31d803eee98548786772eab120e",
+    "file_type": "mmCIF",
+    "schema_preview": "data_2IO4",
+    "contains": [
+      "structures"
+    ],
+    "trust_level": "OFFICIAL_DOWNLOAD",
+    "intended_role": "PCNA reference structure",
+    "warnings": "Not adopted for training \u2014 experimental structure only",
+    "status": "ACQUIRED"
+  },
+  {
+    "name": "RCSB PDB 1RXM metadata",
+    "official_url": "https://www.rcsb.org/structure/1RXM",
+    "download_date": "2026-05-27T18:53:33Z",
+    "license": "Public Domain (wwPDB open access)",
+    "file_path": "data\\raw_intake\\rcsb_pdb\\1RXM_metadata.json",
+    "file_size": "15.6 KB",
+    "sha256": "4ac7c572669af7ce6c3db750309ad677cae86c1e9f3f8e9851227ee4647147ff",
+    "file_type": "JSON (RCSB REST API)",
+    "schema_preview": "method=X-ray, resolution=2.8\u00c5, organism=Archaeoglobus fulgidus, chains=2, nonpoly=0, ligands=[]",
+    "contains": [
+      "structures",
+      "metadata"
+    ],
+    "trust_level": "OFFICIAL_API",
+    "intended_role": "PCNA structure inventory",
+    "warnings": "",
+    "status": "ACQUIRED"
+  },
+  {
+    "name": "RCSB PDB 1RXM mmCIF",
+    "official_url": "https://files.rcsb.org/download/1RXM.cif",
+    "download_date": "2026-05-27T18:53:33Z",
+    "license": "Public Domain (wwPDB open access)",
+    "file_path": "data\\raw_intake\\rcsb_pdb\\1RXM.cif",
+    "file_size": "245.6 KB",
+    "sha256": "247763eab40e1882f4a335339fbc49955ad481b8364f072e83752600ff14cb0d",
+    "file_type": "mmCIF",
+    "schema_preview": "data_1RXM",
+    "contains": [
+      "structures"
+    ],
+    "trust_level": "OFFICIAL_DOWNLOAD",
+    "intended_role": "PCNA reference structure",
+    "warnings": "Not adopted for training \u2014 experimental structure only",
+    "status": "ACQUIRED"
+  },
+  {
+    "name": "RCSB PDB 2IJX metadata",
+    "official_url": "https://www.rcsb.org/structure/2IJX",
+    "download_date": "2026-05-27T18:53:33Z",
+    "license": "Public Domain (wwPDB open access)",
+    "file_path": "data\\raw_intake\\rcsb_pdb\\2IJX_metadata.json",
+    "file_size": "22.5 KB",
+    "sha256": "a961a6aae6c772e8cdd9a6f1e5d363e91abc111f9ad0c5afbd4cad933481c107",
+    "file_type": "JSON (RCSB REST API)",
+    "schema_preview": "method=X-ray, resolution=1.9\u00c5, organism=Sulfolobus solfataricus, chains=1, nonpoly=1, ligands=[]",
+    "contains": [
+      "structures",
+      "metadata"
+    ],
+    "trust_level": "OFFICIAL_API",
+    "intended_role": "PCNA structure inventory",
+    "warnings": "",
+    "status": "ACQUIRED"
+  },
+  {
+    "name": "RCSB PDB 2IJX mmCIF",
+    "official_url": "https://files.rcsb.org/download/2IJX.cif",
+    "download_date": "2026-05-27T18:53:33Z",
+    "license": "Public Domain (wwPDB open access)",
+    "file_path": "data\\raw_intake\\rcsb_pdb\\2IJX.cif",
+    "file_size": "907.2 KB",
+    "sha256": "df8819dd9a833954188ac77d056593d0b8cf11098a082baccd67a6286a04ccef",
+    "file_type": "mmCIF",
+    "schema_preview": "data_2IJX",
+    "contains": [
+      "structures"
+    ],
+    "trust_level": "OFFICIAL_DOWNLOAD",
+    "intended_role": "PCNA reference structure",
+    "warnings": "Not adopted for training \u2014 experimental structure only",
+    "status": "ACQUIRED"
+  },
+  {
+    "name": "RCSB PDB 5H0T metadata",
+    "official_url": "https://www.rcsb.org/structure/5H0T",
+    "download_date": "2026-05-27T18:53:33Z",
+    "license": "Public Domain (wwPDB open access)",
+    "file_path": "data\\raw_intake\\rcsb_pdb\\5H0T_metadata.json",
+    "file_size": "23.9 KB",
+    "sha256": "7dbfaedae11fa4180c76519b4748c00c080565ab6e933916dfdb25c264399d96",
+    "file_type": "JSON (RCSB REST API)",
+    "schema_preview": "method=X-ray, resolution=2.73\u00c5, organism=Leishmania donovani, chains=1, nonpoly=1, ligands=[]",
+    "contains": [
+      "structures",
+      "metadata"
+    ],
+    "trust_level": "OFFICIAL_API",
+    "intended_role": "PCNA structure inventory",
+    "warnings": "",
+    "status": "ACQUIRED"
+  },
+  {
+    "name": "RCSB PDB 5H0T mmCIF",
+    "official_url": "https://files.rcsb.org/download/5H0T.cif",
+    "download_date": "2026-05-27T18:53:33Z",
+    "license": "Public Domain (wwPDB open access)",
+    "file_path": "data\\raw_intake\\rcsb_pdb\\5H0T.cif",
+    "file_size": "1.24 MB",
+    "sha256": "aae817e46f28f88edc0c19ab7f7edbcfe3772322c69b0c4106ff1053457dc1ed",
+    "file_type": "mmCIF",
+    "schema_preview": "data_5H0T",
+    "contains": [
+      "structures"
+    ],
+    "trust_level": "OFFICIAL_DOWNLOAD",
+    "intended_role": "PCNA reference structure",
+    "warnings": "Not adopted for training \u2014 experimental structure only",
+    "status": "ACQUIRED"
+  },
+  {
+    "name": "RCSB PDB 5CFK metadata",
+    "official_url": "https://www.rcsb.org/structure/5CFK",
+    "download_date": "2026-05-27T18:53:33Z",
+    "license": "Public Domain (wwPDB open access)",
+    "file_path": "data\\raw_intake\\rcsb_pdb\\5CFK_metadata.json",
+    "file_size": "18.9 KB",
+    "sha256": "9c6fb394ad16fce1c380ad4baf82f05be8990274a9fdeb3c902f49710f3a9928",
+    "file_type": "JSON (RCSB REST API)",
+    "schema_preview": "method=X-ray, resolution=3.2\u00c5, organism=Leishmania donovani, chains=1, nonpoly=0, ligands=[]",
+    "contains": [
+      "structures",
+      "metadata"
+    ],
+    "trust_level": "OFFICIAL_API",
+    "intended_role": "PCNA structure inventory",
+    "warnings": "",
+    "status": "ACQUIRED"
+  },
+  {
+    "name": "RCSB PDB 5CFK mmCIF",
+    "official_url": "https://files.rcsb.org/download/5CFK.cif",
+    "download_date": "2026-05-27T18:53:33Z",
+    "license": "Public Domain (wwPDB open access)",
+    "file_path": "data\\raw_intake\\rcsb_pdb\\5CFK.cif",
+    "file_size": "1.22 MB",
+    "sha256": "f7040771feda29e5a157e051727b3b565cefc807a33ac21bae3f623bac9390e1",
+    "file_type": "mmCIF",
+    "schema_preview": "data_5CFK",
+    "contains": [
+      "structures"
+    ],
+    "trust_level": "OFFICIAL_DOWNLOAD",
+    "intended_role": "PCNA reference structure",
+    "warnings": "Not adopted for training \u2014 experimental structure only",
+    "status": "ACQUIRED"
+  },
+  {
+    "name": "BioLiP page: biolip_home.html",
+    "official_url": "https://zhanggroup.org/BioLiP/",
+    "download_date": "2026-05-27T18:53:33Z",
+    "license": "Free for academic use (Zhang Lab)",
+    "file_path": "data\\raw_intake\\biolip\\biolip_home.html",
+    "file_size": "30.1 KB",
+    "sha256": "9e78a4aa2def69cfbb94153adf00d7c52909eac7635bf04a4e3af69021b1e5ca",
+    "file_type": "HTML",
+    "schema_preview": "Download links found: []",
+    "contains": [
+      "metadata"
+    ],
+    "trust_level": "OFFICIAL_PAGE",
+    "intended_role": "BioLiP ligand-binding residue annotation discovery",
+    "warnings": "BioLiP labels = ligand-contact residues, NOT cryptic pocket ground truth. Do not use as direct cryptic-pocket supervision without filtering.",
+    "status": "ACQUIRED"
+  },
+  {
+    "name": "scPDB page: scpdb_home.html",
+    "official_url": "http://bioinfo-pharma.u-strasbg.fr/scPDB/",
+    "download_date": "2026-05-27T18:53:33Z",
+    "license": "Free for academic use (Strasbourg)",
+    "file_path": "data\\raw_intake\\scpdb\\scpdb_home.html",
+    "file_size": "6.0 KB",
+    "sha256": "efbb541cb736cb159efe0628db25235478e71355d0c933d57233fe12cfccd1bc",
+    "file_type": "HTML",
+    "schema_preview": "Entry count hint: 16034 entries",
+    "contains": [
+      "metadata"
+    ],
+    "trust_level": "OFFICIAL_PAGE",
+    "intended_role": "scPDB druggable binding site annotation discovery",
+    "warnings": "scPDB labels = druggable binding sites (proxy, not cryptic-pocket truth). Full archive not downloaded \u2014 check license before bulk download.",
+    "status": "ACQUIRED"
+  },
+  {
+    "name": "ASD page: asd_home.html",
+    "official_url": "http://mdl.shsmu.edu.cn/ASD/",
+    "download_date": "2026-05-27T18:53:33Z",
+    "license": "UNKNOWN \u2014 check asd.bidd2.com/about",
+    "file_path": "data\\raw_intake\\asd\\asd_home.html",
+    "file_size": "20.9 KB",
+    "sha256": "612d007d54e967c9038a240bae069aab04933377fcdfbab57b35ef2f98562c7c",
+    "file_type": "HTML",
+    "schema_preview": "ASD Home Search Advanced HOME MOLECULES PROTEIN MODULATOR FEATURES ALLO-HITtoLEAD ALLO-PPI DUALSTERIC-MODULATORS ALLOSITE-POTENTIAL ALLOSTEROME ALLO-MUTATION ALLO-DRUG ALLO-NETWORK SITE PATHWAY TOOLS ",
+    "contains": [
+      "metadata"
+    ],
+    "trust_level": "OFFICIAL_PAGE",
+    "intended_role": "Allosteric site/modulator context for PCNA",
+    "warnings": "ASD is allosteric context only. Not residue-level cryptic-pocket labels unless schema explicitly supports it. Download requires manual license review.",
+    "status": "ACQUIRED"
+  },
+  {
+    "name": "ASD page: asd_download.html",
+    "official_url": "http://mdl.shsmu.edu.cn/ASD/module/download/download.jsp",
+    "download_date": "2026-05-27T18:53:33Z",
+    "license": "UNKNOWN \u2014 check asd.bidd2.com/about",
+    "file_path": "data\\raw_intake\\asd\\asd_download.html",
+    "file_size": "8.4 KB",
+    "sha256": "1269f05e48e7dcc4de7ec1e5ab233ef98cdc5e4a105bf06775e4d8855a2bc3f1",
+    "file_type": "HTML",
+    "schema_preview": "ASD Download Search Advanced HOME MOLECULES PROTEIN MODULATOR FEATURES ALLO-HITtoLEAD ALLO-PPI DUALSTERIC-MODULATORS ALLOSITE-POTENTIAL ALLOSTEROME ALLO-MUTATION ALLO-DRUG ALLO-NETWORK SITE PATHWAY TO",
+    "contains": [
+      "metadata"
+    ],
+    "trust_level": "OFFICIAL_PAGE",
+    "intended_role": "Allosteric site/modulator context for PCNA",
+    "warnings": "ASD is allosteric context only. Not residue-level cryptic-pocket labels unless schema explicitly supports it. Download requires manual license review.",
+    "status": "ACQUIRED"
+  },
+  {
+    "name": "PocketMiner PubMed abstract",
+    "official_url": "https://pubmed.ncbi.nlm.nih.gov",
+    "download_date": "2026-05-27T18:53:33Z",
+    "license": "UNKNOWN",
+    "file_path": "data\\raw_intake\\pocketminer\\pocketminer_pubmed_abstract.txt",
+    "file_size": "9.3 KB",
+    "sha256": "527a7382c80d88d83b7133412367e0253c557b438a7ab4613c45e66709598394",
+    "file_type": "Text",
+    "schema_preview": "",
+    "contains": [
+      "literature_metadata"
+    ],
+    "trust_level": "OFFICIAL_API",
+    "intended_role": "PocketMiner paper metadata for citation",
+    "warnings": "",
+    "status": "ACQUIRED"
+  },
+  {
+    "name": "fpocket GitHub releases",
+    "official_url": "https://github.com/Discngine/fpocket",
+    "download_date": "2026-05-27T18:53:33Z",
+    "license": "MIT/Apache \u2014 check per repo",
+    "file_path": "data\\raw_intake\\baseline_tools\\fpocket\\releases.json",
+    "file_size": "7.4 KB",
+    "sha256": "81c3123074688125567c732fa5e848578dc2203f53d716bb33c4e985fc7c3b5a",
+    "file_type": "JSON",
+    "schema_preview": "",
+    "contains": [
+      "code",
+      "metadata"
+    ],
+    "trust_level": "OFFICIAL_REPO",
+    "intended_role": "Voronoi-based open-cavity pocket detector; mandatory baseline",
+    "warnings": "Output: pocket_X.pqr + .pdb files; residue-level scores via pocket_atoms columns. C binary \u2014 must compile on Linux/WSL.",
+    "status": "ACQUIRED"
+  },
+  {
+    "name": "fpocket README",
+    "official_url": "https://raw.githubusercontent.com/Discngine/fpocket/main/README.md",
+    "download_date": "2026-05-27T18:53:33Z",
+    "license": "CHECK_REPO",
+    "file_path": "data\\raw_intake\\baseline_tools\\fpocket\\README.md",
+    "file_size": "7.5 KB",
+    "sha256": "68a5fcf00fe341d7b6c71c3a2d430c7fbc287777db5c111a2a70669226020ca0",
+    "file_type": "Markdown",
+    "schema_preview": "",
+    "contains": [
+      "metadata",
+      "code"
+    ],
+    "trust_level": "OFFICIAL_REPO",
+    "intended_role": "Voronoi-based open-cavity pocket detector; mandatory baseline",
+    "warnings": "Output: pocket_X.pqr + .pdb files; residue-level scores via pocket_atoms columns. C binary \u2014 must compile on Linux/WSL.",
+    "status": "ACQUIRED"
+  },
+  {
+    "name": "P2Rank GitHub releases",
+    "official_url": "https://github.com/rdk/p2rank",
+    "download_date": "2026-05-27T18:53:33Z",
+    "license": "MIT/Apache \u2014 check per repo",
+    "file_path": "data\\raw_intake\\baseline_tools\\p2rank\\releases.json",
+    "file_size": "17.8 KB",
+    "sha256": "7d202ef36b7ab60aa0b57d5aaad82eb90c72d9bd9b83b2a4b47145b65c08773d",
+    "file_type": "JSON",
+    "schema_preview": "",
+    "contains": [
+      "code",
+      "metadata"
+    ],
+    "trust_level": "OFFICIAL_REPO",
+    "intended_role": "ML-based binding site prediction; second mandatory baseline",
+    "warnings": "Output: CSV with residue-level scores. JVM-based \u2014 requires Java 11+. Output: predictions.csv with columns: rank, score, probability, sas_points, surf_atom_ids.",
+    "status": "ACQUIRED"
+  },
+  {
+    "name": "P2Rank README",
+    "official_url": "https://raw.githubusercontent.com/rdk/p2rank/main/README.md",
+    "download_date": "2026-05-27T18:53:33Z",
+    "license": "CHECK_REPO",
+    "file_path": "data\\raw_intake\\baseline_tools\\p2rank\\README.md",
+    "file_size": "14.8 KB",
+    "sha256": "f56aecb63bec5895b9c2308f74df0ab567563c424b4604cb5b42d07d2aa05fab",
+    "file_type": "Markdown",
+    "schema_preview": "",
+    "contains": [
+      "metadata",
+      "code"
+    ],
+    "trust_level": "OFFICIAL_REPO",
+    "intended_role": "ML-based binding site prediction; second mandatory baseline",
+    "warnings": "Output: CSV with residue-level scores. JVM-based \u2014 requires Java 11+. Output: predictions.csv with columns: rank, score, probability, sas_points, surf_atom_ids.",
+    "status": "ACQUIRED"
+  },
+  {
+    "name": "PDBbind: pdbbind_home.html",
+    "official_url": "http://www.pdbbind.org.cn",
+    "download_date": "2026-05-27T18:53:33Z",
+    "license": "RESTRICTED \u2014 registration required for download",
+    "file_path": "data\\raw_intake\\pdbbind\\pdbbind_home.html",
+    "file_size": "218.1 KB",
+    "sha256": "dd9bd52f44033557ab14569552bba11dfb187172171e30684adc3da81e247eb4",
+    "file_type": "HTML",
+    "schema_preview": "",
+    "contains": [
+      "metadata"
+    ],
+    "trust_level": "OFFICIAL_PAGE",
+    "intended_role": "Protein-ligand affinity context only. NOT cryptic-pocket ground truth.",
+    "warnings": "PDBbind requires registration. Do NOT adopt as cryptic-pocket labels. LP-PDBBind (leakage-aware split) preferred for affinity auxiliary task.",
+    "status": "ACQUIRED"
+  },
+  {
+    "name": "LP-PDBBind GitHub search",
+    "official_url": "https://github.com/search?q=LP-PDBBind",
+    "download_date": "2026-05-27T18:53:33Z",
+    "license": "UNKNOWN",
+    "file_path": "data\\raw_intake\\pdbbind\\lp_pdbbind_github_search.json",
+    "file_size": "72 B",
+    "sha256": "53895997f5e07566d90a3f34b7fbb880fb1acf32d885aa31fbb268a6d7769d2a",
+    "file_type": "JSON",
+    "schema_preview": "",
+    "contains": [
+      "metadata"
+    ],
+    "trust_level": "OFFICIAL_API",
+    "intended_role": "LP-PDBBind leakage-aware split reference for data hygiene",
+    "warnings": "Use LP-PDBBind split methodology, not labels, for cryptic-pocket splits",
+    "status": "ACQUIRED"
+  },
+  {
+    "name": "AlphaFold P15531 (PCNA_HUMAN) CIF",
+    "official_url": "https://alphafold.ebi.ac.uk/entry/P15531",
+    "download_date": "2026-05-27T18:53:33Z",
+    "license": "CC BY 4.0",
+    "file_path": "data\\raw_intake\\alphafold\\AF_P15531_PCNA_HUMAN.cif",
+    "file_size": "152.7 KB",
+    "sha256": "4eab0679af9b60a442d47c869c5f1c42b6fce228803f2378ca342129f894b91c",
+    "file_type": "mmCIF (predicted)",
+    "schema_preview": "data_AF-P15531-F1",
+    "contains": [
+      "structures",
+      "metadata"
+    ],
+    "trust_level": "OFFICIAL_DOWNLOAD",
+    "intended_role": "PCNA predicted structure for structural context only",
+    "warnings": "PREDICTED structure. pLDDT confidence must be checked. NOT experimental evidence. Use only when experimental PDB unavailable. pLDDT=97.44, model version=6",
+    "status": "ACQUIRED"
+  },
+  {
+    "name": "AlphaFold P15531 (PCNA_HUMAN) API metadata",
+    "official_url": "https://alphafold.ebi.ac.uk/api/prediction/P15531",
+    "download_date": "2026-05-27T18:53:33Z",
+    "license": "CC BY 4.0",
+    "file_path": "data\\raw_intake\\alphafold\\AF_P15531_PCNA_HUMAN_api.json",
+    "file_size": "4.5 KB",
+    "sha256": "6cfd164a07258c7d163d176da245228ac14e8eaa322add30630ad324844264a3",
+    "file_type": "JSON",
+    "schema_preview": "",
+    "contains": [
+      "metadata"
+    ],
+    "trust_level": "OFFICIAL_API",
+    "intended_role": "AlphaFold PCNA metadata",
+    "warnings": "Predicted structure context only",
+    "status": "ACQUIRED"
+  },
+  {
+    "name": "AlphaFold P12004 (PCNA_MOUSE) CIF",
+    "official_url": "https://alphafold.ebi.ac.uk/entry/P12004",
+    "download_date": "2026-05-27T18:53:33Z",
+    "license": "CC BY 4.0",
+    "file_path": "data\\raw_intake\\alphafold\\AF_P12004_PCNA_MOUSE.cif",
+    "file_size": "244.9 KB",
+    "sha256": "cd62288975867475d1e6c10279b3eac025794bb8e5ddc89cbf4610b3a4de6f01",
+    "file_type": "mmCIF (predicted)",
+    "schema_preview": "data_AF-P12004-F1",
+    "contains": [
+      "structures",
+      "metadata"
+    ],
+    "trust_level": "OFFICIAL_DOWNLOAD",
+    "intended_role": "PCNA predicted structure for structural context only",
+    "warnings": "PREDICTED structure. pLDDT confidence must be checked. NOT experimental evidence. Use only when experimental PDB unavailable. pLDDT=94.31, model version=6",
+    "status": "ACQUIRED"
+  },
+  {
+    "name": "AlphaFold P12004 (PCNA_MOUSE) API metadata",
+    "official_url": "https://alphafold.ebi.ac.uk/api/prediction/P12004",
+    "download_date": "2026-05-27T18:53:33Z",
+    "license": "CC BY 4.0",
+    "file_path": "data\\raw_intake\\alphafold\\AF_P12004_PCNA_MOUSE_api.json",
+    "file_size": "2.6 KB",
+    "sha256": "b7281207729e246f8c5f614a46fcc9c99a05061a5c16d7cf0496797438ac8a88",
+    "file_type": "JSON",
+    "schema_preview": "",
+    "contains": [
+      "metadata"
+    ],
+    "trust_level": "OFFICIAL_API",
+    "intended_role": "AlphaFold PCNA metadata",
+    "warnings": "Predicted structure context only",
+    "status": "ACQUIRED"
+  },
+  {
+    "name": "AlphaFold P04448 (PCNA_YEAST) CIF",
+    "official_url": "https://alphafold.ebi.ac.uk/entry/P04448",
+    "download_date": "2026-05-27T18:53:33Z",
+    "license": "CC BY 4.0",
+    "file_path": "data\\raw_intake\\alphafold\\AF_P04448_PCNA_YEAST.cif",
+    "file_size": "173.1 KB",
+    "sha256": "4dd217da965f14922a96bdb45f1a480245d052e8b2c4f7e8e08ae1b02806e56e",
+    "file_type": "mmCIF (predicted)",
+    "schema_preview": "data_AF-P04448-F1",
+    "contains": [
+      "structures",
+      "metadata"
+    ],
+    "trust_level": "OFFICIAL_DOWNLOAD",
+    "intended_role": "PCNA predicted structure for structural context only",
+    "warnings": "PREDICTED structure. pLDDT confidence must be checked. NOT experimental evidence. Use only when experimental PDB unavailable. pLDDT=91.19, model version=6",
+    "status": "ACQUIRED"
+  },
+  {
+    "name": "AlphaFold P04448 (PCNA_YEAST) API metadata",
+    "official_url": "https://alphafold.ebi.ac.uk/api/prediction/P04448",
+    "download_date": "2026-05-27T18:53:33Z",
+    "license": "CC BY 4.0",
+    "file_path": "data\\raw_intake\\alphafold\\AF_P04448_PCNA_YEAST_api.json",
+    "file_size": "2.2 KB",
+    "sha256": "1be5f50698dd78000019e3c2622235c1c8355409b8e6126d9ad34ef7d8b379fe",
+    "file_type": "JSON",
+    "schema_preview": "",
+    "contains": [
+      "metadata"
+    ],
+    "trust_level": "OFFICIAL_API",
+    "intended_role": "AlphaFold PCNA metadata",
+    "warnings": "Predicted structure context only",
+    "status": "ACQUIRED"
+  },
+  {
+    "name": "STRING PCNA network",
+    "official_url": "https://string-db.org",
+    "download_date": "2026-05-27T18:53:33Z",
+    "license": "CC BY 4.0",
+    "file_path": "data\\raw_intake\\string\\pcna_string_network.json",
+    "file_size": "362.3 KB",
+    "sha256": "d186acbecc223811aa5d5b02b9bf766ebfb229507545ce33df6bd21e90ea7155",
+    "file_type": "JSON",
+    "schema_preview": "fields from STRING API: stringId_A, stringId_B, score, experiments",
+    "contains": [
+      "metadata"
+    ],
+    "trust_level": "OFFICIAL_API",
+    "intended_role": "PCNA functional/physical interaction context",
+    "warnings": "STRING includes functional/co-expression associations. Use only physical sub-network for structural context. NOT pocket labels.",
+    "status": "ACQUIRED"
+  },
+  {
+    "name": "STRING PCNA enrichment",
+    "official_url": "https://string-db.org",
+    "download_date": "2026-05-27T18:53:33Z",
+    "license": "CC BY 4.0",
+    "file_path": "data\\raw_intake\\string\\pcna_string_enrichment.json",
+    "file_size": "1.02 MB",
+    "sha256": "cef1fa9b55fc07a774acfdeb1b0e5647450e2bbf334abdcac204f5ae437331a5",
+    "file_type": "JSON",
+    "schema_preview": "fields from STRING API: stringId_A, stringId_B, score, experiments",
+    "contains": [
+      "metadata"
+    ],
+    "trust_level": "OFFICIAL_API",
+    "intended_role": "PCNA functional/physical interaction context",
+    "warnings": "STRING includes functional/co-expression associations. Use only physical sub-network for structural context. NOT pocket labels.",
+    "status": "ACQUIRED"
+  },
+  {
+    "name": "STRING PCNA partners",
+    "official_url": "https://string-db.org",
+    "download_date": "2026-05-27T18:53:33Z",
+    "license": "CC BY 4.0",
+    "file_path": "data\\raw_intake\\string\\pcna_string_partners.json",
+    "file_size": "33.9 KB",
+    "sha256": "8130c19088bd0d4d36199080940cc676498a7df064b2b359f3d00cc90d4bf875",
+    "file_type": "JSON",
+    "schema_preview": "fields from STRING API: stringId_A, stringId_B, score, experiments",
+    "contains": [
+      "metadata"
+    ],
+    "trust_level": "OFFICIAL_API",
+    "intended_role": "PCNA functional/physical interaction context",
+    "warnings": "STRING includes functional/co-expression associations. Use only physical sub-network for structural context. NOT pocket labels.",
+    "status": "ACQUIRED"
+  },
+  {
+    "name": "PubMed abstracts: aoh1996",
+    "official_url": "https://pubmed.ncbi.nlm.nih.gov/?term=AOH1996%20PCNA%20inhibitor",
+    "download_date": "2026-05-27T18:53:33Z",
+    "license": "NLM open access \u2014 abstracts only",
+    "file_path": "data\\raw_intake\\literature_metadata\\pm_aoh1996.txt",
+    "file_size": "36.6 KB",
+    "sha256": "b05a221f8ccbf334894b09c4b8cae752bac56dc882164e8519d9a9ad0f8c7511",
+    "file_type": "Text",
+    "schema_preview": "",
+    "contains": [
+      "literature_metadata"
+    ],
+    "trust_level": "OFFICIAL_API",
+    "intended_role": "Literature metadata for topic: aoh1996",
+    "warnings": "Abstracts only. Full text not downloaded.",
+    "status": "ACQUIRED"
+  },
+  {
+    "name": "PubMed abstracts: pocketminer",
+    "official_url": "https://pubmed.ncbi.nlm.nih.gov/?term=PocketMiner%20pocket%20prediction",
+    "download_date": "2026-05-27T18:53:33Z",
+    "license": "NLM open access \u2014 abstracts only",
+    "file_path": "data\\raw_intake\\literature_metadata\\pm_pocketminer.txt",
+    "file_size": "6.9 KB",
+    "sha256": "8b50bd8aff876af046dcdb8eeb02f96c32e69aae46c5d94387564e96cfc94a2b",
+    "file_type": "Text",
+    "schema_preview": "",
+    "contains": [
+      "literature_metadata"
+    ],
+    "trust_level": "OFFICIAL_API",
+    "intended_role": "Literature metadata for topic: pocketminer",
+    "warnings": "Abstracts only. Full text not downloaded.",
+    "status": "ACQUIRED"
+  },
+  {
+    "name": "PubMed abstracts: biolip",
+    "official_url": "https://pubmed.ncbi.nlm.nih.gov/?term=BioLiP%20ligand%20binding%20residue%20database",
+    "download_date": "2026-05-27T18:53:33Z",
+    "license": "NLM open access \u2014 abstracts only",
+    "file_path": "data\\raw_intake\\literature_metadata\\pm_biolip.txt",
+    "file_size": "10.4 KB",
+    "sha256": "c3bcc19a0af2c6a0b07991ef26cf9aac338530b421275591f98659ec0b1e34f4",
+    "file_type": "Text",
+    "schema_preview": "",
+    "contains": [
+      "literature_metadata"
+    ],
+    "trust_level": "OFFICIAL_API",
+    "intended_role": "Literature metadata for topic: biolip",
+    "warnings": "Abstracts only. Full text not downloaded.",
+    "status": "ACQUIRED"
+  },
+  {
+    "name": "PubMed abstracts: fpocket",
+    "official_url": "https://pubmed.ncbi.nlm.nih.gov/?term=fpocket%20Voronoi%20pocket%20detection",
+    "download_date": "2026-05-27T18:53:33Z",
+    "license": "NLM open access \u2014 abstracts only",
+    "file_path": "data\\raw_intake\\literature_metadata\\pm_fpocket.txt",
+    "file_size": "2.3 KB",
+    "sha256": "9786cf3af3c14212084af0d7901779eaa21b19813cf5d39a7d9c52a35ba63d57",
+    "file_type": "Text",
+    "schema_preview": "",
+    "contains": [
+      "literature_metadata"
+    ],
+    "trust_level": "OFFICIAL_API",
+    "intended_role": "Literature metadata for topic: fpocket",
+    "warnings": "Abstracts only. Full text not downloaded.",
+    "status": "ACQUIRED"
+  },
+  {
+    "name": "PubMed abstracts: lp_pdbbind",
+    "official_url": "https://pubmed.ncbi.nlm.nih.gov/?term=LP-PDBBind%20leakage%20protein-ligand%20split",
+    "download_date": "2026-05-27T18:53:33Z",
+    "license": "NLM open access \u2014 abstracts only",
+    "file_path": "data\\raw_intake\\literature_metadata\\pm_lp_pdbbind.txt",
+    "file_size": "4.0 KB",
+    "sha256": "0227c54b48204c375aae5dee27e2e5108489412ff2d0543d96a51cc6717026f9",
+    "file_type": "Text",
+    "schema_preview": "",
+    "contains": [
+      "literature_metadata"
+    ],
+    "trust_level": "OFFICIAL_API",
+    "intended_role": "Literature metadata for topic: lp_pdbbind",
+    "warnings": "Abstracts only. Full text not downloaded.",
+    "status": "ACQUIRED"
+  },
+  {
+    "name": "PubMed abstracts: deeppocket",
+    "official_url": "https://pubmed.ncbi.nlm.nih.gov/?term=DeepPocket%20deep%20learning%20pocket",
+    "download_date": "2026-05-27T18:53:33Z",
+    "license": "NLM open access \u2014 abstracts only",
+    "file_path": "data\\raw_intake\\literature_metadata\\pm_deeppocket.txt",
+    "file_size": "4.3 KB",
+    "sha256": "b17db3aa67d6ed868e161380fc60c1fb465df4a6ecf3a1e577cc1ed4e72b032b",
+    "file_type": "Text",
+    "schema_preview": "",
+    "contains": [
+      "literature_metadata"
+    ],
+    "trust_level": "OFFICIAL_API",
+    "intended_role": "Literature metadata for topic: deeppocket",
+    "warnings": "Abstracts only. Full text not downloaded.",
+    "status": "ACQUIRED"
+  },
+  {
+    "name": "PubMed abstracts: equipocket",
+    "official_url": "https://pubmed.ncbi.nlm.nih.gov/?term=EquiPocket%20equivariant%20pocket%20prediction",
+    "download_date": "2026-05-27T18:53:33Z",
+    "license": "NLM open access \u2014 abstracts only",
+    "file_path": "data\\raw_intake\\literature_metadata\\pm_equipocket.txt",
+    "file_size": "43.0 KB",
+    "sha256": "c7a221086443e2e56d749675a24f97e11360d57c65f98e515bedb39f925fa813",
+    "file_type": "Text",
+    "schema_preview": "",
+    "contains": [
+      "literature_metadata"
+    ],
+    "trust_level": "OFFICIAL_API",
+    "intended_role": "Literature metadata for topic: equipocket",
+    "warnings": "Abstracts only. Full text not downloaded.",
+    "status": "ACQUIRED"
+  },
+  {
+    "name": "PubMed abstracts: leakage",
+    "official_url": "https://pubmed.ncbi.nlm.nih.gov/?term=dataset%20leakage%20protein%20structure%20benchmark",
+    "download_date": "2026-05-27T18:53:33Z",
+    "license": "NLM open access \u2014 abstracts only",
+    "file_path": "data\\raw_intake\\literature_metadata\\pm_leakage.txt",
+    "file_size": "15.7 KB",
+    "sha256": "4cd4da6ea4643d48d1dc15f3621027ccf96fbe4f463a18ed2115fb5a4333a2b5",
+    "file_type": "Text",
+    "schema_preview": "",
+    "contains": [
+      "literature_metadata"
+    ],
+    "trust_level": "OFFICIAL_API",
+    "intended_role": "Literature metadata for topic: leakage",
+    "warnings": "Abstracts only. Full text not downloaded.",
+    "status": "ACQUIRED"
+  },
+  {
+    "name": "PubMed abstracts: allosteric_review",
+    "official_url": "https://pubmed.ncbi.nlm.nih.gov/?term=allosteric%20site%20detection%20review",
+    "download_date": "2026-05-27T18:53:33Z",
+    "license": "NLM open access \u2014 abstracts only",
+    "file_path": "data\\raw_intake\\literature_metadata\\pm_allosteric_review.txt",
+    "file_size": "52.9 KB",
+    "sha256": "3465cad045934d4f42c145aca3bfc3ded56dab2d506ad49f277029b9ad70f667",
+    "file_type": "Text",
+    "schema_preview": "",
+    "contains": [
+      "literature_metadata"
+    ],
+    "trust_level": "OFFICIAL_API",
+    "intended_role": "Literature metadata for topic: allosteric_review",
+    "warnings": "Abstracts only. Full text not downloaded.",
+    "status": "ACQUIRED"
+  },
+  {
+    "name": "PubMed abstracts: pcna_review",
+    "official_url": "https://pubmed.ncbi.nlm.nih.gov/?term=PCNA%20ring%20sliding%20clamp%20DNA%20replication%20review",
+    "download_date": "2026-05-27T18:53:33Z",
+    "license": "NLM open access \u2014 abstracts only",
+    "file_path": "data\\raw_intake\\literature_metadata\\pm_pcna_review.txt",
+    "file_size": "24.2 KB",
+    "sha256": "e65c581b378b32982e3715f57d48fbc05595666bd1ff783e1ba4ae504229376a",
+    "file_type": "Text",
+    "schema_preview": "",
+    "contains": [
+      "literature_metadata"
+    ],
+    "trust_level": "OFFICIAL_API",
+    "intended_role": "Literature metadata for topic: pcna_review",
+    "warnings": "Abstracts only. Full text not downloaded.",
+    "status": "ACQUIRED"
+  },
+  {
+    "name": "Seed context relevant papers (from round_00_seed.json)",
+    "official_url": "local:context/round_00_seed.json",
+    "download_date": "2026-05-27T18:53:33Z",
+    "license": "various",
+    "file_path": "data\\raw_intake\\literature_metadata\\seed_relevant_papers.json",
+    "file_size": "437.0 KB",
+    "sha256": "29c792c1faaa1047eee2bba72339ff036568e7e80310cb12b314c148e13d7e27",
+    "file_type": "JSON",
+    "schema_preview": "",
+    "contains": [
+      "literature_metadata"
+    ],
+    "trust_level": "CRAWL_LEAD",
+    "intended_role": "Literature leads for manual review",
+    "warnings": "These are crawl-derived leads only. Verify each before citing.",
+    "status": "ACQUIRED"
+  }
+]

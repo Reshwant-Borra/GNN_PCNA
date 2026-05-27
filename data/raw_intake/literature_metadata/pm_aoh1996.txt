@@ -1,0 +1,655 @@
+1. Cancer Res Commun. 2026 Apr 27. doi: 10.1158/2767-9764.CRC-25-0648. Online
+ahead  of print.
+
+Targeting Cancer-Associated PCNA with AOH1996 Induces Mitotic Catastrophe and 
+Enhances Cisplatin Therapy in Cervical Cancer.
+
+Wendel SO(1), Brooke GM(1), Hu C(2), Sandoval AR(3), Haratipour P(4), Gu L(5), 
+Young M(6), Zangi M(4), Rasche BL(3), Banerjee NS(7), Jossart J(4), Garvin K(8), 
+Geisbrecht BV(3), Cianciolo R(9), Cawley J(8), Perry JJP(6), Hickey RJ(5), 
+Malkas LH(10), Wallace NA(1).
+
+Author information:
+(1)Kansas State University Manhattan, Kansas United States.
+(2)Fred Hutchinson Cancer Center Seattle, Washinton United States.
+(3)Kansas State University United States.
+(4)City Of Hope National Medical Center United States.
+(5)Beckman Research Institute of City of Hope Duarte, CA United States.
+(6)City Of Hope National Medical Center Duarte, CA United States.
+(7)University of Alabama at Birmingham Birmingham, Alabama United States.
+(8)Colorado State University Fort Collins, CO United States.
+(9)The Ohio State University United States.
+(10)City of Hope Duarte, CA United States.
+
+Cervical cancers (CaCx) remain a significant health burden. Limitations on CaCx 
+chemotherapeutic intervention caused by toxic side effects are a persistent 
+barrier to care. Here, we show that the human papillomavirus oncogenes that 
+cause most CaCx also increase the levels of a cancer-associated isoform of PCNA 
+known as caPCNA. The abundance of caPCNA is specifically elevated in CaCx. 
+Similar to observations in other cancers, we found that a small molecule 
+inhibitor of caPCNA (AOH1996) selectively killed cell line, organoid, and 
+xenograft models of CaCx. Our subsequent molecular analysis identified a novel 
+ability of AOH1996 to induce cell death by disrupting the interaction between 
+PCNA and gamma tubulin, resulting in mitotic arrest. We show AOH1996 selectively 
+induces mitotic death in transformed cells, because these cells attempt to 
+progress through mitosis, rather than decondensing their chromosomes and 
+reforming their nuclear membranes like untransformed control cells. Further, we 
+show that these differences allow AOH1996 to specifically sensitize CaCx cells 
+to cisplatin, a frontline chemotherapeutic used to treat CaCx. We found that 
+subtherapeutic doses of AOH1996 and cisplatin could reduce CaCx xenograft growth 
+and improve survival, similarly to a therapeutic dose of cisplatin without the 
+cisplatin-induced toxicity that restricts care. To our knowledge, this study 
+provides the first evidence that AOH1996 can function as a cisplatin-sensitizing 
+agent in cervical cancer models.
+
+DOI: 10.1158/2767-9764.CRC-25-0648
+PMID: 42044624
+
+
+2. Front Pharmacol. 2026 Mar 30;17:1802179. doi: 10.3389/fphar.2026.1802179. 
+eCollection 2026.
+
+The PCNA inhibitor AOH1996 impairs tumor growth and invasiveness in non-small 
+cell lung cancer.
+
+Arafat K(1), Al-Azawi AM(1), Sulaiman S(1), Labanie Y(1), Attoub S(1).
+
+Author information:
+(1)Department of Pharmacology & Therapeutics, College of Medicine & Health 
+Sciences, United Arab Emirates University, Al-Ain, United Arab Emirates.
+
+BACKGROUND: Lung cancer (LC) is the leading cause of cancer-related deaths 
+worldwide, with a 5-year survival rate of less than 10% in advanced or 
+metastatic disease. AOH1996 is a novel small molecule inhibitor of 
+cancer-associated Proliferating Cell Nuclear Antigen (PCNA). It disrupts DNA 
+replication and repair by enhancing PCNA-RPB1 interactions, dissociating PCNA 
+from transcribed chromatin, and inducing DNA double-strand breaks (DSBs), 
+resulting in selective toxicity of various cancer types. The anticancer effects 
+of AOH1996 on LC remain unclear.
+METHODS: In this study, the anticancer effect of AOH1996 was first examined on 
+four non-small cell lung cancer (NSCLC) cells, namely, A549, LNM35, NCI-H358, 
+and NCI-H460 cell lines using cellular viability assay. Subsequent in vitro 
+assays, including colony growth, migration and invasion assays in addition to 
+tumor growth using chick embryo chorioallantoic membrane (CAM) assay in vivo 
+were conducted on A549 and LNM35 cells. The underlying molecular mechanism has 
+been investigated using western blots.
+RESULTS: We demonstrated that AOH1996 significantly decreased NSCLC cells 
+viability and colony growth in vitro in a concentration- and time-dependent 
+manner. AOH1996 also suppressed their tumor growth in the chick embryo CAM 
+xenograft model in vivo without causing toxicity. Moreover, AOH1996 reduced A549 
+and LNM35 cell migration and invasion in vitro. Mechanistically, AOH1996 induced 
+cellular DNA damage, as evidenced by increased γH2AX levels. It also upregulated 
+p53 and its downstream p21 along with activating caspase-3/7 and PARP cleavage.
+CONCLUSION: Our findings highlight AOH1996 as a promising therapeutic agent for 
+NSCLC management, with potent effects on cell survival, migration, invasion, and 
+tumour growth.
+
+Copyright © 2026 Arafat, Al-Azawi, Sulaiman, Labanie and Attoub.
+
+DOI: 10.3389/fphar.2026.1802179
+PMCID: PMC13071023
+PMID: 41982673
+
+Conflict of interest statement: The author(s) declared that this work was 
+conducted in the absence of any commercial or financial relationships that could 
+be construed as a potential conflict of interest.
+
+
+3. Molecules. 2026 Mar 5;31(5):862. doi: 10.3390/molecules31050862.
+
+Synthesis and Anticancer Evaluation of PCNA Inhibitor AOH1996 Analogs in Cancer 
+Cell Cultures.
+
+Jonušienė S(1), Janonienė A(2), Jonušis M(3), Darinskas A(4), Sokol D(1).
+
+Author information:
+(1)Faculty of Chemistry and Geosciences, Institute of Chemistry, Vilnius 
+University, Naugarduko g. 24, LT-03225 Vilnius, Lithuania.
+(2)Life Sciences Center, Institute of Biotechnology, Vilnius University, 
+Saulėtekio g. 7, LT-10257 Vilnius, Lithuania.
+(3)Life Sciences Center, Institute of Biochemistry, Vilnius University, 
+Mokslininkų g. 12A, LT-08412 Vilnius, Lithuania.
+(4)Laboratory of Immunology, National Cancer Institute, P. Baublio g. 3b, 
+LT-08406 Vilnius, Lithuania.
+
+Proliferating cell nuclear antigen (PCNA) is a critical regulator of DNA 
+replication and repair, and its cancer-associated isoforms represent promising 
+therapeutic targets. The small molecule AOH1996 has been previously reported as 
+a PCNA inhibitor with potent antiproliferative activity. Here, a series of novel 
+AOH1996-based structural analogs were synthesized using structure-activity 
+relationship (SAR) and scaffold-hopping strategies, including 1,2,3-triazole, 
+glycine, and amide derivatives with diverse aromatic and polar substituents. The 
+antiproliferative activity of these compounds was evaluated in MCF-7 (breast 
+cancer) and U87 (glioblastoma) cell lines using the MTT assay. The parent 
+compound AOH1996 exhibited the strongest cytotoxicity, reducing cell viability 
+below 30% at 10 μM. Among the analogs, compounds 1f, 2b, 3b, 3c, and 3d 
+demonstrated significant activity, reducing MCF-7 viability by 60-70% and U87 
+viability to 30-40% at 10 μM. SAR analysis revealed that electron-withdrawing or 
+moderately lipophilic substituents on the amide side chain and aromatic 
+extensions on the triazole ring enhanced potency, while bulky or strongly 
+electron-donating groups diminished activity. ADMET predictions indicated that 
+most derivatives possessed favorable drug likeness and absorption potential, but 
+high plasma protein binding, short predicted half-lives, and potential 
+cardiotoxicity represent limitations that will require further optimization. 
+Several active compounds were predicted to inhibit P-glycoprotein, suggesting 
+their potential to overcome multidrug resistance. Overall, compounds 2b and 3b 
+showed relatively favorable predicted profiles and can serve as useful lead 
+scaffolds for further optimization and experimental validation.
+
+DOI: 10.3390/molecules31050862
+PMCID: PMC12985466
+PMID: 41828847 [Indexed for MEDLINE]
+
+Conflict of interest statement: The authors declare no conflicts of interest.
+
+
+4. Curr Res Struct Biol. 2026 Feb 11;11:100183. doi:
+10.1016/j.crstbi.2026.100183.  eCollection 2026 Jun.
+
+Screening for novel chemical scaffolds targeting PCNA identifies the Hsp90alpha 
+inhibitor SNX-2112.
+
+Jossart J(1), Ma N(2), Haratipour P(1), Li CM(3), Jang C(3), Gu L(3), O'Brien 
+TE(4), Vaidehi N(2), Malkas LH(3), Hickey RJ(1), Perry JJP(1).
+
+Author information:
+(1)Department of Cancer Biology and Molecular Medicine, City of Hope Medical 
+Center, Monrovia, CA, USA.
+(2)Department of Computational and Quantitative Medicine, Beckman Research 
+Institute of the City of Hope, Duarte, CA, 91010, USA.
+(3)Department of Molecular Diagnostics and Experimental Therapeutics, City of 
+Hope Medical Center, Monrovia, CA, USA.
+(4)Atomwise, Inc. San Francisco, CA, USA.
+
+Proliferating cell nuclear antigen (PCNA) protein is an emerging therapeutic 
+target for several diseases including cancers, and certain viral infections. It 
+was previously regarded as being undruggable, due to its functions as a 
+molecular hub that regulates a multitude of essential cellular pathways. 
+However, we recently developed a PCNA inhibitor, AOH1996, which acts as a 
+molecular glue between PCNA and RNA Pol II promoting selective killing of cancer 
+cells through the induction of transcription-replication conflicts. We have now 
+moved this investigational new drug into Phase 1 clinical trials. Yet, the 
+discovery of new PCNA inhibitors is still of notable importance, because of the 
+potential for further improving the potency and overall in vivo stability 
+relative to AOH1996, and to potentially provide more treatment options for 
+differing patient populations and for overcoming drug resistance mechanisms that 
+may arise from AOH1996 treatment. Moreover, targeting other PCNA mediated 
+disease states could require the identification of novel compounds that have 
+non-identical mechanisms of action or differing pharmokinetic and pharmodynamic 
+profiles. We coupled artificial intelligence-based computational screens with 
+thermal shift assays in a search for novel hit compounds, and characterized a 
+key hit through protein crystallography, a cellular thermal shift assay and 
+protein frustration calculations. Notably, we discovered that the Hsp90α 
+inhibitor, SNX-2112, binds to PCNA within the major PIP-box binding pocket, 
+revealing a new chemical scaffold for the potential development of novel 
+PCNA-targeting inhibitors.
+
+© 2026 Published by Elsevier B.V.
+
+DOI: 10.1016/j.crstbi.2026.100183
+PMCID: PMC12930076
+PMID: 41743503
+
+Conflict of interest statement: The authors declare the following financial 
+interests/personal relationships which may be considered as potential competing 
+interests:JJP Perry reports financial support was provided by Athena Cosmetics. 
+JJP Perry reports a relationship with RLL LLC that includes: equity or stocks. 
+LH Malkas reports a relationship with RLL LLC that includes: equity or stocks. 
+RJ Hickey reports a relationship with RLL LLC that includes: equity or stocks. J 
+Jossart reports a relationship with RLL LLC that includes: equity or stocks. P 
+Haratipour reports a relationship with RLL LLC that includes: equity or stocks. 
+L Gu reports a relationship with RLL LLC that includes: equity or stocks. N/A If 
+there are other authors, they declare that they have no known competing 
+financial interests or personal relationships that could have appeared to 
+influence the work reported in this paper.
+
+
+5. Pathol Res Pract. 2026 Mar;279:156370. doi: 10.1016/j.prp.2026.156370. Epub
+2026  Jan 16.
+
+Targeting the master of the replication fork-PCNA.
+
+Gong Y(1), Hu W(2), Li M(3).
+
+Author information:
+(1)Institute of Biochemistry and Molecular Biology, Hengyang Medical School, 
+University of South China, Hengyang, Hunan 421001, China. Electronic address: 
+1014827601@qq.com.
+(2)Institute of Biochemistry and Molecular Biology, Hengyang Medical School, 
+University of South China, Hengyang, Hunan 421001, China. Electronic address: 
+1961314351@qq.com.
+(3)Institute of Biochemistry and Molecular Biology, Hengyang Medical School, 
+University of South China, Hengyang, Hunan 421001, China; National Health 
+Commission Key Laboratory of Birth Defect Research and Prevention, Hunan 
+Provincial Maternal and Child Health Care Hospital, Changsha, Hunan 421001, 
+China. Electronic address: 2022000049@usc.edu.cn.
+
+Proliferating cell nuclear antigen (PCNA) orchestrates DNA replication, repair, 
+stress responses, and cell-cycle control. Because tumors are hyperproliferative 
+and genomically unstable, they are highly dependent on PCNA, creating a 
+therapeutic vulnerability. Strategies under evaluation include direct inhibition 
+of PCNA, disruption of PCNA-partner interactions that govern DNA metabolism and 
+cell-cycle progression, and combination regimens with DNA-damaging agents to 
+enhance chemo- and radiosensitivity. Several agents-most notably the APIM 
+peptide ATX-101 and the allosteric small molecule AOH1996-have progressed beyond 
+preclinical testing and are being evaluated as monotherapies or in combination 
+with radiotherapy and genotoxic chemotherapies in early clinical studies. This 
+review synthesizes the mechanistic rationale, therapeutic modalities, and 
+development landscape of PCNA-targeted interventions, highlighting their 
+potential to improve anticancer efficacy while mitigating toxicity.
+
+Copyright © 2026 Elsevier GmbH. All rights reserved.
+
+DOI: 10.1016/j.prp.2026.156370
+PMID: 41564686 [Indexed for MEDLINE]
+
+Conflict of interest statement: Declaration of Competing Interest The authors 
+declare that they have no known competing financial interests or personal 
+relationships that could have appeared to influence the work reported in this 
+paper.
+
+
+6. bioRxiv [Preprint]. 2025 Dec 10:2025.12.06.692635. doi: 
+10.64898/2025.12.06.692635.
+
+PCNA Inhibition Enhances the Antitumor Activity of KRAS-Targeted Therapies in 
+Pancreatic Cancer.
+
+Bannoura SF, Khan HY, Aboukameel A, Wan Y, Bao B, Uddin MH, Jimenez H, 
+Aboukameel A, Siddiqui R, Khan F, Haratipour P, Gu L, Beydoun R, Saif MW, Tobon 
+M, Philip PA, El-Rayes B, Chen H, Hickey RJ, Malkas L, Shi Y, Al Hallak MN, 
+Mohammad RM, Pasche BC, Azmi AS.
+
+Pancreatic ductal adenocarcinoma (PDAC) is an aggressive disease with a dismal 
+prognosis. More than 90% of PDAC tumors harbor KRAS mutations, and several KRAS 
+inhibitors, such as off-state, on-state, mutation-specific, and pan-RAS 
+inhibitors, are being tested in preclinical and clinical settings. However, the 
+response to these inhibitors as single agents is less than optimal, indicating 
+the need to identify novel combination therapies to improve treatment outcomes. 
+Proliferating cell nuclear antigen (PCNA) is a ring-shaped clamp protein that 
+regulates DNA replication, repair, and resolution of transcription-replication 
+conflict, which are critical processes for pancreatic cancer survival. AOH1996 
+is a first-in-class, selective PCNA inhibitor in Phase I trials. Here, we found 
+that AOH1996 treatment is efficacious in various PDAC models in vitro. PCNA and 
+KRAS are predicted to be synthetic lethal partners, and RNA sequencing of 
+AOH1996-treated PDAC cells reveals enrichment of MAPK and PI3K signaling 
+pathways. Combination of AOH1996 with KRAS inhibitors demonstrates strong 
+synergy across KRAS G12C and G12D mutant models. Treatment with a combination of 
+AOH1996 and KRAS inhibitors induces cell cycle arrest and apoptosis in PDAC 
+cells. Robust antitumor activity of AOH1996 in combination with RMC-6236 was 
+observed in PDAC tumoroids. In vivo , the combination of AOH1996 with sotorasib 
+or MRTX1133 reduced tumor growth rates compared to single-agent therapy, with no 
+impact on mouse body weight. Residual tumor analysis showed sustained pERK and 
+Myc inhibition in the combination arm. In conclusion, combination of AOH1996 
+with KRAS inhibitors is a promising therapeutic strategy for KRAS-driven PDAC, 
+warranting further clinical investigation.
+
+DOI: 10.64898/2025.12.06.692635
+PMCID: PMC12713744
+PMID: 41427373
+
+
+7. Br J Cancer. 2026 Feb;134(4):662-675. doi: 10.1038/s41416-025-03309-6. Epub
+2025  Dec 18.
+
+Senescence-related gene signature predicts prostate cancer progression and 
+identifies PCNA as a therapeutic target via multi-omics machine learning 
+integration.
+
+Lin R(1), Un H(1), Kang Y(2), Lei J(1), Chen L(1), Liu R(3), Wang Z(4).
+
+Author information:
+(1)Department of Urology, First Affiliated Hospital of Sun Yat-sen University, 
+Guangzhou, China.
+(2)Institute of Precision Medicine, First Affiliated Hospital of Sun Yat-sen 
+University, Guangzhou, China.
+(3)Department of Urology, First Affiliated Hospital of Sun Yat-sen University, 
+Guangzhou, China. liur227@mail.sysu.edu.cn.
+(4)Department of Urology, First Affiliated Hospital of Sun Yat-sen University, 
+Guangzhou, China. wangzr27@mail.sysu.edu.cn.
+
+BACKGROUND: Senescence plays a critical role in prostate cancer, influencing 
+disease onset and progression. However, the alterations of senescence-associated 
+genes during prostate cancer progression and their potential value in predicting 
+disease advancement remain to be further elucidated.
+METHODS: 117 machine learning methods were applied to construct the 
+senescence-related gene signature (SRGS). Temporal trajectory analysis based on 
+bulk and single-cell transcriptomic datasets was performed to link SRGS with 
+prostate cancer progression. Functional validations of PCNA were conducted both 
+in vitro and in vivo to support our analytical findings.
+RESULTS: Using 117 machine learning methods, we developed the SRGS, which 
+demonstrated robust predictive capability across multiple cohorts, including our 
+own cohort of 90 patients. The SRGS also showed strong potential in predicting 
+overall survival in patients treated with second-generation AR inhibitors. 
+Temporal trajectory analysis of bulk RNA-seq and single-cell data revealed the 
+biological significance of SRGS and identified Proliferating Cell Nuclear 
+Antigen (PCNA) as a potential driver of PCa progression. Pharmacological 
+inhibition of PCNA with AOH1996 significantly suppressed tumor growth and 
+enhanced the efficacy of androgen deprivation therapy.
+CONCLUSION: We developed the SRGS that effectively predicts prostate cancer 
+prognosis and progression. Moreover, our findings highlight PCNA as a promising 
+therapeutic target in PCa. Integrated analysis of multi-cohort transcriptomic 
+data developed an SRGS enabling accurate prognostication and identification of 
+high-risk patients. Results highlight SRGS's clinical utility and nominate PCNA 
+as a promising therapeutic target in high-risk and castration-resistant prostate 
+cancer (CRPC).
+
+© 2025. The Author(s).
+
+DOI: 10.1038/s41416-025-03309-6
+PMCID: PMC12858972
+PMID: 41407876 [Indexed for MEDLINE]
+
+Conflict of interest statement: Competing interests: The authors declare no 
+competing interests.
+
+
+8. Stem Cell Res Ther. 2025 Sep 29;16(1):523. doi: 10.1186/s13287-025-04607-9.
+
+The PCNA inhibitor AOH1996 suppresses cancer stemness and enhances anti-PD1 
+immunotherapy in squamous cell carcinoma.
+
+Wang Y(1), Qin Z(1), Chen Y(1), Gu B(1), Jia L(2)(3)(4).
+
+Author information:
+(1)Department of Oral and Maxillofacial Surgery, Peking University School and 
+Hospital of Stomatology, Beijing, 100081, China.
+(2)Department of Oral and Maxillofacial Surgery, Peking University School and 
+Hospital of Stomatology, Beijing, 100081, China. jialingfei@bjmu.edu.cn.
+(3)National Center for Stomatology & National Clinical Research Center for Oral 
+Diseases & National Engineering Research Center of Oral Biomaterials and Digital 
+Medical Devices, Beijing, 100081, China. jialingfei@bjmu.edu.cn.
+(4)Beijing Advanced Center of Cellular Homeostasis and Aging-Related Diseases, 
+Institute of Advanced Clinical Medicine, Peking University, Beijing, 100081, 
+China. jialingfei@bjmu.edu.cn.
+
+BACKGROUND: Proliferating cell nuclear antigen (PCNA), a well-documented 
+anticancer target, is critical for DNA synthesis, replication, and repair. 
+AOH1996, a small-molecule PCNA inhibitor, is currently undergoing clinical 
+trials for the treatment of advanced solid tumors. However, the therapeutic 
+effect of AOH1996 on head and neck squamous cell carcinoma (HNSCC) remains 
+unclear.
+METHODS: The effects of AOH1996 on HNSCC biological behaviors and cancer 
+stemness were tested in HNSCC cells and nude mice. The combination treatment of 
+AOH1996 and anti-PD1 was performed in a 4-nitroquinoline N-oxide (4NQO)-induced 
+HNSCC mouse model. RNA sequencing, Western Blotting, immunofluorescence 
+staining, comet assays, and qRT‒PCR were conducted for mechanistic studies.
+RESULTS: Our results showed that AOH1996 effectively inhibited HNSCC 
+proliferation and invasion both in vitro and in vivo. AOH1996 suppressed HNSCC 
+stemness, development, and metastasis. Moreover, AOH1996 altered the tumor 
+immune microenvironment into an inflamed state with increased CD8+ T-cell 
+infiltration, rendering it a favorable partner for combination therapy with 
+immune checkpoint inhibitors. Mechanistically, AOH1996 induced cellular DNA 
+damage, suppressed cancer stemness through the upregulation of p-TBK1, and 
+promoted the secretion of CD8+ T-cell-recruiting chemokines by stimulating 
+IRF3-mediated transcription.
+CONCLUSIONS: Taken together, our results demonstrated that AOH1996 suppressed 
+tumor growth, eliminated cancer stem cells (CSCs), and synergistically enhanced 
+the efficacy of anti-PD1 immunotherapy in HNSCC.
+
+© 2025. The Author(s).
+
+DOI: 10.1186/s13287-025-04607-9
+PMCID: PMC12482506
+PMID: 41024256 [Indexed for MEDLINE]
+
+Conflict of interest statement: Declarations. Ethics approval and consent to 
+participate: The human HNSCC cell lines CAL27 (CRL-2095) and SCC15 (CRL-1623) 
+were obtained from ATCC ( https://www.atcc.org/ ). ATCC confirmed that there was 
+initial ethical approval for the collection of these cells and that the donors 
+signed informed consent forms. All animal experiments were approved by the 
+Institutional Animal Care and Use Committee of Peking University Health Science 
+Center and were performed in strict accordance with approved protocols. Title of 
+the approved study: The effect and mechanisms of cancer stem cells on lymph node 
+metastasis and immunotherapy in head and neck squamous cell carcinoma. Approval 
+number: BCAJ0284. Approval Date: 2023.10.20. Consent for publication: Not 
+applicable. Competing interests: The authors declare that they have no competing 
+interests.
+
+
+9. Gastroenterology. 2025 Sep;169(4):600-614.e11. doi: 
+10.1053/j.gastro.2025.02.038. Epub 2025 Apr 8.
+
+Therapeutic Targeting of Oncogene-Induced Transcription-Replication Conflicts in 
+Pancreatic Ductal Adenocarcinoma.
+
+Smith SJ(1), Meng F(2), Lingeman RG(1), Li CM(1), Li M(3), Boneh G(2), Seppälä 
+TT(4), Phan T(2), Li H(5), Burkhart RA(6), Parekh V(7), Rahmanuddin S(8), 
+Melstrom LG(2), Hickey RJ(9), Chung V(10), Liu Y(3), Malkas LH(1), Raoof M(11).
+
+Author information:
+(1)Department of Molecular Diagnostics and Experimental Therapeutics, Beckman 
+Research Institute of City of Hope, Duarte, California.
+(2)Department of Surgery, City of Hope Cancer Center, Duarte, California.
+(3)Department of Cancer Genetics and Epigenetics, City of Hope Cancer Center, 
+Duarte, California.
+(4)Division of Hepatobiliary and Pancreatic Surgery, Johns Hopkins University 
+School of Medicine, Baltimore, Maryland; Department of Gastroenterology and 
+Alimentary Tract Surgery and TAYS Cancer Centre, Tampere University Hospital, 
+Tampere, Finland.
+(5)Integrative Genomic Core, Beckman Research Institute of City of Hope, Duarte, 
+California.
+(6)Division of Hepatobiliary and Pancreatic Surgery, Johns Hopkins University 
+School of Medicine, Baltimore, Maryland.
+(7)Department of Pathology, City of Hope Cancer Center, Duarte, California.
+(8)Department of Radiology, City of Hope Cancer Center, Duarte, California.
+(9)Department of Cancer Biology and Molecular Medicine, Beckman Research 
+Institute of City of Hope, Duarte, California.
+(10)Department of Medical Oncology, City of Hope Cancer Center, Duarte, 
+California.
+(11)Department of Surgery, City of Hope Cancer Center, Duarte, California; 
+Department of Cancer Genetics and Epigenetics, City of Hope Cancer Center, 
+Duarte, California. Electronic address: mraoof@coh.org.
+
+BACKGROUND & AIMS: Transcription-replication conflicts (TRCs) are a key source 
+of replication stress in cancer, with pancreatic ductal adenocarcinoma (PDAC) 
+showing uniquely high levels. This study investigated the mechanism, oncogene 
+dependency, subtype specificity, and preclinical activity of the TRC-targeting 
+molecule AOH1996 in PDAC models. Initial clinical evidence of AOH1996 activity 
+in patients with PDAC is also provided.
+METHODS: The oncogene-dependent toxicity of AOH1996 was studied in 
+KRAS(G12D)-inducible systems. Its effects on replication fork progression, TRCs, 
+DNA damage, cell cycle, and apoptosis were assessed in PDAC cell lines. 
+Subtype-specific responses were tested in organoids, and in vivo efficacy was 
+evaluated using murine and patient-derived xenografts. Clinical activity was 
+measured through radiographic response and progression-free survival in 
+patients.
+RESULTS: AOH1996 exhibited dose-dependent cytotoxicity reliant on KRAS(G12D) 
+induction (average half maximal inhibitory concentration: 0.93 μM). It inhibited 
+replication fork progression and induced TRCs by enhancing interactions between 
+RNA Polymerase II and proliferating cell nuclear antigen, causing 
+transcription-dependent DNA damage and transcription shutdown. Organoids with 
+high replication stress were most sensitive (half maximal inhibitory 
+concentration: 406 nM-2 μM). In mouse models, AOH1996 reduced tumor growth, 
+induced tumor-selective DNA damage, and prolonged survival (median 14 vs 21 
+days, P = .04) without toxicity. Two patients with chemotherapy-refractory PDAC 
+treated with AOH1996 showed up to 49% tumor shrinkage in hepatic metastases.
+CONCLUSIONS: AOH1996 safely and effectively targets TRCs in preclinical PDAC 
+models, with initial clinical evidence supporting its potential for treating 
+chemotherapy-refractory PDAC. Further clinical development is warranted.
+
+Copyright © 2025 The Authors. Published by Elsevier Inc. All rights reserved.
+
+DOI: 10.1053/j.gastro.2025.02.038
+PMID: 40209809 [Indexed for MEDLINE]
+
+
+10. J Med Chem. 2025 Feb 13;68(3):2058-2088. doi: 10.1021/acs.jmedchem.4c00526.
+Epub  2025 Feb 4.
+
+Targeting the "Undruggable": Small-Molecule Inhibitors of Proliferating Cell 
+Nuclear Antigen (PCNA) in the Spotlight in Cancer Therapy.
+
+Wang T(1)(2), Wang Z(1)(3).
+
+Author information:
+(1)College of Pharmacy, Jiangxi University of Chinese Medicine, Nanchang 330004, 
+P. R. China.
+(2)National Pharmaceutical Engineering Center for Solid Preparation in Chinese 
+Herbal Medicine, Jiangxi University of Chinese Medicine, Nanchang 330006, P. R. 
+China.
+(3)Jiangxi Provincial Key Laboratory of TCM Female Reproductive Health and 
+Related Diseases Research and Transformation, Jiangxi University of Chinese 
+Medicine, Nanchang 330004, P. R. China.
+
+PCNA plays multiple roles in cancer development, including cell proliferation 
+regulation, DNA repair, replication, and serving as a widely used biomarker and 
+therapeutic target. Despite its significant role in oncology, PCNA has 
+historically been considered "undruggable" due to the absence of known 
+endogenous small molecule modulators and identifiable ligand binding sites. 
+Unlike other protein-protein interfaces, PCNA lacks explicit binding grooves, 
+featuring a relatively small and shallow surface pocket, which hinders the 
+discovery of traditional small molecule targets. Recent breakthroughs have 
+introduced promising PCNA-targeting candidates, with ATX-101 and AOH1996 
+entering phase I clinical trials for cancer therapy, garnering academic and 
+industry interest. These achievements provide new evidence for PCNA as a drug 
+target. This article provides insight and perspective on the application of 
+small-molecule PCNA inhibitors in cancer treatment, covering PCNA function, its 
+relationship with cancer, structural modification of small molecule inhibitors, 
+and discovery strategies.
+
+DOI: 10.1021/acs.jmedchem.4c00526
+PMID: 39904718 [Indexed for MEDLINE]
+
+
+11. Exp Hematol Oncol. 2024 Dec 28;13(1):123. doi: 10.1186/s40164-024-00586-4.
+
+AOH1996 targets mitochondrial dynamics and metabolism in leukemic stem cells via 
+mitochondrial PCNA inhibition.
+
+Kang H(#)(1), Valerio M(#)(1), Feng J(#)(2), Gu L(3), Hoang DH(1), Blackmon 
+A(1), Sharkas S(1), Pathak K(4), Jossart J(3), Li Z(5), Zhang H(2), Zhang B(1), 
+Pirrotte P(4), Perry JJP(3), Hickey RJ(6), Malkas L(7)(8), Marcucci G(9)(10), 
+Nguyen LXT(11)(12)(13).
+
+Author information:
+(1)Department of Hematologic Malignancies Translational Science, Beckman 
+Research Institute and City of Hope National Medical Center, Duarte, CA, USA.
+(2)Department of Hematology, Peking University Shenzhen Hospital, Shenzhen, 
+China.
+(3)Department of Molecular Diagnostics & Experimental Therapeutics, Beckman 
+Research Institute of City of Hope, Duarte, CA, USA.
+(4)Early Detection and Prevention Division, Translational Genomics Research 
+Institute, Phoenix, AZ, USA.
+(5)Beckman Research Institute, City of Hope National Medical Center, Duarte, CA, 
+USA.
+(6)Department of Molecular Medicine, City of Hope National Medical Center, 
+Duarte, CA, USA.
+(7)Department of Molecular Diagnostics & Experimental Therapeutics, Beckman 
+Research Institute of City of Hope, Duarte, CA, USA. lmalkas@coh.org.
+(8)City of Hope, Duarte, CA, 91010, USA. lmalkas@coh.org.
+(9)Department of Hematologic Malignancies Translational Science, Beckman 
+Research Institute and City of Hope National Medical Center, Duarte, CA, USA. 
+gmarcucci@coh.org.
+(10)City of Hope, Duarte, CA, 91010, USA. gmarcucci@coh.org.
+(11)Department of Hematologic Malignancies Translational Science, Beckman 
+Research Institute and City of Hope National Medical Center, Duarte, CA, USA. 
+lenguyen@coh.org.
+(12)Early Detection and Prevention Division, Translational Genomics Research 
+Institute, Phoenix, AZ, USA. lenguyen@coh.org.
+(13)City of Hope, Duarte, CA, 91010, USA. lenguyen@coh.org.
+(#)Contributed equally
+
+Erratum in
+    Exp Hematol Oncol. 2025 Apr 10;14(1):56. doi: 10.1186/s40164-025-00650-7.
+
+Cytoplasmic proliferating cell nuclear antigen (PCNA) is highly expressed in 
+acute myeloid leukemia (AML) cells, supporting oxidative metabolism and leukemia 
+stem cell (LSC) growth. We report on AOH1996 (AOH), an oral compound targeting 
+cancer-associated PCNA, which shows significant antileukemic activity. AOH 
+inhibited growth in AML cell lines and primary CD34 + CD38 - blasts 
+(LSC-enriched) in vitro while sparing normal hematopoietic stem cells (HSCs). In 
+vivo, AOH-treated mice demonstrated prolonged survival compared to controls (50 
+vs. 35 days; p < 0.0001) with reduced LSC burden, as shown in secondary 
+transplants (42 vs. 30 days, p < 0.0001). Mechanistically, AOH disrupted 
+mitochondrial PCNA's binding to the OPA1 protein, enhancing OPA1's interaction 
+with its E3 ligase, MARCH5, which led to OPA1 degradation. This process reduced 
+mitochondrial length, fatty acid oxidation (FAO), and oxidative phosphorylation 
+(OXPHOS), thereby inhibiting LSC expansion. The addition of venetoclax (VEN), an 
+FDA-approved Bcl-2 inhibitor, further enhanced AOH's effects, reducing 
+mitochondrial length, FAO, and OXPHOS while improving survival in AML models. 
+While VEN is approved for AML, AOH is under clinical investigation for solid 
+tumors, and our findings support its broader therapeutic potential.
+
+© 2024. The Author(s).
+
+DOI: 10.1186/s40164-024-00586-4
+PMCID: PMC11681632
+PMID: 39732733
+
+Conflict of interest statement: Declarations. Ethics approval and consent to 
+participate: Healthy donor-derived normal hematopoietic stem cells (HSCs) and 
+acute myeloid leukemia (AML) specimens were sourced from the City of Hope 
+National Medical Center (COHNMC) in accordance with approved banking protocols 
+(#06229, #03162, #07047, or #18067) sanctioned by the City of Hope Institutional 
+Review Board. These protocols adhere to the guidelines set forth by the 
+Department of Health and Human Services and are compliant with the principles 
+outlined in the Declaration of Helsinki. Prior to specimen acquisition, written 
+informed consent was obtained from donors (#06229) or patients (#03162, #07047, 
+or #18067). Consent for publication: Not applicable. Competing interests: The 
+authors declare no competing interests.
+
+
+12. Cell Chem Biol. 2023 Oct 19;30(10):1235-1247.e6. doi: 
+10.1016/j.chembiol.2023.07.001. Epub 2023 Aug 1.
+
+Small molecule targeting of transcription-replication conflict for selective 
+chemotherapy.
+
+Gu L(1), Li M(2), Li CM(3), Haratipour P(4), Lingeman R(3), Jossart J(3), Gutova 
+M(5), Flores L(5), Hyde C(5), Kenjić N(6), Li H(7), Chung V(8), Li H(9), 
+Lomenick B(10), Von Hoff DD(11), Synold TW(12), Aboody KS(5), Liu Y(2), Horne 
+D(4), Hickey RJ(4), Perry JJP(3), Malkas LH(3).
+
+Author information:
+(1)Department of Molecular Diagnostics & Experimental Therapeutics, Beckman 
+Research Institute of City of Hope, Duarte, CA, USA. Electronic address: 
+Lgu@coh.org.
+(2)Department of Cancer Genetics and Epigenetics, Beckman Research Institute of 
+City of Hope, Duarte, CA, USA.
+(3)Department of Molecular Diagnostics & Experimental Therapeutics, Beckman 
+Research Institute of City of Hope, Duarte, CA, USA.
+(4)Department of Cancer Biology & Molecular Medicine, Beckman Research Institute 
+of City of Hope, Duarte, CA, USA.
+(5)Department of Developmental & Stem Cell Biology, Beckman Research Institute 
+of City of Hope, Duarte, CA, USA.
+(6)Department of Biochemistry, University of California Riverside, Riverside, 
+CA, USA.
+(7)Department of Genomics, Beckman Research Institute of City of Hope, Duarte, 
+CA, USA.
+(8)Department of Medical Oncology, City of Hope, Duarte, CA, USA.
+(9)Department of Bioinformatics, Beckman Research Institute of City of Hope, 
+Duarte, CA, USA.
+(10)Proteome Exploration Laboratory, California Institute of Technology, 
+Pasadena, CA, USA.
+(11)Clinical Translational Research Division, Translational Genomics Research 
+Institute, 445N 5th Street, Phoenix, AZ 85004, USA.
+(12)Department of Medical Oncology and Therapeutics Research, Beckman Research 
+Institute of City of Hope, Duarte, CA, USA.
+
+Targeting transcription replication conflicts, a major source of endogenous DNA 
+double-stranded breaks and genomic instability could have important anticancer 
+therapeutic implications. Proliferating cell nuclear antigen (PCNA) is critical 
+to DNA replication and repair processes. Through a rational drug design 
+approach, we identified a small molecule PCNA inhibitor, AOH1996, which 
+selectively kills cancer cells. AOH1996 enhances the interaction between PCNA 
+and the largest subunit of RNA polymerase II, RPB1, and dissociates PCNA from 
+actively transcribed chromatin regions, while inducing DNA double-stranded 
+breaks in a transcription-dependent manner. Attenuation of RPB1 interaction with 
+PCNA, by a point mutation in RPB1's PCNA-binding region, confers resistance to 
+AOH1996. Orally administrable and metabolically stable, AOH1996 suppresses tumor 
+growth as a monotherapy or as a combination treatment but causes no discernable 
+side effects. Inhibitors of transcription replication conflict resolution may 
+provide a new and unique therapeutic avenue for exploiting this cancer-selective 
+vulnerability.
+
+Copyright © 2023 The Authors. Published by Elsevier Ltd.. All rights reserved.
+
+DOI: 10.1016/j.chembiol.2023.07.001
+PMCID: PMC10592352
+PMID: 37531956 [Indexed for MEDLINE]
+
+Conflict of interest statement: Declaration of interests The authors declare the 
+following competing financial interest(s): City of Hope’s Office of Technology 
+Licensing has been awarded a patent on AOH1996 and its analogs. L.H. Malkas, 
+R.J. Hickey, D. Horne, and L. Gu are listed as inventors.

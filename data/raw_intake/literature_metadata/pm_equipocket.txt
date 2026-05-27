@@ -1,0 +1,791 @@
+1. J Pharm Anal. 2026 Mar;16(3):101339. doi: 10.1016/j.jpha.2025.101339. Epub
+2025  May 15.
+
+Equivariant graph neural network-based accurate and ultra-fast virtual screening 
+of small molecules targeting miRNA-protein complex.
+
+Wang H(1), Zhang Z(1), Zhang G(1), Wen M(1), Lu H(1).
+
+Author information:
+(1)College of Chemistry and Chemical Engineering, Central South University, 
+Changsha, 410083, China.
+
+MicroRNAs (miRNAs) are small RNA molecules with significant therapeutic 
+potential for treating various diseases, underscoring the need for effective 
+methods to screen drugs targeting disease-associated miRNAs. In this study, we 
+introduce miRPVS, a rapid virtual screening approach designed to identify small 
+molecule drugs targeting miRNA-protein complex. miRPVS identifies binding 
+pockets on the surface of these complexes, expanding the scope of potential 
+small molecule targets. It employs an equivariant graph neural network model to 
+extract three-dimensional (3D) structure features of small molecules, enabling 
+accurate prediction of docking scores. Using miRPVS, four complexes involved in 
+pri-miRNA cleaving, pre-miRNA transport, and mRNA depress were identified as 
+promising targets. For each target, hit compounds were screened from the ZINC20 
+database, which contains approximately 600 million drug-like small molecules. 
+MiRPVS predicted the docking score for these compounds, with Pearson correlation 
+coefficients between predicted and experimentally docked scores comparable to 
+those obtained through twice docking. Notably, the average deviation was only 
+0.67% across th4e four complexes. Remarkably, the entire screening process for 
+all four complexes was completed in 14 h using just four V100 GPUs. 
+Additionally, we integrated AlphaFold3-predicted structures into the miRPVS 
+workflow, enabling virtual screening of small molecules against miRNA-protein 
+complexes without experimentally determined structures. miRPVS demonstrated 
+performance comparable to traditional docking methods while significantly 
+reducing computational time and resource requirements. This innovative approach 
+holds great promise for accelerating the discovery of small molecule drugs 
+targeting miRNA-regulated pathways, addressing a critical gap in miRNA 
+therapeutics.
+
+© 2025 The Authors.
+
+DOI: 10.1016/j.jpha.2025.101339
+PMCID: PMC13049515
+PMID: 41940170
+
+Conflict of interest statement: The authors declare that they have no known 
+competing financial interests or personal relationships that could have appeared 
+to influence the work reported in this paper.
+
+
+2. Mol Inform. 2026 Mar;45(3):e70027. doi: 10.1002/minf.70027.
+
+Foundation and Multimodal Models for Drug Discovery in Molecular Informatics: 
+Principles, Evaluation, and Practical Guidance.
+
+Pastore EP(1), De Rango F(1).
+
+Author information:
+(1)University of Calabria, Department of Biology, Ecology and Earth Science, 
+Rende, Italy.
+
+Foundation and multimodal models are rapidly becoming a core methodology in 
+molecular informatics, particularly for drug discovery, by leveraging 
+large-scale pretraining across sequences, graphs, 3D structures, and text. This 
+mini-review provides practical guidance on when these models help, how to choose 
+representations and data, and how to design pretraining and adaptation pipelines 
+for real-world use. We clarify what qualifies as a foundation model in 
+chemistry; compare chemical language models, graph-based architectures, and 3D 
+equivariant networks; review multimodal strategies that connect molecules with 
+proteins, pockets, and natural language; and summarize diffusion-based 
+generative modeling. We also emphasize rigorous evaluation, discussing realistic 
+splitting protocols, distribution shift, activity cliffs, uncertainty 
+calibration, and conformal prediction in the context of widely used benchmarks.
+
+© 2026 The Author(s). Molecular Informatics published by Wiley‐VCH GmbH.
+
+DOI: 10.1002/minf.70027
+PMCID: PMC13014059
+PMID: 41877557 [Indexed for MEDLINE]
+
+Conflict of interest statement: The authors declare no conflicts of interest.
+
+
+3. Brief Bioinform. 2026 Jan 7;27(1):bbag081. doi: 10.1093/bib/bbag081.
+
+Structure-informed machine learning for drug discovery: a task-centric 
+perspective.
+
+Li Y(1)(2)(3), Zhan RH(1), Rao J(4), Liu M(2)(3), Sang P(2)(3), Zeng X(1), Zheng 
+M(4), Li X(4), Yang L(2)(3).
+
+Author information:
+(1)College of Mathematics and Computer Science, Dali University, No. 2 Hongsheng 
+Road, Dali 671003, China.
+(2)College of Agriculture and Biological Science, Dali University, No. 2 
+Hongsheng Road, Dali 671003, China.
+(3)Key Laboratory of Bioinformatics and Computational Biology, Department of 
+Education of Yunnan Province, Dali University, No. 2 Hongsheng Road, Dali 
+671003, China.
+(4)Drug Discovery and Design Center, State Key Laboratory of Drug Research, 
+Shanghai Institute of Materia Medica, Chinese Academy of Sciences, No. 555 Zu 
+Chongzhi Road, Pudong New Area, Shanghai 201203, China.
+
+Advances in protein structure prediction have transformed the landscape of 
+structure-based drug discovery, enabling deep learning models to incorporate 
+spatial constraints into the design of target-specific ligands. This review 
+provides a comprehensive synthesis of structure-aware molecular modeling from a 
+task-centric perspective, focusing on binding pocket identification, interaction 
+prediction, pose estimation, and complex modeling. We highlight the 
+technological evolution from traditional docking and scoring frameworks toward 
+geometry-informed deep learning architectures that encode protein structures via 
+surface geometry, equivariant representations, and multi-modal embeddings. 
+Special attention is given to recent progress in structure-conditioned molecular 
+generation. We classify generative approaches into four core strategies: 
+sequence-based generation with 3D conditioning, fragment-based linking and 
+growing, graph-based generation under structural constraints, and 3D 
+coordinate-based generation including diffusion models. Each paradigm balances 
+chemical validity, spatial fidelity, and computational tractability in distinct 
+ways, with diffusion-based and point cloud models emerging as powerful tools for 
+synthesizing pocket-complementary molecules in full 3D space. We also discuss 
+the emergence of co-folding models, which unify protein folding and ligand 
+binding into a single predictive framework, bridging the gap between 
+sequence-level learning and structural resolution. Finally, we examine the key 
+challenges of data scarcity, generalization, and multi-objective control, and 
+outline future directions toward scalable, interpretable, and physically 
+plausible generation pipelines. By tracing how structural knowledge is reshaping 
+AI-driven drug design, this review aims to provide both a conceptual roadmap and 
+practical insight into next-generation molecular modeling.
+
+© The Author(s) 2026. Published by Oxford University Press.
+
+DOI: 10.1093/bib/bbag081
+PMCID: PMC12927881
+PMID: 41729820 [Indexed for MEDLINE]
+
+Conflict of interest statement: The authors declare no conflicts of interest.
+
+
+4. J Cheminform. 2025 Dec 15;18(1):11. doi: 10.1186/s13321-025-01127-9.
+
+VN-EGNN: E(3)- and SE(3)-Equivariant Graph Neural Networks with Virtual Nodes 
+Enhance Protein Binding Site Identification.
+
+Sestak F(1), Schneckenreiter L(2), Brandstetter J(3)(4), Hochreiter S(5)(6), 
+Mayr A(7), Klambauer G(8)(9).
+
+Author information:
+(1)ELLIS Unit Linz and LIT AI Lab, Institute for Machine Learning, Johannes 
+Kepler University Linz, Altenberger Straße 69, Linz, 4040, Austria. 
+sestak@ml.jku.at.
+(2)ELLIS Unit Linz and LIT AI Lab, Institute for Machine Learning, Johannes 
+Kepler University Linz, Altenberger Straße 69, Linz, 4040, Austria. 
+schneckenreiter@ml.jku.at.
+(3)ELLIS Unit Linz and LIT AI Lab, Institute for Machine Learning, Johannes 
+Kepler University Linz, Altenberger Straße 69, Linz, 4040, Austria. 
+brandstetter@ml.jku.at.
+(4)Emmi AI GmbH, Bürgerstraße 6, Linz, 4020, Austria. brandstetter@ml.jku.at.
+(5)ELLIS Unit Linz and LIT AI Lab, Institute for Machine Learning, Johannes 
+Kepler University Linz, Altenberger Straße 69, Linz, 4040, Austria. 
+hochreit@ml.jku.at.
+(6)NXAI GmbH, Peter-Behrens-Platz 2, Linz, 4020, Austria. hochreit@ml.jku.at.
+(7)ELLIS Unit Linz and LIT AI Lab, Institute for Machine Learning, Johannes 
+Kepler University Linz, Altenberger Straße 69, Linz, 4040, Austria. 
+mayr@ml.jku.at.
+(8)ELLIS Unit Linz and LIT AI Lab, Institute for Machine Learning, Johannes 
+Kepler University Linz, Altenberger Straße 69, Linz, 4040, Austria. 
+klambauer@ml.jku.at.
+(9)NXAI GmbH, Peter-Behrens-Platz 2, Linz, 4020, Austria. klambauer@ml.jku.at.
+
+We present VN-EGNN, a novel approach to binding site identification that 
+significantly advances predictive performance. By integrating virtual nodes into 
+E(n)- and SE(n)-equivariant graph neural networks (EGNNs) and extending the 
+message-passing scheme, we address limitations of traditional GNNs in modeling 
+complex geometric entities such as binding pockets and at the same time get 
+neural representations of binding sites. Our extensive experiments demonstrate 
+that VN-EGNN sets a new state-of-the-art in locating binding site centers on the 
+COACH420, HOLO4K, and PDBbind2020 datasets, showcasing a marked improvement in 
+the DCC/DCA success rates over existing methods. These results underscore the 
+potential of VN-EGNN in drug discovery and protein-ligand interaction studies.
+
+© 2025. The Author(s).
+
+DOI: 10.1186/s13321-025-01127-9
+PMCID: PMC12837241
+PMID: 41398608
+
+Conflict of interest statement: Declarations. Competing interests: The authors 
+declare no Conflict of interest.
+
+
+5. ArXiv [Preprint]. 2025 Nov 6:arXiv:2510.02578v3.
+
+Flowr.root - A flow matching based foundation model for joint multi-purpose 
+structure-aware 3D ligand generation and affinity prediction.
+
+Cremer J(1), Le T(1), Ghahremanpour MM(2), Sługocka E(3)(4), Menezes F(5)(6), 
+Clevert DA(1).
+
+Author information:
+(1)Machine Learning & Computational Sciences, Pfizer Worldwide R&D, Berlin, 
+Germany.
+(2)Computational Chemistry, Medicine Design, Pfizer Worldwide R&D, Cambridge, 
+USA.
+(3)Doctoral School of Medical and Health Sciences, Jagiellonian University 
+Medical College, Cracow, Poland.
+(4)Department of Physicochemical Drug Analysis, Faculty of Pharmacy, 
+Jagiellonian University Medical College, Cracow, Poland.
+(5)Institute of Structural Biology, Molecular Targets and Therapeutics Center, 
+Helmholtz Munich, Neuherberg, Germany.
+(6)TUMSchool of Natural Sciences, Department of Bioscience, Bayerisches NMR 
+Zentrum, Technical University of Munich, Garching, Germany.
+
+We present Flowr.root, an SE(3)-equivariant flow-matching model for pocket-aware 
+3D ligand generation with joint binding affinity prediction and confidence 
+estimation. The model supports multiple design modes including de novo 
+generation, interaction/pharmacophore-conditional sampling, fragment 
+elaboration, and multi-endpoint affinity prediction ( pIC50 , pKi , pKd , pEC50 
+). Training combines large-scale ligand libraries with mixed-fidelity 
+protein-ligand complexes, followed by refinement on curated co-crystal datasets 
+and adaptation to project-specific data through parameter-efficient finetuning. 
+Flowr.root achieves state-of-the-art performance in both unconditional 3D 
+molecule and pocket-conditional ligand generation, producing geometrically 
+realistic, low-strain structures with computational efficiency on established 
+benchmark datasets. The integrated affinity prediction module demonstrates 
+superior accuracy on the Spindr test set and outperforms recent models on the 
+Schrödinger FEP+/OpenFE benchmark while offering substantial speed advantages. 
+As a foundation model, Flowr.root requires continuous parameter-efficient 
+finetuning on project-specific datasets to account for unseen structure-activity 
+landscapes, which we demonstrate yields strong correlation with experimental 
+in-house data. The model's joint generation and affinity prediction capabilities 
+enable inference-time scaling through importance sampling, effectively steering 
+molecular design toward higher-affinity compounds. Case studies validate this 
+approach: selective CK2α ligand generation against CLK3 shows significant 
+correlation between predicted and quantum-mechanical binding energies, while 
+scaffold elaboration studies on ERα , TYK2 and BACE1 demonstrate strong 
+agreement between predicted affinities and QM calculations. By integrating 
+structure-aware generation, affinity estimation, and property-guided sampling 
+within a unified framework, Flowr.root provides a comprehensive foundation for 
+structure-based drug design spanning hit identification through lead 
+optimization.
+
+PMCID: PMC12622198
+PMID: 41256879
+
+
+6. Protein Sci. 2025 Nov;34(11):e70338. doi: 10.1002/pro.70338.
+
+DiffPepDock: Efficient protein-peptide docking and binder screening via 
+SE(3)-equivariant diffusion.
+
+Wang Y(1), Wang F(1), Feng L(2), Zhang C(3), Lai L(1)(2)(3).
+
+Author information:
+(1)Center for Quantitative Biology, Academy for Advanced Interdisciplinary 
+Studies, Peking University, Beijing, China.
+(2)Center for Life Sciences, Academy for Advanced Interdisciplinary Studies, 
+Peking University, Beijing, China.
+(3)BNLMS, College of Chemistry and Molecular Engineering, Peking University, 
+Beijing, China.
+
+Accurate modeling of protein-peptide interactions is critical for elucidating 
+peptide-mediated biological processes and advancing drug discovery. While 
+traditional methods and recent deep learning-based approaches have shown 
+promise, they often face limitations in accuracy, generalizability, 
+computational efficiency, and the integration of prior binding knowledge. Here, 
+we present DiffPepDock, an efficient protein-peptide docking tool based on 
+SE(3)-equivariant diffusion models. DiffPepDock is pretrained on a carefully 
+curated synthetic dataset of protein-fragment complexes and subsequently 
+fine-tuned on high-quality experimental protein-peptide structures, combining 
+generalization capability with task-specific accuracy. It also supports 
+incorporation of user-specified binding priors including known binding motifs or 
+reference ligands to facilitate pocket selection and enhance docking accuracy. 
+Benchmarking on a non-redundant time-split test set demonstrates that 
+DiffPepDock achieves accuracy comparable to state-of-the-art methods such as 
+AlphaFold3, while substantially reducing inference time. Case studies further 
+underscore its capability in accurately reconstructing native binding 
+structures, particularly in scenarios where AlphaFold3 exhibits limitations. 
+Moreover, DiffPepDock shows competitive in silico screening performance for 
+identifying true peptide binders on AlphaFold-predicted targets, underscoring 
+its practical utility in real-world applications. We anticipate that DiffPepDock 
+offers a practical and reliable tool for protein-peptide docking, complementing 
+existing biomolecular structure prediction methods and contributing to peptide 
+therapeutic modeling efforts. The DiffPepDock tool is publicly available at 
+https://github.com/YuzheWangPKU/DiffPepBuilder, with an interactive 
+demonstration provided via Google Colab at 
+https://colab.research.google.com/github/YuzheWangPKU/DiffPepBuilder/blob/main/examples/DiffPepDock_demo.ipynb.
+
+© 2025 The Protein Society.
+
+DOI: 10.1002/pro.70338
+PMCID: PMC12521636
+PMID: 41088767 [Indexed for MEDLINE]
+
+
+7. Sci Rep. 2025 Oct 3;15(1):34597. doi: 10.1038/s41598-025-18132-5.
+
+GENEOnet: a breakthrough in protein binding pocket detection using group 
+equivariant non-expansive operators.
+
+Bocchi G(1), Frosini P(2), Micheletti A(3), Pedretti A(4), Palermo G(5), Gadioli 
+D(5), Gratteri C(6), Lunghini F(7), Biswas AD(7), Stouten PFW(8), Beccari AR(7), 
+Fava A(7), Talarico C(7).
+
+Author information:
+(1)Department of Environmental Science and Policy, Università degli Studi di 
+Milano, Via Celoria 10, 20133, Milano, Italy. giovanni.bocchi1@unimi.it.
+(2)Department of Computer Science, University of Pisa, Largo B. Pontecorvo 3, 
+56127, Pisa, Italy.
+(3)Department of Environmental Science and Policy, Università degli Studi di 
+Milano, Via Celoria 10, 20133, Milano, Italy.
+(4)Department of Pharmaceutical Sciences, Università degli Studi di Milano, Via 
+Mangiagalli 25, 20133, Milano, Italy.
+(5)Department of Electronics, Information and Bioengineering, Politecnico di 
+Milano, Via Ponzio 34/5, 20133, Milano, Italy.
+(6)LIGHT S.c.a.r.l., Via Branze 45, 25123, Brescia, Italy.
+(7)Dompé Farmaceutici S.p.A., Via Tommaso de Amicis 95, 80145, Napoli, Italy.
+(8)Stouten Pharma Consultancy BV, Kempenarestraat 47, 2860, 
+Sint-Katelijne-Waver, Belgium.
+
+Structure-based virtual screening approaches like molecular docking rely on 
+accurately identifying and precisely calculating binding pockets to efficiently 
+search for potential ligands. In this paper, we introduce GENEOnet, a machine 
+learning model designed for volumetric protein pocket detection that employs 
+Group Equivariant Non-Expansive Operators (GENEOs). These operators simplify 
+model complexity and enable more informed domain knowledge integration by 
+selecting specific physical and chemical properties for each operator to focus 
+on, as well as how they should react. Unlike other methods in this field, 
+GENEOnet has fewer model parameters, resulting in reduced training costs, and 
+offers greater explainability, allowing the parameters to be easily interpreted. 
+GENEOnet processes the empty space within a protein by converting it into a 3D 
+grid of uniform blocks, known as 'voxels'. It then identifies regions of the 
+grid with an output value above a threshold, thus producing a list of predicted 
+pockets, ranked according to the model's average output value. Our experimental 
+results show that GENEOnet performs robustly even with small training datasets 
+of 200 proteins and surpasses other established state-of-the-art methods in 
+various metrics. Specifically, GENEOnet's [Formula: see text] score indicating 
+the probability that the top-ranked pocket is the correct one is 0.764, compared 
+to 0.702 for P2Rank, the next best performing algorithm on our PDBbind test set. 
+Moreover, a case study considering various ABL1 kinase conformations 
+demonstrates the excellent agreement between GENEOnet's predictions and 
+experimental sites. GENEOnet is available as a web service at 
+https://geneonet.exscalate.eu , where users can access the pre-trained model for 
+detecting and ranking protein cavities.
+
+© 2025. The Author(s).
+
+DOI: 10.1038/s41598-025-18132-5
+PMCID: PMC12494700
+PMID: 41044310 [Indexed for MEDLINE]
+
+Conflict of interest statement: Declarations. Competing interests: A.R. Beccari, 
+A. Fava, A.D. Biswas, F. Lunghini and C. Talarico are employees of Dompé 
+Farmaceutici S.p.A.
+
+
+8. Brief Bioinform. 2025 Jul 2;26(4):bbaf345. doi: 10.1093/bib/bbaf345.
+
+A 3D pocket-aware lead optimization model with knowledge guidance and its 
+application for discovery of new glutaminyl cyclase inhibitors.
+
+Qiao A(1), Chen Y(2), Xie J(1), Huang W(3), Zhang H(3), Deng Q(3), Rao J(1), 
+Deng J(2), Meng F(2), Wang Z(1), Xu M(4), Chen H(4), Xie J(1), Zheng S(5), Yang 
+Y(1), Li GB(2), Lei J(3).
+
+Author information:
+(1)School of Computer Science and Engineering, Sun Yat-sen University, No. 132 
+Waihuan East Road, Guangzhou 510006, Guangdong, China.
+(2)West China School of Pharmacy, Sichuan University, No. 17 Southern Renmin 
+Road, Chengdu 610041, Sichuan, China.
+(3)School of Pharmaceutical Science, Sun Yat-sen University, No. 132 Waihuan 
+East Road, Guangzhou 510006, Guangdong, China.
+(4)Guangzhou National Laboratory, No. 9 XinDaoHuanBei Road, Guangzhou 
+International Bio Island, Guangzhou 510005, Guangdong, China.
+(5)Global Institute of Future Technology, No. 800 Dongchuan Road, Shanghai Jiao 
+Tong University, Shanghai 200240, China.
+
+Lead optimization, aimed at improving binding affinity or other properties of 
+hit compounds, is a crucial task in drug discovery. Though deep learning-based 
+3D generative models showed promise in enhancing the efficiency of de novo drug 
+design recently, less research and attention has garnered for structure-based 
+lead optimization. Herein, we propose a 3D pocket-aware diffusion model named 
+Diffleop, which explicitly incorporates the knowledge of protein-ligand binding 
+affinity and information on covalent bonds to guide the denoising sampling 
+process for lead optimization with enhanced binding affinity and rational 
+properties. Specifically, the bond constraint is achieved through diffusion on 
+fully connected molecular graphs, and the determination of atom positions, atom 
+and bond types in each sampling step is guided by the gradient of the binding 
+affinity that is predicted through fitting with an E(3)-equivariant expert 
+network. The comprehensive evaluations indicated that Diffleop outperforms 
+baseline models on lead optimization with higher affinity and more binding 
+interactions, and can generate more drug-like molecules with more rational 
+structures. Diffleop was further applied to optimize 5-methyl-1H-imidazole, our 
+newly discovered lead compound targeting human glutaminyl cyclases (QCs). Three 
+synthesized compounds exhibit substantially improved inhibitory activities 
+against QCs, with the most effective one showing an IC50 value of 8 nM and 
+3.5-fold better than clinical candidate PQ912.
+
+© The Author(s) 2025. Published by Oxford University Press.
+
+DOI: 10.1093/bib/bbaf345
+PMCID: PMC12266789
+PMID: 40669838 [Indexed for MEDLINE]
+
+Conflict of interest statement: The authors declare that they have no conflicts 
+of interest related to this research.
+
+
+9. J Cheminform. 2025 Jul 15;17(1):107. doi: 10.1186/s13321-025-01038-9.
+
+SuperMetal: a generative AI framework for rapid and precise metal ion location 
+prediction in proteins.
+
+Lin X(#)(1)(2), Su Z(#)(3), Liu YL(4), Liu J(1), Kuang X(1), Cummings PT(2)(5), 
+Spencer-Smith J(1)(4), Meiler J(6)(7)(8)(9).
+
+Author information:
+(1)Data Science Institute, Vanderbilt University, Nashville, 37212, TN, USA.
+(2)Chemical and Biomolecular Engineering Department, Vanderbilt University, 
+Nashville, 37235, TN, USA.
+(3)Data Science Institute, Vanderbilt University, Nashville, 37212, TN, USA. 
+Zhaoqian.su@vanderbilt.edu.
+(4)Computer Science Department, Vanderbilt University, Nashville, 37240, TN, 
+USA.
+(5)School of Engineering and Physical Sciences, Heriot-Watt University, 
+Edinburgh, EH14 4 AS, Scotland, UK.
+(6)Institute for Drug Discovery, Institute for Computer Science, Wilhelm Ostwald 
+Institute for Physical and Theoretical Chemistry, University Leipzig, Leipzig, 
+04109, Germany.
+(7)Center for Scalable Data Analytics and Artificial Intelligence (ScaDS.AI), 
+School of Embedded Composite Artificial Intelligence (SECAI), Dresden/Leipzig, 
+Germany.
+(8)Department of Chemistry, Center for Structural Biology, Institute of Chemical 
+Biology, Center for Applied Artificial Intelligence in Protein Dynamics, 
+Vanderbilt University, Nashville, 37235, TN, USA.
+(9)Department of Pharmacology, Center for Structural Biology, Institute of 
+Chemical Biology, Center for Applied Artificial Intelligence in Protein 
+Dynamics, Vanderbilt University, Nashville, 37235, TN, USA.
+(#)Contributed equally
+
+Update of
+    bioRxiv. 2025 Mar 25:2025.03.21.644685. doi: 10.1101/2025.03.21.644685.
+
+Metal ions, as abundant and vital cofactors in numerous proteins, are crucial 
+for enzymatic activities and protein interactions. Given their pivotal role and 
+catalytic efficiency, accurately and efficiently identifying metal-binding sites 
+is fundamental to elucidating their biological functions and has significant 
+implications for protein engineering and drug discovery. To address this 
+challenge, we present SuperMetal, a generative AI framework that leverages a 
+score-based diffusion model coupled with a confidence model to predict 
+metal-binding sites in proteins with high precision and efficiency. Using zinc 
+ions as an example, SuperMetal outperforms existing state-of-the-art models, 
+achieving a precision of 94 % and coverage of 90 %, with zinc ions localization 
+within 0.52 ± 0.55 Å of experimentally determined positions, thus marking a 
+substantial advance in metal-binding site prediction. Furthermore, SuperMetal 
+demonstrates rapid prediction capabilities (under 10 s for proteins with  ∼  
+2000 residues) and remains minimally affected by increases in protein size. 
+Notably, SuperMetal does not require prior knowledge of the number of metal 
+ions-unlike AlphaFold 3, which depends on this information. Additionally, 
+SuperMetal can be readily adapted to other metal ions or repurposed as a probe 
+framework to identify other types of binding sites, such as protein-binding 
+pockets.Scientific contributionSuperMetal introduces a diffusion-based, 
+SE(3)-equivariant generative model that places metal ions in proteins with 94 % 
+precision, 90 % coverage, and sub-ångström (0.52 Å) accuracy in under 10 s, 
+surpassing current methods and accelerating metal-aware protein engineering and 
+drug discovery.
+
+© 2025. The Author(s).
+
+DOI: 10.1186/s13321-025-01038-9
+PMCID: PMC12265342
+PMID: 40665445
+
+Conflict of interest statement: Declarations. Ethics approval and consent to 
+participate: Not applicable. Consent for publication: Not applicable. Competing 
+interests : The authors declare no competing interests.
+
+
+10. ArXiv [Preprint]. 2025 Feb 26:arXiv:2502.18875v1.
+
+SE(3)-Equivariant Ternary Complex Prediction Towards Target Protein Degradation.
+
+Xue F(1), Zhang M(2), Li S(3), Gao X(4), Wohlschlegel JA(5), Huang W(3), Yang 
+Y(6), Deng W(5).
+
+Author information:
+(1)ReLER Lab, AAII, University of Technology Sydney, Sydney, NSW, 2007, 
+Australia.
+(2)College of Life Sciences, Nankai University, Tianjin, China.
+(3)Gaoling School of Artificial Intelligence, Renmin University of China, 
+Beijing, China.
+(4)University of Chinese Academy of Sciences, Beijing, China.
+(5)Department of Biological Chemistry at David Geffen School of Medicine, 
+University of California, Los Angeles, Los Angeles, CA, 90095, U.S.A..
+(6)ReLER Lab, CCAI, Zhejiang University, Hangzhou, China.
+
+Update in
+    Nat Commun. 2025 Jul 1;16(1):5514. doi: 10.1038/s41467-025-61272-5.
+
+Targeted protein degradation (TPD) induced by small molecules has emerged as a 
+rapidly evolving modality in drug discovery, targeting proteins traditionally 
+considered "undruggable." This strategy induces the degradation of target 
+proteins rather than inhibiting their activity, achieving desirable therapeutic 
+outcomes. Proteolysis-targeting chimeras (PROTACs) and molecular glue degraders 
+(MGDs) are the primary small molecules that induce TPD. Both types of molecules 
+form a ternary complex linking an E3 ubiquitin ligase with a target protein, a 
+crucial step for drug discovery. While significant advances have been made in 
+in-silico binary structure prediction for proteins and small molecules, ternary 
+structure prediction remains challenging due to obscure interaction mechanisms 
+and insufficient training data. Traditional methods relying on manually assigned 
+rules perform poorly and are computationally demanding due to extensive random 
+sampling. In this work, we introduce DeepTernary, a novel deep learning-based 
+approach that directly predicts ternary structures in an end-to-end manner using 
+an encoder-decoder architecture. DeepTernary leverages an SE(3)-equivariant 
+graph neural network (GNN) with both intra-graph and ternary inter-graph 
+attention mechanisms to capture intricate ternary interactions from our 
+collected high-quality training dataset, TernaryDB. The proposed query-based 
+Pocket Points Decoder extracts the 3D structure of the final binding ternary 
+complex from learned ternary embeddings, demonstrating state-of-the-art accuracy 
+and speed in existing PROTAC benchmarks without prior knowledge from known 
+PROTACs. It also achieves notable accuracy on the more challenging MGD benchmark 
+under the blind docking protocol. Remarkably, our experiments reveal that the 
+buried surface area calculated from DeepTernary-predicted structures correlates 
+with experimentally obtained degradation potency-related metrics. Consequently, 
+DeepTernary shows potential in effectively assisting and accelerating the 
+development of TPDs for previously undruggable targets.
+
+PMCID: PMC11888550
+PMID: 40061120
+
+
+11. J Med Chem. 2025 Jan 23;68(2):1956-1969. doi: 10.1021/acs.jmedchem.4c02740.
+Epub  2025 Jan 9.
+
+Improving the Reliability of Language Model-Predicted Structures as Docking 
+Targets through Geometric Graph Learning.
+
+Shen C(1)(2)(3), Han X(1)(4), Cai H(1), Chen T(1), Kang Y(2), Pan P(2), Ji X(5), 
+Hsieh CY(1)(2)(3), Deng Y(1)(5), Hou T(1)(2)(3).
+
+Author information:
+(1)Hangzhou Carbonsilicon AI Technology Company Limited, Hangzhou 310018, 
+Zhejiang, China.
+(2)College of Pharmaceutical Sciences, Zhejiang University, Hangzhou 310058, 
+Zhejiang, China.
+(3)Department of Clinical Pharmacy, The First Affiliated Hospital, Zhejiang 
+University School of Medicine, Hangzhou 310003, Zhejiang, China.
+(4)Department of Physics and Beijing Key Laboratory of Optoelectronic Functional 
+Materials & Micro-Nano Devices, Renmin University of China, Beijing 100872, 
+China.
+(5)Department of Automation, Tsinghua University, Beijing 100084, China.
+
+Applying artificial intelligence techniques to flexibly model the binding 
+between the ligand and protein has attracted extensive interest in recent years, 
+but their applicability remains improved. In this study, we have developed 
+CarsiDock-Flex, a novel two-step flexible docking paradigm that generates 
+binding poses directly from predicted structures. CarsiDock-Flex consists of an 
+equivariant deep learning-based model termed CarsiInduce to refine 
+ESMFold-predicted protein pockets with the induction of specific ligands and our 
+existing CarsiDock algorithm to redock the ligand into the induced binding 
+pockets. Extensive evaluations demonstrate the effectiveness of CarsiInduce, 
+which can successfully guide the transition of ESMFold-predicted pockets into 
+their holo-like conformations for numerous cases, thus leading to the superior 
+docking accuracy of CarsiDock-Flex even on unseen sequences. Overall, our 
+approach offers a novel design for flexible modeling of protein-ligand binding 
+poses, paving the way for a deeper understanding of protein-ligand interactions 
+that account for protein flexibility.
+
+DOI: 10.1021/acs.jmedchem.4c02740
+PMID: 39787296 [Indexed for MEDLINE]
+
+
+12. BMC Bioinformatics. 2024 Sep 20;25(1):306. doi: 10.1186/s12859-024-05923-2.
+
+Turbocharging protein binding site prediction with geometric attention, 
+inter-resolution transfer learning, and homology-based augmentation.
+
+Lee D(1), Hwang W(2), Byun J(2), Shin B(3)(4).
+
+Author information:
+(1)Deargen, Seoul, Republic of Korea. dsleemaths@gmail.com.
+(2)Deargen, Seoul, Republic of Korea.
+(3)Deargen, Seoul, Republic of Korea. nomolos79@gmail.com.
+(4)SK Life Science, Inc., Paramus, NJ, USA. nomolos79@gmail.com.
+
+BACKGROUND: Locating small molecule binding sites in target proteins, in the 
+resolution of either pocket or residue, is critical in many drug-discovery 
+scenarios. Since it is not always easy to find such binding sites using 
+conventional methods, different deep learning methods to predict binding sites 
+out of protein structures have been developed in recent years. The existing deep 
+learning based methods have several limitations, including (1) the inefficiency 
+of the CNN-only architecture, (2) loss of information due to excessive 
+post-processing, and (3) the under-utilization of available data sources.
+METHODS: We present a new model architecture and training method that resolves 
+the aforementioned problems. First, by layering geometric self-attention units 
+on top of residue-level 3D CNN outputs, our model overcomes the problems of 
+CNN-only architectures. Second, by configuring the fundamental units of 
+computation as residues and pockets instead of voxels, our method reduced the 
+information loss from post-processing. Lastly, by employing inter-resolution 
+transfer learning and homology-based augmentation, our method maximizes the 
+utilization of available data sources to a significant extent.
+RESULTS: The proposed method significantly outperformed all state-of-the-art 
+baselines regarding both resolutions-pocket and residue. An ablation study 
+demonstrated the indispensability of our proposed architecture, as well as 
+transfer learning and homology-based augmentation, for achieving optimal 
+performance. We further scrutinized our model's performance through a case study 
+involving human serum albumin, which demonstrated our model's superior 
+capability in identifying multiple binding sites of the protein, outperforming 
+the existing methods.
+CONCLUSIONS: We believe that our contribution to the literature is twofold. 
+Firstly, we introduce a novel computational method for binding site prediction 
+with practical applications, substantiated by its strong performance across 
+diverse benchmarks and case studies. Secondly, the innovative aspects in our 
+method- specifically, the design of the model architecture, inter-resolution 
+transfer learning, and homology-based augmentation-would serve as useful 
+components for future work.
+
+© 2024. The Author(s).
+
+DOI: 10.1186/s12859-024-05923-2
+PMCID: PMC11416008
+PMID: 39304807 [Indexed for MEDLINE]
+
+Conflict of interest statement: Not applicable.
+
+
+13. Chem Sci. 2024 Aug 20;15(36):14954-67. doi: 10.1039/d4sc03523b. Online ahead
+of  print.
+
+PILOT: equivariant diffusion for pocket-conditioned de novo ligand generation 
+with multi-objective guidance via importance sampling.
+
+Cremer J(1)(2), Le T(1)(3), Noé F(3)(4), Clevert DA(1), Schütt KT(1).
+
+Author information:
+(1)Machine Learning & Computational Sciences, Pfizer Worldwide R&D Berlin 
+Germany julian.cremer@pfizer.com tuan.le@pfizer.com.
+(2)Computational Science Laboratory, Universitat Pompeu Fabra, PRBB Spain.
+(3)Department of Mathematics and Computer Science, Freie Universität Berlin 
+Germany.
+(4)Microsoft Research AI4Science, Microsoft Berlin Germany.
+
+The generation of ligands that both are tailored to a given protein pocket and 
+exhibit a range of desired chemical properties is a major challenge in 
+structure-based drug design. Here, we propose an in silico approach for the de 
+novo generation of 3D ligand structures using the equivariant diffusion model 
+PILOT, combining pocket conditioning with a large-scale pre-training and 
+property guidance. Its multi-objective trajectory-based importance sampling 
+strategy is designed to direct the model towards molecules that not only exhibit 
+desired characteristics such as increased binding affinity for a given protein 
+pocket but also maintains high synthetic accessibility. This ensures the 
+practicality of sampled molecules, thus maximizing their potential for the drug 
+discovery pipeline. PILOT significantly outperforms existing methods across 
+various metrics on the common benchmark dataset CrossDocked2020. Moreover, we 
+employ PILOT to generate novel ligands for unseen protein pockets from the 
+Kinodata-3D dataset, which encompasses a substantial portion of the human 
+kinome. The generated structures exhibit predicted IC50 values indicative of 
+potent biological activity, which highlights the potential of PILOT as a 
+powerful tool for structure-based drug design.
+
+This journal is © The Royal Society of Chemistry.
+
+DOI: 10.1039/d4sc03523b
+PMCID: PMC11348832
+PMID: 39211741
+
+Conflict of interest statement: There are no conflicts to declare.
+
+
+14. Chem Sci. 2024 Apr 9;15(21):7926-7942. doi: 10.1039/d3sc06803j. eCollection
+2024  May 29.
+
+DiffBindFR: an SE(3) equivariant network for flexible protein-ligand docking.
+
+Zhu J(1), Gu Z(2), Pei J(1), Lai L(1)(2)(3)(4).
+
+Author information:
+(1)Center for Quantitative Biology, Academy for Advanced Interdisciplinary 
+Studies, Peking University Beijing 100871 China lhlai@pku.edu.cn 
+jfpei@pku.edu.cn.
+(2)Peking-Tsinghua Center for Life Sciences, Academy for Advanced 
+Interdisciplinary Studies, Peking University Beijing 100871 China.
+(3)BNLMS, College of Chemistry and Molecular Engineering, Peking University 
+Beijing 100871 China.
+(4)Peking University Chengdu Academy for Advanced Interdisciplinary 
+Biotechnologies Chengdu Sichuan China.
+
+Molecular docking, a key technique in structure-based drug design, plays pivotal 
+roles in protein-ligand interaction modeling, hit identification and 
+optimization, in which accurate prediction of protein-ligand binding mode is 
+essential. Conventional docking approaches perform well in redocking tasks with 
+known protein binding pocket conformation in the complex state. However, in 
+real-world docking scenario without knowing the protein binding conformation for 
+a new ligand, accurately modeling the binding complex structure remains 
+challenging as flexible docking is computationally expensive and inaccurate. 
+Typical deep learning-based docking methods do not explicitly consider protein 
+side chain conformations and fail to ensure the physical plausibility and 
+detailed atomic interactions. In this study, we present DiffBindFR, a full-atom 
+diffusion-based flexible docking model that operates over the product space of 
+ligand overall movements and flexibility and pocket side chain torsion changes. 
+We show that DiffBindFR has higher accuracy in producing native-like binding 
+structures with physically plausible and detailed interactions than available 
+docking methods. Furthermore, in the Apo and AlphaFold2 modeled structures, 
+DiffBindFR demonstrates superior advantages in accurate ligand binding pose and 
+protein binding conformation prediction, making it suitable for Apo and 
+AlphaFold2 structure-based drug design. DiffBindFR provides a powerful flexible 
+docking tool for modeling accurate protein-ligand binding structures.
+
+This journal is © The Royal Society of Chemistry.
+
+DOI: 10.1039/d3sc06803j
+PMCID: PMC11134415
+PMID: 38817560
+
+Conflict of interest statement: There are no conflicts to declare.
+
+
+15. Nat Commun. 2024 Feb 5;15(1):1071. doi: 10.1038/s41467-024-45461-2.
+
+DynamicBind: predicting ligand-specific protein-ligand complex structure with a 
+deep equivariant generative model.
+
+Lu W(#)(1), Zhang J(#)(2), Huang W(3), Zhang Z(4), Jia X(4), Wang Z(4), Shi 
+L(4), Li C(4), Wolynes PG(5), Zheng S(#)(6).
+
+Author information:
+(1)Galixir Technologies, 200100, Shanghai, China. luwei0917@gmail.com.
+(2)Galixir Technologies, 200100, Shanghai, China. jxzly1993@gmail.com.
+(3)School of Pharmaceutical Science, Sun Yat-sen University, 510006, Guangzhou, 
+China.
+(4)Galixir Technologies, 200100, Shanghai, China.
+(5)Center for Theoretical Biological Physics and Department of Chemistry, Rice 
+University, Houston, TX, 77005, USA.
+(6)Global Institute of Future Technology, Shanghai Jiao Tong University, 200240, 
+Shanghai, China. shuangjia.zheng@sjtu.edu.cn.
+(#)Contributed equally
+
+While significant advances have been made in predicting static protein 
+structures, the inherent dynamics of proteins, modulated by ligands, are crucial 
+for understanding protein function and facilitating drug discovery. Traditional 
+docking methods, frequently used in studying protein-ligand interactions, 
+typically treat proteins as rigid. While molecular dynamics simulations can 
+propose appropriate protein conformations, they're computationally demanding due 
+to rare transitions between biologically relevant equilibrium states. In this 
+study, we present DynamicBind, a deep learning method that employs equivariant 
+geometric diffusion networks to construct a smooth energy landscape, promoting 
+efficient transitions between different equilibrium states. DynamicBind 
+accurately recovers ligand-specific conformations from unbound protein 
+structures without the need for holo-structures or extensive sampling. 
+Remarkably, it demonstrates state-of-the-art performance in docking and virtual 
+screening benchmarks. Our experiments reveal that DynamicBind can accommodate a 
+wide range of large protein conformational changes and identify cryptic pockets 
+in unseen protein targets. As a result, DynamicBind shows potential in 
+accelerating the development of small molecules for previously undruggable 
+targets and expanding the horizons of computational drug discovery.
+
+© 2024. The Author(s).
+
+DOI: 10.1038/s41467-024-45461-2
+PMCID: PMC10844226
+PMID: 38316797 [Indexed for MEDLINE]
+
+Conflict of interest statement: W.L., J.Z., W.H., Z.Z., X.J., Z.W., L.S., and 
+C.L. work directly or indirectly for Galixir Technologies. S.Z. was a former 
+employee of Galixir Technologies. The remaining authors declare no competing 
+interests.
+
+
+16. ArXiv [Preprint]. 2024 Sep 1:arXiv:2312.04323v2.
+
+Equivariant Scalar Fields for Molecular Docking with Fast Fourier Transforms.
+
+Jing B, Jaakkola T, Berger B.
+
+Molecular docking is critical to structure-based virtual screening, yet the 
+throughput of such workflows is limited by the expensive optimization of scoring 
+functions involved in most docking algorithms. We explore how machine learning 
+can accelerate this process by learning a scoring function with a functional 
+form that allows for more rapid optimization. Specifically, we define the 
+scoring function to be the cross-correlation of multi-channel ligand and protein 
+scalar fields parameterized by equivariant graph neural networks, enabling rapid 
+optimization over rigid-body degrees of freedom with fast Fourier transforms. 
+The runtime of our approach can be amortized at several levels of abstraction, 
+and is particularly favorable for virtual screening settings with a common 
+binding pocket. We benchmark our scoring functions on two simplified 
+docking-related tasks: decoy pose scoring and rigid conformer docking. Our 
+method attains similar but faster performance on crystal structures compared to 
+the widely-used Vina and Gnina scoring functions, and is more robust on 
+computationally predicted structures. Code is available at 
+https://github.com/bjing2016/scalar-fields.
+
+PMCID: PMC10723544
+PMID: 38106455

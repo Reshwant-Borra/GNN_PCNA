@@ -1,0 +1,278 @@
+1. Comput Biol Chem. 2026 Apr 21;124(Pt 1):109076. doi: 
+10.1016/j.compbiolchem.2026.109076. Online ahead of print.
+
+DeepStruct: Multi-modal deep learning integrating omics and energy scoring for 
+protein structure prediction in plants.
+
+Tiwari A(1), Raj R(2), Khurana M(3).
+
+Author information:
+(1)Thapar Institute of Engineering and Technology, India. Electronic address: 
+anuragtiwari.rs.cse17@itbhu.ac.in.
+(2)Jacob Institute of Biotechnology and Bioengineering, Sam Higginbottom 
+University of Agriculture, Technology and Sciences, Prayagraj, Uttar Pradesh 
+211007, India. Electronic address: 20phbin101@shiats.edu.in.
+(3)Thapar Institute of Engineering and Technology, India. Electronic address: 
+manju.khurana@thapar.edu.
+
+Reliable prediction of the structural and functional characteristics of plant 
+proteins remains a formidable challenge, largely due to a lack of appropriate 
+template structures and the complex effects of environmental stressors on 
+protein stability and function. Existing deep learning techniques, such as 
+AlphaFold2, have shown promising geometric accuracy; however, most methods rely 
+solely on sequence-based structural inference and do not explicitly model 
+environmental and stress-associated biological context. To overcome this 
+limitation, we propose DeepStruct, a multimodal deep learning framework that 
+fuses omics-derived stress signatures and an energy-based scoring module to 
+achieve biological, contextually informed protein structure modelling in 
+plants.DeepStruct combines sequence embeddings, evolutionary profiles (PSSMs), 
+physicochemical descriptors, structural prior and abiotic stress-responsive omic 
+features in a hybrid CNN--BLSTM--Transformer system. An energy-based scoring 
+module is introduced to increase structural plausibility through residue-level 
+functional weights. The model was first pre-trained on UniRef90 and the BFD 
+corpora, then fine-tuned on non-redundant (less than 30% identity) PDB and 
+Swiss-Prot annotations, using temporally controlled data splits to reduce 
+dataset leakage. When tested on Capsicum annuum under abiotic stress, DeepStruct 
+was able to achieve an average TM-score of 0.78 ± 0.02, 95% (CI: 0.76-0.80), and 
+RMSD of 2.6 + -0.3 Angstrom (Å) in the same controlled benchmarking framework, 
+achieving in the precision region above 80% for long-range contacts. The 
+incorporation of stress-responsive omics features produced statistically 
+significant improvements in TM-score, with a maximum 12% gain in the evaluated 
+settings, with adjusted p < 0.05 compared with sequence-only configurations with 
+the same input constraints. These results show that contextual biological signal 
+integration can complement sequence-driven structural prediction, especially for 
+proteins that are conditioned by environmental stress.
+
+Copyright © 2026 Elsevier Ltd. All rights reserved.
+
+DOI: 10.1016/j.compbiolchem.2026.109076
+PMID: 42054840
+
+Conflict of interest statement: Declaration of Competing Interest The authors 
+declare that they have no known competing financial interests or personal 
+relationships that could have appeared to influence the work reported in this 
+paper.
+
+
+2. J Cheminform. 2026 Apr 21. doi: 10.1186/s13321-026-01197-3. Online ahead of 
+print.
+
+Generalizable deep-learning-based mRNA-protein interaction prediction strongly 
+depends on protein diversity.
+
+Yu YH(#)(1), Hong HT(#)(2), Yang TH(3)(4).
+
+Author information:
+(1)Department of Biomedical Engineering, National Cheng Kung University, 
+University Road, Tainan, 701, Taiwan.
+(2)Department of Electrical Engineering, National Cheng Kung University, 
+University Road, Tainan, 701, Taiwan.
+(3)Department of Biomedical Engineering, National Cheng Kung University, 
+University Road, Tainan, 701, Taiwan. thyangza@gs.ncku.edu.tw.
+(4)Medical Device Innovation Center, National Cheng Kung University, University 
+Road, Tainan, 701, Taiwan. thyangza@gs.ncku.edu.tw.
+(#)Contributed equally
+
+BACKGROUND: Proteins regulate diverse biological processes through interactions 
+with other molecules, including RNAs. RNA-binding proteins (RBPs) are essential 
+regulators of gene expression, forming specific mRNA-protein interactions 
+(mRPIs) that influence mRNA processing, translation, and stability. Recently, 
+deep-learning models have been proposed to predict mRPIs using only sequence 
+information, with some reporting near-perfect accuracy. However, such 
+performance appears inconsistent with the biological complexity of RNA 
+recognition by proteins, which is often influenced by protein tertiary 
+structures that are computationally challenging to predict. In related fields 
+such as protein-protein interaction prediction, data leakage, particularly 
+caused by overlapping proteins between training and test sets, has been shown to 
+substantially inflate performance metrics. Nevertheless, whether similar issues 
+affect mRPI prediction has not yet been systematically investigated.
+RESULTS: We constructed an mRPI benchmark dataset from CLIP experiments and 
+implemented two data partitioning schemes: a random interaction-level split and 
+an RBP-aware split in which pairs of all test RBPs were excluded from training. 
+Three RBP sequence encoding strategies were evaluated within an attention-based 
+deep-learning framework under both partitioning settings: sequence-based one-hot 
+encoding, language model-derived encoding, and structure-aware encoding. Across 
+all models, performance remained high only when test RBPs were also present in 
+the training data. When predicting interactions for unseen RBPs, performance 
+dropped substantially, indicating limited generalization. Even replacing RBPs 
+with their most similar counterparts from the training set did not meaningfully 
+improve generalization. These results suggest that additional protein features 
+beyond sequence information are required to achieve robust mRPI prediction. 
+Overall, our study demonstrated that existing mRPI prediction models are largely 
+overfitted to their original training RBPs and fail to generalize to unseen 
+proteins.
+CONCLUSIONS: Overall, we provided a curated benchmark dataset, a rigorous 
+evaluation framework, and an attention-based model that achieves the best 
+generalization performance among currently available methods, with an 
+approximately 8.5% auROC improvement over existing tools. These resources will 
+facilitate the development of more reliable and broadly applicable mRPI 
+prediction tools.
+SCIENTIFIC CONTRIBUTION: This work presented the first systematic investigation 
+of data leakage and generalization in mRNA-protein interaction prediction, 
+demonstrating that most reported near-perfect performance is largely driven by 
+RBP overlap between training and test sets. By introducing an RBP-aware 
+evaluation framework and a benchmark dataset, we revealed that most 
+sequence-based models fail to generalize to unseen RBPs, even when enhanced with 
+protein language model-derived and structure-aware encodings. Our study 
+established a more rigorous evaluation standard for mRNA-protein interaction 
+prediction, highlighting the critical need for protein diversity and 
+beyond-sequence features to advance reliable mRNA-protein interaction 
+prediction.
+
+© 2026. The Author(s).
+
+DOI: 10.1186/s13321-026-01197-3
+PMID: 42015301
+
+Conflict of interest statement: Declarations. Ethics approval and consent to 
+participate: Not applicable. Consent for publication: Not applicable. Competing 
+interests: The authors declare no Competing interests.
+
+
+3. Nat Mach Intell. 2025;7(10):1713-1725. doi: 10.1038/s42256-025-01124-5. Epub 
+2025 Oct 21.
+
+Resolving data bias improves generalization in binding affinity prediction.
+
+Graber D(1)(2)(3), Stockinger P(2)(4), Meyer F(2), Mishra S(1), Horn C(5), 
+Buller R(2)(4).
+
+Author information:
+(1)Seminar for Applied Mathematics, Department of Mathematics and ETH AI Center, 
+Zurich, Switzerland.
+(2)Competence Center for Biocatalysis, Zurich University of Applied Sciences, 
+Waedenswil, Switzerland.
+(3)Institute for Computational Life Sciences, Zurich University of Applied 
+Sciences, Waedenswil, Switzerland.
+(4)Department of Chemistry, Biochemistry and Pharmaceutical Sciences, University 
+of Bern, Bern, Switzerland.
+(5)Yale School of Medicine, Department for Bioinformatics and Data Science, New 
+Haven, CT USA.
+
+The field of computational drug design requires accurate scoring functions to 
+predict binding affinities for protein-ligand interactions. However, train-test 
+data leakage between the PDBbind database and the Comparative Assessment of 
+Scoring Function benchmark datasets has severely inflated the performance 
+metrics of currently available deep-learning-based binding affinity prediction 
+models, leading to overestimation of their generalization capabilities. Here we 
+address this issue by proposing PDBbind CleanSplit, a training dataset curated 
+by a new structure-based filtering algorithm that eliminates train-test data 
+leakage as well as redundancies within the training set. Retraining current 
+top-performing models on CleanSplit caused their benchmark performance to drop 
+substantially, indicating that the performance of existing models is largely 
+driven by data leakage. By contrast, our graph neural network model maintains 
+high benchmark performance when trained on CleanSplit. Leveraging a sparse graph 
+modelling of protein-ligand interactions and transfer learning from language 
+models, our model is able to generalize to strictly independent test datasets.
+
+© The Author(s) 2025.
+
+DOI: 10.1038/s42256-025-01124-5
+PMCID: PMC12552120
+PMID: 41143208
+
+Conflict of interest statement: Competing interestsAll authors declare no 
+competing interests.
+
+
+4. BMC Bioinformatics. 2024 Jan 4;25(1):11. doi: 10.1186/s12859-023-05586-5.
+
+Prop3D: A flexible, Python-based platform for machine learning with protein 
+structural properties and biophysical data.
+
+Draizen EJ(1)(2), Readey J(3), Mura C(4)(5), Bourne PE(6)(7).
+
+Author information:
+(1)Department of Biomedical Engineering, University of Virginia, 
+Charlottesville, VA, USA. edraizen@gmail.com.
+(2)School of Data Science, University of Virginia, Charlottesville, VA, USA. 
+edraizen@gmail.com.
+(3)The HDF Group, Bellevue, WA, USA.
+(4)Department of Biomedical Engineering, University of Virginia, 
+Charlottesville, VA, USA. cmura@virginia.edu.
+(5)School of Data Science, University of Virginia, Charlottesville, VA, USA. 
+cmura@virginia.edu.
+(6)Department of Biomedical Engineering, University of Virginia, 
+Charlottesville, VA, USA.
+(7)School of Data Science, University of Virginia, Charlottesville, VA, USA.
+
+BACKGROUND: Machine learning (ML) has a rich history in structural 
+bioinformatics, and modern approaches, such as deep learning, are 
+revolutionizing our knowledge of the subtle relationships between biomolecular 
+sequence, structure, function, dynamics and evolution. As with any advance that 
+rests upon statistical learning approaches, the recent progress in biomolecular 
+sciences is enabled by the availability of vast volumes of sufficiently-variable 
+data. To be useful, such data must be well-structured, machine-readable, 
+intelligible and manipulable. These and related requirements pose challenges 
+that become especially acute at the computational scales typical in ML. 
+Furthermore, in structural bioinformatics such data generally relate to protein 
+three-dimensional (3D) structures, which are inherently more complex than 
+sequence-based data. A significant and recurring challenge concerns the creation 
+of large, high-quality, openly-accessible datasets that can be used for specific 
+training and benchmarking tasks in ML pipelines for predictive modeling 
+projects, along with reproducible splits for training and testing.
+RESULTS: Here, we report 'Prop3D', a platform that allows for the creation, 
+sharing and extensible reuse of libraries of protein domains, featurized with 
+biophysical and evolutionary properties that can range from detailed, 
+atomically-resolved physicochemical quantities (e.g., electrostatics) to 
+coarser, residue-level features (e.g., phylogenetic conservation). As a 
+community resource, we also supply a 'Prop3D-20sf' protein dataset, obtained by 
+applying our approach to CATH . We have developed and deployed the Prop3D 
+framework, both in the cloud and on local HPC resources, to systematically and 
+reproducibly create comprehensive datasets via the Highly Scalable Data Service 
+( HSDS ). Our datasets are freely accessible via a public HSDS instance, or they 
+can be used with accompanying Python wrappers for popular ML frameworks.
+CONCLUSION: Prop3D and its associated Prop3D-20sf dataset can be of broad 
+utility in at least three ways. Firstly, the Prop3D workflow code can be 
+customized and deployed on various cloud-based compute platforms, with 
+scalability achieved largely by saving the results to distributed HDF5 files via 
+HSDS . Secondly, the linked Prop3D-20sf dataset provides a hand-crafted, 
+already-featurized dataset of protein domains for 20 highly-populated CATH 
+families; importantly, provision of this pre-computed resource can aid the more 
+efficient development (and reproducible deployment) of ML pipelines. Thirdly, 
+Prop3D-20sf's construction explicitly takes into account (in creating datasets 
+and data-splits) the enigma of 'data leakage', stemming from the evolutionary 
+relationships between proteins.
+
+© 2024. The Author(s).
+
+DOI: 10.1186/s12859-023-05586-5
+PMCID: PMC10768222
+PMID: 38177985 [Indexed for MEDLINE]
+
+Conflict of interest statement: The authors declare that they have no competing 
+interests.
+
+
+5. ArXiv [Preprint]. 2024 May 3:arXiv:2308.09639v2.
+
+Leak Proof PDBBind: A Reorganized Dataset of Protein-Ligand Complexes for More 
+Generalizable Binding Affinity Prediction.
+
+Li J, Guan X, Zhang O, Sun K, Wang Y, Bagni D, Head-Gordon T.
+
+Update in
+    J Phys Chem B. 2026 Jan 15;130(2):730-740. doi: 10.1021/acs.jpcb.5c08598.
+
+Many physics-based and machine-learned scoring functions (SFs) used to predict 
+protein-ligand binding free energies have been trained on the PDBBind dataset. 
+However, it is controversial as to whether new SFs are actually improving since 
+the general, refined, and core datasets of PDBBind are cross-contaminated with 
+proteins and ligands with high similarity, and hence they may not perform 
+comparably well in binding prediction of new protein-ligand complexes. In this 
+work we have carefully prepared a cleaned PDBBind data set of non-covalent 
+binders that are split into training, validation, and test datasets to control 
+for data leakage, defined as proteins and ligands with high sequence and 
+structural similarity. The resulting leak-proof (LP)-PDBBind data is used to 
+retrain four popular SFs: AutoDock Vina, Random Forest (RF)-Score, 
+InteractionGraphNet (IGN), and DeepDTA, to better test their capabilities when 
+applied to new protein-ligand complexes. In particular we have formulated a new 
+independent data set, BDB2020+, by matching high quality binding free energies 
+from BindingDB with co-crystalized ligand-protein complexes from the PDB that 
+have been deposited since 2020. Based on all the benchmark results, the 
+retrained models using LP-PDBBind consistently perform better, with IGN 
+especially being recommended for scoring and ranking applications for new 
+protein-ligand systems.
+
+PMCID: PMC10462179
+PMID: 37645037

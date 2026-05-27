@@ -1,0 +1,58 @@
+{
+  "schema_version": "phase2_data_lifecycle_registry_v0",
+  "created_at": "2026-05-27",
+  "created_by": "Codex",
+  "status": "draft",
+  "authority": "docs/scientific_governance/31_DATA_LIFECYCLE_TRACKING.md",
+  "allowed_statuses": [
+    "candidate",
+    "accepted",
+    "excluded",
+    "quarantined",
+    "deprecated",
+    "superseded",
+    "historical_reference_only"
+  ],
+  "required_removal_reason_codes": [
+    "homolog_leakage",
+    "apo_holo_leakage",
+    "duplicate_system",
+    "chain_ambiguity",
+    "missing_residue_problem",
+    "altloc_ambiguity",
+    "label_uncertainty",
+    "low_structure_quality",
+    "nonbiological_ligand",
+    "source_unavailable",
+    "license_unclear",
+    "provenance_missing",
+    "pcna_final_holdout",
+    "stale_artifact"
+  ],
+  "items": [
+    {
+      "item_id": "V1-ARTIFACTS",
+      "item_type": "historical_reference",
+      "path": "project-version-1 or V1 artifacts, if present",
+      "status": "historical_reference_only",
+      "reason_code": "stale_artifact",
+      "source_registry_id": null,
+      "hash": null,
+      "decision_date": "2026-05-27",
+      "owner": "human reviewer",
+      "rationale": "V1 may inform lessons but is not canonical Phase 2 input without audit."
+    },
+    {
+      "item_id": "CRAWLS",
+      "item_type": "source_context",
+      "path": "crawls/",
+      "status": "candidate",
+      "reason_code": null,
+      "source_registry_id": null,
+      "hash": null,
+      "decision_date": "2026-05-27",
+      "owner": "human reviewer",
+      "rationale": "Crawls are source leads and raw/prior context, not adopted datasets."
+    }
+  ]
+}

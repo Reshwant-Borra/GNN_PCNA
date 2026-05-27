@@ -1,0 +1,54 @@
+---
+type: source
+status: active
+created: 2026-05-27
+updated: 2026-05-27
+tags: [crawls, source-navigation, provenance]
+aliases: [Crawl Map]
+confidence: medium
+evidence_status: inferred
+---
+
+# Crawl Map
+
+This map points Codex to crawl areas without ingesting all crawl text. Crawl summaries are leads, not verified truth. Before using a crawl item for implementation, inspect its raw metadata/source and apply governance.
+
+## Category Map
+
+| Category | Wiki pages to read first | Governance docs to obey | Raw crawl paths to inspect | Priority files/directories | Trust level | Used for | Do not overclaim | Open questions |
+|---|---|---|---|---|---|---|---|---|
+| Cryptic/allosteric pocket prediction | [[Cryptic Pockets]], [[Allosteric Sites]], [[PocketMiner]], [[CryptoBench]] | `04`, `05`, `06`, `09`, `10`, `11`, `14`, `29` | `crawls/pcna-cryptic-pocket-gat-md-kb-final/`, `crawls/pcna-curated-official-tools-data-structures-pass8/` | `SOURCE_INDEX.md`, `raw/`, `knowledge_base/` | raw crawl lead | identify datasets, baselines, terminology | cryptic labels are not automatically true biology | Which labels are residue-level and leakage-audited? |
+| Protein binding-site prediction | [[BioLiP]], [[scPDB]], [[PDBbind]], [[P2Rank]], [[fpocket]] | `04`, `06`, `09`, `10`, `29` | `crawls/pcna-gap-closure-datasets-tools-structures-pass6/`, `crawls/pcna-curated-official-tools-data-structures-pass8/` | `SOURCE_INDEX.md`, `extracts/`, `raw/curated/` | raw crawl lead | baseline and dataset discovery | binding-site prediction is not cryptic-pocket validation | Which sources are fit for Phase 2 labels? |
+| Protein GNNs | [[Protein Graph Construction]], [[Residue Level Prediction]] | `07`, `08`, `09`, `15`, `18`, `21` | `crawls/gnn-compbio-autonomous-kb-final/`, `crawls/pcna-gap-closure-datasets-tools-structures-pass6/` | `SOURCE_INDEX.md`, `knowledge_base/` | raw crawl lead | model architecture context | GNN novelty is not scientific validity | Which architecture is governed for MVP? |
+| Protein graph construction | [[Protein Graph Construction]], [[Graph Node Label Alignment]] | `07`, `08`, `15`, `18` | `crawls/gnn-compbio-autonomous-kb-final/` | `SOURCE_INDEX.md`, raw method leads | raw crawl lead | graph feature and edge design leads | no graph rule without governance | What exact Phase 2 graph schema is approved? |
+| ESM/protein language model features | [[Protein Graph Construction]], [[Dataset Strategy]] | `04`, `07`, `08`, `15`, `21` | `crawls/gnn-compbio-autonomous-kb-final/`, `crawls/pcna-gap-closure-datasets-tools-structures-pass6/` | source indexes and implementation leads | raw crawl lead | optional feature context | pLM features do not remove leakage risk | Are ESM features in MVP or deferred? |
+| Geometric/equivariant deep learning | [[Protein Graph Construction]], [[Baseline Comparison]] | `08`, `09`, `10`, `28` | `crawls/gnn-compbio-autonomous-kb-final/`, `crawls/pcna-gap-closure-datasets-tools-structures-pass6/` | `SOURCE_INDEX.md` | raw crawl lead | architecture comparison leads | do not claim superiority without same-split baselines | Which baselines are required? |
+| Dataset construction | [[Dataset Registry]], [[Label Definition]], [[Split Protocol]] | `04`, `05`, `06`, `15`, `29`, `31` | `crawls/pcna-dataset-repositories-pass9/`, `crawls/pcna-curated-official-tools-data-structures-pass8/` | `SOURCE_INDEX.md`, `raw/` | raw crawl lead | dataset registry and provenance leads | do not treat metadata as downloaded dataset | What files/licenses are actually available? |
+| Sequence/structure split leakage | [[Sequence Split Leakage]], [[Homolog Leakage]], [[Apo Holo Leakage]] | `04`, `05`, `29`, `31` | `crawls/pcna-gap-closure-datasets-tools-structures-pass6/` | leakage-related source leads | raw crawl lead | leakage audit context | no metric is valid if split is leaked | What clustering threshold is approved? |
+| Benchmark contamination | [[Sequence Split Leakage]], [[Dataset Registry]], [[Baseline Comparison]] | `05`, `09`, `10`, `28`, `29` | `crawls/pcna-dataset-repositories-pass9/`, `crawls/pcna-gap-closure-datasets-tools-structures-pass6/` | benchmark source indexes | raw crawl lead | benchmark risk review | benchmark split is not automatically safe | Does CryptoBench contain PCNA/homolog leakage? |
+| PocketMiner | [[PocketMiner]], [[Cryptic Pockets]] | `04`, `05`, `06`, `10`, `29` | `crawls/pcna-curated-official-tools-data-structures-pass8/`, `crawls/pcna-cryptic-pocket-gat-md-kb-final/` | PocketMiner paper/repo leads | raw crawl lead | cryptic-pocket method baseline | published labels do not authorize Phase 2 claims | Can PocketMiner be run same-split? |
+| fpocket | [[fpocket]], [[Baseline Comparison]] | `10`, `15`, `18`, `28` | `crawls/pcna-curated-official-tools-data-structures-pass8/`, `crawls/pcna-gap-closure-datasets-tools-structures-pass6/` | official tool leads | raw crawl lead | geometry baseline | fpocket pockets are not cryptic truth | What output-to-residue mapping is approved? |
+| P2Rank | [[P2Rank]], [[Baseline Comparison]] | `10`, `15`, `18`, `28` | `crawls/pcna-curated-official-tools-data-structures-pass8/`, `crawls/pcna-gap-closure-datasets-tools-structures-pass6/` | official tool leads | raw crawl lead | binding-site baseline | P2Rank score is not validation of PCNA mechanism | Can it run on exact Phase 2 split? |
+| DeepSite/EquiPocket/GNINA/other baselines | [[Baseline Comparison]], [[Protein Graph Construction]] | `09`, `10`, `28`, `36` | `crawls/pcna-gap-closure-datasets-tools-structures-pass6/` | comparative method leads | raw crawl lead | baseline candidates | do not compare to literature numbers as proof | Which baselines are required vs optional? |
+| CryptoBench | [[CryptoBench]], [[Dataset Registry]], [[Label Definition]] | `04`, `05`, `06`, `29`, `31` | `crawls/pcna-dataset-repositories-pass9/` | `SOURCE_INDEX.md`, OSF raw metadata | raw crawl lead | candidate benchmark | benchmark name is not acceptance | What is the exact label schema? |
+| BioLiP/BioLiP2 | [[BioLiP]], [[Label Definition]] | `04`, `06`, `15`, `29` | `crawls/pcna-curated-official-tools-data-structures-pass8/` | curated BioLiP lead | raw crawl lead | ligand-binding annotations | ligand contact is not cryptic-pocket label | Which BioLiP version and license apply? |
+| scPDB/PDBbind | [[scPDB]], [[PDBbind]], [[Proxy Ligand Labels]] | `04`, `05`, `06`, `29` | `crawls/pcna-curated-official-tools-data-structures-pass8/` | curated scPDB/PDBbind leads | raw crawl lead | dataset/context leads | protein-ligand data can create proxy-label risk | Are these labels in scope? |
+| ASD/allosteric databases | [[ASD]], [[Allosteric Sites]] | `04`, `06`, `11`, `14`, `29` | `crawls/pcna-curated-official-tools-data-structures-pass8/` | curated ASD lead | raw crawl lead | allosteric context | database membership is not PCNA validation | Which ASD entries map to PCNA if any? |
+| PCNA biology | [[PCNA]], [[UniProt P12004]], [[Biological Realism]] | `11`, `12`, `14`, `24`, `35` | `crawls/pcna-cryptic-pocket-gat-md-kb-final/`, `crawls/pcna-gap-closure-datasets-tools-structures-pass6/` | PDB/UniProt/OpenAlex raw leads | raw crawl lead | PCNA context and mapping | cancer relevance is motivation only | Which PCNA structures are final holdout? |
+| AOH1996/8GLA | [[AOH1996]], [[8GLA]], [[PCNA]] | `05`, `11`, `12`, `14`, `24`, `25` | `crawls/pcna-cryptic-pocket-gat-md-kb-final/`, `crawls/_probe2/` | PDB 8GLA raw metadata | raw crawl lead | positive-control context | AOH1996 recovery is not therapeutic validation | What leakage status is assigned? |
+| ATX-101 | [[ATX-101]], [[PCNA]] | `11`, `12`, `14`, `24` | `crawls/pcna-cryptic-pocket-gat-md-kb-final/` | source index and raw literature leads | raw crawl lead | PCNA inhibitor/interface context | not proof of new predicted sites | Which structures or assays are relevant? |
+| PIP-box/APIM | [[PCNA]], [[Biological Realism]] | `11`, `12`, `14`, `24` | `crawls/pcna-cryptic-pocket-gat-md-kb-final/` | source index literature leads | raw crawl lead | known-interface comparison | interface overlap may reduce novelty | Need canonical motif/interface mapping. |
+| BioGRID/interaction networks | [[PCNA]], [[Biological Realism]] | `11`, `12`, `15`, `24` | `crawls/pcna-biogrid-full-pass5/`, `crawls/pcna-biogrid-interactions-pass4/` | BioGRID raw/intact files | raw crawl lead | interaction context | network interaction is not pocket evidence | Which interactions are direct/structural? |
+| MD validation | [[MD Validation Limits]], [[MD Validation Strategy]] | `13`, `14`, `15`, `19`, `33` | `crawls/pcna-cryptic-pocket-gat-md-kb-final/`, `crawls/pcna-gap-closure-datasets-tools-structures-pass6/` | MD/GROMACS/CHARMM/OpenMM leads | raw crawl lead | MD policy and setup context | MD cannot validate therapy or binding alone | What pre-registered MD question exists? |
+| RMSD/RMSF/DCCM | [[MD Validation Limits]] | `13`, `33`, `35` | `crawls/pcna-gap-closure-datasets-tools-structures-pass6/` | MD analysis leads | raw crawl lead | exploratory MD metrics | metric changes are not mechanism proof | Which metrics are allowed for claims? |
+| pocket volume / MDpocket | [[MD Validation Limits]], [[fpocket]] | `13`, `15`, `33` | `crawls/pcna-cryptic-pocket-gat-md-kb-final/`, `crawls/pcna-gap-closure-datasets-tools-structures-pass6/` | MDpocket/fpocket leads | raw crawl lead | pocket dynamics context | volume fluctuations are supportive only | Is MDpocket in scope? |
+| enhanced sampling / metadynamics | [[MD Validation Limits]] | `13`, `15`, `33`, `35` | `crawls/pcna-gap-closure-datasets-tools-structures-pass6/` | sampling method leads | raw crawl lead | future MD design context | enhanced sampling does not replace validation | Is enhanced sampling deferred? |
+| evaluation metrics | [[AUPRC vs AUROC]], [[Top K Recovery]], [[Bootstrap Confidence Intervals]] | `09`, `28`, `36` | `crawls/pcna-gap-closure-datasets-tools-structures-pass6/` | evaluation method leads | raw crawl lead | metric design context | AUROC alone is not enough | Which metrics are primary for MVP? |
+| reproducibility/provenance | [[Provenance Tracking]], [[Dataset Registry]] | `01`, `15`, `18`, `31` | all used crawl paths | source indexes and raw metadata | binding governance plus raw leads | manifests, hashes, audit trails | no artifact without provenance | What manifest schema will implementation use? |
+| scientific claim control | [[Scientific Claim Control]], [[Unexpected Results Policy]] | `14`, `19`, `22`, `24`, `34`, `35`, `36` | `docs/scientific_governance/`, all evidence paths used | governance docs first | binding governance | allowed wording and claim gates | no clinical/drug-discovery/validation claims | Which claims, if any, are currently allowed? |
+
+## Provenance
+
+- Source paths: `crawls/*/SOURCE_INDEX.md`, `docs/scientific_governance/`
+- Confidence: medium for mapping; low for unverified crawl claims
+- Date last updated: 2026-05-27

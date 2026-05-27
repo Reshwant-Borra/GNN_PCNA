@@ -77,3 +77,27 @@ Append-only record of maintained wiki operations and durable project decisions.
 - Source path: `wiki/analyses/dataset_strategy.md`, `wiki/open_questions/open-questions.md`, `reports/phase2/local_dataset_discovery_report.md`, `docs/scientific_governance/04_DATASET_CONSTRAINTS.md`, `05_SPLIT_PROTOCOL.md`, `06_LABELING_RULES.md`, `15_PROVENANCE_AND_REPRODUCIBILITY.md`, `26_HUMAN_REVIEW_GATES.md`
 - Confidence: high
 - Evidence status: inferred from local absence of usable dataset assets and governance requirements
+
+## 2026-05-27 - Governed Dataset Intake Agent Implemented
+
+- Source path: `scripts/dataset_intake.py`, `scripts/validate_dataset_intake.py`, `src/phase2_intake/`, `docs/dataset_intake_crawler_prompt.md`
+- Governance path: `docs/scientific_governance/04_DATASET_CONSTRAINTS.md`, `15_PROVENANCE_AND_REPRODUCIBILITY.md`, `16_CODING_AGENT_RULES.md`, `19_STOP_CONDITIONS.md`, `21_READINESS_GATE.md`, `26_HUMAN_REVIEW_GATES.md`, `31_DATA_LIFECYCLE_TRACKING.md`
+- Confidence level: high
+- Evidence status: verified
+- Decision/update: Implemented a fail-closed dataset/source intake CLI with source adapters, dry-run mode, quarantined raw intake paths, append-only download manifest, inventories, reports, validation script, and tests. The approved source-total cap is 20 GB; single files/archives over 500 MB still require human approval. Dry-run checks for CryptoBench and targeted PCNA structures recorded manifest/report rows without downloading raw files or adopting data.
+
+## 2026-05-27 - CryptoBench and PCNA Raw Intake Acquired
+
+- Source path: `data/raw_intake/cryptobench/`, `data/raw_intake/pcna_structures/`, `data/registries/download_manifest.jsonl`, `data/registries/dataset_inventory.json`, `reports/phase2/friend_dataset_acquisition_report.md`
+- Governance path: `docs/scientific_governance/04_DATASET_CONSTRAINTS.md`, `15_PROVENANCE_AND_REPRODUCIBILITY.md`, `19_STOP_CONDITIONS.md`, `21_READINESS_GATE.md`, `26_HUMAN_REVIEW_GATES.md`, `31_DATA_LIFECYCLE_TRACKING.md`
+- Confidence level: high for local acquisition/provenance; uncertain for scientific usability until schema, leakage, and human review audits.
+- Evidence status: verified for downloaded files, manifest rows, hashes, and the skipped bulk archive record; uncertain for dataset adoption.
+- Decision/update: Acquired official under-limit CryptoBench OSF/GitHub assets and targeted RCSB assets for `8GLA`/`1W60` into quarantined raw intake. The `cif-files.zip` CryptoBench archive was skipped because it is about 1.145 GB and requires human approval under the 500 MB single-file gate. No dataset was adopted and no downstream readiness was granted.
+
+## 2026-05-27 - CryptoBench CIF Archive Approved And Downloaded
+
+- Source path: `data/registries/bulk_download_approvals.json`, `data/raw_intake/cryptobench/files/672a0171eae0bff252ba9ea3_cif-files.zip`, `data/registries/download_manifest.jsonl`, `reports/phase2/cryptobench_schema_first_audit.md`
+- Governance path: `docs/scientific_governance/04_DATASET_CONSTRAINTS.md`, `15_PROVENANCE_AND_REPRODUCIBILITY.md`, `19_STOP_CONDITIONS.md`, `21_READINESS_GATE.md`, `26_HUMAN_REVIEW_GATES.md`, `31_DATA_LIFECYCLE_TRACKING.md`
+- Confidence level: high for local download, hash, manifest, and ZIP inventory; uncertain for scientific usability until schema/leakage/human audits.
+- Evidence status: verified for file acquisition and inventory; inferred for schema meaning; uncertain for dataset adoption.
+- Decision/update: User approved the official OSF CryptoBench `cif-files.zip` bulk download despite the 500 MB single-file gate. The archive was downloaded under quarantined raw intake, SHA-256 hashed as `8d15f897bfdfdf61c7d97a29f5f6ca2c5e03d73d8fb89be7da5bbc245cf56ae4`, and inspected by ZIP inventory only. The archive contains 5,005 `.cif` files. CryptoBench is ready for formal schema audit, not training.

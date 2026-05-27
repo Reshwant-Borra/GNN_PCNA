@@ -1,0 +1,2 @@
+"""Source-specific intake adapters."""
+

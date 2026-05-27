@@ -89,8 +89,20 @@ Dataset Investigation + Freeze phase has started, but no dataset is frozen. Loca
 
 As of 2026-05-27, local discovery found no usable dataset archives, coordinate files, CSV/TSV/Parquet registries, residue labels, split assignments, or processed dataset artifacts under `crawls/`, `raw/`, or `data/`. `raw/` is placeholder-only. `data/` is governance scaffolding only. Crawl hits for CryptoBench, PocketMiner, BioLiP/BioLiP2, scPDB, ASD, and PDBbind are acquisition leads, not local datasets.
 
+## 20. Dataset intake agent implementation status
+
+As of 2026-05-27, governed dataset/source intake infrastructure exists under `scripts/dataset_intake.py`, `scripts/validate_dataset_intake.py`, and `src/phase2_intake/`. The agent supports dry-run discovery, source adapters, quarantined `data/raw_intake/<source_name>/` paths, append-only `data/registries/download_manifest.jsonl`, inventory generation, report generation, SHA-256 hashing for completed downloads, explicit license/schema/trust statuses, and stop gates for single files over 500 MB or source totals over 20 GB. Dry-run checks were run for CryptoBench and targeted PCNA structures `8GLA`/`1W60`; no raw files were downloaded, and no dataset was adopted.
+
+## 21. Current raw intake status
+
+As of 2026-05-27, official small CryptoBench OSF/GitHub metadata, nested OSF file listings, MIT license metadata, under-500 MB CryptoBench JSON/code/model-support files, and targeted RCSB PCNA files for `8GLA` and `1W60` have been downloaded under `data/raw_intake/` with manifest rows and SHA-256 hashes. The files remain `raw_unverified` and `not_adopted`. The CryptoBench `cif-files.zip` archive is about 1.145 GB and was correctly skipped with `HUMAN_APPROVAL_REQUIRED_FOR_BULK_DOWNLOAD`; approval is required before downloading that archive. Training, graph generation, split freeze, label freeze, MD, evaluation, and claims remain blocked.
+
+## 22. CryptoBench bulk archive status
+
+As of 2026-05-27, the user approved the official OSF CryptoBench `cif-files.zip` bulk download. The archive was downloaded to `data/raw_intake/cryptobench/files/672a0171eae0bff252ba9ea3_cif-files.zip`, kept quarantined, and recorded in the download manifest with SHA-256 `8d15f897bfdfdf61c7d97a29f5f6ca2c5e03d73d8fb89be7da5bbc245cf56ae4`. The schema-first audit at `reports/phase2/cryptobench_schema_first_audit.md` inspected JSON top-level structure and ZIP inventory only; the archive opens safely with Python `zipfile` and contains 5,005 `.cif` files. CryptoBench is ready for formal schema audit, not training.
+
 ## Provenance
 
-- Source paths: `AGENTS.md`, `docs/scientific_governance/00_README.md`, `16_CODING_AGENT_RULES.md`, `37_PHASE2_IMPLEMENTATION_PLAN.md`, `reports/phase2/readiness_gate.md`, `reports/phase2/dataset_investigation_report.md`, `reports/phase2/proposed_split_strategy.md`, `reports/phase2/proposed_label_strategy.md`, `reports/phase2/local_dataset_discovery_report.md`
+- Source paths: `AGENTS.md`, `docs/scientific_governance/00_README.md`, `16_CODING_AGENT_RULES.md`, `37_PHASE2_IMPLEMENTATION_PLAN.md`, `reports/phase2/readiness_gate.md`, `reports/phase2/dataset_investigation_report.md`, `reports/phase2/proposed_split_strategy.md`, `reports/phase2/proposed_label_strategy.md`, `reports/phase2/local_dataset_discovery_report.md`, `docs/dataset_intake_crawler_prompt.md`, `scripts/dataset_intake.py`, `scripts/validate_dataset_intake.py`, `scripts/cryptobench_schema_first_audit.py`, `src/phase2_intake/`, `data/registries/download_manifest.jsonl`, `data/registries/dataset_inventory.json`, `data/registries/bulk_download_approvals.json`, `data/raw_intake/cryptobench/`, `data/raw_intake/pcna_structures/`, `reports/phase2/friend_dataset_acquisition_report.md`, `reports/phase2/cryptobench_schema_first_audit.md`
 - Confidence level: high
 - Date last updated: 2026-05-27

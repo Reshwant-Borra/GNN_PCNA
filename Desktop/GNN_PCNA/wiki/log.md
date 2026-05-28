@@ -337,3 +337,68 @@ Append-only record of maintained wiki operations and durable project decisions.
   - Codex may implement graph-generation scaffolding exactly as approved and emit graph artifacts, manifests, and provenance.
   - No training, baseline execution, evaluation claims, PCNA prediction interpretation, MD interpretation, or scientific claims are approved by this decision.
   - First graph release still requires human review before real training.
+
+
+## 2026-05-28 - Phase 3 Graph Generation Package Implemented
+
+- Source path: `src/phase3_graphs/` (constants.py, features.py, mmcif_coords.py, builder.py, manifest.py, cli.py), `tests/phase3/test_phase3_graphs.py`
+- Governance path: `docs/scientific_governance/07_PREPROCESSING_AND_GRAPH_RULES.md`, `08_MODEL_ARCHITECTURE_CONSTRAINTS.md`, `15_PROVENANCE_AND_REPRODUCIBILITY.md`, `19_STOP_CONDITIONS.md`, `26_HUMAN_REVIEW_GATES.md`
+- Approval record: `reports/phase3/graph_policy_human_decision_20260528.md` (decision_id: phase3_graph_policy_20260528)
+- Confidence level: high — implementation matches approved policy exactly; 53/53 tests passing.
+- Evidence status: verified.
+- Decision/update:
+  - Implemented graph generation scaffolding exactly as approved by human decision record.
+  - Node features: 25-dim float32 (22 one-hot residue identity + 3 binary flags: is_modified, missing_ca, has_altloc).
+  - Spatial edges: undirected CA-CA contact, cutoff 8.0 Å (approved value), both directions stored.
+  - Sequential edges: undirected, consecutive label_seq_id integers (diff=1), same chain only, no gap bridging.
+  - AltLoc resolution: highest occupancy wins; tie-break lexicographic with ./?  preferred over lettered alternates.
+  - Fail-closed: non-numeric/NaN coordinates, positive-label mismatch, duplicate residue keys all raise Phase3DataError.
+  - Output format: per-structure .npz (arrays) + _meta.json sidecar; collection graph_release_manifest_<hash>.json with status PENDING_HUMAN_REVIEW.
+  - Feature definition hash and policy hash recorded in every manifest entry for provenance.
+  - 37 new tests added; total suite 53/53 passing.
+  - No graph tensors written to disk yet. CLI must be run separately.
+  - Training remains blocked — first graph release requires human review per governance/26_HUMAN_REVIEW_GATES.md.
+
+## 2026-05-28 - Phase 3 First Graph Release Complete
+
+- Source path: `data/graphs/graph_release_manifest_8c22e46f524d5f1d.json`, `data/graphs/*.npz` (1,101), `data/graphs/*_meta.json` (1,101), `reports/phase3/graph_release_audit_20260528.md`, `reports/phase3/handoff_20260528.md`
+- Governance path: `docs/scientific_governance/07_PREPROCESSING_AND_GRAPH_RULES.md`, `docs/scientific_governance/15_PROVENANCE_AND_REPRODUCIBILITY.md`, `docs/scientific_governance/19_STOP_CONDITIONS.md`, `docs/scientific_governance/26_HUMAN_REVIEW_GATES.md`
+- Approval record: `reports/phase3/graph_policy_human_decision_20260528.md` (decision_id: phase3_graph_policy_20260528)
+- Confidence level: high — 0 failures; all counts verified against Phase 2 residue audit.
+- Evidence status: verified.
+- Decision/update:
+  - Smoke test (5 structures): passed. NPZ shapes, manifest provenance, hash consistency, NO_TRAINING_PERFORMED flag all confirmed.
+  - Full run (1,101 structures): 1,101/1,101 generated, 0 failures.
+  - Exact match to Phase 2 residue audit: 16,335 positives, 3,696 masked nodes + 8 masked-without-nodes (4hr7), 22 no-CA nodes, 4,380 altloc nodes, 351,620 background.
+  - Avg spatial degree: ~10 contacts/residue (expected for 8 Å CA-CA cutoff).
+  - Policy hash and feature hash are identical across all 1,101 graphs (1 unique each).
+  - Status: PENDING_HUMAN_REVIEW. No training, no evaluation, no claims.
+  - Next gate: human review of `reports/phase3/graph_release_audit_20260528.md` and manifest, then record `reports/phase3/first_training_approval_YYYYMMDD.md`.
+
+## 2026-05-28 - First Graph Release Approved (GATE 1 Cleared)
+
+- Source path: `reports/phase3/first_graph_release_approval_20260528.md`
+- Governance path: `docs/scientific_governance/26_HUMAN_REVIEW_GATES.md`
+- Confidence level: high — human decision recorded from active session.
+- Evidence status: verified.
+- Decision/update:
+  - Human project owner reviewed graph release audit and manifest; approved first graph release.
+  - Decision ID: `phase3_first_graph_release_20260528`.
+  - All 1,101 structures approved. Counts verified against Phase 2 residue audit (exact match).
+  - GATE 1 cleared. Real training still requires GATE 2.
+  - Approved artifacts: `data/graphs/` (1,101 .npz, 1,101 _meta.json, manifest).
+
+## 2026-05-28 - Phase 3 Model/Training Approval Packet Prepared
+
+- Source path: `reports/phase3/model_training_approval_packet_20260528.md`
+- Governance path: `docs/scientific_governance/08_MODEL_ARCHITECTURE_CONSTRAINTS.md`, `09_EVALUATION_PROTOCOL.md`, `10_BASELINE_REQUIREMENTS.md`, `14_CLAIM_POLICY.md`, `19_STOP_CONDITIONS.md`, `26_HUMAN_REVIEW_GATES.md`
+- Confidence level: high for proposal structure; subject to human approval before implementation.
+- Evidence status: proposal only; no training performed.
+- Decision/update:
+  - Prepared model/training packet for human review as GATE 2 prerequisite.
+  - Proposed architecture: GraphSAGE mean aggregation, 3 message-passing layers, 25-dim input, BCEWithLogitsLoss with pos_weight from train only, no virtual node (batch isolation risk), no final sigmoid during training.
+  - Training: 4-fold CV on frozen split, 3-5 seeds, early stopping on validation macro-AUPRC, hyperparameters tuned on validation only.
+  - Baselines required: random, solvent exposure, fpocket, P2Rank, PocketMiner (run on our split), basic GCN, GAT, no-edge-type ablation.
+  - Primary evaluation metric: macro-AUPRC (pre-specified). Secondary: micro-AUPRC, macro/micro-AUROC, top-k recovery (k=5,10,20), bootstrap 95% CI, calibration, per-protein table.
+  - Shortcut safeguards: chain-ID/residue-number already excluded; required ablations post-training: no-sequential-edges, no-spatial-edges, residue-identity shuffled, graph-size correlation, per-protein inspection.
+  - Status: PENDING_HUMAN_REVIEW. Human must approve before implementation begins.

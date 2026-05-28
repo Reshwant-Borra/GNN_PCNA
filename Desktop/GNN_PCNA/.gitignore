@@ -1,6 +1,11 @@
 # Raw intake — large binary/CIF archives; quarantined data; never commit
 data/raw_intake/
 
+# Generated graph tensors — large binary artifacts; regenerate from CIFs + scripts
+# Commit the manifest JSON only; .npz and _meta.json files are reproducible
+data/graphs/*.npz
+data/graphs/*_meta.json
+
 # Python
 __pycache__/
 *.py[cod]

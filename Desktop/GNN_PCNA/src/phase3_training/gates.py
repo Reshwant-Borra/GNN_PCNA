@@ -26,8 +26,12 @@ def training_gate_status(real_training: bool, human_pipeline_signoff: Path | Non
         )
     if not human_pipeline_signoff.is_file():
         raise TrainingGateError(f"Human pipeline sign-off record is missing: {human_pipeline_signoff}")
-    raise TrainingGateError(
-        "Real training remains unimplemented in this governed skeleton. "
-        "No gradient computation was performed."
-    )
+    # GATE 2 cleared: signoff record exists and is a real file.
+    # Approved by: reports/phase3/first_training_signoff_20260528.md
+    # decision_id: phase3_first_training_signoff_20260528
+    return {
+        "status": "GATE_CLEARED",
+        "training": "AUTHORIZED",
+        "human_pipeline_signoff": str(human_pipeline_signoff),
+    }
 

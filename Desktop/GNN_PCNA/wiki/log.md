@@ -402,3 +402,54 @@ Append-only record of maintained wiki operations and durable project decisions.
   - Primary evaluation metric: macro-AUPRC (pre-specified). Secondary: micro-AUPRC, macro/micro-AUROC, top-k recovery (k=5,10,20), bootstrap 95% CI, calibration, per-protein table.
   - Shortcut safeguards: chain-ID/residue-number already excluded; required ablations post-training: no-sequential-edges, no-spatial-edges, residue-identity shuffled, graph-size correlation, per-protein inspection.
   - Status: PENDING_HUMAN_REVIEW. Human must approve before implementation begins.
+
+## 2026-05-28 - Phase 3 Training Framework Implemented
+
+- Source path: `src/phase3_data/graph_loader.py`, `src/phase3_model/gnn.py`, `src/phase3_training/trainer.py`, `src/phase3_evaluation/metrics.py`
+- Tests: `tests/phase3/test_batch_isolation.py`, `tests/phase3/test_phase3_model_loader_metrics.py`
+- Governance path: `docs/scientific_governance/08_MODEL_ARCHITECTURE_CONSTRAINTS.md`, `09_EVALUATION_PROTOCOL.md`, `16_CODING_AGENT_RULES.md`
+- Approval record: `reports/phase3/model_training_decision_20260528.md` (decision_id: `phase3_model_training_plan_20260528`)
+- Confidence level: high
+- Evidence status: verified (93/93 tests passing)
+- Decision/update:
+  - Implemented graph_loader: PyG DataLoader over data/graphs/*.npz, frozen-split-aware (hash-validated), PCNA holdout excluded from train/val, sorted deterministic ordering, compute_pos_weight from training-fold nodes only.
+  - Implemented GraphSAGE-3L (gnn.py): SAGEConv(25→H)+ReLU+Dropout ×2, SAGEConv(H→H)+ReLU, Linear(H→1). No sigmoid. No virtual node. hidden_dim locked to {64,128} at construction time.
+  - Implemented trainer.py: BCEWithLogitsLoss with train-only pos_weight, Adam optimizer, early stopping on val macro-AUPRC (patience=10). Gate check at entry — raises TrainingGateError until GATE 2 cleared.
+  - Implemented metrics.py: macro-AUPRC (primary), micro-AUPRC, macro/micro-AUROC, top-k recovery (k=5,10,20), precision@k, bootstrap 95% CI (N=1000 over proteins), per-protein table, seed mean±SD.
+  - GATE 2 prerequisite (batch-isolation test): 4/4 PASSED. Proteins A and B logits in batches [A,B] and [B,A] match single-protein inference within atol=1e-5.
+  - Full test suite: 93/93 passing (up from 57).
+  - Dry-run guard in gates.py intact. No training performed. No model weights. No scientific claims.
+  - Next step: human GATE 2 first-training sign-off, then remove dry-run guard.
+
+## 2026-05-28 - GATE 2 Cleared — First Training Sign-Off And Gates.py Conditionalized
+
+- Source path: `reports/phase3/first_training_signoff_20260528.md`, `src/phase3_training/gates.py`
+- Governance path: `docs/scientific_governance/08_MODEL_ARCHITECTURE_CONSTRAINTS.md`, `09_EVALUATION_PROTOCOL.md`, `26_HUMAN_REVIEW_GATES.md`
+- Approval record: `reports/phase3/first_training_signoff_20260528.md` (decision_id: `phase3_first_training_signoff_20260528`)
+- Confidence level: high — human decision recorded from active session.
+- Evidence status: verified.
+- Decision/update:
+  - Human project owner signed off on GATE 2 first-training sign-off record.
+  - `src/phase3_training/gates.py` conditionalized: raises `TrainingGateError` if signoff file absent/missing; returns `GATE_CLEARED` dict if signoff file present. Gate test suite 4/4 still passing.
+  - Real training authorized for 4-fold CV × 3 seeds under the conditions stated in signoff record.
+  - No test-set evaluation performed. No scientific claims made.
+
+## 2026-05-28 - Phase 3 First Training Run Complete (12/12 Runs)
+
+- Source path: `reports/phase3/training_runs/fold*_seed*_manifest.json` (12 files), `checkpoints/phase3/*.pt` (12 files), `reports/phase3/training_runs/all_runs_summary.json`, `reports/phase3/first_training_results_20260528.md`
+- Scripts: `scripts/train_phase3.py`, `scripts/run_all_training.py`, `scripts/summarize_training.py`
+- Governance path: `docs/scientific_governance/08_MODEL_ARCHITECTURE_CONSTRAINTS.md`, `09_EVALUATION_PROTOCOL.md`, `19_STOP_CONDITIONS.md`
+- Approval record: `reports/phase3/first_training_signoff_20260528.md` (decision_id: `phase3_first_training_signoff_20260528`)
+- Confidence level: high — all 12 manifests written with gate_status=GATE_CLEARED; no exceptions.
+- Evidence status: verified (all runs terminated via early stopping; no errors).
+- Decision/update:
+  - All 12 training runs completed successfully (4 folds × 3 seeds). No failures, no interruptions.
+  - Architecture: GraphSAGE-3L, hidden_dim=128, dropout=0.1, lr=1e-3, patience=10, max_epochs=200.
+  - pos_weight computed from training fold only (~21.0 across folds; background/positive ratio).
+  - Split manifest hash validated at load time: 24dd5e347d880108.
+  - PCNA holdout (cluster 1168) confirmed excluded from all train and val splits.
+  - Per-fold validation macro-AUPRC: fold-0=0.1730, fold-1=0.2035, fold-2=0.1872, fold-3=0.1866.
+  - **Overall val macro-AUPRC: 0.1876 ± 0.0113** (range: [0.1719, 0.2042]).
+  - Best single run: fold=1, seed=2, val_macro_auprc=0.2042 at epoch 17.
+  - All results are validation-only. No test-set evaluation performed. No scientific claims made.
+  - Next gates: (1) human reviews these validation results; (2) authorize baselines; (3) human model freeze decision; (4) human test-set evaluation gate; (5) human PCNA inference gate.

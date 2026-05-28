@@ -1,6 +1,6 @@
 ---
 updated: 2026-05-28
-updated_by: claude-sonnet-4-6 (phase3-model-training-plan-approved)
+updated_by: claude-sonnet-4-6 (phase3-first-training-complete)
 ---
 
 # Project State - GNN-PCNA
@@ -17,20 +17,20 @@ treat this file as potentially stale. Reconstruct current state from
 
 ## Phase
 
-**Phase 2 COMPLETE -> Phase 3 AUTHORIZED, PIPELINE/TRAINING GATES STILL APPLY**
+**Phase 3 — FIRST TRAINING COMPLETE. Awaiting human review before baselines.**
 
 | System | Status |
 |---|---|
-| Training | **BLOCKED pending first graph release review and separate first-training approval**. Dry-run skeleton exists and refuses real training. |
+| Training | **FIRST TRAINING COMPLETE**. 12/12 runs (4 folds × 3 seeds). Overall val macro-AUPRC: **0.1876 ± 0.0113**. No test-set evaluation yet. |
 | Graph generation | **FIRST GRAPH RELEASE APPROVED**. 1,101 graphs, 0 failures. Approval: `reports/phase3/first_graph_release_approval_20260528.md`. |
 | Molecular dynamics | BLOCKED (Phase 3+ scope) |
-| Scientific claims | BLOCKED (model must first complete Phase 3 and claim gates) |
+| Scientific claims | BLOCKED (baselines not run, test set not evaluated, claim gates not cleared) |
 | Split freeze | **FROZEN** - `data/registries/split_manifest_frozen.json` (hash: 24dd5e347d880108) |
 | Label freeze | **FROZEN** - `data/labels/label_manifest.json` |
 
-All Phase 2 blockers cleared as of 2026-05-27. Phase 3 implementation is authorized, but
-real training must wait for first graph release review and explicit human first-training
-sign-off.
+All Phase 2 blockers cleared. GATE 1 (graph release) and GATE 2 (first-training sign-off)
+cleared. First training complete. Baselines, model freeze, and test evaluation are all
+blocked until human review approvals are recorded.
 
 ---
 
@@ -57,6 +57,9 @@ sign-off.
 - **Phase 3 graph generation implemented:** `src/phase3_graphs/` package complete — `constants.py`, `features.py`, `mmcif_coords.py`, `builder.py`, `manifest.py`, `cli.py`. Tests in `tests/phase3/test_phase3_graphs.py` (37 new tests, all passing; total suite 53/53).
 - **Phase 3 first graph release complete and approved:** 1,101 structures, 0 failures. Artifacts in `data/graphs/`. Approval: `reports/phase3/first_graph_release_approval_20260528.md` (decision_id: `phase3_first_graph_release_20260528`). GATE 1 cleared.
 - **Phase 3 model/training plan approved:** `reports/phase3/model_training_decision_20260528.md` (decision_id: `phase3_model_training_plan_20260528`). Authorizes implementation of GraphSAGE-3L + data loader + training loop + evaluation. Batch-isolation test required before real training (GATE 2).
+- **Phase 3 training framework implemented:** `src/phase3_data/graph_loader.py`, `src/phase3_model/gnn.py`, `src/phase3_training/trainer.py`, `src/phase3_evaluation/metrics.py`, `tests/phase3/test_batch_isolation.py`, `tests/phase3/test_phase3_model_loader_metrics.py`. Full test suite 93/93 passing. Batch-isolation test: 4/4 PASSED (GATE 2 prerequisite). Dry-run guard in `gates.py` intact — real training blocked until human GATE 2 sign-off.
+- **GATE 2 cleared:** `reports/phase3/first_training_signoff_20260528.md` (decision_id: `phase3_first_training_signoff_20260528`). `gates.py` conditionalized to pass when signoff file present.
+- **Phase 3 first training complete:** 12/12 runs (4 folds × 3 seeds). GraphSAGE-3L, hidden_dim=128. Overall val macro-AUPRC: **0.1876 ± 0.0113** (range: [0.1719, 0.2042]). Best: fold=1 seed=2 → 0.2042. Checkpoints: `checkpoints/phase3/fold*_seed*_best.pt`. Report: `reports/phase3/first_training_results_20260528.md`. No test-set evaluation. No scientific claims.
 
 ---
 
@@ -66,10 +69,11 @@ No Phase 2 blockers remain.
 
 Phase 3 stop gates:
 - **GATE 1 — CLEARED.** First graph release approved: `reports/phase3/first_graph_release_approval_20260528.md`.
-- **GATE 2 — Model/training plan APPROVED. Implementation authorized.**
-  Decision: `reports/phase3/model_training_decision_20260528.md`
-  Agent must: implement architecture + data loader + training loop + evaluation + batch-isolation test. THEN human signs GATE 2 first-training record to remove dry-run guard.
-- **Friend's full original Phase 3 implementation remains unverified on `main`.** A Codex rebuild skeleton now exists locally; do not assume it contains Friend's unpushed methodology.
+- **GATE 2 — CLEARED.** First training sign-off: `reports/phase3/first_training_signoff_20260528.md`.
+- **GATE 3 — CLEARED.** Baseline runs authorized by Reshwant on 2026-05-28 after reviewing first training results (0.1876 ± 0.0113 overall val macro-AUPRC). Friend may proceed with baseline implementation.
+- **GATE 4 — BLOCKED.** Model freeze (best fold/seed checkpoint selection) requires human decision after baselines complete.
+- **GATE 5 — BLOCKED.** Test-set evaluation requires explicit human gate after model + baselines frozen.
+- **GATE 6 — BLOCKED.** PCNA inference requires separate human PCNA gate.
 - **PCNA cluster `cluster_id_30=1168` is holdout-only.** No PCNA/PCNA-cluster structure may enter train or validation.
 
 ---
@@ -90,31 +94,18 @@ Use policy:
 
 ## Next Tasks
 
-1. **[AGENT — IMMEDIATE] Implement the approved Phase 3 training framework.**
-   Read these first (in order):
-   a. `docs/scientific_governance/16_CODING_AGENT_RULES.md`
-   b. `docs/scientific_governance/08_MODEL_ARCHITECTURE_CONSTRAINTS.md`
-   c. `reports/phase3/model_training_decision_20260528.md`
-   d. `src/phase3_graphs/features.py` (feature layout — 25-dim input)
-   e. `src/phase3_model/interfaces.py` (ModelInterface contract)
-   f. `src/phase3_training/gates.py` (dry-run guard — do NOT remove yet)
+1. **[AGENT — GATE 3 CLEARED] Run baselines: random, solvent-exposure, fpocket, P2Rank, PocketMiner, GCN-1L, GAT-2L, no-edge-type ablation.**
+   All on the frozen split, validation fold only. No test-set evaluation.
+   Governance: `docs/scientific_governance/10_BASELINE_REQUIREMENTS.md`, `09_EVALUATION_PROTOCOL.md`.
+   Output manifest to: `reports/phase3/baseline_runs/`.
 
-   Then implement in this order (all must pass tests before proceeding):
-   a. `src/phase3_data/graph_loader.py` — PyG DataLoader from `data/graphs/*.npz`
-   b. `src/phase3_model/gnn.py` — GraphSAGE-3L, 25→H→H→H→logit, no sigmoid
-   c. `tests/phase3/test_batch_isolation.py` — batch-isolation unit test (MUST PASS)
-   d. `src/phase3_training/trainer.py` — training loop with pos_weight from train only
-   e. `src/phase3_evaluation/metrics.py` — macro-AUPRC, micro-AUPRC, top-k, bootstrap CI
+2. **[HUMAN — GATE 4] Freeze model.** Pick best fold × seed checkpoint after reviewing baselines.
 
-2. **[HUMAN — GATE 2] First-training sign-off after batch-isolation test passes.**
-   Record: `reports/phase3/first_training_signoff_YYYYMMDD.md`
-   Then remove dry-run guard from `src/phase3_training/gates.py`.
+3. **[HUMAN — GATE 4] Freeze model.** Pick best fold × seed checkpoint after reviewing baselines.
 
-3. **[AGENT] Run first training across 4 folds, 3-5 seeds. Report val macro-AUPRC.**
+4. **[HUMAN — GATE 5] Authorize test-set evaluation.** Run once only, no second runs.
 
-4. **[AGENT] Run baselines: random, fpocket, P2Rank, PocketMiner (on our split).**
-
-5. **[HUMAN] First PCNA prediction gate before any PCNA inference is interpreted.**
+5. **[HUMAN — GATE 6] PCNA inference gate.** Separate decision required before any PCNA prediction is made or interpreted.
 
 ---
 
@@ -146,31 +137,11 @@ Use policy:
 
 ## Last Session Summary
 
-Session 2026-05-28 (Codex): Rebuilt the governed Phase 3 data pipeline/framework skeleton
-locally. Added `src/phase3_data/` readers, validators, CIF extraction, dataset indexing,
-and residue-label audit scaffolding; added dry-run-only stubs for training/model/evaluation/
-baselines; added `tests/phase3/`. Extracted 5,005 approved CryptoBench CIFs, built a
-1,101-entry dataset index, and completed a 1,101-structure residue audit with 16,335
-positives aligned and 3,704 masked labels accounted for. Tests passed (`16 passed`).
-No graph tensors, edges, features, gradients, baselines, evaluation, or claims were
-generated. Real training remains blocked pending human review, graph policy approval,
-first graph release review, and first-training sign-off.
-
-Follow-up 2026-05-28 (Codex): Reviewed Phase 3 data/residue audit artifacts and prepared
-`reports/phase3/graph_edge_feature_policy_approval_packet_20260528.md`. The packet proposes
-a conservative human-review graph policy but does not approve it. No `data/graphs` or
-Phase 3 graph output directory exists; no graph tensors or training were generated. Tests
-still pass (`16 passed`).
-
-Follow-up 2026-05-28 (Codex): Recorded the human project owner's approval of the Phase 3
-graph policy in `reports/phase3/graph_policy_human_decision_20260528.md` and updated the
-approval packet/wiki memory. This step created no graph tensors and performed no training.
-Next step is graph-generation scaffolding and graph manifest/provenance emission exactly
-as approved.
-
-Session 2026-05-28 (claude-sonnet-4-6): Implemented `src/phase3_graphs/`, ran full graph
-generation (1,101/0 failed), wrote graph release audit. Human approved first graph release
-(GATE 1 cleared, decision_id: phase3_first_graph_release_20260528). Prepared model/training
-approval packet proposing GraphSAGE-3L architecture, 4-fold CV, baselines (fpocket/P2Rank/
-PocketMiner/GCN/GAT), pre-specified evaluation (primary: macro-AUPRC), shortcut ablation plan.
-Packet is PENDING_HUMAN_REVIEW. No training, no model weights, no results.
+Session 2026-05-28 (claude-sonnet-4-6): GATE 2 cleared and first training complete.
+Recorded human sign-off `reports/phase3/first_training_signoff_20260528.md`; conditionalized
+`gates.py` to pass when signoff file present. Ran all 12 training runs (4 folds × 3 seeds)
+via `scripts/run_all_training.py`. All completed via early stopping (epochs 26–38), no errors.
+Results: overall val macro-AUPRC **0.1876 ± 0.0113**, fold means 0.1730/0.2035/0.1872/0.1866,
+best single run fold=1 seed=2 → 0.2042. 12 checkpoints in `checkpoints/phase3/`.
+Full report: `reports/phase3/first_training_results_20260528.md`. No test-set evaluation.
+No scientific claims. Next: human reviews training results → authorize baselines (GATE 3).

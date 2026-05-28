@@ -1,0 +1,1 @@
+{"apo_pdb_id": "2vqz", "chain": "F", "fold": "test", "pocket_token_count": 7, "positive_count": 7, "masked_count": 0, "remapped_count": 0, "fraction_masked": 0.0, "labels": {"F_350": 1, "F_351": 1, "F_352": 1, "F_353": 1, "F_420": 1, "F_421": 1, "F_430": 1}, "generated_at": "2026-05-27T23:43:15.399616", "governance": "docs/scientific_governance/06_LABELING_RULES.md"}

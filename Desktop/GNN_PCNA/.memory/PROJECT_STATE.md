@@ -1,6 +1,6 @@
 ---
 updated: 2026-05-27
-updated_by: claude-code (reshwant-session-end)
+updated_by: claude-code (reshwant-session-end-final)
 ---
 
 # Project State — GNN-PCNA Phase 2
@@ -21,140 +21,120 @@ treat this file as potentially stale. Reconstruct current state from
 
 | System | Status |
 |---|---|
-| Training | **BLOCKED — sequence clustering not complete** |
+| Training | **BLOCKED — split + label freeze not approved** |
 | Graph generation | **BLOCKED — split not frozen** |
 | Molecular dynamics | **BLOCKED** |
 | Scientific claims | **BLOCKED** |
-| Split freeze | **BLOCKED — sequence clustering required first** |
-| Label freeze | **READY TO IMPLEMENT** — all 4 label decisions approved |
+| Split freeze | **PENDING HUMAN REVIEW** — split redesign needed for 5 cross-fold clusters |
+| Label freeze | **PENDING HUMAN REVIEW** — labels generated; need sign-off |
 
-CryptoBench has been adopted (cryptic-only with exclusions). Raw data quarantined in `data/raw_intake/`.
-Phase 3 framework (model + trainer + evaluation + baselines) is built locally by friend — not yet pushed.
+CryptoBench adopted (cryptic-only). Labels generated. Split redesign required for 5 cluster groups.
 
 ---
 
 ## What Is Done (as of 2026-05-27)
 
 - **Governance scaffold:** 40 binding docs in `docs/scientific_governance/` — complete
-- **Wiki scaffold:** 59 pages in `wiki/` — complete
-- **Persistent memory system:** `.memory/` (PROJECT_STATE, INDEX, MEMORY_RULES, handoff template), `CLAUDE.md`, `00_COMPACT_INDEX.md`, `COLLABORATION.md` — complete
-- **Intake infrastructure:** `scripts/dataset_intake.py` + `src/phase2_intake/` adapters and IO — complete
-- **CryptoBench download + audit:** All 5,005 CIF files quarantined; deep audit complete; PCNA contamination confirmed (5e0v/3vkx/P12004); 721 residue failures; 6 repeated holo IDs — complete
-- **CryptoBench ADOPTED (cryptic-only):** Rishi approved 2026-05-27. Exact exclusions: 5e0v/3vkx excluded; 2xur/3bep held pending clustering; 6 repeated holos must be grouped. See `reports/phase2/human_review_packet.md`.
-- **PCNA isolation policy:** Approved 2026-05-27. Full isolation — 5e0v/3vkx out of all model development; 2xur/3bep held.
-- **Label supervision contract (PU learning):** Approved 2026-05-27. Positives from `apo_pocket_selection`; unlisted = background/unlabeled; absent = masked; PCNA = holdout.
-- **Residue mapping policy — ALL DECISIONS APPROVED:**
-  - 4a: remap 420 Class 1 failures via label_seq_id fallback — APPROVED
-  - 4b: mask 297 Class 2 absent residues as unlabeled — APPROVED
-  - 4c: exclude structures with >=50% pocket residues absent. Only 1 qualifies: 1lx7 (79%, P12758) — APPROVED 2026-05-27
-  - 4d: exclude 4 Class 3 wrong-chain records — APPROVED
-  - See `reports/phase2/residue_mapping_resolution_policy.md` (status: APPROVED)
-- **Track B auxiliary acquisition:** 9 sources linked/metadata-downloaded; none adopted — complete
-- **Machine-readable registries:** cryptobench_candidate_cleaned_registry.json, cryptobench_fold_summary.json, potential_homolog_risks.json, residue_mapping_failures.json, residue_mapping_per_structure_impact.json, auxiliary_dataset_role_summary.json — complete
-- **Friend's crawl artifacts (Prompt 1 complete):** friend_crawl_registry.json (72 structures), friend_crawl_stats.md, friend_crawl_homolog_groups.json (not_computed), friend_feature_schema.json, data/raw_intake/friend_sample/ (27 PDB + ESM pairs) — in repo
-- **Phase 3 framework (friend's Prompt 2 complete):** `src/phase3_model/`, `src/phase3_training/` (trainer with --dry-run blocker guard), `src/phase3_evaluation/`, `src/baselines/`, 58 tests passing — built locally, not yet pushed
+- **Wiki scaffold + memory system:** 59 wiki pages + `.memory/` layer (PROJECT_STATE, INDEX, MEMORY_RULES, handoff template) + `CLAUDE.md` + `00_COMPACT_INDEX.md` — complete
+- **Intake infrastructure:** `scripts/dataset_intake.py` + `src/phase2_intake/` — complete
+- **CryptoBench ADOPTED (cryptic-only):** Rishi approved 2026-05-27. Exclusions applied.
+- **PCNA isolation policy:** Approved. 5e0v/3vkx excluded. 2xur/3bep confirmed NOT PCNA homologs at 30% — retained.
+- **Label supervision contract (PU learning):** Approved. Positive-unlabeled framing.
+- **Residue mapping — ALL APPROVED:** 4a (remap), 4b (mask), 4c (exclude 1lx7), 4d (exclude 4 wrong-chain).
+- **Sequence clustering (blocker 3 — technical complete):**
+  - RCSB API at 30% identity; PCNA cluster = 1168 (anchor: 5e0v)
+  - 2xur/3bep: NOT PCNA homologs → retained
+  - 6 cross-fold cluster risks found; 5 actionable (cluster 365/1lx7 is excluded)
+  - Full results: `data/registries/sequence_cluster_assignments.json`, `cross_fold_cluster_risks.json`
+  - Report: `reports/phase2/sequence_clustering_report.md`
+- **Label generation — implementation complete:**
+  - 1,101 structures labeled; 6 excluded (5e0v, 2b23/4gpi/8hc1/8oqp, 1lx7)
+  - 16,335 positive labels; 3,704 masked; 0 remaps
+  - Files: `data/labels/labels_{apo_pdb_id}.json`; manifest: `data/labels/label_manifest.json`
+- **Friend's crawl (Prompt 1):** 5 metadata artifacts in repo; 51/72 structures in PCNA cluster (expected)
+- **Phase 3 framework (friend's Prompt 2):** model + trainer (--dry-run guard) + evaluation + baselines; 58 tests; local only, not yet pushed to remote
 
 ---
 
-## Current Blockers (numbered priority order)
+## Current Blockers
 
 1. ~~**CLEARED 2026-05-27** — CryptoBench adoption~~
-   Approved: cryptic-only with exclusions.
-
 2. ~~**CLEARED 2026-05-27** — PCNA isolation policy~~
-   Approved: full isolation. 5e0v/3vkx excluded; 2xur/3bep held pending clustering.
-
-3. **SEQUENCE_CLUSTERING_REQUIRED** ← sole remaining Phase 2 data blocker
-   Tool not chosen (MMseqs2 recommended); identity threshold not set; 6 repeated holo PDB
-   IDs (2fzc, 2fzg, 4f04, 5qya, 6a5y, 7fo6) must be grouped; homolog safety for 2xur/3bep
-   unconfirmed. Friend's homolog groups artifact is `not_computed` — no clustering pre-done.
-   → `data/registries/potential_homolog_risks.json`
-   → `data/registries/friend_crawl_registry.json` (72 structures to include in clustering run)
-
-4. ~~**CLEARED 2026-05-27** — Residue mapping policy~~
-   All 4 decisions approved (4a remap, 4b mask, 4c exclude 1lx7, 4d exclude 4 wrong-chain).
-   Label generation script can now be implemented.
-
-5. ~~**CLEARED 2026-05-27** — label supervision policy~~
-   Approved: positive-unlabeled framing.
-
-6. **SPLIT_FREEZE_BLOCKED**
-   Depends only on blocker 3 (clustering). Once clustering is done, split manifest can be
-   drafted and frozen.
+3. **SPLIT_REDESIGN_REQUIRED — human review needed**
+   5 cross-fold clusters identified at 30% identity threshold. Each must be assigned to a
+   single split group. Draft split manifest needed before human sign-off.
+   - Cluster 885: 8oqp (train) ↔ 7o1i (test)
+   - Cluster 150: 6g0s (train) ↔ 2rfj (test)
+   - Cluster 219: 2air+4c6b (train) ↔ 9atc (test) [also resolves repeated holo 2fzc/2fzg/4f04]
+   - Cluster 5192: 6cy1 (train) ↔ 6n5j (test)
+   - Cluster 3396: 6a45 (train) ↔ 6w10 (test)
+   → `data/registries/cross_fold_cluster_risks.json`
+   → `docs/scientific_governance/05_SPLIT_PROTOCOL.md`
+4. ~~**CLEARED 2026-05-27** — Residue mapping policy (all 4 decisions approved)~~
+5. ~~**CLEARED 2026-05-27** — Label supervision policy~~
+6. **SPLIT_FREEZE_BLOCKED — pending blocker 3 resolution + human sign-off**
+   Governance: `docs/scientific_governance/26_HUMAN_REVIEW_GATES.md`
+7. **LABEL_FREEZE_PENDING — pending human sign-off**
+   Labels are generated and hash-verified. Need Rishi sign-off before labels are frozen.
+   Governance: `docs/scientific_governance/06_LABELING_RULES.md`, `26_HUMAN_REVIEW_GATES.md`
 
 ---
 
 ## Friend's Crawl — Fully Ingested
 
-Metadata artifacts in repo. Full 40GB archive stays local (do NOT transfer).
-
-| Artifact | Path | Notes |
-|---|---|---|
-| Registry | `data/registries/friend_crawl_registry.json` | 72 PCNA-focused structures |
-| Stats | `reports/phase2/friend_crawl_stats.md` | Resolution distribution, ligand presence, ESM coverage |
-| Homolog groups | `data/registries/friend_crawl_homolog_groups.json` | status: not_computed |
-| Feature schema | `data/registries/friend_feature_schema.json` | ESM-2 Nx480, PyG graphs, pocket scores |
-| Sample | `data/raw_intake/friend_sample/` | 27 PDB + ESM pairs |
+5 metadata artifacts in repo; full 40GB archive stays local. 51/72 structures are PCNA
+cluster members — all are holdout-only per isolation policy.
 
 ---
 
 ## Next Tasks (priority order)
 
-1. **[CRITICAL PATH — start now]** Run sequence clustering on CryptoBench cryptic candidates
-   (from `cryptobench_candidate_cleaned_registry.json`) + friend's 72 structures
-   (from `friend_crawl_registry.json`). Tool: MMseqs2 (recommended) or CD-HIT.
-   Threshold: start at 30% identity (conservative for fold-level leakage prevention).
-   Goal: group 6 repeated holo IDs, confirm 2xur/3bep status, verify homolog safety.
-   Output: updated `data/registries/cryptobench_fold_summary.json` with cluster assignments.
+1. **[HUMAN DECISION — can decide now]** Split redesign for 5 cross-fold clusters.
+   For each affected cluster, decide: move all affected structures to train OR test.
+   Recommendation: move to train (keep test set clean), then re-run split balance check.
+   See `data/registries/cross_fold_cluster_risks.json`.
 
-2. **[CAN START NOW — independent of clustering]** Implement label generation script.
-   All 4 residue mapping decisions are approved. Script must:
-   - Remap Class 1 (420) via label_seq_id fallback; log to `residue_remap_log.json`
-   - Mask Class 2 absent residues (label = -1); exclude 1lx7 entirely
-   - Exclude Class 3 (4 wrong-chain records); log to `excluded_records.json`
-   - Output: deterministic label file per `docs/scientific_governance/06_LABELING_RULES.md`
+2. **[AFTER 1]** Draft split manifest `data/registries/split_manifest_draft.json`:
+   - All 1,107 apo IDs with fold assignment, cluster_id_30, pcna_holdout flag
+   - 5 cross-fold clusters reassigned per human decision
+   - Repeated holo structures grouped per clustering results
+   Reference: `docs/scientific_governance/05_SPLIT_PROTOCOL.md`
 
-3. **[AFTER 1]** Draft split manifest (`draft_not_frozen`) grouping structures by UniProt /
-   apo-holo pair / sequence cluster; PCNA records flagged as holdout.
+3. **[AFTER 2 — HUMAN SIGN-OFF]** Freeze split manifest. Update status to `frozen`.
+   Governance: `docs/scientific_governance/26_HUMAN_REVIEW_GATES.md`
 
-4. **[AFTER 1 + 3]** Freeze split (requires human sign-off via governance 26_HUMAN_REVIEW_GATES.md).
+4. **[SIMULTANEOUS WITH 3]** Freeze label manifest.
+   Labels are implementation-complete; just needs Rishi sign-off.
 
-5. **[AFTER 2 + 4]** Freeze label file. Phase 2 complete. Friend's Phase 3 framework can begin
-   real training runs (remove dry-run guard with human approval).
+5. **[AFTER 3 + 4]** Phase 2 complete. Friend can begin Phase 3 real training.
+   Remove dry-run guard in `src/phase3_training/` with explicit human approval.
 
 ---
 
-## Key Registry Paths (machine-readable ground truth)
+## Key Registry Paths
 
 | Registry | Purpose |
 |---|---|
-| `data/registries/dataset_inventory.json` | Master dataset status registry |
-| `data/registries/download_manifest.jsonl` | Append-only download action log |
-| `data/registries/cryptobench_candidate_cleaned_registry.json` | Homolog/leakage-remediated candidate list |
-| `data/registries/cryptobench_fold_summary.json` | Train/test fold distribution and split risks |
-| `data/registries/potential_homolog_risks.json` | Homologous contamination risk flags |
-| `data/registries/residue_mapping_failures.json` | 721 residue coordinate mapping failures |
-| `data/registries/residue_mapping_per_structure_impact.json` | Per-structure Class 2 impact (fraction masked) |
-| `data/registries/friend_crawl_registry.json` | Friend's 72 PCNA structure metadata |
-| `data/registries/friend_crawl_homolog_groups.json` | Friend's clustering (not_computed) |
-| `data/registries/auxiliary_dataset_role_summary.json` | Auxiliary dataset roles (context vs training) |
-| `data/registries/assumption_registry.json` | Documented scientific assumptions |
+| `data/registries/dataset_inventory.json` | Master dataset status |
+| `data/registries/download_manifest.jsonl` | Append-only download log |
+| `data/registries/cryptobench_candidate_cleaned_registry.json` | Remediated candidate list |
+| `data/registries/sequence_cluster_assignments.json` | NEW: RCSB 30% identity clusters |
+| `data/registries/cross_fold_cluster_risks.json` | NEW: 5 cross-fold leakage risks |
+| `data/registries/potential_homolog_risks.json` | Known contamination flags |
+| `data/registries/residue_mapping_failures.json` | 721 mapping failures (audit) |
+| `data/registries/residue_mapping_per_structure_impact.json` | Per-structure 4c impact |
+| `data/registries/friend_crawl_registry.json` | Friend's 72 PCNA structures |
+| `data/registries/assumption_registry.json` | Scientific assumptions |
+| `data/labels/label_manifest.json` | NEW: Hash-verified label manifest |
 
 ---
 
 ## Last Session Summary
 
-Reshwant (2026-05-27): Decision 4c approved — exclude 1lx7 (79% pocket residues absent,
-UniProt P12758), mask all others below 50% threshold. All residue mapping decisions now
-fully approved. Blocker 4 cleared. Merged friend's Prompt 1 artifacts (5 metadata files,
-27 sample PDB+ESM pairs). Resolved PROJECT_STATE.md merge conflict preserving both
-Rishi approval records and friend's crawl artifact records. Pushed to main.
-
-Friend (2026-05-27): Prompt 1 complete — 5 Phase 2 artifacts from 72-structure PCNA crawl
-(no AlphaFold; ESM-2 features, PyG graphs, pocket scores; homolog groups not computed).
-Prompt 2 complete — full Phase 3 GNN framework built: model, trainer with --dry-run blocker
-guard, evaluation pipeline, baselines, 58 tests passing. Phase 3 code local only, not yet pushed.
-
-Sole remaining Phase 2 blocker: sequence clustering (blocker 3). Label generation script
-can be implemented in parallel (all decisions approved). Phase 3 training remains blocked
-by the --dry-run guard until Phase 2 split + label freeze are approved.
+Session 2026-05-27 (Reshwant + Claude Code): All Phase 2 technical work complete.
+Sequence clustering ran via RCSB API on 1,107 CryptoBench + 72 friend structures.
+PCNA cluster confirmed (1168); 2xur/3bep NOT PCNA homologs → retained. 5 cross-fold
+cluster risks found requiring split redesign. Label generation ran successfully: 1,101
+structures labeled, 16,335 positives, 3,704 masked, 0 remaps. Labels
+hash-verified. Codex handoff document created at `reports/phase2/codex_handoff_20260527.md`.
+Phase 2 is now pending human review for split redesign (5 clusters) + split/label freeze sign-off.

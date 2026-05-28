@@ -201,3 +201,36 @@ Append-only record of maintained wiki operations and durable project decisions.
   - Resolved merge conflict in PROJECT_STATE.md between Reshwant's approval records and friend's crawl artifact records. Both preserved. Removed stale "~23,771 mmCIF + ~20,000 AlphaFold" description — actual crawl is 72 PCNA structures with ESM-2 features, no AlphaFold.
   - Unstaged `../../context/` files that were accidentally staged by friend's agent outside the repo boundary.
   - Pushed merged state to main.
+
+## 2026-05-27 - Sequence Clustering Complete — Blocker 3 Resolved
+
+- Source path: `scripts/sequence_clustering.py`, `data/registries/sequence_cluster_assignments.json`, `data/registries/cross_fold_cluster_risks.json`
+- Governance path: `docs/scientific_governance/05_SPLIT_PROTOCOL.md`
+- Confidence level: high — RCSB pre-computed clusters; verified API.
+- Evidence status: verified for all cluster IDs and cross-fold flags.
+- Decision/update:
+  - **Method:** RCSB pre-computed sequence clusters at 30% identity. PCNA anchor: 5e0v cluster_id_30 = 1168.
+  - **2xur:** cluster 1415 (DNA Pol III Beta subunit) — NOT a PCNA homolog at 30%. Policy: retain in candidate set.
+  - **3bep:** no cluster found (chain A is DNA; entity fallbacks found no protein cluster). Not confirmed as PCNA homolog. Policy: retain pending manual protein chain verification.
+  - **Repeated holo 2fzc/2fzg/4f04:** apos 2air and 9atc ARE in same cluster (219) — confirmed homologs. Must be in same split group.
+  - **Repeated holo 5qya/7fo6:** apos 3e9p (cluster 216) and 4ilg (cluster 381) — NOT homologs. Shared holo is structural coincidence. Assign shared holo to single split only.
+  - **Repeated holo 6a5y:** apos 4n5g (cluster 1190) and 6hl0 (cluster 2228) — NOT homologs. Same policy.
+  - **Cross-fold cluster risks (6 detected, 5 actionable):** Clusters 885 (8oqp↔7o1i), 150 (6g0s↔2rfj), 219 (2air+4c6b↔9atc), 5192 (6cy1↔6n5j), 3396 (6a45↔6w10). Cluster 365 (1lx7↔6f52) is non-actionable since 1lx7 is excluded (decision 4c). **Split redesign required for 5 clusters.**
+  - **PCNA cluster in CryptoBench:** only 5e0v (already excluded). Zero additional contamination found.
+  - **PCNA cluster in friend's crawl:** 51/72 structures (expected — crawl is PCNA-focused; all are holdout-only).
+  - **Blocker 3 status:** Technical clustering complete. Human sign-off required for split redesign (governance 26_HUMAN_REVIEW_GATES.md).
+
+## 2026-05-27 - Label Generation Complete
+
+- Source path: `scripts/generate_labels.py`, `data/labels/label_manifest.json`, `reports/phase2/label_generation_report.md`
+- Governance path: `docs/scientific_governance/06_LABELING_RULES.md`, `07_PREPROCESSING_AND_GRAPH_RULES.md`
+- Confidence level: high — all counts from local CIF parsing of verified files.
+- Evidence status: verified.
+- Decision/update:
+  - **1,101 structures labeled** (of 1,107 candidate apos); 6 excluded.
+  - Excluded: 5e0v (PCNA decision 2), 2b23/4gpi/8hc1/8oqp (Class 3 wrong-chain decision 4d), 1lx7 (Class 4c >=50% masked).
+  - **16,335 positive labels** (residues in pocket selection present in atom_site).
+  - **3,704 masked labels** (residues absent from atom_site; excluded from loss per decision 4b).
+  - **0 remaps** (Class 1 remap decision 4a): auth_seq_id direct lookup succeeded for all resolvable tokens. The 420 Class 1 failures from the audit script were resolved by our more complete CIF parser (all atoms, not CA-only).
+  - Label files written to `data/labels/labels_{apo_pdb_id}.json`; hash-verified manifest at `data/labels/label_manifest.json`.
+  - **Label generation is implementation-complete.** Label freeze requires human sign-off (governance 26).

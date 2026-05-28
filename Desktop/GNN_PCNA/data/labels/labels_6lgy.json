@@ -1,0 +1,1 @@
+{"apo_pdb_id": "6lgy", "chain": "A", "fold": "train-0", "pocket_token_count": 4, "positive_count": 4, "masked_count": 0, "remapped_count": 0, "fraction_masked": 0.0, "labels": {"A_131": 1, "A_132": 1, "A_135": 1, "A_142": 1}, "generated_at": "2026-05-27T23:43:23.720968", "governance": "docs/scientific_governance/06_LABELING_RULES.md"}

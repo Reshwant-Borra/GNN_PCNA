@@ -1,0 +1,1 @@
+{"apo_pdb_id": "4gu8", "chain": "H", "fold": "train-0", "pocket_token_count": 8, "positive_count": 8, "masked_count": 0, "remapped_count": 0, "fraction_masked": 0.0, "labels": {"H_36": 1, "H_64": 1, "H_66": 1, "H_67": 1, "H_84": 1, "H_85": 1, "H_86": 1, "H_87": 1}, "generated_at": "2026-05-27T23:43:18.440579", "governance": "docs/scientific_governance/06_LABELING_RULES.md"}

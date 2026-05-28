@@ -1,0 +1,1 @@
+{"apo_pdb_id": "5iox", "chain": "A", "fold": "train-2", "pocket_token_count": 6, "positive_count": 6, "masked_count": 0, "remapped_count": 0, "fraction_masked": 0.0, "labels": {"A_113": 1, "A_114": 1, "A_118": 1, "A_123": 1, "A_41": 1, "A_42": 1}, "generated_at": "2026-05-27T23:43:21.676414", "governance": "docs/scientific_governance/06_LABELING_RULES.md"}

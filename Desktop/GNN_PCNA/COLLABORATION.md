@@ -49,6 +49,41 @@ AGENTS.md                      ← shared instructions, Reshwant manages
 
 ---
 
+## Friend's Immediate Phase 2 Contribution (No Conflict Risk)
+
+Friend has a local **40GB raw protein structure crawl** (~23,771 RCSB mmCIF files,
+~20,000 AlphaFold predicted structures, parsed feature files, STRING/BioGRID data).
+**Do not transfer the full 40GB yet** — most will be excluded after filtering.
+
+Instead, Friend should send/commit these small artifacts to unblock Phase 2 decisions:
+
+1. **Metadata registry** — JSON/CSV/JSONL with one row per structure: PDB ID or
+   AlphaFold ID, source, resolution, chain count, organism, sequence length, ligand
+   presence, confidence scores, file size, whether parsed features exist, heuristic
+   pocket scores, local file path. Save as `data/registries/friend_crawl_registry.json`.
+
+2. **Summary statistics** — total structure counts, AlphaFold vs experimental split,
+   resolution distribution, chain-count distribution, duplicate counts, missing-residue
+   rates, low-confidence counts. Save as `reports/phase2/friend_crawl_stats.md`.
+
+3. **Homolog/duplicate analysis** (if computed) — approximate sequence similarity
+   groups or cluster assignments. Even rough groupings help design the split.
+   Save as `data/registries/friend_crawl_homolog_groups.json` if available.
+
+4. **Parsed feature schemas** — not the arrays themselves, just a description of what
+   features exist, their formats, and example records (~1KB).
+   Save as `data/registries/friend_feature_schema.json`.
+
+5. **Sample subset** — 20–50 representative mmCIF files (a few PCNA-related, a few
+   AlphaFold, a few with parsed features). Place in `data/raw_intake/friend_sample/`.
+
+These are all safe for Friend to commit directly — they land in Reshwant-owned folders
+(`data/registries/`, `reports/phase2/`, `data/raw_intake/`) which is fine because
+Friend is contributing **read-only registry artifacts**, not making governance decisions.
+Reshwant reviews and approves before any of this feeds into intake/filtering rules.
+
+---
+
 ## What Friend CAN Build Now (Before Phase 2 Completes)
 
 Friend can fully build the Phase 3 framework in anticipation of frozen data:

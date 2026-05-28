@@ -78,13 +78,30 @@ No dataset has been adopted. All raw data is quarantined in `data/raw_intake/`.
 
 ---
 
+## Known Unregistered Asset — Friend's Crawl
+
+Friend has a local 40GB raw protein structure crawl:
+- ~23,771 RCSB mmCIF files (PCNA-related search)
+- ~20,000 AlphaFold predicted structures (human proteome subset)
+- Parsed feature JSON/numpy arrays (B-factors, ligands, pocket heuristic scores)
+- STRING/BioGRID network data
+
+**Do NOT transfer the full 40GB yet.** Request from Friend (see `COLLABORATION.md`):
+- `data/registries/friend_crawl_registry.json` — per-structure metadata
+- `reports/phase2/friend_crawl_stats.md` — summary statistics
+- `data/registries/friend_crawl_homolog_groups.json` — homolog clusters (if computed)
+- `data/registries/friend_feature_schema.json` — parsed feature schema descriptions
+- `data/raw_intake/friend_sample/` — 20–50 sample structures
+
+These small artifacts directly help unblock clustering (blocker 3) and filtering policy.
+
 ## Next Tasks (priority order)
 
-1. Prepare human review packet consolidating blockers 1, 2, and 5 into a single decision document
-2. Choose sequence clustering tool (MMseqs2 or CD-HIT) and identity threshold; run clustering on CryptoBench candidate structures
-3. Draft residue mapping failure resolution policy (mask vs exclude vs remap) and submit for human approval
-4. Draft split manifest (status: `draft_not_frozen`) once clustering and remapping policy are approved
-5. Complete biological data sanity review (`docs/scientific_governance/25_BIOLOGICAL_DATA_SANITY_REVIEW.md`) once any dataset is adopted
+1. **[IMMEDIATE]** Ask Friend to send metadata registry + summary stats + feature schemas (see `COLLABORATION.md` — Friend's Immediate Phase 2 Contribution section)
+2. Prepare human review packet consolidating blockers 1, 2, and 5 into a single decision document
+3. Choose sequence clustering tool (MMseqs2 or CD-HIT) and identity threshold; run clustering on CryptoBench candidate structures
+4. Draft residue mapping failure resolution policy (mask vs exclude vs remap) and submit for human approval
+5. Draft split manifest (status: `draft_not_frozen`) once clustering and remapping policy are approved
 
 ---
 

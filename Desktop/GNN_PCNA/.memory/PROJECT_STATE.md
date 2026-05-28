@@ -49,32 +49,31 @@ No dataset has been adopted. All raw data is quarantined in `data/raw_intake/`.
 
 ## Current Blockers (numbered priority order)
 
-1. **HUMAN_REVIEW_REQUIRED — CryptoBench adoption**
-   Cryptic-only adoption with exclusions; conditional on isolation + clustering + remapping
-   → `reports/phase2/cryptobench_adoption_decision.md`
+1. ~~**CLEARED 2026-05-27** — CryptoBench adoption~~
+   Approved by Rishi: cryptic-only with exclusions (5e0v/3vkx/PCNA records excluded,
+   2xur/3bep held pending clustering, 6 repeated holos must be grouped).
 
-2. **HUMAN_REVIEW_REQUIRED — PCNA isolation policy**
-   Exact PCNA records (5e0v/3vkx/P12004) and PCNA-like hits (2xur/3bep) must be isolated;
-   human approval needed before any split or training touches these records
-   → `reports/phase2/pcna_isolation_policy.md`
+2. ~~**CLEARED 2026-05-27** — PCNA isolation policy~~
+   Approved by Rishi: full isolation. 5e0v/3vkx excluded from model development.
+   2xur/3bep held pending clustering results.
 
-3. **SEQUENCE_CLUSTERING_REQUIRED**
-   Tool not chosen (MMseqs2 vs CD-HIT), threshold not set; homolog safety cannot be
-   confirmed until clustering is run; 6 repeated holo PDB IDs also unresolved
+3. **SEQUENCE_CLUSTERING_REQUIRED** ← primary remaining blocker
+   Tool not chosen (MMseqs2 vs CD-HIT), threshold not set; 6 repeated holo PDB IDs
+   unresolved; homolog safety unconfirmed.
    → `data/registries/potential_homolog_risks.json`
 
-4. **RESIDUE_MAPPING_FAILURES — 721 failures unresolved**
-   721 residue token mismatches between RCSB PDB sequences and CIF coordinate records;
-   policy for handling these (mask / exclude / remap) not yet approved
-   → `data/registries/residue_mapping_failures.json`
+4. **RESIDUE_MAPPING — partially cleared**
+   4a (remap), 4b (mask), 4d (exclude 4 records) approved by Rishi.
+   4c (exclusion threshold) DEFERRED — per-structure analysis complete, 1 structure
+   (1lx7, 79% masked) exceeds the suggested 50% threshold. Awaiting Rishi threshold
+   decision. See `reports/phase2/residue_mapping_4c_impact_analysis.md`.
 
-5. **HUMAN_REVIEW_REQUIRED — label supervision policy**
-   Proxy-ligand label policy and handling of missing residues not approved
-   → `reports/phase2/proposed_label_policy.md`
+5. ~~**CLEARED 2026-05-27** — label supervision policy~~
+   Approved by Rishi: positive-unlabeled framing; unlisted residues = background not
+   true negative; absent residues = masked; PCNA = holdout.
 
 6. **SPLIT_FREEZE_BLOCKED**
-   Depends on resolving blockers 1–5; split manifest cannot be written until adoption,
-   PCNA isolation, clustering, and label policy are all approved
+   Depends on blocker 3 (clustering) and blocker 4c (threshold decision).
 
 ---
 
@@ -97,11 +96,22 @@ These small artifacts directly help unblock clustering (blocker 3) and filtering
 
 ## Next Tasks (priority order)
 
-1. **[IMMEDIATE]** Ask Friend to send metadata registry + summary stats + feature schemas (see `COLLABORATION.md` — Friend's Immediate Phase 2 Contribution section)
-2. **[READY FOR RISHI]** Send `reports/phase2/human_review_packet.md` to Rishi — consolidates blockers 1, 2, 5 into one sign-off document
-3. **[READY FOR RISHI]** Send `reports/phase2/residue_mapping_resolution_policy.md` to Rishi — resolves blocker 4 (decisions 4a–4d)
-4. Choose sequence clustering tool (MMseqs2 or CD-HIT) and identity threshold; run clustering on CryptoBench candidate structures (blocker 3)
-5. Draft split manifest (status: `draft_not_frozen`) once clustering and human review approvals land
+1. **[IMMEDIATE — can decide now]** Decision 4c: only 1 structure (1lx7, 79% masked) exceeds
+   the suggested 50% threshold. Approve: exclude 1lx7, mask all others.
+   See `reports/phase2/residue_mapping_4c_impact_analysis.md`.
+
+2. **[START NOW — no wait needed]** Choose clustering tool (MMseqs2 recommended) and run
+   sequence clustering on CryptoBench cryptic candidates. Can run on local CIF files
+   immediately. Will re-run combined with friend's crawl when Prompt 1 finishes.
+
+3. **[WAITING — friend's Prompt 1]** Ingest friend's crawl metadata registry once Prompt 1
+   completes. Inspect homolog groups artifact if friend's clustering was already run.
+
+4. **[AFTER 2 + 3]** Draft split manifest (`draft_not_frozen`) grouping structures by
+   UniProt / apo-holo pair / sequence cluster, with PCNA records flagged.
+
+5. **[AFTER 4]** Implement label generation script (remap + mask + exclude per decisions
+   4a/4b/4d/4c once threshold approved).
 
 ---
 
@@ -122,14 +132,10 @@ These small artifacts directly help unblock clustering (blocker 3) and filtering
 
 ## Last Session Summary
 
-Two blocking documents prepared and ready to send to Rishi (2026-05-27).
-`reports/phase2/human_review_packet.md` consolidates blockers 1, 2, and 5 into a
-single 3-page sign-off document covering CryptoBench adoption (cryptic-only with
-exclusions), PCNA isolation (5e0v/3vkx excluded, 2xur/3bep held pending clustering),
-and the label supervision contract (positive-unlabeled framing). Each decision has a
-YES/NO/DEFER checkbox for Rishi. `reports/phase2/residue_mapping_resolution_policy.md`
-addresses blocker 4 with class-specific policies for all 721 failures (420 → remap via
-label_seq_id; 297 → mask as unlabeled; 4 → exclude). Both are draft_not_frozen and
-require Rishi sign-off. Friend is concurrently running Phase 2 metadata extraction and
-Phase 3 infrastructure build. Blocker 3 (sequence clustering) is the only blocker not
-yet addressed by a draft policy — awaiting friend's crawl metadata to inform scope.
+Rishi approved decisions 1, 2, 3 (human_review_packet) and 4a, 4b, 4d (residue mapping)
+on 2026-05-27. Blockers 1, 2, 5 cleared. Blocker 4 partially cleared (4c deferred).
+Per-structure impact analysis for 4c complete: only 1 structure (1lx7, UniProt P12758,
+79% of 19 pocket residues absent) exceeds the suggested 50% threshold; 4 structures
+exceed 25%. Recommendation: exclude 1lx7, mask all others. Awaiting Rishi threshold
+confirmation. Friend running Prompt 1 (metadata extraction) and Prompt 2 (Phase 3
+infrastructure) concurrently. Sequence clustering (blocker 3) is now the critical path.

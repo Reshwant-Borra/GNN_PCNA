@@ -110,6 +110,30 @@ Append-only record of maintained wiki operations and durable project decisions.
 - Evidence status: verified for local audit findings; inferred for biological meaning; uncertain for final scientific usability.
 - Decision/update: Completed the requested audit without training, graph generation, split freeze, label freeze, or MD. Key findings: `dataset.json` has 1,107 apo keys and 5,493 apo-holo cryptic records; all 5,005 cryptic CIFs are present/readable; `noncryptic-pockets.json` references 6,915 missing auxiliary structures; labels are pocket-selection residue tokens, not true-negative residue labels; official fold files match `folds.json` by apo ID but lack homolog-cluster proof and have 6 repeated holo PDB IDs across folds; exact PCNA contamination is present in the test fold via apo `5e0v`, holo `3vkx`, UniProt `P12004`; graph-building appears feasible in principle for cryptic records but is blocked pending human review, split/label freeze, and residue-policy resolution.
 
+## 2026-05-27 - Rishi Approved Decisions 1, 2, 3, 4a, 4b, 4d — Blockers 1, 2, 5 Cleared
+
+- Source path: `reports/phase2/human_review_packet.md`, `reports/phase2/residue_mapping_resolution_policy.md`
+- Governance path: `docs/scientific_governance/04_DATASET_CONSTRAINTS.md`, `05_SPLIT_PROTOCOL.md`, `06_LABELING_RULES.md`, `12_PCNA_SPECIFIC_CHECKS.md`, `26_HUMAN_REVIEW_GATES.md`
+- Confidence level: high — explicit human reviewer approval recorded.
+- Evidence status: verified (human decision).
+- Decision/update:
+  - **Decision 1 — YES:** CryptoBench adopted as cryptic-only benchmark candidate with exclusions. Exact PCNA records (5e0v/3vkx) excluded from model development. 2xur/3bep held pending clustering. 6 repeated holo PDB IDs must be grouped before split assignment.
+  - **Decision 2 — YES:** Full PCNA isolation approved. 5e0v and 3vkx excluded from training, validation, and all model selection. May only be used as PCNA positive-control inference targets after model is frozen.
+  - **Decision 3 — YES:** Label supervision contract approved. Positive labels from `apo_pocket_selection`; unlisted residues = background/unlabeled (not true negatives); absent residues = masked; PCNA records = holdout.
+  - **Decision 4a — APPROVED:** Class 1 (420 failures) — remap via label_seq_id fallback.
+  - **Decision 4b — APPROVED:** Class 2 (297 failures) — mask as unlabeled; per-structure exclusion threshold deferred (4c).
+  - **Decision 4c — DEFERRED:** Threshold pending per-structure impact analysis. Analysis complete: 1 structure (1lx7, 79% masked) exceeds suggested 50% threshold. Awaiting Rishi threshold confirmation.
+  - **Decision 4d — APPROVED:** Class 3 (4 failures) — exclude the 4 wrong-chain records.
+  - Blockers 1, 2, 5 cleared. Blocker 4 partially cleared. Blocker 3 (sequence clustering) is now critical path.
+
+## 2026-05-27 - Decision 4c Per-Structure Impact Analysis Complete
+
+- Source path: `scripts/residue_mapping_impact_analysis.py`, `data/registries/residue_mapping_failures.json`, `data/raw_intake/cryptobench/metadata_files/66c328c87352852f68dbeac4_dataset.json`
+- Governance path: `docs/scientific_governance/06_LABELING_RULES.md`, `07_PREPROCESSING_AND_GRAPH_RULES.md`
+- Confidence level: high for counts and fractions (computed from verified registries); medium for threshold recommendation.
+- Evidence status: verified for all numeric outputs; inferred for suggested 50% threshold.
+- Decision/update: Ran per-structure analysis of Class 2 cryptic failures (residue_token_absent_from_atom_site). 28 unique apo structures affected out of 53 with any cryptic failure (52.8%). Only 1 structure (1lx7, P12758) has >=50% of pocket residues absent (79% = 15/19 tokens). 4 structures exceed 25%. Recommendation: exclude 1lx7; mask individual absent residues for all other 27 affected structures. Full table in `reports/phase2/residue_mapping_4c_impact_analysis.md`. Registry at `data/registries/residue_mapping_per_structure_impact.json`.
+
 ## 2026-05-27 - Human Review Packet Prepared (Blockers 1, 2, 5)
 
 - Source path: `reports/phase2/cryptobench_adoption_decision.md`, `reports/phase2/pcna_isolation_policy.md`, `reports/phase2/proposed_label_policy.md`, `reports/phase2/pcna_contamination_screen.md`, `reports/phase2/cryptobench_leakage_remediation.md`

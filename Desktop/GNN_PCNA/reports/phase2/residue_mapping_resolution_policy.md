@@ -1,9 +1,13 @@
 ---
 type: policy-draft
-status: draft_not_frozen
+status: partially_approved
 created: 2026-05-27
+approved: 2026-05-27
 blocker_addressed: 4
-requires_human_approval: true
+decision_4a: APPROVED — remap via label_seq_id fallback
+decision_4b: APPROVED — mask absent residues as unlabeled
+decision_4c: DEFERRED — threshold pending per-structure impact analysis (see reports/phase2/residue_mapping_4c_impact_analysis.md)
+decision_4d: APPROVED — exclude 4 wrong-chain records
 source_registry: data/registries/residue_mapping_failures.json
 ---
 

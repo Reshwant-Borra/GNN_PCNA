@@ -1,9 +1,13 @@
 ---
 type: human-review-packet
-status: awaiting_review
+status: APPROVED
 created: 2026-05-27
+approved: 2026-05-27
 blockers_addressed: [1, 2, 5]
 reviewer: Rishi (project supervisor)
+decision_1: YES — CryptoBench adoption (cryptic-only with exclusions)
+decision_2: YES — PCNA isolation policy approved
+decision_3: YES — Label supervision contract (positive-unlabeled) approved
 ---
 
 # Human Review Packet — GNN-PCNA Phase 2

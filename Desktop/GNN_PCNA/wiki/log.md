@@ -157,3 +157,12 @@ Append-only record of maintained wiki operations and durable project decisions.
 - Confidence level: high for local artifact generation and intake manifest state; medium for remediation recommendations; low for homolog safety until clustering is run.
 - Evidence status: verified for local files/manifests; inferred for planning recommendations; uncertain for final scientific usability.
 - Decision/update: Continued Phase 2 on two non-training tracks. Track A recommends CryptoBench as a cryptic-only benchmark candidate with exclusions and split redesign, not full adoption. PCNA must be isolated from model development; `5e0v`/`3vkx`/`P12004` is a holdout/exclusion candidate. Homolog risk remains unresolved; 6 holo PDB IDs repeat across folds. Residue mapping failures were classified: 420 label-seq/auth-seq mismatches, 297 absent atom-site residue tokens, and 4 tokens on another chain. Track B linked BioLiP/Q-BioLiP, scPDB, ASD, BioGRID, and STRING; downloaded PocketMiner metadata, fpocket/P2Rank metadata, and targeted AlphaFold `P12004` metadata. PDBbind is excluded from the primary benchmark role. All sources remain `raw_unverified` and `not_adopted`; training, graph generation, MD, split freeze, label freeze, and claims remain blocked.
+
+## [2026-05-27] artifact generation | Friend crawl metadata artifacts produced
+
+- Produced 5 Phase 2 support artifacts from `GNN_PNCA_crawled_data.zip` (4.4GB, PCNA-focused crawl).
+- Crawl contains: 72 experimental PDB structures (all PCNA P12004 or interactors), 149 raw PDB files, 146 ESM-2 feature arrays, 88 PyG graph .pt files, 90 heuristic pocket scores. No AlphaFold structures present.
+- Artifacts: `data/registries/friend_crawl_registry.json` (72 JSONL records), `reports/phase2/friend_crawl_stats.md`, `data/registries/friend_crawl_homolog_groups.json` (not_computed), `data/registries/friend_feature_schema.json`, `data/raw_intake/friend_sample/` (27 structures, 54 files).
+- Source path: `GNN_PNCA_crawled_data.zip`, `data/catalog/pcna_data_catalog.json`, `data/catalog/fetch_session.json`, `data/results/all_structures_scores.csv`
+- Confidence: high for counts and schema; medium for ligand IDs (HETATM detected but not individually parsed); low for AlphaFold coverage (none present).
+- Evidence status: verified from zip archive contents.

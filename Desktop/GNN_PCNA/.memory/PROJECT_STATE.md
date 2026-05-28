@@ -1,6 +1,6 @@
 ---
 updated: 2026-05-27
-updated_by: claude-code
+updated_by: claude-code (advay-agent, friend-crawl-artifacts)
 ---
 
 # Project State — GNN-PCNA Phase 2
@@ -40,7 +40,9 @@ No dataset has been adopted. All raw data is quarantined in `data/raw_intake/`.
 - **CryptoBench download:** All raw files quarantined in `data/raw_intake/cryptobench/`; 5,005 CIF structures present in ZIP archive; not adopted
 - **CryptoBench schema audit:** `reports/phase2/cryptobench_schema_deep_audit.md` — complete
 - **CryptoBench deep audit:** PCNA contamination confirmed (apo 5e0v, holo 3vkx, UniProt P12004); PCNA-like hits (2xur, 3bep); 721 residue token mismatches; 6 repeated holo PDB IDs across folds — complete
-- **Track A remediation planning:** `cryptobench_adoption_decision.md`, `pcna_isolation_policy.md`, `proposed_phase2_split_strategy.md`, `proposed_label_policy.md` — **complete, awaiting human review**
+- **Track A remediation planning:** `cryptobench_adoption_decision.md`, `pcna_isolation_policy.md`, `proposed_phase2_split_strategy.md`, `proposed_label_policy.md` — **complete, approved by Rishi 2026-05-27**
+- **Residue mapping 4c impact analysis:** `reports/phase2/residue_mapping_4c_impact_analysis.md` — complete; 1 structure (1lx7) flagged for exclusion at >=50% threshold
+- **Friend's crawl artifacts (Prompt 1):** `friend_crawl_registry.json`, `friend_crawl_stats.md`, `friend_feature_schema.json`, `friend_crawl_homolog_groups.json` (clustering not_computed), `data/raw_intake/friend_sample/` (27 PDB + ESM pairs) — in repo
 - **Track B auxiliary acquisition:** 9 sources linked or metadata-downloaded (AlphaFold P12004, ASD, BioGrid, BioLiP, PocketMiner, P2Rank, fpocket, scPDB, PDBbind); none adopted
 - **Machine-readable registries:** `cryptobench_candidate_cleaned_registry.json`, `cryptobench_fold_summary.json`, `potential_homolog_risks.json`, `residue_mapping_failures.json`, `auxiliary_dataset_role_summary.json` — complete
 - **Foundation check:** `python scripts/phase2_foundation_check.py` → `ready_for_dataset_planning: true`
@@ -77,22 +79,18 @@ No dataset has been adopted. All raw data is quarantined in `data/raw_intake/`.
 
 ---
 
-## Known Unregistered Asset — Friend's Crawl
+## Friend's Crawl — Metadata Ingested (Prompt 1 Complete)
 
-Friend has a local 40GB raw protein structure crawl:
-- ~23,771 RCSB mmCIF files (PCNA-related search)
-- ~20,000 AlphaFold predicted structures (human proteome subset)
-- Parsed feature JSON/numpy arrays (B-factors, ligands, pocket heuristic scores)
-- STRING/BioGRID network data
+Friend's 40GB raw crawl remains local (do NOT transfer full archive). Phase 2 metadata
+artifacts received and in repo:
+- `data/registries/friend_crawl_registry.json` — 72 experimental structures (PCNA-focused)
+- `reports/phase2/friend_crawl_stats.md` — crawl summary statistics
+- `data/registries/friend_crawl_homolog_groups.json` — `status: not_computed` (clustering not yet run by friend)
+- `data/registries/friend_feature_schema.json` — ESM-2 .npy + PyG graph feature schema
+- `data/raw_intake/friend_sample/` — 27 PDB + ESM pairs
 
-**Do NOT transfer the full 40GB yet.** Request from Friend (see `COLLABORATION.md`):
-- `data/registries/friend_crawl_registry.json` — per-structure metadata
-- `reports/phase2/friend_crawl_stats.md` — summary statistics
-- `data/registries/friend_crawl_homolog_groups.json` — homolog clusters (if computed)
-- `data/registries/friend_feature_schema.json` — parsed feature schema descriptions
-- `data/raw_intake/friend_sample/` — 20–50 sample structures
-
-These small artifacts directly help unblock clustering (blocker 3) and filtering policy.
+**Next:** Run sequence clustering (MMseqs2) on CryptoBench candidates + friend's 72 structures
+combined to resolve blocker 3. Friend's homolog groups artifact has no clusters yet.
 
 ## Next Tasks (priority order)
 
@@ -132,10 +130,16 @@ These small artifacts directly help unblock clustering (blocker 3) and filtering
 
 ## Last Session Summary
 
-Rishi approved decisions 1, 2, 3 (human_review_packet) and 4a, 4b, 4d (residue mapping)
-on 2026-05-27. Blockers 1, 2, 5 cleared. Blocker 4 partially cleared (4c deferred).
-Per-structure impact analysis for 4c complete: only 1 structure (1lx7, UniProt P12758,
-79% of 19 pocket residues absent) exceeds the suggested 50% threshold; 4 structures
-exceed 25%. Recommendation: exclude 1lx7, mask all others. Awaiting Rishi threshold
-confirmation. Friend running Prompt 1 (metadata extraction) and Prompt 2 (Phase 3
-infrastructure) concurrently. Sequence clustering (blocker 3) is now the critical path.
+Reshwant (2026-05-27): Rishi approved decisions 1, 2, 3 (CryptoBench adoption, PCNA isolation,
+label supervision) and residue mapping decisions 4a, 4b, 4d. Blockers 1, 2, 5 cleared. Blocker 4
+partially cleared (4c deferred). Per-structure impact analysis for 4c complete: only 1 structure
+(1lx7, UniProt P12758, 79% of 19 pocket residues absent) exceeds the suggested 50% threshold.
+Recommendation: exclude 1lx7, mask all others. See `reports/phase2/residue_mapping_4c_impact_analysis.md`.
+
+Friend (2026-05-27): Prompt 1 complete. Generated 5 Phase 2 support artifacts from
+`GNN_PNCA_crawled_data.zip` (PCNA-focused crawl, 72 experimental structures, 146 ESM-2 .npy,
+88 PyG graphs, 90 pocket scores; no AlphaFold). Artifacts now in repo:
+`data/registries/friend_crawl_registry.json`, `reports/phase2/friend_crawl_stats.md`,
+`data/registries/friend_crawl_homolog_groups.json` (not_computed — clustering not yet run),
+`data/registries/friend_feature_schema.json`, `data/raw_intake/friend_sample/` (27 PDB + ESM pairs).
+Blocker 3 now has crawl metadata; clustering tool and threshold decision still pending.

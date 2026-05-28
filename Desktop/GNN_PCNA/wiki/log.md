@@ -110,6 +110,22 @@ Append-only record of maintained wiki operations and durable project decisions.
 - Evidence status: verified for local audit findings; inferred for biological meaning; uncertain for final scientific usability.
 - Decision/update: Completed the requested audit without training, graph generation, split freeze, label freeze, or MD. Key findings: `dataset.json` has 1,107 apo keys and 5,493 apo-holo cryptic records; all 5,005 cryptic CIFs are present/readable; `noncryptic-pockets.json` references 6,915 missing auxiliary structures; labels are pocket-selection residue tokens, not true-negative residue labels; official fold files match `folds.json` by apo ID but lack homolog-cluster proof and have 6 repeated holo PDB IDs across folds; exact PCNA contamination is present in the test fold via apo `5e0v`, holo `3vkx`, UniProt `P12004`; graph-building appears feasible in principle for cryptic records but is blocked pending human review, split/label freeze, and residue-policy resolution.
 
+## 2026-05-27 - Human Review Packet Prepared (Blockers 1, 2, 5)
+
+- Source path: `reports/phase2/cryptobench_adoption_decision.md`, `reports/phase2/pcna_isolation_policy.md`, `reports/phase2/proposed_label_policy.md`, `reports/phase2/pcna_contamination_screen.md`, `reports/phase2/cryptobench_leakage_remediation.md`
+- Governance path: `docs/scientific_governance/04_DATASET_CONSTRAINTS.md`, `05_SPLIT_PROTOCOL.md`, `06_LABELING_RULES.md`, `12_PCNA_SPECIFIC_CHECKS.md`, `14_CLAIM_POLICY.md`, `26_HUMAN_REVIEW_GATES.md`
+- Confidence level: high — all factual claims derived directly from machine-generated audit registry counts and existing report content; no new inferences introduced.
+- Evidence status: verified for all structure counts, hit IDs, and failure counts cited; inferred for remediation pathway recommendations.
+- Decision/update: Created `reports/phase2/human_review_packet.md` consolidating all three human-review-required decisions (CryptoBench adoption, PCNA isolation policy, label supervision contract) into a single sign-off document for Rishi. Each decision has a YES/NO/DEFER checkbox and signature line. Document is ready to send for review. No decisions were made — this is a review request only.
+
+## 2026-05-27 - Residue Mapping Resolution Policy Drafted (Blocker 4)
+
+- Source path: `data/registries/residue_mapping_failures.json`, `reports/phase2/residue_mapping_failure_analysis.md`
+- Governance path: `docs/scientific_governance/06_LABELING_RULES.md`, `05_SPLIT_PROTOCOL.md`, `07_PREPROCESSING_AND_GRAPH_RULES.md`, `15_PROVENANCE_AND_REPRODUCIBILITY.md`
+- Confidence level: high for failure class definitions and counts; medium for proposed remediation approaches; low for impact of Class 2 masking on cryptic record completeness until per-structure analysis is run.
+- Evidence status: verified for all counts (420 label/auth mismatch, 297 absent from atom_site, 4 wrong chain); inferred for resolution approach per class; uncertain for Class 2 per-structure impact.
+- Decision/update: Created `reports/phase2/residue_mapping_resolution_policy.md` proposing three class-specific resolution approaches: Class 1 (420 mismatch) → remap via label_seq_id fallback; Class 2 (297 absent) → mask as unlabeled with per-structure impact analysis required; Class 3 (4 wrong chain) → exclude the 4 records. Policy is `draft_not_frozen` and requires human sign-off (decisions 4a–4d) before implementation. No code was written. No labels were generated.
+
 ## 2026-05-27 - Phase 2 Track A/B Remediation Packet And Auxiliary Intake Completed
 
 - Source path: `scripts/phase2_remediation_packet.py`, `reports/phase2/cryptobench_adoption_decision.md`, `reports/phase2/pcna_isolation_policy.md`, `reports/phase2/cryptobench_leakage_remediation.md`, `reports/phase2/label_supervision_risks.md`, `reports/phase2/proposed_label_policy.md`, `reports/phase2/residue_mapping_failure_analysis.md`, `reports/phase2/proposed_phase2_split_strategy.md`, `reports/phase2/cryptobench_candidate_cleaned_registry.md`, `reports/phase2/auxiliary_dataset_audit.md`, `reports/phase2/benchmark_role_classification.md`, `reports/phase2/auxiliary_acquisition_status_summary.md`, `reports/phase2/dataset_footprint_summary.md`, `reports/phase2/phase2_claude_code_handoff.md`, `data/registries/potential_homolog_risks.json`, `data/registries/residue_mapping_failures.json`, `data/registries/cryptobench_candidate_cleaned_registry.json`, `data/registries/auxiliary_dataset_role_summary.json`, `data/registries/download_manifest.jsonl`, `data/registries/dataset_inventory.json`

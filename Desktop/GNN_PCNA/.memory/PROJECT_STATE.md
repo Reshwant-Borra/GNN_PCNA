@@ -98,10 +98,10 @@ These small artifacts directly help unblock clustering (blocker 3) and filtering
 ## Next Tasks (priority order)
 
 1. **[IMMEDIATE]** Ask Friend to send metadata registry + summary stats + feature schemas (see `COLLABORATION.md` — Friend's Immediate Phase 2 Contribution section)
-2. Prepare human review packet consolidating blockers 1, 2, and 5 into a single decision document
-3. Choose sequence clustering tool (MMseqs2 or CD-HIT) and identity threshold; run clustering on CryptoBench candidate structures
-4. Draft residue mapping failure resolution policy (mask vs exclude vs remap) and submit for human approval
-5. Draft split manifest (status: `draft_not_frozen`) once clustering and remapping policy are approved
+2. **[READY FOR RISHI]** Send `reports/phase2/human_review_packet.md` to Rishi — consolidates blockers 1, 2, 5 into one sign-off document
+3. **[READY FOR RISHI]** Send `reports/phase2/residue_mapping_resolution_policy.md` to Rishi — resolves blocker 4 (decisions 4a–4d)
+4. Choose sequence clustering tool (MMseqs2 or CD-HIT) and identity threshold; run clustering on CryptoBench candidate structures (blocker 3)
+5. Draft split manifest (status: `draft_not_frozen`) once clustering and human review approvals land
 
 ---
 
@@ -122,11 +122,14 @@ These small artifacts directly help unblock clustering (blocker 3) and filtering
 
 ## Last Session Summary
 
-Phase 2 deep audit complete as of 2026-05-27. CryptoBench raw files downloaded and fully
-audited: 1,107 apo + 5,493 cryptic records, all 5,005 CIF files present, PCNA
-contamination confirmed (apo 5e0v / holo 3vkx / UniProt P12004), 721 residue token
-mismatches identified, 6 repeated holo PDB IDs across folds. Track A remediation outputs
-(adoption decision, PCNA isolation policy, split strategy draft, label policy draft) and
-Track B auxiliary audit outputs all generated. Memory system (`.memory/`) initialized.
-Next action: prepare consolidated human review packet for the 3 blocking policy decisions
-(CryptoBench adoption, PCNA isolation, label policy).
+Two blocking documents prepared and ready to send to Rishi (2026-05-27).
+`reports/phase2/human_review_packet.md` consolidates blockers 1, 2, and 5 into a
+single 3-page sign-off document covering CryptoBench adoption (cryptic-only with
+exclusions), PCNA isolation (5e0v/3vkx excluded, 2xur/3bep held pending clustering),
+and the label supervision contract (positive-unlabeled framing). Each decision has a
+YES/NO/DEFER checkbox for Rishi. `reports/phase2/residue_mapping_resolution_policy.md`
+addresses blocker 4 with class-specific policies for all 721 failures (420 → remap via
+label_seq_id; 297 → mask as unlabeled; 4 → exclude). Both are draft_not_frozen and
+require Rishi sign-off. Friend is concurrently running Phase 2 metadata extraction and
+Phase 3 infrastructure build. Blocker 3 (sequence clustering) is the only blocker not
+yet addressed by a draft policy — awaiting friend's crawl metadata to inform scope.

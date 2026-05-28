@@ -166,3 +166,38 @@ Append-only record of maintained wiki operations and durable project decisions.
 - Source path: `GNN_PNCA_crawled_data.zip`, `data/catalog/pcna_data_catalog.json`, `data/catalog/fetch_session.json`, `data/results/all_structures_scores.csv`
 - Confidence: high for counts and schema; medium for ligand IDs (HETATM detected but not individually parsed); low for AlphaFold coverage (none present).
 - Evidence status: verified from zip archive contents.
+
+## 2026-05-27 - Decision 4c Approved — Blocker 4 Fully Cleared
+
+- Source path: `reports/phase2/residue_mapping_4c_impact_analysis.md`, `data/registries/residue_mapping_per_structure_impact.json`
+- Governance path: `docs/scientific_governance/06_LABELING_RULES.md`, `07_PREPROCESSING_AND_GRAPH_RULES.md`, `26_HUMAN_REVIEW_GATES.md`
+- Confidence level: high — explicit human approval.
+- Evidence status: verified (counts from machine registry; threshold approved by Rishi).
+- Decision/update:
+  - **Decision 4c — APPROVED:** Threshold set at >=50% of pocket residues absent from atom_site. Only 1 structure qualifies for exclusion: **1lx7** (UniProt P12758, train-2 fold, 79% = 15/19 pocket residues absent). All other 27 affected structures below threshold are masked individually per decision 4b.
+  - Blocker 4 (residue mapping) fully cleared. All four decisions approved: 4a (remap 420), 4b (mask), 4c (exclude 1lx7), 4d (exclude 4 wrong-chain).
+  - Label generation script is now unblocked and can be implemented.
+  - `reports/phase2/residue_mapping_resolution_policy.md` status updated to APPROVED.
+
+## 2026-05-27 - Friend's Prompt 2 Complete — Phase 3 Framework Built
+
+- Source path: `COLLABORATION.md`, friend's local repo (not yet pushed)
+- Governance path: `docs/scientific_governance/16_CODING_AGENT_RULES.md`, `37_PHASE2_IMPLEMENTATION_PLAN.md`, `26_HUMAN_REVIEW_GATES.md`
+- Confidence level: high for existence; medium for implementation details (not yet reviewed).
+- Evidence status: verified by friend's report; files not yet in remote repo.
+- Decision/update:
+  - Friend's Prompt 2 produced full Phase 3 GNN framework: `src/phase3_model/`, `src/phase3_training/`, `src/phase3_evaluation/`, `src/baselines/`.
+  - Trainer includes `--dry-run` blocker guard that prevents actual training until Phase 2 split + label freeze are approved.
+  - 58 tests passing locally.
+  - **Phase 3 code is NOT yet pushed to main.** Friend will push once Phase 2 unblocks or after review.
+  - Phase 3 training remains blocked until blocker 3 (clustering) and subsequent split/label freeze complete.
+
+## 2026-05-27 - Merge Conflict Resolved — Project State Synchronized
+
+- Source path: `.memory/PROJECT_STATE.md`, `data/registries/friend_crawl_registry.json`
+- Confidence level: high.
+- Evidence status: verified.
+- Decision/update:
+  - Resolved merge conflict in PROJECT_STATE.md between Reshwant's approval records and friend's crawl artifact records. Both preserved. Removed stale "~23,771 mmCIF + ~20,000 AlphaFold" description — actual crawl is 72 PCNA structures with ESM-2 features, no AlphaFold.
+  - Unstaged `../../context/` files that were accidentally staged by friend's agent outside the repo boundary.
+  - Pushed merged state to main.

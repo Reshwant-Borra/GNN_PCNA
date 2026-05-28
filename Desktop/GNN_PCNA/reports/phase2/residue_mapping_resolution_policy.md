@@ -1,12 +1,12 @@
 ---
 type: policy-draft
-status: partially_approved
+status: APPROVED
 created: 2026-05-27
 approved: 2026-05-27
 blocker_addressed: 4
 decision_4a: APPROVED — remap via label_seq_id fallback
 decision_4b: APPROVED — mask absent residues as unlabeled
-decision_4c: DEFERRED — threshold pending per-structure impact analysis (see reports/phase2/residue_mapping_4c_impact_analysis.md)
+decision_4c: APPROVED — exclude structures with >=50% of pocket residues absent from atom_site. Only 1 structure qualifies: 1lx7 (79% masked, UniProt P12758). Mask all other structures below threshold.
 decision_4d: APPROVED — exclude 4 wrong-chain records
 source_registry: data/registries/residue_mapping_failures.json
 ---

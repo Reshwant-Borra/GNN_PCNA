@@ -1,0 +1,48 @@
+{
+  "schema_version": "1.0",
+  "source_crawl_path": "C:/Users/advay/GNN_PNCA_crawled_data.zip",
+  "crawl_date": "2026-05-15",
+  "notes": "All features were computed on the PCNA-focused crawl (72 PDB structures). ESM-2 embeddings are the primary per-residue feature. No AlphaFold confidence scores or traditional B-factor arrays are stored separately; B-factors are embedded in raw PDB ATOM records.",
+  "features": [
+    {
+      "name": "esm2_residue_embeddings",
+      "description": "Per-residue ESM-2 (esm2_t30_150M_UR50D or similar) language model embeddings, one vector per CA residue in the processed structure",
+      "format": "numpy array, shape (N_residues, 480), float32",
+      "file_extension": ".npy",
+      "location_pattern": "data/esm_features/{PDB_ID}.npy",
+      "example_values": [
+        -0.462,
+        0.038,
+        -0.439,
+        0.475,
+        0.206
+      ],
+      "present_in_fraction_of_structures": 2.028,
+      "notes": "146 .npy files exist vs 72 catalog records; extra IDs may come from extended CryptoSite set also processed in this pipeline"
+    },
+    {
+      "name": "graph_edge_index_and_node_features",
+      "description": "PyTorch Geometric Data objects containing node features (likely ESM embeddings or one-hot AA + positional), edge indices from distance threshold, and residue-level pocket labels where available",
+      "format": "PyTorch .pt file (torch_geometric.data.Data)",
+      "file_extension": ".pt",
+      "location_pattern": "data/graphs/{PDB_ID}.pt",
+      "example_values": null,
+      "present_in_fraction_of_structures": 1.222,
+      "notes": "88 graph .pt files; some may be from CryptoSite extended set"
+    },
+    {
+      "name": "pocket_heuristic_scores",
+      "description": "Per-structure heuristic cryptic pocket scoring from GNN inference pass: mean_score, std_score, max_score, pct_above_0.4, pct_above_0.5, n_pockets, top_chain, top_resid",
+      "format": "CSV row in data/results/all_structures_scores.csv",
+      "file_extension": ".csv",
+      "location_pattern": "data/results/all_structures_scores.csv",
+      "example_values": {
+        "mean_score": 0.1886,
+        "max_score": 0.6844,
+        "n_pockets": 2
+      },
+      "present_in_fraction_of_structures": 1.25,
+      "notes": "90 score rows; covers 72 catalog structures plus CryptoSite extras"
+    }
+  ]
+}

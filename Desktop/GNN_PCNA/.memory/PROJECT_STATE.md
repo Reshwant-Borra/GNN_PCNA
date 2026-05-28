@@ -1,6 +1,6 @@
 ---
 updated: 2026-05-27
-updated_by: claude-code
+updated_by: claude-code (advay-agent, friend-crawl-artifacts)
 ---
 
 # Project State — GNN-PCNA Phase 2
@@ -122,14 +122,14 @@ These small artifacts directly help unblock clustering (blocker 3) and filtering
 
 ## Last Session Summary
 
-Two blocking documents prepared and ready to send to Rishi (2026-05-27).
-`reports/phase2/human_review_packet.md` consolidates blockers 1, 2, and 5 into a
-single 3-page sign-off document covering CryptoBench adoption (cryptic-only with
-exclusions), PCNA isolation (5e0v/3vkx excluded, 2xur/3bep held pending clustering),
-and the label supervision contract (positive-unlabeled framing). Each decision has a
-YES/NO/DEFER checkbox for Rishi. `reports/phase2/residue_mapping_resolution_policy.md`
-addresses blocker 4 with class-specific policies for all 721 failures (420 → remap via
-label_seq_id; 297 → mask as unlabeled; 4 → exclude). Both are draft_not_frozen and
-require Rishi sign-off. Friend is concurrently running Phase 2 metadata extraction and
-Phase 3 infrastructure build. Blocker 3 (sequence clustering) is the only blocker not
-yet addressed by a draft policy — awaiting friend's crawl metadata to inform scope.
+Reshwant (2026-05-27): Two blocking documents prepared — `reports/phase2/human_review_packet.md`
+consolidates blockers 1, 2, and 5 (CryptoBench adoption, PCNA isolation, label policy) with
+YES/NO/DEFER checkboxes; `reports/phase2/residue_mapping_resolution_policy.md` addresses blocker
+4 (420 remap / 297 mask / 4 exclude). Both draft_not_frozen, awaiting Rishi sign-off.
+
+Friend (2026-05-27): Generated 5 Phase 2 support artifacts from `GNN_PNCA_crawled_data.zip`
+(PCNA-focused crawl, 72 experimental structures, 146 ESM-2 .npy, 88 PyG graphs, 90 pocket scores;
+no AlphaFold). Artifacts: `friend_crawl_registry.json`, `friend_crawl_stats.md`,
+`friend_crawl_homolog_groups.json` (not_computed), `friend_feature_schema.json`,
+`data/raw_intake/friend_sample/` (27 PDB + ESM pairs). Blocker 3 now has crawl metadata
+available; clustering tool and threshold decision still pending.

@@ -9,6 +9,9 @@
 
 ## What Was Downloaded
 
+- `data\raw_intake\alphafold\P12004\metadata\alphafold_P12004.json`
+- `data\raw_intake\baseline_tools\fpocket\metadata\github_repo_Discngine_fpocket.json`
+- `data\raw_intake\baseline_tools\p2rank\metadata\github_repo_rdk_p2rank.json`
 - `data\raw_intake\cryptobench\code\66c39e77df639c0239dbe70d_pymol-scripts.zip`
 - `data\raw_intake\cryptobench\code\66c39e973dcfbb2d66dbe7b7_Protein.py`
 - `data\raw_intake\cryptobench\code\672a22887f455a2e4002748c_benchmark-example.py`
@@ -57,13 +60,24 @@
 - `data\raw_intake\pcna_structures\1W60\structures\1W60.cif`
 - `data\raw_intake\pcna_structures\8GLA\metadata\8GLA_entry.json`
 - `data\raw_intake\pcna_structures\8GLA\structures\8GLA.cif`
+- `data\raw_intake\pocketminer\metadata\github_repo_Mickdub_gvp.json`
 
 ## What Was Only Linked
 
+- https://mdl.shsmu.edu.cn/ASD/
+- https://thebiogrid.org/
+- https://zhanggroup.org/BioLiP/
+- https://zhanggroup.org/BioLiP/qbiolip/
 - https://doi.org/10.1093/bioinformatics/btae745
+- https://doi.org/10.1038/s41467-023-36699-3
+- http://bioinfo-pharma.u-strasbg.fr/scPDB/
+- https://string-db.org/network/9606.ENSP00000368411
 
 ## What Could Not Be Accessed Or Was Skipped
 
+- linked_only_by_policy
+- linked_only_by_policy
+- linked_only_by_policy
 - <urlopen error [WinError 10061] No connection could be made because the target machine actively refused it>
 - HUMAN_APPROVAL_REQUIRED_FOR_BULK_DOWNLOAD
 - dry_run_would_download
@@ -71,6 +85,9 @@
 - linked_only_by_policy
 - <urlopen error [WinError 10061] No connection could be made because the target machine actively refused it>
 - dry_run_would_download
+- linked_only_by_policy
+- linked_only_by_policy
+- linked_only_by_policy
 
 ## Manual Approval Still Needed
 
@@ -82,8 +99,8 @@
 
 ## Provenance
 
-- Date: 2026-05-27T17:54:12-04:00
-- Script/command used: `scripts/dataset_intake.py report`
+- Date: 2026-05-27T19:03:36-04:00
+- Script/command used: `scripts/dataset_intake.py acquire --source alphafold --target P12004`
 - Source paths inspected: `data/registries/download_manifest.jsonl`, `data/raw_intake/`, source adapter official URLs
 - Confidence level: high for local manifest/report generation; uncertain for external source completeness until official audits finish
 - Evidence status: verified for local files and manifest rows; inferred/uncertain for external source content not downloaded
@@ -92,7 +109,7 @@
 
 ## Update Note
 
-- Updated at: 2026-05-27T17:54:12-04:00
+- Updated at: 2026-05-27T19:03:36-04:00
 - Prior useful content was superseded by manifest-derived regenerated sections.
 - Reason: governed dataset intake run/report regeneration.
 

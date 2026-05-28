@@ -1,0 +1,115 @@
+---
+updated: 2026-05-27
+updated_by: claude-code
+---
+
+# Project State — GNN-PCNA Phase 2
+
+This file is the single authoritative current-state snapshot. Agents update it at every
+session close. Read it immediately after `CLAUDE.md` or `AGENTS.md`.
+
+**Staleness check:** If `updated` in the frontmatter above is >7 days before today's date,
+treat this file as potentially stale. Reconstruct current state from
+`wiki/analyses/coding_agent_context.md` sections 17–24 and the most recent
+`reports/phase2/handoff_YYYYMMDD.md`, then update this file before starting any task.
+
+---
+
+## Phase
+
+**Phase 2 / Foundation — Dataset Investigation and Remediation Planning**
+
+| System | Status |
+|---|---|
+| Training | **BLOCKED** |
+| Graph generation | **BLOCKED** |
+| Molecular dynamics | **BLOCKED** |
+| Scientific claims | **BLOCKED** |
+| Split freeze | **BLOCKED** |
+| Label freeze | **BLOCKED** |
+
+No dataset has been adopted. All raw data is quarantined in `data/raw_intake/`.
+
+---
+
+## What Is Done (as of 2026-05-27)
+
+- **Governance scaffold:** 40 binding docs in `docs/scientific_governance/` — complete
+- **Wiki scaffold:** 59 pages in `wiki/` (concepts, entities, analyses, log, open-questions) — complete
+- **Intake infrastructure:** `scripts/dataset_intake.py` + `src/phase2_intake/` adapters and IO — complete
+- **CryptoBench download:** All raw files quarantined in `data/raw_intake/cryptobench/`; 5,005 CIF structures present in ZIP archive; not adopted
+- **CryptoBench schema audit:** `reports/phase2/cryptobench_schema_deep_audit.md` — complete
+- **CryptoBench deep audit:** PCNA contamination confirmed (apo 5e0v, holo 3vkx, UniProt P12004); PCNA-like hits (2xur, 3bep); 721 residue token mismatches; 6 repeated holo PDB IDs across folds — complete
+- **Track A remediation planning:** `cryptobench_adoption_decision.md`, `pcna_isolation_policy.md`, `proposed_phase2_split_strategy.md`, `proposed_label_policy.md` — **complete, awaiting human review**
+- **Track B auxiliary acquisition:** 9 sources linked or metadata-downloaded (AlphaFold P12004, ASD, BioGrid, BioLiP, PocketMiner, P2Rank, fpocket, scPDB, PDBbind); none adopted
+- **Machine-readable registries:** `cryptobench_candidate_cleaned_registry.json`, `cryptobench_fold_summary.json`, `potential_homolog_risks.json`, `residue_mapping_failures.json`, `auxiliary_dataset_role_summary.json` — complete
+- **Foundation check:** `python scripts/phase2_foundation_check.py` → `ready_for_dataset_planning: true`
+
+---
+
+## Current Blockers (numbered priority order)
+
+1. **HUMAN_REVIEW_REQUIRED — CryptoBench adoption**
+   Cryptic-only adoption with exclusions; conditional on isolation + clustering + remapping
+   → `reports/phase2/cryptobench_adoption_decision.md`
+
+2. **HUMAN_REVIEW_REQUIRED — PCNA isolation policy**
+   Exact PCNA records (5e0v/3vkx/P12004) and PCNA-like hits (2xur/3bep) must be isolated;
+   human approval needed before any split or training touches these records
+   → `reports/phase2/pcna_isolation_policy.md`
+
+3. **SEQUENCE_CLUSTERING_REQUIRED**
+   Tool not chosen (MMseqs2 vs CD-HIT), threshold not set; homolog safety cannot be
+   confirmed until clustering is run; 6 repeated holo PDB IDs also unresolved
+   → `data/registries/potential_homolog_risks.json`
+
+4. **RESIDUE_MAPPING_FAILURES — 721 failures unresolved**
+   721 residue token mismatches between RCSB PDB sequences and CIF coordinate records;
+   policy for handling these (mask / exclude / remap) not yet approved
+   → `data/registries/residue_mapping_failures.json`
+
+5. **HUMAN_REVIEW_REQUIRED — label supervision policy**
+   Proxy-ligand label policy and handling of missing residues not approved
+   → `reports/phase2/proposed_label_policy.md`
+
+6. **SPLIT_FREEZE_BLOCKED**
+   Depends on resolving blockers 1–5; split manifest cannot be written until adoption,
+   PCNA isolation, clustering, and label policy are all approved
+
+---
+
+## Next Tasks (priority order)
+
+1. Prepare human review packet consolidating blockers 1, 2, and 5 into a single decision document
+2. Choose sequence clustering tool (MMseqs2 or CD-HIT) and identity threshold; run clustering on CryptoBench candidate structures
+3. Draft residue mapping failure resolution policy (mask vs exclude vs remap) and submit for human approval
+4. Draft split manifest (status: `draft_not_frozen`) once clustering and remapping policy are approved
+5. Complete biological data sanity review (`docs/scientific_governance/25_BIOLOGICAL_DATA_SANITY_REVIEW.md`) once any dataset is adopted
+
+---
+
+## Key Registry Paths (machine-readable ground truth)
+
+| Registry | Purpose |
+|---|---|
+| `data/registries/dataset_inventory.json` | Master dataset status registry |
+| `data/registries/download_manifest.jsonl` | Append-only download action log |
+| `data/registries/cryptobench_candidate_cleaned_registry.json` | Homolog/leakage-remediated candidate list |
+| `data/registries/cryptobench_fold_summary.json` | Train/test fold distribution and split risks |
+| `data/registries/potential_homolog_risks.json` | Homologous contamination risk flags |
+| `data/registries/residue_mapping_failures.json` | 721 residue coordinate mapping failures |
+| `data/registries/auxiliary_dataset_role_summary.json` | Auxiliary dataset roles (context vs training) |
+| `data/registries/assumption_registry.json` | Documented scientific assumptions |
+
+---
+
+## Last Session Summary
+
+Phase 2 deep audit complete as of 2026-05-27. CryptoBench raw files downloaded and fully
+audited: 1,107 apo + 5,493 cryptic records, all 5,005 CIF files present, PCNA
+contamination confirmed (apo 5e0v / holo 3vkx / UniProt P12004), 721 residue token
+mismatches identified, 6 repeated holo PDB IDs across folds. Track A remediation outputs
+(adoption decision, PCNA isolation policy, split strategy draft, label policy draft) and
+Track B auxiliary audit outputs all generated. Memory system (`.memory/`) initialized.
+Next action: prepare consolidated human review packet for the 3 blocking policy decisions
+(CryptoBench adoption, PCNA isolation, label policy).

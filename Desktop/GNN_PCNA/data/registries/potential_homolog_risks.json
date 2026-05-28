@@ -1,0 +1,189 @@
+{
+  "created_at": "2026-05-27T19:09:22-04:00",
+  "exact_uniprot_cross_fold_count": 0,
+  "not_authorized": [
+    "split_freeze",
+    "label_freeze",
+    "graph_generation",
+    "training",
+    "claims"
+  ],
+  "pcna_or_sliding_clamp_hits": {
+    "cif_text_hits": {
+      "2xur": [
+        "sliding clamp"
+      ],
+      "3bep": [
+        "sliding clamp"
+      ],
+      "3vkx": [
+        "p12004",
+        "pcna",
+        "proliferating cell nuclear antigen"
+      ],
+      "5e0v": [
+        "p12004",
+        "pcna",
+        "proliferating cell nuclear antigen",
+        "sliding clamp"
+      ]
+    },
+    "exact_human_pcna_uniprot_hits": [
+      "P12004"
+    ],
+    "pcna_records": [
+      {
+        "apo_chain": "A",
+        "apo_pdb_id": "5e0v",
+        "fold": "test",
+        "holo_chain": "A",
+        "holo_pdb_id": "3vkx",
+        "is_main_holo_structure": true,
+        "ligand": "T3",
+        "ligand_index": "301",
+        "pRMSD": 2.07,
+        "uniprot_id": "P12004"
+      }
+    ]
+  },
+  "repeated_holo_pdb_across_folds": {
+    "2fzc": [
+      {
+        "apo_chain": "H",
+        "apo_pdb_id": "2air",
+        "fold": "train-1",
+        "holo_chain": "D",
+        "ligand": "CTP",
+        "ligand_index": "902",
+        "uniprot_id": "P0A7F3"
+      },
+      {
+        "apo_chain": "A",
+        "apo_pdb_id": "9atc",
+        "fold": "test",
+        "holo_chain": "A",
+        "ligand": "EOP",
+        "ligand_index": "811",
+        "uniprot_id": "P0A786"
+      },
+      {
+        "apo_chain": "A",
+        "apo_pdb_id": "9atc",
+        "fold": "test",
+        "holo_chain": "C",
+        "ligand": "EOP",
+        "ligand_index": "812",
+        "uniprot_id": "P0A786"
+      }
+    ],
+    "2fzg": [
+      {
+        "apo_chain": "H",
+        "apo_pdb_id": "2air",
+        "fold": "train-1",
+        "holo_chain": "D",
+        "ligand": "CTP",
+        "ligand_index": "902",
+        "uniprot_id": "P0A7F3"
+      },
+      {
+        "apo_chain": "A",
+        "apo_pdb_id": "9atc",
+        "fold": "test",
+        "holo_chain": "A",
+        "ligand": "EOB",
+        "ligand_index": "611",
+        "uniprot_id": "P0A786"
+      }
+    ],
+    "4f04": [
+      {
+        "apo_chain": "H",
+        "apo_pdb_id": "2air",
+        "fold": "train-1",
+        "holo_chain": "B",
+        "ligand": "UTP",
+        "ligand_index": "202",
+        "uniprot_id": "P0A7F3"
+      },
+      {
+        "apo_chain": "A",
+        "apo_pdb_id": "9atc",
+        "fold": "test",
+        "holo_chain": "A",
+        "ligand": "PAL",
+        "ligand_index": "401",
+        "uniprot_id": "P0A786"
+      }
+    ],
+    "5qya": [
+      {
+        "apo_chain": "A",
+        "apo_pdb_id": "3e9p",
+        "fold": "train-0",
+        "holo_chain": "A",
+        "ligand": "SY4",
+        "ligand_index": "2102",
+        "uniprot_id": "P33334"
+      },
+      {
+        "apo_chain": "A",
+        "apo_pdb_id": "4ilg",
+        "fold": "test",
+        "holo_chain": "B",
+        "ligand": "SY4",
+        "ligand_index": "401",
+        "uniprot_id": "P32357"
+      }
+    ],
+    "6a5y": [
+      {
+        "apo_chain": "B",
+        "apo_pdb_id": "4n5g",
+        "fold": "train-1",
+        "holo_chain": "D",
+        "ligand": "9CR",
+        "ligand_index": "501",
+        "uniprot_id": "P19793"
+      },
+      {
+        "apo_chain": "A",
+        "apo_pdb_id": "6hl0",
+        "fold": "train-3",
+        "holo_chain": "A",
+        "ligand": "9R0",
+        "ligand_index": "501",
+        "uniprot_id": "Q96RI1"
+      }
+    ],
+    "7fo6": [
+      {
+        "apo_chain": "A",
+        "apo_pdb_id": "3e9p",
+        "fold": "train-0",
+        "holo_chain": "A",
+        "ligand": "WCB",
+        "ligand_index": "2101",
+        "uniprot_id": "P33334"
+      },
+      {
+        "apo_chain": "A",
+        "apo_pdb_id": "4ilg",
+        "fold": "test",
+        "holo_chain": "B",
+        "ligand": "WCB",
+        "ligand_index": "401",
+        "uniprot_id": "P32357"
+      }
+    ]
+  },
+  "repeated_holo_pdb_across_folds_count": 6,
+  "required_next_methods": [
+    "extract per-target-chain sequences preserving apo/holo grouping",
+    "run approved sequence clustering tool and threshold",
+    "review PCNA/sliding-clamp structural homologs",
+    "group apo/holo/ligand variants before split assignment"
+  ],
+  "status": "potential_homolog_risks_not_resolved",
+  "train_test_shared_uniprot_count": 0
+}

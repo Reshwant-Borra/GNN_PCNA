@@ -9,19 +9,19 @@
 
 ## Acquisition Summary
 
-- Dry run: `True`
-- Sources: none
-- Downloaded: 0
+- Dry run: `False`
+- Sources: alphafold
+- Downloaded: 1
 - Skipped: 0
 - Linked only: 0
 - Failed: 0
-- Downloaded bytes: 1283534817
+- Downloaded bytes: 2226
 - Stop markers: none
 
 ## Provenance
 
-- Date: 2026-05-27T17:54:12-04:00
-- Script/command used: `scripts/dataset_intake.py report`
+- Date: 2026-05-27T19:03:36-04:00
+- Script/command used: `scripts/dataset_intake.py acquire --source alphafold --target P12004`
 - Source paths inspected: `data/registries/download_manifest.jsonl`, `data/raw_intake/`, source adapter official URLs
 - Confidence level: high for local manifest/report generation; uncertain for external source completeness until official audits finish
 - Evidence status: verified for local files and manifest rows; inferred/uncertain for external source content not downloaded
@@ -30,7 +30,7 @@
 
 ## Update Note
 
-- Updated at: 2026-05-27T17:54:12-04:00
+- Updated at: 2026-05-27T19:03:36-04:00
 - Prior useful content was superseded by manifest-derived regenerated sections.
 - Reason: governed dataset intake run/report regeneration.
 

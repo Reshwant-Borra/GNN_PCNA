@@ -24,6 +24,11 @@ Use this section at the start of every task.
 
 Most important: `AGENTS.md` and [[Coding Agent Context]].
 
+**Fast orientation (recommended):** Read `.memory/PROJECT_STATE.md` (current state
+snapshot, ~470 tokens) and `.memory/INDEX.md` (task-type routing table, ~410 tokens)
+before scanning the full wiki. This saves ~1,400 tokens of orientation cost and tells
+you exactly which files to load for your specific task type.
+
 ## 2. Binding Governance
 
 Governance docs are project law. Wiki pages summarize and route; governance files decide.

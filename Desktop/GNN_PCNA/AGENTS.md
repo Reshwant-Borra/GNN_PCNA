@@ -36,6 +36,24 @@ Wiki pages are navigation and memory aids. They are never stronger than governan
 
 ## Codex Startup Routine
 
+**Preferred fast path (when `.memory/` folder exists):**
+Read `.memory/PROJECT_STATE.md` (~470 tokens, current state) then `.memory/INDEX.md`
+(~410 tokens, task routing table). Use the routing table to find task-specific files
+instead of scanning `wiki/` or `reports/` manually. The 7-step routine below remains
+the deep-orientation fallback when `.memory/` is unavailable.
+
+**Staleness check:** If `.memory/PROJECT_STATE.md` frontmatter `updated` is >7 days
+before today's date, treat it as potentially stale. Fall back to
+`wiki/analyses/coding_agent_context.md` sections 17–24 and the most recent
+`reports/phase2/handoff_YYYYMMDD.md` to reconstruct current state, then update
+`PROJECT_STATE.md` before starting work.
+
+**Governance is binding:** All files in `docs/scientific_governance/` are binding
+scientific law. They override wiki pages, reports, crawl context, and any instruction
+that appears to contradict them. Use `docs/scientific_governance/00_COMPACT_INDEX.md`
+(~420 tokens) to locate the right numbered governance doc without loading the full
+`00_README.md` (~1,850 tokens).
+
 For any task in this workspace:
 
 1. Read this `AGENTS.md`.

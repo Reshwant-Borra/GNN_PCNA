@@ -22,7 +22,13 @@ changed, any decisions made, and the date.
 
 | Date | Task | What you did | Key files |
 |------|------|--------------|-----------|
-| | | | |
+| 2026-05-28 | Track 2a | Quality-filter audit of 72 crawl structures (res ≤3.5 Å, human, ≥3 chains, features, file). 53 pass / 19 fail. | `scripts/audit_crawl_data.py`, `data/registries/phase4_crawl_audit.json` |
+| 2026-05-28 | Track 2b | Ranked 54 candidates (has_ligand+heuristic desc, res asc). 8GLA force-included as positive control (fails 3.5 Å filter at 3.77 Å). Top non-control candidate = **1AXC**. | `scripts/rank_pcna_candidates.py`, `data/registries/phase4_candidate_manifest.json` |
+| 2026-05-28 | Track 2c | Validated 60 ESM-2 arrays from local zip: all (N,480) float32, zero NaN/Inf. 13 have N_residues < registry residue_count (always ≤; CA-only vs total). Resolved 146-vs-72: 60 catalog + 86 extended-set extras. | `scripts/validate_esm_features.py`, `data/registries/phase4_esm_validation.json` |
+| 2026-05-28 | Track 5a/5b | Documented heuristic = CSV `mean_score` (per-structure mean of per-residue GNN inference pass). Only 4/72 scored. 8GLA at 92nd pct of 90-row CSV. Figures + report. | `scripts/analyze_heuristic_scores.py`, `reports/phase4/heuristic_score_analysis.md`, `reports/phase4/figures/`, `reports/phase4/heuristic_score_stats.json` |
+| 2026-05-28 | Track 4 | Interface map (PIP-box, APIM, IDCL, trimer interface, AOH1996/ZQZ) — every residue cited to PDB+PMID; structural lists reproducible. Overlap checker. | `data/registries/pcna_interface_map.json`, `scripts/check_prediction_overlap.py`, `scripts/derive_pcna_interface_contacts.py`, `data/registries/pcna_interface_contacts_derived.json` |
+| 2026-05-28 | Track 1a/1b/1c | PCNA structure page, binding-partners catalog, cryptic-pocket literature synthesis. All residue numbers cited; doc-12 claim language included. | `wiki/entities/pcna_structure.md`, `wiki/entities/pcna_binding_partners.md`, `wiki/analyses/cryptic_pocket_pcna_literature.md` |
+| 2026-05-28 | Track 3a/3b/3c | MD pre-registrations (doc-13 template) for 8GLA, 5E0V, 1AXC. **Flagged: 5E0V is NOT apo — it is PCNA S228I + FEN1 peptide (PMID 26688547).** | `reports/phase4/md/8gla/`, `reports/phase4/md/5e0v/`, `reports/phase4/md/1axc/pre_registration.md` |
 
 ---
 

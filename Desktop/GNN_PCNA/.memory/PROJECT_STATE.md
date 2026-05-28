@@ -1,6 +1,6 @@
 ---
 updated: 2026-05-28
-updated_by: claude-sonnet-4-6 (phase3-first-training-complete)
+updated_by: claude-opus-4-8 (advay-parallel-track tracks 1-5; Phase 3 state unchanged)
 ---
 
 # Project State - GNN-PCNA
@@ -60,6 +60,13 @@ blocked until human review approvals are recorded.
 - **Phase 3 training framework implemented:** `src/phase3_data/graph_loader.py`, `src/phase3_model/gnn.py`, `src/phase3_training/trainer.py`, `src/phase3_evaluation/metrics.py`, `tests/phase3/test_batch_isolation.py`, `tests/phase3/test_phase3_model_loader_metrics.py`. Full test suite 93/93 passing. Batch-isolation test: 4/4 PASSED (GATE 2 prerequisite). Dry-run guard in `gates.py` intact — real training blocked until human GATE 2 sign-off.
 - **GATE 2 cleared:** `reports/phase3/first_training_signoff_20260528.md` (decision_id: `phase3_first_training_signoff_20260528`). `gates.py` conditionalized to pass when signoff file present.
 - **Phase 3 first training complete:** 12/12 runs (4 folds × 3 seeds). GraphSAGE-3L, hidden_dim=128. Overall val macro-AUPRC: **0.1876 ± 0.0113** (range: [0.1719, 0.2042]). Best: fold=1 seed=2 → 0.2042. Checkpoints: `checkpoints/phase3/fold*_seed*_best.pt`. Report: `reports/phase3/first_training_results_20260528.md`. No test-set evaluation. No scientific claims.
+- **Advay parallel track (Phase-4 prep, Phase-3-independent) — Tracks 1-5 complete (2026-05-28):**
+  - Track 2: `scripts/audit_crawl_data.py` (53/72 pass quality filter), `scripts/rank_pcna_candidates.py` (54 ranked; 8GLA force-included positive control; top candidate 1AXC), `scripts/validate_esm_features.py` (60 ESM arrays valid, 146-vs-72 resolved). Outputs in `data/registries/phase4_*.json`.
+  - Track 5: `scripts/analyze_heuristic_scores.py` + `reports/phase4/heuristic_score_analysis.md` (+figures). Heuristic = CSV `mean_score` from a prior GNN inference pass; only 4/72 scored.
+  - Track 4: `data/registries/pcna_interface_map.json` (all residues cited to PDB+PMID) + `scripts/check_prediction_overlap.py` + reproducible `scripts/derive_pcna_interface_contacts.py`.
+  - Track 1: `wiki/entities/pcna_structure.md`, `wiki/entities/pcna_binding_partners.md`, `wiki/analyses/cryptic_pocket_pcna_literature.md`.
+  - Track 3: MD pre-registrations `reports/phase4/md/{8gla,5e0v,1axc}/pre_registration.md` (doc-13 template).
+  - **Key findings flagged to Reshwant:** (1) 5E0V is NOT apo PCNA — it is the S228I variant + FEN1 peptide (PMID 26688547); a true-apo WT reference is needed before MD. (2) heuristic_pocket_score covers only 4/72 records. See `wiki/open_questions/open-questions.md`. No Phase 3 files touched; no training/graphs/MD/test access/claims.
 
 ---
 

@@ -1,0 +1,876 @@
+{
+  "schema_version": "1.0",
+  "generated_utc": "2026-05-28T21:51:20.864802+00:00",
+  "generator": "scripts/validate_esm_features.py",
+  "source_registry": "data\\registries\\friend_crawl_registry.json",
+  "feature_schema": "data\\registries\\friend_feature_schema.json",
+  "expected_embed_dim": 480,
+  "expected_dtype": "float32",
+  "local_zip": "C:\\Users\\advay\\GNN_PNCA_crawled_data.zip",
+  "status": "VALIDATED",
+  "zip_central_directory_sha256": "723ba40d959d3d091e3c2046d2bf69b08a8fa7d005f3a859c6e4d58db5d4b8d7",
+  "discrepancy_146_vs_72": {
+    "n_npy_files_in_zip": 146,
+    "n_registry_records": 72,
+    "n_registry_with_features": 60,
+    "n_registry_ids_with_npy": 60,
+    "n_extra_npy_not_in_registry": 86,
+    "extra_npy_ids": [
+      "1BLR",
+      "1BU9",
+      "1C3I",
+      "1C5H",
+      "1D09",
+      "1E2X",
+      "1E3V",
+      "1FBO",
+      "1GBG",
+      "1GQY",
+      "1HP2",
+      "1IQD",
+      "1JBP",
+      "1JWP",
+      "1K3Y",
+      "1LB6",
+      "1M17",
+      "1O3P",
+      "1OG2",
+      "1OIN",
+      "1ONE",
+      "1P9Y",
+      "1PDZ",
+      "1PZO",
+      "1Q5H",
+      "1RJ8",
+      "1SQO",
+      "1THJ",
+      "1TML",
+      "1V48",
+      "1VFB",
+      "1W4E",
+      "1W9H",
+      "1XHY",
+      "1XKK",
+      "1XQ4",
+      "1YCS",
+      "1Z7X",
+      "1ZC3",
+      "2AM9",
+      "2B8H",
+      "2BKM",
+      "2BRJ",
+      "2CLR",
+      "2CNN",
+      "2DXX",
+      "2EUF",
+      "2GV1",
+      "2H5C",
+      "2HM7",
+      "2HNX",
+      "2HQS",
+      "2J58",
+      "2JA3",
+      "2JGU",
+      "2K1V",
+      "2LZM",
+      "2NLZ",
+      "2NMO",
+      "2NWX",
+      "2OQB",
+      "2P0R",
+      "2P54",
+      "2PKT",
+      "2Q1T",
+      "2QKH",
+      "2R8Q",
+      "2VGO",
+      "2VO5",
+      "2WER",
+      "2X6D",
+      "2XBP",
+      "2XHM",
+      "2YHW",
+      "3C0I",
+      "3CL7",
+      "3D0E",
+      "3EML",
+      "3FU8",
+      "3GXD",
+      "3HXM",
+      "3KCW",
+      "3KQ4",
+      "3L7U",
+      "3N86",
+      "3PXF"
+    ],
+    "explanation": "The 146 .npy files = the 60 registry structures flagged has_parsed_features=true plus 86 extended-set IDs not in the 72-record PCNA catalog. Per friend_feature_schema.json the extras come from an extended CryptoSite set processed through the same ESM-2 pipeline. They are NOT part of the governed 72-structure PCNA crawl and are recorded here for provenance only.",
+    "registry_feature_ids_missing_npy": []
+  },
+  "residue_count_discrepancy": {
+    "n_structures_with_mismatch": 13,
+    "all_esm_n_le_registry_count": true,
+    "observed_pattern": "In every mismatch the ESM array has FEWER residues than the registry residue_count (delta 2-66). This is consistent with the feature-schema statement that ESM-2 embeddings are computed 'one vector per CA residue in the processed structure', i.e. resolved standard-amino-acid CA atoms, whereas registry residue_count appears to count more entries (e.g. HETATM / non-standard / unresolved positions). Recorded as an alignment flag for Phase 4 follow-up, NOT a corruption of the embeddings: shape, dtype, and NaN/Inf checks pass for all 60 arrays. Cause not asserted without verification against the raw PDB residue inventory.",
+    "mismatches": {
+      "1VYM": {
+        "esm_n_residues": 765,
+        "registry_residue_count": 768,
+        "delta_registry_minus_esm": 3
+      },
+      "4RJF": {
+        "esm_n_residues": 814,
+        "registry_residue_count": 816,
+        "delta_registry_minus_esm": 2
+      },
+      "6EHT": {
+        "esm_n_residues": 802,
+        "registry_residue_count": 822,
+        "delta_registry_minus_esm": 20
+      },
+      "6GIS": {
+        "esm_n_residues": 744,
+        "registry_residue_count": 764,
+        "delta_registry_minus_esm": 20
+      },
+      "7M5L": {
+        "esm_n_residues": 799,
+        "registry_residue_count": 802,
+        "delta_registry_minus_esm": 3
+      },
+      "7M5N": {
+        "esm_n_residues": 772,
+        "registry_residue_count": 774,
+        "delta_registry_minus_esm": 2
+      },
+      "7NV0": {
+        "esm_n_residues": 1180,
+        "registry_residue_count": 1232,
+        "delta_registry_minus_esm": 52
+      },
+      "8UMY": {
+        "esm_n_residues": 2647,
+        "registry_residue_count": 2694,
+        "delta_registry_minus_esm": 47
+      },
+      "8UN0": {
+        "esm_n_residues": 2647,
+        "registry_residue_count": 2694,
+        "delta_registry_minus_esm": 47
+      },
+      "9B8T": {
+        "esm_n_residues": 1929,
+        "registry_residue_count": 1979,
+        "delta_registry_minus_esm": 50
+      },
+      "9CG4": {
+        "esm_n_residues": 966,
+        "registry_residue_count": 1009,
+        "delta_registry_minus_esm": 43
+      },
+      "9EOA": {
+        "esm_n_residues": 1337,
+        "registry_residue_count": 1400,
+        "delta_registry_minus_esm": 63
+      },
+      "9GY0": {
+        "esm_n_residues": 1339,
+        "registry_residue_count": 1405,
+        "delta_registry_minus_esm": 66
+      }
+    }
+  },
+  "summary": {
+    "n_validated": 60,
+    "n_pass_strict": 47,
+    "n_fail_strict": 13,
+    "n_fail_only_residue_count": 13,
+    "n_clean_shape_dtype_nan": 60
+  },
+  "structures": {
+    "1AXC": {
+      "n_residues": 804,
+      "embed_dim": 480,
+      "dtype": "float32",
+      "n_nan": 0,
+      "n_inf": 0,
+      "registry_residue_count": 804,
+      "residue_count_matches": true,
+      "passes": true,
+      "failure_reasons": []
+    },
+    "1U76": {
+      "n_residues": 795,
+      "embed_dim": 480,
+      "dtype": "float32",
+      "n_nan": 0,
+      "n_inf": 0,
+      "registry_residue_count": 795,
+      "residue_count_matches": true,
+      "passes": true,
+      "failure_reasons": []
+    },
+    "1U7B": {
+      "n_residues": 264,
+      "embed_dim": 480,
+      "dtype": "float32",
+      "n_nan": 0,
+      "n_inf": 0,
+      "registry_residue_count": 264,
+      "residue_count_matches": true,
+      "passes": true,
+      "failure_reasons": []
+    },
+    "1UL1": {
+      "n_residues": 1743,
+      "embed_dim": 480,
+      "dtype": "float32",
+      "n_nan": 0,
+      "n_inf": 0,
+      "registry_residue_count": 1743,
+      "residue_count_matches": true,
+      "passes": true,
+      "failure_reasons": []
+    },
+    "1VYJ": {
+      "n_residues": 1641,
+      "embed_dim": 480,
+      "dtype": "float32",
+      "n_nan": 0,
+      "n_inf": 0,
+      "registry_residue_count": 1641,
+      "residue_count_matches": true,
+      "passes": true,
+      "failure_reasons": []
+    },
+    "1VYM": {
+      "n_residues": 765,
+      "embed_dim": 480,
+      "dtype": "float32",
+      "n_nan": 0,
+      "n_inf": 0,
+      "registry_residue_count": 768,
+      "residue_count_matches": false,
+      "passes": false,
+      "failure_reasons": [
+        "N_residues 765 != registry residue_count 768"
+      ]
+    },
+    "1W60": {
+      "n_residues": 510,
+      "embed_dim": 480,
+      "dtype": "float32",
+      "n_nan": 0,
+      "n_inf": 0,
+      "registry_residue_count": 510,
+      "residue_count_matches": true,
+      "passes": true,
+      "failure_reasons": []
+    },
+    "1W61": {
+      "n_residues": 710,
+      "embed_dim": 480,
+      "dtype": "float32",
+      "n_nan": 0,
+      "n_inf": 0,
+      "registry_residue_count": 710,
+      "residue_count_matches": true,
+      "passes": true,
+      "failure_reasons": []
+    },
+    "2ZVK": {
+      "n_residues": 777,
+      "embed_dim": 480,
+      "dtype": "float32",
+      "n_nan": 0,
+      "n_inf": 0,
+      "registry_residue_count": 777,
+      "residue_count_matches": true,
+      "passes": true,
+      "failure_reasons": []
+    },
+    "2ZVL": {
+      "n_residues": 1543,
+      "embed_dim": 480,
+      "dtype": "float32",
+      "n_nan": 0,
+      "n_inf": 0,
+      "registry_residue_count": 1543,
+      "residue_count_matches": true,
+      "passes": true,
+      "failure_reasons": []
+    },
+    "2ZVM": {
+      "n_residues": 776,
+      "embed_dim": 480,
+      "dtype": "float32",
+      "n_nan": 0,
+      "n_inf": 0,
+      "registry_residue_count": 776,
+      "residue_count_matches": true,
+      "passes": true,
+      "failure_reasons": []
+    },
+    "3P87": {
+      "n_residues": 1539,
+      "embed_dim": 480,
+      "dtype": "float32",
+      "n_nan": 0,
+      "n_inf": 0,
+      "registry_residue_count": 1539,
+      "residue_count_matches": true,
+      "passes": true,
+      "failure_reasons": []
+    },
+    "3TBL": {
+      "n_residues": 897,
+      "embed_dim": 480,
+      "dtype": "float32",
+      "n_nan": 0,
+      "n_inf": 0,
+      "registry_residue_count": 897,
+      "residue_count_matches": true,
+      "passes": true,
+      "failure_reasons": []
+    },
+    "3VKX": {
+      "n_residues": 248,
+      "embed_dim": 480,
+      "dtype": "float32",
+      "n_nan": 0,
+      "n_inf": 0,
+      "registry_residue_count": 248,
+      "residue_count_matches": true,
+      "passes": true,
+      "failure_reasons": []
+    },
+    "4D2G": {
+      "n_residues": 814,
+      "embed_dim": 480,
+      "dtype": "float32",
+      "n_nan": 0,
+      "n_inf": 0,
+      "registry_residue_count": 814,
+      "residue_count_matches": true,
+      "passes": true,
+      "failure_reasons": []
+    },
+    "4RJF": {
+      "n_residues": 814,
+      "embed_dim": 480,
+      "dtype": "float32",
+      "n_nan": 0,
+      "n_inf": 0,
+      "registry_residue_count": 816,
+      "residue_count_matches": false,
+      "passes": false,
+      "failure_reasons": [
+        "N_residues 814 != registry residue_count 816"
+      ]
+    },
+    "4ZTD": {
+      "n_residues": 787,
+      "embed_dim": 480,
+      "dtype": "float32",
+      "n_nan": 0,
+      "n_inf": 0,
+      "registry_residue_count": 787,
+      "residue_count_matches": true,
+      "passes": true,
+      "failure_reasons": []
+    },
+    "5E0T": {
+      "n_residues": 753,
+      "embed_dim": 480,
+      "dtype": "float32",
+      "n_nan": 0,
+      "n_inf": 0,
+      "registry_residue_count": 753,
+      "residue_count_matches": true,
+      "passes": true,
+      "failure_reasons": []
+    },
+    "5E0U": {
+      "n_residues": 820,
+      "embed_dim": 480,
+      "dtype": "float32",
+      "n_nan": 0,
+      "n_inf": 0,
+      "registry_residue_count": 820,
+      "residue_count_matches": true,
+      "passes": true,
+      "failure_reasons": []
+    },
+    "5E0V": {
+      "n_residues": 523,
+      "embed_dim": 480,
+      "dtype": "float32",
+      "n_nan": 0,
+      "n_inf": 0,
+      "registry_residue_count": 523,
+      "residue_count_matches": true,
+      "passes": true,
+      "failure_reasons": []
+    },
+    "5MAV": {
+      "n_residues": 1574,
+      "embed_dim": 480,
+      "dtype": "float32",
+      "n_nan": 0,
+      "n_inf": 0,
+      "registry_residue_count": 1574,
+      "residue_count_matches": true,
+      "passes": true,
+      "failure_reasons": []
+    },
+    "5MLO": {
+      "n_residues": 797,
+      "embed_dim": 480,
+      "dtype": "float32",
+      "n_nan": 0,
+      "n_inf": 0,
+      "registry_residue_count": 797,
+      "residue_count_matches": true,
+      "passes": true,
+      "failure_reasons": []
+    },
+    "5MLW": {
+      "n_residues": 786,
+      "embed_dim": 480,
+      "dtype": "float32",
+      "n_nan": 0,
+      "n_inf": 0,
+      "registry_residue_count": 786,
+      "residue_count_matches": true,
+      "passes": true,
+      "failure_reasons": []
+    },
+    "5MOM": {
+      "n_residues": 748,
+      "embed_dim": 480,
+      "dtype": "float32",
+      "n_nan": 0,
+      "n_inf": 0,
+      "registry_residue_count": 748,
+      "residue_count_matches": true,
+      "passes": true,
+      "failure_reasons": []
+    },
+    "5YCO": {
+      "n_residues": 1014,
+      "embed_dim": 480,
+      "dtype": "float32",
+      "n_nan": 0,
+      "n_inf": 0,
+      "registry_residue_count": 1014,
+      "residue_count_matches": true,
+      "passes": true,
+      "failure_reasons": []
+    },
+    "5YD8": {
+      "n_residues": 764,
+      "embed_dim": 480,
+      "dtype": "float32",
+      "n_nan": 0,
+      "n_inf": 0,
+      "registry_residue_count": 764,
+      "residue_count_matches": true,
+      "passes": true,
+      "failure_reasons": []
+    },
+    "6CBI": {
+      "n_residues": 1535,
+      "embed_dim": 480,
+      "dtype": "float32",
+      "n_nan": 0,
+      "n_inf": 0,
+      "registry_residue_count": 1535,
+      "residue_count_matches": true,
+      "passes": true,
+      "failure_reasons": []
+    },
+    "6EHT": {
+      "n_residues": 802,
+      "embed_dim": 480,
+      "dtype": "float32",
+      "n_nan": 0,
+      "n_inf": 0,
+      "registry_residue_count": 822,
+      "residue_count_matches": false,
+      "passes": false,
+      "failure_reasons": [
+        "N_residues 802 != registry residue_count 822"
+      ]
+    },
+    "6FCM": {
+      "n_residues": 755,
+      "embed_dim": 480,
+      "dtype": "float32",
+      "n_nan": 0,
+      "n_inf": 0,
+      "registry_residue_count": 755,
+      "residue_count_matches": true,
+      "passes": true,
+      "failure_reasons": []
+    },
+    "6FCN": {
+      "n_residues": 755,
+      "embed_dim": 480,
+      "dtype": "float32",
+      "n_nan": 0,
+      "n_inf": 0,
+      "registry_residue_count": 755,
+      "residue_count_matches": true,
+      "passes": true,
+      "failure_reasons": []
+    },
+    "6GIS": {
+      "n_residues": 744,
+      "embed_dim": 480,
+      "dtype": "float32",
+      "n_nan": 0,
+      "n_inf": 0,
+      "registry_residue_count": 764,
+      "residue_count_matches": false,
+      "passes": false,
+      "failure_reasons": [
+        "N_residues 744 != registry residue_count 764"
+      ]
+    },
+    "6GWS": {
+      "n_residues": 831,
+      "embed_dim": 480,
+      "dtype": "float32",
+      "n_nan": 0,
+      "n_inf": 0,
+      "registry_residue_count": 831,
+      "residue_count_matches": true,
+      "passes": true,
+      "failure_reasons": []
+    },
+    "6HVO": {
+      "n_residues": 795,
+      "embed_dim": 480,
+      "dtype": "float32",
+      "n_nan": 0,
+      "n_inf": 0,
+      "registry_residue_count": 795,
+      "residue_count_matches": true,
+      "passes": true,
+      "failure_reasons": []
+    },
+    "6K3A": {
+      "n_residues": 762,
+      "embed_dim": 480,
+      "dtype": "float32",
+      "n_nan": 0,
+      "n_inf": 0,
+      "registry_residue_count": 762,
+      "residue_count_matches": true,
+      "passes": true,
+      "failure_reasons": []
+    },
+    "6QC0": {
+      "n_residues": 797,
+      "embed_dim": 480,
+      "dtype": "float32",
+      "n_nan": 0,
+      "n_inf": 0,
+      "registry_residue_count": 797,
+      "residue_count_matches": true,
+      "passes": true,
+      "failure_reasons": []
+    },
+    "6QCG": {
+      "n_residues": 1578,
+      "embed_dim": 480,
+      "dtype": "float32",
+      "n_nan": 0,
+      "n_inf": 0,
+      "registry_residue_count": 1578,
+      "residue_count_matches": true,
+      "passes": true,
+      "failure_reasons": []
+    },
+    "6VVO": {
+      "n_residues": 2493,
+      "embed_dim": 480,
+      "dtype": "float32",
+      "n_nan": 0,
+      "n_inf": 0,
+      "registry_residue_count": 2493,
+      "residue_count_matches": true,
+      "passes": true,
+      "failure_reasons": []
+    },
+    "7EFA": {
+      "n_residues": 401,
+      "embed_dim": 480,
+      "dtype": "float32",
+      "n_nan": 0,
+      "n_inf": 0,
+      "registry_residue_count": 401,
+      "residue_count_matches": true,
+      "passes": true,
+      "failure_reasons": []
+    },
+    "7KQ0": {
+      "n_residues": 807,
+      "embed_dim": 480,
+      "dtype": "float32",
+      "n_nan": 0,
+      "n_inf": 0,
+      "registry_residue_count": 807,
+      "residue_count_matches": true,
+      "passes": true,
+      "failure_reasons": []
+    },
+    "7M5L": {
+      "n_residues": 799,
+      "embed_dim": 480,
+      "dtype": "float32",
+      "n_nan": 0,
+      "n_inf": 0,
+      "registry_residue_count": 802,
+      "residue_count_matches": false,
+      "passes": false,
+      "failure_reasons": [
+        "N_residues 799 != registry residue_count 802"
+      ]
+    },
+    "7M5N": {
+      "n_residues": 772,
+      "embed_dim": 480,
+      "dtype": "float32",
+      "n_nan": 0,
+      "n_inf": 0,
+      "registry_residue_count": 774,
+      "residue_count_matches": false,
+      "passes": false,
+      "failure_reasons": [
+        "N_residues 772 != registry residue_count 774"
+      ]
+    },
+    "7NV0": {
+      "n_residues": 1180,
+      "embed_dim": 480,
+      "dtype": "float32",
+      "n_nan": 0,
+      "n_inf": 0,
+      "registry_residue_count": 1232,
+      "residue_count_matches": false,
+      "passes": false,
+      "failure_reasons": [
+        "N_residues 1180 != registry residue_count 1232"
+      ]
+    },
+    "8COB": {
+      "n_residues": 779,
+      "embed_dim": 480,
+      "dtype": "float32",
+      "n_nan": 0,
+      "n_inf": 0,
+      "registry_residue_count": 779,
+      "residue_count_matches": true,
+      "passes": true,
+      "failure_reasons": []
+    },
+    "8E84": {
+      "n_residues": 738,
+      "embed_dim": 480,
+      "dtype": "float32",
+      "n_nan": 0,
+      "n_inf": 0,
+      "registry_residue_count": 738,
+      "residue_count_matches": true,
+      "passes": true,
+      "failure_reasons": []
+    },
+    "8F5Q": {
+      "n_residues": 746,
+      "embed_dim": 480,
+      "dtype": "float32",
+      "n_nan": 0,
+      "n_inf": 0,
+      "registry_residue_count": 746,
+      "residue_count_matches": true,
+      "passes": true,
+      "failure_reasons": []
+    },
+    "8GCJ": {
+      "n_residues": 1514,
+      "embed_dim": 480,
+      "dtype": "float32",
+      "n_nan": 0,
+      "n_inf": 0,
+      "registry_residue_count": 1514,
+      "residue_count_matches": true,
+      "passes": true,
+      "failure_reasons": []
+    },
+    "8GL9": {
+      "n_residues": 962,
+      "embed_dim": 480,
+      "dtype": "float32",
+      "n_nan": 0,
+      "n_inf": 0,
+      "registry_residue_count": 962,
+      "residue_count_matches": true,
+      "passes": true,
+      "failure_reasons": []
+    },
+    "8GLA": {
+      "n_residues": 952,
+      "embed_dim": 480,
+      "dtype": "float32",
+      "n_nan": 0,
+      "n_inf": 0,
+      "registry_residue_count": 952,
+      "residue_count_matches": true,
+      "passes": true,
+      "failure_reasons": []
+    },
+    "8UI8": {
+      "n_residues": 2499,
+      "embed_dim": 480,
+      "dtype": "float32",
+      "n_nan": 0,
+      "n_inf": 0,
+      "registry_residue_count": 2499,
+      "residue_count_matches": true,
+      "passes": true,
+      "failure_reasons": []
+    },
+    "8UI9": {
+      "n_residues": 2760,
+      "embed_dim": 480,
+      "dtype": "float32",
+      "n_nan": 0,
+      "n_inf": 0,
+      "registry_residue_count": 2760,
+      "residue_count_matches": true,
+      "passes": true,
+      "failure_reasons": []
+    },
+    "8UMT": {
+      "n_residues": 2625,
+      "embed_dim": 480,
+      "dtype": "float32",
+      "n_nan": 0,
+      "n_inf": 0,
+      "registry_residue_count": 2625,
+      "residue_count_matches": true,
+      "passes": true,
+      "failure_reasons": []
+    },
+    "8UMU": {
+      "n_residues": 2603,
+      "embed_dim": 480,
+      "dtype": "float32",
+      "n_nan": 0,
+      "n_inf": 0,
+      "registry_residue_count": 2603,
+      "residue_count_matches": true,
+      "passes": true,
+      "failure_reasons": []
+    },
+    "8UMY": {
+      "n_residues": 2647,
+      "embed_dim": 480,
+      "dtype": "float32",
+      "n_nan": 0,
+      "n_inf": 0,
+      "registry_residue_count": 2694,
+      "residue_count_matches": false,
+      "passes": false,
+      "failure_reasons": [
+        "N_residues 2647 != registry residue_count 2694"
+      ]
+    },
+    "8UN0": {
+      "n_residues": 2647,
+      "embed_dim": 480,
+      "dtype": "float32",
+      "n_nan": 0,
+      "n_inf": 0,
+      "registry_residue_count": 2694,
+      "residue_count_matches": false,
+      "passes": false,
+      "failure_reasons": [
+        "N_residues 2647 != registry residue_count 2694"
+      ]
+    },
+    "9B8T": {
+      "n_residues": 1929,
+      "embed_dim": 480,
+      "dtype": "float32",
+      "n_nan": 0,
+      "n_inf": 0,
+      "registry_residue_count": 1979,
+      "residue_count_matches": false,
+      "passes": false,
+      "failure_reasons": [
+        "N_residues 1929 != registry residue_count 1979"
+      ]
+    },
+    "9CG4": {
+      "n_residues": 966,
+      "embed_dim": 480,
+      "dtype": "float32",
+      "n_nan": 0,
+      "n_inf": 0,
+      "registry_residue_count": 1009,
+      "residue_count_matches": false,
+      "passes": false,
+      "failure_reasons": [
+        "N_residues 966 != registry residue_count 1009"
+      ]
+    },
+    "9CHM": {
+      "n_residues": 967,
+      "embed_dim": 480,
+      "dtype": "float32",
+      "n_nan": 0,
+      "n_inf": 0,
+      "registry_residue_count": 967,
+      "residue_count_matches": true,
+      "passes": true,
+      "failure_reasons": []
+    },
+    "9EOA": {
+      "n_residues": 1337,
+      "embed_dim": 480,
+      "dtype": "float32",
+      "n_nan": 0,
+      "n_inf": 0,
+      "registry_residue_count": 1400,
+      "residue_count_matches": false,
+      "passes": false,
+      "failure_reasons": [
+        "N_residues 1337 != registry residue_count 1400"
+      ]
+    },
+    "9GY0": {
+      "n_residues": 1339,
+      "embed_dim": 480,
+      "dtype": "float32",
+      "n_nan": 0,
+      "n_inf": 0,
+      "registry_residue_count": 1405,
+      "residue_count_matches": false,
+      "passes": false,
+      "failure_reasons": [
+        "N_residues 1339 != registry residue_count 1405"
+      ]
+    },
+    "9N3L": {
+      "n_residues": 246,
+      "embed_dim": 480,
+      "dtype": "float32",
+      "n_nan": 0,
+      "n_inf": 0,
+      "registry_residue_count": 246,
+      "residue_count_matches": true,
+      "passes": true,
+      "failure_reasons": []
+    }
+  }
+}

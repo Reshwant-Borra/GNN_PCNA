@@ -92,3 +92,24 @@ Provenance:
 - governance: `docs/scientific_governance/07_PREPROCESSING_AND_GRAPH_RULES.md`, `08_MODEL_ARCHITECTURE_CONSTRAINTS.md`, `15_PROVENANCE_AND_REPRODUCIBILITY.md`, `19_STOP_CONDITIONS.md`, `26_HUMAN_REVIEW_GATES.md`
 - confidence: high
 - evidence_status: verified for audit counts and recorded human graph-policy decision
+
+## Phase 4 Prep — 5E0V reference identity (Advay parallel track)
+
+- **Question:** What structure should serve as the true-apo wild-type PCNA MD reference? The
+  project's nominal reference **5E0V is NOT apo WT PCNA** — it is the **PCNA S228I disease
+  variant in complex with a FEN1 peptide** (Duffy CM, Hilbert BJ, Kelch BA. *J Mol Biol*
+  2016;428:1023-1040, PMID 26688547), and S228I disrupts the front-face binding site. Using
+  5E0V as the apo reference is invalid without reverting the mutation and stripping the
+  peptide; a dedicated apo WT entry should be confirmed.
+- **Status:** OPEN — flagged for Reshwant before any Phase 4 MD apo reference is run.
+- **Secondary question:** The Track-2 candidate ranking surfaces known complexes first
+  (1AXC=p21, 1W60, 1W61) because only 4/72 structures carry heuristic scores and 3 are
+  complexes. Is a high-resolution non-complex structure (e.g. 8F5Q, 1.90 Å) preferable as the
+  "unknown" cryptic-pocket MD candidate over 1AXC?
+
+Provenance:
+- date: 2026-05-28
+- source: RCSB 5E0V / PMID 26688547; `data/registries/phase4_candidate_manifest.json`; `reports/phase4/md/5e0v/pre_registration.md`; `reports/phase4/heuristic_score_analysis.md`
+- governance: `docs/scientific_governance/12_PCNA_SPECIFIC_CHECKS.md`, `13_MD_VALIDATION_RULES.md`
+- confidence: high
+- evidence_status: verified against RCSB primary metadata

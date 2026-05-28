@@ -1,0 +1,880 @@
+{
+  "schema_version": "1.0",
+  "generated_utc": "2026-05-28T21:49:01.668287+00:00",
+  "generator": "scripts/audit_crawl_data.py",
+  "source_registry": "data\\registries\\friend_crawl_registry.json",
+  "source_registry_sha256": "eb65c030a11ce046f1bad924cd769fd01a55e078e588027e050968a9bc9547f1",
+  "criteria": {
+    "max_resolution_angstrom": 3.5,
+    "required_organism": "Homo sapiens",
+    "min_chain_count": 3,
+    "require_parsed_features": true,
+    "require_file_path": true
+  },
+  "summary": {
+    "n_structures": 72,
+    "n_pass": 53,
+    "n_fail": 19,
+    "failure_reason_counts": {
+      "chain_count < 3 or missing": 7,
+      "resolution > threshold or missing": 1,
+      "organism not Homo sapiens or missing": 7,
+      "file_path null": 13,
+      "no parsed ESM-2 features": 12
+    }
+  },
+  "note": "Mechanical quality filter only. 8GLA (AOH1996 positive control) fails the resolution criterion at 3.77 A; the documented override that keeps it as a positive control lives in rank_pcna_candidates.py, not here.",
+  "structures": [
+    {
+      "pdb_id": "1AXC",
+      "passes_filter": true,
+      "failure_reasons": [],
+      "resolution_angstrom": 2.6,
+      "chain_count": 6,
+      "organism": "Homo sapiens",
+      "has_parsed_features": true,
+      "has_file_path": true,
+      "heuristic_pocket_score": 0.1147
+    },
+    {
+      "pdb_id": "1W60",
+      "passes_filter": false,
+      "failure_reasons": [
+        "chain_count 2 < 3"
+      ],
+      "resolution_angstrom": 3.15,
+      "chain_count": 2,
+      "organism": "Homo sapiens",
+      "has_parsed_features": true,
+      "has_file_path": true,
+      "heuristic_pocket_score": 0.133
+    },
+    {
+      "pdb_id": "8GLA",
+      "passes_filter": false,
+      "failure_reasons": [
+        "resolution 3.77 A > 3.5 A"
+      ],
+      "resolution_angstrom": 3.77,
+      "chain_count": 4,
+      "organism": "Homo sapiens",
+      "has_parsed_features": true,
+      "has_file_path": true,
+      "heuristic_pocket_score": 0.1324
+    },
+    {
+      "pdb_id": "1W61",
+      "passes_filter": false,
+      "failure_reasons": [
+        "organism missing",
+        "chain_count 2 < 3",
+        "file_path null (no raw PDB)"
+      ],
+      "resolution_angstrom": 2.1,
+      "chain_count": 2,
+      "organism": null,
+      "has_parsed_features": true,
+      "has_file_path": false,
+      "heuristic_pocket_score": 0.0536
+    },
+    {
+      "pdb_id": "5E0U",
+      "passes_filter": true,
+      "failure_reasons": [],
+      "resolution_angstrom": 1.93,
+      "chain_count": 6,
+      "organism": "Homo sapiens",
+      "has_parsed_features": true,
+      "has_file_path": true,
+      "heuristic_pocket_score": null
+    },
+    {
+      "pdb_id": "5MLO",
+      "passes_filter": true,
+      "failure_reasons": [],
+      "resolution_angstrom": 1.96,
+      "chain_count": 6,
+      "organism": "Homo sapiens",
+      "has_parsed_features": true,
+      "has_file_path": true,
+      "heuristic_pocket_score": null
+    },
+    {
+      "pdb_id": "8F5Q",
+      "passes_filter": true,
+      "failure_reasons": [],
+      "resolution_angstrom": 1.9,
+      "chain_count": 6,
+      "organism": "Homo sapiens",
+      "has_parsed_features": true,
+      "has_file_path": true,
+      "heuristic_pocket_score": null
+    },
+    {
+      "pdb_id": "1U7B",
+      "passes_filter": false,
+      "failure_reasons": [
+        "chain_count 2 < 3"
+      ],
+      "resolution_angstrom": 1.88,
+      "chain_count": 2,
+      "organism": "Homo sapiens",
+      "has_parsed_features": true,
+      "has_file_path": true,
+      "heuristic_pocket_score": null
+    },
+    {
+      "pdb_id": "9N3L",
+      "passes_filter": false,
+      "failure_reasons": [
+        "organism missing",
+        "chain_count 1 < 3"
+      ],
+      "resolution_angstrom": 1.9,
+      "chain_count": 1,
+      "organism": null,
+      "has_parsed_features": true,
+      "has_file_path": true,
+      "heuristic_pocket_score": null
+    },
+    {
+      "pdb_id": "4ZTD",
+      "passes_filter": true,
+      "failure_reasons": [],
+      "resolution_angstrom": 2.2,
+      "chain_count": 6,
+      "organism": "Homo sapiens",
+      "has_parsed_features": true,
+      "has_file_path": true,
+      "heuristic_pocket_score": null
+    },
+    {
+      "pdb_id": "5E0V",
+      "passes_filter": true,
+      "failure_reasons": [],
+      "resolution_angstrom": 2.07,
+      "chain_count": 4,
+      "organism": "Homo sapiens",
+      "has_parsed_features": true,
+      "has_file_path": true,
+      "heuristic_pocket_score": null
+    },
+    {
+      "pdb_id": "5MLW",
+      "passes_filter": true,
+      "failure_reasons": [],
+      "resolution_angstrom": 2.45,
+      "chain_count": 6,
+      "organism": "Homo sapiens",
+      "has_parsed_features": true,
+      "has_file_path": true,
+      "heuristic_pocket_score": null
+    },
+    {
+      "pdb_id": "6HVO",
+      "passes_filter": true,
+      "failure_reasons": [],
+      "resolution_angstrom": 2.1,
+      "chain_count": 6,
+      "organism": "Homo sapiens",
+      "has_parsed_features": true,
+      "has_file_path": true,
+      "heuristic_pocket_score": null
+    },
+    {
+      "pdb_id": "3VKX",
+      "passes_filter": false,
+      "failure_reasons": [
+        "chain_count 1 < 3"
+      ],
+      "resolution_angstrom": 2.1,
+      "chain_count": 1,
+      "organism": "Homo sapiens",
+      "has_parsed_features": true,
+      "has_file_path": true,
+      "heuristic_pocket_score": null
+    },
+    {
+      "pdb_id": "2ZVL",
+      "passes_filter": true,
+      "failure_reasons": [],
+      "resolution_angstrom": 2.5,
+      "chain_count": 12,
+      "organism": "Homo sapiens",
+      "has_parsed_features": true,
+      "has_file_path": true,
+      "heuristic_pocket_score": null
+    },
+    {
+      "pdb_id": "2ZVM",
+      "passes_filter": true,
+      "failure_reasons": [],
+      "resolution_angstrom": 2.3,
+      "chain_count": 6,
+      "organism": "Homo sapiens",
+      "has_parsed_features": true,
+      "has_file_path": true,
+      "heuristic_pocket_score": null
+    },
+    {
+      "pdb_id": "1VYM",
+      "passes_filter": true,
+      "failure_reasons": [],
+      "resolution_angstrom": 2.3,
+      "chain_count": 3,
+      "organism": "Homo sapiens",
+      "has_parsed_features": true,
+      "has_file_path": true,
+      "heuristic_pocket_score": null
+    },
+    {
+      "pdb_id": "4RJF",
+      "passes_filter": true,
+      "failure_reasons": [],
+      "resolution_angstrom": 2.01,
+      "chain_count": 6,
+      "organism": "Homo sapiens",
+      "has_parsed_features": true,
+      "has_file_path": true,
+      "heuristic_pocket_score": null
+    },
+    {
+      "pdb_id": "5YD8",
+      "passes_filter": true,
+      "failure_reasons": [],
+      "resolution_angstrom": 2.3,
+      "chain_count": 6,
+      "organism": "Homo sapiens",
+      "has_parsed_features": true,
+      "has_file_path": true,
+      "heuristic_pocket_score": null
+    },
+    {
+      "pdb_id": "6K3A",
+      "passes_filter": true,
+      "failure_reasons": [],
+      "resolution_angstrom": 2.3,
+      "chain_count": 6,
+      "organism": "Homo sapiens",
+      "has_parsed_features": true,
+      "has_file_path": true,
+      "heuristic_pocket_score": null
+    },
+    {
+      "pdb_id": "7KQ0",
+      "passes_filter": true,
+      "failure_reasons": [],
+      "resolution_angstrom": 2.4,
+      "chain_count": 6,
+      "organism": "Homo sapiens",
+      "has_parsed_features": true,
+      "has_file_path": true,
+      "heuristic_pocket_score": null
+    },
+    {
+      "pdb_id": "5MOM",
+      "passes_filter": true,
+      "failure_reasons": [],
+      "resolution_angstrom": 2.27,
+      "chain_count": 3,
+      "organism": "Homo sapiens",
+      "has_parsed_features": true,
+      "has_file_path": true,
+      "heuristic_pocket_score": null
+    },
+    {
+      "pdb_id": "5YCO",
+      "passes_filter": true,
+      "failure_reasons": [],
+      "resolution_angstrom": 2.2,
+      "chain_count": 6,
+      "organism": "Homo sapiens",
+      "has_parsed_features": true,
+      "has_file_path": true,
+      "heuristic_pocket_score": null
+    },
+    {
+      "pdb_id": "8UMY",
+      "passes_filter": true,
+      "failure_reasons": [],
+      "resolution_angstrom": 2.83,
+      "chain_count": 10,
+      "organism": "Homo sapiens",
+      "has_parsed_features": true,
+      "has_file_path": true,
+      "heuristic_pocket_score": null
+    },
+    {
+      "pdb_id": "1UL1",
+      "passes_filter": true,
+      "failure_reasons": [],
+      "resolution_angstrom": 2.9,
+      "chain_count": 6,
+      "organism": "Homo sapiens",
+      "has_parsed_features": true,
+      "has_file_path": true,
+      "heuristic_pocket_score": null
+    },
+    {
+      "pdb_id": "8COB",
+      "passes_filter": true,
+      "failure_reasons": [],
+      "resolution_angstrom": 2.73,
+      "chain_count": 6,
+      "organism": "Homo sapiens",
+      "has_parsed_features": true,
+      "has_file_path": true,
+      "heuristic_pocket_score": null
+    },
+    {
+      "pdb_id": "7NV0",
+      "passes_filter": true,
+      "failure_reasons": [],
+      "resolution_angstrom": 3.4,
+      "chain_count": 6,
+      "organism": "Homo sapiens",
+      "has_parsed_features": true,
+      "has_file_path": true,
+      "heuristic_pocket_score": null
+    },
+    {
+      "pdb_id": "9GY0",
+      "passes_filter": true,
+      "failure_reasons": [],
+      "resolution_angstrom": 3.42,
+      "chain_count": 7,
+      "organism": "Homo sapiens",
+      "has_parsed_features": true,
+      "has_file_path": true,
+      "heuristic_pocket_score": null
+    },
+    {
+      "pdb_id": "5E0T",
+      "passes_filter": true,
+      "failure_reasons": [],
+      "resolution_angstrom": 2.67,
+      "chain_count": 3,
+      "organism": "Homo sapiens",
+      "has_parsed_features": true,
+      "has_file_path": true,
+      "heuristic_pocket_score": null
+    },
+    {
+      "pdb_id": "8UMU",
+      "passes_filter": true,
+      "failure_reasons": [],
+      "resolution_angstrom": 3.16,
+      "chain_count": 8,
+      "organism": "Homo sapiens",
+      "has_parsed_features": true,
+      "has_file_path": true,
+      "heuristic_pocket_score": null
+    },
+    {
+      "pdb_id": "9EOA",
+      "passes_filter": true,
+      "failure_reasons": [],
+      "resolution_angstrom": 3.27,
+      "chain_count": 7,
+      "organism": "Homo sapiens",
+      "has_parsed_features": true,
+      "has_file_path": true,
+      "heuristic_pocket_score": null
+    },
+    {
+      "pdb_id": "7M5N",
+      "passes_filter": true,
+      "failure_reasons": [],
+      "resolution_angstrom": 3.11,
+      "chain_count": 5,
+      "organism": "Homo sapiens",
+      "has_parsed_features": true,
+      "has_file_path": true,
+      "heuristic_pocket_score": null
+    },
+    {
+      "pdb_id": "8UN0",
+      "passes_filter": true,
+      "failure_reasons": [],
+      "resolution_angstrom": 3.0,
+      "chain_count": 10,
+      "organism": "Homo sapiens",
+      "has_parsed_features": true,
+      "has_file_path": true,
+      "heuristic_pocket_score": null
+    },
+    {
+      "pdb_id": "6FCM",
+      "passes_filter": true,
+      "failure_reasons": [],
+      "resolution_angstrom": 2.8,
+      "chain_count": 3,
+      "organism": "Homo sapiens",
+      "has_parsed_features": true,
+      "has_file_path": true,
+      "heuristic_pocket_score": null
+    },
+    {
+      "pdb_id": "9CG4",
+      "passes_filter": true,
+      "failure_reasons": [],
+      "resolution_angstrom": 3.37,
+      "chain_count": 6,
+      "organism": "Homo sapiens",
+      "has_parsed_features": true,
+      "has_file_path": true,
+      "heuristic_pocket_score": null
+    },
+    {
+      "pdb_id": "6GIS",
+      "passes_filter": true,
+      "failure_reasons": [],
+      "resolution_angstrom": 2.82,
+      "chain_count": 5,
+      "organism": "Homo sapiens",
+      "has_parsed_features": true,
+      "has_file_path": true,
+      "heuristic_pocket_score": null
+    },
+    {
+      "pdb_id": "8UMT",
+      "passes_filter": true,
+      "failure_reasons": [],
+      "resolution_angstrom": 3.33,
+      "chain_count": 8,
+      "organism": "Homo sapiens",
+      "has_parsed_features": true,
+      "has_file_path": true,
+      "heuristic_pocket_score": null
+    },
+    {
+      "pdb_id": "6CBI",
+      "passes_filter": true,
+      "failure_reasons": [],
+      "resolution_angstrom": 2.75,
+      "chain_count": 10,
+      "organism": "Homo sapiens",
+      "has_parsed_features": true,
+      "has_file_path": true,
+      "heuristic_pocket_score": null
+    },
+    {
+      "pdb_id": "3TBL",
+      "passes_filter": true,
+      "failure_reasons": [],
+      "resolution_angstrom": 2.9,
+      "chain_count": 5,
+      "organism": "Homo sapiens",
+      "has_parsed_features": true,
+      "has_file_path": true,
+      "heuristic_pocket_score": null
+    },
+    {
+      "pdb_id": "5MAV",
+      "passes_filter": true,
+      "failure_reasons": [],
+      "resolution_angstrom": 2.58,
+      "chain_count": 12,
+      "organism": "Homo sapiens",
+      "has_parsed_features": true,
+      "has_file_path": true,
+      "heuristic_pocket_score": null
+    },
+    {
+      "pdb_id": "8GL9",
+      "passes_filter": true,
+      "failure_reasons": [],
+      "resolution_angstrom": 2.81,
+      "chain_count": 4,
+      "organism": "Homo sapiens",
+      "has_parsed_features": true,
+      "has_file_path": true,
+      "heuristic_pocket_score": null
+    },
+    {
+      "pdb_id": "9B8T",
+      "passes_filter": true,
+      "failure_reasons": [],
+      "resolution_angstrom": 2.95,
+      "chain_count": 6,
+      "organism": "Homo sapiens",
+      "has_parsed_features": true,
+      "has_file_path": true,
+      "heuristic_pocket_score": null
+    },
+    {
+      "pdb_id": "6QC0",
+      "passes_filter": true,
+      "failure_reasons": [],
+      "resolution_angstrom": 3.5,
+      "chain_count": 6,
+      "organism": "Homo sapiens",
+      "has_parsed_features": true,
+      "has_file_path": true,
+      "heuristic_pocket_score": null
+    },
+    {
+      "pdb_id": "4D2G",
+      "passes_filter": true,
+      "failure_reasons": [],
+      "resolution_angstrom": 2.65,
+      "chain_count": 5,
+      "organism": "Homo sapiens",
+      "has_parsed_features": true,
+      "has_file_path": true,
+      "heuristic_pocket_score": null
+    },
+    {
+      "pdb_id": "8GCJ",
+      "passes_filter": true,
+      "failure_reasons": [],
+      "resolution_angstrom": 2.85,
+      "chain_count": 6,
+      "organism": "Homo sapiens",
+      "has_parsed_features": true,
+      "has_file_path": true,
+      "heuristic_pocket_score": null
+    },
+    {
+      "pdb_id": "6FCN",
+      "passes_filter": true,
+      "failure_reasons": [],
+      "resolution_angstrom": 3.22,
+      "chain_count": 3,
+      "organism": "Homo sapiens",
+      "has_parsed_features": true,
+      "has_file_path": true,
+      "heuristic_pocket_score": null
+    },
+    {
+      "pdb_id": "6VVO",
+      "passes_filter": true,
+      "failure_reasons": [],
+      "resolution_angstrom": 3.4,
+      "chain_count": 8,
+      "organism": "Homo sapiens",
+      "has_parsed_features": true,
+      "has_file_path": true,
+      "heuristic_pocket_score": null
+    },
+    {
+      "pdb_id": "8E84",
+      "passes_filter": true,
+      "failure_reasons": [],
+      "resolution_angstrom": 3.1,
+      "chain_count": 3,
+      "organism": "Homo sapiens",
+      "has_parsed_features": true,
+      "has_file_path": true,
+      "heuristic_pocket_score": null
+    },
+    {
+      "pdb_id": "6QCG",
+      "passes_filter": true,
+      "failure_reasons": [],
+      "resolution_angstrom": 3.4,
+      "chain_count": 12,
+      "organism": "Homo sapiens",
+      "has_parsed_features": true,
+      "has_file_path": true,
+      "heuristic_pocket_score": null
+    },
+    {
+      "pdb_id": "6GWS",
+      "passes_filter": true,
+      "failure_reasons": [],
+      "resolution_angstrom": 2.9,
+      "chain_count": 6,
+      "organism": "Homo sapiens",
+      "has_parsed_features": true,
+      "has_file_path": true,
+      "heuristic_pocket_score": null
+    },
+    {
+      "pdb_id": "9CHM",
+      "passes_filter": true,
+      "failure_reasons": [],
+      "resolution_angstrom": 3.47,
+      "chain_count": 4,
+      "organism": "Homo sapiens",
+      "has_parsed_features": true,
+      "has_file_path": true,
+      "heuristic_pocket_score": null
+    },
+    {
+      "pdb_id": "3WGW",
+      "passes_filter": false,
+      "failure_reasons": [
+        "chain_count 2 < 3",
+        "no parsed ESM-2 features",
+        "file_path null (no raw PDB)"
+      ],
+      "resolution_angstrom": 2.8,
+      "chain_count": 2,
+      "organism": "Homo sapiens",
+      "has_parsed_features": false,
+      "has_file_path": false,
+      "heuristic_pocket_score": null
+    },
+    {
+      "pdb_id": "8UI8",
+      "passes_filter": true,
+      "failure_reasons": [],
+      "resolution_angstrom": 3.1,
+      "chain_count": 7,
+      "organism": "Homo sapiens",
+      "has_parsed_features": true,
+      "has_file_path": true,
+      "heuristic_pocket_score": null
+    },
+    {
+      "pdb_id": "5IY4",
+      "passes_filter": false,
+      "failure_reasons": [
+        "no parsed ESM-2 features",
+        "file_path null (no raw PDB)"
+      ],
+      "resolution_angstrom": 2.95,
+      "chain_count": 6,
+      "organism": "Homo sapiens",
+      "has_parsed_features": false,
+      "has_file_path": false,
+      "heuristic_pocket_score": null
+    },
+    {
+      "pdb_id": "9NE6",
+      "passes_filter": false,
+      "failure_reasons": [
+        "no parsed ESM-2 features",
+        "file_path null (no raw PDB)"
+      ],
+      "resolution_angstrom": 3.11,
+      "chain_count": 6,
+      "organism": "Homo sapiens",
+      "has_parsed_features": false,
+      "has_file_path": false,
+      "heuristic_pocket_score": null
+    },
+    {
+      "pdb_id": "3P87",
+      "passes_filter": true,
+      "failure_reasons": [],
+      "resolution_angstrom": 2.99,
+      "chain_count": 12,
+      "organism": "Homo sapiens",
+      "has_parsed_features": true,
+      "has_file_path": true,
+      "heuristic_pocket_score": null
+    },
+    {
+      "pdb_id": "7M5M",
+      "passes_filter": false,
+      "failure_reasons": [
+        "no parsed ESM-2 features",
+        "file_path null (no raw PDB)"
+      ],
+      "resolution_angstrom": 3.0,
+      "chain_count": 5,
+      "organism": "Homo sapiens",
+      "has_parsed_features": false,
+      "has_file_path": false,
+      "heuristic_pocket_score": null
+    },
+    {
+      "pdb_id": "2ZVK",
+      "passes_filter": true,
+      "failure_reasons": [],
+      "resolution_angstrom": 2.7,
+      "chain_count": 6,
+      "organism": "Homo sapiens",
+      "has_parsed_features": true,
+      "has_file_path": true,
+      "heuristic_pocket_score": null
+    },
+    {
+      "pdb_id": "7EFA",
+      "passes_filter": false,
+      "failure_reasons": [
+        "chain_count 2 < 3"
+      ],
+      "resolution_angstrom": 2.7,
+      "chain_count": 2,
+      "organism": "Homo sapiens",
+      "has_parsed_features": true,
+      "has_file_path": true,
+      "heuristic_pocket_score": null
+    },
+    {
+      "pdb_id": "7M5L",
+      "passes_filter": true,
+      "failure_reasons": [],
+      "resolution_angstrom": 3.0,
+      "chain_count": 6,
+      "organism": "Homo sapiens",
+      "has_parsed_features": true,
+      "has_file_path": true,
+      "heuristic_pocket_score": null
+    },
+    {
+      "pdb_id": "1U76",
+      "passes_filter": true,
+      "failure_reasons": [],
+      "resolution_angstrom": 2.6,
+      "chain_count": 6,
+      "organism": "Homo sapiens",
+      "has_parsed_features": true,
+      "has_file_path": true,
+      "heuristic_pocket_score": null
+    },
+    {
+      "pdb_id": "1VYJ",
+      "passes_filter": true,
+      "failure_reasons": [],
+      "resolution_angstrom": 2.8,
+      "chain_count": 12,
+      "organism": "Homo sapiens",
+      "has_parsed_features": true,
+      "has_file_path": true,
+      "heuristic_pocket_score": null
+    },
+    {
+      "pdb_id": "8UI9",
+      "passes_filter": true,
+      "failure_reasons": [],
+      "resolution_angstrom": 3.5,
+      "chain_count": 8,
+      "organism": "Homo sapiens",
+      "has_parsed_features": true,
+      "has_file_path": true,
+      "heuristic_pocket_score": null
+    },
+    {
+      "pdb_id": "6TNY",
+      "passes_filter": false,
+      "failure_reasons": [
+        "no parsed ESM-2 features",
+        "file_path null (no raw PDB)"
+      ],
+      "resolution_angstrom": 3.08,
+      "chain_count": 9,
+      "organism": "Homo sapiens",
+      "has_parsed_features": false,
+      "has_file_path": false,
+      "heuristic_pocket_score": null
+    },
+    {
+      "pdb_id": "6EHT",
+      "passes_filter": true,
+      "failure_reasons": [],
+      "resolution_angstrom": 3.2,
+      "chain_count": 7,
+      "organism": "Homo sapiens",
+      "has_parsed_features": true,
+      "has_file_path": true,
+      "heuristic_pocket_score": null
+    },
+    {
+      "pdb_id": "8UII",
+      "passes_filter": false,
+      "failure_reasons": [
+        "no parsed ESM-2 features",
+        "file_path null (no raw PDB)"
+      ],
+      "resolution_angstrom": 3.04,
+      "chain_count": 8,
+      "organism": "Homo sapiens",
+      "has_parsed_features": false,
+      "has_file_path": false,
+      "heuristic_pocket_score": null
+    },
+    {
+      "pdb_id": "7KQ1",
+      "passes_filter": false,
+      "failure_reasons": [
+        "no parsed ESM-2 features",
+        "file_path null (no raw PDB)"
+      ],
+      "resolution_angstrom": 3.3,
+      "chain_count": 6,
+      "organism": "Homo sapiens",
+      "has_parsed_features": false,
+      "has_file_path": false,
+      "heuristic_pocket_score": null
+    },
+    {
+      "pdb_id": "8ZWO",
+      "passes_filter": false,
+      "failure_reasons": [
+        "organism missing",
+        "no parsed ESM-2 features",
+        "file_path null (no raw PDB)"
+      ],
+      "resolution_angstrom": 2.99,
+      "chain_count": 8,
+      "organism": null,
+      "has_parsed_features": false,
+      "has_file_path": false,
+      "heuristic_pocket_score": null
+    },
+    {
+      "pdb_id": "9IIN",
+      "passes_filter": false,
+      "failure_reasons": [
+        "organism missing",
+        "no parsed ESM-2 features",
+        "file_path null (no raw PDB)"
+      ],
+      "resolution_angstrom": 3.2,
+      "chain_count": 8,
+      "organism": null,
+      "has_parsed_features": false,
+      "has_file_path": false,
+      "heuristic_pocket_score": null
+    },
+    {
+      "pdb_id": "9SRI",
+      "passes_filter": false,
+      "failure_reasons": [
+        "organism missing",
+        "no parsed ESM-2 features",
+        "file_path null (no raw PDB)"
+      ],
+      "resolution_angstrom": 3.3,
+      "chain_count": 6,
+      "organism": null,
+      "has_parsed_features": false,
+      "has_file_path": false,
+      "heuristic_pocket_score": null
+    },
+    {
+      "pdb_id": "9UIQ",
+      "passes_filter": false,
+      "failure_reasons": [
+        "organism missing",
+        "no parsed ESM-2 features",
+        "file_path null (no raw PDB)"
+      ],
+      "resolution_angstrom": 3.2,
+      "chain_count": 8,
+      "organism": null,
+      "has_parsed_features": false,
+      "has_file_path": false,
+      "heuristic_pocket_score": null
+    },
+    {
+      "pdb_id": "9VGW",
+      "passes_filter": false,
+      "failure_reasons": [
+        "organism missing",
+        "no parsed ESM-2 features",
+        "file_path null (no raw PDB)"
+      ],
+      "resolution_angstrom": 2.7,
+      "chain_count": 6,
+      "organism": null,
+      "has_parsed_features": false,
+      "has_file_path": false,
+      "heuristic_pocket_score": null
+    }
+  ]
+}

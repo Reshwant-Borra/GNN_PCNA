@@ -1,0 +1,75 @@
+{
+  "schema_version": "1.0",
+  "uniprot_id": "P12004",
+  "organism": "Homo sapiens",
+  "canonical_sequence_length": 261,
+  "canonical_pdb": "5E0V",
+  "canonical_pdb_caveat": "5E0V is NOT apo wild-type PCNA: it is the PCNA S228I disease variant in complex with a FEN1 peptide (Duffy CM et al. J Mol Biol. 2016;428:1023-1040, PMID 26688547). It is retained as the project's nominal reference ID only. Residue numbering below is canonical UniProt P12004 and was derived from wild-type complexes (1AXC, 8GLA, 5YD8), NOT from 5E0V.",
+  "generated_utc": "2026-05-28",
+  "generator": "Advay parallel track 4; literature + structural derivation",
+  "numbering_note": "All residue numbers are canonical UniProt P12004 numbering (1-261). For the human PCNA PDB entries used here (1AXC, 8GLA, 5YD8, 5E0V), PDB author numbering follows UniProt P12004; ordered residues span ~1-255 (C-terminal tail often disordered). No residue number in this file is invented: each region cites a PDB structure and/or a PMID, and structurally derived lists are reproducible via scripts/derive_pcna_interface_contacts.py.",
+  "contact_method": "Structurally derived lists use heavy-atom (non-hydrogen) distance <= 4.5 A. Literature lists are quoted from the cited paper.",
+  "governance": [
+    "docs/scientific_governance/12_PCNA_SPECIFIC_CHECKS.md",
+    "docs/scientific_governance/14_CLAIM_POLICY.md"
+  ],
+  "claim_guidance": "Overlap of a prediction with any region below is 'overlaps a known PCNA interaction interface', NOT a novel site (governance doc 12). The AOH1996/8GLA region is a positive-control region; recovery is a sanity check and never validates a novel-site prediction.",
+  "regions": {
+    "pip_box_binding_site": {
+      "description": "Front-face hydrophobic pocket that binds canonical PIP-box (PIPM) motifs (e.g. p21, FEN1, DNA pol delta p66). Spans a hydrophobic pocket, the IDCL, and the C-terminal region.",
+      "residues": [40, 41, 42, 43, 44, 117, 118, 119, 120, 121, 122, 123, 124, 125, 126, 127, 128, 129, 130, 131, 132, 133, 134, 135, 230, 231, 232, 233, 234, 235, 251, 252, 253],
+      "residue_source": "literature_canonical_pocket",
+      "source_pmid": "31134302",
+      "source_citation": "Mueller R et al. The PCNA interaction motifs revisited: thinking outside the PIP-box. Cell Mol Life Sci. 2019. PMID 31134302 (pocket residues 40-44, 117-135, 230-235, 251-253).",
+      "source_pdb": "1AXC",
+      "structural_support": {
+        "pdb": "1AXC",
+        "citation": "Gulbis JM, Kelman Z, Hurwitz J, O'Donnell M, Kuriyan J. Cell. 1996;87:297-306. PMID 8861913.",
+        "method": "PCNA residues within 4.5 A of the bound p21 PIP-box peptide (p21 res 143-160)",
+        "contact_residues": [27, 29, 40, 43, 44, 45, 46, 47, 67, 68, 69, 96, 97, 118, 119, 120, 121, 122, 123, 124, 125, 126, 127, 128, 129, 131, 133, 208, 211, 232, 233, 234, 250, 251, 252, 253, 254, 255],
+        "note": "The structural contact set is broader than the core pocket because the p21 peptide extends across the PCNA surface (Gulbis 1996). The 'residues' field uses the conservative literature core pocket."
+      }
+    },
+    "apim_site": {
+      "description": "AlkB-homologue-2 PCNA-interacting motif (APIM) binding site. Structural work shows APIM binds the SAME front-face PIPM pocket as the PIP-box; APIM is now classified as a non-canonical PIPM subgroup.",
+      "residues": [40, 47, 126, 127, 128, 129, 233, 234],
+      "residue_source": "literature_structure",
+      "source_pdb": "5YD8",
+      "source_pmid": "29633969",
+      "source_citation": "Hara K et al. Structure of PCNA bound to an APIM peptide reveals the universality of PCNA interaction. Acta Crystallogr F. 2018;74:214-221. PMID 29633969. APIM contacts Met40, Leu47, Leu126, Gly127, Ile128, Pro129, Val233, Pro234.",
+      "motif_consensus": "(K/R)-(F/Y/W)-(L/I/V/A)-(L/I/V/A)-(K/R)",
+      "motif_discovery_pmid": "19752023",
+      "motif_discovery_citation": "Gilljam KM et al. Identification of a novel, widespread, and functionally important PCNA-binding motif. J Cell Biol. 2009;186:645-654. PMID 19752023.",
+      "note": "Overlaps pip_box_binding_site; not an independent surface."
+    },
+    "idcl": {
+      "description": "Interdomain connecting loop. Flexible loop linking the two PCNA domains; forms part of the PIPM binding pocket and is a key recognition element for PCNA partners.",
+      "residues": [117, 118, 119, 120, 121, 122, 123, 124, 125, 126, 127, 128, 129, 130, 131, 132, 133, 134, 135],
+      "residue_source": "literature",
+      "source_pmid": "31134302",
+      "source_citation": "Mueller R et al. Cell Mol Life Sci. 2019. PMID 31134302 (IDCL residues 117-135). The Track-4 brief's '~119-133' is a subset of this range.",
+      "note": "Subset of pip_box_binding_site."
+    },
+    "trimer_interface": {
+      "description": "Head-to-tail subunit-subunit interface of the PCNA homotrimer (the ring-closing contacts). Burial of these residues forms the closed clamp.",
+      "residues": [74, 77, 78, 80, 81, 82, 83, 108, 109, 110, 111, 112, 113, 114, 115, 116, 117, 143, 146, 147, 149, 150, 151, 153, 154, 173, 174, 175, 176, 177, 178, 179, 180, 181, 182, 183, 185],
+      "residue_source": "structurally_derived_this_work",
+      "source_pdb": "1AXC",
+      "source_citation": "Derived from PDB 1AXC (Gulbis JM et al. Cell. 1996;87:297-306. PMID 8861913), inter-subunit heavy-atom contacts among trimer chains A/C/E within 4.5 A. Reproduce via scripts/derive_pcna_interface_contacts.py.",
+      "method": "inter-subunit heavy-atom distance <= 4.5 A",
+      "note": "Structurally derived; the underlying trimer architecture is established (Krishna TS et al. Cell. 1994;79:1233-1243, PMID 8001157, yeast PCNA 1PLQ; human trimer in 1AXC)."
+    },
+    "aoh1996_contact_region": {
+      "description": "PCNA residues contacting the AOH1996 derivative (AOH1996-1LE; ligand code ZQZ) in the co-crystal structure 8GLA. POSITIVE-CONTROL region.",
+      "residues": [23, 25, 26, 27, 38, 39, 40, 41, 44, 45, 46, 47, 121, 123, 124, 125, 126, 128, 129, 131, 231, 232, 233, 234, 250, 251, 252, 253],
+      "residue_source": "structurally_derived_this_work",
+      "source_pdb": "8GLA",
+      "ligand_code": "ZQZ",
+      "source_pmid": "37531956",
+      "source_citation": "Derived from PDB 8GLA (Gu L et al. Small molecule targeting of transcription-replication conflict for selective chemotherapy. Cell Chem Biol. 2023;30:1235. PMID 37531956), PCNA residues within 4.5 A of ligand ZQZ. Reproduce via scripts/derive_pcna_interface_contacts.py.",
+      "method": "heavy-atom distance <= 4.5 A to ligand ZQZ",
+      "positive_control": true,
+      "overlap_observation": "This region substantially overlaps pip_box_binding_site / IDCL / C-terminus (shared residues include 40, 44-47, 121, 123-126, 128, 129, 131, 232-234, 250-253). The ZQZ ligand also contacts residues across two PCNA chains in 8GLA. Per governance doc 12, recovery of this region is positive-control overlap with known interfaces, NOT evidence of a novel druggable site."
+    }
+  }
+}

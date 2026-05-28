@@ -135,6 +135,12 @@ After any session that produces durable findings, **before ending the session**:
 
 ---
 
+## Collaboration Boundaries
+
+Two developers are working in parallel. Read `COLLABORATION.md` to understand which files
+are owned by whom, what Friend's Claude Code agent may and may not touch, and which Phase 3
+work can proceed before Phase 2 completes.
+
 ## Authority Hierarchy
 
 ```

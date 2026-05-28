@@ -7730,5 +7730,10 @@
       "positive_count": 15,
       "masked_count": 0
     }
-  }
+  },
+  "status": "FROZEN",
+  "frozen_at": "2026-05-27T23:52:41.870640",
+  "frozen_by": "Rishi (project supervisor) \u2014 label freeze approved 2026-05-27",
+  "split_manifest_ref": "data/registries/split_manifest_frozen.json",
+  "approval_record": "reports/phase2/split_manifest_approval_20260527.md"
 }

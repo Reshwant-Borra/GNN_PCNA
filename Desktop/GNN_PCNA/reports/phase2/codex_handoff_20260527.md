@@ -4,7 +4,7 @@ handoff_date: 2026-05-27
 from_agent: claude-code (Reshwant's session)
 to_agent: codex
 status: complete
-phase: Phase 2 — Dataset Investigation and Remediation Planning
+phase: Phase 2 COMPLETE → Phase 3 AUTHORIZED
 ---
 
 # Codex Handoff — GNN-PCNA Phase 2 (2026-05-27)
@@ -162,70 +162,95 @@ Outputs: `data/labels/labels_{apo}.json` + `data/labels/label_manifest.json` (ha
 
 ---
 
-## Immediate Next Tasks for Codex
+## Phase 2 Status: COMPLETE
 
-### Task 1: Draft split manifest (READY TO START)
+**All Phase 2 tasks are done. Split and label manifests are FROZEN. Phase 3 is authorized.**
 
-Clustering is complete. Needed: a split manifest that incorporates cluster-aware grouping.
+### What Was Completed After Original Handoff Draft
+
+| Task | Status | Output |
+|---|---|---|
+| Split redesign (5 clusters → train) | APPROVED by Rishi 2026-05-27 | `reports/phase2/split_manifest_approval_20260527.md` |
+| Split manifest frozen | FROZEN | `data/registries/split_manifest_frozen.json` (hash: 24dd5e347d880108) |
+| Label manifest frozen | FROZEN | `data/labels/label_manifest.json` |
+| Phase 2 completion declared | COMPLETE | `wiki/log.md` — 3 final entries appended |
+
+### Frozen Split Manifest
+
+**File:** `data/registries/split_manifest_frozen.json`  
+**Hash:** 24dd5e347d880108  
+**Total structures:** 1,101  
+**Distribution:** test=214, train-0=220, train-1=223, train-2=222, train-3=222
+
+Split redesign applied:
+- 7o1i: test → train-1 (cluster 885)
+- 2rfj: test → train-2 (cluster 150)
+- 9atc: test → train-1 (cluster 219)
+- 6n5j: test → train-0 (cluster 5192)
+- 6w10: test → train-2 (cluster 3396)
+
+### Frozen Label Manifest
+
+**File:** `data/labels/label_manifest.json`  
+**Structures:** 1,101 | **Positives:** 16,335 | **Masked:** 3,704 | **Remaps:** 0
+
+---
+
+## Immediate Next Tasks for Codex — PHASE 3
+
+### Task 1: Remove dry-run guard (READY)
 
 ```
-Governance: docs/scientific_governance/05_SPLIT_PROTOCOL.md
+Authorization: reports/phase2/split_manifest_approval_20260527.md
 
-For each of the 1,107 apo structures, record:
-  - apo_pdb_id
-  - original_fold (from folds.json)
-  - cluster_id_30 (from sequence_cluster_assignments.json)
-  - uniprot_id
-  - pcna_holdout: true if in cluster 1168
-  - proposed_split: reassigned fold for the 5 cross-fold clusters
+In src/phase3_training/, remove or conditionalize the --dry-run blocker guard.
+The guard was intentionally blocking real training until Phase 2 split + label freeze
+were approved. That approval is now recorded.
 
-5 clusters need reassignment (move all to train — recommended):
-  885: move 7o1i from test → train
-  150: move 2rfj from test → train
-  219: move 9atc from test → train (also fixes 2fzc/2fzg/4f04 repeated holo)
-  5192: move 6n5j from test → train
-  3396: move 6w10 from test → train
-
-Output: data/registries/split_manifest_draft.json
-Status: draft_not_frozen — requires human sign-off (26_HUMAN_REVIEW_GATES.md)
+Before touching src/phase3_*:
+  - Owner is Friend per COLLABORATION.md
+  - Codex should coordinate with Friend before modifying Phase 3 code
+  - Read docs/scientific_governance/16_CODING_AGENT_RULES.md first
 ```
 
-### Task 2: Run label generation script
+### Task 2: Implement data pipeline connecting frozen Phase 2 outputs to Phase 3 training
 
 ```
-Run: python scripts/generate_labels.py
+Governance: docs/scientific_governance/07_PREPROCESSING_AND_GRAPH_RULES.md
+             docs/scientific_governance/08_MODEL_ARCHITECTURE_CONSTRAINTS.md
+
+Inputs (all frozen):
+  data/registries/split_manifest_frozen.json   — fold assignments
+  data/labels/labels_{apo_pdb_id}.json         — per-residue labels (label=1 positive, label=-1 masked)
+  data/raw_intake/cryptobench/cif-files/       — 5,005 CIF structures (gitignored, present locally)
+  data/registries/excluded_records.json        — 6 structures to skip
+
+The pipeline must:
+  - Respect PU framing: label=-1 means masked, NOT negative. Exclude from loss.
+  - Respect fold assignments in split_manifest_frozen.json (not the original folds.json)
+  - Exclude all 6 records in excluded_records.json
+  - Not generate graphs or train until pipeline is verified correct
+
+Output target:
+  src/phase2_intake/ or new src/phase3_data/ — dataset loader for Phase 3 trainer
+```
+
+### Task 3: Run Phase 3 training (after Task 2 pipeline verified)
+
+```
+Governance:
+  docs/scientific_governance/08_MODEL_ARCHITECTURE_CONSTRAINTS.md
+  docs/scientific_governance/09_EVALUATION_PROTOCOL.md
+  docs/scientific_governance/10_BASELINE_REQUIREMENTS.md
+  docs/scientific_governance/19_STOP_CONDITIONS.md
 
 Prerequisites:
-  - data/raw_intake/ must be populated (CIF zip is gitignored but present locally)
-  - All 4 decisions approved — nothing to wait for
+  - dry-run guard removed (Task 1)
+  - data pipeline verified (Task 2)
+  - human sign-off on pipeline correctness before first real training run
 
-Expected output:
-  data/labels/labels_{apo_pdb_id}.json  — one per structure
-  data/labels/label_manifest.json       — hash-verified manifest
-  data/registries/residue_remap_log.json
-  data/registries/excluded_records.json
-  reports/phase2/label_generation_report.md
-
-After running: append results to wiki/log.md, update PROJECT_STATE.md
-```
-
-### Task 3: Draft split manifest
-
-```
-Wait for: Task 1 (clustering results)
-Governance: docs/scientific_governance/05_SPLIT_PROTOCOL.md
-
-For each apo structure, the split manifest must record:
-  - apo_pdb_id
-  - fold assignment (from folds.json)
-  - cluster_id_30 (from sequence_cluster_assignments.json)
-  - uniprot_id
-  - pcna_holdout: true/false
-  - split_group: cluster-based grouping that overrides original fold if cross-fold risk
-
-Status: draft_not_frozen — requires human sign-off (governance 26_HUMAN_REVIEW_GATES.md)
-
-Output: data/registries/split_manifest_draft.json
+PCNA structures are holdout-only (cluster_id_30=1168).
+Do NOT include PCNA structures in training or validation.
 ```
 
 ---

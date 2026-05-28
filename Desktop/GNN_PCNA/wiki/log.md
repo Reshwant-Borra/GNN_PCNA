@@ -234,3 +234,43 @@ Append-only record of maintained wiki operations and durable project decisions.
   - **0 remaps** (Class 1 remap decision 4a): auth_seq_id direct lookup succeeded for all resolvable tokens. The 420 Class 1 failures from the audit script were resolved by our more complete CIF parser (all atoms, not CA-only).
   - Label files written to `data/labels/labels_{apo_pdb_id}.json`; hash-verified manifest at `data/labels/label_manifest.json`.
   - **Label generation is implementation-complete.** Label freeze requires human sign-off (governance 26).
+
+## 2026-05-27 - Split Manifest Frozen — Rishi Approved (Blocker 3 + 6 Cleared)
+
+- Source path: `data/registries/split_manifest_frozen.json`, `reports/phase2/split_manifest_approval_20260527.md`
+- Governance path: `docs/scientific_governance/05_SPLIT_PROTOCOL.md`, `26_HUMAN_REVIEW_GATES.md`
+- Confidence level: high — explicit human approval.
+- Evidence status: verified (explicit Rishi sign-off 2026-05-27).
+- Decision/update:
+  - **Split redesign approved by Rishi.** 5 test structures moved to train so each 30%-identity cluster falls within a single split group.
+  - Assignments: 7o1i → train-1 (cluster 885), 2rfj → train-2 (cluster 150), 9atc → train-1 (cluster 219), 6n5j → train-0 (cluster 5192), 6w10 → train-2 (cluster 3396).
+  - Final fold distribution: test=214, train-0=220, train-1=223, train-2=222, train-3=222. Total=1,101 structures.
+  - Split manifest written to `data/registries/split_manifest_frozen.json`, status=frozen, hash=24dd5e347d880108.
+  - Approval record: `reports/phase2/split_manifest_approval_20260527.md`.
+  - **Blockers 3 and 6 fully cleared.**
+
+## 2026-05-27 - Label Manifest Frozen — Rishi Approved (Blocker 7 Cleared)
+
+- Source path: `data/labels/label_manifest.json`, `reports/phase2/split_manifest_approval_20260527.md`
+- Governance path: `docs/scientific_governance/06_LABELING_RULES.md`, `26_HUMAN_REVIEW_GATES.md`
+- Confidence level: high — explicit human approval; hash-verified files.
+- Evidence status: verified.
+- Decision/update:
+  - Label manifest frozen in same sign-off event as split manifest (2026-05-27, Rishi).
+  - `data/labels/label_manifest.json` status set to frozen; frozen_at=2026-05-27; split_manifest_ref=24dd5e347d880108.
+  - Labels: 1,101 structures, 16,335 positives, 3,704 masked (-1), 0 remaps, 6 excluded.
+  - PU learning contract intact: unlisted residues are background/unlabeled, not true negatives.
+  - **Blocker 7 (label freeze) cleared.**
+
+## 2026-05-27 - Phase 2 Complete — All Blockers Cleared
+
+- Source path: `reports/phase2/split_manifest_approval_20260527.md`, `data/registries/split_manifest_frozen.json`, `data/labels/label_manifest.json`
+- Governance path: `docs/scientific_governance/21_READINESS_GATE.md`, `26_HUMAN_REVIEW_GATES.md`, `37_PHASE2_IMPLEMENTATION_PLAN.md`
+- Confidence level: high.
+- Evidence status: verified.
+- Decision/update:
+  - **Phase 2 Foundation is complete.** All governance decisions documented, approved, and implemented.
+  - All 7 Phase 2 blockers cleared as of 2026-05-27.
+  - Frozen artifacts: split manifest (24dd5e347d880108) + label manifest (1,101 structures, 16,335 positives).
+  - Phase 3 prerequisites met. Friend's `--dry-run` guard may be removed per approval in `reports/phase2/split_manifest_approval_20260527.md`.
+  - **Phase 3 is authorized to begin real training.**

@@ -74,3 +74,21 @@ evidence_status: inferred
 - Source paths: `docs/scientific_governance/37_PHASE2_IMPLEMENTATION_PLAN.md`, `wiki/sources/crawl-map.md`, `reports/phase2/scientific_uncertainty_register.md`, `reports/phase2/readiness_gate.md`, `reports/phase2/dataset_investigation_report.md`, `reports/phase2/proposed_split_strategy.md`, `reports/phase2/proposed_label_strategy.md`, `reports/phase2/local_dataset_discovery_report.md`, `reports/phase2/cryptobench_schema_deep_audit.md`, `reports/phase2/cryptobench_split_risk_audit.md`, `reports/phase2/cryptobench_label_semantics.md`, `reports/phase2/cryptobench_structure_inventory.md`, `reports/phase2/pcna_contamination_screen.md`, `reports/phase2/cryptobench_adoption_decision.md`, `reports/phase2/pcna_isolation_policy.md`, `reports/phase2/cryptobench_leakage_remediation.md`, `reports/phase2/proposed_label_policy.md`, `reports/phase2/residue_mapping_failure_analysis.md`, `reports/phase2/proposed_phase2_split_strategy.md`, `reports/phase2/phase2_claude_code_handoff.md`
 - Confidence level: high for gaps; evidence status: verified for local audit findings and inferred for scientific decisions still needed
 - Date last updated: 2026-05-27
+
+## 2026-05-28 - Phase 3 Graph Policy Questions - Resolved By Human Decision
+
+Status: resolved for first graph-generation implementation by
+`reports/phase3/graph_policy_human_decision_20260528.md`.
+
+- Approved edge definition: undirected CA-CA spatial edges with cutoff `8.0 Angstrom`, plus same-chain sequential edges only between present adjacent residues; cross-chain, symmetry, DNA/RNA, ligand, partner-protein, and PCNA-trimer-specific edges are not approved for MVP graph release.
+- Approved node feature set: residue identity one-hot plus binary flags for modified residue, missing CA, and has-altloc; chain ID, residue number, fold, cluster, label counts, split assignment, and PCNA/holdout flags are metadata only; no ESM/protein-language-model features in first graph release.
+- Approved alternate-location policy: use highest-occupancy CA coordinate, tie-break lexicographically by altloc ID with `.`/`?` preferred over lettered alternates on occupancy ties, and record tie-break counts.
+- Approved handling for audited residues without CA and altloc records: retain nodes for no-CA residues, omit their spatial CA edges, allow non-gap-bridging sequential edges, and report no-CA and altloc counts/residue IDs in graph manifests.
+- Training-related normalization/class-weight policy remains training-gated: no validation/test normalization fitting is allowed, and real training still requires first graph release review and a separate training gate.
+
+Provenance:
+- date: 2026-05-28
+- source: `reports/phase3/phase3_framework_rebuild_20260528.md`, `reports/phase3/graph_edge_feature_policy_approval_packet_20260528.md`, `reports/phase3/graph_policy_human_decision_20260528.md`, `data/registries/phase3_residue_audit_manifest_20260528.json`
+- governance: `docs/scientific_governance/07_PREPROCESSING_AND_GRAPH_RULES.md`, `08_MODEL_ARCHITECTURE_CONSTRAINTS.md`, `15_PROVENANCE_AND_REPRODUCIBILITY.md`, `19_STOP_CONDITIONS.md`, `26_HUMAN_REVIEW_GATES.md`
+- confidence: high
+- evidence_status: verified for audit counts and recorded human graph-policy decision

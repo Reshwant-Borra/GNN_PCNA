@@ -1,163 +1,150 @@
-# Collaboration Boundaries — GNN-PCNA
+# Collaboration Boundaries - GNN-PCNA
 
 Two developers are working in parallel on this repo:
 
-- **Owner (Reshwant)** — finishing Phase 2 (data, governance, splits, labels)
-- **Friend** — building Phase 3 (model, training, evaluation, baselines)
+- **Owner (Reshwant)** - Phase 2 data, governance, splits, labels, and project state.
+- **Friend** - Phase 3 model, training, evaluation, and baselines.
 
-Phase 3 can be built in parallel with Phase 2 **as a framework only** — no training may
-run until Phase 2 blockers are resolved and datasets/splits/labels are frozen. Check
-`.memory/PROJECT_STATE.md` to see current blocker status before attempting any training.
+Phase 2 is complete as of 2026-05-27. Phase 3 implementation is authorized, but real
+training still requires a verified data pipeline and explicit human sign-off.
 
 ---
 
-## What Each Person Owns
+## Current Coordination Status - 2026-05-28
+
+- Phase 2 split and label manifests are frozen and human-approved.
+- `reports/phase2/split_manifest_approval_20260527.md` authorizes removal of the Phase 3
+  dry-run guard, but it does **not** bypass the human gate for the first real training run.
+- Friend's full Phase 3 framework is reported by prior handoff text, but it is **not
+  verified as present on this local `main` checkout**. As of this inspection, `src/phase3_*`,
+  `src/baselines`, `tests/phase3`, and `reports/phase3` are absent locally.
+- Friend completed and pushed/merged the Phase 2 crawl metadata support artifacts:
+  `data/registries/friend_crawl_registry.json`, `data/registries/friend_feature_schema.json`,
+  `data/registries/friend_crawl_homolog_groups.json`, `reports/phase2/friend_crawl_stats.md`,
+  and `data/raw_intake/friend_sample/`.
+- Friend is currently unavailable per Reshwant's handoff note. If Friend remains unavailable,
+  Reshwant may continue or rebuild portions of Phase 3 independently in Codex. Document any
+  ownership exception in the session handoff and wiki log.
+- Do not assume the finalized Phase 3 codebase exists remotely until the branch or files are
+  inspected directly.
+
+---
+
+## Friend / 40GB Crawl Use Policy
+
+The committed crawl metadata describes a PCNA-focused experimental subset, not a governed
+supervised training benchmark. Use it as follows:
+
+1. **Phase 3 supervised benchmark training:** no. Use frozen CryptoBench only.
+2. **Phase 4 external inference/discovery:** yes, after the Phase 3 model is frozen and
+   provenance/holdout constraints are preserved.
+3. **Future pretraining or expansion:** possible only under a separate governance decision
+   with deduplication, clustering, benchmark-contamination checks, lifecycle status changes,
+   and human approval.
+
+Rationale: governance requires registry completeness, label definitions, split/leakage
+control, provenance, and human review before any dataset enters training. The crawl metadata
+currently has no computed homolog groups, incomplete ligand IDs/missing-residue fields, and
+many PCNA/PCNA-associated records that must remain holdout-only.
+
+---
+
+## Ownership Table
 
 | Area | Owner | Notes |
 |---|---|---|
-| `data/` (all subfolders) | Reshwant | All dataset decisions, registries, splits, labels |
-| `docs/scientific_governance/` | Reshwant | Scientific law — both read, only Reshwant edits |
-| `reports/phase2/` | Reshwant | Phase 2 audit trail — append only, Reshwant manages |
-| `.memory/PROJECT_STATE.md` | Reshwant | Phase 2 drives project state; Friend reads but defers to Reshwant for updates |
-| `wiki/` | Shared | Both append; follow rules in `.memory/MEMORY_RULES.md` |
-| `src/phase3_model/` | Friend | GNN architecture |
-| `src/phase3_training/` | Friend | Training harness |
-| `src/phase3_evaluation/` | Friend | Evaluation and metrics pipeline |
+| `data/` | Reshwant | Dataset decisions, registries, splits, labels |
+| `docs/scientific_governance/` | Reshwant | Scientific law; read by agents, edited only by Reshwant/human |
+| `reports/phase2/` | Reshwant | Phase 2 audit trail; existing files are permanent |
+| `.memory/PROJECT_STATE.md` | Reshwant | Current state snapshot; agents may update per memory rules |
+| `wiki/` | Shared | Append/update with provenance per `.memory/MEMORY_RULES.md` |
+| `src/phase2_intake/` | Reshwant | Governed intake pipeline |
+| `scripts/` | Reshwant | Audit and validation scripts |
+| `src/phase3_model/` | Friend | GNN architecture, unless Reshwant authorizes Codex rebuild |
+| `src/phase3_training/` | Friend | Training harness, unless Reshwant authorizes Codex rebuild |
+| `src/phase3_evaluation/` | Friend | Evaluation and metrics, unless Reshwant authorizes Codex rebuild |
 | `src/baselines/` | Friend | fpocket, P2Rank, PocketMiner wrappers |
 | `reports/phase3/` | Friend | Phase 3 experiment reports |
-| `src/phase2_intake/` | Reshwant | Data intake pipeline — Friend does not modify |
-| `scripts/` | Reshwant | Audit and validation scripts — Friend does not modify |
-| `AGENTS.md`, `CLAUDE.md` | Reshwant | Instruction files — Friend reads, does not edit |
+| `tests/phase3/` | Friend | Phase 3 tests |
+| `AGENTS.md`, `CLAUDE.md` | Reshwant | Human-managed instruction files |
 
 ---
 
-## What Friend Must NOT Touch
+## What Friend Must Not Touch Without Coordination
 
-Friend's Claude Code agent must never modify:
+Friend's agent must not modify:
 
+```text
+data/
+docs/scientific_governance/
+reports/phase2/
+scripts/
+src/phase2_intake/
+CLAUDE.md
+AGENTS.md
+.memory/INDEX.md
+.memory/MEMORY_RULES.md
 ```
-data/                          ← all dataset/split/label decisions are Reshwant's
-docs/scientific_governance/   ← scientific law, human-only edits
-reports/phase2/                ← Reshwant's audit trail
-scripts/                       ← Reshwant's validation scripts
-src/phase2_intake/             ← Reshwant's intake pipeline
-CLAUDE.md                      ← Reshwant's agent instructions
-AGENTS.md                      ← shared instructions, Reshwant manages
-.memory/INDEX.md               ← human-only
-.memory/MEMORY_RULES.md        ← human-only
+
+Friend may contribute small read-only registry/support artifacts into Reshwant-owned folders
+only when Reshwant reviews them before use in scientific decisions.
+
+---
+
+## What Phase 3 Can Build
+
+Phase 3 can include:
+
+- `src/phase3_model/` - graph encoder, residue-level prediction head, ablations.
+- `src/phase3_training/` - data loader interface, training loop, checkpointing, dry-run guard.
+- `src/phase3_evaluation/` - AUPRC, AUROC, Top-K recovery, bootstrap CIs.
+- `src/baselines/` - fpocket, P2Rank, PocketMiner adapters.
+- `tests/phase3/` - unit tests and contract tests.
+- `reports/phase3/` - experiment tracking after the folder/code exists.
+
+Phase 3 loaders must use frozen Phase 2 artifacts:
+
+```text
+data/registries/split_manifest_frozen.json
+data/labels/labels_{apo_pdb_id}.json
+data/raw_intake/cryptobench/cif-files/
+data/registries/excluded_records.json
 ```
 
----
-
-## Friend's Immediate Phase 2 Contribution (No Conflict Risk)
-
-Friend has a local **40GB raw protein structure crawl** (~23,771 RCSB mmCIF files,
-~20,000 AlphaFold predicted structures, parsed feature files, STRING/BioGRID data).
-**Do not transfer the full 40GB yet** — most will be excluded after filtering.
-
-Instead, Friend should send/commit these small artifacts to unblock Phase 2 decisions:
-
-1. **Metadata registry** — JSON/CSV/JSONL with one row per structure: PDB ID or
-   AlphaFold ID, source, resolution, chain count, organism, sequence length, ligand
-   presence, confidence scores, file size, whether parsed features exist, heuristic
-   pocket scores, local file path. Save as `data/registries/friend_crawl_registry.json`.
-
-2. **Summary statistics** — total structure counts, AlphaFold vs experimental split,
-   resolution distribution, chain-count distribution, duplicate counts, missing-residue
-   rates, low-confidence counts. Save as `reports/phase2/friend_crawl_stats.md`.
-
-3. **Homolog/duplicate analysis** (if computed) — approximate sequence similarity
-   groups or cluster assignments. Even rough groupings help design the split.
-   Save as `data/registries/friend_crawl_homolog_groups.json` if available.
-
-4. **Parsed feature schemas** — not the arrays themselves, just a description of what
-   features exist, their formats, and example records (~1KB).
-   Save as `data/registries/friend_feature_schema.json`.
-
-5. **Sample subset** — 20–50 representative mmCIF files (a few PCNA-related, a few
-   AlphaFold, a few with parsed features). Place in `data/raw_intake/friend_sample/`.
-
-These are all safe for Friend to commit directly — they land in Reshwant-owned folders
-(`data/registries/`, `reports/phase2/`, `data/raw_intake/`) which is fine because
-Friend is contributing **read-only registry artifacts**, not making governance decisions.
-Reshwant reviews and approves before any of this feeds into intake/filtering rules.
+Do not use original CryptoBench `folds.json` for training splits.
 
 ---
 
-## What Friend CAN Build Now (Before Phase 2 Completes)
+## Training Gate
 
-Friend can fully build the Phase 3 framework in anticipation of frozen data:
+No real training may run until:
 
-- **GNN model architecture** in `src/phase3_model/` — design the graph encoder,
-  residue-level prediction head, and any ablation variants
-- **Training harness** in `src/phase3_training/` — data loader stubs (using frozen
-  split manifest interface), training loop, checkpointing; use placeholder paths for
-  data until splits are frozen
-- **Evaluation pipeline** in `src/phase3_evaluation/` — metrics (AUPRC, AUROC, Top-K
-  Recovery), bootstrap CIs per `docs/scientific_governance/09_EVALUATION_PROTOCOL.md`
-- **Baseline wrappers** in `src/baselines/` — fpocket, P2Rank, PocketMiner adapters
-- **Tests** in `tests/phase3/` — unit tests for model components and metric functions
-- **Phase 3 reports folder** — create `reports/phase3/` for experiment tracking
+1. The Phase 3 data pipeline is implemented against frozen Phase 2 outputs.
+2. The pipeline excludes all 6 records in `data/registries/excluded_records.json`.
+3. `label=-1` residues are masked/excluded from loss, not treated as negatives.
+4. PCNA cluster `cluster_id_30=1168` is excluded from train and validation.
+5. Graph/label/provenance audits pass.
+6. A human reviewer signs off on the data pipeline.
 
----
+Governance applies to both developers and both agents. At minimum, read:
 
-## What Friend Must Wait For
-
-Friend's code must not run training, evaluation on test data, or make any results claims
-until ALL of these are cleared in `.memory/PROJECT_STATE.md`:
-
-1. CryptoBench adoption approved (blocker 1)
-2. PCNA isolation policy approved (blocker 2)
-3. Sequence clustering complete (blocker 3)
-4. Residue mapping failure policy resolved (blocker 4)
-5. Label policy approved (blocker 5)
-6. Split frozen (blocker 6)
-
-Build the training harness to accept a frozen split manifest path as input. Use a
-`--dry-run` flag or similar guard so the pipeline cannot accidentally train on unfrozen
-data.
-
----
-
-## Governance Rules Apply to Both
-
-Both developers and both Claude Code agents must follow `docs/scientific_governance/`.
-Friend must read at minimum before implementing Phase 3:
-
-- `docs/scientific_governance/16_CODING_AGENT_RULES.md`
-- `docs/scientific_governance/07_PREPROCESSING_AND_GRAPH_RULES.md`
-- `docs/scientific_governance/08_MODEL_ARCHITECTURE_CONSTRAINTS.md`
-- `docs/scientific_governance/09_EVALUATION_PROTOCOL.md`
-- `docs/scientific_governance/10_BASELINE_REQUIREMENTS.md`
-- `docs/scientific_governance/14_CLAIM_POLICY.md`
-- `docs/scientific_governance/19_STOP_CONDITIONS.md`
-- `docs/scientific_governance/21_READINESS_GATE.md`
-- `docs/scientific_governance/37_PHASE2_IMPLEMENTATION_PLAN.md`
-
-Use `docs/scientific_governance/00_COMPACT_INDEX.md` to locate additional docs fast.
+```text
+docs/scientific_governance/16_CODING_AGENT_RULES.md
+docs/scientific_governance/07_PREPROCESSING_AND_GRAPH_RULES.md
+docs/scientific_governance/08_MODEL_ARCHITECTURE_CONSTRAINTS.md
+docs/scientific_governance/09_EVALUATION_PROTOCOL.md
+docs/scientific_governance/10_BASELINE_REQUIREMENTS.md
+docs/scientific_governance/14_CLAIM_POLICY.md
+docs/scientific_governance/19_STOP_CONDITIONS.md
+docs/scientific_governance/21_READINESS_GATE.md
+docs/scientific_governance/26_HUMAN_REVIEW_GATES.md
+```
 
 ---
 
 ## Merge / Conflict Avoidance
 
-- Friend works on a separate branch: `phase3-model-framework`
-- Reshwant works on: `phase2-dataset-investigation` (or `main` after Phase 2 merges)
-- Neither merges to `main` without reviewing the other's recent changes in their owned area
-- If Friend needs to update `wiki/` or `.memory/PROJECT_STATE.md`, coordinate with Reshwant first to avoid conflicts
-- `data/registries/` and `reports/phase2/` are append-only from Friend's perspective — never rewrite, never delete
-
----
-
-## Quick Reference for Friend's Claude Code Agent
-
-**Read first:**
-1. `CLAUDE.md` — project rules and governance
-2. `.memory/PROJECT_STATE.md` — current blockers (training is blocked until these clear)
-3. `.memory/INDEX.md` — task routing
-4. `COLLABORATION.md` — this file, boundaries
-
-**Your working directories:**
-`src/phase3_model/` · `src/phase3_training/` · `src/phase3_evaluation/` · `src/baselines/` · `reports/phase3/` · `tests/phase3/`
-
-**Do not touch:**
-`data/` · `docs/scientific_governance/` · `reports/phase2/` · `scripts/` · `src/phase2_intake/` · `CLAUDE.md` · `AGENTS.md`
+- Friend should work on a Phase 3 branch until the code can be reviewed.
+- Reshwant/Codex should not assume Friend's unpushed local code exists on `main`.
+- Neither developer should rewrite the other's owned files without coordination or a recorded exception.
+- Existing `reports/phase2/*.md` files must not be overwritten; create new handoff/report files only.

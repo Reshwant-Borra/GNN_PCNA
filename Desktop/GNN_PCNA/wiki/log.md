@@ -274,3 +274,66 @@ Append-only record of maintained wiki operations and durable project decisions.
   - Frozen artifacts: split manifest (24dd5e347d880108) + label manifest (1,101 structures, 16,335 positives).
   - Phase 3 prerequisites met. Friend's `--dry-run` guard may be removed per approval in `reports/phase2/split_manifest_approval_20260527.md`.
   - **Phase 3 is authorized to begin real training.**
+
+## 2026-05-28 - Phase 3 Handoff Corrected And Crawl Use Policy Clarified
+
+- Source path: `.memory/PROJECT_STATE.md`, `COLLABORATION.md`, `reports/phase2/handoff_20260528.md`, `reports/phase2/friend_crawl_stats.md`, `data/registries/friend_crawl_registry.json`, `data/registries/friend_feature_schema.json`, `data/registries/friend_crawl_homolog_groups.json`
+- Governance path: `docs/scientific_governance/04_DATASET_CONSTRAINTS.md`, `05_SPLIT_PROTOCOL.md`, `06_LABELING_RULES.md`, `07_PREPROCESSING_AND_GRAPH_RULES.md`, `15_PROVENANCE_AND_REPRODUCIBILITY.md`, `16_CODING_AGENT_RULES.md`, `19_STOP_CONDITIONS.md`, `26_HUMAN_REVIEW_GATES.md`, `29_BENCHMARK_LIMITATIONS.md`, `31_DATA_LIFECYCLE_TRACKING.md`
+- Confidence level: high for local repo inspection and committed crawl metadata; medium for off-repo Friend Phase 3 framework status.
+- Evidence status: verified for local file presence/absence; inferred for recommended crawl role.
+- Decision/update:
+  - Corrected context so future agents do not assume the full Phase 3 framework is already present on local `main`. `src/phase3_*`, `src/baselines`, `tests/phase3`, and `reports/phase3` were absent during Codex inspection.
+  - Recorded that Friend's Phase 2 crawl metadata artifacts are present, but Friend's finalized Phase 3 implementation/framework is not confirmed as pushed to `main`.
+  - Recorded that Friend is currently unavailable per Reshwant's handoff note; Reshwant may authorize Codex to continue or rebuild Phase 3 pieces independently if needed.
+  - Clarified crawl use policy: frozen CryptoBench remains the supervised v2 benchmark; the Friend/40GB crawl is not approved for Phase 3 supervised training, is suitable for Phase 4 external inference/discovery after model freeze, and may support future pretraining/expansion only after separate governance and human approval.
+  - Reframed first real training as still gated by data-pipeline verification and human sign-off, even though dry-run guard removal is authorized by `reports/phase2/split_manifest_approval_20260527.md`.
+
+## 2026-05-28 - Phase Map Updated With Dataset Role Separation
+
+- Source path: `wiki/analyses/phase2_build_map.md`, `.memory/PROJECT_STATE.md`, `COLLABORATION.md`, `reports/phase2/handoff_20260528.md`
+- Governance path: `docs/scientific_governance/04_DATASET_CONSTRAINTS.md`, `05_SPLIT_PROTOCOL.md`, `06_LABELING_RULES.md`, `07_PREPROCESSING_AND_GRAPH_RULES.md`, `26_HUMAN_REVIEW_GATES.md`, `31_DATA_LIFECYCLE_TRACKING.md`
+- Confidence level: high for project planning state and local file paths; medium for broader off-repo 40GB crawl contents.
+- Evidence status: verified for committed metadata and frozen CryptoBench artifacts; inferred for future crawl use role.
+- Decision/update:
+  - Updated the phase/build map to state that Phase 3 supervised training/evaluation uses frozen CryptoBench only.
+  - Documented the Friend/40GB crawl as Phase 4 external inference/discovery context after model freeze, or future pretraining/expansion only after a separate governed approval path.
+  - Explicitly kept first real training gated on Phase 3 data-pipeline audit and human review.
+
+## 2026-05-28 - Governed Phase 3 Data Pipeline Rebuilt Locally
+
+- Source path: `src/phase3_data/`, `src/phase3_training/`, `src/phase3_model/`, `src/phase3_evaluation/`, `src/baselines/`, `tests/phase3/`, `reports/phase3/phase3_framework_rebuild_20260528.md`, `data/registries/phase3_input_validation_20260528.json`, `data/registries/phase3_cif_extraction_manifest_20260528.json`, `data/registries/phase3_dataset_index_20260528.json`, `data/registries/phase3_residue_audit_manifest_20260528.json`
+- Governance path: `docs/scientific_governance/04_DATASET_CONSTRAINTS.md`, `05_SPLIT_PROTOCOL.md`, `06_LABELING_RULES.md`, `07_PREPROCESSING_AND_GRAPH_RULES.md`, `08_MODEL_ARCHITECTURE_CONSTRAINTS.md`, `09_EVALUATION_PROTOCOL.md`, `10_BASELINE_REQUIREMENTS.md`, `15_PROVENANCE_AND_REPRODUCIBILITY.md`, `16_CODING_AGENT_RULES.md`, `19_STOP_CONDITIONS.md`, `26_HUMAN_REVIEW_GATES.md`
+- Confidence level: high for local artifacts and tests.
+- Evidence status: verified.
+- Decision/update:
+  - Rebuilt the missing local Phase 3 framework as governed scaffolding, not as Friend's unverified methodology.
+  - Extracted the approved CryptoBench CIF zip as non-training data preparation with provenance; 5,005 `.cif` files now exist under `data/raw_intake/cryptobench/cif-files/`.
+  - Built a frozen-source Phase 3 dataset index with 1,101 entries; all 6 exclusions are skipped and no PCNA cluster `1168` entries appear.
+  - Completed a full residue-label audit across 1,101 structures: 16,335 positives aligned, 3,704 masked labels accounted for, unlisted residues preserved as PU/background not true negatives.
+  - Added tests for frozen split usage, forbidden `folds.json`, exclusions, masked labels, PCNA train/validation blocking, residue-label mismatch failure, CIF remediation, Friend crawl rejection, and real-training refusal.
+  - No real training, graph tensor generation, edge cutoff selection, feature policy, baseline run, test evaluation, or claims were performed.
+
+## 2026-05-28 - Phase 3 Graph Policy Approval Packet Prepared
+
+- Source path: `reports/phase3/graph_edge_feature_policy_approval_packet_20260528.md`, `reports/phase3/phase3_framework_rebuild_20260528.md`, `data/registries/phase3_dataset_index_20260528.json`, `data/registries/phase3_residue_audit_manifest_20260528.json`
+- Governance path: `docs/scientific_governance/04_DATASET_CONSTRAINTS.md`, `05_SPLIT_PROTOCOL.md`, `06_LABELING_RULES.md`, `07_PREPROCESSING_AND_GRAPH_RULES.md`, `08_MODEL_ARCHITECTURE_CONSTRAINTS.md`, `15_PROVENANCE_AND_REPRODUCIBILITY.md`, `19_STOP_CONDITIONS.md`, `26_HUMAN_REVIEW_GATES.md`
+- Confidence level: high for artifact review and packet creation.
+- Evidence status: verified for local artifacts; pending human decision for graph policy.
+- Decision/update:
+  - Prepared a human approval packet for graph edge/feature policy before graph tensor generation.
+  - Packet summarizes the data/residue audit and proposes a conservative initial graph policy for human approval or revision.
+  - No graph tensors, training, baseline runs, evaluation, or claims were generated.
+  - Verified no `data/graphs` or Phase 3 graph output directory exists and tests still pass (`16 passed`).
+
+## 2026-05-28 - Phase 3 Graph Policy Approved By Human Decision
+
+- Source path: `reports/phase3/graph_policy_human_decision_20260528.md`, `reports/phase3/graph_edge_feature_policy_approval_packet_20260528.md`
+- Governance path: `docs/scientific_governance/07_PREPROCESSING_AND_GRAPH_RULES.md`, `08_MODEL_ARCHITECTURE_CONSTRAINTS.md`, `15_PROVENANCE_AND_REPRODUCIBILITY.md`, `19_STOP_CONDITIONS.md`, `26_HUMAN_REVIEW_GATES.md`
+- Confidence level: high for recorded approval and local evidence paths.
+- Evidence status: verified for local artifacts; human decision recorded from active Codex session.
+- Decision/update:
+  - Human project owner approved the Phase 3 graph edge/feature policy packet on 2026-05-28.
+  - Approval record: `reports/phase3/graph_policy_human_decision_20260528.md`.
+  - Codex may implement graph-generation scaffolding exactly as approved and emit graph artifacts, manifests, and provenance.
+  - No training, baseline execution, evaluation claims, PCNA prediction interpretation, MD interpretation, or scientific claims are approved by this decision.
+  - First graph release still requires human review before real training.

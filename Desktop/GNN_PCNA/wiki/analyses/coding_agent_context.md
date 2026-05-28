@@ -114,3 +114,104 @@ As of 2026-05-27, Track A/B planning artifacts exist. The explicit CryptoBench a
 - Source paths: `AGENTS.md`, `docs/scientific_governance/00_README.md`, `16_CODING_AGENT_RULES.md`, `37_PHASE2_IMPLEMENTATION_PLAN.md`, `reports/phase2/readiness_gate.md`, `reports/phase2/dataset_investigation_report.md`, `reports/phase2/proposed_split_strategy.md`, `reports/phase2/proposed_label_strategy.md`, `reports/phase2/local_dataset_discovery_report.md`, `docs/dataset_intake_crawler_prompt.md`, `scripts/dataset_intake.py`, `scripts/validate_dataset_intake.py`, `scripts/cryptobench_schema_first_audit.py`, `scripts/cryptobench_deep_audit.py`, `scripts/phase2_remediation_packet.py`, `src/phase2_intake/`, `data/registries/download_manifest.jsonl`, `data/registries/dataset_inventory.json`, `data/registries/bulk_download_approvals.json`, `data/registries/cryptobench_schema_summary.json`, `data/registries/cryptobench_fold_summary.json`, `data/registries/cryptobench_structure_index.json`, `data/registries/potential_homolog_risks.json`, `data/registries/residue_mapping_failures.json`, `data/registries/cryptobench_candidate_cleaned_registry.json`, `data/registries/auxiliary_dataset_role_summary.json`, `data/raw_intake/cryptobench/`, `data/raw_intake/pcna_structures/`, `data/raw_intake/pocketminer/`, `data/raw_intake/baseline_tools/`, `data/raw_intake/alphafold/`, `reports/phase2/friend_dataset_acquisition_report.md`, `reports/phase2/cryptobench_schema_first_audit.md`, `reports/phase2/cryptobench_schema_deep_audit.md`, `reports/phase2/cryptobench_split_risk_audit.md`, `reports/phase2/cryptobench_label_semantics.md`, `reports/phase2/cryptobench_structure_inventory.md`, `reports/phase2/pcna_contamination_screen.md`, `reports/phase2/cryptobench_adoption_decision.md`, `reports/phase2/pcna_isolation_policy.md`, `reports/phase2/cryptobench_leakage_remediation.md`, `reports/phase2/label_supervision_risks.md`, `reports/phase2/proposed_label_policy.md`, `reports/phase2/residue_mapping_failure_analysis.md`, `reports/phase2/proposed_phase2_split_strategy.md`, `reports/phase2/cryptobench_candidate_cleaned_registry.md`, `reports/phase2/auxiliary_dataset_audit.md`, `reports/phase2/benchmark_role_classification.md`, `reports/phase2/auxiliary_acquisition_status_summary.md`, `reports/phase2/dataset_footprint_summary.md`, `reports/phase2/phase2_claude_code_handoff.md`
 - Confidence level: high
 - Date last updated: 2026-05-27
+
+## 25. Phase 2 completion and Phase 3 handoff correction
+
+As of 2026-05-28, Phase 2 is complete: split and label manifests are frozen and
+human-approved. The frozen split manifest is `data/registries/split_manifest_frozen.json`
+with hash `24dd5e347d880108`; labels are in `data/labels/labels_{apo_pdb_id}.json`.
+
+Local repo inspection found no `src/phase3_model/`, `src/phase3_training/`,
+`src/phase3_evaluation/`, `src/baselines/`, `tests/phase3/`, or `reports/phase3/` in this
+checkout. Treat Friend's full Phase 3 framework as reported but unverified until the branch
+or files are inspected directly. Friend's Phase 2 crawl metadata artifacts are present and
+verified.
+
+The Friend/40GB crawl must not be used for Phase 3 supervised benchmark training. Frozen
+CryptoBench remains the authoritative v2 supervised training/evaluation dataset. The crawl
+is suitable for Phase 4 external inference/discovery after model freeze, and possibly future
+pretraining/expansion only after a separate governed pipeline with deduplication, clustering,
+benchmark-contamination checks, lifecycle changes, labeling or self-supervision policy, and
+human approval.
+
+Provenance:
+- date: 2026-05-28
+- source: `.memory/PROJECT_STATE.md`, `COLLABORATION.md`, `reports/phase2/handoff_20260528.md`, `reports/phase2/friend_crawl_stats.md`, `data/registries/friend_crawl_registry.json`
+- governance: `docs/scientific_governance/04_DATASET_CONSTRAINTS.md`, `05_SPLIT_PROTOCOL.md`, `06_LABELING_RULES.md`, `07_PREPROCESSING_AND_GRAPH_RULES.md`, `16_CODING_AGENT_RULES.md`, `26_HUMAN_REVIEW_GATES.md`, `31_DATA_LIFECYCLE_TRACKING.md`
+- confidence: high for local repo state; medium for off-repo Friend framework status
+- evidence_status: verified for local files; inferred for crawl role recommendation
+
+## 26. Phase 3 governed data pipeline rebuild status
+
+As of 2026-05-28, Codex rebuilt the local Phase 3 framework skeleton because Friend's
+reported Phase 3 code was not present in this checkout. The new implementation is scoped to
+governed data preparation and fail-closed scaffolding:
+
+- `src/phase3_data/` reads frozen split/label/exclusion/cluster manifests, validates
+  frozen counts and hashes, rejects original `folds.json`, rejects Friend crawl paths for
+  supervised Phase 3, extracts/verifies the approved CryptoBench CIF zip, builds split-aware
+  dataset indexes, and audits residue-label alignment.
+- `src/phase3_training/` is dry-run-only and refuses real training without human pipeline
+  sign-off. Even with future sign-off, real training is not implemented in this skeleton.
+- `src/phase3_model/`, `src/phase3_evaluation/`, and `src/baselines/` are interfaces/stubs
+  only. No model science, baselines, metrics, or claims were implemented.
+- `tests/phase3/` plus the existing Phase 2 intake tests pass: `16 passed`.
+
+Generated artifacts:
+
+- `data/registries/phase3_input_validation_20260528.json` - PASS, CIF status READY.
+- `data/registries/phase3_cif_extraction_manifest_20260528.json` - PASS, approved zip hash
+  `8d15f897bfdfdf61c7d97a29f5f6ca2c5e03d73d8fb89be7da5bbc245cf56ae4`, 5,005 CIF files.
+- `data/registries/phase3_dataset_index_20260528.json` - PASS, 1,101 non-excluded entries,
+  no PCNA cluster `1168` entries.
+- `data/registries/phase3_residue_audit_manifest_20260528.json` - PASS, 1,101 structures
+  audited, 371,651 residue nodes, 16,335 positives aligned, 3,696 masked labels on nodes,
+  8 masked labels without nodes, 351,620 PU/background residues, 4,380 residues with altlocs,
+  and 22 residues without CA.
+- `reports/phase3/phase3_framework_rebuild_20260528.md` - human-readable report and
+  provenance packet.
+
+Remaining gates: edge definition, atom basis, cutoff, feature policy, graph tensor format,
+coordinate altloc policy, missing-residue sequence-edge policy, and train-only normalization
+policy are not approved. Graph tensor generation and real training remain blocked until
+human review/sign-off.
+
+Provenance:
+- date: 2026-05-28
+- source: `reports/phase3/phase3_framework_rebuild_20260528.md`, `data/registries/phase3_input_validation_20260528.json`, `data/registries/phase3_cif_extraction_manifest_20260528.json`, `data/registries/phase3_dataset_index_20260528.json`, `data/registries/phase3_residue_audit_manifest_20260528.json`
+- governance: `docs/scientific_governance/04_DATASET_CONSTRAINTS.md`, `05_SPLIT_PROTOCOL.md`, `06_LABELING_RULES.md`, `07_PREPROCESSING_AND_GRAPH_RULES.md`, `08_MODEL_ARCHITECTURE_CONSTRAINTS.md`, `09_EVALUATION_PROTOCOL.md`, `10_BASELINE_REQUIREMENTS.md`, `15_PROVENANCE_AND_REPRODUCIBILITY.md`, `16_CODING_AGENT_RULES.md`, `19_STOP_CONDITIONS.md`, `26_HUMAN_REVIEW_GATES.md`
+- confidence: high for local artifacts and tests
+- evidence_status: verified
+
+## 27. Phase 3 graph policy approval packet status
+
+As of 2026-05-28, `reports/phase3/graph_edge_feature_policy_approval_packet_20260528.md`
+has been approved by human decision record
+`reports/phase3/graph_policy_human_decision_20260528.md`. It reviews the Phase 3
+data/residue audit artifacts and approves the first graph-generation node, edge,
+coordinate/altloc, feature, and graph-manifest policy.
+
+The packet proposes a conservative initial policy for review:
+
+- one node per audited target-chain protein residue, including polymer-positioned modified
+  residues;
+- CA-CA undirected spatial edges at 8.0 Angstrom and sequential same-chain edges that do not
+  bridge missing-residue gaps;
+- highest-occupancy CA altloc selection with deterministic tie-breaks;
+- residue identity plus limited binary flags as trainable node features;
+- chain ID, residue number, fold, cluster, label counts, split, and PCNA flags as metadata
+  only, not trainable features;
+- no ESM/protein-language-model features in the first graph release.
+
+This policy is approved for graph-generation implementation only. No `data/graphs` or
+Phase 3 graph output directory existed at approval-record creation, and no graph tensors or
+training outputs were generated by the approval-record step. Training, baselines,
+evaluation claims, PCNA prediction interpretation, MD interpretation, and scientific claims
+remain blocked. The first graph release still requires human review before real training.
+
+Provenance:
+- date: 2026-05-28
+- source: `reports/phase3/graph_edge_feature_policy_approval_packet_20260528.md`, `reports/phase3/graph_policy_human_decision_20260528.md`, `reports/phase3/phase3_framework_rebuild_20260528.md`, `data/registries/phase3_dataset_index_20260528.json`, `data/registries/phase3_residue_audit_manifest_20260528.json`
+- governance: `docs/scientific_governance/04_DATASET_CONSTRAINTS.md`, `05_SPLIT_PROTOCOL.md`, `06_LABELING_RULES.md`, `07_PREPROCESSING_AND_GRAPH_RULES.md`, `08_MODEL_ARCHITECTURE_CONSTRAINTS.md`, `15_PROVENANCE_AND_REPRODUCIBILITY.md`, `19_STOP_CONDITIONS.md`, `26_HUMAN_REVIEW_GATES.md`
+- confidence: high for packet creation, local artifact status, and recorded approval
+- evidence_status: verified for local artifacts and human graph-policy decision record

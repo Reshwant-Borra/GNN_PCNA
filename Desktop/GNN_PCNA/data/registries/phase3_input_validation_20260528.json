@@ -1,0 +1,42 @@
+{
+  "cif_inputs": {
+    "cif_dir": "data\\raw_intake\\cryptobench\\cif-files",
+    "cif_dir_exists": true,
+    "cif_zip": "data\\raw_intake\\cryptobench\\files\\672a0171eae0bff252ba9ea3_cif-files.zip",
+    "cif_zip_exists": true,
+    "expected_cif_count": 5005,
+    "extracted_cif_count": 5005,
+    "remediation": null,
+    "status": "READY"
+  },
+  "excluded_ids": [
+    "1lx7",
+    "2b23",
+    "4gpi",
+    "5e0v",
+    "8hc1",
+    "8oqp"
+  ],
+  "excluded_records": "data\\registries\\excluded_records.json",
+  "frozen_split_hash": "24dd5e347d880108e780ebd5b902fa0e51e907a5213f589206aa8c03b1e032c3",
+  "governance": [
+    "docs/scientific_governance/04_DATASET_CONSTRAINTS.md",
+    "docs/scientific_governance/05_SPLIT_PROTOCOL.md",
+    "docs/scientific_governance/06_LABELING_RULES.md",
+    "docs/scientific_governance/07_PREPROCESSING_AND_GRAPH_RULES.md",
+    "docs/scientific_governance/15_PROVENANCE_AND_REPRODUCIBILITY.md",
+    "docs/scientific_governance/16_CODING_AGENT_RULES.md",
+    "docs/scientific_governance/19_STOP_CONDITIONS.md",
+    "docs/scientific_governance/26_HUMAN_REVIEW_GATES.md"
+  ],
+  "label_manifest": "data\\labels\\label_manifest.json",
+  "label_manifest_hash_sha256": "1c902a091561bb6e8e30bb612a3347d29b90b7965842e59d586fceb8a13b7113",
+  "pcna_cluster_id_30": 1168,
+  "sequence_clusters": "data\\registries\\sequence_cluster_assignments.json",
+  "split_manifest": "data\\registries\\split_manifest_frozen.json",
+  "split_manifest_hash_sha256": "84d24f92694027b19a534c3bec3fa020e684d1d61bdd6b5763ade65cb2d7f308",
+  "status": "PASS",
+  "structures_labeled": 1101,
+  "total_masked": 3704,
+  "total_positives": 16335
+}

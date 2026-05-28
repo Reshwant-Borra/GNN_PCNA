@@ -2,7 +2,7 @@
 type: analysis
 status: active
 created: 2026-05-27
-updated: 2026-05-27
+updated: 2026-05-28
 tags: [phase2, build-map, governance]
 aliases: [Phase2 Build Map]
 confidence: high
@@ -48,10 +48,33 @@ Checklist items 1-7 now have draft artifacts:
 - `reports/phase2/biological_data_sanity_review.md`
 - `reports/phase2/readiness_gate.md`
 
-Current status: ready for dataset planning only. Training remains blocked.
+Current status as of 2026-05-28: Phase 2 split and label freeze are complete, but first
+real training remains blocked until the Phase 3 data pipeline is implemented, audited, and
+human-reviewed.
+
+## Phase 3 / Phase 4 Dataset Roles
+
+Phase 3 supervised training and evaluation must use the frozen CryptoBench v2 benchmark:
+
+- `data/registries/split_manifest_frozen.json`
+- `data/labels/labels_{apo_pdb_id}.json`
+- `data/raw_intake/cryptobench/cif-files/`
+- `data/registries/excluded_records.json`
+
+The Friend/40GB crawl must not be used as Phase 3 supervised benchmark training data. The
+committed crawl metadata describes a PCNA-focused experimental subset, not a governed,
+labeled, clustered, leakage-audited benchmark. Its proper roles are:
+
+1. Phase 4 external inference/discovery after the Phase 3 model is frozen.
+2. Future pretraining or dataset expansion only after separate governance, deduplication,
+   clustering, benchmark-contamination checks, lifecycle status changes, labeling or
+   self-supervision policy, and human approval.
+
+This protects the Phase 3 benchmark from PCNA leakage and avoids turning heuristic crawl
+outputs into training truth.
 
 ## Provenance
 
-- Source path: `docs/scientific_governance/37_PHASE2_IMPLEMENTATION_PLAN.md`, `reports/phase2/foundation_milestone_status.md`
+- Source path: `docs/scientific_governance/37_PHASE2_IMPLEMENTATION_PLAN.md`, `reports/phase2/foundation_milestone_status.md`, `.memory/PROJECT_STATE.md`, `COLLABORATION.md`, `reports/phase2/handoff_20260528.md`
 - Confidence level: high
-- Date last updated: 2026-05-27
+- Date last updated: 2026-05-28

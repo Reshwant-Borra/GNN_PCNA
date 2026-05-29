@@ -1,6 +1,6 @@
 ---
 updated: 2026-05-29
-updated_by: claude-sonnet-4-6 (state-sync-post-merge)
+updated_by: claude-sonnet-4-6 (phase4-inference-complete)
 ---
 
 # Project State - GNN-PCNA
@@ -17,7 +17,7 @@ treat this file as potentially stale. Reconstruct current state from
 
 ## Phase
 
-**Phase 3 — TEST EVALUATION COMPLETE. GATE 5 CLEARED. GATE 6 (PCNA INFERENCE) BLOCKED.**
+**Phase 4 — PCNA INFERENCE COMPLETE. GATE 6 CLEARED. READY FOR PHASE 5 (MD VALIDATION).**
 
 | System | Status |
 |---|---|
@@ -27,12 +27,12 @@ treat this file as potentially stale. Reconstruct current state from
 | Test evaluation | **COMPLETE — ONE-SHOT USED** (GATE 5 cleared 2026-05-29). Test macro-AUPRC: **0.2034** [0.1825, 0.2275] 95% CI. Micro-AUPRC: 0.0973. Macro-AUROC: 0.6902. Top-20 recovery: 0.2179. 214 structures, 177 with valid AUPRC. Lock: `reports/phase3/.test_evaluation_lock`. Report: `reports/phase3/test_evaluation_20260529.md`. |
 | Molecular dynamics | BLOCKED (Phase 3+ scope) |
 | Scientific claims | BLOCKED — external baselines (fpocket/P2Rank/PocketMiner) not yet run; superiority claims require them per doc 10. |
-| PCNA inference | BLOCKED — GATE 6 requires separate human decision. |
+| PCNA inference | **COMPLETE (GATE 6 cleared 2026-05-29)**. 103/103 structures scored. 5 governance reports generated. |
 | Graph generation | **FIRST GRAPH RELEASE APPROVED**. 1,101 graphs, 0 failures. Approval: `reports/phase3/first_graph_release_approval_20260528.md`. |
 | Split freeze | **FROZEN** - `data/registries/split_manifest_frozen.json` (hash: 24dd5e347d880108) |
 | Label freeze | **FROZEN** - `data/labels/label_manifest.json` |
 
-All Phase 2 and Phase 3 gates cleared. Phase 3 is complete. Next gate is GATE 6 (PCNA inference — human decision required).
+All Phase 2, Phase 3, and Phase 4 gates cleared. Phase 4 inference complete. Next gate is GATE 7 (Phase 5 MD validation — new human decision required).
 
 ---
 
@@ -84,7 +84,8 @@ Phase 3 stop gates:
 - **GATE 3 — CLEARED.** Baseline runs authorized by Reshwant on 2026-05-28. All GNN baselines complete 2026-05-29.
 - **GATE 4 — CLEARED.** Model frozen 2026-05-29. Checkpoint: `checkpoints/phase3/spatial_only_fold1_seed1_best.pt`. Record: `reports/phase3/model_freeze_gate4_20260529.md`.
 - **GATE 5 — CLEARED.** Test evaluation complete 2026-05-29. Macro-AUPRC: **0.2034** [0.1825, 0.2275]. Report: `reports/phase3/test_evaluation_20260529.md`. Test set one-shot used — cannot be re-run.
-- **GATE 6 — BLOCKED.** PCNA inference requires separate human decision. Candidates: `data/registries/phase4_candidate_manifest.json`. Top candidate: 1AXC; positive control: 8GLA. Governance: docs/scientific_governance/12_PCNA_SPECIFIC_CHECKS.md, 14_CLAIM_POLICY.md.
+- **GATE 6 — CLEARED.** PCNA inference complete 2026-05-29. 103/103 structures OK (RTX 4070, 62s). Positive control sanity check passed (IDCL/AOH1996 region ranks #1, score=0.93). Authorization: `reports/phase4/gate6_authorization_20260529.md`. All 5 governance artifacts written to `reports/phase4/`.
+- **GATE 7 — BLOCKED.** Phase 5 MD validation requires separate human decision. Candidate list: `reports/phase4/phase4_candidate_prioritization_20260529.md`. 23 Tier-1 candidates (novel surface), 1 Tier-2 (IDCL-adjacent), 6 Tier-3 (positive control). Governance: docs/scientific_governance/13_MD_VALIDATION_RULES.md.
 - **PCNA cluster `cluster_id_30=1168` is holdout-only.** No PCNA/PCNA-cluster structure may enter train or validation.
 
 ---
@@ -105,11 +106,11 @@ Use policy:
 
 ## Next Tasks
 
-1. **[HUMAN — GATE 6] PCNA inference gate.** Separate human decision required before any PCNA prediction is made or interpreted. Read `docs/scientific_governance/12_PCNA_SPECIFIC_CHECKS.md` and `14_CLAIM_POLICY.md` first. Candidates in `data/registries/phase4_candidate_manifest.json`.
+1. **[HUMAN — GATE 7] Phase 5 MD validation gate.** Separate human decision required before any MD sampling. Read `docs/scientific_governance/13_MD_VALIDATION_RULES.md`. Candidate list: `reports/phase4/phase4_candidate_prioritization_20260529.md`. Top Tier-1 targets: 239-243, 28-32, 206-210, 157-161, 49-53 (no interface overlap). Top Tier-3 (positive control): 118-122 (IDCL/AOH1996, score=0.93).
 
 2. **[RECOMMENDED] Install external baselines.** fpocket, P2Rank, PocketMiner stubs in `reports/phase3/baseline_runs/`. Required per doc 10 before any superiority claims over state-of-the-art tools. Run on the frozen test split (hash: 24dd5e347d880108) with the same label definition.
 
-3. **[OPTIONAL] Interpret test results.** Test macro-AUPRC = 0.2034 [0.1825, 0.2275]. Micro-AUPRC (0.0973) << macro (0.2034) — investigate whether a few large proteins dominate pooled metrics. Report must not make superiority claims until external baselines complete.
+3. **[OPTIONAL] Interpret Phase 4 results.** Full per-residue scores in `reports/phase4/phase4_inference_results_20260529.json`. Interface overlap analysis in `phase4_interface_overlap_20260529.md`. The trimer_interface region (170-179, 152-156) scores very highly — consistent with known clamp geometry. Do not make druggability claims.
 
 ---
 
@@ -137,19 +138,26 @@ Use policy:
 | `reports/phase3/test_evaluation_20260529.md` | GATE 5 cleared — FINAL test results (one-shot used) |
 | `reports/phase3/.test_evaluation_lock` | One-shot guard — test set cannot be re-evaluated |
 | `data/registries/phase4_candidate_manifest.json` | 54 ranked PCNA inference candidates (GATE 6 input) |
-| `data/raw_intake/phase4_pcna_crawl/` | 103 PCNA/sliding-clamp mmCIF structures (quarantined; GATE 6 gated) |
+| `C:\Users\reshw\phase4_pcna_crawl\` | 103 PCNA/sliding-clamp mmCIF structures (primary inference dataset) |
+| `reports/phase4/gate6_authorization_20260529.md` | GATE 6 cleared — Phase 4 inference authorization |
+| `reports/phase4/phase4_inference_results_20260529.json` | Per-residue scores, all 103 structures |
+| `reports/phase4/phase4_candidate_report_20260529.md` | Ranked candidate regions (human PCNA) |
+| `reports/phase4/phase4_pcna_audit_20260529.md` | PCNA-specific governance audit |
+| `reports/phase4/phase4_interface_overlap_20260529.md` | Interface overlap analysis |
+| `reports/phase4/phase4_candidate_prioritization_20260529.md` | Tier 1/2/3 MD candidate list |
+| `src/phase4_inference/` | Phase 4 inference package (chain_selector, graph_builder, interface_audit, cif_utils) |
+| `scripts/phase4_infer.py` | Main Phase 4 inference script |
 
 ---
 
 ## Last Session Summary
 
-Session 2026-05-29 (claude-sonnet-4-6, GATE 4+5): Reshwant approved GATE 4, freezing
-`checkpoints/phase3/spatial_only_fold1_seed1_best.pt` (spatial-only, val 0.2047, sequential
-edges permanently removed). evaluate_test_set.py written and run once. GATE 5 cleared.
-Test results: macro-AUPRC = 0.2034 [0.1825, 0.2275] 95% CI, micro-AUPRC = 0.0973,
-macro-AUROC = 0.6902, top-20 recovery = 0.2179. 214 test structures, 177 with valid AUPRC.
-One-shot lock written — test set cannot be re-evaluated. Reports:
-`reports/phase3/test_evaluation_20260529.md`,
-`reports/phase3/test_evaluation_manifest_20260529.json`.
-Next: GATE 6 (PCNA inference) requires separate human decision.
-External baselines (fpocket/P2Rank/PocketMiner) required before superiority claims.
+Session 2026-05-29 (claude-sonnet-4-6, GATE 6 + Phase 4 inference): Reshwant approved GATE 6.
+Phase 4 inference pipeline implemented: `src/phase4_inference/` (cif_utils, chain_selector,
+graph_builder, interface_audit) + `scripts/phase4_infer.py`. Ran all 103 structures on RTX 4070
+in 62s — 103/103 OK. Positive control sanity check PASSED: IDCL/AOH1996 region (residues 118-122)
+ranks #1 with max_score=0.93 across human PCNA structures. All 5 required governance artifacts
+written to `reports/phase4/`. Tier-1 (novel) candidates identified: 239-243, 28-32, 206-210,
+157-161, 49-53 (no interface overlap). GATE 7 (MD validation) now gated on human decision.
+Chain selection: entity description match worked for all human PCNA; Part 2C uses all-chains.
+No MD, no therapeutic claims, no novel-site claims made.

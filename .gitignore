@@ -10,6 +10,10 @@ BORRA_#1_SARC.pdf
 # Raw data directory
 raw/
 
+# Crawl knowledge bases — 288 MB, contain Windows-reserved filenames (prn.md etc.)
+# Source leads only; not scientifically authoritative. Regenerable from crawl scripts.
+crawls/
+
 # Generated graph tensors — large binary artifacts; regenerate from CIFs + scripts
 # Commit the manifest JSON only; .npz and _meta.json files are reproducible
 data/graphs/*.npz

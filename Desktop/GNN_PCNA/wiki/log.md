@@ -466,3 +466,18 @@ Append-only record of maintained wiki operations and durable project decisions.
   - **5E0V is NOT apo PCNA.** It is the PCNA **S228I disease variant + FEN1 peptide** (Duffy et al. 2016, *J Mol Biol* 428:1023-1040, PMID 26688547). The Track-3b "apo reference" assumption is wrong; flagged in the 5E0V pre-registration, candidate manifest, interface map, and open-questions. A true-apo WT reference must be confirmed before MD.
   - **Interface map residues are all cited.** PIP-box pocket 40-44/117-135/230-235/251-253 (Müller 2019, PMID 31134302; 1AXC PMID 8861913); APIM same pocket (5YD8, PMID 29633969); IDCL 117-135; trimer interface + AOH1996/ZQZ region structurally derived (1AXC / 8GLA, reproducible). AOH1996 site overlaps PIP-box/IDCL → positive-control overlap, not a novel site (doc 12).
   - No Phase 3 files touched. No training, graphs, MD, test-set access, or scientific claims. Markdown/scripts/registries only.
+
+## 2026-05-29 - Advay Branch Merged + Phase3 Baseline Framework Implemented (GATE 3)
+
+- Source paths: `src/baselines/random_baseline.py`, `src/baselines/structural_baseline.py`, `src/baselines/gnn_models.py`, `src/baselines/gnn_trainer.py`, `scripts/run_baselines.py`, `scripts/generate_baseline_report.py`, `reports/phase3/baseline_gate3_authorization_20260529.md`
+- Governance: `docs/scientific_governance/10_BASELINE_REQUIREMENTS.md`, `09_EVALUATION_PROTOCOL.md`, `16_CODING_AGENT_RULES.md`
+- Gate: `reports/phase3/baseline_gate3_authorization_20260529.md` (GATE 3 cleared by Reshwant 2026-05-28)
+- Confidence: high. Evidence status: implementation verified; GNN training results pending.
+- Decisions / durable findings:
+  - **Advay's branch (`origin/advay-parallel-track`) fast-forward merged into main.** All Phase-4-prep deliverables now on main. No conflicts.
+  - **`phase3-model-framework` remote branch deleted.** Contained 8 commits not in main (old scaffolding / v2-megaprompt work), all superseded by current main. Verified each commit was old scaffolding before deleting.
+  - **GATE 3 authorization record written:** `reports/phase3/baseline_gate3_authorization_20260529.md` documenting Reshwant's 2026-05-28 authorization to run baselines.
+  - **Baseline implementations complete:** random (3 seeds), degree/structural (no training), GCN-1L (4 folds × 3 seeds), GAT-2L (4 folds × 3 seeds), SAGE-no-spatial ablation (4 folds × 3 seeds), SAGE-no-sequential ablation (4 folds × 3 seeds). External tool stubs written for fpocket/P2Rank/PocketMiner.
+  - **GNN baseline training in progress** (background, ~2-3 hours CPU). Manifests written to `reports/phase3/baseline_runs/`. Run `python scripts/generate_baseline_report.py` after training completes.
+  - **Model freeze recommendation (GATE 4 input, provisional):** Best single run = fold=1 seed=2 (val macro-AUPRC 0.2042). Pending final baseline comparison from `reports/phase3/baseline_comparison_report_20260529.md`. Human decision required before freeze.
+  - No test-set evaluation. No scientific claims.

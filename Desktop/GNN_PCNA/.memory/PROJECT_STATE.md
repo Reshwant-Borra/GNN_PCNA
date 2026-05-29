@@ -1,6 +1,6 @@
 ---
-updated: 2026-05-28
-updated_by: claude-opus-4-8 (advay-parallel-track tracks 1-5; Phase 3 state unchanged)
+updated: 2026-05-29
+updated_by: claude-sonnet-4-6 (phase3-baselines-in-progress)
 ---
 
 # Project State - GNN-PCNA
@@ -17,14 +17,15 @@ treat this file as potentially stale. Reconstruct current state from
 
 ## Phase
 
-**Phase 3 — FIRST TRAINING COMPLETE. Awaiting human review before baselines.**
+**Phase 3 — BASELINES IN PROGRESS. GATE 3 CLEARED.**
 
 | System | Status |
 |---|---|
 | Training | **FIRST TRAINING COMPLETE**. 12/12 runs (4 folds × 3 seeds). Overall val macro-AUPRC: **0.1876 ± 0.0113**. No test-set evaluation yet. |
+| Baselines | **IN PROGRESS** (GATE 3 cleared 2026-05-28). Random + degree complete; GCN-1L, GAT-2L, SAGE-ablations training (background). External tools: stubs written. |
 | Graph generation | **FIRST GRAPH RELEASE APPROVED**. 1,101 graphs, 0 failures. Approval: `reports/phase3/first_graph_release_approval_20260528.md`. |
 | Molecular dynamics | BLOCKED (Phase 3+ scope) |
-| Scientific claims | BLOCKED (baselines not run, test set not evaluated, claim gates not cleared) |
+| Scientific claims | BLOCKED (baselines not fully complete, test set not evaluated, claim gates not cleared) |
 | Split freeze | **FROZEN** - `data/registries/split_manifest_frozen.json` (hash: 24dd5e347d880108) |
 | Label freeze | **FROZEN** - `data/labels/label_manifest.json` |
 
@@ -60,6 +61,8 @@ blocked until human review approvals are recorded.
 - **Phase 3 training framework implemented:** `src/phase3_data/graph_loader.py`, `src/phase3_model/gnn.py`, `src/phase3_training/trainer.py`, `src/phase3_evaluation/metrics.py`, `tests/phase3/test_batch_isolation.py`, `tests/phase3/test_phase3_model_loader_metrics.py`. Full test suite 93/93 passing. Batch-isolation test: 4/4 PASSED (GATE 2 prerequisite). Dry-run guard in `gates.py` intact — real training blocked until human GATE 2 sign-off.
 - **GATE 2 cleared:** `reports/phase3/first_training_signoff_20260528.md` (decision_id: `phase3_first_training_signoff_20260528`). `gates.py` conditionalized to pass when signoff file present.
 - **Phase 3 first training complete:** 12/12 runs (4 folds × 3 seeds). GraphSAGE-3L, hidden_dim=128. Overall val macro-AUPRC: **0.1876 ± 0.0113** (range: [0.1719, 0.2042]). Best: fold=1 seed=2 → 0.2042. Checkpoints: `checkpoints/phase3/fold*_seed*_best.pt`. Report: `reports/phase3/first_training_results_20260528.md`. No test-set evaluation. No scientific claims.
+- **Advay branch merged into main (2026-05-29):** fast-forward merge of `origin/advay-parallel-track`. All Phase-4 prep deliverables now on main. `phase3-model-framework` remote branch deleted (fully superseded by main).
+- **Phase 3 baseline framework implemented (2026-05-29, GATE 3):** `src/baselines/random_baseline.py`, `src/baselines/structural_baseline.py`, `src/baselines/gnn_models.py` (GCN1L, GAT2L), `src/baselines/gnn_trainer.py`. Master script `scripts/run_baselines.py`. Report generator `scripts/generate_baseline_report.py`. GATE 3 record: `reports/phase3/baseline_gate3_authorization_20260529.md`. Random + degree baselines complete; GCN-1L/GAT-2L/SAGE-ablation training running in background. External tool stubs written for fpocket/P2Rank/PocketMiner.
 - **Advay parallel track (Phase-4 prep, Phase-3-independent) — Tracks 1-5 complete (2026-05-28):**
   - Track 2: `scripts/audit_crawl_data.py` (53/72 pass quality filter), `scripts/rank_pcna_candidates.py` (54 ranked; 8GLA force-included positive control; top candidate 1AXC), `scripts/validate_esm_features.py` (60 ESM arrays valid, 146-vs-72 resolved). Outputs in `data/registries/phase4_*.json`.
   - Track 5: `scripts/analyze_heuristic_scores.py` + `reports/phase4/heuristic_score_analysis.md` (+figures). Heuristic = CSV `mean_score` from a prior GNN inference pass; only 4/72 scored.
@@ -101,18 +104,17 @@ Use policy:
 
 ## Next Tasks
 
-1. **[AGENT — GATE 3 CLEARED] Run baselines: random, solvent-exposure, fpocket, P2Rank, PocketMiner, GCN-1L, GAT-2L, no-edge-type ablation.**
-   All on the frozen split, validation fold only. No test-set evaluation.
-   Governance: `docs/scientific_governance/10_BASELINE_REQUIREMENTS.md`, `09_EVALUATION_PROTOCOL.md`.
-   Output manifest to: `reports/phase3/baseline_runs/`.
+1. **[AGENT — IN PROGRESS] GNN baselines training.** GCN-1L, GAT-2L, SAGE-no-spatial, SAGE-no-sequential — 4 folds × 3 seeds each, running in background. When complete, regenerate report: `python scripts/generate_baseline_report.py`. Manifests land in `reports/phase3/baseline_runs/`.
 
-2. **[HUMAN — GATE 4] Freeze model.** Pick best fold × seed checkpoint after reviewing baselines.
+2. **[AGENT — when GNN baselines complete] Generate final baseline comparison report.** `python scripts/generate_baseline_report.py` → `reports/phase3/baseline_comparison_report_20260529.md`. Commit and push.
 
-3. **[HUMAN — GATE 4] Freeze model.** Pick best fold × seed checkpoint after reviewing baselines.
+3. **[HUMAN — GATE 4] Freeze model.** Review `reports/phase3/baseline_comparison_report_20260529.md`. Pick best fold × seed checkpoint. Recommended: fold=1, seed=2 (val macro-AUPRC 0.2042) pending baseline comparison. See report Section 5.
 
 4. **[HUMAN — GATE 5] Authorize test-set evaluation.** Run once only, no second runs.
 
 5. **[HUMAN — GATE 6] PCNA inference gate.** Separate decision required before any PCNA prediction is made or interpreted.
+
+6. **[OPTIONAL — before GATE 4] Install external baselines.** fpocket, P2Rank, PocketMiner stubs in `reports/phase3/baseline_runs/`. Scripts to be created after tool installation. Not blocking GATE 4 but desirable per doc 10.
 
 ---
 

@@ -1,6 +1,6 @@
 ---
 updated: 2026-05-29
-updated_by: claude-sonnet-4-6 (gate5-test-evaluation-complete)
+updated_by: claude-sonnet-4-6 (state-sync-post-merge)
 ---
 
 # Project State - GNN-PCNA
@@ -29,14 +29,10 @@ treat this file as potentially stale. Reconstruct current state from
 | Scientific claims | BLOCKED — external baselines (fpocket/P2Rank/PocketMiner) not yet run; superiority claims require them per doc 10. |
 | PCNA inference | BLOCKED — GATE 6 requires separate human decision. |
 | Graph generation | **FIRST GRAPH RELEASE APPROVED**. 1,101 graphs, 0 failures. Approval: `reports/phase3/first_graph_release_approval_20260528.md`. |
-| Molecular dynamics | BLOCKED (Phase 3+ scope) |
-| Scientific claims | BLOCKED (baselines not fully complete, test set not evaluated, claim gates not cleared) |
 | Split freeze | **FROZEN** - `data/registries/split_manifest_frozen.json` (hash: 24dd5e347d880108) |
 | Label freeze | **FROZEN** - `data/labels/label_manifest.json` |
 
-All Phase 2 blockers cleared. GATE 1 (graph release) and GATE 2 (first-training sign-off)
-cleared. First training complete. Baselines, model freeze, and test evaluation are all
-blocked until human review approvals are recorded.
+All Phase 2 and Phase 3 gates cleared. Phase 3 is complete. Next gate is GATE 6 (PCNA inference — human decision required).
 
 ---
 
@@ -85,10 +81,7 @@ No Phase 2 blockers remain.
 Phase 3 stop gates:
 - **GATE 1 — CLEARED.** First graph release approved: `reports/phase3/first_graph_release_approval_20260528.md`.
 - **GATE 2 — CLEARED.** First training sign-off: `reports/phase3/first_training_signoff_20260528.md`.
-- **GATE 3 — CLEARED.** Baseline runs authorized by Reshwant on 2026-05-28 after reviewing first training results (0.1876 ± 0.0113 overall val macro-AUPRC). All baselines complete 2026-05-29.
-- **GATE 1 — CLEARED.** First graph release approved.
-- **GATE 2 — CLEARED.** First training sign-off.
-- **GATE 3 — CLEARED.** Baselines authorized and complete.
+- **GATE 3 — CLEARED.** Baseline runs authorized by Reshwant on 2026-05-28. All GNN baselines complete 2026-05-29.
 - **GATE 4 — CLEARED.** Model frozen 2026-05-29. Checkpoint: `checkpoints/phase3/spatial_only_fold1_seed1_best.pt`. Record: `reports/phase3/model_freeze_gate4_20260529.md`.
 - **GATE 5 — CLEARED.** Test evaluation complete 2026-05-29. Macro-AUPRC: **0.2034** [0.1825, 0.2275]. Report: `reports/phase3/test_evaluation_20260529.md`. Test set one-shot used — cannot be re-run.
 - **GATE 6 — BLOCKED.** PCNA inference requires separate human decision. Candidates: `data/registries/phase4_candidate_manifest.json`. Top candidate: 1AXC; positive control: 8GLA. Governance: docs/scientific_governance/12_PCNA_SPECIFIC_CHECKS.md, 14_CLAIM_POLICY.md.
@@ -138,11 +131,13 @@ Use policy:
 | `data/registries/phase3_residue_audit_manifest_20260528.json` | Phase 3 residue-label audit manifest |
 | `reports/phase3/graph_edge_feature_policy_approval_packet_20260528.md` | Human approval packet for graph policy |
 | `reports/phase3/graph_policy_human_decision_20260528.md` | Human decision record approving graph policy |
-| `data/graphs/graph_release_manifest_8c22e46f524d5f1d.json` | First graph release — 1,101 structures, PENDING_HUMAN_REVIEW |
-| `reports/phase3/graph_release_audit_20260528.md` | Graph release audit report for human review |
-| `reports/phase3/handoff_20260528.md` | Session handoff for first graph release |
+| `data/graphs/graph_release_manifest_8c22e46f524d5f1d.json` | First graph release — 1,101 structures, APPROVED |
 | `reports/phase3/first_graph_release_approval_20260528.md` | GATE 1 cleared — human approval of first graph release |
-| `reports/phase3/model_training_approval_packet_20260528.md` | Model/training plan proposal — PENDING_HUMAN_REVIEW (GATE 2 prerequisite) |
+| `reports/phase3/model_freeze_gate4_20260529.md` | GATE 4 cleared — frozen checkpoint: `spatial_only_fold1_seed1_best.pt` |
+| `reports/phase3/test_evaluation_20260529.md` | GATE 5 cleared — FINAL test results (one-shot used) |
+| `reports/phase3/.test_evaluation_lock` | One-shot guard — test set cannot be re-evaluated |
+| `data/registries/phase4_candidate_manifest.json` | 54 ranked PCNA inference candidates (GATE 6 input) |
+| `data/raw_intake/phase4_pcna_crawl/` | 103 PCNA/sliding-clamp mmCIF structures (quarantined; GATE 6 gated) |
 
 ---
 

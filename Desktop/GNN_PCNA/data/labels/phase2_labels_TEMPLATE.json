@@ -1,0 +1,34 @@
+{
+  "label_manifest_id": "phase2_labels_<hash>",
+  "status": "template_not_frozen",
+  "created_by": "<person_or_agent>",
+  "created_at": "<timestamp>",
+  "human_review_decision_id": "<HR-LABEL-###>",
+  "label_type": "<curated_cryptic_pocket|ligand_proximity_pocket|allosteric_site|interface|positive_control_contact|candidate_region>",
+  "positive_rule": "<required>",
+  "negative_rule": "<required>",
+  "ambiguous_rule": "<mask|exclude|documented_assignment>",
+  "atom_basis": "<c_alpha|side_chain_heavy_atom|all_residue_heavy_atoms|ligand_heavy_atoms|curated_annotation>",
+  "distance_threshold_angstrom": null,
+  "ligand_policy": {
+    "included_ligand_ids": [],
+    "excluded_ligand_ids": [],
+    "waters_excluded": true,
+    "ions_policy": "<required>",
+    "crystallization_additives_policy": "<required>"
+  },
+  "chain_policy": {
+    "target_chains_required": true,
+    "partner_chain_handling": "<required>"
+  },
+  "hashes": {
+    "dataset_registry": "<sha256>",
+    "source_registry": "<sha256>",
+    "raw_inputs": {}
+  },
+  "blockers": [
+    "No accepted dataset.",
+    "No approved label type.",
+    "No human label freeze decision recorded."
+  ]
+}

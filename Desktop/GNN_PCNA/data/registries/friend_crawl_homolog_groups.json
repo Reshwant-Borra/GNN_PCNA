@@ -1,0 +1,4 @@
+{
+  "status": "not_computed",
+  "notes": "No sequence clustering has been run on this crawl. The PCNA crawl contains 72 experimental structures (all human PCNA P12004 or interactors) and no AlphaFold structures. Clustering tool (MMseqs2 or CD-HIT) and identity threshold are pending governance decision per PROJECT_STATE.md blocker 3."
+}

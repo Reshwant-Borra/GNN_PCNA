@@ -1,0 +1,67 @@
+
+Baseline runner — GATE 3 record: C:\Users\reshw\Desktop\GNN_PCNA\reports\phase3\baseline_gate3_authorization_20260529.md
+
+[running] gcn_1l baseline  (4 folds x 3 seeds) ...
+  [train] fold=0 seed=0 ... val_macro_auprc=0.1480  (355s)
+  [train] fold=0 seed=1 ... val_macro_auprc=0.1471  (314s)
+  [train] fold=0 seed=2 ... val_macro_auprc=0.1465  (317s)
+  [train] fold=1 seed=0 ... val_macro_auprc=0.1718  (418s)
+  [train] fold=1 seed=1 ... val_macro_auprc=0.1675  (264s)
+  [train] fold=1 seed=2 ... val_macro_auprc=0.1716  (296s)
+  [train] fold=2 seed=0 ... val_macro_auprc=0.1647  (290s)
+  [train] fold=2 seed=1 ... val_macro_auprc=0.1635  (285s)
+  [train] fold=2 seed=2 ... val_macro_auprc=0.1642  (271s)
+  [train] fold=3 seed=0 ... val_macro_auprc=0.1589  (215s)
+  [train] fold=3 seed=1 ... val_macro_auprc=0.1592  (256s)
+  [train] fold=3 seed=2 ... val_macro_auprc=0.1584  (210s)
+  [done] gcn_1l  macro_auprc=0.1601 ± 0.0089
+
+[running] gat_2l baseline  (4 folds x 3 seeds) ...
+  [train] fold=0 seed=0 ... val_macro_auprc=0.1664  (259s)
+  [train] fold=0 seed=1 ... val_macro_auprc=0.1682  (244s)
+  [train] fold=0 seed=2 ... val_macro_auprc=0.1682  (252s)
+  [train] fold=1 seed=0 ... val_macro_auprc=0.1910  (339s)
+  [train] fold=1 seed=1 ... val_macro_auprc=0.1858  (293s)
+  [train] fold=1 seed=2 ... val_macro_auprc=0.1872  (341s)
+  [train] fold=2 seed=0 ... val_macro_auprc=0.1670  (242s)
+  [train] fold=2 seed=1 ... val_macro_auprc=0.1666  (253s)
+  [train] fold=2 seed=2 ... val_macro_auprc=0.1671  (279s)
+  [train] fold=3 seed=0 ... val_macro_auprc=0.1731  (271s)
+  [train] fold=3 seed=1 ... val_macro_auprc=0.1743  (283s)
+  [train] fold=3 seed=2 ... val_macro_auprc=0.1725  (299s)
+  [done] gat_2l  macro_auprc=0.1739 ± 0.0090
+
+[running] sage_no_spatial baseline  (4 folds x 3 seeds) ...
+  [train] fold=0 seed=0 ... val_macro_auprc=0.1382  (262s)
+  [train] fold=0 seed=1 ... val_macro_auprc=0.1389  (325s)
+  [train] fold=0 seed=2 ... val_macro_auprc=0.1442  (312s)
+  [train] fold=1 seed=0 ... val_macro_auprc=0.1690  (276s)
+  [train] fold=1 seed=1 ... val_macro_auprc=0.1710  (268s)
+  [train] fold=1 seed=2 ... val_macro_auprc=0.1720  (288s)
+  [train] fold=2 seed=0 ... val_macro_auprc=0.1536  (316s)
+  [train] fold=2 seed=1 ... val_macro_auprc=0.1528  (313s)
+  [train] fold=2 seed=2 ... val_macro_auprc=0.1557  (342s)
+  [train] fold=3 seed=0 ... val_macro_auprc=0.1602  (320s)
+  [train] fold=3 seed=1 ... val_macro_auprc=0.1573  (292s)
+  [train] fold=3 seed=2 ... val_macro_auprc=0.1548  (327s)
+  [done] sage_no_spatial  macro_auprc=0.1556 ± 0.0114
+
+[running] sage_no_sequential baseline  (4 folds x 3 seeds) ...
+  [train] fold=0 seed=0 ... val_macro_auprc=0.1800  (486s)
+  [train] fold=0 seed=1 ... val_macro_auprc=0.1800  (547s)
+  [train] fold=0 seed=2 ... val_macro_auprc=0.1793  (726s)
+  [train] fold=1 seed=0 ... val_macro_auprc=0.2044  (441s)
+  [train] fold=1 seed=1 ... val_macro_auprc=0.2037  (539s)
+  [train] fold=1 seed=2 ... val_macro_auprc=0.1999  (480s)
+  [train] fold=2 seed=0 ... val_macro_auprc=0.1868  (534s)
+  [train] fold=2 seed=1 ... val_macro_auprc=0.1860  (434s)
+  [train] fold=2 seed=2 ... val_macro_auprc=0.1858  (567s)
+  [train] fold=3 seed=0 ... val_macro_auprc=0.1922  (600s)
+  [train] fold=3 seed=1 ... val_macro_auprc=0.1917  (519s)
+  [train] fold=3 seed=2 ... val_macro_auprc=0.1860  (573s)
+  [done] sage_no_sequential  macro_auprc=0.1897 ± 0.0089
+[skip] fpocket — manifest exists
+[skip] p2rank — manifest exists
+[skip] pocketminer — manifest exists
+
+All baselines complete. Total elapsed: 282.8 min

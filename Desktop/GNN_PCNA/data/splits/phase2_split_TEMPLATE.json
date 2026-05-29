@@ -1,0 +1,26 @@
+{
+  "split_id": "phase2_<YYYYMMDD>_<hash>",
+  "status": "template_not_frozen",
+  "created_by": "<person_or_agent>",
+  "created_at": "<timestamp>",
+  "human_review_decision_id": "<HR-SPLIT-###>",
+  "sequence_clustering_tool": "<tool_version>",
+  "sequence_identity_threshold": "<threshold>",
+  "structural_review_method": "<method>",
+  "train": [],
+  "validation": [],
+  "test": [],
+  "heldout_pcna_final_claim": [],
+  "positive_controls": [],
+  "excluded": [],
+  "hashes": {
+    "dataset_registry": "<sha256>",
+    "source_registry": "<sha256>",
+    "label_manifest": "<sha256>"
+  },
+  "blockers": [
+    "No dataset adopted.",
+    "No sequence clustering tool/threshold selected.",
+    "No human split freeze decision recorded."
+  ]
+}

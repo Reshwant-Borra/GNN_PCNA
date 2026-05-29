@@ -1,0 +1,634 @@
+{
+  "audit_author": [
+    {
+      "name": "Morgunova, E.",
+      "pdbx_ordinal": 1
+    },
+    {
+      "name": "Gray, F.C.",
+      "pdbx_ordinal": 2
+    },
+    {
+      "name": "MacNeill, S.A.",
+      "pdbx_ordinal": 3
+    },
+    {
+      "name": "Ladenstein, R.",
+      "pdbx_ordinal": 4
+    }
+  ],
+  "cell": {
+    "Z_PDB": 24,
+    "angle_alpha": 90.0,
+    "angle_beta": 135.0,
+    "angle_gamma": 90.0,
+    "length_a": 174.443,
+    "length_b": 123.236,
+    "length_c": 123.256
+  },
+  "citation": [
+    {
+      "country": "DK",
+      "id": "primary",
+      "journal_abbrev": "Acta Crystallogr.,Sect.D",
+      "journal_id_ASTM": "ABCRE6",
+      "journal_id_CSD": "0766",
+      "journal_id_ISSN": "0907-4449",
+      "journal_volume": "65",
+      "page_first": "1081",
+      "page_last": "1088",
+      "pdbx_database_id_DOI": "10.1107/S0907444909029321",
+      "pdbx_database_id_PubMed": 19770505,
+      "rcsb_authors": [
+        "Morgunova, E.",
+        "Gray, F.C.",
+        "Macneill, S.A.",
+        "Ladenstein, R."
+      ],
+      "rcsb_is_primary": "Y",
+      "rcsb_journal_abbrev": "Acta Crystallogr D Biol Crystallogr",
+      "title": "Structural insights into the adaptation of proliferating cell nuclear antigen (PCNA) from Haloferax volcanii to a high-salt environment.",
+      "year": 2009
+    }
+  ],
+  "database_2": [
+    {
+      "database_code": "3HI8",
+      "database_id": "PDB",
+      "pdbx_DOI": "10.2210/pdb3hi8/pdb",
+      "pdbx_database_accession": "pdb_00003hi8"
+    },
+    {
+      "database_code": "RCSB053165",
+      "database_id": "RCSB"
+    },
+    {
+      "database_code": "D_1000053165",
+      "database_id": "WWPDB"
+    }
+  ],
+  "diffrn": [
+    {
+      "ambient_temp": 100.0,
+      "crystal_id": "1",
+      "id": "1"
+    }
+  ],
+  "diffrn_detector": [
+    {
+      "details": "Pt coated mirrors",
+      "detector": "CCD",
+      "diffrn_id": "1",
+      "pdbx_collection_date": "2007-05-09T00:00:00.000+00:00",
+      "type": "MARMOSAIC 225 mm CCD"
+    }
+  ],
+  "diffrn_radiation": [
+    {
+      "diffrn_id": "1",
+      "monochromator": "Si(111)",
+      "pdbx_diffrn_protocol": "SINGLE WAVELENGTH",
+      "pdbx_monochromatic_or_laue_m_l": "M",
+      "pdbx_scattering_type": "x-ray",
+      "wavelength_id": "1"
+    }
+  ],
+  "diffrn_source": [
+    {
+      "diffrn_id": "1",
+      "pdbx_synchrotron_beamline": "ID23-2",
+      "pdbx_synchrotron_site": "ESRF",
+      "pdbx_wavelength_list": "0.8726",
+      "source": "SYNCHROTRON",
+      "type": "ESRF BEAMLINE ID23-2"
+    }
+  ],
+  "entry": {
+    "id": "3HI8"
+  },
+  "exptl": [
+    {
+      "crystals_number": 1,
+      "method": "X-RAY DIFFRACTION"
+    }
+  ],
+  "exptl_crystal": [
+    {
+      "density_Matthews": 2.92,
+      "density_percent_sol": 57.94,
+      "id": "1"
+    }
+  ],
+  "exptl_crystal_grow": [
+    {
+      "crystal_id": "1",
+      "method": "VAPOR DIFFUSION, SITTING DROP",
+      "pH": 7.0,
+      "pdbx_details": "4M Sodium malonate, pH 7.0, VAPOR DIFFUSION, SITTING DROP, temperature 298K",
+      "temp": 298.0
+    }
+  ],
+  "pdbx_audit_revision_category": [
+    {
+      "category": "software",
+      "data_content_type": "Structure model",
+      "ordinal": 1,
+      "revision_ordinal": 3
+    },
+    {
+      "category": "audit_author",
+      "data_content_type": "Structure model",
+      "ordinal": 2,
+      "revision_ordinal": 4
+    },
+    {
+      "category": "chem_comp_atom",
+      "data_content_type": "Structure model",
+      "ordinal": 3,
+      "revision_ordinal": 5
+    },
+    {
+      "category": "chem_comp_bond",
+      "data_content_type": "Structure model",
+      "ordinal": 4,
+      "revision_ordinal": 5
+    },
+    {
+      "category": "database_2",
+      "data_content_type": "Structure model",
+      "ordinal": 5,
+      "revision_ordinal": 5
+    },
+    {
+      "category": "pdbx_initial_refinement_model",
+      "data_content_type": "Structure model",
+      "ordinal": 6,
+      "revision_ordinal": 5
+    }
+  ],
+  "pdbx_audit_revision_details": [
+    {
+      "data_content_type": "Structure model",
+      "ordinal": 1,
+      "provider": "repository",
+      "revision_ordinal": 1,
+      "type": "Initial release"
+    }
+  ],
+  "pdbx_audit_revision_group": [
+    {
+      "data_content_type": "Structure model",
+      "group": "Version format compliance",
+      "ordinal": 1,
+      "revision_ordinal": 2
+    },
+    {
+      "data_content_type": "Structure model",
+      "group": "Refinement description",
+      "ordinal": 2,
+      "revision_ordinal": 3
+    },
+    {
+      "data_content_type": "Structure model",
+      "group": "Structure summary",
+      "ordinal": 3,
+      "revision_ordinal": 4
+    },
+    {
+      "data_content_type": "Structure model",
+      "group": "Data collection",
+      "ordinal": 4,
+      "revision_ordinal": 5
+    },
+    {
+      "data_content_type": "Structure model",
+      "group": "Database references",
+      "ordinal": 5,
+      "revision_ordinal": 5
+    },
+    {
+      "data_content_type": "Structure model",
+      "group": "Refinement description",
+      "ordinal": 6,
+      "revision_ordinal": 5
+    }
+  ],
+  "pdbx_audit_revision_history": [
+    {
+      "data_content_type": "Structure model",
+      "major_revision": 1,
+      "minor_revision": 0,
+      "ordinal": 1,
+      "revision_date": "2009-09-29T00:00:00.000+00:00"
+    },
+    {
+      "data_content_type": "Structure model",
+      "major_revision": 1,
+      "minor_revision": 1,
+      "ordinal": 2,
+      "revision_date": "2011-07-13T00:00:00.000+00:00"
+    },
+    {
+      "data_content_type": "Structure model",
+      "major_revision": 1,
+      "minor_revision": 2,
+      "ordinal": 3,
+      "revision_date": "2017-11-01T00:00:00.000+00:00"
+    },
+    {
+      "data_content_type": "Structure model",
+      "major_revision": 1,
+      "minor_revision": 3,
+      "ordinal": 4,
+      "revision_date": "2018-01-24T00:00:00.000+00:00"
+    },
+    {
+      "data_content_type": "Structure model",
+      "major_revision": 1,
+      "minor_revision": 4,
+      "ordinal": 5,
+      "revision_date": "2023-09-06T00:00:00.000+00:00"
+    }
+  ],
+  "pdbx_audit_revision_item": [
+    {
+      "data_content_type": "Structure model",
+      "item": "_audit_author.name",
+      "ordinal": 1,
+      "revision_ordinal": 4
+    },
+    {
+      "data_content_type": "Structure model",
+      "item": "_database_2.pdbx_DOI",
+      "ordinal": 2,
+      "revision_ordinal": 5
+    },
+    {
+      "data_content_type": "Structure model",
+      "item": "_database_2.pdbx_database_accession",
+      "ordinal": 3,
+      "revision_ordinal": 5
+    }
+  ],
+  "pdbx_database_status": {
+    "deposit_site": "RCSB",
+    "pdb_format_compatible": "Y",
+    "process_site": "RCSB",
+    "recvd_initial_deposition_date": "2009-05-19T00:00:00.000+00:00",
+    "status_code": "REL",
+    "status_code_sf": "REL"
+  },
+  "pdbx_initial_refinement_model": [
+    {
+      "accession_code": "1RWZ",
+      "details": "PDB entry 1RWZ",
+      "id": 1,
+      "source_name": "PDB",
+      "type": "experimental model"
+    }
+  ],
+  "pdbx_vrpt_summary": {
+    "attempted_validation_steps": "molprobity,validation-pack,xtriage,eds,validation_schema,percentiles,writexml,writecif,writepdf",
+    "ligands_for_buster_report": "N",
+    "report_creation_date": "2026-03-05T02:42:00.000+00:00"
+  },
+  "pdbx_vrpt_summary_diffraction": [
+    {
+      "B_factor_type": "FULL",
+      "CCP4_version": "9.0.010 (Gargrove)",
+      "DCC_R": 0.2295,
+      "DCC_Rfree": 0.2638,
+      "EDS_R": 0.128,
+      "EDS_res_high": 3.2,
+      "EDS_res_low": 32.95,
+      "Fo_Fc_correlation": 0.979,
+      "I_over_sigma": "1.19(3.18A)",
+      "Padilla_Yeates_L2_mean": 0.173,
+      "Padilla_Yeates_L_mean": 0.344,
+      "Wilson_B_aniso": "[139.636,139.323,134.530,0.000,-1.008,0.000]",
+      "Wilson_B_estimate": 138.099,
+      "acentric_outliers": 1,
+      "bulk_solvent_b": 316.348,
+      "bulk_solvent_k": 0.213,
+      "centric_outliers": 0,
+      "data_anisotropy": 0.037,
+      "data_completeness": 86.49,
+      "density_fitness_version": "1.0.12",
+      "exp_method": "x-ray",
+      "num_miller_indices": 26380,
+      "number_reflns_R_free": 1323,
+      "percent_RSRZ_outliers": 0.0,
+      "percent_free_reflections": 5.02,
+      "trans_NCS_details": "The largest off-origin peak in the Patterson function is 3.83% of the height of the origin peak. No significant pseudotranslation is detected.",
+      "twin_fraction": "-h-2*l,k,h+l:0.357;k+l,h+l,-l:0.348;-k+l,-h-l,-l:0.357;-h-k-l,l,k:0.349;-h+k-l,-l,-k:0.349;-h-k-l,-l,h+l:0.347;k+l,-h-l,-k:0.347;-h+k-l,l,h+l:0.348;-k+l,h+l,k:0.349;-h,-k,h+l:0.357;-h-2*l,-k,l:0.358"
+    }
+  ],
+  "pdbx_vrpt_summary_geometry": [
+    {
+      "angles_RMSZ": 1.68,
+      "bonds_RMSZ": 1.04,
+      "clashscore": 98.76,
+      "num_H_reduce": 11082,
+      "num_angles_RMSZ": 15432,
+      "num_bonds_RMSZ": 11358,
+      "percent_ramachandran_outliers": 3.67,
+      "percent_rotamer_outliers": 24.63
+    }
+  ],
+  "rcsb_accession_info": {
+    "deposit_date": "2009-05-19T00:00:00.000+00:00",
+    "has_released_experimental_data": "Y",
+    "initial_release_date": "2009-09-29T00:00:00.000+00:00",
+    "major_revision": 1,
+    "minor_revision": 4,
+    "revision_date": "2023-09-06T00:00:00.000+00:00",
+    "status_code": "REL"
+  },
+  "rcsb_entry_container_identifiers": {
+    "assembly_ids": [
+      "1",
+      "2"
+    ],
+    "entity_ids": [
+      "1",
+      "2"
+    ],
+    "entry_id": "3HI8",
+    "model_ids": [
+      1
+    ],
+    "polymer_entity_ids": [
+      "1"
+    ],
+    "pubmed_id": 19770505,
+    "rcsb_id": "3HI8"
+  },
+  "rcsb_entry_info": {
+    "assembly_count": 2,
+    "branched_entity_count": 0,
+    "cis_peptide_count": 0,
+    "deposited_atom_count": 11245,
+    "deposited_deuterated_water_count": 0,
+    "deposited_hydrogen_atom_count": 0,
+    "deposited_model_count": 1,
+    "deposited_modeled_polymer_monomer_count": 1482,
+    "deposited_nonpolymer_entity_instance_count": 0,
+    "deposited_polymer_entity_instance_count": 6,
+    "deposited_polymer_monomer_count": 1482,
+    "deposited_solvent_atom_count": 31,
+    "deposited_unmodeled_polymer_monomer_count": 0,
+    "diffrn_radiation_wavelength_maximum": 0.8726,
+    "diffrn_radiation_wavelength_minimum": 0.8726,
+    "disulfide_bond_count": 0,
+    "entity_count": 2,
+    "experimental_method": "X-ray",
+    "experimental_method_count": 1,
+    "inter_mol_covalent_bond_count": 0,
+    "inter_mol_metalic_bond_count": 0,
+    "molecular_weight": 160.18,
+    "na_polymer_entity_types": "Other",
+    "nonpolymer_entity_count": 0,
+    "polymer_composition": "homomeric protein",
+    "polymer_entity_count": 1,
+    "polymer_entity_count_DNA": 0,
+    "polymer_entity_count_RNA": 0,
+    "polymer_entity_count_nucleic_acid": 0,
+    "polymer_entity_count_nucleic_acid_hybrid": 0,
+    "polymer_entity_count_protein": 1,
+    "polymer_entity_taxonomy_count": 1,
+    "polymer_molecular_weight_maximum": 26.7,
+    "polymer_molecular_weight_minimum": 26.7,
+    "polymer_monomer_count_maximum": 247,
+    "polymer_monomer_count_minimum": 247,
+    "resolution_combined": [
+      3.202
+    ],
+    "selected_polymer_entity_types": "Protein (only)",
+    "software_programs_combined": [
+      "DENZO",
+      "HKL-2000",
+      "MOLREP",
+      "PDB_EXTRACT",
+      "PHENIX",
+      "SCALEPACK"
+    ],
+    "solvent_entity_count": 1,
+    "structure_determination_methodology": "experimental",
+    "structure_determination_methodology_priority": 10,
+    "diffrn_resolution_high": {
+      "provenance_source": "Depositor assigned",
+      "value": 3.2
+    }
+  },
+  "rcsb_primary_citation": {
+    "country": "DK",
+    "id": "primary",
+    "journal_abbrev": "Acta Crystallogr.,Sect.D",
+    "journal_id_ASTM": "ABCRE6",
+    "journal_id_CSD": "0766",
+    "journal_id_ISSN": "0907-4449",
+    "journal_volume": "65",
+    "page_first": "1081",
+    "page_last": "1088",
+    "pdbx_database_id_DOI": "10.1107/S0907444909029321",
+    "pdbx_database_id_PubMed": 19770505,
+    "rcsb_ORCID_identifiers": [
+      "?",
+      "?",
+      "?",
+      "?"
+    ],
+    "rcsb_authors": [
+      "Morgunova, E.",
+      "Gray, F.C.",
+      "Macneill, S.A.",
+      "Ladenstein, R."
+    ],
+    "rcsb_journal_abbrev": "Acta Crystallogr D Biol Crystallogr",
+    "title": "Structural insights into the adaptation of proliferating cell nuclear antigen (PCNA) from Haloferax volcanii to a high-salt environment.",
+    "year": 2009
+  },
+  "refine": [
+    {
+      "B_iso_max": 259.96,
+      "B_iso_mean": 139.842,
+      "B_iso_min": 13.52,
+      "aniso_B_1_1": 3.812,
+      "aniso_B_1_2": 0.0,
+      "aniso_B_1_3": 2.153,
+      "aniso_B_2_2": -1.261,
+      "aniso_B_2_3": 0.0,
+      "aniso_B_3_3": -2.551,
+      "ls_R_factor_R_free": 0.25,
+      "ls_R_factor_R_work": 0.237,
+      "ls_d_res_high": 3.202,
+      "ls_d_res_low": 32.949,
+      "ls_number_reflns_R_free": 1323,
+      "ls_number_reflns_obs": 26374,
+      "ls_percent_reflns_R_free": 5.02,
+      "ls_percent_reflns_obs": 86.63,
+      "occupancy_max": 1.0,
+      "occupancy_min": 1.0,
+      "overall_FOM_work_R_set": 0.787,
+      "pdbx_R_Free_selection_details": "random",
+      "pdbx_diffrn_id": [
+        "1"
+      ],
+      "pdbx_ls_cross_valid_method": "THROUGHOUT",
+      "pdbx_method_to_determine_struct": "MOLECULAR REPLACEMENT",
+      "pdbx_refine_id": "X-RAY DIFFRACTION",
+      "pdbx_starting_model": "PDB entry 1RWZ",
+      "pdbx_stereochemistry_target_values": "twin_lsq_f",
+      "solvent_model_param_bsol": 60.326,
+      "solvent_model_param_ksol": 0.215
+    }
+  ],
+  "refine_hist": [
+    {
+      "cycle_id": "LAST",
+      "d_res_high": 3.202,
+      "d_res_low": 32.949,
+      "number_atoms_solvent": 31,
+      "number_atoms_total": 11245,
+      "pdbx_number_atoms_ligand": 0,
+      "pdbx_number_atoms_nucleic_acid": 0,
+      "pdbx_number_atoms_protein": 11214,
+      "pdbx_refine_id": "X-RAY DIFFRACTION"
+    }
+  ],
+  "refine_ls_restr": [
+    {
+      "dev_ideal": 1.495,
+      "pdbx_refine_id": "X-RAY DIFFRACTION",
+      "type": "f_angle_d",
+      "weight": 0.0
+    },
+    {
+      "dev_ideal": 0.01,
+      "pdbx_refine_id": "X-RAY DIFFRACTION",
+      "type": "f_bond_d",
+      "weight": 0.0
+    },
+    {
+      "dev_ideal": 0.071,
+      "pdbx_refine_id": "X-RAY DIFFRACTION",
+      "type": "f_chiral_restr",
+      "weight": 0.0
+    },
+    {
+      "dev_ideal": 13.029,
+      "pdbx_refine_id": "X-RAY DIFFRACTION",
+      "type": "f_dihedral_angle_d",
+      "weight": 0.0
+    },
+    {
+      "dev_ideal": 0.005,
+      "pdbx_refine_id": "X-RAY DIFFRACTION",
+      "type": "f_plane_restr",
+      "weight": 0.0
+    },
+    {
+      "dev_ideal": 4.042,
+      "pdbx_refine_id": "X-RAY DIFFRACTION",
+      "type": "f_nbd_refined",
+      "weight": 0.0
+    }
+  ],
+  "reflns": [
+    {
+      "B_iso_Wilson_estimate": 138.0,
+      "d_resolution_high": 3.2,
+      "d_resolution_low": 32.949,
+      "number_obs": 26380,
+      "pdbx_Rsym_value": 0.115,
+      "pdbx_diffrn_id": [
+        "1"
+      ],
+      "pdbx_netI_over_sigmaI": 4.4,
+      "pdbx_ordinal": 1,
+      "pdbx_redundancy": 2.2,
+      "percent_possible_obs": 99.3
+    }
+  ],
+  "reflns_shell": [
+    {
+      "d_res_high": 3.2,
+      "d_res_low": 3.36,
+      "meanI_over_sigI_obs": 1.02,
+      "pdbx_Rsym_value": 0.25,
+      "pdbx_ordinal": 1,
+      "pdbx_redundancy": 2.0,
+      "percent_possible_all": 86.3
+    }
+  ],
+  "software": [
+    {
+      "classification": "data reduction",
+      "contact_author": "Zbyszek Otwinowski",
+      "contact_author_email": "hkl@hkl-xray.com",
+      "location": "http://www.hkl-xray.com/",
+      "name": "DENZO",
+      "pdbx_ordinal": 1,
+      "type": "package"
+    },
+    {
+      "classification": "data scaling",
+      "contact_author": "Zbyszek Otwinowski",
+      "contact_author_email": "hkl@hkl-xray.com",
+      "location": "http://www.hkl-xray.com/",
+      "name": "SCALEPACK",
+      "pdbx_ordinal": 2,
+      "type": "package"
+    },
+    {
+      "classification": "phasing",
+      "contact_author": "Alexei Vaguine",
+      "contact_author_email": "alexei@ysbl.york.ac.uk",
+      "language": "Fortran_77",
+      "location": "http://www.ccp4.ac.uk/dist/html/molrep.html",
+      "name": "MOLREP",
+      "pdbx_ordinal": 3,
+      "type": "program"
+    },
+    {
+      "classification": "refinement",
+      "contact_author": "Paul D. Adams",
+      "contact_author_email": "PDAdams@lbl.gov",
+      "language": "C++",
+      "location": "http://www.phenix-online.org/",
+      "name": "PHENIX",
+      "pdbx_ordinal": 4,
+      "type": "package"
+    },
+    {
+      "classification": "data extraction",
+      "contact_author": "PDB",
+      "contact_author_email": "help@deposit.rcsb.org",
+      "date": "June 11, 2008",
+      "language": "C++",
+      "location": "http://sw-tools.pdb.org/apps/PDB_EXTRACT/",
+      "name": "PDB_EXTRACT",
+      "pdbx_ordinal": 5,
+      "type": "package",
+      "version": "3.005"
+    },
+    {
+      "classification": "data collection",
+      "name": "HKL-2000",
+      "pdbx_ordinal": 6
+    }
+  ],
+  "struct": {
+    "pdbx_CASP_flag": "N",
+    "title": "Crystal structure of proliferating cell nuclear antigen (PCNA) from Haloferax volcanii"
+  },
+  "struct_keywords": {
+    "pdbx_keywords": "REPLICATION",
+    "text": "sliding clamp, replication, DNA interaction, haloferax volcanii"
+  },
+  "symmetry": {
+    "Int_Tables_number": 5,
+    "space_group_name_H_M": "C 1 2 1"
+  },
+  "rcsb_id": "3HI8"
+}

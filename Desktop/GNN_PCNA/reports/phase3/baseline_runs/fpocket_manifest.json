@@ -1,0 +1,8 @@
+{
+  "baseline_name": "fpocket",
+  "status": "NOT_RUN",
+  "reason": "fpocket requires a separate binary installation (not available on this Windows system).",
+  "installation_note": "Download from https://fpocket.sourceforge.net/ or compile from source. Run fpocket on each structure, parse output, align predictions to residues, compute metrics.",
+  "script": "scripts/run_fpocket.py (to be created after installation)",
+  "governance": "docs/scientific_governance/10_BASELINE_REQUIREMENTS.md"
+}

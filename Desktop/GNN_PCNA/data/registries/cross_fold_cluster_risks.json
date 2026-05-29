@@ -1,0 +1,129 @@
+{
+  "generated_at": "2026-05-27T23:41:53.063542",
+  "identity_threshold": 30,
+  "cross_fold_cluster_risks": {
+    "885": {
+      "cluster_id_30": 885,
+      "train_apos": [
+        "8oqp"
+      ],
+      "test_apos": [
+        "7o1i"
+      ],
+      "risk": "TRAIN_TEST_SEQUENCE_LEAKAGE",
+      "action": "assign_all_apos_in_cluster_to_same_split_group"
+    },
+    "150": {
+      "cluster_id_30": 150,
+      "train_apos": [
+        "6g0s"
+      ],
+      "test_apos": [
+        "2rfj"
+      ],
+      "risk": "TRAIN_TEST_SEQUENCE_LEAKAGE",
+      "action": "assign_all_apos_in_cluster_to_same_split_group"
+    },
+    "219": {
+      "cluster_id_30": 219,
+      "train_apos": [
+        "2air",
+        "4c6b"
+      ],
+      "test_apos": [
+        "9atc"
+      ],
+      "risk": "TRAIN_TEST_SEQUENCE_LEAKAGE",
+      "action": "assign_all_apos_in_cluster_to_same_split_group"
+    },
+    "365": {
+      "cluster_id_30": 365,
+      "train_apos": [
+        "1lx7"
+      ],
+      "test_apos": [
+        "6f52"
+      ],
+      "risk": "TRAIN_TEST_SEQUENCE_LEAKAGE",
+      "action": "assign_all_apos_in_cluster_to_same_split_group"
+    },
+    "5192": {
+      "cluster_id_30": 5192,
+      "train_apos": [
+        "6cy1"
+      ],
+      "test_apos": [
+        "6n5j"
+      ],
+      "risk": "TRAIN_TEST_SEQUENCE_LEAKAGE",
+      "action": "assign_all_apos_in_cluster_to_same_split_group"
+    },
+    "3396": {
+      "cluster_id_30": 3396,
+      "train_apos": [
+        "6a45"
+      ],
+      "test_apos": [
+        "6w10"
+      ],
+      "risk": "TRAIN_TEST_SEQUENCE_LEAKAGE",
+      "action": "assign_all_apos_in_cluster_to_same_split_group"
+    }
+  },
+  "cross_fold_cluster_count": 6,
+  "repeated_holo_resolution": {
+    "holo_2fzc_2fzg_4f04": {
+      "apos": [
+        "2air",
+        "9atc"
+      ],
+      "shared_holos": [
+        "2fzc",
+        "2fzg",
+        "4f04"
+      ],
+      "apo_cluster_ids_30": [
+        219,
+        219
+      ],
+      "same_cluster": true,
+      "action": "GROUP_IN_SAME_SPLIT \u2014 apo proteins are sequence homologs; group together"
+    },
+    "holo_5qya_7fo6": {
+      "apos": [
+        "3e9p",
+        "4ilg"
+      ],
+      "shared_holos": [
+        "5qya",
+        "7fo6"
+      ],
+      "apo_cluster_ids_30": [
+        216,
+        381
+      ],
+      "same_cluster": false,
+      "action": "KEEP_SHARED_HOLO_IN_ONE_SPLIT \u2014 apos are NOT sequence homologs, but the shared holo PDB structure must belong to only one split group to prevent structural leakage"
+    },
+    "holo_6a5y": {
+      "apos": [
+        "4n5g",
+        "6hl0"
+      ],
+      "shared_holos": [
+        "6a5y"
+      ],
+      "apo_cluster_ids_30": [
+        1190,
+        2228
+      ],
+      "same_cluster": false,
+      "action": "KEEP_SHARED_HOLO_IN_ONE_SPLIT \u2014 apos are NOT sequence homologs, but the shared holo PDB structure must belong to only one split group to prevent structural leakage"
+    }
+  },
+  "sliding_clamp_pcna_status": {
+    "2xur": false,
+    "3bep": false
+  },
+  "status": "SPLIT_REDESIGN_REQUIRED"
+}

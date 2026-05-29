@@ -1,0 +1,73 @@
+1. J Phys Chem B. 2026 Jan 15;130(2):730-740. doi: 10.1021/acs.jpcb.5c08598. Epub
+ 2026 Jan 4.
+
+Leak Proof PDBBind: A Reorganized Data Set of Protein-Ligand Complexes for More 
+Generalizable Binding Affinity Prediction.
+
+Li J(1), Guan X(1), Zhang O(1), Sun K(1), Wang Y(1), Bagni D(1), Head-Gordon 
+T(1)(2).
+
+Author information:
+(1)Pitzer Center for Theoretical Chemistry, Department of Chemistry, University 
+of California, Berkeley, California 94720-3220, United States.
+(2)Departments of Bioengineering and Chemical and Biomolecular Engineering, 
+University of California, Berkeley, California 94720-3220, United States.
+
+Update of
+    ArXiv. 2024 May 3:arXiv:2308.09639v2.
+
+The majority of machine learning scoring functions used in drug discovery for 
+predicting protein-ligand binding poses and affinities have been trained on the 
+PDBBind data set. However, it is unclear whether these new scoring functions are 
+actually an improvement over traditional models since often the training and 
+test sets are cross-contaminated with proteins and ligands with high similarity, 
+and hence, they may not perform comparably well in binding prediction of 
+unrelated protein-ligand complexes. In this work, we have carefully prepared a 
+new split of the PDBBind data set to control for data leakage, defined as 
+proteins and ligands with high sequence and structural similarity. The resulting 
+leak-proof (LP)-PDBBind data are used to retrain four popular SFs: AutoDock 
+Vina, Random Forest (RF)-Score, InteractionGraphNet (IGN), and DeepDTA, to 
+better test their capabilities when applied to new protein-ligand complexes. In 
+particular, we have formulated a new independent data set, BDB2020+, by matching 
+high-quality binding free energies from BindingDB with cocrystallized 
+ligand-protein complexes from the PDB that have been deposited since 2020. Based 
+on all of the benchmark results, the retrained models using LP-PDBBind 
+consistently perform better, with IGN especially being recommended for scoring 
+and ranking applications for new protein-ligand systems.
+
+DOI: 10.1021/acs.jpcb.5c08598
+PMID: 41486605 [Indexed for MEDLINE]
+
+
+2. ArXiv [Preprint]. 2024 May 3:arXiv:2308.09639v2.
+
+Leak Proof PDBBind: A Reorganized Dataset of Protein-Ligand Complexes for More 
+Generalizable Binding Affinity Prediction.
+
+Li J, Guan X, Zhang O, Sun K, Wang Y, Bagni D, Head-Gordon T.
+
+Update in
+    J Phys Chem B. 2026 Jan 15;130(2):730-740. doi: 10.1021/acs.jpcb.5c08598.
+
+Many physics-based and machine-learned scoring functions (SFs) used to predict 
+protein-ligand binding free energies have been trained on the PDBBind dataset. 
+However, it is controversial as to whether new SFs are actually improving since 
+the general, refined, and core datasets of PDBBind are cross-contaminated with 
+proteins and ligands with high similarity, and hence they may not perform 
+comparably well in binding prediction of new protein-ligand complexes. In this 
+work we have carefully prepared a cleaned PDBBind data set of non-covalent 
+binders that are split into training, validation, and test datasets to control 
+for data leakage, defined as proteins and ligands with high sequence and 
+structural similarity. The resulting leak-proof (LP)-PDBBind data is used to 
+retrain four popular SFs: AutoDock Vina, Random Forest (RF)-Score, 
+InteractionGraphNet (IGN), and DeepDTA, to better test their capabilities when 
+applied to new protein-ligand complexes. In particular we have formulated a new 
+independent data set, BDB2020+, by matching high quality binding free energies 
+from BindingDB with co-crystalized ligand-protein complexes from the PDB that 
+have been deposited since 2020. Based on all the benchmark results, the 
+retrained models using LP-PDBBind consistently perform better, with IGN 
+especially being recommended for scoring and ranking applications for new 
+protein-ligand systems.
+
+PMCID: PMC10462179
+PMID: 37645037

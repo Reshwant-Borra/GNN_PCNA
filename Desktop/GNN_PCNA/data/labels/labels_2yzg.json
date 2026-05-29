@@ -1,0 +1,1 @@
+{"apo_pdb_id": "2yzg", "chain": "C", "fold": "train-3", "pocket_token_count": 8, "positive_count": 8, "masked_count": 0, "remapped_count": 0, "fraction_masked": 0.0, "labels": {"C_114": 1, "C_13": 1, "C_157": 1, "C_158": 1, "C_284": 1, "C_82": 1, "C_83": 1, "C_87": 1}, "generated_at": "2026-05-27T23:43:16.095555", "governance": "docs/scientific_governance/06_LABELING_RULES.md"}

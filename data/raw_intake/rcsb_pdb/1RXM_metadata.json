@@ -1,0 +1,592 @@
+{
+  "audit_author": [
+    {
+      "name": "Chapados, B.R.",
+      "pdbx_ordinal": 1
+    },
+    {
+      "name": "Hosfield, D.J.",
+      "pdbx_ordinal": 2
+    },
+    {
+      "name": "Han, S.",
+      "pdbx_ordinal": 3
+    },
+    {
+      "name": "Qiu, J.",
+      "pdbx_ordinal": 4
+    },
+    {
+      "name": "Yelent, B.",
+      "pdbx_ordinal": 5
+    },
+    {
+      "name": "Shen, B.",
+      "pdbx_ordinal": 6
+    },
+    {
+      "name": "Tainer, J.A.",
+      "pdbx_ordinal": 7
+    }
+  ],
+  "cell": {
+    "Z_PDB": 18,
+    "angle_alpha": 90.0,
+    "angle_beta": 90.0,
+    "angle_gamma": 120.0,
+    "length_a": 101.127,
+    "length_b": 101.127,
+    "length_c": 203.148
+  },
+  "citation": [
+    {
+      "country": "US",
+      "id": "primary",
+      "journal_abbrev": "Cell(Cambridge,Mass.)",
+      "journal_id_ASTM": "CELLB5",
+      "journal_id_CSD": "0998",
+      "journal_id_ISSN": "0092-8674",
+      "journal_volume": "116",
+      "page_first": "39",
+      "page_last": "50",
+      "pdbx_database_id_DOI": "10.1016/S0092-8674(03)01036-5",
+      "pdbx_database_id_PubMed": 14718165,
+      "rcsb_authors": [
+        "Chapados, B.R.",
+        "Hosfield, D.J.",
+        "Han, S.",
+        "Qiu, J.",
+        "Yelent, B.",
+        "Shen, B.",
+        "Tainer, J.A."
+      ],
+      "rcsb_is_primary": "Y",
+      "rcsb_journal_abbrev": "Cell",
+      "title": "Structural Basis for FEN-1 Substrate Specificity and PCNA-Mediated Activation in DNA Replication and Repair",
+      "year": 2004
+    }
+  ],
+  "database_2": [
+    {
+      "database_code": "1RXM",
+      "database_id": "PDB",
+      "pdbx_DOI": "10.2210/pdb1rxm/pdb",
+      "pdbx_database_accession": "pdb_00001rxm"
+    },
+    {
+      "database_code": "RCSB021122",
+      "database_id": "RCSB"
+    },
+    {
+      "database_code": "D_1000021122",
+      "database_id": "WWPDB"
+    }
+  ],
+  "diffrn": [
+    {
+      "ambient_temp": 100.0,
+      "crystal_id": "1",
+      "id": "1"
+    }
+  ],
+  "diffrn_detector": [
+    {
+      "detector": "CCD",
+      "diffrn_id": "1",
+      "pdbx_collection_date": "2000-08-02T00:00:00.000+00:00",
+      "type": "ADSC QUANTUM 4"
+    }
+  ],
+  "diffrn_radiation": [
+    {
+      "diffrn_id": "1",
+      "monochromator": "double crystal",
+      "pdbx_diffrn_protocol": "SINGLE WAVELENGTH",
+      "pdbx_monochromatic_or_laue_m_l": "M",
+      "pdbx_scattering_type": "x-ray",
+      "wavelength_id": "1"
+    }
+  ],
+  "diffrn_source": [
+    {
+      "diffrn_id": "1",
+      "pdbx_synchrotron_beamline": "BL9-2",
+      "pdbx_synchrotron_site": "SSRL",
+      "pdbx_wavelength_list": "0.855",
+      "source": "SYNCHROTRON",
+      "type": "SSRL BEAMLINE BL9-2"
+    }
+  ],
+  "entry": {
+    "id": "1RXM"
+  },
+  "exptl": [
+    {
+      "crystals_number": 1,
+      "method": "X-RAY DIFFRACTION"
+    }
+  ],
+  "exptl_crystal": [
+    {
+      "density_Matthews": 3.48,
+      "density_percent_sol": 64.67,
+      "id": "1"
+    }
+  ],
+  "exptl_crystal_grow": [
+    {
+      "crystal_id": "1",
+      "method": "VAPOR DIFFUSION, HANGING DROP",
+      "pH": 9.0,
+      "pdbx_details": "Na/K phosphate, pH 9, VAPOR DIFFUSION, HANGING DROP, temperature 293K",
+      "temp": 293.0
+    }
+  ],
+  "pdbx_audit_revision_category": [
+    {
+      "category": "chem_comp_atom",
+      "data_content_type": "Structure model",
+      "ordinal": 1,
+      "revision_ordinal": 5
+    },
+    {
+      "category": "chem_comp_bond",
+      "data_content_type": "Structure model",
+      "ordinal": 2,
+      "revision_ordinal": 5
+    },
+    {
+      "category": "database_2",
+      "data_content_type": "Structure model",
+      "ordinal": 3,
+      "revision_ordinal": 5
+    },
+    {
+      "category": "pdbx_initial_refinement_model",
+      "data_content_type": "Structure model",
+      "ordinal": 4,
+      "revision_ordinal": 5
+    }
+  ],
+  "pdbx_audit_revision_details": [
+    {
+      "data_content_type": "Structure model",
+      "ordinal": 1,
+      "provider": "repository",
+      "revision_ordinal": 1,
+      "type": "Initial release"
+    }
+  ],
+  "pdbx_audit_revision_group": [
+    {
+      "data_content_type": "Structure model",
+      "group": "Version format compliance",
+      "ordinal": 1,
+      "revision_ordinal": 2
+    },
+    {
+      "data_content_type": "Structure model",
+      "group": "Version format compliance",
+      "ordinal": 2,
+      "revision_ordinal": 3
+    },
+    {
+      "data_content_type": "Structure model",
+      "group": "Atomic model",
+      "ordinal": 3,
+      "revision_ordinal": 4
+    },
+    {
+      "data_content_type": "Structure model",
+      "group": "Data collection",
+      "ordinal": 4,
+      "revision_ordinal": 5
+    },
+    {
+      "data_content_type": "Structure model",
+      "group": "Database references",
+      "ordinal": 5,
+      "revision_ordinal": 5
+    },
+    {
+      "data_content_type": "Structure model",
+      "group": "Refinement description",
+      "ordinal": 6,
+      "revision_ordinal": 5
+    }
+  ],
+  "pdbx_audit_revision_history": [
+    {
+      "data_content_type": "Structure model",
+      "major_revision": 1,
+      "minor_revision": 0,
+      "ordinal": 1,
+      "revision_date": "2004-01-27T00:00:00.000+00:00"
+    },
+    {
+      "data_content_type": "Structure model",
+      "major_revision": 1,
+      "minor_revision": 1,
+      "ordinal": 2,
+      "revision_date": "2008-04-29T00:00:00.000+00:00"
+    },
+    {
+      "data_content_type": "Structure model",
+      "major_revision": 1,
+      "minor_revision": 2,
+      "ordinal": 3,
+      "revision_date": "2011-07-13T00:00:00.000+00:00"
+    },
+    {
+      "data_content_type": "Structure model",
+      "major_revision": 1,
+      "minor_revision": 3,
+      "ordinal": 4,
+      "revision_date": "2011-11-16T00:00:00.000+00:00"
+    },
+    {
+      "data_content_type": "Structure model",
+      "major_revision": 1,
+      "minor_revision": 4,
+      "ordinal": 5,
+      "revision_date": "2023-08-23T00:00:00.000+00:00"
+    }
+  ],
+  "pdbx_audit_revision_item": [
+    {
+      "data_content_type": "Structure model",
+      "item": "_database_2.pdbx_DOI",
+      "ordinal": 1,
+      "revision_ordinal": 5
+    },
+    {
+      "data_content_type": "Structure model",
+      "item": "_database_2.pdbx_database_accession",
+      "ordinal": 2,
+      "revision_ordinal": 5
+    }
+  ],
+  "pdbx_database_related": [
+    {
+      "content_type": "unspecified",
+      "db_id": "1RWZ",
+      "db_name": "PDB"
+    },
+    {
+      "content_type": "unspecified",
+      "db_id": "1RXV",
+      "db_name": "PDB"
+    },
+    {
+      "content_type": "unspecified",
+      "db_id": "1RXW",
+      "db_name": "PDB"
+    },
+    {
+      "content_type": "unspecified",
+      "db_id": "1RXZ",
+      "db_name": "PDB"
+    }
+  ],
+  "pdbx_database_status": {
+    "deposit_site": "RCSB",
+    "pdb_format_compatible": "Y",
+    "process_site": "RCSB",
+    "recvd_initial_deposition_date": "2003-12-18T00:00:00.000+00:00",
+    "status_code": "REL",
+    "status_code_sf": "REL"
+  },
+  "pdbx_initial_refinement_model": [
+    {
+      "accession_code": "1RWZ",
+      "details": "PDB ENTRY 1RWZ",
+      "id": 1,
+      "source_name": "PDB",
+      "type": "experimental model"
+    }
+  ],
+  "pdbx_vrpt_summary": {
+    "attempted_validation_steps": "molprobity,validation-pack,xtriage,eds,validation_schema,percentiles,writexml,writecif,writepdf",
+    "ligands_for_buster_report": "N",
+    "report_creation_date": "2026-03-05T21:16:00.000+00:00"
+  },
+  "pdbx_vrpt_summary_diffraction": [
+    {
+      "B_factor_type": "FULL",
+      "CCP4_version": "9.0.010 (Gargrove)",
+      "DCC_R": 0.2053,
+      "DCC_Rfree": 0.2602,
+      "EDS_R": 0.1959,
+      "EDS_res_high": 2.81,
+      "EDS_res_low": 30.0,
+      "Fo_Fc_correlation": 0.934,
+      "I_over_sigma": "5.12(2.79A)",
+      "Padilla_Yeates_L2_mean": 0.32,
+      "Padilla_Yeates_L_mean": 0.488,
+      "Wilson_B_aniso": "[55.655,55.655,34.609,0.000,0.000,0.000]",
+      "Wilson_B_estimate": 47.351,
+      "acentric_outliers": 1,
+      "bulk_solvent_b": 68.461,
+      "bulk_solvent_k": 0.376,
+      "centric_outliers": 0,
+      "data_anisotropy": 0.433,
+      "data_completeness": 96.68,
+      "density_fitness_version": "1.0.12",
+      "exp_method": "x-ray",
+      "num_miller_indices": 10033,
+      "number_reflns_R_free": 1002,
+      "percent_RSRZ_outliers": 0.39,
+      "percent_free_reflections": 9.99,
+      "trans_NCS_details": "The largest off-origin peak in the Patterson function is 6.36% of the height of the origin peak. No significant pseudotranslation is detected."
+    }
+  ],
+  "pdbx_vrpt_summary_geometry": [
+    {
+      "angles_RMSZ": 0.94,
+      "bonds_RMSZ": 0.42,
+      "clashscore": 13.24,
+      "num_H_reduce": 2064,
+      "num_angles_RMSZ": 2751,
+      "num_bonds_RMSZ": 2044,
+      "percent_ramachandran_outliers": 0.4,
+      "percent_rotamer_outliers": 2.68
+    }
+  ],
+  "rcsb_accession_info": {
+    "deposit_date": "2003-12-18T00:00:00.000+00:00",
+    "has_released_experimental_data": "Y",
+    "initial_release_date": "2004-01-27T00:00:00.000+00:00",
+    "major_revision": 1,
+    "minor_revision": 4,
+    "revision_date": "2023-08-23T00:00:00.000+00:00",
+    "status_code": "REL"
+  },
+  "rcsb_entry_container_identifiers": {
+    "assembly_ids": [
+      "1"
+    ],
+    "entity_ids": [
+      "1",
+      "2",
+      "3"
+    ],
+    "entry_id": "1RXM",
+    "model_ids": [
+      1
+    ],
+    "polymer_entity_ids": [
+      "1",
+      "2"
+    ],
+    "pubmed_id": 14718165,
+    "rcsb_id": "1RXM"
+  },
+  "rcsb_entry_info": {
+    "assembly_count": 1,
+    "branched_entity_count": 0,
+    "cis_peptide_count": 0,
+    "deposited_atom_count": 2109,
+    "deposited_deuterated_water_count": 0,
+    "deposited_hydrogen_atom_count": 0,
+    "deposited_model_count": 1,
+    "deposited_modeled_polymer_monomer_count": 257,
+    "deposited_nonpolymer_entity_instance_count": 0,
+    "deposited_polymer_entity_instance_count": 2,
+    "deposited_polymer_monomer_count": 257,
+    "deposited_solvent_atom_count": 94,
+    "deposited_unmodeled_polymer_monomer_count": 0,
+    "diffrn_radiation_wavelength_maximum": 0.855,
+    "diffrn_radiation_wavelength_minimum": 0.855,
+    "disulfide_bond_count": 0,
+    "entity_count": 3,
+    "experimental_method": "X-ray",
+    "experimental_method_count": 1,
+    "inter_mol_covalent_bond_count": 0,
+    "inter_mol_metalic_bond_count": 0,
+    "molecular_weight": 28.71,
+    "na_polymer_entity_types": "Other",
+    "nonpolymer_entity_count": 0,
+    "polymer_composition": "heteromeric protein",
+    "polymer_entity_count": 2,
+    "polymer_entity_count_DNA": 0,
+    "polymer_entity_count_RNA": 0,
+    "polymer_entity_count_nucleic_acid": 0,
+    "polymer_entity_count_nucleic_acid_hybrid": 0,
+    "polymer_entity_count_protein": 2,
+    "polymer_entity_taxonomy_count": 1,
+    "polymer_molecular_weight_maximum": 27.3,
+    "polymer_molecular_weight_minimum": 1.4,
+    "polymer_monomer_count_maximum": 245,
+    "polymer_monomer_count_minimum": 12,
+    "resolution_combined": [
+      2.8
+    ],
+    "selected_polymer_entity_types": "Protein (only)",
+    "software_programs_combined": [
+      "AMORE",
+      "CNS",
+      "DENZO",
+      "SCALEPACK"
+    ],
+    "solvent_entity_count": 1,
+    "structure_determination_methodology": "experimental",
+    "structure_determination_methodology_priority": 10,
+    "diffrn_resolution_high": {
+      "provenance_source": "Depositor assigned",
+      "value": 2.8
+    }
+  },
+  "rcsb_primary_citation": {
+    "country": "US",
+    "id": "primary",
+    "journal_abbrev": "Cell(Cambridge,Mass.)",
+    "journal_id_ASTM": "CELLB5",
+    "journal_id_CSD": "0998",
+    "journal_id_ISSN": "0092-8674",
+    "journal_volume": "116",
+    "page_first": "39",
+    "page_last": "50",
+    "pdbx_database_id_DOI": "10.1016/S0092-8674(03)01036-5",
+    "pdbx_database_id_PubMed": 14718165,
+    "rcsb_ORCID_identifiers": [
+      "?",
+      "?",
+      "?",
+      "?",
+      "?",
+      "?",
+      "?"
+    ],
+    "rcsb_authors": [
+      "Chapados, B.R.",
+      "Hosfield, D.J.",
+      "Han, S.",
+      "Qiu, J.",
+      "Yelent, B.",
+      "Shen, B.",
+      "Tainer, J.A."
+    ],
+    "rcsb_journal_abbrev": "Cell",
+    "title": "Structural Basis for FEN-1 Substrate Specificity and PCNA-Mediated Activation in DNA Replication and Repair",
+    "year": 2004
+  },
+  "refine": [
+    {
+      "ls_R_factor_R_free": 0.2612,
+      "ls_R_factor_R_work": 0.2054,
+      "ls_R_factor_all": 0.211,
+      "ls_R_factor_obs": 0.211,
+      "ls_d_res_high": 2.8,
+      "ls_d_res_low": 30.0,
+      "ls_number_reflns_R_free": 1002,
+      "ls_number_reflns_all": 10124,
+      "ls_number_reflns_obs": 10124,
+      "ls_percent_reflns_obs": 100.0,
+      "pdbx_R_Free_selection_details": "random",
+      "pdbx_diffrn_id": [
+        "1"
+      ],
+      "pdbx_ls_cross_valid_method": "THROUGHOUT",
+      "pdbx_ls_sigma_F": 0.0,
+      "pdbx_method_to_determine_struct": "MOLECULAR REPLACEMENT",
+      "pdbx_refine_id": "X-RAY DIFFRACTION",
+      "pdbx_starting_model": "PDB ENTRY 1RWZ",
+      "pdbx_stereochemistry_target_values": "Engh & Huber"
+    }
+  ],
+  "refine_hist": [
+    {
+      "cycle_id": "LAST",
+      "d_res_high": 2.8,
+      "d_res_low": 30.0,
+      "number_atoms_solvent": 94,
+      "number_atoms_total": 2109,
+      "pdbx_number_atoms_ligand": 0,
+      "pdbx_number_atoms_nucleic_acid": 0,
+      "pdbx_number_atoms_protein": 2015,
+      "pdbx_refine_id": "X-RAY DIFFRACTION"
+    }
+  ],
+  "refine_ls_restr": [
+    {
+      "dev_ideal": 0.006,
+      "pdbx_refine_id": "X-RAY DIFFRACTION",
+      "type": "x_bond_d"
+    },
+    {
+      "dev_ideal": 1.29,
+      "pdbx_refine_id": "X-RAY DIFFRACTION",
+      "type": "x_angle_deg"
+    },
+    {
+      "dev_ideal": 24.8,
+      "pdbx_refine_id": "X-RAY DIFFRACTION",
+      "type": "x_torsion_deg"
+    },
+    {
+      "dev_ideal": 0.74,
+      "pdbx_refine_id": "X-RAY DIFFRACTION",
+      "type": "x_torsion_impr_deg"
+    }
+  ],
+  "reflns": [
+    {
+      "d_resolution_high": 2.8,
+      "d_resolution_low": 30.0,
+      "number_all": 11174,
+      "number_obs": 11174,
+      "observed_criterion_sigma_F": 0.0,
+      "observed_criterion_sigma_I": 0.0,
+      "pdbx_Rsym_value": 0.07,
+      "pdbx_diffrn_id": [
+        "1"
+      ],
+      "pdbx_ordinal": 1,
+      "percent_possible_obs": 99.9
+    }
+  ],
+  "reflns_shell": [
+    {
+      "d_res_high": 2.8,
+      "d_res_low": 2.9,
+      "pdbx_Rsym_value": 0.404,
+      "pdbx_ordinal": 1,
+      "percent_possible_all": 100.0
+    }
+  ],
+  "software": [
+    {
+      "classification": "data reduction",
+      "name": "DENZO",
+      "pdbx_ordinal": 1
+    },
+    {
+      "classification": "data scaling",
+      "name": "SCALEPACK",
+      "pdbx_ordinal": 2
+    },
+    {
+      "classification": "phasing",
+      "name": "AMoRE",
+      "pdbx_ordinal": 3
+    },
+    {
+      "classification": "refinement",
+      "name": "CNS",
+      "pdbx_ordinal": 4,
+      "version": "0.9"
+    }
+  ],
+  "struct": {
+    "title": "C-terminal region of FEN-1 bound to A. fulgidus PCNA"
+  },
+  "struct_keywords": {
+    "pdbx_keywords": "REPLICATION",
+    "text": "sliding clamp, torus, processivity factor, beta-zipper, hydrophobic anchor, REPLICATION"
+  },
+  "symmetry": {
+    "Int_Tables_number": 155,
+    "space_group_name_H_M": "H 3 2"
+  },
+  "rcsb_id": "1RXM"
+}

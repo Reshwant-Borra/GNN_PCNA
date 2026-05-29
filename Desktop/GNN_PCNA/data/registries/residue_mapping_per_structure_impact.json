@@ -1,0 +1,263 @@
+{
+  "analysis_date": "2026-05-27",
+  "source": "data\\registries\\residue_mapping_failures.json",
+  "scope": "cryptic records, residue_token_absent_from_atom_site only",
+  "total_class2_cryptic_tokens": 96,
+  "unique_apo_structures_affected": 28,
+  "unique_apo_structures_with_any_cryptic_failure": 53,
+  "has_fraction_data": true,
+  "per_structure": [
+    {
+      "apo_pdb_id": "1lx7",
+      "fold": "train-2",
+      "uniprot_id": "P12758",
+      "absent_from_atom_site_count": 15,
+      "total_pocket_tokens": 19,
+      "fraction_masked": 0.7895,
+      "all_class_failure_count": 15
+    },
+    {
+      "apo_pdb_id": "2b23",
+      "fold": "train-2",
+      "uniprot_id": "P03372",
+      "absent_from_atom_site_count": 13,
+      "total_pocket_tokens": 64,
+      "fraction_masked": 0.2031,
+      "all_class_failure_count": 13
+    },
+    {
+      "apo_pdb_id": "4f5h",
+      "fold": "train-2",
+      "uniprot_id": "P00509",
+      "absent_from_atom_site_count": 10,
+      "total_pocket_tokens": 22,
+      "fraction_masked": 0.4545,
+      "all_class_failure_count": 12
+    },
+    {
+      "apo_pdb_id": "2qlr",
+      "fold": "train-0",
+      "uniprot_id": "Q8N5Z0",
+      "absent_from_atom_site_count": 7,
+      "total_pocket_tokens": 70,
+      "fraction_masked": 0.1,
+      "all_class_failure_count": 8
+    },
+    {
+      "apo_pdb_id": "4yt8",
+      "fold": "train-0",
+      "uniprot_id": "Q58734",
+      "absent_from_atom_site_count": 6,
+      "total_pocket_tokens": 42,
+      "fraction_masked": 0.1429,
+      "all_class_failure_count": 6
+    },
+    {
+      "apo_pdb_id": "7qni",
+      "fold": "train-0",
+      "uniprot_id": "P0A9S1",
+      "absent_from_atom_site_count": 6,
+      "total_pocket_tokens": 50,
+      "fraction_masked": 0.12,
+      "all_class_failure_count": 6
+    },
+    {
+      "apo_pdb_id": "4c6b",
+      "fold": "train-3",
+      "uniprot_id": "P27708",
+      "absent_from_atom_site_count": 5,
+      "total_pocket_tokens": 21,
+      "fraction_masked": 0.2381,
+      "all_class_failure_count": 5
+    },
+    {
+      "apo_pdb_id": "3zo8",
+      "fold": "train-0",
+      "uniprot_id": "P19080",
+      "absent_from_atom_site_count": 4,
+      "total_pocket_tokens": 15,
+      "fraction_masked": 0.2667,
+      "all_class_failure_count": 4
+    },
+    {
+      "apo_pdb_id": "1h3g",
+      "fold": "train-3",
+      "uniprot_id": "Q8KKG0",
+      "absent_from_atom_site_count": 3,
+      "total_pocket_tokens": 20,
+      "fraction_masked": 0.15,
+      "all_class_failure_count": 3
+    },
+    {
+      "apo_pdb_id": "1esw",
+      "fold": "train-1",
+      "uniprot_id": "O87172",
+      "absent_from_atom_site_count": 2,
+      "total_pocket_tokens": 12,
+      "fraction_masked": 0.1667,
+      "all_class_failure_count": 2
+    },
+    {
+      "apo_pdb_id": "2hq8",
+      "fold": "train-2",
+      "uniprot_id": "C9V488",
+      "absent_from_atom_site_count": 2,
+      "total_pocket_tokens": 22,
+      "fraction_masked": 0.0909,
+      "all_class_failure_count": 2
+    },
+    {
+      "apo_pdb_id": "4ei8",
+      "fold": "train-1",
+      "uniprot_id": "Q74P24",
+      "absent_from_atom_site_count": 2,
+      "total_pocket_tokens": 25,
+      "fraction_masked": 0.08,
+      "all_class_failure_count": 2
+    },
+    {
+      "apo_pdb_id": "4fl8",
+      "fold": "train-0",
+      "uniprot_id": "P03367",
+      "absent_from_atom_site_count": 2,
+      "total_pocket_tokens": 15,
+      "fraction_masked": 0.1333,
+      "all_class_failure_count": 2
+    },
+    {
+      "apo_pdb_id": "5igh",
+      "fold": "test",
+      "uniprot_id": "Q47396",
+      "absent_from_atom_site_count": 2,
+      "total_pocket_tokens": 24,
+      "fraction_masked": 0.0833,
+      "all_class_failure_count": 2
+    },
+    {
+      "apo_pdb_id": "6q7q",
+      "fold": "train-1",
+      "uniprot_id": "O58216",
+      "absent_from_atom_site_count": 2,
+      "total_pocket_tokens": 9,
+      "fraction_masked": 0.2222,
+      "all_class_failure_count": 2
+    },
+    {
+      "apo_pdb_id": "7alf",
+      "fold": "train-2",
+      "uniprot_id": "A0A0S4TLR1",
+      "absent_from_atom_site_count": 2,
+      "total_pocket_tokens": 5,
+      "fraction_masked": 0.4,
+      "all_class_failure_count": 2
+    },
+    {
+      "apo_pdb_id": "7cif",
+      "fold": "train-2",
+      "uniprot_id": "A0A0G4DBU7",
+      "absent_from_atom_site_count": 2,
+      "total_pocket_tokens": 25,
+      "fraction_masked": 0.08,
+      "all_class_failure_count": 2
+    },
+    {
+      "apo_pdb_id": "1pt7",
+      "fold": "train-0",
+      "uniprot_id": "P69902",
+      "absent_from_atom_site_count": 1,
+      "total_pocket_tokens": 12,
+      "fraction_masked": 0.0833,
+      "all_class_failure_count": 1
+    },
+    {
+      "apo_pdb_id": "1rxd",
+      "fold": "train-0",
+      "uniprot_id": "Q93096",
+      "absent_from_atom_site_count": 1,
+      "total_pocket_tokens": 7,
+      "fraction_masked": 0.1429,
+      "all_class_failure_count": 1
+    },
+    {
+      "apo_pdb_id": "2e1c",
+      "fold": "train-0",
+      "uniprot_id": "O59188",
+      "absent_from_atom_site_count": 1,
+      "total_pocket_tokens": 17,
+      "fraction_masked": 0.0588,
+      "all_class_failure_count": 1
+    },
+    {
+      "apo_pdb_id": "2yzg",
+      "fold": "train-3",
+      "uniprot_id": "Q5SHZ3",
+      "absent_from_atom_site_count": 1,
+      "total_pocket_tokens": 8,
+      "fraction_masked": 0.125,
+      "all_class_failure_count": 1
+    },
+    {
+      "apo_pdb_id": "3db3",
+      "fold": "train-1",
+      "uniprot_id": "Q96T88",
+      "absent_from_atom_site_count": 1,
+      "total_pocket_tokens": 9,
+      "fraction_masked": 0.1111,
+      "all_class_failure_count": 1
+    },
+    {
+      "apo_pdb_id": "3qas",
+      "fold": "train-1",
+      "uniprot_id": "P60472",
+      "absent_from_atom_site_count": 1,
+      "total_pocket_tokens": 61,
+      "fraction_masked": 0.0164,
+      "all_class_failure_count": 1
+    },
+    {
+      "apo_pdb_id": "4ekf",
+      "fold": "train-1",
+      "uniprot_id": "P03252",
+      "absent_from_atom_site_count": 1,
+      "total_pocket_tokens": 12,
+      "fraction_masked": 0.0833,
+      "all_class_failure_count": 1
+    },
+    {
+      "apo_pdb_id": "4oyz",
+      "fold": "train-2",
+      "uniprot_id": "Q96PN6",
+      "absent_from_atom_site_count": 1,
+      "total_pocket_tokens": 35,
+      "fraction_masked": 0.0286,
+      "all_class_failure_count": 2
+    },
+    {
+      "apo_pdb_id": "6l61",
+      "fold": "train-2",
+      "uniprot_id": "M1HE54",
+      "absent_from_atom_site_count": 1,
+      "total_pocket_tokens": 25,
+      "fraction_masked": 0.04,
+      "all_class_failure_count": 1
+    },
+    {
+      "apo_pdb_id": "6xl4",
+      "fold": "train-2",
+      "uniprot_id": "P00533",
+      "absent_from_atom_site_count": 1,
+      "total_pocket_tokens": 58,
+      "fraction_masked": 0.0172,
+      "all_class_failure_count": 1
+    },
+    {
+      "apo_pdb_id": "7c48",
+      "fold": "test",
+      "uniprot_id": "P96356",
+      "absent_from_atom_site_count": 1,
+      "total_pocket_tokens": 23,
+      "fraction_masked": 0.0435,
+      "all_class_failure_count": 1
+    }
+  ]
+}

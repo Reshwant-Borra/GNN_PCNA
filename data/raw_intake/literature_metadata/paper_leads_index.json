@@ -1,0 +1,642 @@
+[
+  {
+    "pmid": "42044624",
+    "query_topic": "aoh1996",
+    "source": "PubMed",
+    "url": "https://pubmed.ncbi.nlm.nih.gov/42044624/",
+    "role": "literature_metadata",
+    "note": "Abstract only. Do not commit full PDFs to repo unless license permits."
+  },
+  {
+    "pmid": "41982673",
+    "query_topic": "aoh1996",
+    "source": "PubMed",
+    "url": "https://pubmed.ncbi.nlm.nih.gov/41982673/",
+    "role": "literature_metadata",
+    "note": "Abstract only. Do not commit full PDFs to repo unless license permits."
+  },
+  {
+    "pmid": "41828847",
+    "query_topic": "aoh1996",
+    "source": "PubMed",
+    "url": "https://pubmed.ncbi.nlm.nih.gov/41828847/",
+    "role": "literature_metadata",
+    "note": "Abstract only. Do not commit full PDFs to repo unless license permits."
+  },
+  {
+    "pmid": "41743503",
+    "query_topic": "aoh1996",
+    "source": "PubMed",
+    "url": "https://pubmed.ncbi.nlm.nih.gov/41743503/",
+    "role": "literature_metadata",
+    "note": "Abstract only. Do not commit full PDFs to repo unless license permits."
+  },
+  {
+    "pmid": "41564686",
+    "query_topic": "aoh1996",
+    "source": "PubMed",
+    "url": "https://pubmed.ncbi.nlm.nih.gov/41564686/",
+    "role": "literature_metadata",
+    "note": "Abstract only. Do not commit full PDFs to repo unless license permits."
+  },
+  {
+    "pmid": "41427373",
+    "query_topic": "aoh1996",
+    "source": "PubMed",
+    "url": "https://pubmed.ncbi.nlm.nih.gov/41427373/",
+    "role": "literature_metadata",
+    "note": "Abstract only. Do not commit full PDFs to repo unless license permits."
+  },
+  {
+    "pmid": "41407876",
+    "query_topic": "aoh1996",
+    "source": "PubMed",
+    "url": "https://pubmed.ncbi.nlm.nih.gov/41407876/",
+    "role": "literature_metadata",
+    "note": "Abstract only. Do not commit full PDFs to repo unless license permits."
+  },
+  {
+    "pmid": "41024256",
+    "query_topic": "aoh1996",
+    "source": "PubMed",
+    "url": "https://pubmed.ncbi.nlm.nih.gov/41024256/",
+    "role": "literature_metadata",
+    "note": "Abstract only. Do not commit full PDFs to repo unless license permits."
+  },
+  {
+    "pmid": "40209809",
+    "query_topic": "aoh1996",
+    "source": "PubMed",
+    "url": "https://pubmed.ncbi.nlm.nih.gov/40209809/",
+    "role": "literature_metadata",
+    "note": "Abstract only. Do not commit full PDFs to repo unless license permits."
+  },
+  {
+    "pmid": "39904718",
+    "query_topic": "aoh1996",
+    "source": "PubMed",
+    "url": "https://pubmed.ncbi.nlm.nih.gov/39904718/",
+    "role": "literature_metadata",
+    "note": "Abstract only. Do not commit full PDFs to repo unless license permits."
+  },
+  {
+    "pmid": "39732733",
+    "query_topic": "aoh1996",
+    "source": "PubMed",
+    "url": "https://pubmed.ncbi.nlm.nih.gov/39732733/",
+    "role": "literature_metadata",
+    "note": "Abstract only. Do not commit full PDFs to repo unless license permits."
+  },
+  {
+    "pmid": "37531956",
+    "query_topic": "aoh1996",
+    "source": "PubMed",
+    "url": "https://pubmed.ncbi.nlm.nih.gov/37531956/",
+    "role": "literature_metadata",
+    "note": "Abstract only. Do not commit full PDFs to repo unless license permits."
+  },
+  {
+    "pmid": "41945898",
+    "query_topic": "pocketminer",
+    "source": "PubMed",
+    "url": "https://pubmed.ncbi.nlm.nih.gov/41945898/",
+    "role": "literature_metadata",
+    "note": "Abstract only. Do not commit full PDFs to repo unless license permits."
+  },
+  {
+    "pmid": "41648445",
+    "query_topic": "pocketminer",
+    "source": "PubMed",
+    "url": "https://pubmed.ncbi.nlm.nih.gov/41648445/",
+    "role": "literature_metadata",
+    "note": "Abstract only. Do not commit full PDFs to repo unless license permits."
+  },
+  {
+    "pmid": "36859488",
+    "query_topic": "pocketminer",
+    "source": "PubMed",
+    "url": "https://pubmed.ncbi.nlm.nih.gov/36859488/",
+    "role": "literature_metadata",
+    "note": "Abstract only. Do not commit full PDFs to repo unless license permits."
+  },
+  {
+    "pmid": "36035120",
+    "query_topic": "biolip",
+    "source": "PubMed",
+    "url": "https://pubmed.ncbi.nlm.nih.gov/36035120/",
+    "role": "literature_metadata",
+    "note": "Abstract only. Do not commit full PDFs to repo unless license permits."
+  },
+  {
+    "pmid": "31823720",
+    "query_topic": "biolip",
+    "source": "PubMed",
+    "url": "https://pubmed.ncbi.nlm.nih.gov/31823720/",
+    "role": "literature_metadata",
+    "note": "Abstract only. Do not commit full PDFs to repo unless license permits."
+  },
+  {
+    "pmid": "31642535",
+    "query_topic": "biolip",
+    "source": "PubMed",
+    "url": "https://pubmed.ncbi.nlm.nih.gov/31642535/",
+    "role": "literature_metadata",
+    "note": "Abstract only. Do not commit full PDFs to repo unless license permits."
+  },
+  {
+    "pmid": "26000290",
+    "query_topic": "biolip",
+    "source": "PubMed",
+    "url": "https://pubmed.ncbi.nlm.nih.gov/26000290/",
+    "role": "literature_metadata",
+    "note": "Abstract only. Do not commit full PDFs to repo unless license permits."
+  },
+  {
+    "pmid": "23087378",
+    "query_topic": "biolip",
+    "source": "PubMed",
+    "url": "https://pubmed.ncbi.nlm.nih.gov/23087378/",
+    "role": "literature_metadata",
+    "note": "Abstract only. Do not commit full PDFs to repo unless license permits."
+  },
+  {
+    "pmid": "19486540",
+    "query_topic": "fpocket",
+    "source": "PubMed",
+    "url": "https://pubmed.ncbi.nlm.nih.gov/19486540/",
+    "role": "literature_metadata",
+    "note": "Abstract only. Do not commit full PDFs to repo unless license permits."
+  },
+  {
+    "pmid": "41486605",
+    "query_topic": "lp_pdbbind",
+    "source": "PubMed",
+    "url": "https://pubmed.ncbi.nlm.nih.gov/41486605/",
+    "role": "literature_metadata",
+    "note": "Abstract only. Do not commit full PDFs to repo unless license permits."
+  },
+  {
+    "pmid": "37645037",
+    "query_topic": "lp_pdbbind",
+    "source": "PubMed",
+    "url": "https://pubmed.ncbi.nlm.nih.gov/37645037/",
+    "role": "literature_metadata",
+    "note": "Abstract only. Do not commit full PDFs to repo unless license permits."
+  },
+  {
+    "pmid": "40601846",
+    "query_topic": "deeppocket",
+    "source": "PubMed",
+    "url": "https://pubmed.ncbi.nlm.nih.gov/40601846/",
+    "role": "literature_metadata",
+    "note": "Abstract only. Do not commit full PDFs to repo unless license permits."
+  },
+  {
+    "pmid": "34374539",
+    "query_topic": "deeppocket",
+    "source": "PubMed",
+    "url": "https://pubmed.ncbi.nlm.nih.gov/34374539/",
+    "role": "literature_metadata",
+    "note": "Abstract only. Do not commit full PDFs to repo unless license permits."
+  },
+  {
+    "pmid": "41940170",
+    "query_topic": "equipocket",
+    "source": "PubMed",
+    "url": "https://pubmed.ncbi.nlm.nih.gov/41940170/",
+    "role": "literature_metadata",
+    "note": "Abstract only. Do not commit full PDFs to repo unless license permits."
+  },
+  {
+    "pmid": "41877557",
+    "query_topic": "equipocket",
+    "source": "PubMed",
+    "url": "https://pubmed.ncbi.nlm.nih.gov/41877557/",
+    "role": "literature_metadata",
+    "note": "Abstract only. Do not commit full PDFs to repo unless license permits."
+  },
+  {
+    "pmid": "41729820",
+    "query_topic": "equipocket",
+    "source": "PubMed",
+    "url": "https://pubmed.ncbi.nlm.nih.gov/41729820/",
+    "role": "literature_metadata",
+    "note": "Abstract only. Do not commit full PDFs to repo unless license permits."
+  },
+  {
+    "pmid": "41398608",
+    "query_topic": "equipocket",
+    "source": "PubMed",
+    "url": "https://pubmed.ncbi.nlm.nih.gov/41398608/",
+    "role": "literature_metadata",
+    "note": "Abstract only. Do not commit full PDFs to repo unless license permits."
+  },
+  {
+    "pmid": "41256879",
+    "query_topic": "equipocket",
+    "source": "PubMed",
+    "url": "https://pubmed.ncbi.nlm.nih.gov/41256879/",
+    "role": "literature_metadata",
+    "note": "Abstract only. Do not commit full PDFs to repo unless license permits."
+  },
+  {
+    "pmid": "41088767",
+    "query_topic": "equipocket",
+    "source": "PubMed",
+    "url": "https://pubmed.ncbi.nlm.nih.gov/41088767/",
+    "role": "literature_metadata",
+    "note": "Abstract only. Do not commit full PDFs to repo unless license permits."
+  },
+  {
+    "pmid": "41044310",
+    "query_topic": "equipocket",
+    "source": "PubMed",
+    "url": "https://pubmed.ncbi.nlm.nih.gov/41044310/",
+    "role": "literature_metadata",
+    "note": "Abstract only. Do not commit full PDFs to repo unless license permits."
+  },
+  {
+    "pmid": "40669838",
+    "query_topic": "equipocket",
+    "source": "PubMed",
+    "url": "https://pubmed.ncbi.nlm.nih.gov/40669838/",
+    "role": "literature_metadata",
+    "note": "Abstract only. Do not commit full PDFs to repo unless license permits."
+  },
+  {
+    "pmid": "40665445",
+    "query_topic": "equipocket",
+    "source": "PubMed",
+    "url": "https://pubmed.ncbi.nlm.nih.gov/40665445/",
+    "role": "literature_metadata",
+    "note": "Abstract only. Do not commit full PDFs to repo unless license permits."
+  },
+  {
+    "pmid": "40061120",
+    "query_topic": "equipocket",
+    "source": "PubMed",
+    "url": "https://pubmed.ncbi.nlm.nih.gov/40061120/",
+    "role": "literature_metadata",
+    "note": "Abstract only. Do not commit full PDFs to repo unless license permits."
+  },
+  {
+    "pmid": "39787296",
+    "query_topic": "equipocket",
+    "source": "PubMed",
+    "url": "https://pubmed.ncbi.nlm.nih.gov/39787296/",
+    "role": "literature_metadata",
+    "note": "Abstract only. Do not commit full PDFs to repo unless license permits."
+  },
+  {
+    "pmid": "39304807",
+    "query_topic": "equipocket",
+    "source": "PubMed",
+    "url": "https://pubmed.ncbi.nlm.nih.gov/39304807/",
+    "role": "literature_metadata",
+    "note": "Abstract only. Do not commit full PDFs to repo unless license permits."
+  },
+  {
+    "pmid": "39211741",
+    "query_topic": "equipocket",
+    "source": "PubMed",
+    "url": "https://pubmed.ncbi.nlm.nih.gov/39211741/",
+    "role": "literature_metadata",
+    "note": "Abstract only. Do not commit full PDFs to repo unless license permits."
+  },
+  {
+    "pmid": "38817560",
+    "query_topic": "equipocket",
+    "source": "PubMed",
+    "url": "https://pubmed.ncbi.nlm.nih.gov/38817560/",
+    "role": "literature_metadata",
+    "note": "Abstract only. Do not commit full PDFs to repo unless license permits."
+  },
+  {
+    "pmid": "38316797",
+    "query_topic": "equipocket",
+    "source": "PubMed",
+    "url": "https://pubmed.ncbi.nlm.nih.gov/38316797/",
+    "role": "literature_metadata",
+    "note": "Abstract only. Do not commit full PDFs to repo unless license permits."
+  },
+  {
+    "pmid": "38106455",
+    "query_topic": "equipocket",
+    "source": "PubMed",
+    "url": "https://pubmed.ncbi.nlm.nih.gov/38106455/",
+    "role": "literature_metadata",
+    "note": "Abstract only. Do not commit full PDFs to repo unless license permits."
+  },
+  {
+    "pmid": "42054840",
+    "query_topic": "leakage",
+    "source": "PubMed",
+    "url": "https://pubmed.ncbi.nlm.nih.gov/42054840/",
+    "role": "literature_metadata",
+    "note": "Abstract only. Do not commit full PDFs to repo unless license permits."
+  },
+  {
+    "pmid": "42015301",
+    "query_topic": "leakage",
+    "source": "PubMed",
+    "url": "https://pubmed.ncbi.nlm.nih.gov/42015301/",
+    "role": "literature_metadata",
+    "note": "Abstract only. Do not commit full PDFs to repo unless license permits."
+  },
+  {
+    "pmid": "41143208",
+    "query_topic": "leakage",
+    "source": "PubMed",
+    "url": "https://pubmed.ncbi.nlm.nih.gov/41143208/",
+    "role": "literature_metadata",
+    "note": "Abstract only. Do not commit full PDFs to repo unless license permits."
+  },
+  {
+    "pmid": "38177985",
+    "query_topic": "leakage",
+    "source": "PubMed",
+    "url": "https://pubmed.ncbi.nlm.nih.gov/38177985/",
+    "role": "literature_metadata",
+    "note": "Abstract only. Do not commit full PDFs to repo unless license permits."
+  },
+  {
+    "pmid": "37645037",
+    "query_topic": "leakage",
+    "source": "PubMed",
+    "url": "https://pubmed.ncbi.nlm.nih.gov/37645037/",
+    "role": "literature_metadata",
+    "note": "Abstract only. Do not commit full PDFs to repo unless license permits."
+  },
+  {
+    "pmid": "41683183",
+    "query_topic": "allosteric_review",
+    "source": "PubMed",
+    "url": "https://pubmed.ncbi.nlm.nih.gov/41683183/",
+    "role": "literature_metadata",
+    "note": "Abstract only. Do not commit full PDFs to repo unless license permits."
+  },
+  {
+    "pmid": "40160109",
+    "query_topic": "allosteric_review",
+    "source": "PubMed",
+    "url": "https://pubmed.ncbi.nlm.nih.gov/40160109/",
+    "role": "literature_metadata",
+    "note": "Abstract only. Do not commit full PDFs to repo unless license permits."
+  },
+  {
+    "pmid": "39067666",
+    "query_topic": "allosteric_review",
+    "source": "PubMed",
+    "url": "https://pubmed.ncbi.nlm.nih.gov/39067666/",
+    "role": "literature_metadata",
+    "note": "Abstract only. Do not commit full PDFs to repo unless license permits."
+  },
+  {
+    "pmid": "38428364",
+    "query_topic": "allosteric_review",
+    "source": "PubMed",
+    "url": "https://pubmed.ncbi.nlm.nih.gov/38428364/",
+    "role": "literature_metadata",
+    "note": "Abstract only. Do not commit full PDFs to repo unless license permits."
+  },
+  {
+    "pmid": "38171189",
+    "query_topic": "allosteric_review",
+    "source": "PubMed",
+    "url": "https://pubmed.ncbi.nlm.nih.gov/38171189/",
+    "role": "literature_metadata",
+    "note": "Abstract only. Do not commit full PDFs to repo unless license permits."
+  },
+  {
+    "pmid": "37957479",
+    "query_topic": "allosteric_review",
+    "source": "PubMed",
+    "url": "https://pubmed.ncbi.nlm.nih.gov/37957479/",
+    "role": "literature_metadata",
+    "note": "Abstract only. Do not commit full PDFs to repo unless license permits."
+  },
+  {
+    "pmid": "37759488",
+    "query_topic": "allosteric_review",
+    "source": "PubMed",
+    "url": "https://pubmed.ncbi.nlm.nih.gov/37759488/",
+    "role": "literature_metadata",
+    "note": "Abstract only. Do not commit full PDFs to repo unless license permits."
+  },
+  {
+    "pmid": "35887157",
+    "query_topic": "allosteric_review",
+    "source": "PubMed",
+    "url": "https://pubmed.ncbi.nlm.nih.gov/35887157/",
+    "role": "literature_metadata",
+    "note": "Abstract only. Do not commit full PDFs to repo unless license permits."
+  },
+  {
+    "pmid": "35180676",
+    "query_topic": "allosteric_review",
+    "source": "PubMed",
+    "url": "https://pubmed.ncbi.nlm.nih.gov/35180676/",
+    "role": "literature_metadata",
+    "note": "Abstract only. Do not commit full PDFs to repo unless license permits."
+  },
+  {
+    "pmid": "34878270",
+    "query_topic": "allosteric_review",
+    "source": "PubMed",
+    "url": "https://pubmed.ncbi.nlm.nih.gov/34878270/",
+    "role": "literature_metadata",
+    "note": "Abstract only. Do not commit full PDFs to repo unless license permits."
+  },
+  {
+    "pmid": "31838649",
+    "query_topic": "allosteric_review",
+    "source": "PubMed",
+    "url": "https://pubmed.ncbi.nlm.nih.gov/31838649/",
+    "role": "literature_metadata",
+    "note": "Abstract only. Do not commit full PDFs to repo unless license permits."
+  },
+  {
+    "pmid": "31773495",
+    "query_topic": "allosteric_review",
+    "source": "PubMed",
+    "url": "https://pubmed.ncbi.nlm.nih.gov/31773495/",
+    "role": "literature_metadata",
+    "note": "Abstract only. Do not commit full PDFs to repo unless license permits."
+  },
+  {
+    "pmid": "30217495",
+    "query_topic": "allosteric_review",
+    "source": "PubMed",
+    "url": "https://pubmed.ncbi.nlm.nih.gov/30217495/",
+    "role": "literature_metadata",
+    "note": "Abstract only. Do not commit full PDFs to repo unless license permits."
+  },
+  {
+    "pmid": "29888227",
+    "query_topic": "allosteric_review",
+    "source": "PubMed",
+    "url": "https://pubmed.ncbi.nlm.nih.gov/29888227/",
+    "role": "literature_metadata",
+    "note": "Abstract only. Do not commit full PDFs to repo unless license permits."
+  },
+  {
+    "pmid": "29642926",
+    "query_topic": "allosteric_review",
+    "source": "PubMed",
+    "url": "https://pubmed.ncbi.nlm.nih.gov/29642926/",
+    "role": "literature_metadata",
+    "note": "Abstract only. Do not commit full PDFs to repo unless license permits."
+  },
+  {
+    "pmid": "29413520",
+    "query_topic": "allosteric_review",
+    "source": "PubMed",
+    "url": "https://pubmed.ncbi.nlm.nih.gov/29413520/",
+    "role": "literature_metadata",
+    "note": "Abstract only. Do not commit full PDFs to repo unless license permits."
+  },
+  {
+    "pmid": "27497176",
+    "query_topic": "allosteric_review",
+    "source": "PubMed",
+    "url": "https://pubmed.ncbi.nlm.nih.gov/27497176/",
+    "role": "literature_metadata",
+    "note": "Abstract only. Do not commit full PDFs to repo unless license permits."
+  },
+  {
+    "pmid": "27236557",
+    "query_topic": "allosteric_review",
+    "source": "PubMed",
+    "url": "https://pubmed.ncbi.nlm.nih.gov/27236557/",
+    "role": "literature_metadata",
+    "note": "Abstract only. Do not commit full PDFs to repo unless license permits."
+  },
+  {
+    "pmid": "27110726",
+    "query_topic": "allosteric_review",
+    "source": "PubMed",
+    "url": "https://pubmed.ncbi.nlm.nih.gov/27110726/",
+    "role": "literature_metadata",
+    "note": "Abstract only. Do not commit full PDFs to repo unless license permits."
+  },
+  {
+    "pmid": "26806157",
+    "query_topic": "allosteric_review",
+    "source": "PubMed",
+    "url": "https://pubmed.ncbi.nlm.nih.gov/26806157/",
+    "role": "literature_metadata",
+    "note": "Abstract only. Do not commit full PDFs to repo unless license permits."
+  },
+  {
+    "pmid": "38814467",
+    "query_topic": "pcna_review",
+    "source": "PubMed",
+    "url": "https://pubmed.ncbi.nlm.nih.gov/38814467/",
+    "role": "literature_metadata",
+    "note": "Abstract only. Do not commit full PDFs to repo unless license permits."
+  },
+  {
+    "pmid": "33523561",
+    "query_topic": "pcna_review",
+    "source": "PubMed",
+    "url": "https://pubmed.ncbi.nlm.nih.gov/33523561/",
+    "role": "literature_metadata",
+    "note": "Abstract only. Do not commit full PDFs to repo unless license permits."
+  },
+  {
+    "pmid": "33339954",
+    "query_topic": "pcna_review",
+    "source": "PubMed",
+    "url": "https://pubmed.ncbi.nlm.nih.gov/33339954/",
+    "role": "literature_metadata",
+    "note": "Abstract only. Do not commit full PDFs to repo unless license permits."
+  },
+  {
+    "pmid": "29357057",
+    "query_topic": "pcna_review",
+    "source": "PubMed",
+    "url": "https://pubmed.ncbi.nlm.nih.gov/29357057/",
+    "role": "literature_metadata",
+    "note": "Abstract only. Do not commit full PDFs to repo unless license permits."
+  },
+  {
+    "pmid": "28814116",
+    "query_topic": "pcna_review",
+    "source": "PubMed",
+    "url": "https://pubmed.ncbi.nlm.nih.gov/28814116/",
+    "role": "literature_metadata",
+    "note": "Abstract only. Do not commit full PDFs to repo unless license permits."
+  },
+  {
+    "pmid": "25704660",
+    "query_topic": "pcna_review",
+    "source": "PubMed",
+    "url": "https://pubmed.ncbi.nlm.nih.gov/25704660/",
+    "role": "literature_metadata",
+    "note": "Abstract only. Do not commit full PDFs to repo unless license permits."
+  },
+  {
+    "pmid": "22918591",
+    "query_topic": "pcna_review",
+    "source": "PubMed",
+    "url": "https://pubmed.ncbi.nlm.nih.gov/22918591/",
+    "role": "literature_metadata",
+    "note": "Abstract only. Do not commit full PDFs to repo unless license permits."
+  },
+  {
+    "pmid": "21852183",
+    "query_topic": "pcna_review",
+    "source": "PubMed",
+    "url": "https://pubmed.ncbi.nlm.nih.gov/21852183/",
+    "role": "literature_metadata",
+    "note": "Abstract only. Do not commit full PDFs to repo unless license permits."
+  },
+  {
+    "pmid": "21169293",
+    "query_topic": "pcna_review",
+    "source": "PubMed",
+    "url": "https://pubmed.ncbi.nlm.nih.gov/21169293/",
+    "role": "literature_metadata",
+    "note": "Abstract only. Do not commit full PDFs to repo unless license permits."
+  },
+  {
+    "pmid": "19881914",
+    "query_topic": "pcna_review",
+    "source": "PubMed",
+    "url": "https://pubmed.ncbi.nlm.nih.gov/19881914/",
+    "role": "literature_metadata",
+    "note": "Abstract only. Do not commit full PDFs to repo unless license permits."
+  },
+  {
+    "pmid": "16955075",
+    "query_topic": "pcna_review",
+    "source": "PubMed",
+    "url": "https://pubmed.ncbi.nlm.nih.gov/16955075/",
+    "role": "literature_metadata",
+    "note": "Abstract only. Do not commit full PDFs to repo unless license permits."
+  },
+  {
+    "pmid": "15210332",
+    "query_topic": "pcna_review",
+    "source": "PubMed",
+    "url": "https://pubmed.ncbi.nlm.nih.gov/15210332/",
+    "role": "literature_metadata",
+    "note": "Abstract only. Do not commit full PDFs to repo unless license permits."
+  },
+  {
+    "pmid": "11459978",
+    "query_topic": "pcna_review",
+    "source": "PubMed",
+    "url": "https://pubmed.ncbi.nlm.nih.gov/11459978/",
+    "role": "literature_metadata",
+    "note": "Abstract only. Do not commit full PDFs to repo unless license permits."
+  },
+  {
+    "pmid": "11178284",
+    "query_topic": "pcna_review",
+    "source": "PubMed",
+    "url": "https://pubmed.ncbi.nlm.nih.gov/11178284/",
+    "role": "literature_metadata",
+    "note": "Abstract only. Do not commit full PDFs to repo unless license permits."
+  }
+]

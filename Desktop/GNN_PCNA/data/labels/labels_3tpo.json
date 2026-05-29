@@ -1,0 +1,1 @@
+{"apo_pdb_id": "3tpo", "chain": "A", "fold": "test", "pocket_token_count": 8, "positive_count": 8, "masked_count": 0, "remapped_count": 0, "fraction_masked": 0.0, "labels": {"A_357": 1, "A_360": 1, "A_361": 1, "A_364": 1, "A_396": 1, "A_399": 1, "A_403": 1, "A_406": 1}, "generated_at": "2026-05-27T23:43:17.529038", "governance": "docs/scientific_governance/06_LABELING_RULES.md"}

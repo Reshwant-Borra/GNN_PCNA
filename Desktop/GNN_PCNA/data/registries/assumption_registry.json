@@ -1,0 +1,64 @@
+{
+  "schema_version": "phase2_assumption_registry_v0",
+  "created_at": "2026-05-27",
+  "created_by": "Codex",
+  "status": "draft",
+  "authority": "docs/scientific_governance/02_ASSUMPTION_REGISTRY.md",
+  "note": "Starter registry for governed data-foundation planning only. No assumption authorizes training or claims.",
+  "assumptions": [
+    {
+      "id": "ASM-FOUNDATION-001",
+      "statement": "The current milestone may create registry templates and audits without adopting data for training.",
+      "category": "dataset",
+      "why_we_believe_it": "Permitted by AGENTS.md and Phase 2 build checklist as governance/data-foundation scaffolding.",
+      "supporting_sources": [
+        "AGENTS.md",
+        "docs/scientific_governance/20_PHASE2_BUILD_CHECKLIST.md",
+        "docs/scientific_governance/37_PHASE2_IMPLEMENTATION_PLAN.md"
+      ],
+      "confidence_level": "high",
+      "what_would_make_it_false": "A governance update that forbids scaffolding before human source-of-truth review.",
+      "failure_consequence": "Foundation artifacts would need human review before use.",
+      "verification_method": "governance review",
+      "verification_status": "proposed",
+      "owner": "human reviewer",
+      "last_reviewed_date": "2026-05-27"
+    },
+    {
+      "id": "ASM-CRAWL-001",
+      "statement": "Crawl source indexes can be used as source leads but not as verified scientific truth.",
+      "category": "dataset",
+      "why_we_believe_it": "AGENTS.md and wiki source trust levels define crawls as raw evidence/source context requiring verification.",
+      "supporting_sources": [
+        "AGENTS.md",
+        "wiki/sources/source-trust-levels.md",
+        "wiki/sources/crawl-map.md"
+      ],
+      "confidence_level": "high",
+      "what_would_make_it_false": "A reviewed source registry promotes a specific crawl source to primary evidence after verification.",
+      "failure_consequence": "Unverified crawl summaries could contaminate dataset or claim decisions.",
+      "verification_method": "source audit",
+      "verification_status": "proposed",
+      "owner": "human reviewer",
+      "last_reviewed_date": "2026-05-27"
+    },
+    {
+      "id": "ASM-V1-001",
+      "statement": "V1 artifacts are historical reference only until individually audited.",
+      "category": "dataset",
+      "why_we_believe_it": "Governance and AGENTS.md prohibit treating V1 as canonical.",
+      "supporting_sources": [
+        "AGENTS.md",
+        "docs/scientific_governance/01_SOURCE_OF_TRUTH.md",
+        "docs/scientific_governance/37_PHASE2_IMPLEMENTATION_PLAN.md"
+      ],
+      "confidence_level": "high",
+      "what_would_make_it_false": "A reviewed audit registers a specific V1 component with hashes, assumptions, and leakage status.",
+      "failure_consequence": "Stale artifacts could invalidate Phase 2 provenance and leakage controls.",
+      "verification_method": "artifact audit",
+      "verification_status": "proposed",
+      "owner": "human reviewer",
+      "last_reviewed_date": "2026-05-27"
+    }
+  ]
+}

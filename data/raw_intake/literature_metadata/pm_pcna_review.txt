@@ -1,0 +1,475 @@
+1. Cell Mol Life Sci. 2024 May 30;81(1):245. doi: 10.1007/s00018-024-05252-w.
+
+The bacterial DNA sliding clamp, β-clamp: structure, interactions, dynamics and 
+drug discovery.
+
+Simonsen S(1)(2), Søgaard CK(3), Olsen JG(1)(2)(4), Otterlei M(5), Kragelund 
+BB(6)(7)(8).
+
+Author information:
+(1)Linderstrøm-Lang Centre for Protein Science, University of Copenhagen, Ole 
+Maaløes Vej 5, 2200, Copenhagen N, Denmark.
+(2)Structural Biology and NMR Laboratory, University of Copenhagen, Ole Maaløes 
+Vej 5, 2200, Copenhagen N, Denmark.
+(3)Department of Clinical and Molecular Medicine, Norwegian University of 
+Science and Technology (NTNU), Trondheim, Norway.
+(4)Department of Biology, REPIN, University of Copenhagen, Ole Maaløes Vej 5, 
+2200, Copenhagen N, Denmark.
+(5)Department of Clinical and Molecular Medicine, Norwegian University of 
+Science and Technology (NTNU), Trondheim, Norway. marit.otterlei@ntnu.no.
+(6)Linderstrøm-Lang Centre for Protein Science, University of Copenhagen, Ole 
+Maaløes Vej 5, 2200, Copenhagen N, Denmark. bbk@bio.ku.dk.
+(7)Structural Biology and NMR Laboratory, University of Copenhagen, Ole Maaløes 
+Vej 5, 2200, Copenhagen N, Denmark. bbk@bio.ku.dk.
+(8)Department of Biology, REPIN, University of Copenhagen, Ole Maaløes Vej 5, 
+2200, Copenhagen N, Denmark. bbk@bio.ku.dk.
+
+DNA replication is a tightly coordinated event carried out by a multiprotein 
+replication complex. An essential factor in the bacterial replication complex is 
+the ring-shaped DNA sliding clamp, β-clamp, ensuring processive DNA replication 
+and DNA repair through tethering of polymerases and DNA repair proteins to DNA. 
+β -clamp is a hub protein with multiple interaction partners all binding through 
+a conserved clamp binding sequence motif. Due to its central role as a DNA 
+scaffold protein, β-clamp is an interesting target for antimicrobial drugs, yet 
+little effort has been put into understanding the functional interactions of 
+β-clamp. In this review, we scrutinize the β-clamp structure and 
+dynamics, examine how its interactions with a plethora of binding partners are 
+regulated through short linear binding motifs and discuss how contexts play into 
+selection. We describe the dynamic process of clamp loading onto DNA and cover 
+the recent advances in drug development targeting β-clamp. Despite decades of 
+research in β-clamps and recent landmark structural insight, much remains 
+undisclosed fostering an increased focus on this very central protein.
+
+© 2024. The Author(s).
+
+DOI: 10.1007/s00018-024-05252-w
+PMCID: PMC11139829
+PMID: 38814467 [Indexed for MEDLINE]
+
+Conflict of interest statement: The authors have no other relevant interests to 
+disclosure.
+
+
+2. FEBS J. 2021 Dec;288(24):7256-7262. doi: 10.1111/febs.15740. Epub 2021 Feb 18.
+
+Water skating: How polymerase sliding clamps move on DNA.
+
+Li H(1), Zheng F(1), O'Donnell M(2)(3).
+
+Author information:
+(1)Department of Structural Biology, Van Andel Institute, Grand Rapids, MI, USA.
+(2)DNA Replication Laboratory, The Rockefeller University, New York, NY, USA.
+(3)HHMI, The Rockefeller University, New York, NY, USA.
+
+Polymerase sliding clamps are ring-shaped proteins that encircle duplex DNA and 
+hold polymerases to DNA for high processivity during synthesis. The crystal 
+structure of clamp-DNA complex reveals that the DNA is highly tilted through the 
+clamp with extensive interaction with the clamp inner surface. In contrast to 
+the tilted clamp-DNA interaction without DNA polymerases, recent structures of 
+replicative polymerases of bacteria, eukaryotes, and archaea that are bound to 
+the clamp and DNA show that the polymerase positions DNA straight through the 
+clamp without direct protein-DNA contacts. Instead, the clamp-to-DNA interaction 
+is mediated by one or two layers of water. Hence, clamps 'water skate' on DNA 
+during function with replicative polymerases from all domains of life, providing 
+a nearly frictionless bearing for fast and processive DNA synthesis.
+
+© 2021 Federation of European Biochemical Societies.
+
+DOI: 10.1111/febs.15740
+PMCID: PMC8325712
+PMID: 33523561 [Indexed for MEDLINE]
+
+Conflict of interest statement: Conflicts of interests The authors declare no 
+conflict of interest.
+
+
+3. Exp Mol Med. 2020 Dec;52(12):1948-1958. doi: 10.1038/s12276-020-00533-3. Epub 
+2020 Dec 18.
+
+Eukaryotic clamp loaders and unloaders in the maintenance of genome stability.
+
+Lee KY(1), Park SH(2).
+
+Author information:
+(1)Center for Genomic Integrity, Institute for Basic Science, Ulsan, Korea. 
+klee2910@ibs.re.kr.
+(2)Center for Genomic Integrity, Institute for Basic Science, Ulsan, Korea.
+
+Eukaryotic sliding clamp proliferating cell nuclear antigen (PCNA) plays a 
+critical role as a processivity factor for DNA polymerases and as a binding and 
+acting platform for many proteins. The ring-shaped PCNA homotrimer and the DNA 
+damage checkpoint clamp 9-1-1 are loaded onto DNA by clamp loaders. PCNA can be 
+loaded by the pentameric replication factor C (RFC) complex and the 
+CTF18-RFC-like complex (RLC) in vitro. In cells, each complex loads PCNA for 
+different purposes; RFC-loaded PCNA is essential for DNA replication, while 
+CTF18-RLC-loaded PCNA participates in cohesion establishment and checkpoint 
+activation. After completing its tasks, PCNA is unloaded by ATAD5 (Elg1 in 
+yeast)-RLC. The 9-1-1 clamp is loaded at DNA damage sites by RAD17 (Rad24 in 
+yeast)-RLC. All five RFC complex components, but none of the three large 
+subunits of RLC, CTF18, ATAD5, or RAD17, are essential for cell survival; 
+however, deficiency of the three RLC proteins leads to genomic instability. In 
+this review, we describe recent findings that contribute to the understanding of 
+the basic roles of the RFC complex and RLCs and how genomic instability due to 
+deficiency of the three RLCs is linked to the molecular and cellular activity of 
+RLC, particularly focusing on ATAD5 (Elg1).
+
+DOI: 10.1038/s12276-020-00533-3
+PMCID: PMC8080817
+PMID: 33339954 [Indexed for MEDLINE]
+
+Conflict of interest statement: The authors declare that they have no conflict 
+of interest.
+
+
+4. Adv Exp Med Biol. 2017;1042:135-162. doi: 10.1007/978-981-10-6955-0_7.
+
+Functions of Multiple Clamp and Clamp-Loader Complexes in Eukaryotic DNA 
+Replication.
+
+Ohashi E(1), Tsurimoto T(2).
+
+Author information:
+(1)Department of Biology, Faculty of Science, Kyushu University, Fukuoka, Japan.
+(2)Department of Biology, Faculty of Science, Kyushu University, Fukuoka, Japan. 
+tsurimoto.toshiki.549@m.kyushu-u.ac.jp.
+
+Proliferating cell nuclear antigen (PCNA) and replication factor C (RFC) were 
+identified in the late 1980s as essential factors for replication of simian 
+virus 40 DNA in human cells, by reconstitution of the reaction in vitro. 
+Initially, they were only thought to be involved in the elongation stage of DNA 
+replication. Subsequent studies have demonstrated that PCNA functions as more 
+than a replication factor, through its involvement in multiple protein-protein 
+interactions. PCNA appears as a functional hub on replicating and replicated 
+chromosomal DNA and has an essential role in the maintenance genome integrity in 
+proliferating cells.Eukaryotes have multiple paralogues of sliding clamp, PCNA 
+and its loader, RFC. The PCNA paralogues, RAD9, HUS1, and RAD1 form the 
+heterotrimeric 9-1-1 ring that is similar to the PCNA homotrimeric ring, and the 
+9-1-1 clamp complex is loaded onto sites of DNA damage by its specific loader 
+RAD17-RFC. This alternative clamp-loader system transmits DNA-damage signals in 
+genomic DNA to the checkpoint-activation network and the DNA-repair 
+apparatus.Another two alternative loader complexes, CTF18-RFC and ELG1-RFC, have 
+roles that are distinguishable from the role of the canonical loader, RFC. 
+CTF18-RFC interacts with one of the replicative DNA polymerases, Polε, and loads 
+PCNA onto leading-strand DNA, and ELG1-RFC unloads PCNA after ligation of 
+lagging-strand DNA. In the progression of S phase, these alternative PCNA 
+loaders maintain appropriate amounts of PCNA on the replicating sister DNAs to 
+ensure that specific enzymes are tethered at specific chromosomal locations.
+
+DOI: 10.1007/978-981-10-6955-0_7
+PMID: 29357057 [Indexed for MEDLINE]
+
+
+5. Crit Rev Biochem Mol Biol. 2017 Dec;52(6):663-673. doi: 
+10.1080/10409238.2017.1364218. Epub 2017 Aug 17.
+
+The dark side of the ring: role of the DNA sliding surface of PCNA.
+
+De March M(1), De Biasio A(1).
+
+Author information:
+(1)a Structural Biology Laboratory , Elettra-Sincrotrone Trieste S.C.p.A , 
+Trieste , Italy.
+
+The proliferating cell nuclear antigen (PCNA) sliding clamp lies at the heart of 
+the accurate duplication of eukaryotic genomes. While the outer surface of the 
+PCNA ring interacts with polymerases and other factors, the role of the inner 
+wall facing the DNA is elusive. Recent evidence shows that conserved basic 
+residues in the PCNA central channel create a specific surface that recognizes 
+the DNA backbone and enables the clamp to slide by rotationally tracking the DNA 
+helix. The sliding surface can be modulated (i) through lysine acetylation, 
+which triggers PCNA degradation during nucleotide excision repair (NER) and 
+stimulates repair by homologous recombination (HR) or (ii) through binding of 
+the protein factor p15PAF, which turns off DNA lesion bypass. Thus, the inner 
+surface of PCNA is unexpectedly highly regulated to control resistance to DNA 
+damage. From a structural viewpoint, we reflect on these findings that open a 
+new perspective on PCNA function and offer opportunities to develop tools to 
+manipulate the DNA damage response in cancer treatment.
+
+DOI: 10.1080/10409238.2017.1364218
+PMID: 28814116 [Indexed for MEDLINE]
+
+
+6. DNA Repair (Amst). 2015 May;29:4-15. doi: 10.1016/j.dnarep.2015.01.015. Epub 
+2015 Feb 9.
+
+A proposal: Evolution of PCNA's role as a marker of newly replicated DNA.
+
+Georgescu R(1), Langston L(1), O'Donnell M(2).
+
+Author information:
+(1)Rockefeller University and HHMI, 1230 York Avenue, Box 228, New York, NY 
+10065, United States.
+(2)Rockefeller University and HHMI, 1230 York Avenue, Box 228, New York, NY 
+10065, United States. Electronic address: odonnel@rockefeller.edu.
+
+Processivity clamps that hold DNA polymerases to DNA for processivity were the 
+first proteins known to encircle the DNA duplex. At the time, polymerase 
+processivity was thought to be the only function of ring shaped processivity 
+clamps. But studies from many laboratories have identified numerous proteins 
+that bind and function with sliding clamps. Among these processes are mismatch 
+repair and nucleosome assembly. Interestingly, there exist polymerases that are 
+highly processive and do not require clamps. Hence, DNA polymerase processivity 
+does not intrinsically require that sliding clamps evolved for this purpose. We 
+propose that polymerases evolved to require clamps as a way of ensuring that 
+clamps are deposited on newly replicated DNA. These clamps are then used on the 
+newly replicated daughter strands, for processes important to genomic integrity, 
+such as mismatch repair and the assembly of nucleosomes to maintain epigenetic 
+states of replicating cells during development.
+
+Copyright © 2015 Elsevier B.V. All rights reserved.
+
+DOI: 10.1016/j.dnarep.2015.01.015
+PMCID: PMC4426064
+PMID: 25704660 [Indexed for MEDLINE]
+
+
+7. Subcell Biochem. 2012;62:281-99. doi: 10.1007/978-94-007-4572-8_15.
+
+PCNA structure and function: insights from structures of PCNA complexes and 
+post-translationally modified PCNA.
+
+Dieckman LM(1), Freudenthal BD, Washington MT.
+
+Author information:
+(1)Department of Biochemistry, University of Iowa College of Medicine, Iowa 
+City, IA, 52242-1109, USA.
+
+Proliferating cell nuclear antigen (PCNA), the eukaryotic DNA sliding clamp, 
+forms a ring-shaped homo-trimer that encircles double-stranded DNA. This protein 
+is best known for its ability to confer high processivity to replicative DNA 
+polymerases. However, it does far more than this, because it forms a mobile 
+platform on the DNA that recruits many of the proteins involved in DNA 
+replication, repair, and recombination to replication forks. X-ray crystal 
+structures of PCNA bound to PCNA-binding proteins have provided insights into 
+how PCNA recognizes its binding partners and recruits them to replication forks. 
+More recently, X-ray crystal structures of ubiquitin-modified and SUMO-modified 
+PCNA have provided insights into how these post-translational modifications 
+alter the specificity of PCNA for some of its binding partners. This article 
+focuses on the insights gained from structural studies of PCNA complexes and 
+post-translationally modified PCNA.
+
+DOI: 10.1007/978-94-007-4572-8_15
+PMCID: PMC4429884
+PMID: 22918591 [Indexed for MEDLINE]
+
+
+8. Curr Opin Chem Biol. 2011 Oct;15(5):614-9. doi: 10.1016/j.cbpa.2011.07.017.
+Epub  2011 Aug 16.
+
+Molecular machines in archaeal DNA replication.
+
+Beattie TR(1), Bell SD.
+
+Author information:
+(1)Sir William Dunn School of Pathology, South Parks Road, Oxford, OX1 3RE, UK.
+
+The archaeal DNA replication apparatus is a simplified version of that of 
+eukaryotes and has attracted attention as a tractable model system for the 
+orthologous, but significantly more complex eukaryal machinery. A variety of 
+archaeal model organisms have been investigated with strong emphasis on 
+structural and biochemical analyses of replication-associated proteins. In this 
+review we will describe recent advances in understanding the properties of the 
+replicative helicase, the MCM complex, and the role of the sliding clamp, PCNA, 
+in mediating a range of protein-DNA transactions. Although both complexes form 
+ring shaped assemblies, they play very distinct roles at the leading and 
+trailing edges of the replication fork machinery respectively.
+
+Copyright © 2011 Elsevier Ltd. All rights reserved.
+
+DOI: 10.1016/j.cbpa.2011.07.017
+PMID: 21852183 [Indexed for MEDLINE]
+
+
+9. Ann Bot. 2011 May;107(7):1127-40. doi: 10.1093/aob/mcq243. Epub 2010 Dec 17.
+
+Proliferating cell nuclear antigen (PCNA): a key factor in DNA replication and 
+cell cycle regulation.
+
+Strzalka W(1), Ziemienowicz A.
+
+Author information:
+(1)Department of Plant Biotechnology, Faculty of Biochemistry, Biophysics and 
+Biotechnology, Jagiellonian University, Gronostajowa 7, Krakow, Poland.
+
+BACKGROUND: PCNA (proliferating cell nuclear antigen) has been found in the 
+nuclei of yeast, plant and animal cells that undergo cell division, suggesting a 
+function in cell cycle regulation and/or DNA replication. It subsequently became 
+clear that PCNA also played a role in other processes involving the cell genome.
+SCOPE: This review discusses eukaryotic PCNA, with an emphasis on plant PCNA, in 
+terms of the protein structure and its biochemical properties as well as gene 
+structure, organization, expression and function. PCNA exerts a tripartite 
+function by operating as (1) a sliding clamp during DNA synthesis, (2) a 
+polymerase switch factor and (3) a recruitment factor. Most of its functions are 
+mediated by its interactions with various proteins involved in DNA synthesis, 
+repair and recombination as well as in regulation of the cell cycle and 
+chromatid cohesion. Moreover, post-translational modifications of PCNA play a 
+key role in regulation of its functions. Finally, a phylogenetic comparison of 
+PCNA genes suggests that the multi-functionality observed in most species is a 
+product of evolution.
+CONCLUSIONS: Most plant PCNAs exhibit features similar to those found for PCNAs 
+of other eukaryotes. Similarities include: (1) a trimeric ring structure of the 
+PCNA sliding clamp, (2) the involvement of PCNA in DNA replication and repair, 
+(3) the ability to stimulate the activity of DNA polymerase δ and (4) the 
+ability to interact with p21, a regulator of the cell cycle. However, many plant 
+genomes seem to contain the second, probably functional, copy of the PCNA gene, 
+in contrast to PCNA pseudogenes that are found in mammalian genomes.
+
+DOI: 10.1093/aob/mcq243
+PMCID: PMC3091797
+PMID: 21169293 [Indexed for MEDLINE]
+
+
+10. Curr Genomics. 2009 May;10(3):206-15. doi: 10.2174/138920209788185234.
+
+Regulation of interactions with sliding clamps during DNA replication and 
+repair.
+
+López de Saro FJ(1).
+
+Author information:
+(1)Laboratorio de Ecología Molecular, Centro de Astrobiología (CSIC-INTA), 28850 
+Torrejón de Ardoz, Madrid, Spain.
+
+The molecular machines that replicate the genome consist of many interacting 
+components. Essential to the organization of the replication machinery are 
+ring-shaped proteins, like PCNA (Proliferating Cell Nuclear Antigen) or the 
+beta- clamp, collectively named sliding clamps. They encircle the DNA molecule 
+and slide on it freely and bidirectionally. Sliding clamps are typically 
+associated to DNA polymerases and provide these enzymes with the processivity 
+required to synthesize large chromosomes. Additionally, they interact with a 
+large array of proteins that perform enzymatic reactions on DNA, targeting and 
+orchestrating their functions. In recent years there have been a large number of 
+studies that have analyzed the structural details of how sliding clamps interact 
+with their ligands. However, much remains to be learned in relation to how these 
+interactions are regulated to occur coordinately and sequentially. Since sliding 
+clamps participate in reactions in which many different enzymes bind and then 
+release from the clamp in an orchestrated way, it is critical to analyze how 
+these changes in affinity take place. In this review I focus the attention on 
+the mechanisms by which various types of enzymes interact with sliding clamps 
+and what is known about the regulation of this binding. Especially I describe 
+emerging paradigms on how enzymes switch places on sliding clamps during DNA 
+replication and repair of prokaryotic and eukaryotic genomes.
+
+DOI: 10.2174/138920209788185234
+PMCID: PMC2705854
+PMID: 19881914
+
+
+11. Nat Rev Mol Cell Biol. 2006 Oct;7(10):751-61. doi: 10.1038/nrm2022. Epub 2006
+ Sep 6.
+
+The replication clamp-loading machine at work in the three domains of life.
+
+Indiani C(1), O'Donnell M.
+
+Author information:
+(1)Rockefeller University, Howard Hughes Medical Institute, 1230 York Avenue, 
+New York, New York 10021, USA.
+
+Sliding clamps are ring-shaped proteins that tether DNA polymerases to DNA, 
+which enables the rapid and processive synthesis of both leading and lagging 
+strands at the replication fork. The clamp-loading machinery must repeatedly 
+load sliding-clamp factors onto primed sites at the replication fork. Recent 
+structural and biochemical analyses provide unique insights into how these 
+clamp-loading ATPase machines function to load clamps onto the DNA. Moreover, 
+these studies highlight the evolutionary conservation of the clamp-loading 
+process in the three domains of life.
+
+DOI: 10.1038/nrm2022
+PMID: 16955075 [Indexed for MEDLINE]
+
+
+12. Prog Nucleic Acid Res Mol Biol. 2004;78:227-60. doi: 
+10.1016/S0079-6603(04)78006-X.
+
+The PCNA-RFC families of DNA clamps and clamp loaders.
+
+Majka J(1), Burgers PM.
+
+Author information:
+(1)Department of Biochemistry and Molecular Biophysics, Washington University 
+School of Medicine, St. Louis, Missouri 63110, USA.
+
+The proliferating cell nuclear antigen PCNA functions at multiple levels in 
+directing DNA metabolic pathways. Unbound to DNA, PCNA promotes localization of 
+replication factors with a consensus PCNA-binding domain to replication 
+factories. When bound to DNA, PCNA organizes various proteins involved in DNA 
+replication, DNA repair, DNA modification, and chromatin modeling. Its 
+modification by ubiquitin directs the cellular response to DNA damage. The 
+ring-like PCNA homotrimer encircles double-stranded DNA and slides spontaneously 
+across it. Loading of PCNA onto DNA at template-primer junctions is performed in 
+an ATP-dependent process by replication factor C (RFC), a heteropentameric AAA+ 
+protein complex consisting of the Rfc1, Rfc2, Rfc3, Rfc4, and Rfc5 subunits. 
+Loading of yeast PCNA (POL30) is mechanistically distinct from analogous 
+processes in E. coli (beta subunit by the gamma complex) and bacteriophage T4 
+(gp45 by gp44/62). Multiple stepwise ATP-binding events to RFC are required to 
+load PCNA onto primed DNA. This stepwise mechanism should permit editing of this 
+process at individual steps and allow for divergence of the default process into 
+more specialized modes. Indeed, alternative RFC complexes consisting of the 
+small RFC subunits together with an alternative Rfc1-like subunit have been 
+identified. A complex required for the DNA damage checkpoint contains the Rad24 
+subunit, a complex required for sister chromatid cohesion contains the Ctf18 
+subunit, and a complex that aids in genome stability contains the Elg1 subunit. 
+Only the RFC-Rad24 complex has a known associated clamp, a heterotrimeric 
+complex consisting of Rad17, Mec3, and Ddc1. The other putative clamp loaders 
+could either act on clamps yet to be identified or act on the two known clamps.
+
+DOI: 10.1016/S0079-6603(04)78006-X
+PMID: 15210332 [Indexed for MEDLINE]
+
+
+13. Proc Natl Acad Sci U S A. 2001 Jul 17;98(15):8376-80. doi: 
+10.1073/pnas.121009498.
+
+Interaction of the beta sliding clamp with MutS, ligase, and DNA polymerase I.
+
+López de Saro FJ(1), O'Donnell M.
+
+Author information:
+(1)Howard Hughes Medical Institute and The Rockefeller University, 1230 York 
+Avenue, Box 228, New York, NY 10021, USA. desarof@mail.rockefeller.edu
+
+The beta and proliferating cell nuclear antigen (PCNA) sliding clamps were first 
+identified as components of their respective replicases, and thus were assigned 
+a role in chromosome replication. Further studies have shown that the eukaryotic 
+clamp, PCNA, interacts with several other proteins that are involved in excision 
+repair, mismatch repair, cellular regulation, and DNA processing, indicating a 
+much wider role than replication alone. Indeed, the Escherichia coli beta clamp 
+is known to function with DNA polymerases II and V, indicating that beta also 
+interacts with more than just the chromosomal replicase, DNA polymerase III. 
+This report demonstrates three previously undetected protein-protein 
+interactions with the beta clamp. Thus, beta interacts with MutS, DNA ligase, 
+and DNA polymerase I. Given the diverse use of these proteins in repair and 
+other DNA transactions, this expanded list of beta interactive proteins suggests 
+that the prokaryotic beta ring participates in a wide variety of reactions 
+beyond its role in chromosomal replication.
+
+DOI: 10.1073/pnas.121009498
+PMCID: PMC37446
+PMID: 11459978 [Indexed for MEDLINE]
+
+
+14. Genome Biol. 2001;2(1):REVIEWS3001. doi: 10.1186/gb-2001-2-1-reviews3001.
+Epub  2001 Jan 9.
+
+The ring-type polymerase sliding clamp family.
+
+Bruck I(1), O'Donnell M.
+
+Author information:
+(1)Howard Hughes Medical Institute and Rockefeller University, 1230 York Avenue, 
+New York, NY 10021, USA. bruck@mod.rockefeller.edu
+
+Ring-type polymerases consist of a DNA polymerase, a ring-shaped sliding clamp 
+protein and a clamp-loading complex. Sliding clamp proteins are found in all 
+organisms and are called proliferating cell nuclear antigen (PCNA) in eukaryotes 
+and the beta clamp in prokaryotes. Both PCNA and beta form a ring around DNA, 
+which is made up of two subunits of three domains each in beta but three 
+subunits of two domains each in PCNA. Despite this difference and a lack of 
+detectable sequence homology, the structures of the two rings are very similar. 
+The sliding clamp slides along DNA and tethers the polymerase to the DNA, 
+enabling rapid and processive DNA replication.
+
+DOI: 10.1186/gb-2001-2-1-reviews3001
+PMCID: PMC150441
+PMID: 11178284 [Indexed for MEDLINE]

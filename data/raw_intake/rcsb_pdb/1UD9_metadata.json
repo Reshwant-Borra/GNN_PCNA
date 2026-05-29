@@ -1,0 +1,820 @@
+{
+  "audit_author": [
+    {
+      "name": "Tanabe, E.",
+      "pdbx_ordinal": 1
+    },
+    {
+      "name": "Yasutake, Y.",
+      "pdbx_ordinal": 2
+    },
+    {
+      "name": "Tanaka, Y.",
+      "pdbx_ordinal": 3
+    },
+    {
+      "name": "Yao, M.",
+      "pdbx_ordinal": 4
+    },
+    {
+      "name": "Tsumoto, K.",
+      "pdbx_ordinal": 5
+    },
+    {
+      "name": "Kumagai, I.",
+      "pdbx_ordinal": 6
+    },
+    {
+      "name": "Tanaka, I.",
+      "pdbx_ordinal": 7
+    }
+  ],
+  "cell": {
+    "Z_PDB": 8,
+    "angle_alpha": 90.0,
+    "angle_beta": 98.83,
+    "angle_gamma": 90.0,
+    "length_a": 79.4,
+    "length_b": 75.44,
+    "length_c": 88.14
+  },
+  "citation": [
+    {
+      "id": "primary",
+      "journal_abbrev": "To be published",
+      "journal_id_CSD": "0353",
+      "rcsb_authors": [
+        "Tanabe, E.",
+        "Yasutake, Y.",
+        "Tanaka, Y.",
+        "Yao, M.",
+        "Tsumoto, K.",
+        "Kumagai, I.",
+        "Tanaka, I."
+      ],
+      "rcsb_is_primary": "Y",
+      "rcsb_journal_abbrev": "To be published",
+      "title": "Crystal Structure of Proliferating Cell Nuclear Antigen (PCNA) Homolog From Sulfolobus tokodaii"
+    }
+  ],
+  "database_2": [
+    {
+      "database_code": "1UD9",
+      "database_id": "PDB",
+      "pdbx_DOI": "10.2210/pdb1ud9/pdb",
+      "pdbx_database_accession": "pdb_00001ud9"
+    },
+    {
+      "database_code": "RCSB005697",
+      "database_id": "RCSB"
+    },
+    {
+      "database_code": "D_1000005697",
+      "database_id": "WWPDB"
+    }
+  ],
+  "diffrn": [
+    {
+      "ambient_temp": 100.0,
+      "crystal_id": "1",
+      "id": "1"
+    }
+  ],
+  "diffrn_detector": [
+    {
+      "details": "mirrors",
+      "detector": "CCD",
+      "diffrn_id": "1",
+      "pdbx_collection_date": "2002-12-17T00:00:00.000+00:00",
+      "type": "MARRESEARCH"
+    }
+  ],
+  "diffrn_radiation": [
+    {
+      "diffrn_id": "1",
+      "pdbx_diffrn_protocol": "MAD",
+      "pdbx_monochromatic_or_laue_m_l": "M",
+      "pdbx_scattering_type": "x-ray",
+      "wavelength_id": "1"
+    }
+  ],
+  "diffrn_source": [
+    {
+      "diffrn_id": "1",
+      "pdbx_synchrotron_beamline": "BL41XU",
+      "pdbx_synchrotron_site": "SPring-8",
+      "pdbx_wavelength_list": "0.9800",
+      "source": "SYNCHROTRON",
+      "type": "SPRING-8 BEAMLINE BL41XU"
+    }
+  ],
+  "entry": {
+    "id": "1UD9"
+  },
+  "exptl": [
+    {
+      "crystals_number": 1,
+      "method": "X-RAY DIFFRACTION"
+    }
+  ],
+  "exptl_crystal": [
+    {
+      "density_Matthews": 2.38,
+      "density_percent_sol": 47.8,
+      "id": "1"
+    }
+  ],
+  "exptl_crystal_grow": [
+    {
+      "crystal_id": "1",
+      "method": "VAPOR DIFFUSION, HANGING DROP",
+      "pH": 6.0,
+      "pdbx_details": "3.75%(w/v) PEG8000, 0.1M MES, 0.2M Zn(OAc)2, 0.1M Glycine, pH 6.0, VAPOR DIFFUSION, HANGING DROP, temperature 293K",
+      "temp": 293.0
+    }
+  ],
+  "pdbx_audit_revision_category": [
+    {
+      "category": "chem_comp_atom",
+      "data_content_type": "Structure model",
+      "ordinal": 1,
+      "revision_ordinal": 4
+    },
+    {
+      "category": "chem_comp_bond",
+      "data_content_type": "Structure model",
+      "ordinal": 2,
+      "revision_ordinal": 4
+    },
+    {
+      "category": "database_2",
+      "data_content_type": "Structure model",
+      "ordinal": 3,
+      "revision_ordinal": 4
+    },
+    {
+      "category": "pdbx_struct_conn_angle",
+      "data_content_type": "Structure model",
+      "ordinal": 4,
+      "revision_ordinal": 4
+    },
+    {
+      "category": "struct_conn",
+      "data_content_type": "Structure model",
+      "ordinal": 5,
+      "revision_ordinal": 4
+    },
+    {
+      "category": "struct_site",
+      "data_content_type": "Structure model",
+      "ordinal": 6,
+      "revision_ordinal": 4
+    }
+  ],
+  "pdbx_audit_revision_details": [
+    {
+      "data_content_type": "Structure model",
+      "ordinal": 1,
+      "provider": "repository",
+      "revision_ordinal": 1,
+      "type": "Initial release"
+    }
+  ],
+  "pdbx_audit_revision_group": [
+    {
+      "data_content_type": "Structure model",
+      "group": "Version format compliance",
+      "ordinal": 1,
+      "revision_ordinal": 2
+    },
+    {
+      "data_content_type": "Structure model",
+      "group": "Derived calculations",
+      "ordinal": 2,
+      "revision_ordinal": 3
+    },
+    {
+      "data_content_type": "Structure model",
+      "group": "Version format compliance",
+      "ordinal": 3,
+      "revision_ordinal": 3
+    },
+    {
+      "data_content_type": "Structure model",
+      "group": "Data collection",
+      "ordinal": 4,
+      "revision_ordinal": 4
+    },
+    {
+      "data_content_type": "Structure model",
+      "group": "Database references",
+      "ordinal": 5,
+      "revision_ordinal": 4
+    },
+    {
+      "data_content_type": "Structure model",
+      "group": "Derived calculations",
+      "ordinal": 6,
+      "revision_ordinal": 4
+    }
+  ],
+  "pdbx_audit_revision_history": [
+    {
+      "data_content_type": "Structure model",
+      "major_revision": 1,
+      "minor_revision": 0,
+      "ordinal": 1,
+      "revision_date": "2004-06-15T00:00:00.000+00:00"
+    },
+    {
+      "data_content_type": "Structure model",
+      "major_revision": 1,
+      "minor_revision": 1,
+      "ordinal": 2,
+      "revision_date": "2008-04-27T00:00:00.000+00:00"
+    },
+    {
+      "data_content_type": "Structure model",
+      "major_revision": 1,
+      "minor_revision": 2,
+      "ordinal": 3,
+      "revision_date": "2011-07-13T00:00:00.000+00:00"
+    },
+    {
+      "data_content_type": "Structure model",
+      "major_revision": 1,
+      "minor_revision": 3,
+      "ordinal": 4,
+      "revision_date": "2023-12-27T00:00:00.000+00:00"
+    }
+  ],
+  "pdbx_audit_revision_item": [
+    {
+      "data_content_type": "Structure model",
+      "item": "_database_2.pdbx_DOI",
+      "ordinal": 1,
+      "revision_ordinal": 4
+    },
+    {
+      "data_content_type": "Structure model",
+      "item": "_database_2.pdbx_database_accession",
+      "ordinal": 2,
+      "revision_ordinal": 4
+    },
+    {
+      "data_content_type": "Structure model",
+      "item": "_pdbx_struct_conn_angle.ptnr1_auth_asym_id",
+      "ordinal": 3,
+      "revision_ordinal": 4
+    },
+    {
+      "data_content_type": "Structure model",
+      "item": "_pdbx_struct_conn_angle.ptnr1_auth_comp_id",
+      "ordinal": 4,
+      "revision_ordinal": 4
+    },
+    {
+      "data_content_type": "Structure model",
+      "item": "_pdbx_struct_conn_angle.ptnr1_auth_seq_id",
+      "ordinal": 5,
+      "revision_ordinal": 4
+    },
+    {
+      "data_content_type": "Structure model",
+      "item": "_pdbx_struct_conn_angle.ptnr1_label_asym_id",
+      "ordinal": 6,
+      "revision_ordinal": 4
+    },
+    {
+      "data_content_type": "Structure model",
+      "item": "_pdbx_struct_conn_angle.ptnr1_label_atom_id",
+      "ordinal": 7,
+      "revision_ordinal": 4
+    },
+    {
+      "data_content_type": "Structure model",
+      "item": "_pdbx_struct_conn_angle.ptnr1_label_comp_id",
+      "ordinal": 8,
+      "revision_ordinal": 4
+    },
+    {
+      "data_content_type": "Structure model",
+      "item": "_pdbx_struct_conn_angle.ptnr1_label_seq_id",
+      "ordinal": 9,
+      "revision_ordinal": 4
+    },
+    {
+      "data_content_type": "Structure model",
+      "item": "_pdbx_struct_conn_angle.ptnr1_symmetry",
+      "ordinal": 10,
+      "revision_ordinal": 4
+    },
+    {
+      "data_content_type": "Structure model",
+      "item": "_pdbx_struct_conn_angle.ptnr2_auth_asym_id",
+      "ordinal": 11,
+      "revision_ordinal": 4
+    },
+    {
+      "data_content_type": "Structure model",
+      "item": "_pdbx_struct_conn_angle.ptnr2_auth_seq_id",
+      "ordinal": 12,
+      "revision_ordinal": 4
+    },
+    {
+      "data_content_type": "Structure model",
+      "item": "_pdbx_struct_conn_angle.ptnr2_label_asym_id",
+      "ordinal": 13,
+      "revision_ordinal": 4
+    },
+    {
+      "data_content_type": "Structure model",
+      "item": "_pdbx_struct_conn_angle.ptnr3_auth_asym_id",
+      "ordinal": 14,
+      "revision_ordinal": 4
+    },
+    {
+      "data_content_type": "Structure model",
+      "item": "_pdbx_struct_conn_angle.ptnr3_auth_comp_id",
+      "ordinal": 15,
+      "revision_ordinal": 4
+    },
+    {
+      "data_content_type": "Structure model",
+      "item": "_pdbx_struct_conn_angle.ptnr3_auth_seq_id",
+      "ordinal": 16,
+      "revision_ordinal": 4
+    },
+    {
+      "data_content_type": "Structure model",
+      "item": "_pdbx_struct_conn_angle.ptnr3_label_asym_id",
+      "ordinal": 17,
+      "revision_ordinal": 4
+    },
+    {
+      "data_content_type": "Structure model",
+      "item": "_pdbx_struct_conn_angle.ptnr3_label_atom_id",
+      "ordinal": 18,
+      "revision_ordinal": 4
+    },
+    {
+      "data_content_type": "Structure model",
+      "item": "_pdbx_struct_conn_angle.ptnr3_label_comp_id",
+      "ordinal": 19,
+      "revision_ordinal": 4
+    },
+    {
+      "data_content_type": "Structure model",
+      "item": "_pdbx_struct_conn_angle.ptnr3_label_seq_id",
+      "ordinal": 20,
+      "revision_ordinal": 4
+    },
+    {
+      "data_content_type": "Structure model",
+      "item": "_pdbx_struct_conn_angle.ptnr3_symmetry",
+      "ordinal": 21,
+      "revision_ordinal": 4
+    },
+    {
+      "data_content_type": "Structure model",
+      "item": "_pdbx_struct_conn_angle.value",
+      "ordinal": 22,
+      "revision_ordinal": 4
+    },
+    {
+      "data_content_type": "Structure model",
+      "item": "_struct_conn.pdbx_dist_value",
+      "ordinal": 23,
+      "revision_ordinal": 4
+    },
+    {
+      "data_content_type": "Structure model",
+      "item": "_struct_conn.ptnr1_auth_asym_id",
+      "ordinal": 24,
+      "revision_ordinal": 4
+    },
+    {
+      "data_content_type": "Structure model",
+      "item": "_struct_conn.ptnr1_auth_comp_id",
+      "ordinal": 25,
+      "revision_ordinal": 4
+    },
+    {
+      "data_content_type": "Structure model",
+      "item": "_struct_conn.ptnr1_auth_seq_id",
+      "ordinal": 26,
+      "revision_ordinal": 4
+    },
+    {
+      "data_content_type": "Structure model",
+      "item": "_struct_conn.ptnr1_label_asym_id",
+      "ordinal": 27,
+      "revision_ordinal": 4
+    },
+    {
+      "data_content_type": "Structure model",
+      "item": "_struct_conn.ptnr1_label_atom_id",
+      "ordinal": 28,
+      "revision_ordinal": 4
+    },
+    {
+      "data_content_type": "Structure model",
+      "item": "_struct_conn.ptnr1_label_comp_id",
+      "ordinal": 29,
+      "revision_ordinal": 4
+    },
+    {
+      "data_content_type": "Structure model",
+      "item": "_struct_conn.ptnr1_label_seq_id",
+      "ordinal": 30,
+      "revision_ordinal": 4
+    },
+    {
+      "data_content_type": "Structure model",
+      "item": "_struct_conn.ptnr1_symmetry",
+      "ordinal": 31,
+      "revision_ordinal": 4
+    },
+    {
+      "data_content_type": "Structure model",
+      "item": "_struct_conn.ptnr2_auth_asym_id",
+      "ordinal": 32,
+      "revision_ordinal": 4
+    },
+    {
+      "data_content_type": "Structure model",
+      "item": "_struct_conn.ptnr2_auth_comp_id",
+      "ordinal": 33,
+      "revision_ordinal": 4
+    },
+    {
+      "data_content_type": "Structure model",
+      "item": "_struct_conn.ptnr2_auth_seq_id",
+      "ordinal": 34,
+      "revision_ordinal": 4
+    },
+    {
+      "data_content_type": "Structure model",
+      "item": "_struct_conn.ptnr2_label_asym_id",
+      "ordinal": 35,
+      "revision_ordinal": 4
+    },
+    {
+      "data_content_type": "Structure model",
+      "item": "_struct_conn.ptnr2_label_atom_id",
+      "ordinal": 36,
+      "revision_ordinal": 4
+    },
+    {
+      "data_content_type": "Structure model",
+      "item": "_struct_conn.ptnr2_label_comp_id",
+      "ordinal": 37,
+      "revision_ordinal": 4
+    },
+    {
+      "data_content_type": "Structure model",
+      "item": "_struct_conn.ptnr2_label_seq_id",
+      "ordinal": 38,
+      "revision_ordinal": 4
+    },
+    {
+      "data_content_type": "Structure model",
+      "item": "_struct_conn.ptnr2_symmetry",
+      "ordinal": 39,
+      "revision_ordinal": 4
+    },
+    {
+      "data_content_type": "Structure model",
+      "item": "_struct_site.pdbx_auth_asym_id",
+      "ordinal": 40,
+      "revision_ordinal": 4
+    },
+    {
+      "data_content_type": "Structure model",
+      "item": "_struct_site.pdbx_auth_comp_id",
+      "ordinal": 41,
+      "revision_ordinal": 4
+    },
+    {
+      "data_content_type": "Structure model",
+      "item": "_struct_site.pdbx_auth_seq_id",
+      "ordinal": 42,
+      "revision_ordinal": 4
+    }
+  ],
+  "pdbx_database_status": {
+    "deposit_site": "PDBJ",
+    "pdb_format_compatible": "Y",
+    "process_site": "PDBJ",
+    "recvd_initial_deposition_date": "2003-04-28T00:00:00.000+00:00",
+    "status_code": "REL"
+  },
+  "pdbx_vrpt_summary": {
+    "attempted_validation_steps": "molprobity,validation-pack,mogul,validation_schema,percentiles,writexml,writecif,writepdf",
+    "ligands_for_buster_report": "N",
+    "report_creation_date": "2026-03-05T02:22:00.000+00:00"
+  },
+  "pdbx_vrpt_summary_geometry": [
+    {
+      "angles_RMSZ": 1.26,
+      "bonds_RMSZ": 1.2,
+      "clashscore": 10.25,
+      "num_H_reduce": 7686,
+      "num_angles_RMSZ": 10272,
+      "num_bonds_RMSZ": 7619,
+      "percent_ramachandran_outliers": 0.95,
+      "percent_rotamer_outliers": 4.09
+    }
+  ],
+  "rcsb_accession_info": {
+    "deposit_date": "2003-04-28T00:00:00.000+00:00",
+    "has_released_experimental_data": "N",
+    "initial_release_date": "2004-06-15T00:00:00.000+00:00",
+    "major_revision": 1,
+    "minor_revision": 3,
+    "revision_date": "2023-12-27T00:00:00.000+00:00",
+    "status_code": "REL"
+  },
+  "rcsb_entry_container_identifiers": {
+    "assembly_ids": [
+      "1",
+      "2",
+      "3",
+      "4",
+      "5"
+    ],
+    "entity_ids": [
+      "1",
+      "2",
+      "3"
+    ],
+    "entry_id": "1UD9",
+    "model_ids": [
+      1
+    ],
+    "non_polymer_entity_ids": [
+      "2"
+    ],
+    "polymer_entity_ids": [
+      "1"
+    ],
+    "rcsb_id": "1UD9"
+  },
+  "rcsb_entry_info": {
+    "assembly_count": 5,
+    "branched_entity_count": 0,
+    "cis_peptide_count": 0,
+    "deposited_atom_count": 7996,
+    "deposited_deuterated_water_count": 0,
+    "deposited_hydrogen_atom_count": 0,
+    "deposited_model_count": 1,
+    "deposited_modeled_polymer_monomer_count": 960,
+    "deposited_nonpolymer_entity_instance_count": 23,
+    "deposited_polymer_entity_instance_count": 4,
+    "deposited_polymer_monomer_count": 980,
+    "deposited_solvent_atom_count": 459,
+    "deposited_unmodeled_polymer_monomer_count": 20,
+    "diffrn_radiation_wavelength_maximum": 0.98,
+    "diffrn_radiation_wavelength_minimum": 0.98,
+    "disulfide_bond_count": 0,
+    "entity_count": 3,
+    "experimental_method": "X-ray",
+    "experimental_method_count": 1,
+    "inter_mol_covalent_bond_count": 0,
+    "inter_mol_metalic_bond_count": 76,
+    "molecular_weight": 110.52,
+    "na_polymer_entity_types": "Other",
+    "nonpolymer_bound_components": [
+      "ZN"
+    ],
+    "nonpolymer_entity_count": 1,
+    "nonpolymer_molecular_weight_maximum": 0.07,
+    "nonpolymer_molecular_weight_minimum": 0.07,
+    "polymer_composition": "homomeric protein",
+    "polymer_entity_count": 1,
+    "polymer_entity_count_DNA": 0,
+    "polymer_entity_count_RNA": 0,
+    "polymer_entity_count_nucleic_acid": 0,
+    "polymer_entity_count_nucleic_acid_hybrid": 0,
+    "polymer_entity_count_protein": 1,
+    "polymer_entity_taxonomy_count": 1,
+    "polymer_molecular_weight_maximum": 27.25,
+    "polymer_molecular_weight_minimum": 27.25,
+    "polymer_monomer_count_maximum": 245,
+    "polymer_monomer_count_minimum": 245,
+    "resolution_combined": [
+      1.68
+    ],
+    "selected_polymer_entity_types": "Protein (only)",
+    "software_programs_combined": [
+      "CNS",
+      "DENZO",
+      "RESOLVE",
+      "SCALEPACK",
+      "SOLVE"
+    ],
+    "solvent_entity_count": 1,
+    "structure_determination_methodology": "experimental",
+    "structure_determination_methodology_priority": 10,
+    "diffrn_resolution_high": {
+      "provenance_source": "Depositor assigned",
+      "value": 1.68
+    }
+  },
+  "rcsb_primary_citation": {
+    "id": "primary",
+    "journal_abbrev": "To be published",
+    "journal_id_CSD": "0353",
+    "rcsb_ORCID_identifiers": [
+      "?",
+      "?",
+      "?",
+      "?",
+      "?",
+      "?",
+      "?"
+    ],
+    "rcsb_authors": [
+      "Tanabe, E.",
+      "Yasutake, Y.",
+      "Tanaka, Y.",
+      "Yao, M.",
+      "Tsumoto, K.",
+      "Kumagai, I.",
+      "Tanaka, I."
+    ],
+    "rcsb_journal_abbrev": "To be published",
+    "title": "Crystal Structure of Proliferating Cell Nuclear Antigen (PCNA) Homolog From Sulfolobus tokodaii"
+  },
+  "refine": [
+    {
+      "B_iso_mean": 27.07,
+      "aniso_B_1_1": -2.607,
+      "aniso_B_1_2": 0.0,
+      "aniso_B_1_3": 0.686,
+      "aniso_B_2_2": -4.01,
+      "aniso_B_2_3": 0.0,
+      "aniso_B_3_3": 6.618,
+      "ls_R_factor_R_free": 0.238,
+      "ls_R_factor_R_work": 0.202,
+      "ls_d_res_high": 1.68,
+      "ls_d_res_low": 10.0,
+      "ls_number_reflns_R_free": 11301,
+      "ls_number_reflns_all": 113938,
+      "ls_number_reflns_obs": 113938,
+      "ls_percent_reflns_R_free": 9.7,
+      "ls_percent_reflns_obs": 97.8,
+      "pdbx_R_Free_selection_details": "RANDOM",
+      "pdbx_diffrn_id": [
+        "1"
+      ],
+      "pdbx_isotropic_thermal_model": "Isotropic",
+      "pdbx_ls_cross_valid_method": "THROUGHOUT",
+      "pdbx_ls_sigma_F": 0.0,
+      "pdbx_method_to_determine_struct": "MAD",
+      "pdbx_refine_id": "X-RAY DIFFRACTION",
+      "pdbx_stereochemistry_target_values": "Engh & Huber",
+      "solvent_model_details": "THROUGHOUT",
+      "solvent_model_param_bsol": 62.63,
+      "solvent_model_param_ksol": 0.43
+    }
+  ],
+  "refine_analyze": [
+    {
+      "Luzzati_coordinate_error_free": 0.24,
+      "Luzzati_coordinate_error_obs": 0.21,
+      "Luzzati_d_res_low_obs": 5.0,
+      "Luzzati_sigma_a_free": 0.2,
+      "Luzzati_sigma_a_obs": 0.18,
+      "pdbx_refine_id": "X-RAY DIFFRACTION"
+    }
+  ],
+  "refine_hist": [
+    {
+      "cycle_id": "LAST",
+      "d_res_high": 1.68,
+      "d_res_low": 10.0,
+      "number_atoms_solvent": 459,
+      "number_atoms_total": 7996,
+      "pdbx_number_atoms_ligand": 23,
+      "pdbx_number_atoms_nucleic_acid": 0,
+      "pdbx_number_atoms_protein": 7514,
+      "pdbx_refine_id": "X-RAY DIFFRACTION"
+    }
+  ],
+  "refine_ls_restr": [
+    {
+      "dev_ideal": 0.023,
+      "pdbx_refine_id": "X-RAY DIFFRACTION",
+      "type": "c_bond_d"
+    },
+    {
+      "dev_ideal": 2.09,
+      "pdbx_refine_id": "X-RAY DIFFRACTION",
+      "type": "c_angle_deg"
+    },
+    {
+      "dev_ideal": 26.45,
+      "pdbx_refine_id": "X-RAY DIFFRACTION",
+      "type": "c_dihedral_angle_d"
+    },
+    {
+      "dev_ideal": 1.48,
+      "pdbx_refine_id": "X-RAY DIFFRACTION",
+      "type": "c_improper_angle_d"
+    },
+    {
+      "dev_ideal": 1.56,
+      "pdbx_refine_id": "X-RAY DIFFRACTION",
+      "type": "c_mcbond_it"
+    },
+    {
+      "dev_ideal": 2.355,
+      "pdbx_refine_id": "X-RAY DIFFRACTION",
+      "type": "c_mcangle_it"
+    },
+    {
+      "dev_ideal": 2.751,
+      "pdbx_refine_id": "X-RAY DIFFRACTION",
+      "type": "c_scbond_it"
+    },
+    {
+      "dev_ideal": 4.082,
+      "pdbx_refine_id": "X-RAY DIFFRACTION",
+      "type": "c_scangle_it"
+    }
+  ],
+  "reflns": [
+    {
+      "B_iso_Wilson_estimate": 33.2,
+      "d_resolution_high": 1.68,
+      "d_resolution_low": 50.0,
+      "number_obs": 114482,
+      "pdbx_Rmerge_I_obs": 0.05,
+      "pdbx_diffrn_id": [
+        "1"
+      ],
+      "pdbx_netI_over_sigmaI": 10.2,
+      "pdbx_ordinal": 1,
+      "pdbx_redundancy": 3.6,
+      "percent_possible_obs": 97.7
+    }
+  ],
+  "reflns_shell": [
+    {
+      "Rmerge_I_obs": 0.398,
+      "d_res_high": 1.68,
+      "d_res_low": 1.74,
+      "number_unique_all": 9574,
+      "pdbx_diffrn_id": [
+        "1"
+      ],
+      "pdbx_ordinal": 1,
+      "percent_possible_all": 82.3
+    }
+  ],
+  "software": [
+    {
+      "classification": "data reduction",
+      "name": "DENZO",
+      "pdbx_ordinal": 1
+    },
+    {
+      "classification": "data scaling",
+      "name": "SCALEPACK",
+      "pdbx_ordinal": 2
+    },
+    {
+      "classification": "phasing",
+      "name": "SOLVE",
+      "pdbx_ordinal": 3
+    },
+    {
+      "classification": "model building",
+      "name": "RESOLVE",
+      "pdbx_ordinal": 4
+    },
+    {
+      "classification": "refinement",
+      "name": "CNS",
+      "pdbx_ordinal": 5
+    },
+    {
+      "classification": "phasing",
+      "name": "RESOLVE",
+      "pdbx_ordinal": 6
+    }
+  ],
+  "struct": {
+    "title": "Crystal Structure of Proliferating Cell Nuclear Antigen (PCNA) Homolog From Sulfolobus tokodaii"
+  },
+  "struct_keywords": {
+    "pdbx_keywords": "DNA BINDING PROTEIN",
+    "text": "DNA-binding, DNA replication, DNA binding protein"
+  },
+  "symmetry": {
+    "Int_Tables_number": 4,
+    "space_group_name_H_M": "P 1 21 1"
+  },
+  "rcsb_id": "1UD9"
+}

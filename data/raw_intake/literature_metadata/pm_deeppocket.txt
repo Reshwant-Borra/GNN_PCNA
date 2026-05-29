@@ -1,0 +1,77 @@
+1. J Chem Inf Model. 2025 Jul 14;65(13):6949-6967. doi: 10.1021/acs.jcim.5c00336.
+ Epub 2025 Jul 2.
+
+Evaluation of Small-Molecule Binding Site Prediction Methods on 
+Membrane-Embedded Protein Interfaces.
+
+Pliushcheuskaya P(1), Künze G(1)(2)(3).
+
+Author information:
+(1)Institute for Drug Discovery, Medical Faculty, University of Leipzig, Leipzig 
+04103, Germany.
+(2)Interdisciplinary Center for Bioinformatics, University of Leipzig, Leipzig 
+04107, Germany.
+(3)Center for Scalable Data Analytics and Artificial Intelligence, University of 
+Leipzig, Leipzig 04105, Germany.
+
+Increasing structural and biophysical evidence suggests that many drug molecules 
+bind to the protein-membrane interface region in membrane protein structures. An 
+important starting point for drug discovery is the determination of a ligand's 
+binding site; however, this information is missing for many membrane proteins, 
+especially for their membrane-embedded parts. Therefore, we tested the 
+performance of computational methods for ligand binding site prediction in the 
+protein intramembrane region. We compiled data sets containing GPCR- and ion 
+channel-ligand complexes and compared method performance relative to a soluble 
+protein data set obtained from PDBBind. We tested state-of-the-art 
+geometry-based (Fpocket, ConCavity), energy probe-based (FTSite), machine 
+learning-based (P2Rank, GRaSP), and deep learning-based (PUResNet, DeepPocket, 
+PUResNetV2.0) methods and evaluated them using the center-to-center distance 
+(DCC) and discretized volume overlap (DVO) between the predicted binding site 
+and the actual ligand position. The three best-ranking methods based on success 
+rates on GPCRs were DeepPocket, PUResNetV2.0, and ConCavity, and for ion 
+channels, these were DeepPocket, PUResNetV2.0, and FTSite. However, average DCC 
+and DVO values were lower for all methods compared to the soluble protein data 
+set, for which DVO and normalized DCC values ranked between 0.33 and 0.72 in 
+their best case, respectively. In conclusion, this study provides an overview of 
+the performance of state-of-the-art binding site prediction methods on their 
+ability to identify pockets in the protein-membrane interface region. It also 
+underscores the need for further method development in the prediction of 
+protein-membrane ligand binding sites.
+
+DOI: 10.1021/acs.jcim.5c00336
+PMCID: PMC12264969
+PMID: 40601846 [Indexed for MEDLINE]
+
+
+2. J Chem Inf Model. 2022 Nov 14;62(21):5069-5079. doi: 10.1021/acs.jcim.1c00799.
+ Epub 2021 Aug 10.
+
+DeepPocket: Ligand Binding Site Detection and Segmentation using 3D 
+Convolutional Neural Networks.
+
+Aggarwal R(1), Gupta A(1), Chelur V(1), Jawahar CV(1), Priyakumar UD(1).
+
+Author information:
+(1)International Institute of Information Technology, Hyderabad 500 032, India.
+
+A structure-based drug design pipeline involves the development of potential 
+drug molecules or ligands that form stable complexes with a given receptor at 
+its binding site. A prerequisite to this is finding druggable and functionally 
+relevant binding sites on the 3D structure of the protein. Although several 
+methods for detecting binding sites have been developed beforehand, a majority 
+of them surprisingly fail in the identification and ranking of binding sites 
+accurately. The rapid adoption and success of deep learning algorithms in 
+various sections of structural biology beckons the usage of such algorithms for 
+accurate binding site detection. As a combination of geometry based software and 
+deep learning, we report a novel framework, DeepPocket that utilizes 3D 
+convolutional neural networks for the rescoring of pockets identified by Fpocket 
+and further segments these identified cavities on the protein surface. Apart 
+from this, we also propose another data set SC6K containing protein structures 
+submitted in the Protein Data Bank (PDB) from January 1st, 2018, until February 
+28th, 2020, for ligand binding site (LBS) detection. DeepPocket's results on 
+various binding site data sets and SC6K highlight its better performance over 
+current state-of-the-art methods and good generalization ability over novel 
+structures.
+
+DOI: 10.1021/acs.jcim.1c00799
+PMID: 34374539 [Indexed for MEDLINE]

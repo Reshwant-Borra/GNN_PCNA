@@ -1,0 +1,232 @@
+{
+  "created_at": "2026-05-27T19:09:22-04:00",
+  "sources": [
+    {
+      "adoption_status": "not_adopted",
+      "biological_limitations": "predicted structure is not pocket truth",
+      "downloaded_files": [
+        "data\\raw_intake\\alphafold\\P12004\\metadata\\alphafold_P12004.json"
+      ],
+      "keep_recommendation": "yes_context_only_if_needed",
+      "license_status": "LICENSE_UNRESOLVED",
+      "lifecycle_status": "quarantined",
+      "linked_only_assets": [],
+      "role": "targeted PCNA predicted-structure context",
+      "schema_status": "SCHEMA_PARTIAL",
+      "source_name": "alphafold",
+      "supervision_meaning": "none",
+      "total_downloaded_bytes": 2226
+    },
+    {
+      "adoption_status": "not_adopted",
+      "biological_limitations": "not PCNA cryptic-pocket supervision by default",
+      "downloaded_files": [],
+      "keep_recommendation": "yes_as_context_not_training_labels",
+      "license_status": "LICENSE_UNRESOLVED",
+      "lifecycle_status": "candidate",
+      "linked_only_assets": [
+        "https://mdl.shsmu.edu.cn/ASD/"
+      ],
+      "role": "allosteric context/reference",
+      "schema_status": "SCHEMA_UNKNOWN",
+      "source_name": "asd",
+      "supervision_meaning": "allosteric annotations only after entry-level audit",
+      "total_downloaded_bytes": 0
+    },
+    {
+      "adoption_status": "not_adopted",
+      "biological_limitations": "installation/output schemas not verified",
+      "downloaded_files": [
+        "data\\raw_intake\\baseline_tools\\fpocket\\metadata\\github_repo_Discngine_fpocket.json",
+        "data\\raw_intake\\baseline_tools\\p2rank\\metadata\\github_repo_rdk_p2rank.json"
+      ],
+      "keep_recommendation": "yes_for_baseline_planning",
+      "license_status": "LICENSE_UNRESOLVED",
+      "lifecycle_status": "quarantined",
+      "linked_only_assets": [],
+      "role": "fpocket/P2Rank baseline tooling metadata",
+      "schema_status": "SCHEMA_PARTIAL",
+      "source_name": "baseline_tools",
+      "supervision_meaning": "tool predictions only",
+      "total_downloaded_bytes": 11821
+    },
+    {
+      "adoption_status": "not_adopted",
+      "biological_limitations": "not structural pocket labels",
+      "downloaded_files": [],
+      "keep_recommendation": "yes_context_only",
+      "license_status": "LICENSE_UNRESOLVED",
+      "lifecycle_status": "candidate",
+      "linked_only_assets": [
+        "https://thebiogrid.org/"
+      ],
+      "role": "targeted PCNA interaction context",
+      "schema_status": "SCHEMA_UNKNOWN",
+      "source_name": "biogrid",
+      "supervision_meaning": "interaction metadata only after API/license review",
+      "total_downloaded_bytes": 0
+    },
+    {
+      "adoption_status": "not_adopted",
+      "biological_limitations": "not cryptic-pocket truth",
+      "downloaded_files": [],
+      "keep_recommendation": "yes_linked_only_until_terms_and_schema_review",
+      "license_status": "LICENSE_UNRESOLVED",
+      "lifecycle_status": "candidate",
+      "linked_only_assets": [
+        "https://zhanggroup.org/BioLiP/",
+        "https://zhanggroup.org/BioLiP/qbiolip/"
+      ],
+      "role": "auxiliary ligand-contact/proxy context",
+      "schema_status": "SCHEMA_UNKNOWN",
+      "source_name": "biolip",
+      "supervision_meaning": "ligand contacts if later acquired",
+      "total_downloaded_bytes": 0
+    },
+    {
+      "adoption_status": "not_adopted",
+      "biological_limitations": "not true negatives; PCNA contamination; split redesign required",
+      "downloaded_files": [
+        "data\\raw_intake\\cryptobench\\code\\66c39e77df639c0239dbe70d_pymol-scripts.zip",
+        "data\\raw_intake\\cryptobench\\code\\66c39e973dcfbb2d66dbe7b7_Protein.py",
+        "data\\raw_intake\\cryptobench\\code\\672a22887f455a2e4002748c_benchmark-example.py",
+        "data\\raw_intake\\cryptobench\\files\\66c32860a846a7ca28c5d615_saved_model.pb",
+        "data\\raw_intake\\cryptobench\\files\\66c32869653be15e240b5233_fingerprint.pb",
+        "data\\raw_intake\\cryptobench\\files\\66c3287ee4bc7d8bbbc5ca6e_variables.data-00000-of-00001",
+        "data\\raw_intake\\cryptobench\\files\\66c3288cbf6e3bc8e40b5572_variables.index",
+        "data\\raw_intake\\cryptobench\\files\\66c32894e4bc7d8bbbc5ca78_saved_model.pb",
+        "data\\raw_intake\\cryptobench\\files\\66c3289e38497880962d3018_fingerprint.pb",
+        "data\\raw_intake\\cryptobench\\files\\66c328b4cb9874ed0d2d3395_variables.data-00000-of-00001",
+        "data\\raw_intake\\cryptobench\\files\\66c328c168e4552e0b0b5315_variables.index",
+        "data\\raw_intake\\cryptobench\\files\\66c39eaa7f76e94ea65d9a85_7w19A.npy",
+        "data\\raw_intake\\cryptobench\\files\\672a0171eae0bff252ba9ea3_cif-files.zip",
+        "data\\raw_intake\\cryptobench\\labels_or_splits\\66c328e138497880962d3054_test.json",
+        "data\\raw_intake\\cryptobench\\labels_or_splits\\66c328eba3530855975d9d19_train-fold-0.json",
+        "data\\raw_intake\\cryptobench\\labels_or_splits\\66c328f5cb9874ed0d2d33b3_train-fold-1.json",
+        "data\\raw_intake\\cryptobench\\labels_or_splits\\66c328fe653be15e240b528b_train-fold-2.json",
+        "data\\raw_intake\\cryptobench\\labels_or_splits\\66c329087352852f68dbeaf4_train-fold-3.json",
+        "data\\raw_intake\\cryptobench\\labels_or_splits\\66c32918467db4bc475da14e_noncryptic-pockets.json",
+        "data\\raw_intake\\cryptobench\\metadata\\github_repo_skrhakv_CryptoBench.json",
+        "data\\raw_intake\\cryptobench\\metadata\\osf_license_563c1cf88c5e4a3877f9e972.json",
+        "data\\raw_intake\\cryptobench\\metadata\\osf_listing_66c32857e4bc7d8bbbc5ca5e_cryptobench.json",
+        "data\\raw_intake\\cryptobench\\metadata\\osf_listing_66c3285de4bc7d8bbbc5ca61_benchmark.json",
+        "data\\raw_intake\\cryptobench\\metadata\\osf_listing_66c3285e8a9ce32aa0dbea75_not_fitted.json",
+        "data\\raw_intake\\cryptobench\\metadata\\osf_listing_66c3287ce4bc7d8bbbc5ca6d_variables.json",
+        "data\\raw_intake\\cryptobench\\metadata\\osf_listing_66c3289268e4552e0b0b52fd_best_trained.json",
+        "data\\raw_intake\\cryptobench\\metadata\\osf_listing_66c328b0653be15e240b526a_variables.json",
+        "data\\raw_intake\\cryptobench\\metadata\\osf_listing_66c328c438497880962d3034_cryptobench-dataset.json",
+        "data\\raw_intake\\cryptobench\\metadata\\osf_listing_66c328dee4bc7d8bbbc5cabb_folds.json",
+        "data\\raw_intake\\cryptobench\\metadata\\osf_listing_66c3290ecb9874ed0d2d33ca_auxiliary-data.json",
+        "data\\raw_intake\\cryptobench\\metadata\\osf_listing_66c32910a846a7ca28c5d648_non-cryptic-pockets.json",
+        "data\\raw_intake\\cryptobench\\metadata\\osf_listing_66c39e8c4eaa3f40595dae47_scripts.json",
+        "data\\raw_intake\\cryptobench\\metadata\\osf_listing_66c39e9d7f76e94ea65d9a80_data.json",
+        "data\\raw_intake\\cryptobench\\metadata\\osf_node_pz4a9.json",
+        "data\\raw_intake\\cryptobench\\metadata\\osf_node_pz4a9_files.json",
+        "data\\raw_intake\\cryptobench\\metadata\\osf_node_pz4a9_osfstorage_root.json",
+        "data\\raw_intake\\cryptobench\\metadata_files\\66c328597352852f68dbea76_README.md",
+        "data\\raw_intake\\cryptobench\\metadata_files\\66c328732e5f5203685d9b3b_keras_metadata.pb",
+        "data\\raw_intake\\cryptobench\\metadata_files\\66c328a8a3530855975d9cf7_keras_metadata.pb",
+        "data\\raw_intake\\cryptobench\\metadata_files\\66c328c87352852f68dbeac4_dataset.json",
+        "data\\raw_intake\\cryptobench\\metadata_files\\66c328d07352852f68dbeacc_README.md",
+        "data\\raw_intake\\cryptobench\\metadata_files\\66c328d97352852f68dbead5_folds.json",
+        "data\\raw_intake\\cryptobench\\metadata_files\\66c39ea059b5945c54c5d027_annotation.txt",
+        "data\\raw_intake\\cryptobench\\metadata_files\\672a2286e3bc8f3ae6ba9f3f_README.md"
+      ],
+      "keep_recommendation": "yes_with_exclusions_pending_human_review",
+      "license_status": "LICENSE_KNOWN",
+      "lifecycle_status": "quarantined",
+      "linked_only_assets": [
+        "https://doi.org/10.1093/bioinformatics/btae745"
+      ],
+      "role": "primary benchmark candidate after remediation",
+      "schema_status": "SCHEMA_PARTIAL",
+      "source_name": "cryptobench",
+      "supervision_meaning": "proxy cryptic pocket selections",
+      "total_downloaded_bytes": 1282249609
+    },
+    {
+      "adoption_status": "not_adopted",
+      "biological_limitations": "requires_schema_review",
+      "downloaded_files": [
+        "data\\raw_intake\\pcna_structures\\1W60\\metadata\\1W60_entry.json",
+        "data\\raw_intake\\pcna_structures\\1W60\\structures\\1W60.cif",
+        "data\\raw_intake\\pcna_structures\\8GLA\\metadata\\8GLA_entry.json",
+        "data\\raw_intake\\pcna_structures\\8GLA\\structures\\8GLA.cif"
+      ],
+      "keep_recommendation": "requires_review",
+      "license_status": "LICENSE_KNOWN",
+      "lifecycle_status": "quarantined",
+      "linked_only_assets": [],
+      "role": "targeted PCNA experimental structure source",
+      "schema_status": "SCHEMA_PARTIAL",
+      "source_name": "pcna_structures",
+      "supervision_meaning": "unknown",
+      "total_downloaded_bytes": 1285208
+    },
+    {
+      "adoption_status": "not_adopted",
+      "biological_limitations": "overlap/leakage with CryptoBench must be audited",
+      "downloaded_files": [
+        "data\\raw_intake\\pocketminer\\metadata\\github_repo_Mickdub_gvp.json"
+      ],
+      "keep_recommendation": "yes_for_baseline_review",
+      "license_status": "LICENSE_UNRESOLVED",
+      "lifecycle_status": "quarantined",
+      "linked_only_assets": [
+        "https://doi.org/10.1038/s41467-023-36699-3"
+      ],
+      "role": "baseline/method reference",
+      "schema_status": "SCHEMA_PARTIAL",
+      "source_name": "pocketminer",
+      "supervision_meaning": "method outputs only; not labels",
+      "total_downloaded_bytes": 14656
+    },
+    {
+      "adoption_status": "not_adopted",
+      "biological_limitations": "not cryptic-pocket truth; licensing/bulk unresolved",
+      "downloaded_files": [],
+      "keep_recommendation": "maybe_terms_and_bulk_size_unresolved",
+      "license_status": "LICENSE_UNRESOLVED",
+      "lifecycle_status": "candidate",
+      "linked_only_assets": [
+        "http://bioinfo-pharma.u-strasbg.fr/scPDB/"
+      ],
+      "role": "auxiliary binding-pocket/proxy source",
+      "schema_status": "SCHEMA_UNKNOWN",
+      "source_name": "scpdb",
+      "supervision_meaning": "binding pocket/protein-ligand records if later acquired",
+      "total_downloaded_bytes": 0
+    },
+    {
+      "adoption_status": "not_adopted",
+      "biological_limitations": "not structural pocket labels",
+      "downloaded_files": [],
+      "keep_recommendation": "yes_context_only",
+      "license_status": "LICENSE_UNRESOLVED",
+      "lifecycle_status": "candidate",
+      "linked_only_assets": [
+        "https://string-db.org/network/9606.ENSP00000368411"
+      ],
+      "role": "targeted PCNA functional association context",
+      "schema_status": "SCHEMA_UNKNOWN",
+      "source_name": "string",
+      "supervision_meaning": "functional association metadata only",
+      "total_downloaded_bytes": 0
+    },
+    {
+      "adoption_status": "not_adopted",
+      "biological_limitations": "not cryptic-pocket benchmark",
+      "downloaded_files": [],
+      "keep_recommendation": "exclude_from_primary_phase2_benchmark",
+      "license_status": "not_acquired_this_phase",
+      "lifecycle_status": "excluded_from_primary_benchmark",
+      "linked_only_assets": [],
+      "role": "background affinity/source lead only",
+      "schema_status": "not_acquired_this_phase",
+      "source_name": "pdbbind",
+      "supervision_meaning": "affinity/protein-ligand complexes",
+      "total_downloaded_bytes": 0
+    }
+  ],
+  "status": "auxiliary_sources_quarantined_not_adopted"
+}

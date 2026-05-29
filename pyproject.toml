@@ -1,0 +1,24 @@
+[build-system]
+requires = ["setuptools>=68", "wheel"]
+build-backend = "setuptools.build_meta"
+
+[project]
+name = "research_os"
+version = "0.1.0"
+description = "GNN ResearchOS: conservative autonomous research operating system for the GNN-PCNA / MD validation project."
+requires-python = ">=3.9"
+readme = "README.md"
+authors = [{ name = "Reshwant Borra" }]
+license = { text = "Proprietary" }
+dependencies = []
+
+[project.optional-dependencies]
+test = ["pytest>=7"]
+
+[project.scripts]
+research-os = "research_os.__main__:main"
+
+[tool.setuptools.packages.find]
+where = ["."]
+include = ["research_os*"]
+exclude = ["tests*", "research_os_memory*", "research_os_registries*", "reports*"]

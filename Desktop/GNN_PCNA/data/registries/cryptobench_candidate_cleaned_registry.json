@@ -1,0 +1,1610 @@
+{
+  "candidate_adoption_recommendation": "cryptic_only_benchmark_candidate_with_exclusions_and_new_homolog_aware_split",
+  "created_at": "2026-05-27T19:09:22-04:00",
+  "excluded_or_review_required_record_count": 158,
+  "exclusions_or_review_required": [
+    {
+      "apo_pdb_id": "1d7k",
+      "fold": "train-1",
+      "holo_pdb_id": "2oo0",
+      "reasons": [
+        "selected_residue_mapping_failure_present"
+      ],
+      "recommendation": "exclude_or_hold_out_pending_human_review",
+      "uniprot_id": "P11926"
+    },
+    {
+      "apo_pdb_id": "1d7k",
+      "fold": "train-1",
+      "holo_pdb_id": "2oo0",
+      "reasons": [
+        "selected_residue_mapping_failure_present"
+      ],
+      "recommendation": "exclude_or_hold_out_pending_human_review",
+      "uniprot_id": "P11926"
+    },
+    {
+      "apo_pdb_id": "1d7k",
+      "fold": "train-1",
+      "holo_pdb_id": "2oo0",
+      "reasons": [
+        "selected_residue_mapping_failure_present"
+      ],
+      "recommendation": "exclude_or_hold_out_pending_human_review",
+      "uniprot_id": "P11926"
+    },
+    {
+      "apo_pdb_id": "1d7k",
+      "fold": "train-1",
+      "holo_pdb_id": "2oo0",
+      "reasons": [
+        "selected_residue_mapping_failure_present"
+      ],
+      "recommendation": "exclude_or_hold_out_pending_human_review",
+      "uniprot_id": "P11926"
+    },
+    {
+      "apo_pdb_id": "1d7k",
+      "fold": "train-1",
+      "holo_pdb_id": "7s3f",
+      "reasons": [
+        "selected_residue_mapping_failure_present"
+      ],
+      "recommendation": "exclude_or_hold_out_pending_human_review",
+      "uniprot_id": "P11926"
+    },
+    {
+      "apo_pdb_id": "1esw",
+      "fold": "train-1",
+      "holo_pdb_id": "5jiw",
+      "reasons": [
+        "selected_residue_mapping_failure_present"
+      ],
+      "recommendation": "exclude_or_hold_out_pending_human_review",
+      "uniprot_id": "O87172"
+    },
+    {
+      "apo_pdb_id": "1esw",
+      "fold": "train-1",
+      "holo_pdb_id": "5jiw",
+      "reasons": [
+        "selected_residue_mapping_failure_present"
+      ],
+      "recommendation": "exclude_or_hold_out_pending_human_review",
+      "uniprot_id": "O87172"
+    },
+    {
+      "apo_pdb_id": "1esw",
+      "fold": "train-1",
+      "holo_pdb_id": "5jiw",
+      "reasons": [
+        "selected_residue_mapping_failure_present"
+      ],
+      "recommendation": "exclude_or_hold_out_pending_human_review",
+      "uniprot_id": "O87172"
+    },
+    {
+      "apo_pdb_id": "1h3g",
+      "fold": "train-3",
+      "holo_pdb_id": "3edf",
+      "reasons": [
+        "selected_residue_mapping_failure_present"
+      ],
+      "recommendation": "exclude_or_hold_out_pending_human_review",
+      "uniprot_id": "Q8KKG0"
+    },
+    {
+      "apo_pdb_id": "1h3g",
+      "fold": "train-3",
+      "holo_pdb_id": "3edf",
+      "reasons": [
+        "selected_residue_mapping_failure_present"
+      ],
+      "recommendation": "exclude_or_hold_out_pending_human_review",
+      "uniprot_id": "Q8KKG0"
+    },
+    {
+      "apo_pdb_id": "1h3g",
+      "fold": "train-3",
+      "holo_pdb_id": "3edf",
+      "reasons": [
+        "selected_residue_mapping_failure_present"
+      ],
+      "recommendation": "exclude_or_hold_out_pending_human_review",
+      "uniprot_id": "Q8KKG0"
+    },
+    {
+      "apo_pdb_id": "1h3g",
+      "fold": "train-3",
+      "holo_pdb_id": "3edf",
+      "reasons": [
+        "selected_residue_mapping_failure_present"
+      ],
+      "recommendation": "exclude_or_hold_out_pending_human_review",
+      "uniprot_id": "Q8KKG0"
+    },
+    {
+      "apo_pdb_id": "1h3g",
+      "fold": "train-3",
+      "holo_pdb_id": "3edf",
+      "reasons": [
+        "selected_residue_mapping_failure_present"
+      ],
+      "recommendation": "exclude_or_hold_out_pending_human_review",
+      "uniprot_id": "Q8KKG0"
+    },
+    {
+      "apo_pdb_id": "1h3g",
+      "fold": "train-3",
+      "holo_pdb_id": "3edf",
+      "reasons": [
+        "selected_residue_mapping_failure_present"
+      ],
+      "recommendation": "exclude_or_hold_out_pending_human_review",
+      "uniprot_id": "Q8KKG0"
+    },
+    {
+      "apo_pdb_id": "1lx7",
+      "fold": "train-2",
+      "holo_pdb_id": "1u1d",
+      "reasons": [
+        "selected_residue_mapping_failure_present"
+      ],
+      "recommendation": "exclude_or_hold_out_pending_human_review",
+      "uniprot_id": "P12758"
+    },
+    {
+      "apo_pdb_id": "1lx7",
+      "fold": "train-2",
+      "holo_pdb_id": "1u1e",
+      "reasons": [
+        "selected_residue_mapping_failure_present"
+      ],
+      "recommendation": "exclude_or_hold_out_pending_human_review",
+      "uniprot_id": "P12758"
+    },
+    {
+      "apo_pdb_id": "1lx7",
+      "fold": "train-2",
+      "holo_pdb_id": "1u1g",
+      "reasons": [
+        "selected_residue_mapping_failure_present"
+      ],
+      "recommendation": "exclude_or_hold_out_pending_human_review",
+      "uniprot_id": "P12758"
+    },
+    {
+      "apo_pdb_id": "1lx7",
+      "fold": "train-2",
+      "holo_pdb_id": "1u1c",
+      "reasons": [
+        "selected_residue_mapping_failure_present"
+      ],
+      "recommendation": "exclude_or_hold_out_pending_human_review",
+      "uniprot_id": "P12758"
+    },
+    {
+      "apo_pdb_id": "1lx7",
+      "fold": "train-2",
+      "holo_pdb_id": "1u1c",
+      "reasons": [
+        "selected_residue_mapping_failure_present"
+      ],
+      "recommendation": "exclude_or_hold_out_pending_human_review",
+      "uniprot_id": "P12758"
+    },
+    {
+      "apo_pdb_id": "1lx7",
+      "fold": "train-2",
+      "holo_pdb_id": "1u1d",
+      "reasons": [
+        "selected_residue_mapping_failure_present"
+      ],
+      "recommendation": "exclude_or_hold_out_pending_human_review",
+      "uniprot_id": "P12758"
+    },
+    {
+      "apo_pdb_id": "1lx7",
+      "fold": "train-2",
+      "holo_pdb_id": "1u1e",
+      "reasons": [
+        "selected_residue_mapping_failure_present"
+      ],
+      "recommendation": "exclude_or_hold_out_pending_human_review",
+      "uniprot_id": "P12758"
+    },
+    {
+      "apo_pdb_id": "1lx7",
+      "fold": "train-2",
+      "holo_pdb_id": "1u1f",
+      "reasons": [
+        "selected_residue_mapping_failure_present"
+      ],
+      "recommendation": "exclude_or_hold_out_pending_human_review",
+      "uniprot_id": "P12758"
+    },
+    {
+      "apo_pdb_id": "1lx7",
+      "fold": "train-2",
+      "holo_pdb_id": "1u1g",
+      "reasons": [
+        "selected_residue_mapping_failure_present"
+      ],
+      "recommendation": "exclude_or_hold_out_pending_human_review",
+      "uniprot_id": "P12758"
+    },
+    {
+      "apo_pdb_id": "1lx7",
+      "fold": "train-2",
+      "holo_pdb_id": "1rxc",
+      "reasons": [
+        "selected_residue_mapping_failure_present"
+      ],
+      "recommendation": "exclude_or_hold_out_pending_human_review",
+      "uniprot_id": "P12758"
+    },
+    {
+      "apo_pdb_id": "1lx7",
+      "fold": "train-2",
+      "holo_pdb_id": "1rxc",
+      "reasons": [
+        "selected_residue_mapping_failure_present"
+      ],
+      "recommendation": "exclude_or_hold_out_pending_human_review",
+      "uniprot_id": "P12758"
+    },
+    {
+      "apo_pdb_id": "1lx7",
+      "fold": "train-2",
+      "holo_pdb_id": "1rxc",
+      "reasons": [
+        "selected_residue_mapping_failure_present"
+      ],
+      "recommendation": "exclude_or_hold_out_pending_human_review",
+      "uniprot_id": "P12758"
+    },
+    {
+      "apo_pdb_id": "1mwr",
+      "fold": "train-1",
+      "holo_pdb_id": "1mwt",
+      "reasons": [
+        "selected_residue_mapping_failure_present"
+      ],
+      "recommendation": "exclude_or_hold_out_pending_human_review",
+      "uniprot_id": "Q93IC2"
+    },
+    {
+      "apo_pdb_id": "1pt7",
+      "fold": "train-0",
+      "holo_pdb_id": "1q7e",
+      "reasons": [
+        "selected_residue_mapping_failure_present"
+      ],
+      "recommendation": "exclude_or_hold_out_pending_human_review",
+      "uniprot_id": "P69902"
+    },
+    {
+      "apo_pdb_id": "1pta",
+      "fold": "train-3",
+      "holo_pdb_id": "3ur5",
+      "reasons": [
+        "selected_residue_mapping_failure_present"
+      ],
+      "recommendation": "exclude_or_hold_out_pending_human_review",
+      "uniprot_id": "P0A434"
+    },
+    {
+      "apo_pdb_id": "1pta",
+      "fold": "train-3",
+      "holo_pdb_id": "3urb",
+      "reasons": [
+        "selected_residue_mapping_failure_present"
+      ],
+      "recommendation": "exclude_or_hold_out_pending_human_review",
+      "uniprot_id": "P0A434"
+    },
+    {
+      "apo_pdb_id": "1pta",
+      "fold": "train-3",
+      "holo_pdb_id": "3urn",
+      "reasons": [
+        "selected_residue_mapping_failure_present"
+      ],
+      "recommendation": "exclude_or_hold_out_pending_human_review",
+      "uniprot_id": "P0A434"
+    },
+    {
+      "apo_pdb_id": "1pta",
+      "fold": "train-3",
+      "holo_pdb_id": "3urq",
+      "reasons": [
+        "selected_residue_mapping_failure_present"
+      ],
+      "recommendation": "exclude_or_hold_out_pending_human_review",
+      "uniprot_id": "P0A434"
+    },
+    {
+      "apo_pdb_id": "1pta",
+      "fold": "train-3",
+      "holo_pdb_id": "3urq",
+      "reasons": [
+        "selected_residue_mapping_failure_present"
+      ],
+      "recommendation": "exclude_or_hold_out_pending_human_review",
+      "uniprot_id": "P0A434"
+    },
+    {
+      "apo_pdb_id": "1rxd",
+      "fold": "train-0",
+      "holo_pdb_id": "5bx1",
+      "reasons": [
+        "selected_residue_mapping_failure_present"
+      ],
+      "recommendation": "exclude_or_hold_out_pending_human_review",
+      "uniprot_id": "Q93096"
+    },
+    {
+      "apo_pdb_id": "1xgd",
+      "fold": "test",
+      "holo_pdb_id": "8fh6",
+      "reasons": [
+        "selected_residue_mapping_failure_present"
+      ],
+      "recommendation": "exclude_or_hold_out_pending_human_review",
+      "uniprot_id": "P15121"
+    },
+    {
+      "apo_pdb_id": "1xgd",
+      "fold": "test",
+      "holo_pdb_id": "8fh6",
+      "reasons": [
+        "selected_residue_mapping_failure_present"
+      ],
+      "recommendation": "exclude_or_hold_out_pending_human_review",
+      "uniprot_id": "P15121"
+    },
+    {
+      "apo_pdb_id": "2air",
+      "fold": "train-1",
+      "holo_pdb_id": "2fzc",
+      "reasons": [
+        "holo_pdb_repeats_across_official_folds"
+      ],
+      "recommendation": "exclude_or_hold_out_pending_human_review",
+      "uniprot_id": "P0A7F3"
+    },
+    {
+      "apo_pdb_id": "2air",
+      "fold": "train-1",
+      "holo_pdb_id": "2fzg",
+      "reasons": [
+        "holo_pdb_repeats_across_official_folds"
+      ],
+      "recommendation": "exclude_or_hold_out_pending_human_review",
+      "uniprot_id": "P0A7F3"
+    },
+    {
+      "apo_pdb_id": "2air",
+      "fold": "train-1",
+      "holo_pdb_id": "4f04",
+      "reasons": [
+        "holo_pdb_repeats_across_official_folds"
+      ],
+      "recommendation": "exclude_or_hold_out_pending_human_review",
+      "uniprot_id": "P0A7F3"
+    },
+    {
+      "apo_pdb_id": "2b23",
+      "fold": "train-2",
+      "holo_pdb_id": "1sj0",
+      "reasons": [
+        "selected_residue_mapping_failure_present"
+      ],
+      "recommendation": "exclude_or_hold_out_pending_human_review",
+      "uniprot_id": "P03372"
+    },
+    {
+      "apo_pdb_id": "2b23",
+      "fold": "train-2",
+      "holo_pdb_id": "1xp1",
+      "reasons": [
+        "selected_residue_mapping_failure_present"
+      ],
+      "recommendation": "exclude_or_hold_out_pending_human_review",
+      "uniprot_id": "P03372"
+    },
+    {
+      "apo_pdb_id": "2b23",
+      "fold": "train-2",
+      "holo_pdb_id": "1xp6",
+      "reasons": [
+        "selected_residue_mapping_failure_present"
+      ],
+      "recommendation": "exclude_or_hold_out_pending_human_review",
+      "uniprot_id": "P03372"
+    },
+    {
+      "apo_pdb_id": "2b23",
+      "fold": "train-2",
+      "holo_pdb_id": "1xp9",
+      "reasons": [
+        "selected_residue_mapping_failure_present"
+      ],
+      "recommendation": "exclude_or_hold_out_pending_human_review",
+      "uniprot_id": "P03372"
+    },
+    {
+      "apo_pdb_id": "2b23",
+      "fold": "train-2",
+      "holo_pdb_id": "1xpc",
+      "reasons": [
+        "selected_residue_mapping_failure_present"
+      ],
+      "recommendation": "exclude_or_hold_out_pending_human_review",
+      "uniprot_id": "P03372"
+    },
+    {
+      "apo_pdb_id": "2b23",
+      "fold": "train-2",
+      "holo_pdb_id": "1yim",
+      "reasons": [
+        "selected_residue_mapping_failure_present"
+      ],
+      "recommendation": "exclude_or_hold_out_pending_human_review",
+      "uniprot_id": "P03372"
+    },
+    {
+      "apo_pdb_id": "2b23",
+      "fold": "train-2",
+      "holo_pdb_id": "2iog",
+      "reasons": [
+        "selected_residue_mapping_failure_present"
+      ],
+      "recommendation": "exclude_or_hold_out_pending_human_review",
+      "uniprot_id": "P03372"
+    },
+    {
+      "apo_pdb_id": "2b23",
+      "fold": "train-2",
+      "holo_pdb_id": "2qxs",
+      "reasons": [
+        "selected_residue_mapping_failure_present"
+      ],
+      "recommendation": "exclude_or_hold_out_pending_human_review",
+      "uniprot_id": "P03372"
+    },
+    {
+      "apo_pdb_id": "2b23",
+      "fold": "train-2",
+      "holo_pdb_id": "2qxs",
+      "reasons": [
+        "selected_residue_mapping_failure_present"
+      ],
+      "recommendation": "exclude_or_hold_out_pending_human_review",
+      "uniprot_id": "P03372"
+    },
+    {
+      "apo_pdb_id": "2b23",
+      "fold": "train-2",
+      "holo_pdb_id": "7rrz",
+      "reasons": [
+        "selected_residue_mapping_failure_present"
+      ],
+      "recommendation": "exclude_or_hold_out_pending_human_review",
+      "uniprot_id": "P03372"
+    },
+    {
+      "apo_pdb_id": "2b23",
+      "fold": "train-2",
+      "holo_pdb_id": "7rrz",
+      "reasons": [
+        "selected_residue_mapping_failure_present"
+      ],
+      "recommendation": "exclude_or_hold_out_pending_human_review",
+      "uniprot_id": "P03372"
+    },
+    {
+      "apo_pdb_id": "2b23",
+      "fold": "train-2",
+      "holo_pdb_id": "7rrz",
+      "reasons": [
+        "selected_residue_mapping_failure_present"
+      ],
+      "recommendation": "exclude_or_hold_out_pending_human_review",
+      "uniprot_id": "P03372"
+    },
+    {
+      "apo_pdb_id": "2b23",
+      "fold": "train-2",
+      "holo_pdb_id": "7rrz",
+      "reasons": [
+        "selected_residue_mapping_failure_present"
+      ],
+      "recommendation": "exclude_or_hold_out_pending_human_review",
+      "uniprot_id": "P03372"
+    },
+    {
+      "apo_pdb_id": "2b23",
+      "fold": "train-2",
+      "holo_pdb_id": "7rs4",
+      "reasons": [
+        "selected_residue_mapping_failure_present"
+      ],
+      "recommendation": "exclude_or_hold_out_pending_human_review",
+      "uniprot_id": "P03372"
+    },
+    {
+      "apo_pdb_id": "2b23",
+      "fold": "train-2",
+      "holo_pdb_id": "7rs4",
+      "reasons": [
+        "selected_residue_mapping_failure_present"
+      ],
+      "recommendation": "exclude_or_hold_out_pending_human_review",
+      "uniprot_id": "P03372"
+    },
+    {
+      "apo_pdb_id": "2b23",
+      "fold": "train-2",
+      "holo_pdb_id": "7rs4",
+      "reasons": [
+        "selected_residue_mapping_failure_present"
+      ],
+      "recommendation": "exclude_or_hold_out_pending_human_review",
+      "uniprot_id": "P03372"
+    },
+    {
+      "apo_pdb_id": "2b23",
+      "fold": "train-2",
+      "holo_pdb_id": "7rs4",
+      "reasons": [
+        "selected_residue_mapping_failure_present"
+      ],
+      "recommendation": "exclude_or_hold_out_pending_human_review",
+      "uniprot_id": "P03372"
+    },
+    {
+      "apo_pdb_id": "2b23",
+      "fold": "train-2",
+      "holo_pdb_id": "6owc",
+      "reasons": [
+        "selected_residue_mapping_failure_present"
+      ],
+      "recommendation": "exclude_or_hold_out_pending_human_review",
+      "uniprot_id": "P03372"
+    },
+    {
+      "apo_pdb_id": "2dfp",
+      "fold": "test",
+      "holo_pdb_id": "1zgc",
+      "reasons": [
+        "selected_residue_mapping_failure_present"
+      ],
+      "recommendation": "exclude_or_hold_out_pending_human_review",
+      "uniprot_id": "P04058"
+    },
+    {
+      "apo_pdb_id": "2dfp",
+      "fold": "test",
+      "holo_pdb_id": "6ezg",
+      "reasons": [
+        "selected_residue_mapping_failure_present"
+      ],
+      "recommendation": "exclude_or_hold_out_pending_human_review",
+      "uniprot_id": "P04058"
+    },
+    {
+      "apo_pdb_id": "2dfp",
+      "fold": "test",
+      "holo_pdb_id": "6g1w",
+      "reasons": [
+        "selected_residue_mapping_failure_present"
+      ],
+      "recommendation": "exclude_or_hold_out_pending_human_review",
+      "uniprot_id": "P04058"
+    },
+    {
+      "apo_pdb_id": "2dfp",
+      "fold": "test",
+      "holo_pdb_id": "6h14",
+      "reasons": [
+        "selected_residue_mapping_failure_present"
+      ],
+      "recommendation": "exclude_or_hold_out_pending_human_review",
+      "uniprot_id": "P04058"
+    },
+    {
+      "apo_pdb_id": "2dfp",
+      "fold": "test",
+      "holo_pdb_id": "7aiw",
+      "reasons": [
+        "selected_residue_mapping_failure_present"
+      ],
+      "recommendation": "exclude_or_hold_out_pending_human_review",
+      "uniprot_id": "P04058"
+    },
+    {
+      "apo_pdb_id": "2e1c",
+      "fold": "train-0",
+      "holo_pdb_id": "2cyy",
+      "reasons": [
+        "selected_residue_mapping_failure_present"
+      ],
+      "recommendation": "exclude_or_hold_out_pending_human_review",
+      "uniprot_id": "O59188"
+    },
+    {
+      "apo_pdb_id": "2hq8",
+      "fold": "train-2",
+      "holo_pdb_id": "2hps",
+      "reasons": [
+        "selected_residue_mapping_failure_present"
+      ],
+      "recommendation": "exclude_or_hold_out_pending_human_review",
+      "uniprot_id": "C9V488"
+    },
+    {
+      "apo_pdb_id": "2jgv",
+      "fold": "train-1",
+      "holo_pdb_id": "2jg1",
+      "reasons": [
+        "selected_residue_mapping_failure_present"
+      ],
+      "recommendation": "exclude_or_hold_out_pending_human_review",
+      "uniprot_id": "P0A0B9"
+    },
+    {
+      "apo_pdb_id": "2o8y",
+      "fold": "train-2",
+      "holo_pdb_id": "6eg9",
+      "reasons": [
+        "selected_residue_mapping_failure_present"
+      ],
+      "recommendation": "exclude_or_hold_out_pending_human_review",
+      "uniprot_id": "Q9NWZ3"
+    },
+    {
+      "apo_pdb_id": "2o8y",
+      "fold": "train-2",
+      "holo_pdb_id": "6eg9",
+      "reasons": [
+        "selected_residue_mapping_failure_present"
+      ],
+      "recommendation": "exclude_or_hold_out_pending_human_review",
+      "uniprot_id": "Q9NWZ3"
+    },
+    {
+      "apo_pdb_id": "2phz",
+      "fold": "test",
+      "holo_pdb_id": "2xuz",
+      "reasons": [
+        "selected_residue_mapping_failure_present"
+      ],
+      "recommendation": "exclude_or_hold_out_pending_human_review",
+      "uniprot_id": "P40409"
+    },
+    {
+      "apo_pdb_id": "2phz",
+      "fold": "test",
+      "holo_pdb_id": "2xv1",
+      "reasons": [
+        "selected_residue_mapping_failure_present"
+      ],
+      "recommendation": "exclude_or_hold_out_pending_human_review",
+      "uniprot_id": "P40409"
+    },
+    {
+      "apo_pdb_id": "2qlr",
+      "fold": "train-0",
+      "holo_pdb_id": "4ge9",
+      "reasons": [
+        "selected_residue_mapping_failure_present"
+      ],
+      "recommendation": "exclude_or_hold_out_pending_human_review",
+      "uniprot_id": "Q8N5Z0"
+    },
+    {
+      "apo_pdb_id": "2qlr",
+      "fold": "train-0",
+      "holo_pdb_id": "4ge9",
+      "reasons": [
+        "selected_residue_mapping_failure_present"
+      ],
+      "recommendation": "exclude_or_hold_out_pending_human_review",
+      "uniprot_id": "Q8N5Z0"
+    },
+    {
+      "apo_pdb_id": "2qlr",
+      "fold": "train-0",
+      "holo_pdb_id": "4ge9",
+      "reasons": [
+        "selected_residue_mapping_failure_present"
+      ],
+      "recommendation": "exclude_or_hold_out_pending_human_review",
+      "uniprot_id": "Q8N5Z0"
+    },
+    {
+      "apo_pdb_id": "2qlr",
+      "fold": "train-0",
+      "holo_pdb_id": "4ge9",
+      "reasons": [
+        "selected_residue_mapping_failure_present"
+      ],
+      "recommendation": "exclude_or_hold_out_pending_human_review",
+      "uniprot_id": "Q8N5Z0"
+    },
+    {
+      "apo_pdb_id": "2qlr",
+      "fold": "train-0",
+      "holo_pdb_id": "4ge9",
+      "reasons": [
+        "selected_residue_mapping_failure_present"
+      ],
+      "recommendation": "exclude_or_hold_out_pending_human_review",
+      "uniprot_id": "Q8N5Z0"
+    },
+    {
+      "apo_pdb_id": "2qlr",
+      "fold": "train-0",
+      "holo_pdb_id": "4ge9",
+      "reasons": [
+        "selected_residue_mapping_failure_present"
+      ],
+      "recommendation": "exclude_or_hold_out_pending_human_review",
+      "uniprot_id": "Q8N5Z0"
+    },
+    {
+      "apo_pdb_id": "2qlr",
+      "fold": "train-0",
+      "holo_pdb_id": "6t8p",
+      "reasons": [
+        "selected_residue_mapping_failure_present"
+      ],
+      "recommendation": "exclude_or_hold_out_pending_human_review",
+      "uniprot_id": "Q8N5Z0"
+    },
+    {
+      "apo_pdb_id": "2yzg",
+      "fold": "train-3",
+      "holo_pdb_id": "2yzm",
+      "reasons": [
+        "selected_residue_mapping_failure_present"
+      ],
+      "recommendation": "exclude_or_hold_out_pending_human_review",
+      "uniprot_id": "Q5SHZ3"
+    },
+    {
+      "apo_pdb_id": "3db3",
+      "fold": "train-1",
+      "holo_pdb_id": "4qqd",
+      "reasons": [
+        "selected_residue_mapping_failure_present"
+      ],
+      "recommendation": "exclude_or_hold_out_pending_human_review",
+      "uniprot_id": "Q96T88"
+    },
+    {
+      "apo_pdb_id": "3e9p",
+      "fold": "train-0",
+      "holo_pdb_id": "5qya",
+      "reasons": [
+        "holo_pdb_repeats_across_official_folds"
+      ],
+      "recommendation": "exclude_or_hold_out_pending_human_review",
+      "uniprot_id": "P33334"
+    },
+    {
+      "apo_pdb_id": "3e9p",
+      "fold": "train-0",
+      "holo_pdb_id": "7fo6",
+      "reasons": [
+        "holo_pdb_repeats_across_official_folds"
+      ],
+      "recommendation": "exclude_or_hold_out_pending_human_review",
+      "uniprot_id": "P33334"
+    },
+    {
+      "apo_pdb_id": "3hrm",
+      "fold": "test",
+      "holo_pdb_id": "3hsr",
+      "reasons": [
+        "selected_residue_mapping_failure_present"
+      ],
+      "recommendation": "exclude_or_hold_out_pending_human_review",
+      "uniprot_id": "A0A0H3KA72"
+    },
+    {
+      "apo_pdb_id": "3ih2",
+      "fold": "train-3",
+      "holo_pdb_id": "4i76",
+      "reasons": [
+        "selected_residue_mapping_failure_present"
+      ],
+      "recommendation": "exclude_or_hold_out_pending_human_review",
+      "uniprot_id": "Q9X0C0"
+    },
+    {
+      "apo_pdb_id": "3qas",
+      "fold": "train-1",
+      "holo_pdb_id": "1jp3",
+      "reasons": [
+        "selected_residue_mapping_failure_present"
+      ],
+      "recommendation": "exclude_or_hold_out_pending_human_review",
+      "uniprot_id": "P60472"
+    },
+    {
+      "apo_pdb_id": "3vc7",
+      "fold": "train-3",
+      "holo_pdb_id": "4eso",
+      "reasons": [
+        "selected_residue_mapping_failure_present"
+      ],
+      "recommendation": "exclude_or_hold_out_pending_human_review",
+      "uniprot_id": "Q92N93"
+    },
+    {
+      "apo_pdb_id": "3zo8",
+      "fold": "train-0",
+      "holo_pdb_id": "3zp7",
+      "reasons": [
+        "selected_residue_mapping_failure_present"
+      ],
+      "recommendation": "exclude_or_hold_out_pending_human_review",
+      "uniprot_id": "P19080"
+    },
+    {
+      "apo_pdb_id": "3zo8",
+      "fold": "train-0",
+      "holo_pdb_id": "3zp7",
+      "reasons": [
+        "selected_residue_mapping_failure_present"
+      ],
+      "recommendation": "exclude_or_hold_out_pending_human_review",
+      "uniprot_id": "P19080"
+    },
+    {
+      "apo_pdb_id": "3zo8",
+      "fold": "train-0",
+      "holo_pdb_id": "3zp7",
+      "reasons": [
+        "selected_residue_mapping_failure_present"
+      ],
+      "recommendation": "exclude_or_hold_out_pending_human_review",
+      "uniprot_id": "P19080"
+    },
+    {
+      "apo_pdb_id": "3zo8",
+      "fold": "train-0",
+      "holo_pdb_id": "3zp7",
+      "reasons": [
+        "selected_residue_mapping_failure_present"
+      ],
+      "recommendation": "exclude_or_hold_out_pending_human_review",
+      "uniprot_id": "P19080"
+    },
+    {
+      "apo_pdb_id": "4c6b",
+      "fold": "train-3",
+      "holo_pdb_id": "4c6k",
+      "reasons": [
+        "selected_residue_mapping_failure_present"
+      ],
+      "recommendation": "exclude_or_hold_out_pending_human_review",
+      "uniprot_id": "P27708"
+    },
+    {
+      "apo_pdb_id": "4c6b",
+      "fold": "train-3",
+      "holo_pdb_id": "8pbh",
+      "reasons": [
+        "selected_residue_mapping_failure_present"
+      ],
+      "recommendation": "exclude_or_hold_out_pending_human_review",
+      "uniprot_id": "P27708"
+    },
+    {
+      "apo_pdb_id": "4c6b",
+      "fold": "train-3",
+      "holo_pdb_id": "8pbm",
+      "reasons": [
+        "selected_residue_mapping_failure_present"
+      ],
+      "recommendation": "exclude_or_hold_out_pending_human_review",
+      "uniprot_id": "P27708"
+    },
+    {
+      "apo_pdb_id": "4c6b",
+      "fold": "train-3",
+      "holo_pdb_id": "8pbp",
+      "reasons": [
+        "selected_residue_mapping_failure_present"
+      ],
+      "recommendation": "exclude_or_hold_out_pending_human_review",
+      "uniprot_id": "P27708"
+    },
+    {
+      "apo_pdb_id": "4c6b",
+      "fold": "train-3",
+      "holo_pdb_id": "8pbp",
+      "reasons": [
+        "selected_residue_mapping_failure_present"
+      ],
+      "recommendation": "exclude_or_hold_out_pending_human_review",
+      "uniprot_id": "P27708"
+    },
+    {
+      "apo_pdb_id": "4ei8",
+      "fold": "train-1",
+      "holo_pdb_id": "4ei7",
+      "reasons": [
+        "selected_residue_mapping_failure_present"
+      ],
+      "recommendation": "exclude_or_hold_out_pending_human_review",
+      "uniprot_id": "Q74P24"
+    },
+    {
+      "apo_pdb_id": "4ei8",
+      "fold": "train-1",
+      "holo_pdb_id": "4ei7",
+      "reasons": [
+        "selected_residue_mapping_failure_present"
+      ],
+      "recommendation": "exclude_or_hold_out_pending_human_review",
+      "uniprot_id": "Q74P24"
+    },
+    {
+      "apo_pdb_id": "4ekf",
+      "fold": "train-1",
+      "holo_pdb_id": "4pid",
+      "reasons": [
+        "selected_residue_mapping_failure_present"
+      ],
+      "recommendation": "exclude_or_hold_out_pending_human_review",
+      "uniprot_id": "P03252"
+    },
+    {
+      "apo_pdb_id": "4f5h",
+      "fold": "train-2",
+      "holo_pdb_id": "1art",
+      "reasons": [
+        "selected_residue_mapping_failure_present"
+      ],
+      "recommendation": "exclude_or_hold_out_pending_human_review",
+      "uniprot_id": "P00509"
+    },
+    {
+      "apo_pdb_id": "4f5h",
+      "fold": "train-2",
+      "holo_pdb_id": "1cq7",
+      "reasons": [
+        "selected_residue_mapping_failure_present"
+      ],
+      "recommendation": "exclude_or_hold_out_pending_human_review",
+      "uniprot_id": "P00509"
+    },
+    {
+      "apo_pdb_id": "4f5h",
+      "fold": "train-2",
+      "holo_pdb_id": "1cq8",
+      "reasons": [
+        "selected_residue_mapping_failure_present"
+      ],
+      "recommendation": "exclude_or_hold_out_pending_human_review",
+      "uniprot_id": "P00509"
+    },
+    {
+      "apo_pdb_id": "4f5h",
+      "fold": "train-2",
+      "holo_pdb_id": "1toi",
+      "reasons": [
+        "selected_residue_mapping_failure_present"
+      ],
+      "recommendation": "exclude_or_hold_out_pending_human_review",
+      "uniprot_id": "P00509"
+    },
+    {
+      "apo_pdb_id": "4f5h",
+      "fold": "train-2",
+      "holo_pdb_id": "1toj",
+      "reasons": [
+        "selected_residue_mapping_failure_present"
+      ],
+      "recommendation": "exclude_or_hold_out_pending_human_review",
+      "uniprot_id": "P00509"
+    },
+    {
+      "apo_pdb_id": "4f5h",
+      "fold": "train-2",
+      "holo_pdb_id": "1yoo",
+      "reasons": [
+        "selected_residue_mapping_failure_present"
+      ],
+      "recommendation": "exclude_or_hold_out_pending_human_review",
+      "uniprot_id": "P00509"
+    },
+    {
+      "apo_pdb_id": "4f5h",
+      "fold": "train-2",
+      "holo_pdb_id": "2d5y",
+      "reasons": [
+        "selected_residue_mapping_failure_present"
+      ],
+      "recommendation": "exclude_or_hold_out_pending_human_review",
+      "uniprot_id": "P00509"
+    },
+    {
+      "apo_pdb_id": "4f5h",
+      "fold": "train-2",
+      "holo_pdb_id": "2d63",
+      "reasons": [
+        "selected_residue_mapping_failure_present"
+      ],
+      "recommendation": "exclude_or_hold_out_pending_human_review",
+      "uniprot_id": "P00509"
+    },
+    {
+      "apo_pdb_id": "4f5h",
+      "fold": "train-2",
+      "holo_pdb_id": "3qpg",
+      "reasons": [
+        "selected_residue_mapping_failure_present"
+      ],
+      "recommendation": "exclude_or_hold_out_pending_human_review",
+      "uniprot_id": "P00509"
+    },
+    {
+      "apo_pdb_id": "4f5h",
+      "fold": "train-2",
+      "holo_pdb_id": "5vwr",
+      "reasons": [
+        "selected_residue_mapping_failure_present"
+      ],
+      "recommendation": "exclude_or_hold_out_pending_human_review",
+      "uniprot_id": "P00509"
+    },
+    {
+      "apo_pdb_id": "4fl8",
+      "fold": "train-0",
+      "holo_pdb_id": "4flg",
+      "reasons": [
+        "selected_residue_mapping_failure_present"
+      ],
+      "recommendation": "exclude_or_hold_out_pending_human_review",
+      "uniprot_id": "P03367"
+    },
+    {
+      "apo_pdb_id": "4gpi",
+      "fold": "test",
+      "holo_pdb_id": "5zs8",
+      "reasons": [
+        "selected_residue_mapping_failure_present"
+      ],
+      "recommendation": "exclude_or_hold_out_pending_human_review",
+      "uniprot_id": "P18669"
+    },
+    {
+      "apo_pdb_id": "4ilg",
+      "fold": "test",
+      "holo_pdb_id": "5qya",
+      "reasons": [
+        "holo_pdb_repeats_across_official_folds"
+      ],
+      "recommendation": "exclude_or_hold_out_pending_human_review",
+      "uniprot_id": "P32357"
+    },
+    {
+      "apo_pdb_id": "4ilg",
+      "fold": "test",
+      "holo_pdb_id": "7fo6",
+      "reasons": [
+        "holo_pdb_repeats_across_official_folds"
+      ],
+      "recommendation": "exclude_or_hold_out_pending_human_review",
+      "uniprot_id": "P32357"
+    },
+    {
+      "apo_pdb_id": "4jf0",
+      "fold": "train-0",
+      "holo_pdb_id": "4jf1",
+      "reasons": [
+        "selected_residue_mapping_failure_present"
+      ],
+      "recommendation": "exclude_or_hold_out_pending_human_review",
+      "uniprot_id": "P40732"
+    },
+    {
+      "apo_pdb_id": "4n5g",
+      "fold": "train-1",
+      "holo_pdb_id": "6a5y",
+      "reasons": [
+        "holo_pdb_repeats_across_official_folds"
+      ],
+      "recommendation": "exclude_or_hold_out_pending_human_review",
+      "uniprot_id": "P19793"
+    },
+    {
+      "apo_pdb_id": "4oyz",
+      "fold": "train-2",
+      "holo_pdb_id": "4clz",
+      "reasons": [
+        "selected_residue_mapping_failure_present"
+      ],
+      "recommendation": "exclude_or_hold_out_pending_human_review",
+      "uniprot_id": "Q96PN6"
+    },
+    {
+      "apo_pdb_id": "4oyz",
+      "fold": "train-2",
+      "holo_pdb_id": "4clz",
+      "reasons": [
+        "selected_residue_mapping_failure_present"
+      ],
+      "recommendation": "exclude_or_hold_out_pending_human_review",
+      "uniprot_id": "Q96PN6"
+    },
+    {
+      "apo_pdb_id": "4r1m",
+      "fold": "train-1",
+      "holo_pdb_id": "4r1l",
+      "reasons": [
+        "selected_residue_mapping_failure_present"
+      ],
+      "recommendation": "exclude_or_hold_out_pending_human_review",
+      "uniprot_id": "Q8AAN6"
+    },
+    {
+      "apo_pdb_id": "4r1m",
+      "fold": "train-1",
+      "holo_pdb_id": "4rvn",
+      "reasons": [
+        "selected_residue_mapping_failure_present"
+      ],
+      "recommendation": "exclude_or_hold_out_pending_human_review",
+      "uniprot_id": "Q8AAN6"
+    },
+    {
+      "apo_pdb_id": "4r1m",
+      "fold": "train-1",
+      "holo_pdb_id": "4rvo",
+      "reasons": [
+        "selected_residue_mapping_failure_present"
+      ],
+      "recommendation": "exclude_or_hold_out_pending_human_review",
+      "uniprot_id": "Q8AAN6"
+    },
+    {
+      "apo_pdb_id": "4r1m",
+      "fold": "train-1",
+      "holo_pdb_id": "4rvo",
+      "reasons": [
+        "selected_residue_mapping_failure_present"
+      ],
+      "recommendation": "exclude_or_hold_out_pending_human_review",
+      "uniprot_id": "Q8AAN6"
+    },
+    {
+      "apo_pdb_id": "4yt8",
+      "fold": "train-0",
+      "holo_pdb_id": "4yt5",
+      "reasons": [
+        "selected_residue_mapping_failure_present"
+      ],
+      "recommendation": "exclude_or_hold_out_pending_human_review",
+      "uniprot_id": "Q58734"
+    },
+    {
+      "apo_pdb_id": "5e0v",
+      "fold": "test",
+      "holo_pdb_id": "3vkx",
+      "reasons": [
+        "PCNA_P12004_exact_contamination"
+      ],
+      "recommendation": "exclude_or_hold_out_pending_human_review",
+      "uniprot_id": "P12004"
+    },
+    {
+      "apo_pdb_id": "5igh",
+      "fold": "test",
+      "holo_pdb_id": "5igi",
+      "reasons": [
+        "selected_residue_mapping_failure_present"
+      ],
+      "recommendation": "exclude_or_hold_out_pending_human_review",
+      "uniprot_id": "Q47396"
+    },
+    {
+      "apo_pdb_id": "5ujp",
+      "fold": "test",
+      "holo_pdb_id": "5w27",
+      "reasons": [
+        "selected_residue_mapping_failure_present"
+      ],
+      "recommendation": "exclude_or_hold_out_pending_human_review",
+      "uniprot_id": "A0A125SA29"
+    },
+    {
+      "apo_pdb_id": "5za4",
+      "fold": "train-1",
+      "holo_pdb_id": "5yyb",
+      "reasons": [
+        "selected_residue_mapping_failure_present"
+      ],
+      "recommendation": "exclude_or_hold_out_pending_human_review",
+      "uniprot_id": "Q7VL18"
+    },
+    {
+      "apo_pdb_id": "5ze7",
+      "fold": "train-2",
+      "holo_pdb_id": "5zer",
+      "reasons": [
+        "selected_residue_mapping_failure_present"
+      ],
+      "recommendation": "exclude_or_hold_out_pending_human_review",
+      "uniprot_id": "Q31LX1"
+    },
+    {
+      "apo_pdb_id": "5ze7",
+      "fold": "train-2",
+      "holo_pdb_id": "5zer",
+      "reasons": [
+        "selected_residue_mapping_failure_present"
+      ],
+      "recommendation": "exclude_or_hold_out_pending_human_review",
+      "uniprot_id": "Q31LX1"
+    },
+    {
+      "apo_pdb_id": "5ze7",
+      "fold": "train-2",
+      "holo_pdb_id": "5zfk",
+      "reasons": [
+        "selected_residue_mapping_failure_present"
+      ],
+      "recommendation": "exclude_or_hold_out_pending_human_review",
+      "uniprot_id": "Q31LX1"
+    },
+    {
+      "apo_pdb_id": "5ze7",
+      "fold": "train-2",
+      "holo_pdb_id": "5zfk",
+      "reasons": [
+        "selected_residue_mapping_failure_present"
+      ],
+      "recommendation": "exclude_or_hold_out_pending_human_review",
+      "uniprot_id": "Q31LX1"
+    },
+    {
+      "apo_pdb_id": "6czx",
+      "fold": "train-3",
+      "holo_pdb_id": "6czz",
+      "reasons": [
+        "selected_residue_mapping_failure_present"
+      ],
+      "recommendation": "exclude_or_hold_out_pending_human_review",
+      "uniprot_id": "Q96255"
+    },
+    {
+      "apo_pdb_id": "6hl0",
+      "fold": "train-3",
+      "holo_pdb_id": "6a5y",
+      "reasons": [
+        "holo_pdb_repeats_across_official_folds"
+      ],
+      "recommendation": "exclude_or_hold_out_pending_human_review",
+      "uniprot_id": "Q96RI1"
+    },
+    {
+      "apo_pdb_id": "6hrv",
+      "fold": "train-2",
+      "holo_pdb_id": "6hsj",
+      "reasons": [
+        "selected_residue_mapping_failure_present"
+      ],
+      "recommendation": "exclude_or_hold_out_pending_human_review",
+      "uniprot_id": "Q6P4V5"
+    },
+    {
+      "apo_pdb_id": "6l61",
+      "fold": "train-2",
+      "holo_pdb_id": "6l7j",
+      "reasons": [
+        "selected_residue_mapping_failure_present"
+      ],
+      "recommendation": "exclude_or_hold_out_pending_human_review",
+      "uniprot_id": "M1HE54"
+    },
+    {
+      "apo_pdb_id": "6q7q",
+      "fold": "train-1",
+      "holo_pdb_id": "6q7r",
+      "reasons": [
+        "selected_residue_mapping_failure_present"
+      ],
+      "recommendation": "exclude_or_hold_out_pending_human_review",
+      "uniprot_id": "O58216"
+    },
+    {
+      "apo_pdb_id": "6qfl",
+      "fold": "train-3",
+      "holo_pdb_id": "6yg4",
+      "reasons": [
+        "selected_residue_mapping_failure_present"
+      ],
+      "recommendation": "exclude_or_hold_out_pending_human_review",
+      "uniprot_id": "O14733"
+    },
+    {
+      "apo_pdb_id": "6qfl",
+      "fold": "train-3",
+      "holo_pdb_id": "6yg5",
+      "reasons": [
+        "selected_residue_mapping_failure_present"
+      ],
+      "recommendation": "exclude_or_hold_out_pending_human_review",
+      "uniprot_id": "O14733"
+    },
+    {
+      "apo_pdb_id": "6xl4",
+      "fold": "train-2",
+      "holo_pdb_id": "4wkq",
+      "reasons": [
+        "selected_residue_mapping_failure_present"
+      ],
+      "recommendation": "exclude_or_hold_out_pending_human_review",
+      "uniprot_id": "P00533"
+    },
+    {
+      "apo_pdb_id": "7alf",
+      "fold": "train-2",
+      "holo_pdb_id": "6gl5",
+      "reasons": [
+        "selected_residue_mapping_failure_present"
+      ],
+      "recommendation": "exclude_or_hold_out_pending_human_review",
+      "uniprot_id": "A0A0S4TLR1"
+    },
+    {
+      "apo_pdb_id": "7c48",
+      "fold": "test",
+      "holo_pdb_id": "8xhr",
+      "reasons": [
+        "selected_residue_mapping_failure_present"
+      ],
+      "recommendation": "exclude_or_hold_out_pending_human_review",
+      "uniprot_id": "P96356"
+    },
+    {
+      "apo_pdb_id": "7c48",
+      "fold": "test",
+      "holo_pdb_id": "8xhr",
+      "reasons": [
+        "selected_residue_mapping_failure_present"
+      ],
+      "recommendation": "exclude_or_hold_out_pending_human_review",
+      "uniprot_id": "P96356"
+    },
+    {
+      "apo_pdb_id": "7cif",
+      "fold": "train-2",
+      "holo_pdb_id": "7cig",
+      "reasons": [
+        "selected_residue_mapping_failure_present"
+      ],
+      "recommendation": "exclude_or_hold_out_pending_human_review",
+      "uniprot_id": "A0A0G4DBU7"
+    },
+    {
+      "apo_pdb_id": "7cif",
+      "fold": "train-2",
+      "holo_pdb_id": "7cii",
+      "reasons": [
+        "selected_residue_mapping_failure_present"
+      ],
+      "recommendation": "exclude_or_hold_out_pending_human_review",
+      "uniprot_id": "A0A0G4DBU7"
+    },
+    {
+      "apo_pdb_id": "7ctd",
+      "fold": "train-2",
+      "holo_pdb_id": "7ctm",
+      "reasons": [
+        "selected_residue_mapping_failure_present"
+      ],
+      "recommendation": "exclude_or_hold_out_pending_human_review",
+      "uniprot_id": "Q9WZL1"
+    },
+    {
+      "apo_pdb_id": "7ctd",
+      "fold": "train-2",
+      "holo_pdb_id": "7ctm",
+      "reasons": [
+        "selected_residue_mapping_failure_present"
+      ],
+      "recommendation": "exclude_or_hold_out_pending_human_review",
+      "uniprot_id": "Q9WZL1"
+    },
+    {
+      "apo_pdb_id": "7f0o",
+      "fold": "train-1",
+      "holo_pdb_id": "7f0y",
+      "reasons": [
+        "selected_residue_mapping_failure_present"
+      ],
+      "recommendation": "exclude_or_hold_out_pending_human_review",
+      "uniprot_id": "A0A2I1C3W8"
+    },
+    {
+      "apo_pdb_id": "7f0o",
+      "fold": "train-1",
+      "holo_pdb_id": "7f0y",
+      "reasons": [
+        "selected_residue_mapping_failure_present"
+      ],
+      "recommendation": "exclude_or_hold_out_pending_human_review",
+      "uniprot_id": "A0A2I1C3W8"
+    },
+    {
+      "apo_pdb_id": "7f0o",
+      "fold": "train-1",
+      "holo_pdb_id": "7f10",
+      "reasons": [
+        "selected_residue_mapping_failure_present"
+      ],
+      "recommendation": "exclude_or_hold_out_pending_human_review",
+      "uniprot_id": "A0A2I1C3W8"
+    },
+    {
+      "apo_pdb_id": "7f0o",
+      "fold": "train-1",
+      "holo_pdb_id": "7f11",
+      "reasons": [
+        "selected_residue_mapping_failure_present"
+      ],
+      "recommendation": "exclude_or_hold_out_pending_human_review",
+      "uniprot_id": "A0A2I1C3W8"
+    },
+    {
+      "apo_pdb_id": "7qni",
+      "fold": "train-0",
+      "holo_pdb_id": "1rrm",
+      "reasons": [
+        "selected_residue_mapping_failure_present"
+      ],
+      "recommendation": "exclude_or_hold_out_pending_human_review",
+      "uniprot_id": "P0A9S1"
+    },
+    {
+      "apo_pdb_id": "7qni",
+      "fold": "train-0",
+      "holo_pdb_id": "1rrm",
+      "reasons": [
+        "selected_residue_mapping_failure_present"
+      ],
+      "recommendation": "exclude_or_hold_out_pending_human_review",
+      "uniprot_id": "P0A9S1"
+    },
+    {
+      "apo_pdb_id": "7x0i",
+      "fold": "test",
+      "holo_pdb_id": "7x0k",
+      "reasons": [
+        "selected_residue_mapping_failure_present"
+      ],
+      "recommendation": "exclude_or_hold_out_pending_human_review",
+      "uniprot_id": "A3DE73"
+    },
+    {
+      "apo_pdb_id": "7x0i",
+      "fold": "test",
+      "holo_pdb_id": "7x0k",
+      "reasons": [
+        "selected_residue_mapping_failure_present"
+      ],
+      "recommendation": "exclude_or_hold_out_pending_human_review",
+      "uniprot_id": "A3DE73"
+    },
+    {
+      "apo_pdb_id": "7x0i",
+      "fold": "test",
+      "holo_pdb_id": "7x0k",
+      "reasons": [
+        "selected_residue_mapping_failure_present"
+      ],
+      "recommendation": "exclude_or_hold_out_pending_human_review",
+      "uniprot_id": "A3DE73"
+    },
+    {
+      "apo_pdb_id": "7x0i",
+      "fold": "test",
+      "holo_pdb_id": "7x0k",
+      "reasons": [
+        "selected_residue_mapping_failure_present"
+      ],
+      "recommendation": "exclude_or_hold_out_pending_human_review",
+      "uniprot_id": "A3DE73"
+    },
+    {
+      "apo_pdb_id": "8hc1",
+      "fold": "test",
+      "holo_pdb_id": "6zja",
+      "reasons": [
+        "selected_residue_mapping_failure_present"
+      ],
+      "recommendation": "exclude_or_hold_out_pending_human_review",
+      "uniprot_id": "P69996"
+    },
+    {
+      "apo_pdb_id": "8oqp",
+      "fold": "train-1",
+      "holo_pdb_id": "7o1l",
+      "reasons": [
+        "selected_residue_mapping_failure_present"
+      ],
+      "recommendation": "exclude_or_hold_out_pending_human_review",
+      "uniprot_id": "O53871"
+    },
+    {
+      "apo_pdb_id": "9atc",
+      "fold": "test",
+      "holo_pdb_id": "2fzc",
+      "reasons": [
+        "holo_pdb_repeats_across_official_folds"
+      ],
+      "recommendation": "exclude_or_hold_out_pending_human_review",
+      "uniprot_id": "P0A786"
+    },
+    {
+      "apo_pdb_id": "9atc",
+      "fold": "test",
+      "holo_pdb_id": "2fzc",
+      "reasons": [
+        "holo_pdb_repeats_across_official_folds"
+      ],
+      "recommendation": "exclude_or_hold_out_pending_human_review",
+      "uniprot_id": "P0A786"
+    },
+    {
+      "apo_pdb_id": "9atc",
+      "fold": "test",
+      "holo_pdb_id": "2fzg",
+      "reasons": [
+        "holo_pdb_repeats_across_official_folds"
+      ],
+      "recommendation": "exclude_or_hold_out_pending_human_review",
+      "uniprot_id": "P0A786"
+    },
+    {
+      "apo_pdb_id": "9atc",
+      "fold": "test",
+      "holo_pdb_id": "4f04",
+      "reasons": [
+        "holo_pdb_repeats_across_official_folds"
+      ],
+      "recommendation": "exclude_or_hold_out_pending_human_review",
+      "uniprot_id": "P0A786"
+    }
+  ],
+  "holdout_record_count": 1,
+  "holdouts": [
+    {
+      "allowed_use": "not_training_not_model_selection",
+      "apo_pdb_id": "5e0v",
+      "fold": "test",
+      "holdout_type": "pcna_external_blind_or_positive_control_only",
+      "holo_pdb_id": "3vkx",
+      "uniprot_id": "P12004"
+    }
+  ],
+  "noncryptic_auxiliary_policy": "do_not_use_for_training_until_missing_structures_are_acquired_or_records_are_subsetted_and_audited",
+  "not_authorized": [
+    "split_freeze",
+    "label_freeze",
+    "graph_generation",
+    "training",
+    "MD",
+    "claims"
+  ],
+  "source": "CryptoBench cryptic dataset.json only",
+  "status": "candidate_registry_not_adopted_not_frozen",
+  "total_cryptic_records": 5493
+}

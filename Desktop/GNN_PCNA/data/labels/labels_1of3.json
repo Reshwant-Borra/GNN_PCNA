@@ -1,0 +1,1 @@
+{"apo_pdb_id": "1of3", "chain": "B", "fold": "train-2", "pocket_token_count": 7, "positive_count": 7, "masked_count": 0, "remapped_count": 0, "fraction_masked": 0.0, "labels": {"B_104": 1, "B_106": 1, "B_27": 1, "B_28": 1, "B_62": 1, "B_64": 1, "B_97": 1}, "generated_at": "2026-05-27T23:43:13.719448", "governance": "docs/scientific_governance/06_LABELING_RULES.md"}

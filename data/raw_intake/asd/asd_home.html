@@ -1,0 +1,636 @@
+
+
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml">
+<head>
+<title>ASD Home</title>
+<link rel="stylesheet" href="/ASD/css/reset.css" />
+<link rel="stylesheet" href="/ASD/css/home2023.css" />
+<script type="text/javascript" src="/ASD/js/jquery/jquery2023.min.js"></script>
+<script type="text/javascript" src="/ASD/module/mainpage/js/slide.js"></script>
+<script type="text/javascript" src="/ASD/module/mainpage/js/mainpage.js" ></script>
+<script type="text/javascript">
+	var path = "/ASD";
+	var basePath = "https://mdl.shsmu.edu.cn/";
+	var homeInfo = "welcome";
+</script>
+
+</head>
+<body>
+<!--顶部 Begin-->
+<div class="header-box">
+			<div class="w fc-bet">
+				<a href="" class="logo fc">
+					<img src="/ASD/css/images/home2023/logo.png" alt="">
+				</a>
+				<div class="head-right fc">
+					<div class="head-so fc">
+						<i class="ico-so fcc">
+							<img src="/ASD/css/images/home2023/sousuo.png" alt="">
+						</i>
+						<div class="flex1">
+							<input type="text" placeholder="Search..." id="quick_full_text_search_text"/>
+						</div>
+					</div>
+					<a href="javascript:toFullTextSearch();" class="head-btn fcc">
+						Search
+					</a>
+					<a href="/ASD/module/search/text_search.jsp" class="head-btn fcc">
+						Advanced
+					</a>
+				</div>
+			</div>
+		</div>
+
+		<div class="nav-bar">
+			<div class="w">
+				<ul>
+					<li class="mainlevel">
+						<h3>
+							<dd><a href="/ASD/module/mainpage/mainpage.jsp">HOME</a></dd>
+						</h3>
+					</li>
+
+					<li class="mainlevel">
+						<h3>
+							<a href="">MOLECULES</a>
+						</h3>
+						<dl class="sub">
+							<dd><a href="/ASD/module/proteins/proteins.jsp">PROTEIN</a></dd>
+							<dd><a href="/ASD/module/modulators/modulators.jsp">MODULATOR</a></dd>
+						</dl>
+					</li>
+
+					<li class="mainlevel" id="mav_mainlevel_features">
+						<h3>
+							<a href="">FEATURES</a>
+						</h3>
+						<dl class="sub">
+							<dd><a href="/ASD/module/allohit2lead/allohit2lead_record.jsp">ALLO-HITtoLEAD</a></dd>
+                    		<dd><a href="/ASD/module/alloppi/alloppi_record.jsp">ALLO-PPI</a></dd>
+                			<dd><a href="/ASD/module/dualsteric/dualsteric_record.jsp">DUALSTERIC-MODULATORS</a></dd>
+							<dd><a href="/ASD/module/allosite_potential/allosite_potential.jsp">ALLOSITE-POTENTIAL</a></dd>
+                    		<dd><a href="/ASD/module/site_distribution/allosterome.jsp">ALLOSTEROME</a></dd>
+                			<dd><a href="/ASD/module/mutation/mutation.jsp">ALLO-MUTATION</a></dd>
+                    		<dd><a href="/ASD/module/allodrug/allodrug.jsp">ALLO-DRUG</a></dd>
+                    		<dd><a href="/ASD/module/network/network.jsp">ALLO-NETWORK</a></dd>
+                    		<dd><a href="/ASD/module/site/site.jsp">SITE</a></dd>
+                    		<dd><a href="/ASD/module/pathway/pathway.jsp">PATHWAY</a></dd>
+						</dl>
+					</li>
+
+					<li class="mainlevel" id="mav_mainlevel_tools">
+						<h3>
+							<a href="">TOOLS</a>
+						</h3>
+						<dl class="sub">
+							<dd><a href="https://mdl.shsmu.edu.cn/AlloReverse/">ALLO-REVERSE</a></dd>
+                			<dd><a href="https://mdl.shsmu.edu.cn/DeepAlloDriver/">DEEP-ALLODRIVER</a></dd>
+							<dd><a href="https://mdl.shsmu.edu.cn/AlloPharm">ALLO-PHARM</a></dd>
+                			<dd><a href="https://mdl.shsmu.edu.cn/ALD">ALLO-DRIVER</a></dd>
+                			<dd><a href="https://mdl.shsmu.edu.cn/ALF">ALLO-FINDER</a></dd>
+                			<dd><a href="https://mdl.shsmu.edu.cn/AST" target="_blank">ALLO-SITE</a></dd>
+                			<dd><a href="https://mdl.shsmu.edu.cn/alloscore" target="_blank">ALLO-SCORE</a></dd>
+                    		<dd><a href="https://mdl.shsmu.edu.cn/ASD/module/tool/tool.jsp">ALLO-LIKE</a></dd>
+                    		<dd><a href="https://mdl.shsmu.edu.cn/asbench/module/search/search.jsp?keyword=browse" target="_blank">ASBENCH</a></dd>
+                    		<dd><a href="https://mdl.shsmu.edu.cn/ASD/module/search/blast_search.jsp">P-SEARCH</a></dd>
+                    		<dd><a href="https://mdl.shsmu.edu.cn/ASD/module/search/modulator_search.jsp">M-SEARCH</a></dd>
+						</dl>
+					</li>
+					<li>
+						<h3>
+							<a href="">MISC</a>
+						</h3>
+						<dl class="sub">
+                    		<dd><a href="/ASD/module/misc/glossary.jsp">GLOSSARY</a></dd>
+                   			<dd><a href="/ASD/module/misc/literature.jsp">LITERATURE</a></dd>
+                    		<dd><a href="/ASD/module/misc/expert.jsp">EXPERT</a></dd>
+                    		<dd><a href="/ASD/module/misc/link.jsp">LINKS</a></dd>
+                    		<dd><a href="/ASD/module/misc/contact.jsp">CONTACT</a></dd>
+						</dl>
+					</li>
+					<li>
+						<h3>
+							<a href="">DOWNLOAD</a>
+						</h3>
+						<dl class="sub">
+							<dd><a href="/ASD/module/download/download.jsp?tabIndex=0">STATISTICS</a></dd>
+                    		<dd><a href="/ASD/module/download/download.jsp?tabIndex=1">DOWNLOAD</a></dd>
+						</dl>
+					</li>
+					<li>
+						<h3>
+							<a href="/ASD/module/help/help.jsp">HELP</a>
+						</h3>
+					</li>
+				</ul>
+			</div>
+		</div>
+		<div class="project-box">
+			<div class="w">
+				<div class="fcc-h">
+					<div class="icon fcc">
+						<img src="/ASD/css/images/home2023/projects.png" alt="">
+					</div>
+					<h2>
+						New Features in ASD 2023
+					</h2>
+				</div>
+				<ul class="fc-bet">
+					<li>
+						<a href="/ASD/module/allohit2lead/allohit2lead_record.jsp">
+
+							<h3>
+								ALLOSTERIC HITtoLEAD
+							</h3>
+							<p>
+								The first dataset to provide allosteric drug design optimization process and evaluation indicators.
+							</p>
+							<div class="line"></div>
+							<div class="img fcc">
+								<img src="/ASD/css/images/home2023/img-pro4.png" alt="">
+							</div>
+						</a>
+					</li>
+					<li>
+						<a href="/ASD/module/alloppi/alloppi_record.jsp">
+
+							<h3>
+								ALLOSTERIC PPI
+							</h3>
+							<p>
+								The first dataset showing the regulatory mechanisms of allosteric molecules on protein-protein interactions.
+							</p>
+							<div class="line"></div>
+							<div class="img fcc">
+								<img src="/ASD/css/images/home2023/img-pro1.png" alt="">
+							</div>
+						</a>
+					</li>
+					<li>
+						<a href="/ASD/module/dualsteric/dualsteric_record.jsp">
+
+							<h3>
+								Dualsteric Modulators
+							</h3>
+							<p>
+								The dataset contains bitopic modulators that simultaneously regulate the orthosteric site and allosteric site.
+							</p>
+							<div class="line"></div>
+							<div class="img fcc">
+								<img src="/ASD/css/images/home2023/img-pro3.png" alt="">
+							</div>
+						</a>
+					</li>
+					<li>
+						<a href="/ASD/module/allosite_potential/allosite_potential.jsp">
+
+							<h3>
+								ALLOSITE POTENTIAL V2
+							</h3>
+							<p>
+								The dataset provides all the human potential allosteric site predicted from experimental PDBs and Alphafold structures.
+							</p>
+							<div class="line"></div>
+							<div class="img fcc">
+								<img src="/ASD/css/images/home2023/img-pro2.png" alt="">
+							</div>
+						</a>
+					</li>
+				</ul>
+			</div>
+		</div>
+
+		<script>
+			$(".banner").slide({
+				titCell: ".hd",
+				mainCell: ".bd ul",
+				autoPage: "<span></span>",
+				interTime: 5000,
+				autoPlay: true,
+				effect: "fold"
+			})
+		</script>
+		<div class="what-box">
+			<div class="w fcc-h">
+				<div class="icon fcc">
+					<img src="/ASD/css/images/home2023/asd.png" alt="">
+				</div>
+				<h2>
+					AlloSteric Database 2023
+				</h2>
+				<p id="allostery_desc" style="height:140px;">
+					Allostery is pertinent to regulate a protein's functional activity 
+					induced by the action of an effector at a site distinct from the active 
+					site of biomolecules through alteration of conformation and/or dynamics.
+					Allosteric Database (ASD) provides a versatile resource for structure, 
+					function, disease and related annotation for the well-established 
+					allosteric macromolecules and allosteric modulators since 1901, data 
+					in ASD is annually updated and freely served for biologists and medicinal 
+					chemists interested in allosteric regulation mechanism and allosteric drug 
+					discovery.
+				</p>				
+				<p id="asd2023_desc" style="display:none;height:140px;">
+					To facilitate allosteric drug discovery, novel features were curated in ASD2023, 
+					as follows: (1) The first-ever panoramic dataset featuring hit-to-lead molecular 
+					optimization was generated for, comprising 87 hits and 6,565 leads; (2) 748 currently 
+					identified allosteric PPI modulators was summarized, regulating 50 PPIs with clear 
+					structural mechanisms, providing a informative resource for future allosteric PPI 
+					drug discovery; (3) A comprehensive prediction of potential allosteric sites was 
+					conducted throughout the human proteome; (4) 456 dualsteric modulators were 
+					collected, each regulate its allosteric/orthosteric components, offering valuable 
+					extensions for the allosteric drug design.
+				</p>
+				<div class="fcc">
+					<a onclick="showAllosteryDesc()" id="show_allostery_desc_btn" class="btn2 fcc">
+						Allosteric Database (ASD)
+					</a>
+					<a onclick="showASD2023Desc()" id="show_asd2023_desc_btn" class="btn1 fcc">
+						Trends of Allostery
+					</a>
+				</div>
+			</div>
+		</div>
+
+
+		
+		<div class="statistics-box">
+			<div class="w">
+				<div class="fcc-h">
+					<div class="icon fcc">
+						<img src="/ASD/css/images/home2023/statistics.png" alt="">
+					</div>
+					<h2>
+						Statistics
+					</h2>
+				</div>
+				<ul>
+					<li>
+						<p>
+							Allosteric Target Entries
+						</p>
+						<div>
+							<b>2422</b>
+						</div>
+					</li>
+					<li>
+						<p>
+							Allosteric Modulator Entries
+						</p>
+						<div>
+							<b>100320</b>
+						</div>
+					</li>
+					<li>
+						<p>
+							Allosteric Interactions
+						</p>
+						<div>
+							<b>109050</b>
+						</div>
+					</li>
+					<li>
+						<p>
+							AlloSite Potential Sites
+						</p>
+						<div>
+							<b>66589</b>
+						</div>
+					</li>
+
+
+					<li>
+						<p>
+							Allosteric PPI Regulations
+						</p>
+						<div>
+							<b>748</b>
+						</div>
+					</li>
+					<li>
+
+						<p>
+							Hit-to-Lead Records
+						</p>
+						<div>
+							<b>87</b>
+						</div>
+					</li>
+					<li>
+						<p>
+							Dualsteric Modulators
+						</p>
+						<div>
+							<b>456</b>
+						</div>
+					</li>
+					<li>
+						<p>
+							Sites in Complexes
+						</p>
+						<div>
+							<b>3102</b>
+						</div>
+					</li>
+					
+				</ul>
+			</div>
+		</div>
+
+
+		<div class="hot-box">
+			<div class="w citation-box">
+				<div class="left pr">
+					<div id="clustrmaps-widget"  style="background:url('/ASD/css/images/home2023/citaion-bg.png')"><script type="text/javascript" src="//rf.revolvermaps.com/0/0/7.js?i=542mb4hcm6g&amp;m=0&amp;c=ff0000&amp;cr1=ffffff&amp;sx=0" async="async"></script></div>
+					<div class="p fcc-h">
+
+					</div>
+					<div class="txt" style="top:280px;width: 520px;">
+						<p>
+							The map is powered by RevolverMaps, which shows the locations of visitors in real time.
+						</p>
+						<p>
+							ASD has been visited: <!-- hitwebcounter Code START -->
+							<a href="http://www.amazingcounters.com"><img border="0" src="http://cc.amazingcounters.com/counter.php?i=3250191&c=9750886" alt="AmazingCounters.com"></a>times.
+						</p>
+						
+					</div>
+				</div>
+				<div class="right">
+					<div class="fc">
+						<img src="/ASD/css/images/home2023/img-citation.png" alt="">
+						<h3>
+							CITATION
+						</h3>
+					</div>
+					<p>
+						If you find ASD useful,please consider citing the references:
+					</p>
+					<ul class="list">
+						<li>
+							<a target="_blank" href="https://academic.oup.com/nar/advance-article/doi/10.1093/nar/gkad915/7327070">Nucleic Acids Res. 2024, 52, D376–D383</a>
+						</li>
+						<li>
+							<a target="_blank" href="https://academic.oup.com/nar/article/48/D1/D394/5608996">Nucleic Acids Res. 2020, 48, D394–D401</a>
+						</li>
+                		<li>
+                			<a target="_blank" href="http://nar.oxfordjournals.org/content/44/D1/D527.full">Nucleic Acids Res. 2016, 44, D527–D535</a>
+                		</li>
+                		<li>
+                			<a target="_blank" href="http://nar.oxfordjournals.org/content/42/D1/D510.full">Nucleic Acids Res. 2014, 42, D510–D516</a>
+                		</li>
+                    	<li>
+                    		<a target="_blank" href="http://nar.oxfordjournals.org/content/39/suppl_1/D663.abstract">Nucleic Acids Res. 2011, 39, D663–D669</a>
+                    	</li>
+					</ul>
+				</div>
+			</div>
+		</div>
+
+		<div class="news-box">
+
+			<div class="fcc-h">
+				<div class="icon fcc">
+					<img src="/ASD/css/images/home2023/new-center.png" alt="">
+				</div>
+				<h2>
+					News Center
+				</h2>
+			</div>
+			<div class="hd fcc">
+				<a href="javascript:void(0);">
+					New Datasets
+				</a>
+				<a href="javascript:void(0);">
+					Allosteric Tools
+				</a>
+			</div>
+			<div class="bd w">
+				<div class="box">
+					<ul class="news-list">
+						<li>
+							<a href="/ASD/module/alloppi/alloppi_record.jsp" class="img">
+								<img src="/ASD/css/images/home2023/news_alloppi.png" alt="">
+							</a>
+							<h3>
+								<a href="">
+									
+									Allo-PPI Dataset
+								</a>
+							</h3>
+							<p>
+								Allosteric regulation for PPI.
+							</p>
+							<div class="time">
+								2023-3-10    08 : 00 : 00
+							</div>
+						</li>
+						<li>
+							<a href="/ASD/module/allohit2lead/allohit2lead_record.jsp" class="img">
+								<img src="/ASD/css/images/home2023/news_hit2lead2.png" alt="">
+							</a>
+							<h3>
+								<a href="">
+									
+									Allo Hit-to-Lead Dataset
+								</a>
+							</h3>
+							<p>
+								The first-ever dataset featuring hit-to-lead molecular optimization.
+							</p>
+							<div class="time">
+								2023-2-20    08 : 00 : 00
+							</div>
+						</li>
+						<li>
+							<a href="/ASD/module/allosite_potential/allosite_potential.jsp" class="img">
+								<img src="/ASD/css/images/home2023/news_allosite.png" alt="">
+							</a>
+							<h3>
+								<a href="">
+									
+									Allosite-Potential V2
+								</a>
+							</h3>
+							<p>
+								All human allosteric sites predicted from human proteome.
+							</p>
+							<div class="time">
+								2022-8-16    08 : 00 : 00
+							</div>
+						</li>
+					</ul>
+					<div class="fcc more-row">
+						<a href="https://mdl.shsmu.edu.cn/module/achievement/publications.jsp">
+							<img src="/ASD/css/images/home2023/read-btn.png" alt="">
+						</a>
+					</div>
+				</div>
+				<div class="box">
+					<ul class="news-list">
+						<li>
+							<a href="https://mdl.shsmu.edu.cn/DeepAlloDriver" target="_blank" class="img">
+								<img src="/ASD/css/images/home2023/news_deepallodriver.png" alt="">
+							</a>
+							<h3>
+								<a href="">
+									
+									DeepAlloDriver Server
+								</a>
+							</h3>
+							<p>
+								Predicting potential driver mutation in allosteric sites.
+							</p>
+							<div class="time">
+								2023-1-10    08 : 00 : 00
+							</div>
+						</li>
+						<li>
+							<a href="https://mdl.shsmu.edu.cn/AlloReverse" target="_blank" class="img">
+								<img src="/ASD/css/images/home2023/news_alloreverse.png" alt="">
+							</a>
+							<h3>
+								<a href="">
+									
+									AlloReverse Server
+								</a>
+							</h3>
+							<p>
+								Predicting allosteric sites from orthosteric sites.
+							</p>
+							<div class="time">
+								2022-12-20    08 : 00 : 00
+							</div>
+						</li>
+						<li>
+							<a href="https://mdl.shsmu.edu.cn/ALD" target="_blank" class="img">
+								<img src="/ASD/css/images/home2023/news_allodriver.png" alt="">
+							</a>
+							<h3>
+								<a href="">
+									
+									AlloDriver Server
+								</a>
+							</h3>
+							<p>
+								The first server for predicting allosteric driver mutations.
+							</p>
+							<div class="time">
+								2019-1-8    08 : 00 : 00
+							</div>
+						</li>
+					</ul>
+					<div class="fcc more-row">
+						<a href="https://mdl.shsmu.edu.cn/module/achievement/publications.jsp" target="_blank">
+							<img src="/ASD/css/images/home2023/read-btn.png" alt="">
+						</a>
+					</div>
+				</div>
+
+			</div>
+		</div>
+		
+		
+		<script>
+			
+			
+			$(".news-box").slide({
+				titCell:".hd a",
+				mainCell:".bd",
+				delayTime:0
+			})
+		</script>
+		
+		<div class="footer-box">
+			<div class="w fc-bet footer">	
+				<div class="left">
+					<a href="/ASD/module/mainpage/mainpage.jsp">Home</a>
+					<em>|</em>
+					<a href="/ASD/module/misc/contact.jsp">Contact Us</a>
+					<em>|</em>
+					<a href="/ASD/module/misc/sitemap.jsp">Site Map</a>
+					<em>|</em>
+					<a href="/ASD/module/help/help.jsp">Help</a>
+				</div>
+				<div class="line-y"></div>
+				<div class="right">
+					<p>	
+						Address: No. 225 South Chongqing Road, Shanghai, China, 200025				
+					</p>
+					<p>
+						Email: jian.zhang@sjtu.edu.cn & jzhang.dr@gmail.com
+					</p>
+				</div>
+			</div>
+			<div class="fcc copyright">
+				Copyright © 2009-2023 Molecular Design Laboratory, SJTU All Rights Reserved. Designed by MDL.
+			</div>
+		</div>
+<!--页底 End-->
+<script src="/ASD/js/jquery/jquery.flexslider-min.js"></script>
+<script>
+$(function(){
+	$('.flexslider').flexslider({
+		directionNav: true,
+		pauseOnAction: false
+	});
+});
+</script>
+<script>
+function toFullTextSearch(){
+	var full_text_keyword = document.getElementById("quick_full_text_search_text").value;
+	if(full_text_keyword.length > 2){
+		window.location.href = path+'/module/search/text_search.jsp?quickSearch='+full_text_keyword;
+	}else{
+		alert('The KeyWord should contain at least 2 characters.');
+	}
+};
+$(document).ready(function(){
+    $('#quick_full_text_search_text').bind('keyup', function(event){
+        if (event.keyCode=="13"){
+        	toFullTextSearch();
+        }
+    });
+});
+//menu slides
+$(document).ready(function(){
+  $('li.mainlevel').mouseenter(function(){
+  $(this).find('ul').show(1);//you can give it a speed
+  });
+  $('li.mainlevel').mouseleave(function(){
+  $(this).find('ul').hide(1);
+  });
+});
+$.ajax({
+	url: path + '/AccessRecord',
+	type: 'post',
+	data:{page: 'Mainpage'},
+	dataType:'json',
+	success:function(data){}	
+});
+var showAllosteryDesc = function(){
+	$("#allostery_desc").css("display","block");
+	$("#asd2023_desc").css("display","none");
+	$("#show_allostery_desc_btn").removeClass("btn1").addClass("btn2");
+	$("#show_asd2023_desc_btn").removeClass("btn2").addClass("btn1");
+}
+var showASD2023Desc = function(){
+	$("#allostery_desc").css("display","none");
+	$("#asd2023_desc").css("display","block");
+	$("#show_asd2023_desc_btn").removeClass("btn1").addClass("btn2");
+	$("#show_allostery_desc_btn").removeClass("btn2").addClass("btn1");
+}
+//
+</script>
+<!-- Cookie Consent by TermsFeed https://www.TermsFeed.com -->
+<script type="text/javascript" src="https://www.termsfeed.com/public/cookie-consent/4.1.0/cookie-consent.js" charset="UTF-8"></script>
+<script type="text/javascript" charset="UTF-8">
+document.addEventListener('DOMContentLoaded', function () {
+cookieconsent.run({"notice_banner_type":"simple","consent_type":"express","palette":"light","language":"en","page_load_consent_levels":["strictly-necessary"],"notice_banner_reject_button_hide":false,"preferences_center_close_button_hide":false,"page_refresh_confirmation_buttons":false});
+});
+</script>
+<noscript>Free cookie consent management tool by <a href="https://www.termsfeed.com/">TermsFeed</a></noscript>
+<a href="#" id="open_preferences_center">Update cookies preferences</a>
+<!-- js调用部分end -->
+</body>
+</html>

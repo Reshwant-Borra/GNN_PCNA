@@ -1,0 +1,1 @@
+{"apo_pdb_id": "5uzv", "chain": "Z", "fold": "train-0", "pocket_token_count": 7, "positive_count": 7, "masked_count": 0, "remapped_count": 0, "fraction_masked": 0.0, "labels": {"Z_152": 1, "Z_32": 1, "Z_36": 1, "Z_78": 1, "Z_85": 1, "Z_92": 1, "Z_96": 1}, "generated_at": "2026-05-27T23:43:22.291389", "governance": "docs/scientific_governance/06_LABELING_RULES.md"}

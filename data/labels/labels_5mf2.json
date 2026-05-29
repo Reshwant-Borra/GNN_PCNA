@@ -1,0 +1,1 @@
+{"apo_pdb_id": "5mf2", "chain": "D", "fold": "train-2", "pocket_token_count": 5, "positive_count": 5, "masked_count": 0, "remapped_count": 0, "fraction_masked": 0.0, "labels": {"D_68": 1, "D_70": 1, "D_71": 1, "D_74": 1, "D_75": 1}, "generated_at": "2026-05-27T23:43:21.960390", "governance": "docs/scientific_governance/06_LABELING_RULES.md"}

@@ -1,0 +1,1 @@
+{"apo_pdb_id": "1wzl", "chain": "A-B", "fold": "train-3", "pocket_token_count": 5, "positive_count": 0, "masked_count": 5, "remapped_count": 0, "fraction_masked": 1.0, "labels": {"A_356": -1, "A_374": -1, "A_377": -1, "A_378": -1, "B_112": -1}, "generated_at": "2026-05-27T23:43:14.164504", "governance": "docs/scientific_governance/06_LABELING_RULES.md"}

@@ -1,0 +1,190 @@
+{
+  "artifact_type": "phase3_training_run",
+  "val_fold": 2,
+  "seed": 1,
+  "hidden_dim": 128,
+  "dropout": 0.1,
+  "lr": 0.001,
+  "weight_decay": 1e-05,
+  "batch_size": 4,
+  "max_epochs": 200,
+  "patience": 10,
+  "n_train": 665,
+  "n_val": 222,
+  "pos_weight": 21.2106,
+  "epochs_run": 26,
+  "best_epoch": 16,
+  "best_val_macro_auprc": 0.185909,
+  "checkpoint_path": "C:\\Users\\reshw\\Desktop\\GNN_PCNA\\checkpoints\\phase3\\fold2_seed1_best.pt",
+  "elapsed_seconds": 193.3,
+  "history": [
+    {
+      "epoch": 1,
+      "train_loss": 1.314129,
+      "val_macro_auprc": 0.167566,
+      "val_macro_auroc": 0.626007
+    },
+    {
+      "epoch": 2,
+      "train_loss": 1.274896,
+      "val_macro_auprc": 0.169344,
+      "val_macro_auroc": 0.632912
+    },
+    {
+      "epoch": 3,
+      "train_loss": 1.262392,
+      "val_macro_auprc": 0.174775,
+      "val_macro_auroc": 0.636644
+    },
+    {
+      "epoch": 4,
+      "train_loss": 1.257989,
+      "val_macro_auprc": 0.17523,
+      "val_macro_auroc": 0.638375
+    },
+    {
+      "epoch": 5,
+      "train_loss": 1.254309,
+      "val_macro_auprc": 0.177971,
+      "val_macro_auroc": 0.636109
+    },
+    {
+      "epoch": 6,
+      "train_loss": 1.249845,
+      "val_macro_auprc": 0.180015,
+      "val_macro_auroc": 0.638929
+    },
+    {
+      "epoch": 7,
+      "train_loss": 1.250198,
+      "val_macro_auprc": 0.181659,
+      "val_macro_auroc": 0.64053
+    },
+    {
+      "epoch": 8,
+      "train_loss": 1.24273,
+      "val_macro_auprc": 0.178956,
+      "val_macro_auroc": 0.642615
+    },
+    {
+      "epoch": 9,
+      "train_loss": 1.238292,
+      "val_macro_auprc": 0.183412,
+      "val_macro_auroc": 0.640582
+    },
+    {
+      "epoch": 10,
+      "train_loss": 1.237595,
+      "val_macro_auprc": 0.18386,
+      "val_macro_auroc": 0.643705
+    },
+    {
+      "epoch": 11,
+      "train_loss": 1.234404,
+      "val_macro_auprc": 0.181412,
+      "val_macro_auroc": 0.64301
+    },
+    {
+      "epoch": 12,
+      "train_loss": 1.232504,
+      "val_macro_auprc": 0.183481,
+      "val_macro_auroc": 0.639206
+    },
+    {
+      "epoch": 13,
+      "train_loss": 1.226631,
+      "val_macro_auprc": 0.18489,
+      "val_macro_auroc": 0.643058
+    },
+    {
+      "epoch": 14,
+      "train_loss": 1.226851,
+      "val_macro_auprc": 0.179301,
+      "val_macro_auroc": 0.644418
+    },
+    {
+      "epoch": 15,
+      "train_loss": 1.232041,
+      "val_macro_auprc": 0.181628,
+      "val_macro_auroc": 0.645564
+    },
+    {
+      "epoch": 16,
+      "train_loss": 1.223658,
+      "val_macro_auprc": 0.185909,
+      "val_macro_auroc": 0.647349
+    },
+    {
+      "epoch": 17,
+      "train_loss": 1.214106,
+      "val_macro_auprc": 0.180718,
+      "val_macro_auroc": 0.643906
+    },
+    {
+      "epoch": 18,
+      "train_loss": 1.207584,
+      "val_macro_auprc": 0.180114,
+      "val_macro_auroc": 0.641066
+    },
+    {
+      "epoch": 19,
+      "train_loss": 1.209858,
+      "val_macro_auprc": 0.183218,
+      "val_macro_auroc": 0.643607
+    },
+    {
+      "epoch": 20,
+      "train_loss": 1.199661,
+      "val_macro_auprc": 0.183505,
+      "val_macro_auroc": 0.639509
+    },
+    {
+      "epoch": 21,
+      "train_loss": 1.196074,
+      "val_macro_auprc": 0.182039,
+      "val_macro_auroc": 0.639396
+    },
+    {
+      "epoch": 22,
+      "train_loss": 1.191822,
+      "val_macro_auprc": 0.181839,
+      "val_macro_auroc": 0.637389
+    },
+    {
+      "epoch": 23,
+      "train_loss": 1.186492,
+      "val_macro_auprc": 0.177919,
+      "val_macro_auroc": 0.638245
+    },
+    {
+      "epoch": 24,
+      "train_loss": 1.194645,
+      "val_macro_auprc": 0.177378,
+      "val_macro_auroc": 0.639208
+    },
+    {
+      "epoch": 25,
+      "train_loss": 1.173686,
+      "val_macro_auprc": 0.175811,
+      "val_macro_auroc": 0.635129
+    },
+    {
+      "epoch": 26,
+      "train_loss": 1.186591,
+      "val_macro_auprc": 0.18336,
+      "val_macro_auroc": 0.639661
+    }
+  ],
+  "gate_status": {
+    "status": "GATE_CLEARED",
+    "training": "AUTHORIZED",
+    "human_pipeline_signoff": "C:\\Users\\reshw\\Desktop\\GNN_PCNA\\reports\\phase3\\first_training_signoff_20260528.md"
+  },
+  "governance": {
+    "signoff_record": "reports/phase3/first_training_signoff_20260528.md",
+    "decision_id": "phase3_first_training_signoff_20260528",
+    "split_manifest_hash_prefix": "24dd5e347d880108",
+    "no_test_set_evaluation": true,
+    "no_scientific_claims": true
+  }
+}

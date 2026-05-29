@@ -1,0 +1,213 @@
+{
+  "artifact_type": "phase3_spatial_only_training_run",
+  "architecture_variant": "spatial_only",
+  "edge_type_filter": 0,
+  "val_fold": 1,
+  "seed": 0,
+  "hidden_dim": 128,
+  "dropout": 0.1,
+  "lr": 0.001,
+  "weight_decay": 1e-05,
+  "batch_size": 4,
+  "max_epochs": 200,
+  "patience": 10,
+  "device": "cuda",
+  "n_train": 664,
+  "n_val": 223,
+  "pos_weight": 21.6472,
+  "epochs_run": 30,
+  "best_epoch": 20,
+  "best_val_macro_auprc": 0.201243,
+  "checkpoint_path": "C:\\Users\\reshw\\Desktop\\GNN_PCNA\\checkpoints\\phase3\\spatial_only_fold1_seed0_best.pt",
+  "elapsed_seconds": 87.5,
+  "history": [
+    {
+      "epoch": 1,
+      "train_loss": 1.313844,
+      "val_macro_auprc": 0.175287,
+      "val_macro_auroc": 0.65292
+    },
+    {
+      "epoch": 2,
+      "train_loss": 1.275896,
+      "val_macro_auprc": 0.189046,
+      "val_macro_auroc": 0.668506
+    },
+    {
+      "epoch": 3,
+      "train_loss": 1.269525,
+      "val_macro_auprc": 0.19007,
+      "val_macro_auroc": 0.668991
+    },
+    {
+      "epoch": 4,
+      "train_loss": 1.263421,
+      "val_macro_auprc": 0.193294,
+      "val_macro_auroc": 0.671219
+    },
+    {
+      "epoch": 5,
+      "train_loss": 1.259068,
+      "val_macro_auprc": 0.193409,
+      "val_macro_auroc": 0.672902
+    },
+    {
+      "epoch": 6,
+      "train_loss": 1.261288,
+      "val_macro_auprc": 0.194925,
+      "val_macro_auroc": 0.675263
+    },
+    {
+      "epoch": 7,
+      "train_loss": 1.256371,
+      "val_macro_auprc": 0.196803,
+      "val_macro_auroc": 0.676109
+    },
+    {
+      "epoch": 8,
+      "train_loss": 1.251008,
+      "val_macro_auprc": 0.196084,
+      "val_macro_auroc": 0.67582
+    },
+    {
+      "epoch": 9,
+      "train_loss": 1.249535,
+      "val_macro_auprc": 0.19615,
+      "val_macro_auroc": 0.677377
+    },
+    {
+      "epoch": 10,
+      "train_loss": 1.24622,
+      "val_macro_auprc": 0.197067,
+      "val_macro_auroc": 0.678038
+    },
+    {
+      "epoch": 11,
+      "train_loss": 1.24736,
+      "val_macro_auprc": 0.194988,
+      "val_macro_auroc": 0.676994
+    },
+    {
+      "epoch": 12,
+      "train_loss": 1.241191,
+      "val_macro_auprc": 0.197422,
+      "val_macro_auroc": 0.681236
+    },
+    {
+      "epoch": 13,
+      "train_loss": 1.237336,
+      "val_macro_auprc": 0.19517,
+      "val_macro_auroc": 0.676194
+    },
+    {
+      "epoch": 14,
+      "train_loss": 1.238306,
+      "val_macro_auprc": 0.197471,
+      "val_macro_auroc": 0.681044
+    },
+    {
+      "epoch": 15,
+      "train_loss": 1.240248,
+      "val_macro_auprc": 0.198598,
+      "val_macro_auroc": 0.680726
+    },
+    {
+      "epoch": 16,
+      "train_loss": 1.229611,
+      "val_macro_auprc": 0.197262,
+      "val_macro_auroc": 0.681
+    },
+    {
+      "epoch": 17,
+      "train_loss": 1.230193,
+      "val_macro_auprc": 0.197082,
+      "val_macro_auroc": 0.680431
+    },
+    {
+      "epoch": 18,
+      "train_loss": 1.222121,
+      "val_macro_auprc": 0.198061,
+      "val_macro_auroc": 0.680179
+    },
+    {
+      "epoch": 19,
+      "train_loss": 1.217374,
+      "val_macro_auprc": 0.198628,
+      "val_macro_auroc": 0.678789
+    },
+    {
+      "epoch": 20,
+      "train_loss": 1.207409,
+      "val_macro_auprc": 0.201243,
+      "val_macro_auroc": 0.684615
+    },
+    {
+      "epoch": 21,
+      "train_loss": 1.206152,
+      "val_macro_auprc": 0.194066,
+      "val_macro_auroc": 0.676743
+    },
+    {
+      "epoch": 22,
+      "train_loss": 1.211133,
+      "val_macro_auprc": 0.198718,
+      "val_macro_auroc": 0.678349
+    },
+    {
+      "epoch": 23,
+      "train_loss": 1.199292,
+      "val_macro_auprc": 0.193111,
+      "val_macro_auroc": 0.673836
+    },
+    {
+      "epoch": 24,
+      "train_loss": 1.186271,
+      "val_macro_auprc": 0.196808,
+      "val_macro_auroc": 0.678243
+    },
+    {
+      "epoch": 25,
+      "train_loss": 1.185338,
+      "val_macro_auprc": 0.195875,
+      "val_macro_auroc": 0.675561
+    },
+    {
+      "epoch": 26,
+      "train_loss": 1.173573,
+      "val_macro_auprc": 0.191224,
+      "val_macro_auroc": 0.670533
+    },
+    {
+      "epoch": 27,
+      "train_loss": 1.174589,
+      "val_macro_auprc": 0.194468,
+      "val_macro_auroc": 0.671417
+    },
+    {
+      "epoch": 28,
+      "train_loss": 1.161484,
+      "val_macro_auprc": 0.19061,
+      "val_macro_auroc": 0.67155
+    },
+    {
+      "epoch": 29,
+      "train_loss": 1.161051,
+      "val_macro_auprc": 0.194492,
+      "val_macro_auroc": 0.673577
+    },
+    {
+      "epoch": 30,
+      "train_loss": 1.151426,
+      "val_macro_auprc": 0.192712,
+      "val_macro_auroc": 0.667683
+    }
+  ],
+  "governance": {
+    "option_b_auth": "C:\\Users\\reshw\\Desktop\\GNN_PCNA\\reports\\phase3\\spatial_only_retrain_authorization_20260529.md",
+    "decision_id": "phase3_spatial_only_retrain_20260529",
+    "gate2_signoff_record": "reports/phase3/first_training_signoff_20260528.md",
+    "split_manifest_hash_prefix": "24dd5e347d880108",
+    "no_test_set_evaluation": true,
+    "no_scientific_claims": true
+  }
+}

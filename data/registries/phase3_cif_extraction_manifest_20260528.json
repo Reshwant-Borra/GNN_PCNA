@@ -1,0 +1,40 @@
+{
+  "action": "extracted",
+  "artifact_type": "phase3_cif_extraction_manifest",
+  "command": "C:\\Users\\reshw\\Desktop\\GNN_PCNA\\src\\phase3_data\\cli.py verify-or-extract-cifs --output data/registries/phase3_cif_extraction_manifest_20260528.json",
+  "commit_hash": "c04a6d1",
+  "created_at": "2026-05-28T00:47:00-04:00",
+  "created_by": "codex",
+  "cwd": ".",
+  "environment": {
+    "executable": "C:\\Users\\reshw\\AppData\\Local\\Programs\\Python\\Python311\\python.exe",
+    "platform": "Windows-10-10.0.26200-SP0",
+    "python": "3.11.7"
+  },
+  "extracted_file_count": 5005,
+  "first_member": "cif-files/1a4u.cif",
+  "governance": [
+    "docs/scientific_governance/07_PREPROCESSING_AND_GRAPH_RULES.md",
+    "docs/scientific_governance/15_PROVENANCE_AND_REPRODUCIBILITY.md",
+    "docs/scientific_governance/26_HUMAN_REVIEW_GATES.md"
+  ],
+  "last_member": "cif-files/8ood.cif",
+  "notes": "Extraction only. No graph generation, training artifacts, or model gradients were produced.",
+  "sample_extracted_hashes": {
+    "11bg.cif": "1677a8eea86d7b629c20622b49a531af8227914ae2af9bd5e3ddd7f7d139acff",
+    "1a27.cif": "7d6f51f08916bbd01144afaabff7cb24b5d201881e28cdc016d49859b990b485",
+    "1a4u.cif": "3da869a14389c21cb480d8aa5e620bda6f4209e8c5cf555bbe2b569c0cf76aa4",
+    "1a54.cif": "c0e576ee35cdca13e12ff2e3ec2f8d6a862ac03dd3d04eb06da4fe902bac8515",
+    "1a82.cif": "4b7be611b29f196ed05d901f89c5408babc98d982cbfa5c462cfe6ff1b547d75",
+    "1a8d.cif": "d245ac2dcb04c507087e1e4064ad1962be2edbcf4de9717d82742608a1a9fb4a",
+    "1a95.cif": "3768464e0da3a1eea7cd10d7fe42ef55abae3f7f729d8be66c31ad554826bc02",
+    "1a96.cif": "9c6a4af15304d1c12fb6c638528534714a0c886f4860c62db5813f14182256d8",
+    "1abn.cif": "04763aa1aca192b72d39aa5da33c8fbde16586c99bf0d33179a6ee462dcce78f",
+    "1ad1.cif": "5de1ebc9e494967d55810b6ffb56ea94c2f463ab297f3615644ffd2a6669171f"
+  },
+  "status": "PASS",
+  "target_dir": "data\\raw_intake\\cryptobench\\cif-files",
+  "zip_file_count": 5005,
+  "zip_hash_sha256": "8d15f897bfdfdf61c7d97a29f5f6ca2c5e03d73d8fb89be7da5bbc245cf56ae4",
+  "zip_path": "data\\raw_intake\\cryptobench\\files\\672a0171eae0bff252ba9ea3_cif-files.zip"
+}

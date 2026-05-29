@@ -1,0 +1,8 @@
+test_evaluation_started: 2026-05-29
+gate4_record: C:\Users\reshw\Desktop\GNN_PCNA\reports\phase3\model_freeze_gate4_20260529.md
+frozen_checkpoint: C:\Users\reshw\Desktop\GNN_PCNA\checkpoints\phase3\spatial_only_fold1_seed1_best.pt
+n_test_structures: 214
+governance: docs/scientific_governance/09_EVALUATION_PROTOCOL.md
+note: This file prevents the test set from being evaluated more than once.
+      Do not delete without recording the reason in wiki/log.md and
+      obtaining human authorization for a re-run.

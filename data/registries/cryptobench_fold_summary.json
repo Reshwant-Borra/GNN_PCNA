@@ -1,0 +1,588 @@
+{
+  "adoption_status": "not_adopted",
+  "audit_status": "completed_local_split_risk_audit_not_frozen",
+  "created_at": "2026-05-27T18:29:47-04:00",
+  "duplicate_fold_assignment_count": 0,
+  "duplicate_fold_assignments": {},
+  "fold_counts": {
+    "test": {
+      "apo_count": 222,
+      "cryptic_pair_record_count": 1100,
+      "unique_uniprot_count": 222
+    },
+    "train-0": {
+      "apo_count": 219,
+      "cryptic_pair_record_count": 1233,
+      "unique_uniprot_count": 219
+    },
+    "train-1": {
+      "apo_count": 222,
+      "cryptic_pair_record_count": 1327,
+      "unique_uniprot_count": 223
+    },
+    "train-2": {
+      "apo_count": 222,
+      "cryptic_pair_record_count": 1112,
+      "unique_uniprot_count": 223
+    },
+    "train-3": {
+      "apo_count": 222,
+      "cryptic_pair_record_count": 721,
+      "unique_uniprot_count": 223
+    }
+  },
+  "fold_integrity": {
+    "test": {
+      "extra_in_file": [],
+      "fold_file_apo_count": 222,
+      "folds_json_apo_count": 222,
+      "keys_match_folds_json": true,
+      "missing_from_file": []
+    },
+    "train-0": {
+      "extra_in_file": [],
+      "fold_file_apo_count": 219,
+      "folds_json_apo_count": 219,
+      "keys_match_folds_json": true,
+      "missing_from_file": []
+    },
+    "train-1": {
+      "extra_in_file": [],
+      "fold_file_apo_count": 222,
+      "folds_json_apo_count": 222,
+      "keys_match_folds_json": true,
+      "missing_from_file": []
+    },
+    "train-2": {
+      "extra_in_file": [],
+      "fold_file_apo_count": 222,
+      "folds_json_apo_count": 222,
+      "keys_match_folds_json": true,
+      "missing_from_file": []
+    },
+    "train-3": {
+      "extra_in_file": [],
+      "fold_file_apo_count": 222,
+      "folds_json_apo_count": 222,
+      "keys_match_folds_json": true,
+      "missing_from_file": []
+    }
+  },
+  "overlap": {
+    "apo_id_cross_fold_overlap_count": 0,
+    "apo_id_cross_fold_overlaps": {},
+    "shared_holo_pdb_count": 6,
+    "shared_holo_pdb_examples": {
+      "2fzc": [
+        "test",
+        "train-1"
+      ],
+      "2fzg": [
+        "test",
+        "train-1"
+      ],
+      "4f04": [
+        "test",
+        "train-1"
+      ],
+      "5qya": [
+        "test",
+        "train-0"
+      ],
+      "6a5y": [
+        "train-1",
+        "train-3"
+      ],
+      "7fo6": [
+        "test",
+        "train-0"
+      ]
+    },
+    "shared_ligand_count": 153,
+    "shared_ligand_examples": {
+      "0GM": [
+        "train-0",
+        "train-1"
+      ],
+      "0LI": [
+        "train-1",
+        "train-2"
+      ],
+      "1E8": [
+        "train-0",
+        "train-3"
+      ],
+      "1FN": [
+        "train-0",
+        "train-1"
+      ],
+      "1QK": [
+        "test",
+        "train-2"
+      ],
+      "2AN": [
+        "train-0",
+        "train-1",
+        "train-2"
+      ],
+      "2KH": [
+        "train-0",
+        "train-1"
+      ],
+      "4AQ": [
+        "train-0",
+        "train-2"
+      ],
+      "4K4": [
+        "test",
+        "train-0"
+      ],
+      "53Q": [
+        "train-1",
+        "train-2"
+      ],
+      "79C": [
+        "test",
+        "train-0",
+        "train-2"
+      ],
+      "8E8": [
+        "train-0",
+        "train-3"
+      ],
+      "919": [
+        "train-2",
+        "train-3"
+      ],
+      "ACO": [
+        "train-0",
+        "train-1",
+        "train-3"
+      ],
+      "ACP": [
+        "test",
+        "train-0",
+        "train-1",
+        "train-2",
+        "train-3"
+      ],
+      "ADE": [
+        "train-0",
+        "train-1"
+      ],
+      "ADN": [
+        "test",
+        "train-0",
+        "train-1",
+        "train-2"
+      ],
+      "ADP": [
+        "test",
+        "train-0",
+        "train-1",
+        "train-2",
+        "train-3"
+      ],
+      "AGS": [
+        "test",
+        "train-2",
+        "train-3"
+      ],
+      "AKG": [
+        "train-0",
+        "train-1",
+        "train-2",
+        "train-3"
+      ],
+      "ALA": [
+        "train-0",
+        "train-1",
+        "train-3"
+      ],
+      "ALF": [
+        "test",
+        "train-0"
+      ],
+      "AMP": [
+        "train-0",
+        "train-1",
+        "train-2",
+        "train-3"
+      ],
+      "ANP": [
+        "test",
+        "train-0",
+        "train-1",
+        "train-2"
+      ],
+      "APC": [
+        "test",
+        "train-2",
+        "train-3"
+      ],
+      "APR": [
+        "train-0",
+        "train-2"
+      ],
+      "AR6": [
+        "test",
+        "train-2",
+        "train-3"
+      ],
+      "ARG": [
+        "test",
+        "train-2",
+        "train-3"
+      ],
+      "ASP": [
+        "test",
+        "train-3"
+      ],
+      "ATP": [
+        "test",
+        "train-0",
+        "train-1",
+        "train-2",
+        "train-3"
+      ],
+      "ATR": [
+        "test",
+        "train-1"
+      ],
+      "BDP": [
+        "test",
+        "train-2"
+      ],
+      "BGC": [
+        "test",
+        "train-0",
+        "train-1",
+        "train-2",
+        "train-3"
+      ],
+      "BMA": [
+        "train-0",
+        "train-1",
+        "train-2",
+        "train-3"
+      ],
+      "BMP": [
+        "test",
+        "train-2"
+      ],
+      "BTN": [
+        "train-1",
+        "train-3"
+      ],
+      "BU2": [
+        "train-0",
+        "train-2"
+      ],
+      "BU3": [
+        "train-0",
+        "train-1",
+        "train-2",
+        "train-3"
+      ],
+      "C5P": [
+        "test",
+        "train-3"
+      ],
+      "C8E": [
+        "train-1",
+        "train-3"
+      ],
+      "CFF": [
+        "train-1",
+        "train-2"
+      ],
+      "COA": [
+        "test",
+        "train-0",
+        "train-1",
+        "train-2",
+        "train-3"
+      ],
+      "CTP": [
+        "test",
+        "train-0",
+        "train-1",
+        "train-3"
+      ],
+      "DCP": [
+        "test",
+        "train-1"
+      ],
+      "DFP": [
+        "train-0",
+        "train-3"
+      ],
+      "DGT": [
+        "test",
+        "train-0"
+      ],
+      "DH9": [
+        "train-0",
+        "train-1"
+      ],
+      "DMU": [
+        "train-0",
+        "train-2"
+      ],
+      "DNF": [
+        "train-0",
+        "train-2"
+      ],
+      "DTP": [
+        "test",
+        "train-0",
+        "train-1",
+        "train-2"
+      ],
+      "DXX": [
+        "test",
+        "train-3"
+      ],
+      "EIC": [
+        "test",
+        "train-2"
+      ],
+      "EPE": [
+        "test",
+        "train-3"
+      ],
+      "F42": [
+        "test",
+        "train-2"
+      ],
+      "F6P": [
+        "train-0",
+        "train-2"
+      ],
+      "FAD": [
+        "test",
+        "train-0",
+        "train-1",
+        "train-3"
+      ],
+      "FER": [
+        "test",
+        "train-2"
+      ],
+      "FLC": [
+        "train-1",
+        "train-2"
+      ],
+      "FMN": [
+        "test",
+        "train-0",
+        "train-1",
+        "train-2",
+        "train-3"
+      ],
+      "FPS": [
+        "train-1",
+        "train-2"
+      ],
+      "FRU": [
+        "test",
+        "train-0",
+        "train-3"
+      ],
+      "FUC": [
+        "test",
+        "train-0",
+        "train-2",
+        "train-3"
+      ],
+      "G3P": [
+        "train-0",
+        "train-2"
+      ],
+      "GAL": [
+        "test",
+        "train-0",
+        "train-1",
+        "train-2",
+        "train-3"
+      ],
+      "GDP": [
+        "test",
+        "train-0",
+        "train-1",
+        "train-2",
+        "train-3"
+      ],
+      "GGB": [
+        "train-0",
+        "train-2"
+      ],
+      "GLA": [
+        "train-0",
+        "train-2"
+      ],
+      "GLC": [
+        "test",
+        "train-0",
+        "train-1",
+        "train-2",
+        "train-3"
+      ],
+      "GLN": [
+        "test",
+        "train-0",
+        "train-1",
+        "train-2"
+      ],
+      "GLU": [
+        "test",
+        "train-0",
+        "train-1",
+        "train-3"
+      ],
+      "GLY": [
+        "test",
+        "train-1",
+        "train-3"
+      ],
+      "GNP": [
+        "train-0",
+        "train-2"
+      ],
+      "GSH": [
+        "test",
+        "train-2",
+        "train-3"
+      ],
+      "GST": [
+        "train-2",
+        "train-3"
+      ],
+      "GTP": [
+        "test",
+        "train-0",
+        "train-1",
+        "train-3"
+      ],
+      "H4M": [
+        "train-0",
+        "train-2"
+      ],
+      "HBI": [
+        "train-0",
+        "train-2"
+      ],
+      "HEM": [
+        "train-0",
+        "train-1",
+        "train-2",
+        "train-3"
+      ],
+      "HGE": [
+        "train-0",
+        "train-2"
+      ],
+      "HIS": [
+        "train-2",
+        "train-3"
+      ],
+      "IHP": [
+        "test",
+        "train-1",
+        "train-3"
+      ],
+      "IHS": [
+        "train-2",
+        "train-3"
+      ],
+      "ILE": [
+        "train-1",
+        "train-3"
+      ],
+      "IM2": [
+        "train-0",
+        "train-1"
+      ],
+      "IMI": [
+        "train-0",
+        "train-1"
+      ],
+      "IMN": [
+        "train-0",
+        "train-1"
+      ],
+      "IPE": [
+        "train-1",
+        "train-3"
+      ],
+      "LDR": [
+        "train-0",
+        "train-1"
+      ],
+      "LEU": [
+        "test",
+        "train-3"
+      ],
+      "LGU": [
+        "test",
+        "train-0",
+        "train-2"
+      ],
+      "LPD": [
+        "train-0",
+        "train-2"
+      ],
+      "LU2": [
+        "train-0",
+        "train-1"
+      ],
+      "LYS": [
+        "train-0",
+        "train-3"
+      ],
+      "MAN": [
+        "test",
+        "train-0",
+        "train-1",
+        "train-2",
+        "train-3"
+      ],
+      "MET": [
+        "train-0",
+        "train-1"
+      ],
+      "MLZ": [
+        "train-0",
+        "train-1"
+      ],
+      "MNB": [
+        "train-1",
+        "train-3"
+      ],
+      "MTA": [
+        "train-0",
+        "train-3"
+      ],
+      "MTX": [
+        "test",
+        "train-0",
+        "train-1"
+      ],
+      "NAD": [
+        "test",
+        "train-0",
+        "train-1",
+        "train-2",
+        "train-3"
+      ]
+    },
+    "shared_uniprot_count": 0,
+    "shared_uniprots_examples": {},
+    "train_test_shared_uniprot_count": 0,
+    "train_test_shared_uniprots": []
+  },
+  "split_readiness": {
+    "benchmark_split_can_be_frozen": false,
+    "reason": "local files lack sequence-cluster/homolog grouping evidence and human split review; leakage risk remains unresolved"
+  }
+}

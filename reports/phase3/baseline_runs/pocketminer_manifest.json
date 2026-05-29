@@ -1,0 +1,8 @@
+{
+  "baseline_name": "pocketminer",
+  "status": "NOT_RUN",
+  "reason": "PocketMiner requires downloading the model weights and dependencies.",
+  "installation_note": "Install from https://github.com/Mickdub/gvp (or the PocketMiner repo). Run inference on each structure, align per-residue scores, compute metrics on frozen split.",
+  "script": "scripts/run_pocketminer.py (to be created after installation)",
+  "governance": "docs/scientific_governance/10_BASELINE_REQUIREMENTS.md"
+}

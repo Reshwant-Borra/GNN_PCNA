@@ -1,0 +1,189 @@
+{
+  "artifact_type": "phase3_spatial_only_training_run",
+  "architecture_variant": "spatial_only",
+  "edge_type_filter": 0,
+  "val_fold": 2,
+  "seed": 0,
+  "hidden_dim": 128,
+  "dropout": 0.1,
+  "lr": 0.001,
+  "weight_decay": 1e-05,
+  "batch_size": 4,
+  "max_epochs": 200,
+  "patience": 10,
+  "device": "cuda",
+  "n_train": 665,
+  "n_val": 222,
+  "pos_weight": 21.2106,
+  "epochs_run": 26,
+  "best_epoch": 16,
+  "best_val_macro_auprc": 0.188583,
+  "checkpoint_path": "C:\\Users\\reshw\\Desktop\\GNN_PCNA\\checkpoints\\phase3\\spatial_only_fold2_seed0_best.pt",
+  "elapsed_seconds": 76.2,
+  "history": [
+    {
+      "epoch": 1,
+      "train_loss": 1.31102,
+      "val_macro_auprc": 0.162178,
+      "val_macro_auroc": 0.627733
+    },
+    {
+      "epoch": 2,
+      "train_loss": 1.265961,
+      "val_macro_auprc": 0.176858,
+      "val_macro_auroc": 0.635089
+    },
+    {
+      "epoch": 3,
+      "train_loss": 1.262037,
+      "val_macro_auprc": 0.180351,
+      "val_macro_auroc": 0.636457
+    },
+    {
+      "epoch": 4,
+      "train_loss": 1.255665,
+      "val_macro_auprc": 0.178777,
+      "val_macro_auroc": 0.639027
+    },
+    {
+      "epoch": 5,
+      "train_loss": 1.246898,
+      "val_macro_auprc": 0.178619,
+      "val_macro_auroc": 0.638922
+    },
+    {
+      "epoch": 6,
+      "train_loss": 1.249761,
+      "val_macro_auprc": 0.17739,
+      "val_macro_auroc": 0.640253
+    },
+    {
+      "epoch": 7,
+      "train_loss": 1.245777,
+      "val_macro_auprc": 0.180197,
+      "val_macro_auroc": 0.64157
+    },
+    {
+      "epoch": 8,
+      "train_loss": 1.241561,
+      "val_macro_auprc": 0.184225,
+      "val_macro_auroc": 0.64196
+    },
+    {
+      "epoch": 9,
+      "train_loss": 1.24204,
+      "val_macro_auprc": 0.180403,
+      "val_macro_auroc": 0.637324
+    },
+    {
+      "epoch": 10,
+      "train_loss": 1.241012,
+      "val_macro_auprc": 0.185744,
+      "val_macro_auroc": 0.641344
+    },
+    {
+      "epoch": 11,
+      "train_loss": 1.234163,
+      "val_macro_auprc": 0.183628,
+      "val_macro_auroc": 0.641683
+    },
+    {
+      "epoch": 12,
+      "train_loss": 1.230524,
+      "val_macro_auprc": 0.184792,
+      "val_macro_auroc": 0.642755
+    },
+    {
+      "epoch": 13,
+      "train_loss": 1.227889,
+      "val_macro_auprc": 0.187621,
+      "val_macro_auroc": 0.645251
+    },
+    {
+      "epoch": 14,
+      "train_loss": 1.22657,
+      "val_macro_auprc": 0.184222,
+      "val_macro_auroc": 0.645761
+    },
+    {
+      "epoch": 15,
+      "train_loss": 1.22583,
+      "val_macro_auprc": 0.187067,
+      "val_macro_auroc": 0.642602
+    },
+    {
+      "epoch": 16,
+      "train_loss": 1.216513,
+      "val_macro_auprc": 0.188583,
+      "val_macro_auroc": 0.646224
+    },
+    {
+      "epoch": 17,
+      "train_loss": 1.214553,
+      "val_macro_auprc": 0.18198,
+      "val_macro_auroc": 0.646438
+    },
+    {
+      "epoch": 18,
+      "train_loss": 1.208976,
+      "val_macro_auprc": 0.18627,
+      "val_macro_auroc": 0.646115
+    },
+    {
+      "epoch": 19,
+      "train_loss": 1.206533,
+      "val_macro_auprc": 0.18626,
+      "val_macro_auroc": 0.643281
+    },
+    {
+      "epoch": 20,
+      "train_loss": 1.200193,
+      "val_macro_auprc": 0.186217,
+      "val_macro_auroc": 0.642564
+    },
+    {
+      "epoch": 21,
+      "train_loss": 1.202968,
+      "val_macro_auprc": 0.187071,
+      "val_macro_auroc": 0.642946
+    },
+    {
+      "epoch": 22,
+      "train_loss": 1.194256,
+      "val_macro_auprc": 0.18457,
+      "val_macro_auroc": 0.643336
+    },
+    {
+      "epoch": 23,
+      "train_loss": 1.190085,
+      "val_macro_auprc": 0.187712,
+      "val_macro_auroc": 0.64471
+    },
+    {
+      "epoch": 24,
+      "train_loss": 1.18189,
+      "val_macro_auprc": 0.185609,
+      "val_macro_auroc": 0.645028
+    },
+    {
+      "epoch": 25,
+      "train_loss": 1.184312,
+      "val_macro_auprc": 0.182521,
+      "val_macro_auroc": 0.643582
+    },
+    {
+      "epoch": 26,
+      "train_loss": 1.172313,
+      "val_macro_auprc": 0.181673,
+      "val_macro_auroc": 0.643099
+    }
+  ],
+  "governance": {
+    "option_b_auth": "C:\\Users\\reshw\\Desktop\\GNN_PCNA\\reports\\phase3\\spatial_only_retrain_authorization_20260529.md",
+    "decision_id": "phase3_spatial_only_retrain_20260529",
+    "gate2_signoff_record": "reports/phase3/first_training_signoff_20260528.md",
+    "split_manifest_hash_prefix": "24dd5e347d880108",
+    "no_test_set_evaluation": true,
+    "no_scientific_claims": true
+  }
+}

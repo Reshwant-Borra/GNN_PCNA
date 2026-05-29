@@ -1,0 +1,1 @@
+{"apo_pdb_id": "6nlb", "chain": "B-C-D", "fold": "train-0", "pocket_token_count": 7, "positive_count": 0, "masked_count": 7, "remapped_count": 0, "fraction_masked": 1.0, "labels": {"B_15": -1, "B_4": -1, "B_51": -1, "C_14": -1, "C_15": -1, "C_6": -1, "D_17": -1}, "generated_at": "2026-05-27T23:43:23.832229", "governance": "docs/scientific_governance/06_LABELING_RULES.md"}

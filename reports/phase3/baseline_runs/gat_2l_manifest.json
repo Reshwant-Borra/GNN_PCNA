@@ -1,0 +1,144 @@
+{
+  "baseline_name": "gat_2l",
+  "folds": [
+    0,
+    1,
+    2,
+    3
+  ],
+  "seeds": [
+    0,
+    1,
+    2
+  ],
+  "per_fold_per_seed": [
+    {
+      "fold": 0,
+      "seed": 0,
+      "best_val_macro_auprc": 0.166396,
+      "best_epoch": 9,
+      "epochs_run": 19
+    },
+    {
+      "fold": 0,
+      "seed": 1,
+      "best_val_macro_auprc": 0.168206,
+      "best_epoch": 5,
+      "epochs_run": 15
+    },
+    {
+      "fold": 0,
+      "seed": 2,
+      "best_val_macro_auprc": 0.168178,
+      "best_epoch": 8,
+      "epochs_run": 18
+    },
+    {
+      "fold": 1,
+      "seed": 0,
+      "best_val_macro_auprc": 0.191031,
+      "best_epoch": 28,
+      "epochs_run": 38
+    },
+    {
+      "fold": 1,
+      "seed": 1,
+      "best_val_macro_auprc": 0.185767,
+      "best_epoch": 15,
+      "epochs_run": 25
+    },
+    {
+      "fold": 1,
+      "seed": 2,
+      "best_val_macro_auprc": 0.187223,
+      "best_epoch": 28,
+      "epochs_run": 38
+    },
+    {
+      "fold": 2,
+      "seed": 0,
+      "best_val_macro_auprc": 0.167002,
+      "best_epoch": 2,
+      "epochs_run": 12
+    },
+    {
+      "fold": 2,
+      "seed": 1,
+      "best_val_macro_auprc": 0.166589,
+      "best_epoch": 6,
+      "epochs_run": 16
+    },
+    {
+      "fold": 2,
+      "seed": 2,
+      "best_val_macro_auprc": 0.167086,
+      "best_epoch": 13,
+      "epochs_run": 23
+    },
+    {
+      "fold": 3,
+      "seed": 0,
+      "best_val_macro_auprc": 0.17307,
+      "best_epoch": 9,
+      "epochs_run": 19
+    },
+    {
+      "fold": 3,
+      "seed": 1,
+      "best_val_macro_auprc": 0.174305,
+      "best_epoch": 13,
+      "epochs_run": 23
+    },
+    {
+      "fold": 3,
+      "seed": 2,
+      "best_val_macro_auprc": 0.172485,
+      "best_epoch": 17,
+      "epochs_run": 27
+    }
+  ],
+  "per_fold_mean_macro_auprc": {
+    "0": 0.16759333333333334,
+    "1": 0.188007,
+    "2": 0.16689233333333334,
+    "3": 0.17328666666666667
+  },
+  "aggregate": {
+    "n_seeds": 12,
+    "macro_auprc_mean": 0.17394475335063267,
+    "macro_auprc_sd": 0.008962355271098128,
+    "micro_auprc_mean": 0.08151719204200299,
+    "micro_auprc_sd": 0.013448056416627626,
+    "macro_auroc_mean": 0.6339955366099055,
+    "macro_auroc_sd": 0.01999266893426629,
+    "micro_auroc_mean": 0.6376165625032879,
+    "micro_auroc_sd": 0.016212226145543383,
+    "n_proteins_mean": 221.75,
+    "n_proteins_sd": 1.1381803659589922,
+    "n_proteins_with_valid_auprc_mean": 191.25,
+    "n_proteins_with_valid_auprc_sd": 4.5151260930746595,
+    "macro_top_5_recovery_mean": 0.05169162117554535,
+    "macro_top_5_recovery_sd": 0.005679370043558241,
+    "macro_precision_at_5_mean": 0.161208160871838,
+    "macro_precision_at_5_sd": 0.019487744849517267,
+    "macro_top_10_recovery_mean": 0.09403890497079326,
+    "macro_top_10_recovery_sd": 0.0065702561245517335,
+    "macro_precision_at_10_mean": 0.15021279483723432,
+    "macro_precision_at_10_sd": 0.011691811001923987,
+    "macro_top_20_recovery_mean": 0.17209496793757703,
+    "macro_top_20_recovery_sd": 0.010797894573497814,
+    "macro_precision_at_20_mean": 0.13622917225215433,
+    "macro_precision_at_20_sd": 0.008606522839606749
+  },
+  "overall_macro_auprc_mean": 0.17394475335063267,
+  "overall_macro_auprc_sd": 0.008962355271098128,
+  "total_elapsed_seconds": 3362.6,
+  "split_manifest_hash_prefix": "24dd5e347d880108",
+  "governance": [
+    "docs/scientific_governance/10_BASELINE_REQUIREMENTS.md",
+    "docs/scientific_governance/09_EVALUATION_PROTOCOL.md"
+  ],
+  "gate": "reports/phase3/baseline_gate3_authorization_20260529.md",
+  "no_test_set_evaluation": true,
+  "no_scientific_claims": true
+}

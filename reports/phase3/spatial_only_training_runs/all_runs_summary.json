@@ -1,0 +1,149 @@
+{
+  "artifact_type": "phase3_spatial_only_all_runs_summary",
+  "architecture_variant": "spatial_only",
+  "edge_type_filter": 0,
+  "decision_id": "phase3_spatial_only_retrain_20260529",
+  "folds": [
+    0,
+    1,
+    2,
+    3
+  ],
+  "seeds": [
+    0,
+    1,
+    2
+  ],
+  "per_fold_per_seed": [
+    {
+      "fold": 0,
+      "seed": 0,
+      "best_val_macro_auprc": 0.176997,
+      "best_epoch": 28,
+      "epochs_run": 38,
+      "elapsed_seconds": 461.5,
+      "device": "cpu"
+    },
+    {
+      "fold": 0,
+      "seed": 1,
+      "best_val_macro_auprc": 0.176627,
+      "best_epoch": 16,
+      "epochs_run": 26,
+      "elapsed_seconds": 192.4,
+      "device": "cpu"
+    },
+    {
+      "fold": 0,
+      "seed": 2,
+      "best_val_macro_auprc": 0.183378,
+      "best_epoch": 37,
+      "epochs_run": 47,
+      "elapsed_seconds": 125.1,
+      "device": "cuda"
+    },
+    {
+      "fold": 1,
+      "seed": 0,
+      "best_val_macro_auprc": 0.201243,
+      "best_epoch": 20,
+      "epochs_run": 30,
+      "elapsed_seconds": 87.5,
+      "device": "cuda"
+    },
+    {
+      "fold": 1,
+      "seed": 1,
+      "best_val_macro_auprc": 0.204735,
+      "best_epoch": 24,
+      "epochs_run": 34,
+      "elapsed_seconds": 98.9,
+      "device": "cuda"
+    },
+    {
+      "fold": 1,
+      "seed": 2,
+      "best_val_macro_auprc": 0.20207,
+      "best_epoch": 22,
+      "epochs_run": 32,
+      "elapsed_seconds": 90.7,
+      "device": "cuda"
+    },
+    {
+      "fold": 2,
+      "seed": 0,
+      "best_val_macro_auprc": 0.188583,
+      "best_epoch": 16,
+      "epochs_run": 26,
+      "elapsed_seconds": 76.2,
+      "device": "cuda"
+    },
+    {
+      "fold": 2,
+      "seed": 1,
+      "best_val_macro_auprc": 0.18866,
+      "best_epoch": 12,
+      "epochs_run": 22,
+      "elapsed_seconds": 68.9,
+      "device": "cuda"
+    },
+    {
+      "fold": 2,
+      "seed": 2,
+      "best_val_macro_auprc": 0.190409,
+      "best_epoch": 21,
+      "epochs_run": 31,
+      "elapsed_seconds": 98.6,
+      "device": "cuda"
+    },
+    {
+      "fold": 3,
+      "seed": 0,
+      "best_val_macro_auprc": 0.188217,
+      "best_epoch": 18,
+      "epochs_run": 28,
+      "elapsed_seconds": 80.9,
+      "device": "cuda"
+    },
+    {
+      "fold": 3,
+      "seed": 1,
+      "best_val_macro_auprc": 0.185856,
+      "best_epoch": 17,
+      "epochs_run": 27,
+      "elapsed_seconds": 88.0,
+      "device": "cuda"
+    },
+    {
+      "fold": 3,
+      "seed": 2,
+      "best_val_macro_auprc": 0.189991,
+      "best_epoch": 19,
+      "epochs_run": 29,
+      "elapsed_seconds": 93.8,
+      "device": "cuda"
+    }
+  ],
+  "per_fold_mean_macro_auprc": {
+    "0": 0.179001,
+    "1": 0.202683,
+    "2": 0.189217,
+    "3": 0.188021
+  },
+  "overall_macro_auprc_mean": 0.189731,
+  "overall_macro_auprc_sd": 0.009068,
+  "overall_macro_auprc_min": 0.176627,
+  "overall_macro_auprc_max": 0.204735,
+  "n_runs": 12,
+  "recommended_checkpoint": "C:\\Users\\reshw\\Desktop\\GNN_PCNA\\checkpoints\\phase3\\spatial_only_fold1_seed1_best.pt",
+  "recommended_fold": 1,
+  "recommended_seed": 1,
+  "recommended_val_macro_auprc": 0.204735,
+  "governance": {
+    "option_b_auth": "C:\\Users\\reshw\\Desktop\\GNN_PCNA\\reports\\phase3\\spatial_only_retrain_authorization_20260529.md",
+    "decision_id": "phase3_spatial_only_retrain_20260529",
+    "split_manifest_hash_prefix": "24dd5e347d880108",
+    "no_test_set_evaluation": true,
+    "no_scientific_claims": true
+  }
+}

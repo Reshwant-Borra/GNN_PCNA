@@ -1,0 +1,42 @@
+{
+  "generated_at": "2026-05-27T23:43:27.235205",
+  "total_excluded": 6,
+  "excluded": [
+    {
+      "apo_pdb_id": "1lx7",
+      "reason": "class4c_high_mask_fraction",
+      "policy_decision": "4c",
+      "fold": "train-2"
+    },
+    {
+      "apo_pdb_id": "2b23",
+      "reason": "class3_wrong_chain",
+      "policy_decision": "4d",
+      "fold": "train-2"
+    },
+    {
+      "apo_pdb_id": "4gpi",
+      "reason": "class3_wrong_chain",
+      "policy_decision": "4d",
+      "fold": "test"
+    },
+    {
+      "apo_pdb_id": "5e0v",
+      "reason": "pcna_exact_contamination",
+      "policy_decision": "decision_2",
+      "fold": "test"
+    },
+    {
+      "apo_pdb_id": "8hc1",
+      "reason": "class3_wrong_chain",
+      "policy_decision": "4d",
+      "fold": "test"
+    },
+    {
+      "apo_pdb_id": "8oqp",
+      "reason": "class3_wrong_chain",
+      "policy_decision": "4d",
+      "fold": "train-1"
+    }
+  ]
+}

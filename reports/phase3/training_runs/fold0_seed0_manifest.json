@@ -1,0 +1,262 @@
+{
+  "artifact_type": "phase3_training_run",
+  "val_fold": 0,
+  "seed": 0,
+  "hidden_dim": 128,
+  "dropout": 0.1,
+  "lr": 0.001,
+  "weight_decay": 1e-05,
+  "batch_size": 4,
+  "max_epochs": 200,
+  "patience": 10,
+  "n_train": 667,
+  "n_val": 220,
+  "pos_weight": 20.9549,
+  "epochs_run": 38,
+  "best_epoch": 28,
+  "best_val_macro_auprc": 0.171878,
+  "checkpoint_path": "checkpoints\\phase3\\fold0_seed0_best.pt",
+  "elapsed_seconds": 479.2,
+  "history": [
+    {
+      "epoch": 1,
+      "train_loss": 1.311898,
+      "val_macro_auprc": 0.157214,
+      "val_macro_auroc": 0.619014
+    },
+    {
+      "epoch": 2,
+      "train_loss": 1.271649,
+      "val_macro_auprc": 0.160376,
+      "val_macro_auroc": 0.637638
+    },
+    {
+      "epoch": 3,
+      "train_loss": 1.260617,
+      "val_macro_auprc": 0.161258,
+      "val_macro_auroc": 0.63866
+    },
+    {
+      "epoch": 4,
+      "train_loss": 1.257952,
+      "val_macro_auprc": 0.163414,
+      "val_macro_auroc": 0.631907
+    },
+    {
+      "epoch": 5,
+      "train_loss": 1.254305,
+      "val_macro_auprc": 0.162829,
+      "val_macro_auroc": 0.638964
+    },
+    {
+      "epoch": 6,
+      "train_loss": 1.247871,
+      "val_macro_auprc": 0.164927,
+      "val_macro_auroc": 0.639876
+    },
+    {
+      "epoch": 7,
+      "train_loss": 1.246106,
+      "val_macro_auprc": 0.164547,
+      "val_macro_auroc": 0.639994
+    },
+    {
+      "epoch": 8,
+      "train_loss": 1.24324,
+      "val_macro_auprc": 0.165871,
+      "val_macro_auroc": 0.643755
+    },
+    {
+      "epoch": 9,
+      "train_loss": 1.239464,
+      "val_macro_auprc": 0.165738,
+      "val_macro_auroc": 0.638748
+    },
+    {
+      "epoch": 10,
+      "train_loss": 1.238169,
+      "val_macro_auprc": 0.166955,
+      "val_macro_auroc": 0.639722
+    },
+    {
+      "epoch": 11,
+      "train_loss": 1.233699,
+      "val_macro_auprc": 0.166289,
+      "val_macro_auroc": 0.642798
+    },
+    {
+      "epoch": 12,
+      "train_loss": 1.234561,
+      "val_macro_auprc": 0.167786,
+      "val_macro_auroc": 0.640124
+    },
+    {
+      "epoch": 13,
+      "train_loss": 1.231076,
+      "val_macro_auprc": 0.165875,
+      "val_macro_auroc": 0.639007
+    },
+    {
+      "epoch": 14,
+      "train_loss": 1.224708,
+      "val_macro_auprc": 0.165105,
+      "val_macro_auroc": 0.643142
+    },
+    {
+      "epoch": 15,
+      "train_loss": 1.223942,
+      "val_macro_auprc": 0.167958,
+      "val_macro_auroc": 0.643607
+    },
+    {
+      "epoch": 16,
+      "train_loss": 1.222722,
+      "val_macro_auprc": 0.167403,
+      "val_macro_auroc": 0.64442
+    },
+    {
+      "epoch": 17,
+      "train_loss": 1.217388,
+      "val_macro_auprc": 0.169165,
+      "val_macro_auroc": 0.646358
+    },
+    {
+      "epoch": 18,
+      "train_loss": 1.211098,
+      "val_macro_auprc": 0.166964,
+      "val_macro_auroc": 0.641046
+    },
+    {
+      "epoch": 19,
+      "train_loss": 1.20954,
+      "val_macro_auprc": 0.169869,
+      "val_macro_auroc": 0.64314
+    },
+    {
+      "epoch": 20,
+      "train_loss": 1.206382,
+      "val_macro_auprc": 0.169052,
+      "val_macro_auroc": 0.644926
+    },
+    {
+      "epoch": 21,
+      "train_loss": 1.199797,
+      "val_macro_auprc": 0.169211,
+      "val_macro_auroc": 0.645411
+    },
+    {
+      "epoch": 22,
+      "train_loss": 1.199886,
+      "val_macro_auprc": 0.168625,
+      "val_macro_auroc": 0.645454
+    },
+    {
+      "epoch": 23,
+      "train_loss": 1.193461,
+      "val_macro_auprc": 0.168192,
+      "val_macro_auroc": 0.640198
+    },
+    {
+      "epoch": 24,
+      "train_loss": 1.186681,
+      "val_macro_auprc": 0.167798,
+      "val_macro_auroc": 0.643652
+    },
+    {
+      "epoch": 25,
+      "train_loss": 1.178595,
+      "val_macro_auprc": 0.17112,
+      "val_macro_auroc": 0.647916
+    },
+    {
+      "epoch": 26,
+      "train_loss": 1.180522,
+      "val_macro_auprc": 0.169896,
+      "val_macro_auroc": 0.645208
+    },
+    {
+      "epoch": 27,
+      "train_loss": 1.174111,
+      "val_macro_auprc": 0.168609,
+      "val_macro_auroc": 0.647646
+    },
+    {
+      "epoch": 28,
+      "train_loss": 1.169053,
+      "val_macro_auprc": 0.171878,
+      "val_macro_auroc": 0.647288
+    },
+    {
+      "epoch": 29,
+      "train_loss": 1.160445,
+      "val_macro_auprc": 0.167853,
+      "val_macro_auroc": 0.645126
+    },
+    {
+      "epoch": 30,
+      "train_loss": 1.149661,
+      "val_macro_auprc": 0.166531,
+      "val_macro_auroc": 0.646071
+    },
+    {
+      "epoch": 31,
+      "train_loss": 1.14488,
+      "val_macro_auprc": 0.165142,
+      "val_macro_auroc": 0.648384
+    },
+    {
+      "epoch": 32,
+      "train_loss": 1.137847,
+      "val_macro_auprc": 0.167578,
+      "val_macro_auroc": 0.645361
+    },
+    {
+      "epoch": 33,
+      "train_loss": 1.132566,
+      "val_macro_auprc": 0.168667,
+      "val_macro_auroc": 0.648302
+    },
+    {
+      "epoch": 34,
+      "train_loss": 1.124546,
+      "val_macro_auprc": 0.164289,
+      "val_macro_auroc": 0.643203
+    },
+    {
+      "epoch": 35,
+      "train_loss": 1.117723,
+      "val_macro_auprc": 0.171606,
+      "val_macro_auroc": 0.64327
+    },
+    {
+      "epoch": 36,
+      "train_loss": 1.106427,
+      "val_macro_auprc": 0.166425,
+      "val_macro_auroc": 0.643571
+    },
+    {
+      "epoch": 37,
+      "train_loss": 1.104352,
+      "val_macro_auprc": 0.166948,
+      "val_macro_auroc": 0.641559
+    },
+    {
+      "epoch": 38,
+      "train_loss": 1.091641,
+      "val_macro_auprc": 0.166429,
+      "val_macro_auroc": 0.635101
+    }
+  ],
+  "gate_status": {
+    "status": "GATE_CLEARED",
+    "training": "AUTHORIZED",
+    "human_pipeline_signoff": "C:\\Users\\reshw\\Desktop\\GNN_PCNA\\reports\\phase3\\first_training_signoff_20260528.md"
+  },
+  "governance": {
+    "signoff_record": "reports/phase3/first_training_signoff_20260528.md",
+    "decision_id": "phase3_first_training_signoff_20260528",
+    "split_manifest_hash_prefix": "24dd5e347d880108",
+    "no_test_set_evaluation": true,
+    "no_scientific_claims": true
+  }
+}

@@ -1,0 +1,29 @@
+{
+  "schema_version": "phase2_bulk_download_approvals_v0",
+  "created_at": "2026-05-27",
+  "created_by": "user-approved Codex workflow",
+  "status": "active",
+  "approvals": [
+    {
+      "approval_id": "BULK-CRYPTOBENCH-CIF-FILES-2026-05-27",
+      "source_name": "cryptobench",
+      "target": "osf_file_672a0171eae0bff252ba9ea3_cif-files.zip",
+      "url": "https://osf.io/download/c5vp8/",
+      "official_url": "https://osf.io/pz4a9/files/osfstorage/672a0171eae0bff252ba9ea3",
+      "estimated_size_bytes": 1145203712,
+      "license_status": "LICENSE_KNOWN",
+      "license_evidence_path": "data/raw_intake/cryptobench/metadata/osf_license_563c1cf88c5e4a3877f9e972.json",
+      "reason_needed": "Official CryptoBench CIF archive likely needed for structure/schema/label/graph feasibility audits.",
+      "decision": "approved",
+      "decision_date": "2026-05-27",
+      "reviewer": "user",
+      "limitations": [
+        "Download only this official cif-files.zip URL.",
+        "Keep quarantined under data/raw_intake/cryptobench/.",
+        "Do not unzip into canonical graph/data folders.",
+        "Do not train, generate graphs, or freeze splits/labels.",
+        "Keep status raw_unverified and not_adopted."
+      ]
+    }
+  ]
+}

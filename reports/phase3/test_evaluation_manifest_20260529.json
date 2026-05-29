@@ -1,0 +1,41 @@
+{
+  "artifact_type": "phase3_test_evaluation",
+  "date": "2026-05-29",
+  "status": "FINAL_ONE_SHOT",
+  "gate4_record": "C:\\Users\\reshw\\Desktop\\GNN_PCNA\\reports\\phase3\\model_freeze_gate4_20260529.md",
+  "gate4_decision_id": "phase3_model_freeze_20260529",
+  "frozen_checkpoint": "C:\\Users\\reshw\\Desktop\\GNN_PCNA\\checkpoints\\phase3\\spatial_only_fold1_seed1_best.pt",
+  "architecture": "GraphSAGE-3L, spatial edges only (edge_type==0)",
+  "n_test_structures": 214,
+  "elapsed_seconds": 0.27,
+  "device": "cuda",
+  "metrics": {
+    "macro_auprc": 0.20335904462320747,
+    "micro_auprc": 0.09730786797266211,
+    "macro_auroc": 0.6902133729865434,
+    "micro_auroc": 0.6832092540326928,
+    "n_proteins": 214,
+    "n_proteins_with_valid_auprc": 177,
+    "macro_top_5_recovery": 0.07260568875370546,
+    "macro_precision_at_5": 0.20093457943925233,
+    "macro_top_10_recovery": 0.12204199148009442,
+    "macro_precision_at_10": 0.17710280373831777,
+    "macro_top_20_recovery": 0.21794582311043764,
+    "macro_precision_at_20": 0.15233644859813084
+  },
+  "bootstrap_ci": {
+    "macro_auprc_ci_lo": 0.182465,
+    "macro_auprc_ci_hi": 0.227506,
+    "macro_auroc_ci_lo": 0.665157,
+    "macro_auroc_ci_hi": 0.714327,
+    "n_bootstrap": 1000,
+    "alpha": 0.95
+  },
+  "governance": {
+    "evaluation_protocol": "docs/scientific_governance/09_EVALUATION_PROTOCOL.md",
+    "split_manifest_hash_prefix": "24dd5e347d880108",
+    "no_test_rerun": true,
+    "lock_file": "C:\\Users\\reshw\\Desktop\\GNN_PCNA\\reports\\phase3\\.test_evaluation_lock",
+    "no_scientific_claims": true
+  }
+}

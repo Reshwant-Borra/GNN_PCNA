@@ -1,0 +1,11 @@
+
+Baseline runner — GATE 3 record: C:\Users\reshw\Desktop\GNN_PCNA\reports\phase3\baseline_gate3_authorization_20260529.md
+
+[running] random baseline ...
+  [done] random  macro_auprc_mean=0.0861
+[skip] degree — manifest exists
+[skip] fpocket — manifest exists
+[skip] p2rank — manifest exists
+[skip] pocketminer — manifest exists
+
+All baselines complete. Total elapsed: 53.5 min

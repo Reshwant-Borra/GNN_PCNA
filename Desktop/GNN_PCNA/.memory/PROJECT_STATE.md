@@ -1,6 +1,6 @@
 ---
 updated: 2026-05-29
-updated_by: claude-sonnet-4-6 (phase3-baselines-in-progress)
+updated_by: claude-sonnet-4-6 (phase3-baselines-complete)
 ---
 
 # Project State - GNN-PCNA
@@ -17,12 +17,12 @@ treat this file as potentially stale. Reconstruct current state from
 
 ## Phase
 
-**Phase 3 — BASELINES IN PROGRESS. GATE 3 CLEARED.**
+**Phase 3 — BASELINES COMPLETE. GATE 4 AWAITING HUMAN DECISION.**
 
 | System | Status |
 |---|---|
 | Training | **FIRST TRAINING COMPLETE**. 12/12 runs (4 folds × 3 seeds). Overall val macro-AUPRC: **0.1876 ± 0.0113**. No test-set evaluation yet. |
-| Baselines | **IN PROGRESS** (GATE 3 cleared 2026-05-28). Random + degree complete; GCN-1L, GAT-2L, SAGE-ablations training (background). External tools: stubs written. |
+| Baselines | **COMPLETE** (GATE 3 cleared 2026-05-29). All GNN baselines done: random=0.0861, degree=0.0813, GCN-1L=0.1601, GAT-2L=0.1739, sage_no_spatial=0.1556, sage_no_sequential=0.1897. External tools: stubs written (not installed). Report: `reports/phase3/baseline_comparison_report_20260529.md`. |
 | Graph generation | **FIRST GRAPH RELEASE APPROVED**. 1,101 graphs, 0 failures. Approval: `reports/phase3/first_graph_release_approval_20260528.md`. |
 | Molecular dynamics | BLOCKED (Phase 3+ scope) |
 | Scientific claims | BLOCKED (baselines not fully complete, test set not evaluated, claim gates not cleared) |
@@ -80,8 +80,8 @@ No Phase 2 blockers remain.
 Phase 3 stop gates:
 - **GATE 1 — CLEARED.** First graph release approved: `reports/phase3/first_graph_release_approval_20260528.md`.
 - **GATE 2 — CLEARED.** First training sign-off: `reports/phase3/first_training_signoff_20260528.md`.
-- **GATE 3 — CLEARED.** Baseline runs authorized by Reshwant on 2026-05-28 after reviewing first training results (0.1876 ± 0.0113 overall val macro-AUPRC). Friend may proceed with baseline implementation.
-- **GATE 4 — BLOCKED.** Model freeze (best fold/seed checkpoint selection) requires human decision after baselines complete.
+- **GATE 3 — CLEARED.** Baseline runs authorized by Reshwant on 2026-05-28 after reviewing first training results (0.1876 ± 0.0113 overall val macro-AUPRC). All baselines complete 2026-05-29.
+- **GATE 4 — AWAITING HUMAN DECISION.** Baseline comparison report ready: `reports/phase3/baseline_comparison_report_20260529.md`. Recommended checkpoint: `checkpoints/phase3/fold1_seed2_best.pt` (val 0.2042). CRITICAL FLAG: sage_no_sequential (spatial-only, 0.1897 ± 0.0089) marginally exceeds full SAGE-3L (0.1876 ± 0.0113) — Δ=+0.0021, within 1 SD. Sequential edges may not contribute; Reshwant should review.
 - **GATE 5 — BLOCKED.** Test-set evaluation requires explicit human gate after model + baselines frozen.
 - **GATE 6 — BLOCKED.** PCNA inference requires separate human PCNA gate.
 - **PCNA cluster `cluster_id_30=1168` is holdout-only.** No PCNA/PCNA-cluster structure may enter train or validation.
@@ -104,17 +104,13 @@ Use policy:
 
 ## Next Tasks
 
-1. **[AGENT — IN PROGRESS] GNN baselines training.** GCN-1L, GAT-2L, SAGE-no-spatial, SAGE-no-sequential — 4 folds × 3 seeds each, running in background. When complete, regenerate report: `python scripts/generate_baseline_report.py`. Manifests land in `reports/phase3/baseline_runs/`.
+1. **[HUMAN — GATE 4] Freeze model.** Review `reports/phase3/baseline_comparison_report_20260529.md`. Pick best fold × seed checkpoint. Recommended: fold=1, seed=2 (val macro-AUPRC 0.2042). CRITICAL: sage_no_sequential (spatial-only) scores 0.1897 ± 0.0089 vs full SAGE 0.1876 ± 0.0113 — sequential edges appear non-contributory. Consider whether to investigate further before freezing or proceed to test evaluation.
 
-2. **[AGENT — when GNN baselines complete] Generate final baseline comparison report.** `python scripts/generate_baseline_report.py` → `reports/phase3/baseline_comparison_report_20260529.md`. Commit and push.
+2. **[HUMAN — GATE 5] Authorize test-set evaluation.** Run once only, no second runs. Requires GATE 4 first.
 
-3. **[HUMAN — GATE 4] Freeze model.** Review `reports/phase3/baseline_comparison_report_20260529.md`. Pick best fold × seed checkpoint. Recommended: fold=1, seed=2 (val macro-AUPRC 0.2042) pending baseline comparison. See report Section 5.
+3. **[HUMAN — GATE 6] PCNA inference gate.** Separate decision required before any PCNA prediction is made or interpreted.
 
-4. **[HUMAN — GATE 5] Authorize test-set evaluation.** Run once only, no second runs.
-
-5. **[HUMAN — GATE 6] PCNA inference gate.** Separate decision required before any PCNA prediction is made or interpreted.
-
-6. **[OPTIONAL — before GATE 4] Install external baselines.** fpocket, P2Rank, PocketMiner stubs in `reports/phase3/baseline_runs/`. Scripts to be created after tool installation. Not blocking GATE 4 but desirable per doc 10.
+4. **[OPTIONAL — before GATE 4 or GATE 5] Install external baselines.** fpocket, P2Rank, PocketMiner stubs in `reports/phase3/baseline_runs/`. Not blocking GATE 4 but desirable per governance doc 10 before superiority claims.
 
 ---
 
@@ -146,11 +142,13 @@ Use policy:
 
 ## Last Session Summary
 
-Session 2026-05-28 (claude-sonnet-4-6): GATE 2 cleared and first training complete.
-Recorded human sign-off `reports/phase3/first_training_signoff_20260528.md`; conditionalized
-`gates.py` to pass when signoff file present. Ran all 12 training runs (4 folds × 3 seeds)
-via `scripts/run_all_training.py`. All completed via early stopping (epochs 26–38), no errors.
-Results: overall val macro-AUPRC **0.1876 ± 0.0113**, fold means 0.1730/0.2035/0.1872/0.1866,
-best single run fold=1 seed=2 → 0.2042. 12 checkpoints in `checkpoints/phase3/`.
-Full report: `reports/phase3/first_training_results_20260528.md`. No test-set evaluation.
-No scientific claims. Next: human reviews training results → authorize baselines (GATE 3).
+Session 2026-05-29 (claude-sonnet-4-6): All GNN baselines complete. Implemented baseline
+framework (`src/baselines/`), ran all 5 required GNN baselines (4 folds × 3 seeds each) after
+GATE 3 human authorization. Results: random=0.0861 ± 0.0011, degree=0.0813, GCN-1L=0.1601 ±
+0.0089, GAT-2L=0.1739 ± 0.0090, sage_no_spatial=0.1556 ± 0.0114, sage_no_sequential=0.1897 ±
+0.0089. GraphSAGE-3L (full model): 0.1876 ± 0.0113. Critical finding: sage_no_sequential
+(spatial-only edges) marginally exceeds full SAGE (Δ=+0.0021, within 1 SD) — sequential edges
+appear non-contributory. Baseline comparison report generated:
+`reports/phase3/baseline_comparison_report_20260529.md`. All results committed and pushed.
+Recommended freeze checkpoint: `checkpoints/phase3/fold1_seed2_best.pt` (val 0.2042).
+Awaiting GATE 4 human model-freeze decision. Test set untouched. No scientific claims.

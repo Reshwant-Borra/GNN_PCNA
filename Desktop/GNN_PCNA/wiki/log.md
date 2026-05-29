@@ -481,3 +481,27 @@ Append-only record of maintained wiki operations and durable project decisions.
   - **GNN baseline training in progress** (background, ~2-3 hours CPU). Manifests written to `reports/phase3/baseline_runs/`. Run `python scripts/generate_baseline_report.py` after training completes.
   - **Model freeze recommendation (GATE 4 input, provisional):** Best single run = fold=1 seed=2 (val macro-AUPRC 0.2042). Pending final baseline comparison from `reports/phase3/baseline_comparison_report_20260529.md`. Human decision required before freeze.
   - No test-set evaluation. No scientific claims.
+
+## 2026-05-29 - All Phase 3 GNN Baselines Complete — GATE 4 Input Ready
+
+- Source paths: `reports/phase3/baseline_runs/*_manifest.json` (all 6 complete), `reports/phase3/baseline_comparison_report_20260529.md`
+- Scripts: `scripts/run_baselines.py`, `scripts/generate_baseline_report.py`
+- Governance: `docs/scientific_governance/09_EVALUATION_PROTOCOL.md`, `10_BASELINE_REQUIREMENTS.md`, `14_CLAIM_POLICY.md`
+- Gate: GATE 3 cleared; GATE 4 awaiting human decision
+- Confidence: high. Evidence status: all manifests written with per-run validation macro-AUPRC; no test-set access.
+- Decisions / durable findings:
+  - **All required GNN baselines complete** (4 folds × 3 seeds each, validation only):
+    - random: macro_auprc_mean = 0.0861 ± 0.0011 (3 seeds, 887 val structures)
+    - degree/structural: macro_auprc = 0.0813 (no training, spatial-degree proxy)
+    - GCN-1L: macro_auprc = 0.1601 ± 0.0089
+    - GAT-2L: macro_auprc = 0.1739 ± 0.0090
+    - SAGE-3L no spatial (sequential-only edges): macro_auprc = 0.1556 ± 0.0114
+    - SAGE-3L no sequential (spatial-only edges): macro_auprc = 0.1897 ± 0.0089
+    - GraphSAGE-3L (full model, primary): macro_auprc = 0.1876 ± 0.0113
+  - **SAGE > random by +0.1015; SAGE > degree by +0.1062; SAGE > GCN-1L by +0.0275; SAGE > GAT-2L by +0.0137.**
+  - **CRITICAL — sage_no_sequential (spatial-only) marginally exceeds full SAGE: Δ = +0.0021** (within 1 SD of both). Sequential edges appear non-contributory or slightly harmful. Spatial edges alone (8 Å CA-CA) carry most predictive signal. This is biologically interpretable: residue proximity in 3D space determines cryptic pocket geometry better than backbone connectivity.
+  - **sage_no_spatial (sequential-only) clearly worse: Δ = −0.0319.** Spatial edges are load-bearing; sequential edges alone are insufficient.
+  - External baselines (fpocket, P2Rank, PocketMiner): stubs written; tools not installed on this system.
+  - Baseline comparison report written: `reports/phase3/baseline_comparison_report_20260529.md`.
+  - Recommended GATE 4 checkpoint: `checkpoints/phase3/fold1_seed2_best.pt` (val macro-AUPRC 0.2042). Fold-1 is consistently the strongest fold across all 3 seeds (mean 0.2035).
+  - No test-set evaluation. No scientific claims. No PCNA inference.

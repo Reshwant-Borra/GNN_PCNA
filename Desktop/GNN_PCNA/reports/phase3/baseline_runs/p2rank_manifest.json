@@ -1,0 +1,8 @@
+{
+  "baseline_name": "p2rank",
+  "status": "NOT_RUN",
+  "reason": "P2Rank requires Java and the P2Rank distribution (not available on this system).",
+  "installation_note": "Download from https://github.com/rdk/p2rank/releases. Run prank predict on each structure, align predictions to residues, compute metrics.",
+  "script": "scripts/run_p2rank.py (to be created after installation)",
+  "governance": "docs/scientific_governance/10_BASELINE_REQUIREMENTS.md"
+}

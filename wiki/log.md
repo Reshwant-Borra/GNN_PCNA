@@ -523,3 +523,34 @@ Append-only record of maintained wiki operations and durable project decisions.
 **Record:** eports/phase3/test_evaluation_20260529.md, eports/phase3/test_evaluation_manifest_20260529.json.
 **Lock:** eports/phase3/.test_evaluation_lock — prevents re-run.
 **Evidence status:** computational, held-out test evaluation (FINAL).
+
+## 2026-05-29 — Phase 4 interpretation finalized: tier reclassification + GATE 7 draft
+
+**Decision:** Reclassified Phase 4 candidate prioritization. Original Tier 1 incorrectly
+grouped trimer-interface candidates (170-174, 175-179, 152-156, 110-114, 145-149,
+140-144, 180-184, 185-189) alongside no-overlap novel candidates. Corrected schema:
+- Tier 1A (15 regions): no known interface overlap — genuinely novel candidate regions
+- Tier 1B (8 regions): trimer-interface overlap — mechanistically distinct; deferred to MD Wave 2
+- Tier 2 (1 region): IDCL/PIP-box adjacent — interface-adjacent control
+- Tier 3 (6 regions): AOH1996 positive control — sanity check only
+No scores, residue ranges, or ranking values changed.
+
+**Decision:** Tier 1B (170-174 max 0.9233, 175-179 max 0.8892, 152-156 max 0.8761)
+deferred to MD Wave 2 — NOT excluded. Standard 100 ns apo trimer MD cannot sample
+ring-opening events at the buried subunit interface. Enhanced sampling required.
+
+**Decision:** GATE 7 MD Wave 1 recommended targets:
+- Positive control: 118-122 (AOH1996/IDCL, required sanity check)
+- Tier 1A top-3: 239-243, 28-32, 206-210 (no interface overlap, max 0.85-0.81)
+- Interface-adjacent control: 134-138 (distal IDCL, for comparison to positive control)
+All Wave 1: apo PCNA trimer, AMBER ff19SB, TIP3P, >=3 x 100 ns replicates.
+Primary PDB: 1AXC (Gulbis 1996, ~1.35 A, PMID 8861913).
+
+**Artifacts:** reports/phase4/phase4_candidate_prioritization_20260529.md (reclassified),
+reports/phase4/gate7_md_decision_draft_20260529.md (GATE 7 decision package with
+per-candidate pre-registrations, target selection rationale, PDB mapping table,
+governance compliance checklist).
+**Governance:** docs/scientific_governance/13_MD_VALIDATION_RULES.md, 14_CLAIM_POLICY.md,
+12_PCNA_SPECIFIC_CHECKS.md.
+**Evidence status:** computational interpretation only. No MD run. No therapeutic claims.
+**Next gate:** GATE 7 — human decision required before any MD simulation begins.

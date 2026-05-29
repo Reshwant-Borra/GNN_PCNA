@@ -14,7 +14,7 @@ governance:
   - docs/scientific_governance/26_HUMAN_REVIEW_GATES.md
 ---
 
-# GATE 4 — Model Freeze Decision (DRAFT v2)
+# GATE 4 — Model Freeze Decision
 
 > **GATE 4 APPROVED by Reshwant, 2026-05-29.**
 > Frozen checkpoint: `checkpoints/phase3/spatial_only_fold1_seed1_best.pt`

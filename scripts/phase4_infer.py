@@ -532,17 +532,21 @@ def _write_candidate_prioritization(
         "",
         "## Priority tiers",
         "",
-        "**Tier 1 (Primary MD targets):** High max-score regions that do NOT overlap",
-        "known PIP-box / IDCL / AOH1996 contact region — potential novel surface regions.",
+        "**Tier 1 (No-interface-overlap candidates):** High max-score regions with no",
+        "overlap with any known PCNA interface (PIP-box, IDCL, APIM, trimer interface,",
+        "AOH1996 contact region). Computationally predicted surface regions with no known",
+        "functional annotation. Not validated sites.",
         "",
-        "**Tier 2 (Interface-adjacent):** High max-score regions overlapping known",
-        "interfaces — useful for positive-control MD validation.",
+        "**Tier 2 (Interface-overlap regions):** High max-score regions overlapping a known",
+        "PCNA interface (trimer interface, IDCL, PIP-box, or APIM — excluding AOH1996",
+        "positive-control). Not novel-site candidates; useful as interface-aware controls.",
         "",
-        "**Tier 3 (Positive control):** 8GLA-region recovery for model sanity check.",
+        "**Tier 3 (Positive control):** Regions overlapping the AOH1996 contact region",
+        "in 8GLA. Recovery is a sanity check only (governance doc 12).",
         "",
     ]
 
-    known_ifaces = {"pip_box_binding_site", "apim_site", "idcl", "aoh1996_contact_region"}
+    known_ifaces = {"pip_box_binding_site", "apim_site", "idcl", "aoh1996_contact_region", "trimer_interface"}
     positive_control_iface = "aoh1996_contact_region"
 
     tier1, tier2, tier3 = [], [], []
@@ -581,8 +585,8 @@ def _write_candidate_prioritization(
             )
         lines.append("")
 
-    _write_tier("Tier 1 — Potential novel surface regions", tier1)
-    _write_tier("Tier 2 — Interface-adjacent regions", tier2)
+    _write_tier("Tier 1 — No-interface-overlap candidates", tier1)
+    _write_tier("Tier 2 — Interface-overlap regions", tier2)
     _write_tier("Tier 3 — Positive control", tier3)
 
     lines += [

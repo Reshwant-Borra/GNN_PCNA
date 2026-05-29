@@ -1,6 +1,6 @@
 ---
 updated: 2026-05-29
-updated_by: claude-sonnet-4-6 (phase4-inference-complete)
+updated_by: claude-sonnet-4-6 (phase4-finalization-gate7-draft)
 ---
 
 # Project State - GNN-PCNA
@@ -85,7 +85,7 @@ Phase 3 stop gates:
 - **GATE 4 — CLEARED.** Model frozen 2026-05-29. Checkpoint: `checkpoints/phase3/spatial_only_fold1_seed1_best.pt`. Record: `reports/phase3/model_freeze_gate4_20260529.md`.
 - **GATE 5 — CLEARED.** Test evaluation complete 2026-05-29. Macro-AUPRC: **0.2034** [0.1825, 0.2275]. Report: `reports/phase3/test_evaluation_20260529.md`. Test set one-shot used — cannot be re-run.
 - **GATE 6 — CLEARED.** PCNA inference complete 2026-05-29. 103/103 structures OK (RTX 4070, 62s). Positive control sanity check passed (IDCL/AOH1996 region ranks #1, score=0.93). Authorization: `reports/phase4/gate6_authorization_20260529.md`. All 5 governance artifacts written to `reports/phase4/`.
-- **GATE 7 — BLOCKED.** Phase 5 MD validation requires separate human decision. Candidate list: `reports/phase4/phase4_candidate_prioritization_20260529.md`. 23 Tier-1 candidates (novel surface), 1 Tier-2 (IDCL-adjacent), 6 Tier-3 (positive control). Governance: docs/scientific_governance/13_MD_VALIDATION_RULES.md.
+- **GATE 7 — BLOCKED.** Phase 5 MD validation requires separate human decision. GATE 7 decision package drafted: `reports/phase4/gate7_md_decision_draft_20260529.md`. Wave 1 targets: positive control (118-122), Tier 1A top-3 (239-243, 28-32, 206-210), interface-adjacent control (134-138). Tier 1B (170-174, 175-179, 152-156) deferred to Wave 2 (enhanced sampling required). Governance: docs/scientific_governance/13_MD_VALIDATION_RULES.md. Candidate list reclassified: `reports/phase4/phase4_candidate_prioritization_20260529.md` (Tier 1A/1B/2/3).
 - **PCNA cluster `cluster_id_30=1168` is holdout-only.** No PCNA/PCNA-cluster structure may enter train or validation.
 
 ---
@@ -106,7 +106,7 @@ Use policy:
 
 ## Next Tasks
 
-1. **[HUMAN — GATE 7] Phase 5 MD validation gate.** Separate human decision required before any MD sampling. Read `docs/scientific_governance/13_MD_VALIDATION_RULES.md`. Candidate list: `reports/phase4/phase4_candidate_prioritization_20260529.md`. Top Tier-1 targets: 239-243, 28-32, 206-210, 157-161, 49-53 (no interface overlap). Top Tier-3 (positive control): 118-122 (IDCL/AOH1996, score=0.93).
+1. **[HUMAN — GATE 7] Phase 5 MD validation gate.** GATE 7 decision package ready for human review: `reports/phase4/gate7_md_decision_draft_20260529.md`. Human must review and record authorization in `reports/phase4/gate7_authorization_YYYYMMDD.md` before any MD simulation setup. Wave 1 targets defined (5 candidates). Wave 2 (Tier 1B) requires separate decision after Wave 1.
 
 2. **[RECOMMENDED] Install external baselines.** fpocket, P2Rank, PocketMiner stubs in `reports/phase3/baseline_runs/`. Required per doc 10 before any superiority claims over state-of-the-art tools. Run on the frozen test split (hash: 24dd5e347d880108) with the same label definition.
 
@@ -144,7 +144,8 @@ Use policy:
 | `reports/phase4/phase4_candidate_report_20260529.md` | Ranked candidate regions (human PCNA) |
 | `reports/phase4/phase4_pcna_audit_20260529.md` | PCNA-specific governance audit |
 | `reports/phase4/phase4_interface_overlap_20260529.md` | Interface overlap analysis |
-| `reports/phase4/phase4_candidate_prioritization_20260529.md` | Tier 1/2/3 MD candidate list |
+| `reports/phase4/phase4_candidate_prioritization_20260529.md` | Tier 1A/1B/2/3 MD candidate list (reclassified 2026-05-29) |
+| `reports/phase4/gate7_md_decision_draft_20260529.md` | GATE 7 MD decision package — awaits human authorization |
 | `src/phase4_inference/` | Phase 4 inference package (chain_selector, graph_builder, interface_audit, cif_utils) |
 | `scripts/phase4_infer.py` | Main Phase 4 inference script |
 
@@ -152,12 +153,14 @@ Use policy:
 
 ## Last Session Summary
 
-Session 2026-05-29 (claude-sonnet-4-6, GATE 6 + Phase 4 inference): Reshwant approved GATE 6.
-Phase 4 inference pipeline implemented: `src/phase4_inference/` (cif_utils, chain_selector,
-graph_builder, interface_audit) + `scripts/phase4_infer.py`. Ran all 103 structures on RTX 4070
-in 62s — 103/103 OK. Positive control sanity check PASSED: IDCL/AOH1996 region (residues 118-122)
-ranks #1 with max_score=0.93 across human PCNA structures. All 5 required governance artifacts
-written to `reports/phase4/`. Tier-1 (novel) candidates identified: 239-243, 28-32, 206-210,
-157-161, 49-53 (no interface overlap). GATE 7 (MD validation) now gated on human decision.
-Chain selection: entity description match worked for all human PCNA; Part 2C uses all-chains.
-No MD, no therapeutic claims, no novel-site claims made.
+Session 2026-05-29 (claude-sonnet-4-6, Phase 4 finalization + GATE 7 draft): Finalized Phase 4
+interpretation artifacts. (1) Reclassified the candidate prioritization report: original Tier 1
+incorrectly grouped trimer-interface candidates with no-overlap novel candidates. Corrected to
+Tier 1A (15 novel, no interface), Tier 1B (8 trimer-interface, deferred Wave 2), Tier 2 (1
+IDCL-adjacent), Tier 3 (6 positive control). No scores or residue ranges changed. (2) Drafted
+full GATE 7 MD Validation Decision Package at `reports/phase4/gate7_md_decision_draft_20260529.md`:
+per-candidate pre-registrations (doc-13 compliant), explicit Tier 1B include/exclude justification,
+MD target selection rationale, candidate-to-PDB mapping table, governance compliance checklist.
+Tier 1B (170-174 at 0.92, highest-scoring non-positive-control) explicitly deferred to Wave 2 —
+not excluded. Wave 1: 5 candidates (118-122 positive control, 239-243/28-32/206-210 Tier 1A,
+134-138 Tier 2 control). Primary PDB: 1AXC. GATE 7 awaits human decision.

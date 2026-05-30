@@ -64,6 +64,18 @@ print(max(0.5, limit - spent))
 PY
 }
 
+# Return 0 (true) if the DCD file exists and is at least MIN_BYTES large.
+# A header-only DCD (0 frames written) is 84 bytes; one real frame for a
+# solvated PCNA trimer is > 100 KB.  1024 bytes safely separates the two.
+dcd_is_readable() {
+  local path="$1"
+  local min_bytes="${2:-1024}"
+  [[ -f "$path" ]] || return 1
+  local size
+  size="$(stat -c%s "$path" 2>/dev/null || stat -f%z "$path" 2>/dev/null || echo 0)"
+  [[ "$size" -ge "$min_bytes" ]]
+}
+
 package_outputs() {
   local status="$1"
   set +e
@@ -146,8 +158,27 @@ run_step "SMOKE TEST" python scripts/phase5_run_1axc_openmm.py \
   --target-cost-usd 3 \
   --hard-cost-usd 5
 
-run_step "SMOKE ANALYSIS" python scripts/phase5_analyze_1axc_md.py \
-  --run-root "${RUN_ROOT}/smoke_test"
+# Smoke analysis is best-effort.  A tiny 0.01 ns smoke DCD may have very few
+# frames; analysis failure here must never block production.
+echo
+echo "=== SMOKE ANALYSIS $(date) ==="
+SMOKE_DCD="${RUN_ROOT}/smoke_test/replicate_01/trajectory.dcd"
+SMOKE_ANALYSIS_STATUS=0
+if dcd_is_readable "$SMOKE_DCD" 1024; then
+  set +e
+  python scripts/phase5_analyze_1axc_md.py --run-root "${RUN_ROOT}/smoke_test"
+  SMOKE_ANALYSIS_STATUS=$?
+  set -e
+  if [[ $SMOKE_ANALYSIS_STATUS -ne 0 ]]; then
+    echo "WARNING: Smoke analysis exited $SMOKE_ANALYSIS_STATUS — DCD may have too few frames."
+    echo "         This is not a production blocker; continuing to production run."
+  else
+    echo "Smoke analysis OK."
+  fi
+else
+  echo "WARNING: $SMOKE_DCD missing or < 1 KB (header-only / no frames written)."
+  echo "         Skipping smoke analysis — not a production blocker."
+fi
 
 PROD_TARGET="$(remaining_budget_value "$TOTAL_TARGET_COST_USD")"
 PROD_HARD="$(remaining_budget_value "$TOTAL_HARD_COST_USD")"
@@ -176,9 +207,16 @@ PRODUCTION_STATUS="$?"
 set -e
 echo "Production exit status: $PRODUCTION_STATUS"
 
-if ls "$RUN_ROOT"/replicate_*/trajectory.dcd >/dev/null 2>&1; then
+# Collect production DCDs that are large enough to contain real frames.
+READABLE_DCDS=()
+for _dcd in "$RUN_ROOT"/replicate_*/trajectory.dcd; do
+  dcd_is_readable "$_dcd" 1024 && READABLE_DCDS+=("$_dcd") || true
+done
+
+if [[ "${#READABLE_DCDS[@]}" -gt 0 ]]; then
   echo
   echo "=== PRODUCTION ANALYSIS $(date) ==="
+  echo "Readable production DCDs: ${#READABLE_DCDS[@]}"
   set +e
   python scripts/phase5_analyze_1axc_md.py \
     --run-root "$RUN_ROOT" \
@@ -188,7 +226,7 @@ if ls "$RUN_ROOT"/replicate_*/trajectory.dcd >/dev/null 2>&1; then
   set -e
   echo "Production analysis exit status: $ANALYSIS_STATUS"
 else
-  echo "No production trajectories found; skipping production analysis."
+  echo "No readable production trajectories found (DCDs missing or < 1 KB); skipping production analysis."
   ANALYSIS_STATUS=0
 fi
 

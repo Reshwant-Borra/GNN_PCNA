@@ -230,6 +230,20 @@ def steps_from_ps(ps_value: float) -> int:
     return max(1, int(round(ps_value / PS_PER_STEP)))
 
 
+def _close_reporters(simulation) -> None:
+    """Flush and close all reporter file handles so the DCD is fully written on disk."""
+    for reporter in simulation.reporters:
+        # DCDReporter stores an MDTraj DCDTrajectoryFile in _traj_file (opened lazily)
+        for attr in ("_traj_file", "_out", "_fp"):
+            handle = getattr(reporter, attr, None)
+            if handle is not None and hasattr(handle, "close"):
+                try:
+                    handle.close()
+                except Exception:
+                    pass
+    simulation.reporters.clear()
+
+
 def run_replicate(
     args: argparse.Namespace,
     deps: dict[str, object],
@@ -366,6 +380,9 @@ def run_replicate(
         with checkpoint.open("wb") as handle:
             handle.write(simulation.context.createCheckpoint())
 
+    # Flush and close all reporter file handles before reading back the DCD.
+    _close_reporters(simulation)
+
     state = simulation.context.getState(getPositions=True)
     with final_pdb.open("w", encoding="utf-8") as handle:
         deps["PDBFile"].writeFile(simulation.topology, state.getPositions(), handle, keepIds=True)
@@ -391,6 +408,14 @@ def main() -> None:
         args.replicates = 1
         args.production_ns = 0.01
         args.output_root = args.output_root / "smoke_test"
+        # 0.01 ns = 10 ps of production; default trajectory_ps=100 would write 0 frames.
+        # Override to 1 ps → one frame every 500 steps → ~10 frames total.
+        args.trajectory_ps = 1.0
+        args.report_ps = 1.0
+        args.checkpoint_ps = 5.0
+        # Shorter equilibration so smoke finishes in < 2 min on GPU.
+        args.nvt_ps = 10.0
+        args.npt_ps = 20.0
 
     if len(args.seeds) < args.replicates:
         raise SystemExit("--seeds must provide at least one seed per replicate")

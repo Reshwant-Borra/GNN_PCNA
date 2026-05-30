@@ -201,6 +201,41 @@ python scripts/phase5_analyze_1axc_md.py \
   --run-root outputs/phase5_md/time_crunch_1axc_25ns/smoke_test
 ```
 
+### Unattended one-shot command
+
+If you cannot return to the terminal during the RunPod session, use the one-shot script
+instead of manually running smoke, production, analysis, and packaging commands. It does
+not install or upgrade OpenMM; it uses the already-created `phase5-md` environment.
+
+After pulling this branch on the cloud instance:
+
+```bash
+cd /workspace/GNN_PCNA
+git pull
+bash scripts/phase5_runpod_one_shot.sh
+```
+
+The one-shot script will:
+
+1. activate `phase5-md`;
+2. log `nvidia-smi`, OpenMM CUDA validation, smoke test, smoke analysis, production,
+   production analysis, and file summaries;
+3. dynamically reduce the production cost cap by the amount of budget already spent
+   during checks and smoke testing;
+4. package outputs and logs even if the run fails or stops on a budget guard.
+
+Main outputs:
+
+- log: `outputs/phase5_md/logs/one_shot_<timestamp>.log`
+- package: `outputs/phase5_md/packages/phase5_time_crunch_1axc_25ns_<timestamp>_status<code>.tgz`
+
+Optional overrides:
+
+```bash
+HOURLY_COST_USD=5.89 TOTAL_TARGET_COST_USD=27 TOTAL_HARD_COST_USD=30 \
+  bash scripts/phase5_runpod_one_shot.sh
+```
+
 ---
 
 ## MD Execution Plan

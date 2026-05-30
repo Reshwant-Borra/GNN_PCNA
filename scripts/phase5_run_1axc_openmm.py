@@ -182,7 +182,7 @@ def write_manifest(args: argparse.Namespace, prepared_pdb: Path, deps: dict[str,
 - Input structure: `{prepared_pdb}`
 - Input structure SHA256: `{sha256(prepared_pdb)}`
 - System: 1AXC PCNA trimer, p21 chains removed, apo-from-p21
-- Force field: OpenMM `amber19-all.xml` protein parameters, `amber14/tip3p.xml` water
+- Force field: OpenMM `amber14-all.xml` protein parameters, `amber14/tip3p.xml` water
 - Water/ions: TIP3P, neutralized, 0.15 M ionic strength
 - Temperature: {args.temperature_k} K
 - Pressure: {args.pressure_bar} bar
@@ -260,7 +260,7 @@ def run_replicate(
         return
 
     pdb = PDBFile(str(prepared_pdb))
-    forcefield = ForceField("amber19-all.xml", "amber14/tip3p.xml")
+    forcefield = ForceField("amber14-all.xml", "amber14/tip3p.xml")
     modeller = Modeller(pdb.topology, pdb.positions)
     modeller.addSolvent(
         forcefield,

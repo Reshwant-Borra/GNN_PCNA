@@ -1,0 +1,47 @@
+{
+  "status": "analysis_complete_corrected",
+  "created_utc": "2026-05-30T18:04:27.711949+00:00",
+  "run_root": "outputs\\phase5_md\\time_crunch_1axc_25ns",
+  "windows": [
+    "239-243",
+    "28-32",
+    "206-210",
+    "134-138"
+  ],
+  "reference_window": "118-122",
+  "equil_ns_discarded": 5.0,
+  "ns_per_frame": 0.1,
+  "replicates": {
+    "replicate_01": {
+      "n_frames": 250,
+      "equil_frames": 50,
+      "frames_used_for_rmsf": 200,
+      "incomplete": false,
+      "mean_backbone_rmsd_nm": 0.254511296749115,
+      "max_backbone_rmsd_nm": 0.30460768938064575,
+      "final_backbone_rmsd_nm": 0.28681042790412903
+    },
+    "replicate_02": {
+      "n_frames": 41,
+      "equil_frames": 50,
+      "frames_used_for_rmsf": 0,
+      "incomplete": true,
+      "mean_backbone_rmsd_nm": 0.17554715275764465,
+      "max_backbone_rmsd_nm": 0.2116514891386032,
+      "final_backbone_rmsd_nm": 0.17411546409130096
+    }
+  },
+  "fixes_applied": [
+    "PBC make_molecules_whole + image_molecules before superpose",
+    "align on core CA excluding analyzed windows (no circularity)",
+    "RMSF about mean position (not frame 0)",
+    "discard first 5.0 ns equilibration before RMSF",
+    "incomplete replicates flagged"
+  ],
+  "limitations": [
+    "Exploratory short-timescale MD; 1AXC apo-from-p21 only.",
+    "No 8GLA positive control; not GATE 7 Wave 1 completion.",
+    "RMSD/RMSF alone do not prove pocket opening or binding.",
+    "No druggability / therapeutic / validated-site claims supported."
+  ]
+}

@@ -19,6 +19,9 @@ crawls/
 data/graphs/*.npz
 data/graphs/*_meta.json
 
+# Phase 5 MD trajectories and cloud run outputs; preserve externally, do not commit
+outputs/phase5_md/
+
 # Python
 __pycache__/
 *.py[cod]

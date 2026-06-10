@@ -215,3 +215,28 @@ Provenance:
 - governance: `docs/scientific_governance/04_DATASET_CONSTRAINTS.md`, `05_SPLIT_PROTOCOL.md`, `06_LABELING_RULES.md`, `07_PREPROCESSING_AND_GRAPH_RULES.md`, `08_MODEL_ARCHITECTURE_CONSTRAINTS.md`, `15_PROVENANCE_AND_REPRODUCIBILITY.md`, `19_STOP_CONDITIONS.md`, `26_HUMAN_REVIEW_GATES.md`
 - confidence: high for packet creation, local artifact status, and recorded approval
 - evidence_status: verified for local artifacts and human graph-policy decision record
+
+## 28. Gate 7 Wave 1 authorization and official MD package status
+
+As of 2026-06-09, Reshwant-Borra approved official Phase 5 MD Wave 1 based on
+`reports/phase4/gate7_md_decision_draft_20260529.md` and binding governance. The formal
+authorization record is `reports/phase4/gate7_authorization_20260609.md`; the official
+pre-execution package is `reports/phase5/official_wave1_execution_package_20260609.md`.
+
+Scope: 8GLA holo with ZQZ, 8GLA apo-from-holo, and 1AXC apo-from-p21 for windows
+239-243, 28-32, 206-210, and 134-138. Tier 1B trimer-interface candidates remain
+deferred to Wave 2 and require a separate enhanced-sampling pre-registration and human
+authorization.
+
+Execution status: authorization and package only. Do not run MD yet. No setup,
+ligand parameterization, minimization, equilibration, production, trajectory analysis,
+interpretation, or claims have been run. Next implementation task is official Wave 1
+setup/preflight work: 8GLA biological assembly mapping, 1AXC apo-from-p21 preparation
+policy, ZQZ ligand parameterization workflow, setup manifests, and stop-condition checks.
+
+Provenance:
+- date: 2026-06-09
+- source: `reports/phase4/gate7_authorization_20260609.md`, `reports/phase5/official_wave1_execution_package_20260609.md`, `reports/phase4/gate7_md_decision_draft_20260529.md`
+- governance: `docs/scientific_governance/12_PCNA_SPECIFIC_CHECKS.md`, `13_MD_VALIDATION_RULES.md`, `14_CLAIM_POLICY.md`, `15_PROVENANCE_AND_REPRODUCIBILITY.md`, `26_HUMAN_REVIEW_GATES.md`
+- confidence: high for authorization and execution-package scope
+- evidence_status: verified for local artifacts; no MD outcome evidence exists

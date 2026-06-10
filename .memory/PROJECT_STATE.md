@@ -1,6 +1,6 @@
 ---
-updated: 2026-05-29
-updated_by: claude-sonnet-4-6 (phase4-finalization-gate7-draft)
+updated: 2026-06-09
+updated_by: codex-gpt-5 (gate7-wave1-authorization-package)
 ---
 
 # Project State - GNN-PCNA
@@ -32,7 +32,7 @@ treat this file as potentially stale. Reconstruct current state from
 | Split freeze | **FROZEN** - `data/registries/split_manifest_frozen.json` (hash: 24dd5e347d880108) |
 | Label freeze | **FROZEN** - `data/labels/label_manifest.json` |
 
-All Phase 2, Phase 3, and Phase 4 gates cleared. Phase 4 inference complete. Next gate is GATE 7 (Phase 5 MD validation — new human decision required).
+All Phase 2, Phase 3, and Phase 4 gates cleared. Phase 4 inference complete. GATE 7 Wave 1 is now authorized, but MD execution remains on hold until a later explicit launch instruction.
 
 ---
 
@@ -85,7 +85,7 @@ Phase 3 stop gates:
 - **GATE 4 — CLEARED.** Model frozen 2026-05-29. Checkpoint: `checkpoints/phase3/spatial_only_fold1_seed1_best.pt`. Record: `reports/phase3/model_freeze_gate4_20260529.md`.
 - **GATE 5 — CLEARED.** Test evaluation complete 2026-05-29. Macro-AUPRC: **0.2034** [0.1825, 0.2275]. Report: `reports/phase3/test_evaluation_20260529.md`. Test set one-shot used — cannot be re-run.
 - **GATE 6 — CLEARED.** PCNA inference complete 2026-05-29. 103/103 structures OK (RTX 4070, 62s). Positive control sanity check passed (IDCL/AOH1996 region ranks #1, score=0.93). Authorization: `reports/phase4/gate6_authorization_20260529.md`. All 5 governance artifacts written to `reports/phase4/`.
-- **GATE 7 — BLOCKED.** Phase 5 MD validation requires separate human decision. GATE 7 decision package drafted: `reports/phase4/gate7_md_decision_draft_20260529.md`. Wave 1 targets: positive control (118-122), Tier 1A top-3 (239-243, 28-32, 206-210), interface-adjacent control (134-138). Tier 1B (170-174, 175-179, 152-156) deferred to Wave 2 (enhanced sampling required). Governance: docs/scientific_governance/13_MD_VALIDATION_RULES.md. Candidate list reclassified: `reports/phase4/phase4_candidate_prioritization_20260529.md` (Tier 1A/1B/2/3).
+- **GATE 7 — AUTHORIZED / EXECUTION HOLD.** Phase 5 official MD Wave 1 authorized by Reshwant-Borra on 2026-06-09: `reports/phase4/gate7_authorization_20260609.md`. Official pre-execution package: `reports/phase5/official_wave1_execution_package_20260609.md`. Wave 1 targets: 8GLA positive control (118-122) holo/apo-from-holo; 1AXC Tier 1A top-3 (239-243, 28-32, 206-210); 1AXC interface-adjacent control (134-138). Tier 1B (170-174, 175-179, 152-156) deferred to Wave 2 (enhanced sampling required). No MD setup, production, analysis, interpretation, or claims have been run.
 - **PCNA cluster `cluster_id_30=1168` is holdout-only.** No PCNA/PCNA-cluster structure may enter train or validation.
 
 ---
@@ -106,7 +106,7 @@ Use policy:
 
 ## Next Tasks
 
-1. **[HUMAN — GATE 7] Phase 5 MD validation gate.** GATE 7 decision package ready for human review: `reports/phase4/gate7_md_decision_draft_20260529.md`. Human must review and record authorization in `reports/phase4/gate7_authorization_YYYYMMDD.md` before any MD simulation setup. Wave 1 targets defined (5 candidates). Wave 2 (Tier 1B) requires separate decision after Wave 1.
+1. **[PHASE 5 - OFFICIAL WAVE 1 SETUP, DO NOT RUN MD YET]** GATE 7 Wave 1 is authorized in `reports/phase4/gate7_authorization_20260609.md`; official pre-execution package is `reports/phase5/official_wave1_execution_package_20260609.md`. Next agent should implement/verify official Wave 1 setup and preflight audits only: 8GLA biological assembly/chain mapping, 1AXC apo-from-p21 preparation policy, ZQZ ligand parameterization workflow, setup manifests, and launch-stop checks. Do not start minimization/equilibration/production/analysis until a later explicit launch instruction.
 
 2. **[RECOMMENDED] Install external baselines.** fpocket, P2Rank, PocketMiner stubs in `reports/phase3/baseline_runs/`. Required per doc 10 before any superiority claims over state-of-the-art tools. Run on the frozen test split (hash: 24dd5e347d880108) with the same label definition.
 
@@ -145,13 +145,17 @@ Use policy:
 | `reports/phase4/phase4_pcna_audit_20260529.md` | PCNA-specific governance audit |
 | `reports/phase4/phase4_interface_overlap_20260529.md` | Interface overlap analysis |
 | `reports/phase4/phase4_candidate_prioritization_20260529.md` | Tier 1A/1B/2/3 MD candidate list (reclassified 2026-05-29) |
-| `reports/phase4/gate7_md_decision_draft_20260529.md` | GATE 7 MD decision package — awaits human authorization |
+| `reports/phase4/gate7_authorization_20260609.md` | GATE 7 Wave 1 authorization — execution still on hold |
+| `reports/phase5/official_wave1_execution_package_20260609.md` | Official Wave 1 pre-execution package — do not run MD yet |
+| `reports/phase4/gate7_md_decision_draft_20260529.md` | GATE 7 MD decision package — evidence packet for authorization |
 | `src/phase4_inference/` | Phase 4 inference package (chain_selector, graph_builder, interface_audit, cif_utils) |
 | `scripts/phase4_infer.py` | Main Phase 4 inference script |
 
 ---
 
 ## Last Session Summary
+
+Session 2026-06-09 (codex-gpt-5, Gate 7 Wave 1 authorization package): Reshwant-Borra approved official Phase 5 MD Wave 1 based on `reports/phase4/gate7_md_decision_draft_20260529.md` and binding governance requirements. Created formal authorization record `reports/phase4/gate7_authorization_20260609.md` (decision_id: `phase5_gate7_wave1_authorization_20260609`) and official pre-execution package `reports/phase5/official_wave1_execution_package_20260609.md`. Scope: 8GLA holo with ZQZ, 8GLA apo-from-holo, and 1AXC apo-from-p21 for windows 239-243, 28-32, 206-210, and 134-138; Tier 1B remains deferred to Wave 2. The package explicitly excludes the time-crunch workflow and records `do_not_run_md: true`. No MD setup, ligand parameterization, production run, trajectory generation, analysis, interpretation, or claims were run. Next: implement/verify official Wave 1 setup scripts and preflight audits, especially 8GLA biological assembly mapping and ZQZ parameterization, before any later explicit launch instruction.
 
 Session 2026-05-29 (claude-sonnet-4-6, Phase 4 finalization + GATE 7 draft): Finalized Phase 4
 interpretation artifacts. (1) Reclassified the candidate prioritization report: original Tier 1

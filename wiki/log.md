@@ -554,3 +554,25 @@ governance compliance checklist).
 12_PCNA_SPECIFIC_CHECKS.md.
 **Evidence status:** computational interpretation only. No MD run. No therapeutic claims.
 **Next gate:** GATE 7 — human decision required before any MD simulation begins.
+---
+
+## 2026-06-09 - GATE 7 Wave 1 authorized and official execution package prepared
+
+**Decision:** Reshwant-Borra approved official Phase 5 MD Wave 1 based on
+`reports/phase4/gate7_md_decision_draft_20260529.md` and binding governance requirements.
+
+**Artifacts:** `reports/phase4/gate7_authorization_20260609.md`;
+`reports/phase5/official_wave1_execution_package_20260609.md`.
+
+**Scope:** Official Wave 1 only: 8GLA holo with ZQZ, 8GLA apo-from-holo, and
+1AXC apo-from-p21 for Tier 1A windows `239-243`, `28-32`, `206-210`, plus control
+`134-138`. Tier 1B trimer-interface candidates remain deferred to Wave 2.
+
+**Governance:** `docs/scientific_governance/12_PCNA_SPECIFIC_CHECKS.md`,
+`13_MD_VALIDATION_RULES.md`, `14_CLAIM_POLICY.md`,
+`15_PROVENANCE_AND_REPRODUCIBILITY.md`, `26_HUMAN_REVIEW_GATES.md`.
+
+**Evidence status:** verified authorization and pre-execution planning only. No MD setup,
+parameterization, trajectory generation, analysis, interpretation, or claims were run.
+
+**Confidence:** high for decision record and package scope; no claim about MD outcomes.

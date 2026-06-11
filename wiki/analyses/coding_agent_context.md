@@ -240,3 +240,59 @@ Provenance:
 - governance: `docs/scientific_governance/12_PCNA_SPECIFIC_CHECKS.md`, `13_MD_VALIDATION_RULES.md`, `14_CLAIM_POLICY.md`, `15_PROVENANCE_AND_REPRODUCIBILITY.md`, `26_HUMAN_REVIEW_GATES.md`
 - confidence: high for authorization and execution-package scope
 - evidence_status: verified for local artifacts; no MD outcome evidence exists
+
+## 29. Phase 5 Wave 1 prelaunch audit and fail-closed setup status
+
+As of 2026-06-10, official Phase 5 Wave 1 setup infrastructure is prepared for human
+review but production launch is blocked fail-closed. Codex added `src/phase5_md/wave1.py`
+and `scripts/phase5_wave1_preflight.py` to regenerate preparation audits, manifests, and
+preflight status. Focused tests are in `tests/phase5/test_wave1_preflight.py`.
+
+Generated artifacts:
+
+- `reports/phase5/wave1_readiness_report_20260610.md`
+- `reports/phase5/8gla_preparation_audit_20260610.md`
+- `reports/phase5/1axc_preparation_audit_20260610.md`
+- `reports/phase5/zqz_parameterization_plan_20260610.md`
+- `reports/phase5/manifest_provenance_templates_20260610.md`
+- `data/registries/phase5_wave1_preparation_audit_20260610.json`
+- `outputs/phase5_md/official_wave1_20260609/` manifest templates
+
+Key verified setup facts:
+
+- 8GLA official Wave 1 assembly is RCSB biological assembly 1, PCNA auth chains A/B/C.
+  Deposited chain D is excluded because it belongs to assembly 2. 8GLA chain C is missing
+  residue 122 in PC-118; chains A/B have 118-122 complete.
+- ZQZ is formal charge 0 in the RCSB ligand record and appears as six Assembly 1
+  instances assigned to chains A/B in deposited coordinates. Production remains blocked
+  until audited GAFF2/AM1-BCC parameters exist.
+- 1AXC biological assembly 1 is PCNA trimer A/C/E plus p21 peptide chains B/D/F. The
+  apo-from-p21 setup must remove B/D/F and record that transformation. Wave 1 windows
+  239-243, 28-32, 206-210, and 134-138 are complete on A/C/E.
+
+Current fail-closed blockers:
+
+- `reports/phase5/official_wave1_execution_package_20260609.md` still records
+  `do_not_run_md: true`.
+- `outputs/phase5_md/official_wave1_20260609/inputs/ligand_params/zqz/PARAMETER_AUDIT.md`
+  is absent by design.
+- Future explicit launch authorization `reports/phase5/phase5_wave1_launch_authorization.md`
+  is absent.
+
+Verification run:
+
+- `pytest tests/phase5/test_wave1_preflight.py` -> 4 passed.
+- `python scripts/phase5_wave1_preflight.py --preflight-stage production` -> fail-closed
+  with the blockers above.
+
+Provenance:
+- date: 2026-06-10
+- source: reports and registry paths listed above; `data/raw_intake/pcna_structures/8GLA.cif`;
+  `data/raw_intake/pcna_structures/1AXC.cif`; RCSB ligand page for ZQZ formal charge;
+  AmberTools26 official page for tool/version selection.
+- governance: `docs/scientific_governance/12_PCNA_SPECIFIC_CHECKS.md`,
+  `13_MD_VALIDATION_RULES.md`, `14_CLAIM_POLICY.md`,
+  `15_PROVENANCE_AND_REPRODUCIBILITY.md`, `16_CODING_AGENT_RULES.md`,
+  `19_STOP_CONDITIONS.md`, `26_HUMAN_REVIEW_GATES.md`
+- confidence: high for audited local structure facts and fail-closed state
+- evidence_status: verified preparation/provenance infrastructure only; no MD outcomes

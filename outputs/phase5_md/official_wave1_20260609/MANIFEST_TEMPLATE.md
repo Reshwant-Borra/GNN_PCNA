@@ -1,0 +1,43 @@
+# Phase 5 Official Wave 1 Manifest Template
+
+- Artifact ID: phase5_official_wave1_20260609
+- Status: TEMPLATE_ONLY_DO_NOT_RUN
+- Created from: `reports/phase5/official_wave1_execution_package_20260609.md`
+- Gate authorization: `reports/phase4/gate7_authorization_20260609.md`
+- MD execution authorized: false
+- Required future launch authorization: `reports/phase5/phase5_wave1_launch_authorization.md`
+- Commit hash:
+- Branch:
+- Dirty-state summary:
+- Created by:
+- Created at:
+- Environment:
+- AmberTools/Amber versions:
+- CUDA/GPU:
+- Input files and hashes:
+  - 8GLA CIF: `914f86a9ec6744143d8c9869643af58740d8a13e1d52f66b4fb8ec501a3ab487`
+  - 1AXC CIF: `56ff84ea5ff2e6bd8cb8e783ec906c9ea687f5aecf74b9163bcd54262d4351af`
+- Authorized systems:
+  - `8gla_holo_zqz`
+  - `8gla_apo_from_holo`
+  - `1axc_apo_from_p21`
+- Authorized windows:
+  - `PC-118`: 118-122
+  - `T1A-239`: 239-243
+  - `T1A-28`: 28-32
+  - `T1A-206`: 206-210
+  - `T2-134`: 134-138
+- Deferred windows not authorized in Wave 1: 170-174, 175-179, 152-156
+- Stop-condition log:
+  - unresolved assembly mapping:
+  - missing candidate residues:
+  - missing/unaudited ZQZ parameters:
+  - launch authorization absent:
+  - trimer integrity failure:
+  - unstable minimization/equilibration:
+  - environment capture failure:
+  - unexpected trajectory files:
+- Command log path:
+- Manual review notes:
+
+This template is not a run manifest and does not authorize launch.

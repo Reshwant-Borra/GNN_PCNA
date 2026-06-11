@@ -576,3 +576,38 @@ governance compliance checklist).
 parameterization, trajectory generation, analysis, interpretation, or claims were run.
 
 **Confidence:** high for decision record and package scope; no claim about MD outcomes.
+
+## 2026-06-10 - Phase 5 Wave 1 prelaunch package audited and fail-closed checks added
+
+**Decision:** Official Phase 5 Wave 1 setup is prepared for human review as a prelaunch
+package, but production launch remains fail-closed. No MD, minimization, equilibration,
+production, trajectory generation, trajectory analysis, ligand parameter generation,
+interpretation, or claims were run.
+
+**Artifacts:** `reports/phase5/wave1_readiness_report_20260610.md`;
+`reports/phase5/8gla_preparation_audit_20260610.md`;
+`reports/phase5/1axc_preparation_audit_20260610.md`;
+`reports/phase5/zqz_parameterization_plan_20260610.md`;
+`reports/phase5/manifest_provenance_templates_20260610.md`;
+`data/registries/phase5_wave1_preparation_audit_20260610.json`;
+`src/phase5_md/wave1.py`; `scripts/phase5_wave1_preflight.py`;
+`outputs/phase5_md/official_wave1_20260609/`.
+
+**Verified facts:** 8GLA Wave 1 uses RCSB biological assembly 1 with PCNA auth chains
+A/B/C; deposited chain D belongs to assembly 2 and is excluded. 8GLA chain C is missing
+residue 122 in the PC-118 window. 1AXC retains PCNA chains A/C/E and removes p21 peptide
+chains B/D/F for apo-from-p21; Wave 1 windows 239-243, 28-32, 206-210, and 134-138 are
+complete on all three PCNA chains.
+
+**Launch blockers:** official package still records `do_not_run_md: true`; audited ZQZ
+parameter manifest is absent by design; future explicit Phase 5 launch authorization is
+absent.
+
+**Governance:** `docs/scientific_governance/12_PCNA_SPECIFIC_CHECKS.md`,
+`13_MD_VALIDATION_RULES.md`, `14_CLAIM_POLICY.md`,
+`15_PROVENANCE_AND_REPRODUCIBILITY.md`, `16_CODING_AGENT_RULES.md`,
+`19_STOP_CONDITIONS.md`, `26_HUMAN_REVIEW_GATES.md`.
+
+**Evidence status:** verified preparation/provenance infrastructure only. Confidence:
+high for source hashes, assembly/chain/window facts, and fail-closed launch status; no MD
+outcome evidence exists.

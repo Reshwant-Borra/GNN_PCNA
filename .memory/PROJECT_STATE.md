@@ -1,6 +1,6 @@
 ---
-updated: 2026-06-09
-updated_by: codex-gpt-5 (gate7-wave1-authorization-package)
+updated: 2026-06-10
+updated_by: codex-gpt-5 (phase5-wave1-prelaunch-audit)
 ---
 
 # Project State - GNN-PCNA
@@ -17,7 +17,7 @@ treat this file as potentially stale. Reconstruct current state from
 
 ## Phase
 
-**Phase 4 — PCNA INFERENCE COMPLETE. GATE 6 CLEARED. READY FOR PHASE 5 (MD VALIDATION).**
+**Phase 5 — OFFICIAL WAVE 1 PRELAUNCH PACKAGE READY FOR HUMAN REVIEW. PRODUCTION LAUNCH BLOCKED FAIL-CLOSED.**
 
 | System | Status |
 |---|---|
@@ -25,14 +25,14 @@ treat this file as potentially stale. Reconstruct current state from
 | Training (spatial-only) | **COMPLETE** (Option B). 12/12 runs. Val macro-AUPRC: **0.1897 ± 0.0091**. Best: fold=1 seed=1 → 0.2047. |
 | Baselines | **COMPLETE** (GATE 3). GNN baselines done. External tools (fpocket/P2Rank/PocketMiner): stubs only. |
 | Test evaluation | **COMPLETE — ONE-SHOT USED** (GATE 5 cleared 2026-05-29). Test macro-AUPRC: **0.2034** [0.1825, 0.2275] 95% CI. Micro-AUPRC: 0.0973. Macro-AUROC: 0.6902. Top-20 recovery: 0.2179. 214 structures, 177 with valid AUPRC. Lock: `reports/phase3/.test_evaluation_lock`. Report: `reports/phase3/test_evaluation_20260529.md`. |
-| Molecular dynamics | BLOCKED (Phase 3+ scope) |
+| Molecular dynamics | **PRELAUNCH PACKAGE READY / PRODUCTION BLOCKED.** Gate 7 Wave 1 authorized; official setup audits/manifests/preflight added 2026-06-10. No MD setup, minimization, equilibration, production, trajectories, analysis, interpretation, or claims run. |
 | Scientific claims | BLOCKED — external baselines (fpocket/P2Rank/PocketMiner) not yet run; superiority claims require them per doc 10. |
 | PCNA inference | **COMPLETE (GATE 6 cleared 2026-05-29)**. 103/103 structures scored. 5 governance reports generated. |
 | Graph generation | **FIRST GRAPH RELEASE APPROVED**. 1,101 graphs, 0 failures. Approval: `reports/phase3/first_graph_release_approval_20260528.md`. |
 | Split freeze | **FROZEN** - `data/registries/split_manifest_frozen.json` (hash: 24dd5e347d880108) |
 | Label freeze | **FROZEN** - `data/labels/label_manifest.json` |
 
-All Phase 2, Phase 3, and Phase 4 gates cleared. Phase 4 inference complete. GATE 7 Wave 1 is now authorized, but MD execution remains on hold until a later explicit launch instruction.
+All Phase 2, Phase 3, and Phase 4 gates cleared. Phase 4 inference complete. GATE 7 Wave 1 is authorized. Official Wave 1 preparation audits and fail-closed preflight checks are complete, but MD execution remains on hold until a later explicit launch instruction.
 
 ---
 
@@ -71,6 +71,7 @@ All Phase 2, Phase 3, and Phase 4 gates cleared. Phase 4 inference complete. GAT
   - Track 1: `wiki/entities/pcna_structure.md`, `wiki/entities/pcna_binding_partners.md`, `wiki/analyses/cryptic_pocket_pcna_literature.md`.
   - Track 3: MD pre-registrations `reports/phase4/md/{8gla,5e0v,1axc}/pre_registration.md` (doc-13 template).
   - **Key findings flagged to Reshwant:** (1) 5E0V is NOT apo PCNA — it is the S228I variant + FEN1 peptide (PMID 26688547); a true-apo WT reference is needed before MD. (2) heuristic_pocket_score covers only 4/72 records. See `wiki/open_questions/open-questions.md`. No Phase 3 files touched; no training/graphs/MD/test access/claims.
+- **Phase 5 Wave 1 prelaunch package prepared (2026-06-10):** `src/phase5_md/wave1.py` and `scripts/phase5_wave1_preflight.py` generate/verify official Wave 1 audits, manifest templates, and fail-closed checks. Reports: `reports/phase5/wave1_readiness_report_20260610.md`, `8gla_preparation_audit_20260610.md`, `1axc_preparation_audit_20260610.md`, `zqz_parameterization_plan_20260610.md`, `manifest_provenance_templates_20260610.md`; registry: `data/registries/phase5_wave1_preparation_audit_20260610.json`; templates: `outputs/phase5_md/official_wave1_20260609/`. Key findings: 8GLA assembly 1 uses PCNA chains A/B/C and excludes deposited chain D; 8GLA chain C is missing residue 122 in PC-118; 1AXC retains PCNA A/C/E and removes p21 B/D/F; 1AXC Wave 1 windows are complete on A/C/E. Production preflight blocks because `do_not_run_md: true`, audited ZQZ parameters are absent, and future launch authorization is absent. No MD or parameter generation was run.
 
 ---
 
@@ -85,7 +86,7 @@ Phase 3 stop gates:
 - **GATE 4 — CLEARED.** Model frozen 2026-05-29. Checkpoint: `checkpoints/phase3/spatial_only_fold1_seed1_best.pt`. Record: `reports/phase3/model_freeze_gate4_20260529.md`.
 - **GATE 5 — CLEARED.** Test evaluation complete 2026-05-29. Macro-AUPRC: **0.2034** [0.1825, 0.2275]. Report: `reports/phase3/test_evaluation_20260529.md`. Test set one-shot used — cannot be re-run.
 - **GATE 6 — CLEARED.** PCNA inference complete 2026-05-29. 103/103 structures OK (RTX 4070, 62s). Positive control sanity check passed (IDCL/AOH1996 region ranks #1, score=0.93). Authorization: `reports/phase4/gate6_authorization_20260529.md`. All 5 governance artifacts written to `reports/phase4/`.
-- **GATE 7 — AUTHORIZED / EXECUTION HOLD.** Phase 5 official MD Wave 1 authorized by Reshwant-Borra on 2026-06-09: `reports/phase4/gate7_authorization_20260609.md`. Official pre-execution package: `reports/phase5/official_wave1_execution_package_20260609.md`. Wave 1 targets: 8GLA positive control (118-122) holo/apo-from-holo; 1AXC Tier 1A top-3 (239-243, 28-32, 206-210); 1AXC interface-adjacent control (134-138). Tier 1B (170-174, 175-179, 152-156) deferred to Wave 2 (enhanced sampling required). No MD setup, production, analysis, interpretation, or claims have been run.
+- **GATE 7 — AUTHORIZED / PRELAUNCH PACKAGE READY / PRODUCTION BLOCKED.** Phase 5 official MD Wave 1 authorized by Reshwant-Borra on 2026-06-09: `reports/phase4/gate7_authorization_20260609.md`. Official pre-execution package: `reports/phase5/official_wave1_execution_package_20260609.md`. Wave 1 targets: 8GLA positive control (118-122) holo/apo-from-holo; 1AXC Tier 1A top-3 (239-243, 28-32, 206-210); 1AXC interface-adjacent control (134-138). Tier 1B (170-174, 175-179, 152-156) deferred to Wave 2 (enhanced sampling required). Prelaunch reports/manifests generated 2026-06-10. Production remains fail-closed until explicit launch authorization and audited ZQZ parameters exist. No MD setup, minimization, equilibration, production, trajectory analysis, interpretation, or claims have been run.
 - **PCNA cluster `cluster_id_30=1168` is holdout-only.** No PCNA/PCNA-cluster structure may enter train or validation.
 
 ---
@@ -106,7 +107,7 @@ Use policy:
 
 ## Next Tasks
 
-1. **[PHASE 5 - OFFICIAL WAVE 1 SETUP, DO NOT RUN MD YET]** GATE 7 Wave 1 is authorized in `reports/phase4/gate7_authorization_20260609.md`; official pre-execution package is `reports/phase5/official_wave1_execution_package_20260609.md`. Next agent should implement/verify official Wave 1 setup and preflight audits only: 8GLA biological assembly/chain mapping, 1AXC apo-from-p21 preparation policy, ZQZ ligand parameterization workflow, setup manifests, and launch-stop checks. Do not start minimization/equilibration/production/analysis until a later explicit launch instruction.
+1. **[PHASE 5 - WAIT FOR EXPLICIT LAUNCH AUTHORIZATION, DO NOT RUN MD YET]** Official Wave 1 prelaunch package is ready for human review. Production preflight is intentionally blocked by `do_not_run_md: true`, absent audited ZQZ parameter manifest, and absent future launch authorization. Next allowed step is human review and, only if explicitly requested later, ZQZ parameter generation/audit and launch authorization update. Do not start minimization/equilibration/production/analysis until a later explicit launch instruction.
 
 2. **[RECOMMENDED] Install external baselines.** fpocket, P2Rank, PocketMiner stubs in `reports/phase3/baseline_runs/`. Required per doc 10 before any superiority claims over state-of-the-art tools. Run on the frozen test split (hash: 24dd5e347d880108) with the same label definition.
 
@@ -147,6 +148,15 @@ Use policy:
 | `reports/phase4/phase4_candidate_prioritization_20260529.md` | Tier 1A/1B/2/3 MD candidate list (reclassified 2026-05-29) |
 | `reports/phase4/gate7_authorization_20260609.md` | GATE 7 Wave 1 authorization — execution still on hold |
 | `reports/phase5/official_wave1_execution_package_20260609.md` | Official Wave 1 pre-execution package — do not run MD yet |
+| `reports/phase5/wave1_readiness_report_20260610.md` | Phase 5 Wave 1 readiness/gap/launch assessment — production blocked fail-closed |
+| `reports/phase5/8gla_preparation_audit_20260610.md` | 8GLA assembly/chain/ZQZ/missing-residue preparation audit |
+| `reports/phase5/1axc_preparation_audit_20260610.md` | 1AXC PCNA/p21/window preparation audit |
+| `reports/phase5/zqz_parameterization_plan_20260610.md` | ZQZ GAFF2/AM1-BCC parameterization plan only — parameters not generated |
+| `reports/phase5/manifest_provenance_templates_20260610.md` | Phase 5 manifest/provenance template report |
+| `data/registries/phase5_wave1_preparation_audit_20260610.json` | Machine-readable Phase 5 Wave 1 audit/preflight registry |
+| `outputs/phase5_md/official_wave1_20260609/` | Manifest templates only; no trajectories or setup outputs |
+| `src/phase5_md/wave1.py` | Phase 5 audit/preflight implementation |
+| `scripts/phase5_wave1_preflight.py` | Phase 5 Wave 1 preflight/report generator |
 | `reports/phase4/gate7_md_decision_draft_20260529.md` | GATE 7 MD decision package — evidence packet for authorization |
 | `src/phase4_inference/` | Phase 4 inference package (chain_selector, graph_builder, interface_audit, cif_utils) |
 | `scripts/phase4_infer.py` | Main Phase 4 inference script |
@@ -155,7 +165,9 @@ Use policy:
 
 ## Last Session Summary
 
-Session 2026-06-09 (codex-gpt-5, Gate 7 Wave 1 authorization package): Reshwant-Borra approved official Phase 5 MD Wave 1 based on `reports/phase4/gate7_md_decision_draft_20260529.md` and binding governance requirements. Created formal authorization record `reports/phase4/gate7_authorization_20260609.md` (decision_id: `phase5_gate7_wave1_authorization_20260609`) and official pre-execution package `reports/phase5/official_wave1_execution_package_20260609.md`. Scope: 8GLA holo with ZQZ, 8GLA apo-from-holo, and 1AXC apo-from-p21 for windows 239-243, 28-32, 206-210, and 134-138; Tier 1B remains deferred to Wave 2. The package explicitly excludes the time-crunch workflow and records `do_not_run_md: true`. No MD setup, ligand parameterization, production run, trajectory generation, analysis, interpretation, or claims were run. Next: implement/verify official Wave 1 setup scripts and preflight audits, especially 8GLA biological assembly mapping and ZQZ parameterization, before any later explicit launch instruction.
+Session 2026-06-10 (codex-gpt-5, Phase 5 Wave 1 prelaunch audit): Prepared official Wave 1 launch-readiness package without running MD or ligand parameterization. Added `src/phase5_md/wave1.py`, `scripts/phase5_wave1_preflight.py`, tests in `tests/phase5/test_wave1_preflight.py`, reports under `reports/phase5/*_20260610.md`, registry `data/registries/phase5_wave1_preparation_audit_20260610.json`, and manifest templates under `outputs/phase5_md/official_wave1_20260609/`. Verified 8GLA assembly 1 PCNA chains A/B/C, excluded deposited chain D, recorded chain C missing residue 122 in PC-118, verified ZQZ identity/formal charge/location, verified 1AXC PCNA A/C/E and p21 B/D/F removal policy, and confirmed 1AXC Wave 1 windows complete on A/C/E. Production preflight fails closed because the official package records `do_not_run_md: true`, audited ZQZ parameters are absent, and future explicit launch authorization is absent. Tests: `pytest tests/phase5/test_wave1_preflight.py` passed (4/4). Production preflight intentionally exits nonzero. No minimization, equilibration, production, trajectories, trajectory analysis, interpretation, or claims.
+
+Session 2026-06-09 (codex-gpt-5, Gate 7 Wave 1 authorization package): Reshwant-Borra approved official Phase 5 MD Wave 1 based on `reports/phase4/gate7_md_decision_draft_20260529.md` and binding governance requirements. Created formal authorization record `reports/phase4/gate7_authorization_20260609.md` (decision_id: `phase5_gate7_wave1_authorization_20260609`) and official pre-execution package `reports/phase5/official_wave1_execution_package_20260609.md`. Scope: 8GLA holo with ZQZ, 8GLA apo-from-holo, and 1AXC apo-from-p21 for windows 239-243, 28-32, 206-210, and 134-138; Tier 1B remains deferred to Wave 2. The package explicitly excludes the time-crunch workflow and records `do_not_run_md: true`. No MD setup, ligand parameterization, production run, trajectory generation, analysis, interpretation, or claims were run.
 
 Session 2026-05-29 (claude-sonnet-4-6, Phase 4 finalization + GATE 7 draft): Finalized Phase 4
 interpretation artifacts. (1) Reclassified the candidate prioritization report: original Tier 1

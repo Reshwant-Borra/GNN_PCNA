@@ -1,6 +1,6 @@
 ---
 updated: 2026-06-11
-updated_by: codex-gpt-5 (phase5-zqz-parameter-audit)
+updated_by: codex-gpt-5 (phase5-md-feasibility-report)
 ---
 
 # Project State - GNN-PCNA
@@ -73,6 +73,7 @@ All Phase 2, Phase 3, and Phase 4 gates cleared. Phase 4 inference complete. GAT
   - **Key findings flagged to Reshwant:** (1) 5E0V is NOT apo PCNA — it is the S228I variant + FEN1 peptide (PMID 26688547); a true-apo WT reference is needed before MD. (2) heuristic_pocket_score covers only 4/72 records. See `wiki/open_questions/open-questions.md`. No Phase 3 files touched; no training/graphs/MD/test access/claims.
 - **Phase 5 Wave 1 prelaunch package prepared (2026-06-10):** `src/phase5_md/wave1.py` and `scripts/phase5_wave1_preflight.py` generate/verify official Wave 1 audits, manifest templates, and fail-closed checks. Reports: `reports/phase5/wave1_readiness_report_20260610.md`, `8gla_preparation_audit_20260610.md`, `1axc_preparation_audit_20260610.md`, `zqz_parameterization_plan_20260610.md`, `manifest_provenance_templates_20260610.md`; registry: `data/registries/phase5_wave1_preparation_audit_20260610.json`; templates: `outputs/phase5_md/official_wave1_20260609/`. Key findings: 8GLA assembly 1 uses PCNA chains A/B/C and excludes deposited chain D; 8GLA chain C is missing residue 122 in PC-118; 1AXC retains PCNA A/C/E and removes p21 B/D/F; 1AXC Wave 1 windows are complete on A/C/E. No MD was run.
 - **Phase 5 ZQZ parameterization complete (2026-06-11):** AmberTools26 (`dacase::ambertools-dac=26.0.0`) generated audited GAFF2/AM1-BCC ZQZ parameters from the RCSB ideal SDF with explicit hydrogens, net charge 0, residue name ZQZ. Artifacts: `outputs/phase5_md/official_wave1_20260609/inputs/ligand_params/zqz/` including `zqz_gaff2_am1bcc.mol2`, `zqz_gaff2.frcmod`, `zqz_tleap.in`, `zqz_tleap.log`, `PARAMETER_AUDIT.md`, `zqz_parameter_audit.json`, and `zqz_package_hashes.json`; report: `reports/phase5/zqz_parameter_audit_20260611.md`; generator: `scripts/phase5_zqz_parameterize.py`. `tleap` check passed with Unit OK, errors 0, warnings 0. No protein setup, minimization, equilibration, production, analysis, interpretation, launch authorization, or claims were run.
+- **Phase 5 Wave 1 MD execution feasibility documented (2026-06-11):** `reports/phase5/wave1_md_execution_feasibility_20260611.md` records the final execution feasibility assessment. Totals: 9 production simulations and 900 ns aggregate production MD. Recommendation: L40S is the preferred future execution platform after explicit launch authorization; local RTX 4070 workstation is not recommended for full Wave 1 because of 12 GB VRAM uncertainty and only about 52 GB free on C:. Production remains blocked fail-closed; no MD setup, minimization, equilibration, production, trajectory analysis, interpretation, launch authorization, or claims were run.
 
 ---
 
@@ -154,6 +155,7 @@ Use policy:
 | `reports/phase5/1axc_preparation_audit_20260610.md` | 1AXC PCNA/p21/window preparation audit |
 | `reports/phase5/zqz_parameterization_plan_20260610.md` | ZQZ GAFF2/AM1-BCC parameterization plan — completed by audited package |
 | `reports/phase5/zqz_parameter_audit_20260611.md` | ZQZ GAFF2/AM1-BCC audited parameter report |
+| `reports/phase5/wave1_md_execution_feasibility_20260611.md` | Final Wave 1 MD execution feasibility assessment; no MD authorization or execution |
 | `reports/phase5/manifest_provenance_templates_20260610.md` | Phase 5 manifest/provenance template report |
 | `data/registries/phase5_wave1_preparation_audit_20260610.json` | Machine-readable Phase 5 Wave 1 audit/preflight registry |
 | `outputs/phase5_md/official_wave1_20260609/` | Manifest templates and audited ZQZ ligand parameter package; no protein setup, trajectories, or MD outputs |
@@ -168,6 +170,8 @@ Use policy:
 ---
 
 ## Last Session Summary
+
+Session 2026-06-11 (codex-gpt-5, Phase 5 MD feasibility documentation): Documented the final Wave 1 MD execution feasibility assessment at `reports/phase5/wave1_md_execution_feasibility_20260611.md` and updated project memory. Verified official Wave 1 totals: 3 systems x 3 replicates x 100 ns = 9 production simulations and 900 ns aggregate production MD. Checked local system: Alienware Aurora R16, Intel i7-14700F, ~31.7 GiB RAM, RTX 4070 with 12,282 MiB VRAM, NVIDIA driver 581.95/CUDA 13.0, and ~52.4 GiB free on C:. The report recommends L40S as the preferred future execution platform after explicit launch authorization, lists pricing under lowest-public, RunPod/Lambda-style, and major-cloud bases, and preserves production status as `BLOCKED_FAIL_CLOSED`. No protein setup, minimization, equilibration, production, trajectories, trajectory analysis, interpretation, launch authorization, or claims were run.
 
 Session 2026-06-11 (codex-gpt-5, Phase 5 ZQZ parameter audit): Completed the final pre-MD ZQZ parameter task without launching MD. Installed/used AmberTools26 in WSL via `dacase::ambertools-dac=26.0.0`; added `scripts/phase5_zqz_parameterize.py`; generated audited GAFF2/AM1-BCC ZQZ ligand parameters under `outputs/phase5_md/official_wave1_20260609/inputs/ligand_params/zqz/`; wrote `reports/phase5/zqz_parameter_audit_20260611.md`; updated `reports/phase5/wave1_readiness_report_20260610.md`, `reports/phase5/zqz_parameterization_plan_20260610.md`, `data/registries/phase5_wave1_preparation_audit_20260610.json`, `src/phase5_md/wave1.py`, and `tests/phase5/test_wave1_preflight.py`. Production preflight now fails closed only because the official package records `do_not_run_md: true` and future explicit launch authorization is absent. Tests: `pytest tests/phase5/test_wave1_preflight.py` passed (5/5). Production preflight intentionally exits nonzero. No protein system setup, minimization, equilibration, production, trajectories, trajectory analysis, interpretation, launch authorization, or claims were run.
 

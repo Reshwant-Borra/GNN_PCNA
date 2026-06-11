@@ -643,3 +643,28 @@ blocker is resolved.
 high for command provenance, hashes, and ligand-unit check; no MD setup, minimization,
 equilibration, production, trajectory analysis, biological interpretation, launch
 authorization, or claims were run.
+
+## 2026-06-11 - Wave 1 MD execution feasibility documented
+
+**Decision/status:** The final Wave 1 MD execution feasibility assessment was documented
+without authorizing or running MD. Production remains fail-closed because the official
+package records `do_not_run_md: true` and future explicit launch authorization is absent.
+
+**Artifact:** `reports/phase5/wave1_md_execution_feasibility_20260611.md`.
+
+**Key facts:** Official Wave 1 requires 9 production simulations and 900 ns aggregate
+production MD. One `1axc_apo_from_p21` trajectory set covers all four authorized 1AXC
+windows; do not duplicate 1AXC trajectories by residue window. The local workstation has
+an RTX 4070 with 12,282 MiB VRAM and about 52.4 GiB free on C:, so it is not recommended
+for full Wave 1. The preferred future execution platform is L40S after explicit launch
+authorization.
+
+**Governance:** `docs/scientific_governance/12_PCNA_SPECIFIC_CHECKS.md`,
+`13_MD_VALIDATION_RULES.md`, `14_CLAIM_POLICY.md`,
+`15_PROVENANCE_AND_REPRODUCIBILITY.md`, `19_STOP_CONDITIONS.md`,
+`26_HUMAN_REVIEW_GATES.md`, `33_PRE_MD_REALITY_CHECK.md`.
+
+**Evidence status:** verified for package/local-system facts; inferred for runtime,
+cost, and storage estimates. Confidence high for run counts and fail-closed state;
+medium for future execution estimates. No MD setup, minimization, equilibration,
+production, trajectory analysis, interpretation, launch authorization, or claims were run.

@@ -345,3 +345,42 @@ Provenance:
 - evidence_status: verified ligand-parameter audit only; no MD setup, minimization,
   equilibration, production, trajectory analysis, interpretation, launch authorization,
   or claims
+
+## 31. Phase 5 Wave 1 MD execution feasibility report
+
+As of 2026-06-11, `reports/phase5/wave1_md_execution_feasibility_20260611.md`
+documents the final execution feasibility assessment for the official Wave 1 package.
+The report is planning-only and does not authorize MD. It confirms 9 production
+simulations and 900 ns aggregate production MD from the official package:
+`8gla_holo_zqz`, `8gla_apo_from_holo`, and `1axc_apo_from_p21`, each with 3 x
+100 ns replicates. It explicitly preserves the rule that 1AXC is not duplicated by
+candidate window.
+
+The report records the current local system as an Alienware Aurora R16 with Intel
+i7-14700F, about 31.7 GiB RAM, RTX 4070 with 12,282 MiB VRAM, NVIDIA driver 581.95,
+CUDA 13.0, and about 52.4 GiB free on C:. The local workstation is not recommended
+for full Wave 1 because of VRAM uncertainty and insufficient local free storage.
+
+Recommended future execution platform after explicit launch authorization is L40S,
+with one GPU per independent replicate. Runtime, cost, and storage values are marked
+as estimates until prepared solvated systems and a short benchmark exist. Production
+remains blocked fail-closed; no protein setup, minimization, equilibration,
+production, trajectory generation, trajectory analysis, interpretation, launch
+authorization, or claims were run.
+
+Provenance:
+- date: 2026-06-11
+- source: `reports/phase5/wave1_md_execution_feasibility_20260611.md`,
+  `reports/phase5/official_wave1_execution_package_20260609.md`,
+  `reports/phase5/wave1_readiness_report_20260610.md`,
+  `data/registries/phase5_wave1_preparation_audit_20260610.json`,
+  local `nvidia-smi` and Windows system inspection commands, and public GPU pricing
+  sources linked in the feasibility report
+- governance: `docs/scientific_governance/12_PCNA_SPECIFIC_CHECKS.md`,
+  `13_MD_VALIDATION_RULES.md`, `14_CLAIM_POLICY.md`,
+  `15_PROVENANCE_AND_REPRODUCIBILITY.md`, `19_STOP_CONDITIONS.md`,
+  `26_HUMAN_REVIEW_GATES.md`, `33_PRE_MD_REALITY_CHECK.md`
+- confidence: high for official run counts, local hardware facts, and fail-closed
+  launch status; medium for runtime/cost/storage estimates
+- evidence_status: verified for package/local-system facts; inferred for future
+  execution estimates; no MD outcomes

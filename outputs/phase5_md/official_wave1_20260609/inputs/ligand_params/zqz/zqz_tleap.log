@@ -1,0 +1,32 @@
+-I: Adding /root/.local/share/mamba/envs/AmberTools26/dat/leap/prep to search path.
+-I: Adding /root/.local/share/mamba/envs/AmberTools26/dat/leap/lib to search path.
+-I: Adding /root/.local/share/mamba/envs/AmberTools26/dat/leap/parm to search path.
+-I: Adding /root/.local/share/mamba/envs/AmberTools26/dat/leap/cmd to search path.
+-f: Source zqz_tleap.in.
+
+Welcome to LEaP!
+(no leaprc in search path)
+Sourcing: ./zqz_tleap.in
+----- Source: /root/.local/share/mamba/envs/AmberTools26/dat/leap/cmd/leaprc.gaff2
+----- Source of /root/.local/share/mamba/envs/AmberTools26/dat/leap/cmd/leaprc.gaff2 done
+Log file: ./leap.log
+Loading parameters: /root/.local/share/mamba/envs/AmberTools26/dat/leap/parm/gaff2.dat
+Reading title:
+AMBER General Force Field for organic molecules (Version 2.2.30, Oct 2025)
+Loading Mol2 file: ./zqz_gaff2_am1bcc.mol2
+Reading MOLECULE named ZQZ
+Loading parameters: ./zqz_gaff2.frcmod
+Reading force field modification type file (frcmod)
+Reading title:
+Remark line goes here
+Checking 'ZQZ'....
+Checking parameters for unit 'ZQZ'.
+Checking for bond parameters.
+Checking for angle parameters.
+Unit is OK.
+ Creating zqz_gaff2.lib
+Building topology.
+Building atom parameters.
+	Quit
+
+Exiting LEaP: Errors = 0; Warnings = 0; Notes = 0.

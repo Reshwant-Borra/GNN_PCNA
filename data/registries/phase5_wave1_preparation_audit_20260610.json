@@ -1,6 +1,6 @@
 {
   "schema_version": "1.0",
-  "generated_utc": "2026-06-11T02:47:44.823703+00:00",
+  "generated_utc": "2026-06-11T03:39:09.811492+00:00",
   "generated_by": "src/phase5_md/wave1.py",
   "authorization": "reports/phase4/gate7_authorization_20260609.md",
   "execution_package": "reports/phase5/official_wave1_execution_package_20260609.md",
@@ -5306,12 +5306,34 @@
         "Waters are present in the deposited structure and must be handled by the future setup policy.",
         "No alternate locations or atom occupancies below 1.0 were detected in atom_site."
       ]
+    },
+    "ZQZ_parameters": {
+      "status": "PARAMETERS_AUDITED_READY_FOR_SETUP_USE",
+      "audit_markdown": "outputs/phase5_md/official_wave1_20260609/inputs/ligand_params/zqz/PARAMETER_AUDIT.md",
+      "audit_json": "outputs/phase5_md/official_wave1_20260609/inputs/ligand_params/zqz/zqz_parameter_audit.json",
+      "package_hashes": "outputs/phase5_md/official_wave1_20260609/inputs/ligand_params/zqz/zqz_package_hashes.json",
+      "method": {
+        "ligand": "ZQZ",
+        "force_field": "GAFF2",
+        "charge_model": "AM1-BCC",
+        "charge_command_flag": "-c bcc",
+        "net_charge": 0,
+        "residue_name": "ZQZ",
+        "planned_workflow": "reports/phase5/zqz_parameterization_plan_20260610.md"
+      },
+      "complete": true,
+      "problems": [],
+      "key_hashes": {
+        "zqz_gaff2_am1bcc.mol2": "a3056f06d64231fd55df83b28a4ed4759adcfa3fba31427c4c41609b641a61a3",
+        "zqz_gaff2.frcmod": "080fa468a97f71948dc571d070727aaff4fd115c1d52983280f673cb0415b430",
+        "zqz_tleap.log": "9573480efe3400065431fd7b657f31145856e496ea563ccb570ece33e07ecc63"
+      }
     }
   },
   "git": {
-    "commit": "4660d93076f602ab4528c1fa19ccd562864795a0",
+    "commit": "ad03801d7490acff4eccc7be38d96275cf4f41b3",
     "branch": "codex/phase5-wave1-prelaunch-audit",
-    "status_short": "M .memory/PROJECT_STATE.md\n M wiki/analyses/coding_agent_context.md\n M wiki/entities/8GLA.md\n M wiki/log.md\n?? data/registries/phase5_wave1_preparation_audit_20260610.json\n?? outputs/\n?? reports/phase5/1axc_preparation_audit_20260610.md\n?? reports/phase5/8gla_preparation_audit_20260610.md\n?? reports/phase5/manifest_provenance_templates_20260610.md\n?? reports/phase5/wave1_readiness_report_20260610.md\n?? reports/phase5/zqz_parameterization_plan_20260610.md\n?? scripts/phase5_wave1_preflight.py\n?? src/phase5_md/\n?? tests/phase5/\n?? wiki/entities/1AXC.md"
+    "status_short": "M data/registries/phase5_wave1_preparation_audit_20260610.json\n M outputs/phase5_md/official_wave1_20260609/inputs/ligand_params/zqz/README_TEMPLATE.md\n M reports/phase5/wave1_readiness_report_20260610.md\n M reports/phase5/zqz_parameterization_plan_20260610.md\n M src/phase5_md/wave1.py\n M tests/phase5/test_wave1_preflight.py\n?? outputs/phase5_md/official_wave1_20260609/inputs/ligand_params/zqz/ANTECHAMBER_AC.AC\n?? outputs/phase5_md/official_wave1_20260609/inputs/ligand_params/zqz/ANTECHAMBER_AC.AC0\n?? outputs/phase5_md/official_wave1_20260609/inputs/ligand_params/zqz/ANTECHAMBER_AM1BCC.AC\n?? outputs/phase5_md/official_wave1_20260609/inputs/ligand_params/zqz/ANTECHAMBER_AM1BCC_PRE.AC\n?? outputs/phase5_md/official_wave1_20260609/inputs/ligand_params/zqz/ANTECHAMBER_BOND_TYPE.AC\n?? outputs/phase5_md/official_wave1_20260609/inputs/ligand_params/zqz/ANTECHAMBER_BOND_TYPE.AC0\n?? outputs/phase5_md/official_wave1_20260609/inputs/ligand_params/zqz/ATOMTYPE.INF\n?? outputs/phase5_md/official_wave1_20260609/inputs/ligand_params/zqz/PARAMETER_AUDIT.md\n?? outputs/phase5_md/official_wave1_20260609/inputs/ligand_params/zqz/ZQZ.cif\n?? outputs/phase5_md/official_wave1_20260609/inputs/ligand_params/zqz/commands/\n?? outputs/phase5_md/official_wave1_20260609/inputs/ligand_params/zqz/deposited_8gla_zqz_instances.json\n?? outputs/phase5_md/official_wave1_20260609/inputs/ligand_params/zqz/deposited_8gla_zqz_instances.pdb\n?? outputs/phase5_md/official_wave1_20260609/inputs/ligand_params/zqz/leap.log\n?? outputs/phase5_md/official_wave1_20260609/inputs/ligand_params/zqz/sqm.in\n?? outputs/phase5_md/official_wave1_20260609/inputs/ligand_params/zqz/sqm.out\n?? outputs/phase5_md/official_wave1_20260609/inputs/ligand_params/zqz/sqm.pdb\n?? outputs/phase5_md/official_wave1_20260609/inputs/ligand_params/zqz/zqz_gaff2.frcmod\n?? outputs/phase5_md/official_wave1_20260609/inputs/ligand_params/zqz/zqz_gaff2.lib\n?? outputs/phase5_md/official_wave1_20260609/inputs/ligand_params/zqz/zqz_gaff2_am1bcc.mol2\n?? outputs/phase5_md/official_wave1_20260609/inputs/ligand_params/zqz/zqz_input.sdf\n?? outputs/phase5_md/official_wave1_20260609/inputs/ligand_params/zqz/zqz_package_hashes.json\n?? outputs/phase5_md/official_wave1_20260609/inputs/ligand_params/zqz/zqz_parameter_audit.json\n?? outputs/phase5_md/official_wave1_20260609/inputs/ligand_params/zqz/zqz_tleap.in\n?? outputs/phase5_md/official_wave1_20260609/inputs/ligand_params/zqz/zqz_tleap.log\n?? reports/phase5/zqz_parameter_audit_20260611.md\n?? scripts/phase5_zqz_parameterize.py"
   },
   "environment": {
     "python": "3.11.7 (tags/v3.11.7:fa7a6f2, Dec  4 2023, 19:24:49) [MSC v.1937 64 bit (AMD64)]",
@@ -5322,11 +5344,10 @@
     "selected_environment_variables": {}
   },
   "preflight_status": {
-    "package_preparation_status": "READY_FOR_HUMAN_REVIEW",
+    "package_preparation_status": "LAUNCH_READY_AWAITING_AUTHORIZATION",
     "production_launch_status": "BLOCKED_FAIL_CLOSED",
     "blockers": [
       "Official package still records do_not_run_md: true; execution remains on hold.",
-      "Audited ZQZ ligand parameter manifest is absent.",
       "Future explicit Phase 5 launch authorization record is absent."
     ],
     "warnings": [

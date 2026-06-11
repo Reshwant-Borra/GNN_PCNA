@@ -296,3 +296,52 @@ Provenance:
   `19_STOP_CONDITIONS.md`, `26_HUMAN_REVIEW_GATES.md`
 - confidence: high for audited local structure facts and fail-closed state
 - evidence_status: verified preparation/provenance infrastructure only; no MD outcomes
+
+## 30. Phase 5 ZQZ parameter audit complete; launch authorization remains the only major MD blocker
+
+As of 2026-06-11, the approved ZQZ ligand parameterization workflow is complete. The
+new generator is `scripts/phase5_zqz_parameterize.py`. It must be run from an
+AmberTools26 environment with `amber.sh` sourced; this session used WSL
+`/root/.local/share/mamba/envs/AmberTools26` installed via `dacase::ambertools-dac=26.0.0`.
+
+Generated parameter package:
+
+- `outputs/phase5_md/official_wave1_20260609/inputs/ligand_params/zqz/zqz_input.sdf`
+- `outputs/phase5_md/official_wave1_20260609/inputs/ligand_params/zqz/zqz_gaff2_am1bcc.mol2`
+- `outputs/phase5_md/official_wave1_20260609/inputs/ligand_params/zqz/zqz_gaff2.frcmod`
+- `outputs/phase5_md/official_wave1_20260609/inputs/ligand_params/zqz/zqz_tleap.in`
+- `outputs/phase5_md/official_wave1_20260609/inputs/ligand_params/zqz/zqz_tleap.log`
+- `outputs/phase5_md/official_wave1_20260609/inputs/ligand_params/zqz/PARAMETER_AUDIT.md`
+- `outputs/phase5_md/official_wave1_20260609/inputs/ligand_params/zqz/zqz_parameter_audit.json`
+- `outputs/phase5_md/official_wave1_20260609/inputs/ligand_params/zqz/zqz_package_hashes.json`
+
+Implementation updates:
+
+- `src/phase5_md/wave1.py` now validates ZQZ audit completeness and records
+  `PARAMETERS_AUDITED_READY_FOR_SETUP_USE` in the registry.
+- `reports/phase5/wave1_readiness_report_20260610.md` now reports
+  `LAUNCH_READY_AWAITING_AUTHORIZATION_PRODUCTION_BLOCKED`.
+- Production preflight intentionally fails closed only on `do_not_run_md: true` and
+  absent future launch authorization.
+- `tests/phase5/test_wave1_preflight.py` now includes ZQZ audit checks.
+
+Verification:
+
+- `pytest tests/phase5/test_wave1_preflight.py` -> 5 passed.
+- `python scripts/phase5_wave1_preflight.py --preflight-stage production` -> fail-closed
+  with only `do_not_run_md: true` and missing launch authorization.
+
+Provenance:
+- date: 2026-06-11
+- source: `reports/phase5/zqz_parameter_audit_20260611.md`,
+  `outputs/phase5_md/official_wave1_20260609/inputs/ligand_params/zqz/PARAMETER_AUDIT.md`,
+  `data/raw_intake/pcna_structures/8GLA.cif`, RCSB ZQZ ideal SDF and chemical-component
+  CIF URLs recorded in the audit
+- governance: `docs/scientific_governance/13_MD_VALIDATION_RULES.md`,
+  `15_PROVENANCE_AND_REPRODUCIBILITY.md`, `16_CODING_AGENT_RULES.md`,
+  `19_STOP_CONDITIONS.md`, `26_HUMAN_REVIEW_GATES.md`
+- confidence: high for local command provenance, hashes, formal/net charge, and `tleap`
+  Unit OK check
+- evidence_status: verified ligand-parameter audit only; no MD setup, minimization,
+  equilibration, production, trajectory analysis, interpretation, launch authorization,
+  or claims

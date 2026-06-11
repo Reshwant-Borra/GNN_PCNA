@@ -1,0 +1,147 @@
+{
+  "schema_version": "1.0",
+  "generated_utc": "2026-06-11T03:47:47.369753+00:00",
+  "note": "This file records final package hashes except its own self-hash.",
+  "hashes": {
+    "ANTECHAMBER_AC.AC": {
+      "path": "outputs/phase5_md/official_wave1_20260609/inputs/ligand_params/zqz/ANTECHAMBER_AC.AC",
+      "sha256": "28ec357344a28d18b97e53a0f3564a1d4aa34dc7ba3be5c268a538b6ac92c2ca",
+      "size_bytes": 7214
+    },
+    "ANTECHAMBER_AC.AC0": {
+      "path": "outputs/phase5_md/official_wave1_20260609/inputs/ligand_params/zqz/ANTECHAMBER_AC.AC0",
+      "sha256": "8275175a3640f7e1c6762ced26eddb7751463f54df1e1f97ff557c08341a6679",
+      "size_bytes": 7214
+    },
+    "ANTECHAMBER_AM1BCC.AC": {
+      "path": "outputs/phase5_md/official_wave1_20260609/inputs/ligand_params/zqz/ANTECHAMBER_AM1BCC.AC",
+      "sha256": "ffbf3325a9cb0de88cabdada699fdd23eb31c49a6dc50c5661904438d31ecf53",
+      "size_bytes": 7214
+    },
+    "ANTECHAMBER_AM1BCC_PRE.AC": {
+      "path": "outputs/phase5_md/official_wave1_20260609/inputs/ligand_params/zqz/ANTECHAMBER_AM1BCC_PRE.AC",
+      "sha256": "aca325262258fcb9a469e52d2277d983ce639bd3f4410a2769d468fbdbe546f7",
+      "size_bytes": 7214
+    },
+    "ANTECHAMBER_BOND_TYPE.AC": {
+      "path": "outputs/phase5_md/official_wave1_20260609/inputs/ligand_params/zqz/ANTECHAMBER_BOND_TYPE.AC",
+      "sha256": "8275175a3640f7e1c6762ced26eddb7751463f54df1e1f97ff557c08341a6679",
+      "size_bytes": 7214
+    },
+    "ANTECHAMBER_BOND_TYPE.AC0": {
+      "path": "outputs/phase5_md/official_wave1_20260609/inputs/ligand_params/zqz/ANTECHAMBER_BOND_TYPE.AC0",
+      "sha256": "22df6be3b7154bfce9fd788c64e327dec46c0672e7378d2c42eceba55dabb412",
+      "size_bytes": 7214
+    },
+    "ATOMTYPE.INF": {
+      "path": "outputs/phase5_md/official_wave1_20260609/inputs/ligand_params/zqz/ATOMTYPE.INF",
+      "sha256": "f82a1b095fb21c7b2d422bb6527289e8b34f52ac36e68725cd209794765fe62a",
+      "size_bytes": 14373
+    },
+    "PARAMETER_AUDIT.md": {
+      "path": "outputs/phase5_md/official_wave1_20260609/inputs/ligand_params/zqz/PARAMETER_AUDIT.md",
+      "sha256": "fc112f1e19cd44f71a0553d2b29cee8a9ec66db585319c7810802436ea076113",
+      "size_bytes": 5569
+    },
+    "README_TEMPLATE.md": {
+      "path": "outputs/phase5_md/official_wave1_20260609/inputs/ligand_params/zqz/README_TEMPLATE.md",
+      "sha256": "75b7811e0f2c07084e3de4a61ccf7010c6014fff7e1547b108d5bbfdff26a7c6",
+      "size_bytes": 536
+    },
+    "ZQZ.cif": {
+      "path": "outputs/phase5_md/official_wave1_20260609/inputs/ligand_params/zqz/ZQZ.cif",
+      "sha256": "d06cd3f80bde14e5fd78eb90a57ad68b7e348af8024052422bd1a24b011833fb",
+      "size_bytes": 11558
+    },
+    "commands/antechamber.stderr.log": {
+      "path": "outputs/phase5_md/official_wave1_20260609/inputs/ligand_params/zqz/commands/antechamber.stderr.log",
+      "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+      "size_bytes": 0
+    },
+    "commands/antechamber.stdout.log": {
+      "path": "outputs/phase5_md/official_wave1_20260609/inputs/ligand_params/zqz/commands/antechamber.stdout.log",
+      "sha256": "7c32b51d8237993349bb1a655d03665aa49ad02e3064d3ef0b6827aeb604b46e",
+      "size_bytes": 1032
+    },
+    "commands/parmchk2.stderr.log": {
+      "path": "outputs/phase5_md/official_wave1_20260609/inputs/ligand_params/zqz/commands/parmchk2.stderr.log",
+      "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+      "size_bytes": 0
+    },
+    "commands/parmchk2.stdout.log": {
+      "path": "outputs/phase5_md/official_wave1_20260609/inputs/ligand_params/zqz/commands/parmchk2.stdout.log",
+      "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+      "size_bytes": 0
+    },
+    "deposited_8gla_zqz_instances.json": {
+      "path": "outputs/phase5_md/official_wave1_20260609/inputs/ligand_params/zqz/deposited_8gla_zqz_instances.json",
+      "sha256": "87ca06d15002786cfa419a5a7536aff43d6f892be8d4aee205cdd2f0ffabbc5d",
+      "size_bytes": 4523
+    },
+    "deposited_8gla_zqz_instances.pdb": {
+      "path": "outputs/phase5_md/official_wave1_20260609/inputs/ligand_params/zqz/deposited_8gla_zqz_instances.pdb",
+      "sha256": "4cd7ab300ab602a3f12ab7f286ec8ca13b410e89dda007f085960d6fd81965ec",
+      "size_bytes": 17542
+    },
+    "leap.log": {
+      "path": "outputs/phase5_md/official_wave1_20260609/inputs/ligand_params/zqz/leap.log",
+      "sha256": "c8adc0e4d14acb2deed22c754a540620efe26dd37bc0484481c37b7ce3cac710",
+      "size_bytes": 14324
+    },
+    "sqm.in": {
+      "path": "outputs/phase5_md/official_wave1_20260609/inputs/ligand_params/zqz/sqm.in",
+      "sha256": "efe843aaef228c6f3176900d593628ddeb6173bd0be8fd477c3217547ffa44e5",
+      "size_bytes": 3534
+    },
+    "sqm.out": {
+      "path": "outputs/phase5_md/official_wave1_20260609/inputs/ligand_params/zqz/sqm.out",
+      "sha256": "ae5c4e1a38e196ad3f305cc500f5ae786d0a17db9e76e2d40958af9ce66a835b",
+      "size_bytes": 19729
+    },
+    "sqm.pdb": {
+      "path": "outputs/phase5_md/official_wave1_20260609/inputs/ligand_params/zqz/sqm.pdb",
+      "sha256": "54954af6b432eaaf70e5249863dbbb0892837913489893703108e468ff5ee874",
+      "size_bytes": 4977
+    },
+    "zqz_gaff2.frcmod": {
+      "path": "outputs/phase5_md/official_wave1_20260609/inputs/ligand_params/zqz/zqz_gaff2.frcmod",
+      "sha256": "080fa468a97f71948dc571d070727aaff4fd115c1d52983280f673cb0415b430",
+      "size_bytes": 2225
+    },
+    "zqz_gaff2.lib": {
+      "path": "outputs/phase5_md/official_wave1_20260609/inputs/ligand_params/zqz/zqz_gaff2.lib",
+      "sha256": "3ebc718f0c08f1db38eb33303d75c30bafddf2fc271ecbfbcd8a2acc6ff9243e",
+      "size_bytes": 8773
+    },
+    "zqz_gaff2_am1bcc.mol2": {
+      "path": "outputs/phase5_md/official_wave1_20260609/inputs/ligand_params/zqz/zqz_gaff2_am1bcc.mol2",
+      "sha256": "a3056f06d64231fd55df83b28a4ed4759adcfa3fba31427c4c41609b641a61a3",
+      "size_bytes": 6926
+    },
+    "zqz_input.sdf": {
+      "path": "outputs/phase5_md/official_wave1_20260609/inputs/ligand_params/zqz/zqz_input.sdf",
+      "sha256": "0145ff68bcc1a86f84c61d1704edac18522a477e60e6a877eaf7f0c4a0759ae9",
+      "size_bytes": 4419
+    },
+    "zqz_parameter_audit.json": {
+      "path": "outputs/phase5_md/official_wave1_20260609/inputs/ligand_params/zqz/zqz_parameter_audit.json",
+      "sha256": "c667ea6e9e0bab0229b1386deb5473fa50371ef2d7bad1b3bccd0c25d8d6e2e7",
+      "size_bytes": 38777
+    },
+    "zqz_tleap.in": {
+      "path": "outputs/phase5_md/official_wave1_20260609/inputs/ligand_params/zqz/zqz_tleap.in",
+      "sha256": "95db50242da74531cddcbd57e828c2ea4cda601d21a6791269c92bbde8f0d71b",
+      "size_bytes": 131
+    },
+    "zqz_tleap.log": {
+      "path": "outputs/phase5_md/official_wave1_20260609/inputs/ligand_params/zqz/zqz_tleap.log",
+      "sha256": "9573480efe3400065431fd7b657f31145856e496ea563ccb570ece33e07ecc63",
+      "size_bytes": 1253
+    },
+    "reports/phase5/zqz_parameter_audit_20260611.md": {
+      "path": "reports/phase5/zqz_parameter_audit_20260611.md",
+      "sha256": "fc112f1e19cd44f71a0553d2b29cee8a9ec66db585319c7810802436ea076113",
+      "size_bytes": 5569
+    }
+  }
+}

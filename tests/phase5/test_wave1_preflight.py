@@ -16,6 +16,7 @@ from phase5_md.wave1 import (
     Phase5PreflightError,
     audit_1axc,
     audit_8gla,
+    audit_zqz_parameters,
     verify_preflight,
 )
 
@@ -61,4 +62,16 @@ def test_production_preflight_fails_closed_without_launch_and_zqz_audit():
         verify_preflight(stage="production")
     message = str(excinfo.value)
     assert "do_not_run_md: true" in message
-    assert "Audited ZQZ ligand parameter manifest is absent" in message
+    assert "Future explicit Phase 5 launch authorization record is absent" in message
+    assert "Audited ZQZ ligand parameter package is absent or incomplete" not in message
+
+
+def test_zqz_parameter_audit_is_complete_and_ligand_only():
+    audit = audit_zqz_parameters()
+    assert audit["complete"]
+    assert audit["status"] == "PARAMETERS_AUDITED_READY_FOR_SETUP_USE"
+    assert audit["method"]["force_field"] == "GAFF2"
+    assert audit["method"]["charge_model"] == "AM1-BCC"
+    assert audit["method"]["net_charge"] == 0
+    assert audit["key_hashes"]["zqz_gaff2_am1bcc.mol2"]
+    assert audit["key_hashes"]["zqz_gaff2.frcmod"]

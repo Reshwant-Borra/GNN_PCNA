@@ -1,8 +1,8 @@
 ---
 type: phase5-ligand-parameterization-plan
 ligand: ZQZ
-date: 2026-06-10
-status: PLAN_ONLY_PARAMETERS_NOT_GENERATED
+date: 2026-06-11
+status: PARAMETERS_AUDITED_READY_FOR_SETUP_USE
 md_executed: false
 ---
 
@@ -52,7 +52,22 @@ input hashes, net charge, atom count, warning/error logs, and manual-review note
 Future production setup must refuse to continue if
 `outputs/phase5_md/official_wave1_20260609/inputs/ligand_params/zqz/PARAMETER_AUDIT.md`
 is absent, incomplete, or not linked from the system setup manifest. This turn intentionally
-does not generate production parameters.
+does not run MD setup or simulation.
+
+
+## Completion Status
+
+The approved workflow has been completed and audited.
+
+- Audit report: `reports/phase5/zqz_parameter_audit_20260611.md`
+- Package audit: `outputs/phase5_md/official_wave1_20260609/inputs/ligand_params/zqz/PARAMETER_AUDIT.md`
+- Machine-readable audit: `outputs/phase5_md/official_wave1_20260609/inputs/ligand_params/zqz/zqz_parameter_audit.json`
+- Package hashes: `outputs/phase5_md/official_wave1_20260609/inputs/ligand_params/zqz/zqz_package_hashes.json`
+
+The parameter package is ready to be linked from the future `8gla_holo_zqz` setup
+manifest after launch authorization. This does not authorize minimization,
+equilibration, production MD, trajectory analysis, or interpretation.
+
 
 ## Example Future Commands
 
@@ -65,5 +80,6 @@ parmchk2 -i zqz_gaff2_am1bcc.mol2 -f mol2 -o zqz_gaff2.frcmod -s gaff2
 tleap -f zqz_tleap.in
 ```
 
-Evidence status: plan only. Confidence: high for required workflow shape; parameter
-quality remains unaudited until outputs exist.
+Evidence status: verified parameter audit.
+Confidence: high for required workflow shape; parameter quality is audited when
+`PARAMETER_AUDIT.md` is present and preflight passes its content checks.

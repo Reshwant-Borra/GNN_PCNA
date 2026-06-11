@@ -1,0 +1,6 @@
+source leaprc.gaff2
+ZQZ = loadmol2 zqz_gaff2_am1bcc.mol2
+loadamberparams zqz_gaff2.frcmod
+check ZQZ
+saveoff ZQZ zqz_gaff2.lib
+quit

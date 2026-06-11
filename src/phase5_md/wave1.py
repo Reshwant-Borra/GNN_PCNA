@@ -43,6 +43,9 @@ ONE_AXC_METADATA = (
 )
 
 OUTPUT_ROOT = REPO_ROOT / "outputs" / "phase5_md" / "official_wave1_20260609"
+ZQZ_PARAMETER_DIR = OUTPUT_ROOT / "inputs" / "ligand_params" / "zqz"
+ZQZ_PARAMETER_AUDIT = ZQZ_PARAMETER_DIR / "PARAMETER_AUDIT.md"
+ZQZ_PARAMETER_AUDIT_JSON = ZQZ_PARAMETER_DIR / "zqz_parameter_audit.json"
 REGISTRY_PATH = (
     REPO_ROOT / "data" / "registries" / "phase5_wave1_preparation_audit_20260610.json"
 )
@@ -576,6 +579,7 @@ def environment_capture() -> dict[str, Any]:
 def build_registry() -> dict[str, Any]:
     audit8 = audit_8gla()
     audit1 = audit_1axc()
+    zqz_audit = audit_zqz_parameters()
     return {
         "schema_version": "1.0",
         "generated_utc": utc_now(),
@@ -593,14 +597,106 @@ def build_registry() -> dict[str, Any]:
         "audits": {
             "8GLA": audit8,
             "1AXC": audit1,
+            "ZQZ_parameters": zqz_audit,
         },
         "git": git_info(),
         "environment": environment_capture(),
-        "preflight_status": preflight_status(audit8, audit1),
+        "preflight_status": preflight_status(audit8, audit1, zqz_audit),
     }
 
 
-def preflight_status(audit8: dict[str, Any], audit1: dict[str, Any]) -> dict[str, Any]:
+def audit_zqz_parameters() -> dict[str, Any]:
+    required = {
+        "zqz_input.sdf",
+        "ZQZ.cif",
+        "deposited_8gla_zqz_instances.pdb",
+        "deposited_8gla_zqz_instances.json",
+        "zqz_gaff2_am1bcc.mol2",
+        "zqz_gaff2.frcmod",
+        "zqz_tleap.in",
+        "zqz_tleap.log",
+        "zqz_gaff2.lib",
+        "zqz_parameter_audit.json",
+        "PARAMETER_AUDIT.md",
+        "zqz_package_hashes.json",
+    }
+    missing = sorted(name for name in required if not (ZQZ_PARAMETER_DIR / name).exists())
+    if missing:
+        return {
+            "status": "ABSENT_OR_INCOMPLETE",
+            "audit_markdown": ZQZ_PARAMETER_AUDIT.relative_to(REPO_ROOT).as_posix(),
+            "audit_json": ZQZ_PARAMETER_AUDIT_JSON.relative_to(REPO_ROOT).as_posix(),
+            "missing_files": missing,
+            "complete": False,
+        }
+    try:
+        audit = read_json(ZQZ_PARAMETER_AUDIT_JSON)
+    except Exception as exc:
+        return {
+            "status": "INVALID_JSON",
+            "audit_markdown": ZQZ_PARAMETER_AUDIT.relative_to(REPO_ROOT).as_posix(),
+            "audit_json": ZQZ_PARAMETER_AUDIT_JSON.relative_to(REPO_ROOT).as_posix(),
+            "error": str(exc),
+            "complete": False,
+        }
+
+    problems: list[str] = []
+    scope = audit.get("scope", {})
+    for key in [
+        "md_execution_performed",
+        "protein_system_setup_performed",
+        "minimization_performed",
+        "equilibration_performed",
+        "production_performed",
+        "trajectory_analysis_performed",
+        "launch_authorization_created",
+    ]:
+        if scope.get(key) is not False:
+            problems.append(f"scope flag {key} is not false")
+
+    method = audit.get("method", {})
+    if method.get("force_field") != "GAFF2":
+        problems.append("force field is not GAFF2")
+    if method.get("charge_model") != "AM1-BCC":
+        problems.append("charge model is not AM1-BCC")
+    if method.get("net_charge") != 0:
+        problems.append("net charge is not 0")
+    if audit.get("input_audit", {}).get("sdf", {}).get("formal_charge") != 0:
+        problems.append("input SDF formal charge is not 0")
+    if not audit.get("input_audit", {}).get("sdf", {}).get("has_explicit_hydrogens"):
+        problems.append("input SDF lacks explicit hydrogens")
+    if audit.get("parameter_checks", {}).get("mol2", {}).get("atom_count") != 63:
+        problems.append("MOL2 atom count is not 63")
+    charge_sum = audit.get("parameter_checks", {}).get("mol2", {}).get("charge_sum")
+    if charge_sum is None or abs(float(charge_sum)) > 0.01:
+        problems.append("MOL2 charge sum is not near neutral")
+    tleap_lines = "\n".join(
+        audit.get("parameter_checks", {}).get("tleap_log", {}).get("notable_lines", [])
+    )
+    if "Unit is OK" not in tleap_lines:
+        problems.append("tleap log does not contain Unit is OK")
+
+    output_hashes = audit.get("output_hashes", {})
+    for name in required - {"PARAMETER_AUDIT.md", "zqz_parameter_audit.json", "zqz_package_hashes.json"}:
+        if name not in output_hashes:
+            problems.append(f"missing output hash for {name}")
+
+    return {
+        "status": "PARAMETERS_AUDITED_READY_FOR_SETUP_USE" if not problems else "INVALID",
+        "audit_markdown": ZQZ_PARAMETER_AUDIT.relative_to(REPO_ROOT).as_posix(),
+        "audit_json": ZQZ_PARAMETER_AUDIT_JSON.relative_to(REPO_ROOT).as_posix(),
+        "package_hashes": (ZQZ_PARAMETER_DIR / "zqz_package_hashes.json").relative_to(REPO_ROOT).as_posix(),
+        "method": method,
+        "complete": not problems,
+        "problems": problems,
+        "key_hashes": {
+            name: output_hashes.get(name, {}).get("sha256")
+            for name in ["zqz_gaff2_am1bcc.mol2", "zqz_gaff2.frcmod", "zqz_tleap.log"]
+        },
+    }
+
+
+def preflight_status(audit8: dict[str, Any], audit1: dict[str, Any], zqz_audit: dict[str, Any] | None = None) -> dict[str, Any]:
     blockers: list[str] = []
     warnings: list[str] = []
 
@@ -625,16 +721,27 @@ def preflight_status(audit8: dict[str, Any], audit1: dict[str, Any]) -> dict[str
         if not details["complete_all_chains"]:
             blockers.append(f"1AXC candidate window {cid} is not complete on all PCNA chains.")
 
-    zqz_param_manifest = OUTPUT_ROOT / "inputs" / "ligand_params" / "zqz" / "PARAMETER_AUDIT.md"
-    if not zqz_param_manifest.exists():
-        blockers.append("Audited ZQZ ligand parameter manifest is absent.")
+    if zqz_audit is None:
+        zqz_audit = audit_zqz_parameters()
+    if not zqz_audit["complete"]:
+        blockers.append("Audited ZQZ ligand parameter package is absent or incomplete.")
 
     launch_authorization = REPORT_DIR / "phase5_wave1_launch_authorization.md"
     if not launch_authorization.exists():
         blockers.append("Future explicit Phase 5 launch authorization record is absent.")
 
+    launch_hold_blockers = {
+        "Official package still records do_not_run_md: true; execution remains on hold.",
+        "Future explicit Phase 5 launch authorization record is absent.",
+    }
+    package_status = (
+        "LAUNCH_READY_AWAITING_AUTHORIZATION"
+        if blockers and set(blockers).issubset(launch_hold_blockers)
+        else "READY_FOR_HUMAN_REVIEW"
+    )
+
     return {
-        "package_preparation_status": "READY_FOR_HUMAN_REVIEW",
+        "package_preparation_status": package_status,
         "production_launch_status": "BLOCKED_FAIL_CLOSED" if blockers else "READY",
         "blockers": blockers,
         "warnings": warnings,
@@ -840,11 +947,35 @@ chain/window facts; no MD outcome claim is made.
 
 
 def render_zqz_plan(registry: dict[str, Any]) -> str:
-    return """---
+    zqz = registry["audits"].get("ZQZ_parameters", {})
+    status = zqz.get("status", "PLAN_ONLY_PARAMETERS_NOT_GENERATED")
+    if zqz.get("complete"):
+        completion = f"""
+## Completion Status
+
+The approved workflow has been completed and audited.
+
+- Audit report: `reports/phase5/zqz_parameter_audit_20260611.md`
+- Package audit: `{zqz["audit_markdown"]}`
+- Machine-readable audit: `{zqz["audit_json"]}`
+- Package hashes: `{zqz["package_hashes"]}`
+
+The parameter package is ready to be linked from the future `8gla_holo_zqz` setup
+manifest after launch authorization. This does not authorize minimization,
+equilibration, production MD, trajectory analysis, or interpretation.
+"""
+    else:
+        completion = """
+## Completion Status
+
+Parameters are not complete. Future production setup must fail closed until the audit
+package exists and passes preflight.
+"""
+    return f"""---
 type: phase5-ligand-parameterization-plan
 ligand: ZQZ
-date: 2026-06-10
-status: PLAN_ONLY_PARAMETERS_NOT_GENERATED
+date: 2026-06-11
+status: {status}
 md_executed: false
 ---
 
@@ -894,7 +1025,9 @@ input hashes, net charge, atom count, warning/error logs, and manual-review note
 Future production setup must refuse to continue if
 `outputs/phase5_md/official_wave1_20260609/inputs/ligand_params/zqz/PARAMETER_AUDIT.md`
 is absent, incomplete, or not linked from the system setup manifest. This turn intentionally
-does not generate production parameters.
+does not run MD setup or simulation.
+
+{completion}
 
 ## Example Future Commands
 
@@ -907,8 +1040,9 @@ parmchk2 -i zqz_gaff2_am1bcc.mol2 -f mol2 -o zqz_gaff2.frcmod -s gaff2
 tleap -f zqz_tleap.in
 ```
 
-Evidence status: plan only. Confidence: high for required workflow shape; parameter
-quality remains unaudited until outputs exist.
+Evidence status: {"verified parameter audit" if zqz.get("complete") else "plan only"}.
+Confidence: high for required workflow shape; parameter quality is audited when
+`PARAMETER_AUDIT.md` is present and preflight passes its content checks.
 """
 
 
@@ -972,12 +1106,13 @@ Evidence status: template/provenance infrastructure only. No MD stage was run.
 
 def render_readiness_report(registry: dict[str, Any]) -> str:
     status = registry["preflight_status"]
+    zqz = registry["audits"].get("ZQZ_parameters", {})
     blockers = "\n".join(f"- {item}" for item in status["blockers"]) or "- none"
     warnings = "\n".join(f"- {item}" for item in status["warnings"]) or "- none"
     return f"""---
 type: phase5-wave1-readiness-report
-date: 2026-06-10
-status: PRELAUNCH_PACKAGE_READY_PRODUCTION_BLOCKED
+date: 2026-06-11
+status: LAUNCH_READY_AWAITING_AUTHORIZATION_PRODUCTION_BLOCKED
 md_executed: false
 ---
 
@@ -1000,6 +1135,8 @@ analysis, interpretation, or claims.
 - 1AXC PCNA windows are complete on all three PCNA chains A/C/E.
 - 8GLA biological assembly 1 is verified as the official trimer for the positive-control systems.
 - Manifest/provenance templates and preflight checks were added.
+- ZQZ GAFF2/AM1-BCC parameter package status: `{zqz.get("status", "UNKNOWN")}`.
+- ZQZ parameter audit: `{zqz.get("audit_markdown", "missing")}`.
 
 ## Gap Analysis
 
@@ -1014,19 +1151,20 @@ analysis, interpretation, or claims.
 - Package preparation status: `{status["package_preparation_status"]}`.
 - Production launch status: `{status["production_launch_status"]}`.
 
-The official package is ready for human review as a prelaunch package, but production
-launch remains intentionally blocked. This is expected because MD execution is not yet
-authorized, the official package still records `do_not_run_md: true`, and ZQZ parameters
-were not generated in this turn.
+The official package is launch-ready at the preparation level, but production launch
+remains intentionally blocked. This is expected because MD execution is not yet
+authorized and the official package still records `do_not_run_md: true`.
 
 ## Deliverables
 
 - `reports/phase5/8gla_preparation_audit_20260610.md`
 - `reports/phase5/1axc_preparation_audit_20260610.md`
 - `reports/phase5/zqz_parameterization_plan_20260610.md`
+- `reports/phase5/zqz_parameter_audit_20260611.md`
 - `reports/phase5/manifest_provenance_templates_20260610.md`
 - `data/registries/phase5_wave1_preparation_audit_20260610.json`
-- `outputs/phase5_md/official_wave1_20260609/` manifest templates
+- `outputs/phase5_md/official_wave1_20260609/` manifest templates and audited ZQZ
+  parameter package
 
 Evidence status: verified preparation and fail-closed checks. No MD outcome exists.
 Confidence: high for package scope and source hashes; no interpretation or claim is made.
@@ -1136,9 +1274,33 @@ copy it to `setup_manifest.md`, fill every required field, and link audited inpu
 """,
         )
 
-    write_text(
-        output / "inputs" / "ligand_params" / "zqz" / "README_TEMPLATE.md",
-        """# ZQZ Ligand Parameter Placeholder
+    zqz = registry["audits"].get("ZQZ_parameters", {})
+    if zqz.get("complete"):
+        zqz_readme = f"""# ZQZ Ligand Parameter Package
+
+Status: PARAMETERS_AUDITED_READY_FOR_SETUP_USE
+
+Audit files:
+
+- `PARAMETER_AUDIT.md`
+- `zqz_parameter_audit.json`
+- `zqz_package_hashes.json`
+
+Primary parameter files:
+
+- `zqz_gaff2_am1bcc.mol2`
+- `zqz_gaff2.frcmod`
+- `zqz_tleap.in`
+- `zqz_tleap.log`
+- `zqz_gaff2.lib`
+
+Future production setup must still fail closed until an explicit launch authorization
+exists and the 8GLA setup manifest links this package and its hashes.
+
+Audit status: `{zqz["status"]}`
+"""
+    else:
+        zqz_readme = """# ZQZ Ligand Parameter Placeholder
 
 Status: TEMPLATE_ONLY_PARAMETERS_NOT_GENERATED
 
@@ -1154,8 +1316,8 @@ Required before production:
 Production setup must fail closed until `PARAMETER_AUDIT.md` exists and records input
 hashes, output hashes, AmberTools versions, charge method, net charge, command lines,
 warnings, and manual review.
-""",
-    )
+"""
+    write_text(output / "inputs" / "ligand_params" / "zqz" / "README_TEMPLATE.md", zqz_readme)
 
 
 def write_reports(registry: dict[str, Any]) -> None:

@@ -1,7 +1,7 @@
 ---
 type: phase5-wave1-readiness-report
-date: 2026-06-10
-status: PRELAUNCH_PACKAGE_READY_PRODUCTION_BLOCKED
+date: 2026-06-11
+status: LAUNCH_READY_AWAITING_AUTHORIZATION_PRODUCTION_BLOCKED
 md_executed: false
 ---
 
@@ -24,11 +24,12 @@ analysis, interpretation, or claims.
 - 1AXC PCNA windows are complete on all three PCNA chains A/C/E.
 - 8GLA biological assembly 1 is verified as the official trimer for the positive-control systems.
 - Manifest/provenance templates and preflight checks were added.
+- ZQZ GAFF2/AM1-BCC parameter package status: `PARAMETERS_AUDITED_READY_FOR_SETUP_USE`.
+- ZQZ parameter audit: `outputs/phase5_md/official_wave1_20260609/inputs/ligand_params/zqz/PARAMETER_AUDIT.md`.
 
 ## Gap Analysis
 
 - Official package still records do_not_run_md: true; execution remains on hold.
-- Audited ZQZ ligand parameter manifest is absent.
 - Future explicit Phase 5 launch authorization record is absent.
 
 ## Warnings
@@ -37,22 +38,23 @@ analysis, interpretation, or claims.
 
 ## Launch-Readiness Assessment
 
-- Package preparation status: `READY_FOR_HUMAN_REVIEW`.
+- Package preparation status: `LAUNCH_READY_AWAITING_AUTHORIZATION`.
 - Production launch status: `BLOCKED_FAIL_CLOSED`.
 
-The official package is ready for human review as a prelaunch package, but production
-launch remains intentionally blocked. This is expected because MD execution is not yet
-authorized, the official package still records `do_not_run_md: true`, and ZQZ parameters
-were not generated in this turn.
+The official package is launch-ready at the preparation level, but production launch
+remains intentionally blocked. This is expected because MD execution is not yet
+authorized and the official package still records `do_not_run_md: true`.
 
 ## Deliverables
 
 - `reports/phase5/8gla_preparation_audit_20260610.md`
 - `reports/phase5/1axc_preparation_audit_20260610.md`
 - `reports/phase5/zqz_parameterization_plan_20260610.md`
+- `reports/phase5/zqz_parameter_audit_20260611.md`
 - `reports/phase5/manifest_provenance_templates_20260610.md`
 - `data/registries/phase5_wave1_preparation_audit_20260610.json`
-- `outputs/phase5_md/official_wave1_20260609/` manifest templates
+- `outputs/phase5_md/official_wave1_20260609/` manifest templates and audited ZQZ
+  parameter package
 
 Evidence status: verified preparation and fail-closed checks. No MD outcome exists.
 Confidence: high for package scope and source hashes; no interpretation or claim is made.

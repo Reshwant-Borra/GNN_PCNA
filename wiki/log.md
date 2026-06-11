@@ -611,3 +611,35 @@ absent.
 **Evidence status:** verified preparation/provenance infrastructure only. Confidence:
 high for source hashes, assembly/chain/window facts, and fail-closed launch status; no MD
 outcome evidence exists.
+
+## 2026-06-11 - Phase 5 ZQZ parameter package audited; Wave 1 launch-ready awaiting authorization
+
+**Decision/status:** The final pre-MD ZQZ parameterization task is complete. Official
+Wave 1 is launch-ready at the preparation level, but production remains fail-closed. No
+launch authorization was created and the official package still records `do_not_run_md: true`.
+
+**Artifacts:** `scripts/phase5_zqz_parameterize.py`;
+`outputs/phase5_md/official_wave1_20260609/inputs/ligand_params/zqz/PARAMETER_AUDIT.md`;
+`outputs/phase5_md/official_wave1_20260609/inputs/ligand_params/zqz/zqz_parameter_audit.json`;
+`outputs/phase5_md/official_wave1_20260609/inputs/ligand_params/zqz/zqz_package_hashes.json`;
+`reports/phase5/zqz_parameter_audit_20260611.md`;
+updated `reports/phase5/wave1_readiness_report_20260610.md`;
+updated `data/registries/phase5_wave1_preparation_audit_20260610.json`.
+
+**Verified facts:** AmberTools26 from `dacase::ambertools-dac=26.0.0` generated ZQZ
+GAFF2/AM1-BCC parameters from the RCSB ideal SDF with explicit hydrogens, formal/net
+charge 0, residue name ZQZ. Deposited 8GLA ZQZ instances were extracted and indexed for
+provenance. `tleap` reported Unit OK with errors 0, warnings 0.
+
+**Remaining launch blockers:** official package still records `do_not_run_md: true`;
+future explicit Phase 5 launch authorization is absent. The old ZQZ-parameter-missing
+blocker is resolved.
+
+**Governance:** `docs/scientific_governance/13_MD_VALIDATION_RULES.md`,
+`15_PROVENANCE_AND_REPRODUCIBILITY.md`, `16_CODING_AGENT_RULES.md`,
+`19_STOP_CONDITIONS.md`, `26_HUMAN_REVIEW_GATES.md`.
+
+**Evidence status:** verified parameter-generation/provenance audit only. Confidence:
+high for command provenance, hashes, and ligand-unit check; no MD setup, minimization,
+equilibration, production, trajectory analysis, biological interpretation, launch
+authorization, or claims were run.

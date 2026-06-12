@@ -1,6 +1,6 @@
 ---
-updated: 2026-06-11
-updated_by: codex-gpt-5 (phase5-md-feasibility-report)
+updated: 2026-06-12
+updated_by: codex-gpt-5 (phase5-wave1-adversarial-audit-handoff)
 ---
 
 # Project State - GNN-PCNA
@@ -17,7 +17,7 @@ treat this file as potentially stale. Reconstruct current state from
 
 ## Phase
 
-**Phase 5 — OFFICIAL WAVE 1 LAUNCH-READY AWAITING AUTHORIZATION. PRODUCTION LAUNCH BLOCKED FAIL-CLOSED.**
+**Phase 5 - WAVE 1 PRE-LAUNCH AUDITED. NOT READY FOR MD LAUNCH. PRODUCTION LAUNCH BLOCKED FAIL-CLOSED.**
 
 | System | Status |
 |---|---|
@@ -25,14 +25,14 @@ treat this file as potentially stale. Reconstruct current state from
 | Training (spatial-only) | **COMPLETE** (Option B). 12/12 runs. Val macro-AUPRC: **0.1897 ± 0.0091**. Best: fold=1 seed=1 → 0.2047. |
 | Baselines | **COMPLETE** (GATE 3). GNN baselines done. External tools (fpocket/P2Rank/PocketMiner): stubs only. |
 | Test evaluation | **COMPLETE — ONE-SHOT USED** (GATE 5 cleared 2026-05-29). Test macro-AUPRC: **0.2034** [0.1825, 0.2275] 95% CI. Micro-AUPRC: 0.0973. Macro-AUROC: 0.6902. Top-20 recovery: 0.2179. 214 structures, 177 with valid AUPRC. Lock: `reports/phase3/.test_evaluation_lock`. Report: `reports/phase3/test_evaluation_20260529.md`. |
-| Molecular dynamics | **LAUNCH-READY AWAITING AUTHORIZATION / PRODUCTION BLOCKED.** Gate 7 Wave 1 authorized; official setup audits/manifests/preflight added 2026-06-10; audited ZQZ GAFF2/AM1-BCC parameter package generated 2026-06-11. No protein system setup, minimization, equilibration, production, trajectories, analysis, interpretation, or claims run. |
+| Molecular dynamics | **NOT READY FOR MD LAUNCH / PRODUCTION BLOCKED.** Gate 7 Wave 1 package exists, but adversarial pre-launch audit on 2026-06-12 found unresolved ZQZ protonation/net-charge, force-field/water-model justification, benchmark, setup, and provenance blockers. No protein system setup, minimization, equilibration, production, trajectories, analysis, interpretation, or claims run. |
 | Scientific claims | BLOCKED — external baselines (fpocket/P2Rank/PocketMiner) not yet run; superiority claims require them per doc 10. |
 | PCNA inference | **COMPLETE (GATE 6 cleared 2026-05-29)**. 103/103 structures scored. 5 governance reports generated. |
 | Graph generation | **FIRST GRAPH RELEASE APPROVED**. 1,101 graphs, 0 failures. Approval: `reports/phase3/first_graph_release_approval_20260528.md`. |
 | Split freeze | **FROZEN** - `data/registries/split_manifest_frozen.json` (hash: 24dd5e347d880108) |
 | Label freeze | **FROZEN** - `data/labels/label_manifest.json` |
 
-All Phase 2, Phase 3, and Phase 4 gates cleared. Phase 4 inference complete. GATE 7 Wave 1 is authorized. Official Wave 1 preparation audits, audited ZQZ parameters, and fail-closed preflight checks are complete, but MD execution remains on hold until a later explicit launch instruction.
+All Phase 2, Phase 3, and Phase 4 gates cleared. Phase 4 inference complete. GATE 7 Wave 1 package exists, but an adversarial pre-launch audit on 2026-06-12 changed current MD status to NOT READY FOR MD LAUNCH. MD execution remains blocked fail-closed until unresolved chemistry, force-field/water, benchmark/provenance, and future explicit human launch authorization requirements are satisfied.
 
 ---
 
@@ -74,6 +74,7 @@ All Phase 2, Phase 3, and Phase 4 gates cleared. Phase 4 inference complete. GAT
 - **Phase 5 Wave 1 prelaunch package prepared (2026-06-10):** `src/phase5_md/wave1.py` and `scripts/phase5_wave1_preflight.py` generate/verify official Wave 1 audits, manifest templates, and fail-closed checks. Reports: `reports/phase5/wave1_readiness_report_20260610.md`, `8gla_preparation_audit_20260610.md`, `1axc_preparation_audit_20260610.md`, `zqz_parameterization_plan_20260610.md`, `manifest_provenance_templates_20260610.md`; registry: `data/registries/phase5_wave1_preparation_audit_20260610.json`; templates: `outputs/phase5_md/official_wave1_20260609/`. Key findings: 8GLA assembly 1 uses PCNA chains A/B/C and excludes deposited chain D; 8GLA chain C is missing residue 122 in PC-118; 1AXC retains PCNA A/C/E and removes p21 B/D/F; 1AXC Wave 1 windows are complete on A/C/E. No MD was run.
 - **Phase 5 ZQZ parameterization complete (2026-06-11):** AmberTools26 (`dacase::ambertools-dac=26.0.0`) generated audited GAFF2/AM1-BCC ZQZ parameters from the RCSB ideal SDF with explicit hydrogens, net charge 0, residue name ZQZ. Artifacts: `outputs/phase5_md/official_wave1_20260609/inputs/ligand_params/zqz/` including `zqz_gaff2_am1bcc.mol2`, `zqz_gaff2.frcmod`, `zqz_tleap.in`, `zqz_tleap.log`, `PARAMETER_AUDIT.md`, `zqz_parameter_audit.json`, and `zqz_package_hashes.json`; report: `reports/phase5/zqz_parameter_audit_20260611.md`; generator: `scripts/phase5_zqz_parameterize.py`. `tleap` check passed with Unit OK, errors 0, warnings 0. No protein setup, minimization, equilibration, production, analysis, interpretation, launch authorization, or claims were run.
 - **Phase 5 Wave 1 MD execution feasibility documented (2026-06-11):** `reports/phase5/wave1_md_execution_feasibility_20260611.md` records the final execution feasibility assessment. Totals: 9 production simulations and 900 ns aggregate production MD. Recommendation: L40S is the preferred future execution platform after explicit launch authorization; local RTX 4070 workstation is not recommended for full Wave 1 because of 12 GB VRAM uncertainty and only about 52 GB free on C:. Production remains blocked fail-closed; no MD setup, minimization, equilibration, production, trajectory analysis, interpretation, launch authorization, or claims were run.
+- **Phase 5 Wave 1 adversarial pre-launch audit handoff documented (2026-06-12):** `reports/phase2/handoff_20260612.md` records the independent audit verdict `NOT READY FOR MD LAUNCH`, launch blockers, revised confidence levels for feasibility estimates, and a Claude Code handoff prompt. Key blockers: ZQZ protonation/net-charge decision missing, `ff19SB + TIP3P` rationale missing, no prepared systems or benchmarks, stale 1AXC pre-registration context, and no MD execution/provenance artifacts. No MD setup, minimization, equilibration, production, trajectory analysis, interpretation, launch authorization, or claims were run.
 
 ---
 
@@ -88,7 +89,7 @@ Phase 3 stop gates:
 - **GATE 4 — CLEARED.** Model frozen 2026-05-29. Checkpoint: `checkpoints/phase3/spatial_only_fold1_seed1_best.pt`. Record: `reports/phase3/model_freeze_gate4_20260529.md`.
 - **GATE 5 — CLEARED.** Test evaluation complete 2026-05-29. Macro-AUPRC: **0.2034** [0.1825, 0.2275]. Report: `reports/phase3/test_evaluation_20260529.md`. Test set one-shot used — cannot be re-run.
 - **GATE 6 — CLEARED.** PCNA inference complete 2026-05-29. 103/103 structures OK (RTX 4070, 62s). Positive control sanity check passed (IDCL/AOH1996 region ranks #1, score=0.93). Authorization: `reports/phase4/gate6_authorization_20260529.md`. All 5 governance artifacts written to `reports/phase4/`.
-- **GATE 7 — AUTHORIZED / LAUNCH-READY AWAITING AUTHORIZATION / PRODUCTION BLOCKED.** Phase 5 official MD Wave 1 authorized by Reshwant-Borra on 2026-06-09: `reports/phase4/gate7_authorization_20260609.md`. Official pre-execution package: `reports/phase5/official_wave1_execution_package_20260609.md`. Wave 1 targets: 8GLA positive control (118-122) holo/apo-from-holo; 1AXC Tier 1A top-3 (239-243, 28-32, 206-210); 1AXC interface-adjacent control (134-138). Tier 1B (170-174, 175-179, 152-156) deferred to Wave 2 (enhanced sampling required). Prelaunch reports/manifests generated 2026-06-10; audited ZQZ parameter package generated 2026-06-11. Production remains fail-closed until explicit launch authorization exists and `do_not_run_md: true` is intentionally changed by that future authorization. No protein system setup, minimization, equilibration, production, trajectory analysis, interpretation, or claims have been run.
+- **GATE 7 - PACKAGE EXISTS / NOT READY FOR MD LAUNCH / PRODUCTION BLOCKED.** Phase 5 official MD Wave 1 package exists: `reports/phase5/official_wave1_execution_package_20260609.md`. Wave 1 targets: 8GLA positive control (118-122) holo/apo-from-holo; 1AXC Tier 1A top-3 (239-243, 28-32, 206-210); 1AXC interface-adjacent control (134-138). Tier 1B (170-174, 175-179, 152-156) deferred to Wave 2. Adversarial audit handoff: `reports/phase2/handoff_20260612.md`. Current blockers before MD launch: ZQZ protonation/net-charge review, force-field/water-model rationale, prepared-system benchmark/provenance, and future explicit human launch authorization. Production remains fail-closed; `do_not_run_md: true` must not be changed without future explicit authorization. No protein system setup, minimization, equilibration, production, trajectory analysis, interpretation, or claims have been run.
 - **PCNA cluster `cluster_id_30=1168` is holdout-only.** No PCNA/PCNA-cluster structure may enter train or validation.
 
 ---
@@ -109,7 +110,7 @@ Use policy:
 
 ## Next Tasks
 
-1. **[PHASE 5 - WAIT FOR EXPLICIT LAUNCH AUTHORIZATION, DO NOT RUN MD YET]** Official Wave 1 is launch-ready at the preparation level. Production preflight is intentionally blocked only by `do_not_run_md: true` and absent future launch authorization. Next allowed major step is explicit human launch authorization that updates the launch hold; do not start protein system setup, minimization, equilibration, production, trajectory analysis, interpretation, or claims until that later explicit launch instruction.
+1. **[PHASE 5 - RESOLVE PRE-LAUNCH BLOCKERS, DO NOT RUN MD]** Current audit verdict is `NOT READY FOR MD LAUNCH`. Before any launch discussion, document or resolve the ZQZ protonation/net-charge decision, justify or revise `ff19SB + TIP3P`, keep performance/storage/cost estimates marked as assumptions until benchmarked, and preserve the `do_not_run_md: true` hold. Do not start protein system setup, minimization, equilibration, production, trajectory analysis, interpretation, or claims.
 
 2. **[RECOMMENDED] Install external baselines.** fpocket, P2Rank, PocketMiner stubs in `reports/phase3/baseline_runs/`. Required per doc 10 before any superiority claims over state-of-the-art tools. Run on the frozen test split (hash: 24dd5e347d880108) with the same label definition.
 
@@ -156,6 +157,7 @@ Use policy:
 | `reports/phase5/zqz_parameterization_plan_20260610.md` | ZQZ GAFF2/AM1-BCC parameterization plan — completed by audited package |
 | `reports/phase5/zqz_parameter_audit_20260611.md` | ZQZ GAFF2/AM1-BCC audited parameter report |
 | `reports/phase5/wave1_md_execution_feasibility_20260611.md` | Final Wave 1 MD execution feasibility assessment; no MD authorization or execution |
+| `reports/phase2/handoff_20260612.md` | Phase 5 adversarial pre-launch audit verdict, blockers, and Claude Code handoff prompt |
 | `reports/phase5/manifest_provenance_templates_20260610.md` | Phase 5 manifest/provenance template report |
 | `data/registries/phase5_wave1_preparation_audit_20260610.json` | Machine-readable Phase 5 Wave 1 audit/preflight registry |
 | `outputs/phase5_md/official_wave1_20260609/` | Manifest templates and audited ZQZ ligand parameter package; no protein setup, trajectories, or MD outputs |
@@ -170,6 +172,8 @@ Use policy:
 ---
 
 ## Last Session Summary
+
+Session 2026-06-12 (codex-gpt-5, Phase 5 adversarial pre-launch audit handoff): Documented the adversarial Wave 1 pre-launch audit handoff at `reports/phase2/handoff_20260612.md` and updated project memory. Final verdict: `NOT READY FOR MD LAUNCH`. The handoff records verified chain/window facts, questionable ZQZ and force-field/water assumptions, stale 1AXC context, assumption-based feasibility estimates, missing controls, and a Claude Code prompt for continuation. GitHub/main push requested by user; no MD setup, minimization, equilibration, production, trajectories, trajectory analysis, interpretation, launch authorization, or claims were run.
 
 Session 2026-06-11 (codex-gpt-5, Phase 5 MD feasibility documentation): Documented the final Wave 1 MD execution feasibility assessment at `reports/phase5/wave1_md_execution_feasibility_20260611.md` and updated project memory. Verified official Wave 1 totals: 3 systems x 3 replicates x 100 ns = 9 production simulations and 900 ns aggregate production MD. Checked local system: Alienware Aurora R16, Intel i7-14700F, ~31.7 GiB RAM, RTX 4070 with 12,282 MiB VRAM, NVIDIA driver 581.95/CUDA 13.0, and ~52.4 GiB free on C:. The report recommends L40S as the preferred future execution platform after explicit launch authorization, lists pricing under lowest-public, RunPod/Lambda-style, and major-cloud bases, and preserves production status as `BLOCKED_FAIL_CLOSED`. No protein setup, minimization, equilibration, production, trajectories, trajectory analysis, interpretation, launch authorization, or claims were run.
 

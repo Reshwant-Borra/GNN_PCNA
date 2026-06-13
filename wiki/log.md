@@ -668,3 +668,124 @@ authorization.
 cost, and storage estimates. Confidence high for run counts and fail-closed state;
 medium for future execution estimates. No MD setup, minimization, equilibration,
 production, trajectory analysis, interpretation, launch authorization, or claims were run.
+
+## [2026-06-13] decision | Phase 5 Wave 1 chemistry and force-field/water decision records added as fail-closed blockers
+
+**Decision:** Document the two outstanding Phase 5 Wave 1 launch blockers as explicit
+decision records and wire them into the preflight as fail-closed checks.
+
+**Why:** The 2026-06-12 adversarial pre-launch audit flagged ZQZ protonation/net-charge
+and ff19SB + TIP3P as open assumptions. Independent structural review of the SDF
+connectivity (atoms 28/33/34/63) and sqm.in geometry confirmed that ZQZ contains a free
+side-chain carboxylic acid -C(=O)OH, not a -C(=O)NH2. Under the C29H26N2O6 formula
+(two nitrogens), the side chain cannot be a carboxamide. At pH 7.4 the carboxylic acid
+would be deprotonated absent a documented bound-state pKa shift, so the current neutral
+`-nc 0` GAFF2/AM1-BCC package is not independently justified. ff19SB was parameterized
+with OPC, so ff19SB + TIP3P needs an explicit deviation rationale before launch.
+
+**What changed:**
+- Added `reports/phase5/zqz_chemistry_decision_20260611.md` with status `BLOCKER_OPEN_HUMAN_DECISION_REQUIRED`.
+- Added `reports/phase5/force_field_water_policy_decision_20260611.md` with status `BLOCKER_OPEN_HUMAN_DECISION_REQUIRED`.
+- Extended `src/phase5_md/wave1.py` `preflight_status` with `read_frontmatter_status` and
+  `decision_record_status` helpers and two new fail-closed blockers.
+- Added two new tests in `tests/phase5/test_wave1_preflight.py`; 7/7 tests pass.
+- Regenerated `data/registries/phase5_wave1_preparation_audit_20260610.json` and the
+  Phase 5 reports via `scripts/phase5_wave1_preflight.py --write`. Package preparation
+  status is now `READY_FOR_HUMAN_REVIEW`.
+
+**Final verdict:** `STILL_NOT_READY_FOR_LAUNCH`. Exact remaining blockers in order:
+do_not_run_md hold, open ZQZ chemistry decision, open force-field/water-model decision,
+absent future explicit Phase 5 launch authorization.
+
+**Source path:** `reports/phase2/handoff_20260613.md`,
+`reports/phase5/zqz_chemistry_decision_20260611.md`,
+`reports/phase5/force_field_water_policy_decision_20260611.md`,
+`reports/phase5/wave1_readiness_report_20260610.md`.
+
+**Governance:** `docs/scientific_governance/12_PCNA_SPECIFIC_CHECKS.md`,
+`13_MD_VALIDATION_RULES.md`, `14_CLAIM_POLICY.md`,
+`15_PROVENANCE_AND_REPRODUCIBILITY.md`, `19_STOP_CONDITIONS.md`,
+`21_READINESS_GATE.md`, `26_HUMAN_REVIEW_GATES.md`,
+`33_PRE_MD_REALITY_CHECK.md`.
+
+**Evidence status:** verified for ZQZ structural identity, code behavior, preflight
+state, and all Phase 2-5 numeric facts re-checked in the project-wide accuracy
+verification this session; inferred for ZQZ bound-state pKa. Confidence high for the
+structural and governance findings; medium for the recommended scientific defaults.
+No MD setup, minimization, equilibration, production, trajectory analysis,
+interpretation, launch authorization, or claims were run.
+
+## [2026-06-12] decision | Phase 5 human decisions resolved, ZQZ minus-1 package generated, OPC policy adopted
+
+**Decision:** Record human approval of the two Phase 5 Wave 1 scientific
+decision blockers and complete the required follow-up artifacts without
+authorizing MD.
+
+**Approved choices:**
+- ZQZ is approved as deprotonated with net charge `-1`.
+- The neutral `-nc 0` ZQZ package is superseded for production use.
+- AMBER ff19SB + OPC + Joung-Cheatham OPC-compatible ions is the official Wave
+  1 policy.
+
+**What changed:**
+- Updated `reports/phase5/human_review_decision_package_20260612.md`.
+- Updated `reports/phase5/zqz_chemistry_decision_20260611.md` and
+  `reports/phase5/force_field_water_policy_decision_20260611.md` to
+  `APPROVED_HUMAN_REVIEW_RESOLVED`.
+- Generated active ligand-only package
+  `outputs/phase5_md/official_wave1_20260609/inputs/ligand_params/zqz_minus1/`
+  and audit `reports/phase5/zqz_minus1_parameter_audit_20260612.md`.
+- Added supersession marker
+  `outputs/phase5_md/official_wave1_20260609/inputs/ligand_params/zqz/SUPERSEDED_FOR_PRODUCTION_USE.md`.
+- Updated `src/phase5_md/wave1.py`, `scripts/phase5_zqz_parameterize.py`,
+  manifest templates, readiness report, registry, and focused tests.
+
+**Current verdict:** `LAUNCH_READY_AWAITING_AUTHORIZATION_PRODUCTION_BLOCKED`.
+Exact remaining blockers are the official `do_not_run_md: true` hold and absent
+future Phase 5 launch authorization.
+
+**Verification:** `pytest tests/phase5/test_wave1_preflight.py -v` passed 8/8.
+Production preflight fails closed only on the two remaining launch blockers.
+
+**Source path:** `reports/phase5/human_review_decision_package_20260612.md`,
+`reports/phase5/zqz_minus1_parameter_audit_20260612.md`,
+`reports/phase5/wave1_readiness_report_20260610.md`,
+`data/registries/phase5_wave1_preparation_audit_20260610.json`.
+
+**Governance:** `docs/scientific_governance/13_MD_VALIDATION_RULES.md`,
+`14_CLAIM_POLICY.md`, `15_PROVENANCE_AND_REPRODUCIBILITY.md`,
+`19_STOP_CONDITIONS.md`, `21_READINESS_GATE.md`,
+`26_HUMAN_REVIEW_GATES.md`, `33_PRE_MD_REALITY_CHECK.md`,
+`34_AI_HALLUCINATION_DETECTION.md`.
+
+**Evidence status:** verified ligand-parameter/provenance artifact and
+fail-closed preflight state. Confidence high for decision recording, generated
+hashes, and current blockers. No protein setup, minimization, equilibration,
+production, trajectory generation, trajectory analysis, interpretation, launch
+authorization, or claims were run.
+
+## [2026-06-12] documentation | Phase 5 GPU time estimates after approved policy
+
+**Decision/status:** Planning-only GPU runtime estimates were documented for the
+approved Phase 5 Wave 1 policy. This does not authorize MD and does not supersede
+`do_not_run_md: true`.
+
+**Artifact:** `reports/phase5/wave1_gpu_time_estimates_20260612.md`.
+
+**Summary:** The addendum records production-only estimates for 9 independent 100 ns
+replicates, 900 ns aggregate production MD, across RTX 4070, L4, L40S, A100, H100,
+H200, and B200-class GPUs. L40S remains the recommended future execution platform
+after explicit launch authorization. Estimates remain planning assumptions until
+prepared solvated systems and short benchmarks exist.
+
+**Governance/source paths:** `reports/phase5/wave1_gpu_time_estimates_20260612.md`;
+`reports/phase5/wave1_md_execution_feasibility_20260611.md`;
+`docs/scientific_governance/13_MD_VALIDATION_RULES.md`;
+`docs/scientific_governance/15_PROVENANCE_AND_REPRODUCIBILITY.md`;
+`docs/scientific_governance/26_HUMAN_REVIEW_GATES.md`.
+
+**Confidence:** high for run counts and launch-blocked status; medium-low for
+runtime estimates until benchmarked.
+
+**Evidence status:** inferred for performance estimates; verified for local report
+path and launch-blocked state.

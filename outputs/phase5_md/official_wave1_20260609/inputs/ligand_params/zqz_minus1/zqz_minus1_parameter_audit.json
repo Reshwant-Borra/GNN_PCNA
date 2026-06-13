@@ -1,0 +1,647 @@
+{
+  "schema_version": "1.0",
+  "artifact_id": "phase5_wave1_zqz_minus1_gaff2_am1bcc_20260612",
+  "status": "PARAMETERS_AUDITED_READY_FOR_SETUP_USE",
+  "report_title": "ZQZ Minus-1 Parameter Audit - Phase 5 Wave 1",
+  "report_date": "2026-06-12",
+  "generated_utc": "2026-06-12T22:24:34.736568+00:00",
+  "generated_by": "scripts/phase5_zqz_parameterize.py",
+  "scope": {
+    "md_execution_performed": false,
+    "protein_system_setup_performed": false,
+    "minimization_performed": false,
+    "equilibration_performed": false,
+    "production_performed": false,
+    "trajectory_analysis_performed": false,
+    "launch_authorization_created": false
+  },
+  "input_sources": {
+    "rcsb_ideal_sdf_url": "https://files.rcsb.org/ligands/download/ZQZ_ideal.sdf",
+    "rcsb_component_cif_url": "https://files.rcsb.org/ligands/download/ZQZ.cif",
+    "deposited_8gla_cif": {
+      "path": "data/raw_intake/pcna_structures/8GLA.cif",
+      "sha256": "914f86a9ec6744143d8c9869643af58740d8a13e1d52f66b4fb8ec501a3ab487",
+      "size_bytes": 837379
+    }
+  },
+  "input_audit": {
+    "sdf": {
+      "atom_count": 62,
+      "heavy_atom_count": 37,
+      "atoms_by_element": {
+        "C": 29,
+        "N": 2,
+        "O": 6,
+        "H": 25
+      },
+      "formula": "C29H25N2O6-",
+      "formal_charge": -1,
+      "chiral_centers": [
+        [
+          23,
+          "S"
+        ]
+      ],
+      "has_explicit_hydrogens": true
+    },
+    "deposited_8gla_zqz": {
+      "source_cif": {
+        "path": "data/raw_intake/pcna_structures/8GLA.cif",
+        "sha256": "914f86a9ec6744143d8c9869643af58740d8a13e1d52f66b4fb8ec501a3ab487",
+        "size_bytes": 837379
+      },
+      "total_deposited_zqz_atoms": 222,
+      "instance_count": 6,
+      "instances": {
+        "E": {
+          "label_asym_id": "E",
+          "auth_asym_id": "A",
+          "auth_seq_id": "301",
+          "atom_count": 37,
+          "atom_names": [
+            "C10",
+            "C11",
+            "C15",
+            "C14",
+            "C13",
+            "C12",
+            "C01",
+            "C02",
+            "C03",
+            "C04",
+            "C05",
+            "C06",
+            "C07",
+            "C08",
+            "C09",
+            "C16",
+            "C17",
+            "C18",
+            "C19",
+            "C20",
+            "C21",
+            "C22",
+            "C23",
+            "C26",
+            "C27",
+            "C28",
+            "C29",
+            "C30",
+            "C37",
+            "N25",
+            "N33",
+            "O24",
+            "O31",
+            "O32",
+            "O34",
+            "O35",
+            "O36"
+          ]
+        },
+        "F": {
+          "label_asym_id": "F",
+          "auth_asym_id": "A",
+          "auth_seq_id": "302",
+          "atom_count": 37,
+          "atom_names": [
+            "C10",
+            "C11",
+            "C15",
+            "C14",
+            "C13",
+            "C12",
+            "C01",
+            "C02",
+            "C03",
+            "C04",
+            "C05",
+            "C06",
+            "C07",
+            "C08",
+            "C09",
+            "C16",
+            "C17",
+            "C18",
+            "C19",
+            "C20",
+            "C21",
+            "C22",
+            "C23",
+            "C26",
+            "C27",
+            "C28",
+            "C29",
+            "C30",
+            "C37",
+            "N25",
+            "N33",
+            "O24",
+            "O31",
+            "O32",
+            "O34",
+            "O35",
+            "O36"
+          ]
+        },
+        "G": {
+          "label_asym_id": "G",
+          "auth_asym_id": "A",
+          "auth_seq_id": "303",
+          "atom_count": 37,
+          "atom_names": [
+            "C10",
+            "C11",
+            "C15",
+            "C14",
+            "C13",
+            "C12",
+            "C01",
+            "C02",
+            "C03",
+            "C04",
+            "C05",
+            "C06",
+            "C07",
+            "C08",
+            "C09",
+            "C16",
+            "C17",
+            "C18",
+            "C19",
+            "C20",
+            "C21",
+            "C22",
+            "C23",
+            "C26",
+            "C27",
+            "C28",
+            "C29",
+            "C30",
+            "C37",
+            "N25",
+            "N33",
+            "O24",
+            "O31",
+            "O32",
+            "O34",
+            "O35",
+            "O36"
+          ]
+        },
+        "J": {
+          "label_asym_id": "J",
+          "auth_asym_id": "B",
+          "auth_seq_id": "301",
+          "atom_count": 37,
+          "atom_names": [
+            "C10",
+            "C11",
+            "C15",
+            "C14",
+            "C13",
+            "C12",
+            "C01",
+            "C02",
+            "C03",
+            "C04",
+            "C05",
+            "C06",
+            "C07",
+            "C08",
+            "C09",
+            "C16",
+            "C17",
+            "C18",
+            "C19",
+            "C20",
+            "C21",
+            "C22",
+            "C23",
+            "C26",
+            "C27",
+            "C28",
+            "C29",
+            "C30",
+            "C37",
+            "N25",
+            "N33",
+            "O24",
+            "O31",
+            "O32",
+            "O34",
+            "O35",
+            "O36"
+          ]
+        },
+        "K": {
+          "label_asym_id": "K",
+          "auth_asym_id": "B",
+          "auth_seq_id": "302",
+          "atom_count": 37,
+          "atom_names": [
+            "C10",
+            "C11",
+            "C15",
+            "C14",
+            "C13",
+            "C12",
+            "C01",
+            "C02",
+            "C03",
+            "C04",
+            "C05",
+            "C06",
+            "C07",
+            "C08",
+            "C09",
+            "C16",
+            "C17",
+            "C18",
+            "C19",
+            "C20",
+            "C21",
+            "C22",
+            "C23",
+            "C26",
+            "C27",
+            "C28",
+            "C29",
+            "C30",
+            "C37",
+            "N25",
+            "N33",
+            "O24",
+            "O31",
+            "O32",
+            "O34",
+            "O35",
+            "O36"
+          ]
+        },
+        "L": {
+          "label_asym_id": "L",
+          "auth_asym_id": "B",
+          "auth_seq_id": "303",
+          "atom_count": 37,
+          "atom_names": [
+            "C10",
+            "C11",
+            "C15",
+            "C14",
+            "C13",
+            "C12",
+            "C01",
+            "C02",
+            "C03",
+            "C04",
+            "C05",
+            "C06",
+            "C07",
+            "C08",
+            "C09",
+            "C16",
+            "C17",
+            "C18",
+            "C19",
+            "C20",
+            "C21",
+            "C22",
+            "C23",
+            "C26",
+            "C27",
+            "C28",
+            "C29",
+            "C30",
+            "C37",
+            "N25",
+            "N33",
+            "O24",
+            "O31",
+            "O32",
+            "O34",
+            "O35",
+            "O36"
+          ]
+        }
+      }
+    }
+  },
+  "method": {
+    "ligand": "ZQZ",
+    "force_field": "GAFF2",
+    "charge_model": "AM1-BCC",
+    "charge_command_flag": "-c bcc",
+    "net_charge": -1,
+    "charge_state": "minus1",
+    "protonation_state": "deprotonated_sidechain_carboxylate",
+    "residue_name": "ZQZ",
+    "parameterization_input": "RCSB ideal SDF deprotonated at the free side-chain carboxyl group; neutral reference retained as `zqz_neutral_reference.sdf` and deprotonated input written as `zqz_minus1_input.sdf`.",
+    "input_sdf": "zqz_minus1_input.sdf",
+    "mol2_file": "zqz_minus1_gaff2_am1bcc.mol2",
+    "frcmod_file": "zqz_minus1_gaff2.frcmod",
+    "tleap_input": "zqz_minus1_tleap.in",
+    "tleap_log": "zqz_minus1_tleap.log",
+    "library_file": "zqz_minus1_gaff2.lib",
+    "planned_workflow": "reports/phase5/zqz_parameterization_plan_20260610.md",
+    "human_review_decision": "reports/phase5/human_review_decision_package_20260612.md"
+  },
+  "deprotonation_audit": {
+    "source_reference": {
+      "path": "outputs/phase5_md/official_wave1_20260609/inputs/ligand_params/zqz_minus1/zqz_neutral_reference.sdf",
+      "sha256": "0145ff68bcc1a86f84c61d1704edac18522a477e60e6a877eaf7f0c4a0759ae9",
+      "size_bytes": 4419
+    },
+    "output_sdf": {
+      "path": "outputs/phase5_md/official_wave1_20260609/inputs/ligand_params/zqz_minus1/zqz_minus1_input.sdf",
+      "sha256": "c6b5546cf152dc2f7b5f3dc1dc6c7db0aa73554026352fc9a2e87f77ee9ba0d6",
+      "size_bytes": 5278
+    },
+    "removed_atom": {
+      "sdf_index": 63,
+      "element": "H"
+    },
+    "charged_atom": {
+      "sdf_index": 34,
+      "element": "O",
+      "formal_charge": -1
+    },
+    "source_bond": {
+      "atom_indices": [
+        34,
+        63
+      ],
+      "bond_type": "SINGLE"
+    }
+  },
+  "software": {
+    "executables": {
+      "antechamber": "/root/.local/share/mamba/envs/AmberTools26/bin/antechamber",
+      "parmchk2": "/root/.local/share/mamba/envs/AmberTools26/bin/parmchk2",
+      "tleap": "/root/.local/share/mamba/envs/AmberTools26/bin/tleap",
+      "sqm": "/root/.local/share/mamba/envs/AmberTools26/bin/sqm"
+    },
+    "help_text": {
+      "antechamber": "\u001b[31mUsage: antechamber -i    \u001b[0m input file name\n\u001b[31m                   -fi   \u001b[0m input file format\n\u001b[31m                   -o    \u001b[0m output file name\n\u001b[31m                   -fo   \u001b[0m output file format\n\u001b[31m                   -c    \u001b[0m charge method\n\u001b[31m                   -cf   \u001b[0m charge file name\n\u001b[31m                   -nc   \u001b[0m net molecular charge (int)\n\u001b[31m                   -a    \u001b[0m additional file name\n\u001b[31m                   -fa   \u001b[0m additional file format\n\u001b[31m                   -ao   \u001b[0m additional file operation\n\u001b[34m                          crd   \u001b[0m: only read in coordinate\n\u001b[34m                          crg   \u001b[0m: only read in charge\n\u001b[34m                          radius\u001b[0m: only read in radius\n\u001b[34m                          name  \u001b[0m: only read in atom name\n\u001b[34m                          type  \u001b[0m: only read in atom type\n\u001b[34m                          bond  \u001b[0m: only read in bond type \n\u001b[31m                   -m    \u001b[0m multiplicity (2S+1), default is 1\n\u001b[31m                   -rn   \u001b[0m residue name, overrides input file, default is MOL\n\u001b[31m                   -rf   \u001b[0m residue toplogy file name in prep input file,\n                          default is molecule.res\n\u001b[31m                   -ch   \u001b[0m check file name for gaussian, default is 'molecule'\n\u001b[31m                   -ek   \u001b[0m mopac or sqm keyword, inside quotes; overwrites previous ones\n\u001b[31m                   -gk   \u001b[0m gaussian job keyword, inside quotes, is ignored when both -gopt and -gsp are used\n\u001b[31m                   -gopt \u001b[0m gaussian job keyword for optimization, inside quotes\n\u001b[31m                   -gsp  \u001b[0m gaussian job keyword for single point calculation, inside quotes\n\u001b[31m                   -gm   \u001b[0m gaussian memory keyword, inside quotes, such as \"%mem=1000MB\"\n\u001b[31m                   -gn   \u001b[0m gaussian number of processors keyword, inside quotes, such as \"%nproc=8\"\n\u001b[31m                   -gdsk \u001b[0m gaussian maximum disk usage keyword, inside quotes, such as \"%maxdisk=50GB\"\n\u001b[31m                   -gv   \u001b[0m add keyword to generate gesp file (for Gaussian 09 only)\n\u001b[34m                          1    \u001b[0m: yes\n\u001b[34m                          0    \u001b[0m: no, the default\n\u001b[31m                   -ge   \u001b[0m gaussian esp file generated by iop(6/50=1), default is g09.gesp\n\u001b[31m                   -tor  \u001b[0m torsional angle list, inside a pair of quotes, such as \"1-2-3-4:0,5-6-7-8\"\n\u001b[34m                         \u001b[0m ':1' or ':0' indicates the torsional angle is frozen or not\n\u001b[31m                   -df   \u001b[0m am1-bcc precharge flag, 2 - use sqm(default); 0 - use mopac\n\u001b[31m                   -at   \u001b[0m atom type\n\u001b[34m                          gaff \u001b[0m: the default\n\u001b[34m                          gaff2\u001b[0m: for gaff2 (beta-version)\n\u001b[34m                          amber\u001b[0m: for PARM94/99/99SB\n\u001b[34m                          bcc  \u001b[0m: bcc \n\u001b[34m                          abcg2\u001b[0m: abcg2 \n\u001b[34m                          sybyl\u001b[0m: sybyl \n\u001b[31m                   -du   \u001b[0m fix duplicate atom names: yes(y)[default] or no(n)\n\u001b[31m                   -bk   \u001b[0m component/block Id, for ccif\n\u001b[31m                   -an   \u001b[0m adjust atom names: yes(y) or no(n)\n                          the default is 'y' for 'mol2' and 'ac' and 'n' for the other formats \n\u001b[31m                   -j    \u001b[0m atom type and bond type prediction index, default is 4 \n\u001b[34m                          0    \u001b[0m: no assignment\n\u001b[34m                          1    \u001b[0m: atom type \n\u001b[34m                          2    \u001b[0m: full  bond types \n\u001b[34m                          3    \u001b[0m: part  bond types \n\u001b[34m                          4    \u001b[0m: atom and full bond type \n\u001b[34m                          5    \u001b[0m: atom and part bond type \n\u001b[31m                   -s    \u001b[0m status information: 0(brief), 1(default) or 2(verbose)\n\u001b[31m                   -eq   \u001b[0m equalizing atomic charge, default is 1 for '-c resp', '-c bcc', '-c abcg2' and 0 for the other charge metho",
+      "parmchk2": "\u001b[31mUsage: parmchk2 -i   \u001b[0m input file name\n\u001b[31m                -o   \u001b[0m frcmod file name\n\u001b[31m                -f   \u001b[0m input file format (prepi, prepc, ac, mol2, frcmod, leaplog) \n\u001b[31m                -s   \u001b[0m ff parm set, it is suppressed by \"-p\" option\n\u001b[34m                      1 or gaff:   \u001b[0m gaff (the default)\n\u001b[34m                      2 or gaff2:  \u001b[0m gaff2 \n\u001b[34m                      3 or parm99: \u001b[0m parm99\n\u001b[34m                      4 or parm10: \u001b[0m parm10\n\u001b[34m                      5 or lipid14:\u001b[0m lipid14\n\u001b[31m                -frc \u001b[0m frcmod files to be loaded, the supported frcmods include\n\u001b[31m                     \u001b[0m ff99SB, ff14SB, ff03 for proteins , bsc1, ol15, ol3 for DNA and yil for RNA\n\u001b[31m                     \u001b[0m eg. ff14SB+bsc1+yil, ff99SB+bsc1\n\u001b[31m                -p   \u001b[0m parmfile, suppress '-s' flag, optional\n\u001b[31m                -pf  \u001b[0m parmfile format \n\u001b[34m                      1:\u001b[0m for amber FF data file (the default)\n\u001b[34m                      2:\u001b[0m for additional force field parameter file\n\u001b[31m                -afrc\u001b[0m additional frcmod file, no matter using -p or not, optional\n\u001b[31m                -c   \u001b[0m atom type corresponding score file, default is PARMCHK.DAT\n\u001b[31m                -atc \u001b[0m additional atom type corresponding score file, optional\n\u001b[31m                     \u001b[0m type 'parmchk2 -l' to learn details\n\u001b[31m                -a   \u001b[0m print out all force field parameters including those in the parmfile\n\u001b[31m                     \u001b[0m can be 'Y' (yes) or 'N' (no) default is 'N' \n\u001b[31m                -w   \u001b[0m print out parameters that matching improper dihedral parameters\n\u001b[31m                     \u001b[0m that contain 'X' in the force field parameter file, can be 'Y' (yes)\n\u001b[31m                     \u001b[0m or 'N' (no), default is 'Y'\n\u001b[31m                -fc  \u001b[0m option of force constant calculation for '-f frcmod' or '-f leaplog'\n\u001b[34m                      1:\u001b[0m default behavior (the default option)\n\u001b[34m                      2:\u001b[0m do empirical calculation before using corresponding atom types\n\u001b[31m                -att \u001b[0m for the frcmod input format, option of performing parmchk\n\u001b[34m                      1:\u001b[0m for all parameters (the default)\n\u001b[34m                      2:\u001b[0m only for those with ATTN",
+      "tleap": "-I: Adding /root/.local/share/mamba/envs/AmberTools26/dat/leap/prep to search path.\n-I: Adding /root/.local/share/mamba/envs/AmberTools26/dat/leap/lib to search path.\n-I: Adding /root/.local/share/mamba/envs/AmberTools26/dat/leap/parm to search path.\n-I: Adding /root/.local/share/mamba/envs/AmberTools26/dat/leap/cmd to search path.\nUsage: /root/.local/share/mamba/envs/AmberTools26/bin/teLeap [options]\nOptions:\n -h         Generate this message.\n -s         Ignore leaprc startup file.\n -I {dir}   Add {dir} to search path.\n -f {file}  Source {file}."
+    },
+    "conda_packages": {
+      "ambertools-dac": {
+        "version": "26.0.0",
+        "build": "py312h2009f2f_0",
+        "channel": "dacase",
+        "dist_name": null
+      },
+      "rdkit": {
+        "version": "2026.03.1",
+        "build": "py312h3ecb6ed_0",
+        "channel": "conda-forge",
+        "dist_name": null
+      },
+      "python": {
+        "version": "3.12.13",
+        "build": "hd63d673_0_cpython",
+        "channel": "conda-forge",
+        "dist_name": null
+      },
+      "python-dateutil": {
+        "version": "2.9.0.post0",
+        "build": "pyhe01879c_2",
+        "channel": "conda-forge",
+        "dist_name": null
+      },
+      "parmed": {
+        "version": "4.3.1",
+        "build": "py312he864675_1",
+        "channel": "conda-forge",
+        "dist_name": null
+      }
+    }
+  },
+  "commands": [
+    {
+      "command": "antechamber -i zqz_minus1_input.sdf -fi sdf -o zqz_minus1_gaff2_am1bcc.mol2 -fo mol2 -at gaff2 -c bcc -nc -1 -rn ZQZ -s 2",
+      "cwd": "outputs/phase5_md/official_wave1_20260609/inputs/ligand_params/zqz_minus1",
+      "started_utc": "2026-06-12T22:14:39.096455+00:00",
+      "ended_utc": "2026-06-12T22:24:33.760455+00:00",
+      "exit_code": 0,
+      "stdout": "outputs/phase5_md/official_wave1_20260609/inputs/ligand_params/zqz_minus1/commands/antechamber.stdout.log",
+      "stderr": "outputs/phase5_md/official_wave1_20260609/inputs/ligand_params/zqz_minus1/commands/antechamber.stderr.log"
+    },
+    {
+      "command": "parmchk2 -i zqz_minus1_gaff2_am1bcc.mol2 -f mol2 -o zqz_minus1_gaff2.frcmod -s gaff2",
+      "cwd": "outputs/phase5_md/official_wave1_20260609/inputs/ligand_params/zqz_minus1",
+      "started_utc": "2026-06-12T22:24:33.760950+00:00",
+      "ended_utc": "2026-06-12T22:24:33.820846+00:00",
+      "exit_code": 0,
+      "stdout": "outputs/phase5_md/official_wave1_20260609/inputs/ligand_params/zqz_minus1/commands/parmchk2.stdout.log",
+      "stderr": "outputs/phase5_md/official_wave1_20260609/inputs/ligand_params/zqz_minus1/commands/parmchk2.stderr.log"
+    },
+    {
+      "command": "tleap -f zqz_minus1_tleap.in",
+      "cwd": "outputs/phase5_md/official_wave1_20260609/inputs/ligand_params/zqz_minus1",
+      "started_utc": "2026-06-12T22:24:33.821041+00:00",
+      "ended_utc": "2026-06-12T22:24:34.370267+00:00",
+      "exit_code": 0,
+      "stdout": "outputs/phase5_md/official_wave1_20260609/inputs/ligand_params/zqz_minus1/zqz_minus1_tleap.log"
+    }
+  ],
+  "output_hashes": {
+    "ANTECHAMBER_AC.AC": {
+      "path": "outputs/phase5_md/official_wave1_20260609/inputs/ligand_params/zqz_minus1/ANTECHAMBER_AC.AC",
+      "sha256": "eb7ff8661bc28c67ec8cea41f385fb77a50bfaff2764296f6e9fbe92b1eafdd7",
+      "size_bytes": 7103
+    },
+    "ANTECHAMBER_AC.AC0": {
+      "path": "outputs/phase5_md/official_wave1_20260609/inputs/ligand_params/zqz_minus1/ANTECHAMBER_AC.AC0",
+      "sha256": "3bfaf980ddf162002d2146b26730e693889d74e0fca453b89089fa05d9e3f291",
+      "size_bytes": 7103
+    },
+    "ANTECHAMBER_AM1BCC.AC": {
+      "path": "outputs/phase5_md/official_wave1_20260609/inputs/ligand_params/zqz_minus1/ANTECHAMBER_AM1BCC.AC",
+      "sha256": "b8031c7f15633e2ad0861e031b2350b1770aecf882025aa61cc9b43fa3377add",
+      "size_bytes": 7103
+    },
+    "ANTECHAMBER_AM1BCC_PRE.AC": {
+      "path": "outputs/phase5_md/official_wave1_20260609/inputs/ligand_params/zqz_minus1/ANTECHAMBER_AM1BCC_PRE.AC",
+      "sha256": "1568d6b46cc3e5fb35329714f3beff36d049950121af6bbe31e32c5dba03068b",
+      "size_bytes": 7103
+    },
+    "ANTECHAMBER_BOND_TYPE.AC": {
+      "path": "outputs/phase5_md/official_wave1_20260609/inputs/ligand_params/zqz_minus1/ANTECHAMBER_BOND_TYPE.AC",
+      "sha256": "3bfaf980ddf162002d2146b26730e693889d74e0fca453b89089fa05d9e3f291",
+      "size_bytes": 7103
+    },
+    "ANTECHAMBER_BOND_TYPE.AC0": {
+      "path": "outputs/phase5_md/official_wave1_20260609/inputs/ligand_params/zqz_minus1/ANTECHAMBER_BOND_TYPE.AC0",
+      "sha256": "3ac7d3d4cd62f77f9807635abfa7b3cfaefc92fe4bc2cf1cd31d61d1ba78901d",
+      "size_bytes": 7103
+    },
+    "ATOMTYPE.INF": {
+      "path": "outputs/phase5_md/official_wave1_20260609/inputs/ligand_params/zqz_minus1/ATOMTYPE.INF",
+      "sha256": "32d63e08262b3431508c162e4551c6124e5a228db55675fccbdcd3d5c559f496",
+      "size_bytes": 14221
+    },
+    "ZQZ.cif": {
+      "path": "outputs/phase5_md/official_wave1_20260609/inputs/ligand_params/zqz_minus1/ZQZ.cif",
+      "sha256": "d06cd3f80bde14e5fd78eb90a57ad68b7e348af8024052422bd1a24b011833fb",
+      "size_bytes": 11558
+    },
+    "commands/antechamber.stderr.log": {
+      "path": "outputs/phase5_md/official_wave1_20260609/inputs/ligand_params/zqz_minus1/commands/antechamber.stderr.log",
+      "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+      "size_bytes": 0
+    },
+    "commands/antechamber.stdout.log": {
+      "path": "outputs/phase5_md/official_wave1_20260609/inputs/ligand_params/zqz_minus1/commands/antechamber.stdout.log",
+      "sha256": "7c32b51d8237993349bb1a655d03665aa49ad02e3064d3ef0b6827aeb604b46e",
+      "size_bytes": 1032
+    },
+    "commands/parmchk2.stderr.log": {
+      "path": "outputs/phase5_md/official_wave1_20260609/inputs/ligand_params/zqz_minus1/commands/parmchk2.stderr.log",
+      "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+      "size_bytes": 0
+    },
+    "commands/parmchk2.stdout.log": {
+      "path": "outputs/phase5_md/official_wave1_20260609/inputs/ligand_params/zqz_minus1/commands/parmchk2.stdout.log",
+      "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+      "size_bytes": 0
+    },
+    "deposited_8gla_zqz_instances.json": {
+      "path": "outputs/phase5_md/official_wave1_20260609/inputs/ligand_params/zqz_minus1/deposited_8gla_zqz_instances.json",
+      "sha256": "87ca06d15002786cfa419a5a7536aff43d6f892be8d4aee205cdd2f0ffabbc5d",
+      "size_bytes": 4523
+    },
+    "deposited_8gla_zqz_instances.pdb": {
+      "path": "outputs/phase5_md/official_wave1_20260609/inputs/ligand_params/zqz_minus1/deposited_8gla_zqz_instances.pdb",
+      "sha256": "4cd7ab300ab602a3f12ab7f286ec8ca13b410e89dda007f085960d6fd81965ec",
+      "size_bytes": 17542
+    },
+    "leap.log": {
+      "path": "outputs/phase5_md/official_wave1_20260609/inputs/ligand_params/zqz_minus1/leap.log",
+      "sha256": "07ccfd1fc256447987d7b7de22b31b47d129e35ef2b7d09dd295a8886a53e737",
+      "size_bytes": 7536
+    },
+    "sqm.in": {
+      "path": "outputs/phase5_md/official_wave1_20260609/inputs/ligand_params/zqz_minus1/sqm.in",
+      "sha256": "8c98a40b7ce3ba5e434c3df093655ef7bbf792899c26941f8802aa3db124460b",
+      "size_bytes": 3481
+    },
+    "sqm.out": {
+      "path": "outputs/phase5_md/official_wave1_20260609/inputs/ligand_params/zqz_minus1/sqm.out",
+      "sha256": "7a84ce353cb2daa74f0887c64715804b29797d7ed5c5d4791b162b4fc7b5b47c",
+      "size_bytes": 19718
+    },
+    "sqm.pdb": {
+      "path": "outputs/phase5_md/official_wave1_20260609/inputs/ligand_params/zqz_minus1/sqm.pdb",
+      "sha256": "26f454eff6ef5967840964dc8a9aa33697c846a7a70f2a592b82efd8e979cf8d",
+      "size_bytes": 4898
+    },
+    "zqz_minus1_gaff2.frcmod": {
+      "path": "outputs/phase5_md/official_wave1_20260609/inputs/ligand_params/zqz_minus1/zqz_minus1_gaff2.frcmod",
+      "sha256": "5d54f0a0bd6389338c5819b7f2b67329cd49c8a7aca81ccbf4f2dd92a97e3d7e",
+      "size_bytes": 2358
+    },
+    "zqz_minus1_gaff2.lib": {
+      "path": "outputs/phase5_md/official_wave1_20260609/inputs/ligand_params/zqz_minus1/zqz_minus1_gaff2.lib",
+      "sha256": "f15cfbd04aab8d27c1802540c769460f2cc0e0ab29ba72c656b09feeb417671f",
+      "size_bytes": 8646
+    },
+    "zqz_minus1_gaff2_am1bcc.mol2": {
+      "path": "outputs/phase5_md/official_wave1_20260609/inputs/ligand_params/zqz_minus1/zqz_minus1_gaff2_am1bcc.mol2",
+      "sha256": "a3c4aa562542e18ba2b45f16982ca4e39e111f8dab47ccc27452e9cdf38aeac3",
+      "size_bytes": 6820
+    },
+    "zqz_minus1_input.sdf": {
+      "path": "outputs/phase5_md/official_wave1_20260609/inputs/ligand_params/zqz_minus1/zqz_minus1_input.sdf",
+      "sha256": "c6b5546cf152dc2f7b5f3dc1dc6c7db0aa73554026352fc9a2e87f77ee9ba0d6",
+      "size_bytes": 5278
+    },
+    "zqz_minus1_tleap.in": {
+      "path": "outputs/phase5_md/official_wave1_20260609/inputs/ligand_params/zqz_minus1/zqz_minus1_tleap.in",
+      "sha256": "3a7468ad1180d9413bdf0a513c34717e601d21312e6e38fca5b6603f45e7ab4b",
+      "size_bytes": 152
+    },
+    "zqz_minus1_tleap.log": {
+      "path": "outputs/phase5_md/official_wave1_20260609/inputs/ligand_params/zqz_minus1/zqz_minus1_tleap.log",
+      "sha256": "bc777e5637d50a43fbc5fbb34e6a4e3bf5c5408f53a5715b9124ef0647ce6884",
+      "size_bytes": 1433
+    },
+    "zqz_neutral_reference.sdf": {
+      "path": "outputs/phase5_md/official_wave1_20260609/inputs/ligand_params/zqz_minus1/zqz_neutral_reference.sdf",
+      "sha256": "0145ff68bcc1a86f84c61d1704edac18522a477e60e6a877eaf7f0c4a0759ae9",
+      "size_bytes": 4419
+    }
+  },
+  "parameter_checks": {
+    "mol2": {
+      "atom_count": 62,
+      "charge_sum": -0.998999,
+      "atom_types": {
+        "ca": 22,
+        "c": 3,
+        "c3": 4,
+        "ns": 2,
+        "o": 4,
+        "os": 2,
+        "ha": 15,
+        "h1": 4,
+        "hc": 4,
+        "hn": 2
+      }
+    },
+    "tleap_log": {
+      "path": "outputs/phase5_md/official_wave1_20260609/inputs/ligand_params/zqz_minus1/zqz_minus1_tleap.log",
+      "line_count": 36,
+      "notable_lines": [
+        "/root/.local/share/mamba/envs/AmberTools26/bin/teLeap: Warning!",
+        "check:  Warnings: 1",
+        "Unit is OK.",
+        "Exiting LEaP: Errors = 0; Warnings = 1; Notes = 0."
+      ]
+    },
+    "sqm_log": {
+      "path": "outputs/phase5_md/official_wave1_20260609/inputs/ligand_params/zqz_minus1/sqm.out",
+      "line_count": 368,
+      "notable_lines": [
+        "| QMMM: Error matrix |FP-PF|         :  0.1D+00 au"
+      ]
+    }
+  },
+  "environment": {
+    "platform": "Linux-5.15.167.4-microsoft-standard-WSL2-x86_64-with-glibc2.39",
+    "python": "3.12.13 | packaged by conda-forge | (main, Mar  5 2026, 16:50:00) [GCC 14.3.0]",
+    "cwd": "/mnt/c/Users/reshw/Desktop/GNN_PCNA",
+    "AMBERHOME": "/root/.local/share/mamba/envs/AmberTools26",
+    "CONDA_PREFIX": "/root/.local/share/mamba/envs/AmberTools26",
+    "PATH_head": [
+      "/root/.local/share/mamba/envs/AmberTools26/bin",
+      "/usr/local/sbin",
+      "/usr/local/bin",
+      "/usr/sbin",
+      "/usr/bin",
+      "/sbin",
+      "/bin",
+      "/usr/games"
+    ]
+  },
+  "git": {
+    "commit": "e310d61243554a60e49b64a44020ffcd40d5c97d",
+    "branch": "main",
+    "status_short_count": "1169",
+    "status_short_first_200": "M .gitignore\n M .memory/AGENT_HANDOFF_TEMPLATE.md\n M .memory/INDEX.md\n M .memory/MEMORY_RULES.md\n M .memory/PROJECT_STATE.md\n M AGENTS.md\n M CLAUDE.md\n M COLLABORATION.md\n M Desktop/GNN_PCNA/.gitignore\n M Desktop/GNN_PCNA/.memory/AGENT_HANDOFF_TEMPLATE.md\n M Desktop/GNN_PCNA/.memory/INDEX.md\n M Desktop/GNN_PCNA/.memory/MEMORY_RULES.md\n M Desktop/GNN_PCNA/.memory/PROJECT_STATE.md\n M Desktop/GNN_PCNA/AGENTS.md\n M Desktop/GNN_PCNA/CLAUDE.md\n M Desktop/GNN_PCNA/COLLABORATION.md\n M Desktop/GNN_PCNA/data/graphs/graph_release_manifest_8c22e46f524d5f1d.json\n M Desktop/GNN_PCNA/data/labels/label_manifest.json\n M Desktop/GNN_PCNA/data/labels/phase2_labels_TEMPLATE.json\n M Desktop/GNN_PCNA/data/raw_intake/.gitignore\n M Desktop/GNN_PCNA/data/raw_intake/alphafold/.gitkeep\n M Desktop/GNN_PCNA/data/raw_intake/asd/.gitkeep\n M Desktop/GNN_PCNA/data/raw_intake/baseline_tools/.gitkeep\n M Desktop/GNN_PCNA/data/raw_intake/biogrid/.gitkeep\n M Desktop/GNN_PCNA/data/raw_intake/biolip/.gitkeep\n M Desktop/GNN_PCNA/data/raw_intake/cryptobench/.gitkeep\n M Desktop/GNN_PCNA/data/raw_intake/friend_sample/1AXC.pdb\n M Desktop/GNN_PCNA/data/raw_intake/friend_sample/1BLR.pdb\n M Desktop/GNN_PCNA/data/raw_intake/friend_sample/1BU9.pdb\n M Desktop/GNN_PCNA/data/raw_intake/friend_sample/1C3I.pdb\n M Desktop/GNN_PCNA/data/raw_intake/friend_sample/1C5H.pdb\n M Desktop/GNN_PCNA/data/raw_intake/friend_sample/1D09.pdb\n M Desktop/GNN_PCNA/data/raw_intake/friend_sample/1P9Y.pdb\n M Desktop/GNN_PCNA/data/raw_intake/friend_sample/1U7B.pdb\n M Desktop/GNN_PCNA/data/raw_intake/friend_sample/1VYJ.pdb\n M Desktop/GNN_PCNA/data/raw_intake/friend_sample/1VYM.pdb\n M Desktop/GNN_PCNA/data/raw_intake/friend_sample/1W60.pdb\n M Desktop/GNN_PCNA/data/raw_intake/friend_sample/2DXX.pdb\n M Desktop/GNN_PCNA/data/raw_intake/friend_sample/2HNX.pdb\n M Desktop/GNN_PCNA/data/raw_intake/friend_sample/2Q1T.pdb\n M Desktop/GNN_PCNA/data/raw_intake/friend_sample/3N86.pdb\n M Desktop/GNN_PCNA/data/raw_intake/friend_sample/4ZTD.pdb\n M Desktop/GNN_PCNA/data/raw_intake/friend_sample/5E0U.pdb\n M Desktop/GNN_PCNA/data/raw_intake/friend_sample/5E0V.pdb\n M Desktop/GNN_PCNA/data/raw_intake/friend_sample/5MLO.pdb\n M Desktop/GNN_PCNA/data/raw_intake/friend_sample/5MLW.pdb\n M Desktop/GNN_PCNA/data/raw_intake/friend_sample/6GIS.pdb\n M Desktop/GNN_PCNA/data/raw_intake/friend_sample/7NV0.pdb\n M Desktop/GNN_PCNA/data/raw_intake/friend_sample/8F5Q.pdb\n M Desktop/GNN_PCNA/data/raw_intake/friend_sample/8GLA.pdb\n M Desktop/GNN_PCNA/data/raw_intake/friend_sample/8UMU.pdb\n M Desktop/GNN_PCNA/data/raw_intake/friend_sample/9GY0.pdb\n M Desktop/GNN_PCNA/data/raw_intake/friend_sample/9N3L.pdb\n M Desktop/GNN_PCNA/data/raw_intake/friend_sample/SAMPLE_README.md\n M Desktop/GNN_PCNA/data/raw_intake/literature_metadata/.gitkeep\n M Desktop/GNN_PCNA/data/raw_intake/pcna_structures/.gitkeep\n M Desktop/GNN_PCNA/data/raw_intake/pdbbind/.gitkeep\n M Desktop/GNN_PCNA/data/raw_intake/pocketminer/.gitkeep\n M Desktop/GNN_PCNA/data/raw_intake/rcsb_pdb/.gitkeep\n M Desktop/GNN_PCNA/data/raw_intake/scpdb/.gitkeep\n M Desktop/GNN_PCNA/data/raw_intake/string/.gitkeep\n M Desktop/GNN_PCNA/data/registries/assumption_registry.json\n M Desktop/GNN_PCNA/data/registries/auxiliary_dataset_role_summary.json\n M Desktop/GNN_PCNA/data/registries/bulk_download_approvals.json\n M Desktop/GNN_PCNA/data/registries/cross_fold_cluster_risks.json\n M Desktop/GNN_PCNA/data/registries/cryptobench_candidate_cleaned_registry.json\n M Desktop/GNN_PCNA/data/registries/cryptobench_fold_summary.json\n M Desktop/GNN_PCNA/data/registries/cryptobench_schema_summary.json\n M Desktop/GNN_PCNA/data/registries/cryptobench_structure_index.json\n M Desktop/GNN_PCNA/data/registries/data_lifecycle_registry.json\n M Desktop/GNN_PCNA/data/registries/dataset_inventory.csv\n M Desktop/GNN_PCNA/data/registries/dataset_inventory.json\n M Desktop/GNN_PCNA/data/registries/download_manifest.jsonl\n M Desktop/GNN_PCNA/data/registries/excluded_records.json\n M Desktop/GNN_PCNA/data/registries/friend_crawl_homolog_groups.json\n M Desktop/GNN_PCNA/data/registries/friend_crawl_registry.json\n M Desktop/GNN_PCNA/data/registries/friend_feature_schema.json\n M Desktop/GNN_PCNA/data/registries/pcna_interface_contacts_derived.json\n M Desktop/GNN_PCNA/data/registries/pcna_interface_map.json\n M Desktop/GNN_PCNA/data/registries/phase3_cif_extraction_manifest_20260528.json\n M Desktop/GNN_PCNA/data/registries/phase3_dataset_index_20260528.json\n M Desktop/GNN_PCNA/data/registries/phase3_input_validation_20260528.json\n M Desktop/GNN_PCNA/data/registries/phase3_residue_audit_manifest_20260528.json\n M Desktop/GNN_PCNA/data/registries/phase4_candidate_manifest.json\n M Desktop/GNN_PCNA/data/registries/phase4_crawl_audit.json\n M Desktop/GNN_PCNA/data/registries/phase4_esm_validation.json\n M Desktop/GNN_PCNA/data/registries/potential_homolog_risks.json\n M Desktop/GNN_PCNA/data/registries/residue_mapping_failures.json\n M Desktop/GNN_PCNA/data/registries/residue_mapping_per_structure_impact.json\n M Desktop/GNN_PCNA/data/registries/residue_remap_log.json\n M Desktop/GNN_PCNA/data/registries/sequence_cluster_assignments.json\n M Desktop/GNN_PCNA/data/registries/source_registry.json\n M Desktop/GNN_PCNA/data/registries/split_manifest_frozen.json\n M Desktop/GNN_PCNA/data/splits/phase2_split_TEMPLATE.json\n M Desktop/GNN_PCNA/docs/advay_parallel_track.md\n M Desktop/GNN_PCNA/docs/dataset_intake_crawler_prompt.md\n M Desktop/GNN_PCNA/docs/next_prompts/cryptobench_deep_audit_prompt.md\n M Desktop/GNN_PCNA/docs/scientific_governance/00_COMPACT_INDEX.md\n M Desktop/GNN_PCNA/docs/scientific_governance/00_README.md\n M Desktop/GNN_PCNA/docs/scientific_governance/01_SOURCE_OF_TRUTH.md\n M Desktop/GNN_PCNA/docs/scientific_governance/02_ASSUMPTION_REGISTRY.md\n M Desktop/GNN_PCNA/docs/scientific_governance/03_FAILURE_MODE_CATALOG.md\n M Desktop/GNN_PCNA/docs/scientific_governance/04_DATASET_CONSTRAINTS.md\n M Desktop/GNN_PCNA/docs/scientific_governance/05_SPLIT_PROTOCOL.md\n M Desktop/GNN_PCNA/docs/scientific_governance/06_LABELING_RULES.md\n M Desktop/GNN_PCNA/docs/scientific_governance/07_PREPROCESSING_AND_GRAPH_RULES.md\n M Desktop/GNN_PCNA/docs/scientific_governance/08_MODEL_ARCHITECTURE_CONSTRAINTS.md\n M Desktop/GNN_PCNA/docs/scientific_governance/09_EVALUATION_PROTOCOL.md\n M Desktop/GNN_PCNA/docs/scientific_governance/10_BASELINE_REQUIREMENTS.md\n M Desktop/GNN_PCNA/docs/scientific_governance/11_BIOLOGICAL_REALISM_RULES.md\n M Desktop/GNN_PCNA/docs/scientific_governance/12_PCNA_SPECIFIC_CHECKS.md\n M Desktop/GNN_PCNA/docs/scientific_governance/13_MD_VALIDATION_RULES.md\n M Desktop/GNN_PCNA/docs/scientific_governance/14_CLAIM_POLICY.md\n M Desktop/GNN_PCNA/docs/scientific_governance/15_PROVENANCE_AND_REPRODUCIBILITY.md\n M Desktop/GNN_PCNA/docs/scientific_governance/16_CODING_AGENT_RULES.md\n M Desktop/GNN_PCNA/docs/scientific_governance/17_RESEARCHOS_AGENT_RULES.md\n M Desktop/GNN_PCNA/docs/scientific_governance/18_VERIFICATION_PIPELINE.md\n M Desktop/GNN_PCNA/docs/scientific_governance/19_STOP_CONDITIONS.md\n M Desktop/GNN_PCNA/docs/scientific_governance/20_PHASE2_BUILD_CHECKLIST.md\n M Desktop/GNN_PCNA/docs/scientific_governance/21_READINESS_GATE.md\n M Desktop/GNN_PCNA/docs/scientific_governance/22_UNEXPECTED_RESULTS_POLICY.md\n M Desktop/GNN_PCNA/docs/scientific_governance/23_FINAL_PROJECT_AUDIT_TEMPLATE.md\n M Desktop/GNN_PCNA/docs/scientific_governance/24_PROJECT_SCOPE.md\n M Desktop/GNN_PCNA/docs/scientific_governance/25_BIOLOGICAL_DATA_SANITY_REVIEW.md\n M Desktop/GNN_PCNA/docs/scientific_governance/26_HUMAN_REVIEW_GATES.md\n M Desktop/GNN_PCNA/docs/scientific_governance/27_RED_TEAM_AUDIT.md\n M Desktop/GNN_PCNA/docs/scientific_governance/28_NULL_HYPOTHESIS_BASELINES.md\n M Desktop/GNN_PCNA/docs/scientific_governance/29_BENCHMARK_LIMITATIONS.md\n M Desktop/GNN_PCNA/docs/scientific_governance/30_NEGATIVE_RESULT_SUCCESS_CRITERIA.md\n M Desktop/GNN_PCNA/docs/scientific_governance/31_DATA_LIFECYCLE_TRACKING.md\n M Desktop/GNN_PCNA/docs/scientific_governance/32_INTERPRETABILITY_BEFORE_CLAIMS.md\n M Desktop/GNN_PCNA/docs/scientific_governance/33_PRE_MD_REALITY_CHECK.md\n M Desktop/GNN_PCNA/docs/scientific_governance/34_AI_HALLUCINATION_DETECTION.md\n M Desktop/GNN_PCNA/docs/scientific_governance/35_SCIENTIFIC_UNCERTAINTY_REGISTER.md\n M Desktop/GNN_PCNA/docs/scientific_governance/36_PUBLICATION_READINESS.md\n M Desktop/GNN_PCNA/docs/scientific_governance/37_PHASE2_IMPLEMENTATION_PLAN.md\n M Desktop/GNN_PCNA/docs/scientific_governance/DATASET_REGISTRY.md\n M Desktop/GNN_PCNA/reports/phase2/assumption_audit.md\n M Desktop/GNN_PCNA/reports/phase2/auxiliary_acquisition_status_summary.md\n M Desktop/GNN_PCNA/reports/phase2/auxiliary_dataset_audit.md\n M Desktop/GNN_PCNA/reports/phase2/benchmark_limitations.md\n M Desktop/GNN_PCNA/reports/phase2/benchmark_role_classification.md\n M Desktop/GNN_PCNA/reports/phase2/biological_data_sanity_review.md\n M Desktop/GNN_PCNA/reports/phase2/claude_code_full_session_handoff.md\n M Desktop/GNN_PCNA/reports/phase2/codex_handoff_20260527.md\n M Desktop/GNN_PCNA/reports/phase2/cryptobench_adoption_decision.md\n M Desktop/GNN_PCNA/reports/phase2/cryptobench_candidate_cleaned_registry.md\n M Desktop/GNN_PCNA/reports/phase2/cryptobench_label_semantics.md\n M Desktop/GNN_PCNA/reports/phase2/cryptobench_leakage_remediation.md\n M Desktop/GNN_PCNA/reports/phase2/cryptobench_schema_deep_audit.md\n M Desktop/GNN_PCNA/reports/phase2/cryptobench_schema_first_audit.md\n M Desktop/GNN_PCNA/reports/phase2/cryptobench_split_risk_audit.md\n M Desktop/GNN_PCNA/reports/phase2/cryptobench_structure_inventory.md\n M Desktop/GNN_PCNA/reports/phase2/current_handoff_for_new_chat.md\n M Desktop/GNN_PCNA/reports/phase2/data_lifecycle_audit.md\n M Desktop/GNN_PCNA/reports/phase2/dataset_acquisition_log.md\n M Desktop/GNN_PCNA/reports/phase2/dataset_adoption_recommendation.md\n M Desktop/GNN_PCNA/reports/phase2/dataset_audit.md\n M Desktop/GNN_PCNA/reports/phase2/dataset_file_inventory.md\n M Desktop/GNN_PCNA/reports/phase2/dataset_footprint_summary.md\n M Desktop/GNN_PCNA/reports/phase2/dataset_investigation_progress_summary.md\n M Desktop/GNN_PCNA/reports/phase2/dataset_investigation_report.md\n M Desktop/GNN_PCNA/reports/phase2/dataset_schema_first_pass.md\n M Desktop/GNN_PCNA/reports/phase2/foundation_milestone_status.md\n M Desktop/GNN_PCNA/reports/phase2/friend_crawl_stats.md\n M Desktop/GNN_PCNA/reports/phase2/friend_dataset_acquisition_report.md\n M Desktop/GNN_PCNA/reports/phase2/governance_reading_checklist.md\n M Desktop/GNN_PCNA/reports/phase2/handoff_20260527.md\n M Desktop/GNN_PCNA/reports/phase2/handoff_20260528.md\n M Desktop/GNN_PCNA/reports/phase2/human_review_log.md\n M Desktop/GNN_PCNA/reports/phase2/human_review_packet.md\n M Desktop/GNN_PCNA/reports/phase2/label_freeze_plan.md\n M Desktop/GNN_PCNA/reports/phase2/label_generation_report.md\n M Desktop/GNN_PCNA/reports/phase2/label_supervision_risks.md\n M Desktop/GNN_PCNA/reports/phase2/license_and_terms_review.md\n M Desktop/GNN_PCNA/reports/phase2/local_dataset_discovery_report.md\n M Desktop/GNN_PCNA/reports/phase2/pcna_contamination_screen.md\n M Desktop/GNN_PCNA/reports/phase2/pcna_isolation_policy.md\n M Desktop/GNN_PCNA/reports/phase2/phase2_claude_code_handoff.md\n M Desktop/GNN_PCNA/reports/phase2/project_scope_audit.md\n M Desktop/GNN_PCNA/reports/phase2/proposed_label_policy.md\n M Desktop/GNN_PCNA/reports/phase2/proposed_label_strategy.md\n M Desktop/GNN_PCNA/reports/phase2/proposed_phase2_split_strategy.md\n M Desktop/GNN_PCNA/reports/phase2/proposed_split_strategy.md\n M Desktop/GNN_PCNA/reports/phase2/readiness_gate.md\n M Desktop/GNN_PCNA/reports/phase2/residue_mapping_4c_impact_analysis.md\n M Desktop/GNN_PCNA/reports/phase2/residue_mapping_failure_analysis.md\n M Desktop/GNN_PCNA/reports/phase2/residue_mapping_resolution_policy.md\n M Desktop/GNN_PCNA/reports/phase2/scientific_uncertainty_register.md\n M Desktop/GNN_PCNA/reports/phase2/sequence_clustering_report.md\n M Desktop/GNN_PCNA/reports/phase2/source_audit.md\n M Desktop/GNN_PCNA/reports/phase2/source_of_truth_audit.md\n M Desktop/GNN_PCNA/reports/phase2/source_registry.md\n M Desktop/GNN_PCNA/reports/phase2/split_freeze_plan.md\n M Desktop/GNN_PCNA/reports/phase2/split_manifest_approval_20260527.md\n M Desktop/GNN_PCNA/reports/phase3/baseline_comparison_report_20260529.md\n M Desktop/GNN_PCNA/reports/phase3/baseline_gate3_authorization_20260529.md\n M Desktop/GNN_PCNA/reports/phase3/baseline_runs/degree_manifest.json\n M Desktop/GNN_PCNA/reports/phase3/baseline_runs/fpocket_manifest.json\n M Desktop/GNN_PCNA/reports/phase3/baseline_runs/gat_2l_fold0_seed0_manifest.json"
+  },
+  "warnings": [
+    "ZQZ parameters are ligand-only inputs for future setup; they are not MD results.",
+    "Future 8GLA setup manifest must link PARAMETER_AUDIT.md and all parameter file hashes before minimization.",
+    "The prior neutral -nc 0 package is superseded for production use by human review decision."
+  ],
+  "remaining_launch_blockers": [
+    "Official package still records do_not_run_md: true; execution remains on hold.",
+    "Future explicit Phase 5 launch authorization record is absent."
+  ],
+  "supersedes": {
+    "neutral_package": "outputs/phase5_md/official_wave1_20260609/inputs/ligand_params/zqz/PARAMETER_AUDIT.md",
+    "neutral_supersession_marker": "outputs/phase5_md/official_wave1_20260609/inputs/ligand_params/zqz/SUPERSEDED_FOR_PRODUCTION_USE.md"
+  }
+}

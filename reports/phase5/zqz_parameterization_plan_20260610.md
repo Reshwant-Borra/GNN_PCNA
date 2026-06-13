@@ -1,9 +1,11 @@
 ---
 type: phase5-ligand-parameterization-plan
 ligand: ZQZ
-date: 2026-06-11
+date: 2026-06-12
 status: PARAMETERS_AUDITED_READY_FOR_SETUP_USE
 md_executed: false
+launch_authorized: false
+do_not_run_md: true
 ---
 
 # ZQZ Parameterization Plan - Phase 5 Wave 1
@@ -16,8 +18,10 @@ Use AMBER-compatible ligand parameters for the `8gla_holo_zqz` system:
 - Ligand force field: GAFF2.
 - Charge method: AM1-BCC through AmberTools `antechamber` (`-c bcc`), unless a later
   documented deviation is approved before launch.
-- Proposed net charge: 0, based on the RCSB ZQZ ligand record formal charge 0. This
-  must be re-verified from the exact protonated input before parameter generation.
+- Approved net charge: -1, based on the 2026-06-12 human review decision approving
+  deprotonated ZQZ. The prior neutral `-nc 0` package is superseded for production use.
+- Active package path:
+  `outputs/phase5_md/official_wave1_20260609/inputs/ligand_params/zqz_minus1/`.
 - Required tools: AmberTools26 `antechamber`, `parmchk2`, `tleap`, and `sqm`.
 
 AmberTools26 is selected because the official AmberTools page identifies AmberTools26
@@ -37,11 +41,11 @@ without planned-deviation documentation.
 
 ## Required Outputs
 
-- `zqz_gaff2_am1bcc.mol2`
-- `zqz_gaff2.frcmod`
-- `zqz_tleap.in`
-- `zqz_tleap.log`
-- `zqz_parameter_audit.json`
+- `zqz_minus1_gaff2_am1bcc.mol2`
+- `zqz_minus1_gaff2.frcmod`
+- `zqz_minus1_tleap.in`
+- `zqz_minus1_tleap.log`
+- `zqz_minus1_parameter_audit.json`
 - `PARAMETER_AUDIT.md`
 
 All outputs must include SHA256 hashes, generation commands, AmberTools version strings,
@@ -50,7 +54,7 @@ input hashes, net charge, atom count, warning/error logs, and manual-review note
 ## Fail-Closed Behavior
 
 Future production setup must refuse to continue if
-`outputs/phase5_md/official_wave1_20260609/inputs/ligand_params/zqz/PARAMETER_AUDIT.md`
+`outputs/phase5_md/official_wave1_20260609/inputs/ligand_params/zqz_minus1/PARAMETER_AUDIT.md`
 is absent, incomplete, or not linked from the system setup manifest. This turn intentionally
 does not run MD setup or simulation.
 
@@ -59,10 +63,10 @@ does not run MD setup or simulation.
 
 The approved workflow has been completed and audited.
 
-- Audit report: `reports/phase5/zqz_parameter_audit_20260611.md`
-- Package audit: `outputs/phase5_md/official_wave1_20260609/inputs/ligand_params/zqz/PARAMETER_AUDIT.md`
-- Machine-readable audit: `outputs/phase5_md/official_wave1_20260609/inputs/ligand_params/zqz/zqz_parameter_audit.json`
-- Package hashes: `outputs/phase5_md/official_wave1_20260609/inputs/ligand_params/zqz/zqz_package_hashes.json`
+- Audit report: `reports/phase5/zqz_minus1_parameter_audit_20260612.md`
+- Package audit: `outputs/phase5_md/official_wave1_20260609/inputs/ligand_params/zqz_minus1/PARAMETER_AUDIT.md`
+- Machine-readable audit: `outputs/phase5_md/official_wave1_20260609/inputs/ligand_params/zqz_minus1/zqz_minus1_parameter_audit.json`
+- Package hashes: `outputs/phase5_md/official_wave1_20260609/inputs/ligand_params/zqz_minus1/zqz_minus1_package_hashes.json`
 
 The parameter package is ready to be linked from the future `8gla_holo_zqz` setup
 manifest after launch authorization. This does not authorize minimization,
@@ -75,9 +79,9 @@ These commands are documentation only and must not be run until launch is explic
 authorized:
 
 ```bash
-antechamber -i zqz_input.sdf -fi sdf -o zqz_gaff2_am1bcc.mol2 -fo mol2 -at gaff2 -c bcc -nc 0 -rn ZQZ
-parmchk2 -i zqz_gaff2_am1bcc.mol2 -f mol2 -o zqz_gaff2.frcmod -s gaff2
-tleap -f zqz_tleap.in
+antechamber -i zqz_minus1_input.sdf -fi sdf -o zqz_minus1_gaff2_am1bcc.mol2 -fo mol2 -at gaff2 -c bcc -nc -1 -rn ZQZ
+parmchk2 -i zqz_minus1_gaff2_am1bcc.mol2 -f mol2 -o zqz_minus1_gaff2.frcmod -s gaff2
+tleap -f zqz_minus1_tleap.in
 ```
 
 Evidence status: verified parameter audit.

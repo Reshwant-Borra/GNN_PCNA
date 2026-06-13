@@ -43,13 +43,36 @@ ONE_AXC_METADATA = (
 )
 
 OUTPUT_ROOT = REPO_ROOT / "outputs" / "phase5_md" / "official_wave1_20260609"
-ZQZ_PARAMETER_DIR = OUTPUT_ROOT / "inputs" / "ligand_params" / "zqz"
+ZQZ_NEUTRAL_PARAMETER_DIR = OUTPUT_ROOT / "inputs" / "ligand_params" / "zqz"
+ZQZ_NEUTRAL_SUPERSEDED_MARKER = ZQZ_NEUTRAL_PARAMETER_DIR / "SUPERSEDED_FOR_PRODUCTION_USE.md"
+ZQZ_PARAMETER_DIR = OUTPUT_ROOT / "inputs" / "ligand_params" / "zqz_minus1"
 ZQZ_PARAMETER_AUDIT = ZQZ_PARAMETER_DIR / "PARAMETER_AUDIT.md"
-ZQZ_PARAMETER_AUDIT_JSON = ZQZ_PARAMETER_DIR / "zqz_parameter_audit.json"
+ZQZ_PARAMETER_AUDIT_JSON = ZQZ_PARAMETER_DIR / "zqz_minus1_parameter_audit.json"
 REGISTRY_PATH = (
     REPO_ROOT / "data" / "registries" / "phase5_wave1_preparation_audit_20260610.json"
 )
 REPORT_DIR = REPO_ROOT / "reports" / "phase5"
+ZQZ_CHEMISTRY_DECISION = REPORT_DIR / "zqz_chemistry_decision_20260611.md"
+FORCE_FIELD_WATER_DECISION = REPORT_DIR / "force_field_water_policy_decision_20260611.md"
+LAUNCH_AUTHORIZATION = REPORT_DIR / "phase5_wave1_launch_authorization.md"
+APPROVED_WAVE1_POLICY = {
+    "protein_force_field": "AMBER ff19SB",
+    "water_model": "OPC",
+    "ion_parameters": "Joung-Cheatham OPC-compatible ions",
+    "ion_policy": "neutralize and 150 mM NaCl using OPC-compatible ions",
+    "zqz_net_charge": -1,
+    "zqz_parameter_package": ZQZ_PARAMETER_DIR.relative_to(REPO_ROOT).as_posix(),
+    "launch_authorized": False,
+    "do_not_run_md": True,
+}
+
+OPEN_DECISION_STATUSES = {
+    "BLOCKER_OPEN_HUMAN_DECISION_REQUIRED",
+    "BLOCKER_OPEN",
+    "OPEN",
+    "PENDING",
+    "DRAFT",
+}
 
 AUTHORIZED_SYSTEMS = {
     "8gla_holo_zqz": {
@@ -591,6 +614,9 @@ def build_registry() -> dict[str, Any]:
         "equilibration_performed": False,
         "production_performed": False,
         "trajectory_analysis_performed": False,
+        "launch_authorized": False,
+        "do_not_run_md": True,
+        "approved_wave1_policy": APPROVED_WAVE1_POLICY,
         "authorized_systems": AUTHORIZED_SYSTEMS,
         "authorized_candidate_windows": AUTHORIZED_WINDOWS,
         "deferred_windows": sorted(DEFERRED_WINDOWS),
@@ -607,25 +633,32 @@ def build_registry() -> dict[str, Any]:
 
 def audit_zqz_parameters() -> dict[str, Any]:
     required = {
-        "zqz_input.sdf",
+        "zqz_neutral_reference.sdf",
+        "zqz_minus1_input.sdf",
         "ZQZ.cif",
         "deposited_8gla_zqz_instances.pdb",
         "deposited_8gla_zqz_instances.json",
-        "zqz_gaff2_am1bcc.mol2",
-        "zqz_gaff2.frcmod",
-        "zqz_tleap.in",
-        "zqz_tleap.log",
-        "zqz_gaff2.lib",
-        "zqz_parameter_audit.json",
+        "zqz_minus1_gaff2_am1bcc.mol2",
+        "zqz_minus1_gaff2.frcmod",
+        "zqz_minus1_tleap.in",
+        "zqz_minus1_tleap.log",
+        "zqz_minus1_gaff2.lib",
+        "zqz_minus1_parameter_audit.json",
         "PARAMETER_AUDIT.md",
-        "zqz_package_hashes.json",
+        "zqz_minus1_package_hashes.json",
     }
     missing = sorted(name for name in required if not (ZQZ_PARAMETER_DIR / name).exists())
+    neutral_marker_missing = not ZQZ_NEUTRAL_SUPERSEDED_MARKER.exists()
+    if neutral_marker_missing:
+        missing.append(ZQZ_NEUTRAL_SUPERSEDED_MARKER.relative_to(REPO_ROOT).as_posix())
     if missing:
         return {
             "status": "ABSENT_OR_INCOMPLETE",
             "audit_markdown": ZQZ_PARAMETER_AUDIT.relative_to(REPO_ROOT).as_posix(),
             "audit_json": ZQZ_PARAMETER_AUDIT_JSON.relative_to(REPO_ROOT).as_posix(),
+            "active_package_dir": ZQZ_PARAMETER_DIR.relative_to(REPO_ROOT).as_posix(),
+            "neutral_package_dir": ZQZ_NEUTRAL_PARAMETER_DIR.relative_to(REPO_ROOT).as_posix(),
+            "neutral_superseded_marker": ZQZ_NEUTRAL_SUPERSEDED_MARKER.relative_to(REPO_ROOT).as_posix(),
             "missing_files": missing,
             "complete": False,
         }
@@ -636,6 +669,7 @@ def audit_zqz_parameters() -> dict[str, Any]:
             "status": "INVALID_JSON",
             "audit_markdown": ZQZ_PARAMETER_AUDIT.relative_to(REPO_ROOT).as_posix(),
             "audit_json": ZQZ_PARAMETER_AUDIT_JSON.relative_to(REPO_ROOT).as_posix(),
+            "active_package_dir": ZQZ_PARAMETER_DIR.relative_to(REPO_ROOT).as_posix(),
             "error": str(exc),
             "complete": False,
         }
@@ -659,17 +693,21 @@ def audit_zqz_parameters() -> dict[str, Any]:
         problems.append("force field is not GAFF2")
     if method.get("charge_model") != "AM1-BCC":
         problems.append("charge model is not AM1-BCC")
-    if method.get("net_charge") != 0:
-        problems.append("net charge is not 0")
-    if audit.get("input_audit", {}).get("sdf", {}).get("formal_charge") != 0:
-        problems.append("input SDF formal charge is not 0")
+    if method.get("net_charge") != -1:
+        problems.append("net charge is not -1")
+    if method.get("protonation_state") != "deprotonated_sidechain_carboxylate":
+        problems.append("protonation state is not deprotonated_sidechain_carboxylate")
+    if audit.get("input_audit", {}).get("sdf", {}).get("formal_charge") != -1:
+        problems.append("input SDF formal charge is not -1")
     if not audit.get("input_audit", {}).get("sdf", {}).get("has_explicit_hydrogens"):
         problems.append("input SDF lacks explicit hydrogens")
-    if audit.get("parameter_checks", {}).get("mol2", {}).get("atom_count") != 63:
-        problems.append("MOL2 atom count is not 63")
+    if audit.get("parameter_checks", {}).get("mol2", {}).get("atom_count") != 62:
+        problems.append("MOL2 atom count is not 62")
     charge_sum = audit.get("parameter_checks", {}).get("mol2", {}).get("charge_sum")
-    if charge_sum is None or abs(float(charge_sum)) > 0.01:
-        problems.append("MOL2 charge sum is not near neutral")
+    if charge_sum is None or abs(float(charge_sum) + 1.0) > 0.01:
+        problems.append("MOL2 charge sum is not near -1")
+    if not audit.get("deprotonation_audit"):
+        problems.append("deprotonation audit is missing")
     tleap_lines = "\n".join(
         audit.get("parameter_checks", {}).get("tleap_log", {}).get("notable_lines", [])
     )
@@ -677,7 +715,7 @@ def audit_zqz_parameters() -> dict[str, Any]:
         problems.append("tleap log does not contain Unit is OK")
 
     output_hashes = audit.get("output_hashes", {})
-    for name in required - {"PARAMETER_AUDIT.md", "zqz_parameter_audit.json", "zqz_package_hashes.json"}:
+    for name in required - {"PARAMETER_AUDIT.md", "zqz_minus1_parameter_audit.json", "zqz_minus1_package_hashes.json"}:
         if name not in output_hashes:
             problems.append(f"missing output hash for {name}")
 
@@ -685,14 +723,51 @@ def audit_zqz_parameters() -> dict[str, Any]:
         "status": "PARAMETERS_AUDITED_READY_FOR_SETUP_USE" if not problems else "INVALID",
         "audit_markdown": ZQZ_PARAMETER_AUDIT.relative_to(REPO_ROOT).as_posix(),
         "audit_json": ZQZ_PARAMETER_AUDIT_JSON.relative_to(REPO_ROOT).as_posix(),
-        "package_hashes": (ZQZ_PARAMETER_DIR / "zqz_package_hashes.json").relative_to(REPO_ROOT).as_posix(),
+        "package_hashes": (ZQZ_PARAMETER_DIR / "zqz_minus1_package_hashes.json").relative_to(REPO_ROOT).as_posix(),
+        "active_package_dir": ZQZ_PARAMETER_DIR.relative_to(REPO_ROOT).as_posix(),
+        "neutral_package_dir": ZQZ_NEUTRAL_PARAMETER_DIR.relative_to(REPO_ROOT).as_posix(),
+        "neutral_superseded_marker": ZQZ_NEUTRAL_SUPERSEDED_MARKER.relative_to(REPO_ROOT).as_posix(),
         "method": method,
         "complete": not problems,
         "problems": problems,
         "key_hashes": {
             name: output_hashes.get(name, {}).get("sha256")
-            for name in ["zqz_gaff2_am1bcc.mol2", "zqz_gaff2.frcmod", "zqz_tleap.log"]
+            for name in [
+                "zqz_minus1_gaff2_am1bcc.mol2",
+                "zqz_minus1_gaff2.frcmod",
+                "zqz_minus1_tleap.log",
+            ]
         },
+    }
+
+
+def read_frontmatter_status(path: Path) -> str | None:
+    """Return the YAML frontmatter `status` value if a decision record exists.
+
+    Used by preflight to fail closed when chemistry or force-field decisions
+    are missing or still marked open.
+    """
+    if not path.exists():
+        return None
+    text = path.read_text(encoding="utf-8", errors="replace").splitlines()
+    if not text or text[0].strip() != "---":
+        return None
+    for line in text[1:]:
+        stripped = line.strip()
+        if stripped == "---":
+            break
+        if stripped.startswith("status:"):
+            return stripped.split(":", 1)[1].strip().strip("'\"")
+    return None
+
+
+def decision_record_status(path: Path) -> dict[str, Any]:
+    status = read_frontmatter_status(path)
+    return {
+        "path": path.relative_to(REPO_ROOT).as_posix(),
+        "exists": path.exists(),
+        "status": status,
+        "is_open": status in OPEN_DECISION_STATUSES if status else True,
     }
 
 
@@ -726,8 +801,23 @@ def preflight_status(audit8: dict[str, Any], audit1: dict[str, Any], zqz_audit: 
     if not zqz_audit["complete"]:
         blockers.append("Audited ZQZ ligand parameter package is absent or incomplete.")
 
-    launch_authorization = REPORT_DIR / "phase5_wave1_launch_authorization.md"
-    if not launch_authorization.exists():
+    chem_decision = decision_record_status(ZQZ_CHEMISTRY_DECISION)
+    if not chem_decision["exists"]:
+        blockers.append("ZQZ protonation/net-charge decision record is absent.")
+    elif chem_decision["is_open"]:
+        blockers.append(
+            "ZQZ protonation/net-charge decision record is open and requires human resolution."
+        )
+
+    ff_decision = decision_record_status(FORCE_FIELD_WATER_DECISION)
+    if not ff_decision["exists"]:
+        blockers.append("Force-field/water-model policy decision record is absent.")
+    elif ff_decision["is_open"]:
+        blockers.append(
+            "Force-field/water-model policy decision record is open and requires human resolution."
+        )
+
+    if not LAUNCH_AUTHORIZATION.exists():
         blockers.append("Future explicit Phase 5 launch authorization record is absent.")
 
     launch_hold_blockers = {
@@ -745,6 +835,10 @@ def preflight_status(audit8: dict[str, Any], audit1: dict[str, Any], zqz_audit: 
         "production_launch_status": "BLOCKED_FAIL_CLOSED" if blockers else "READY",
         "blockers": blockers,
         "warnings": warnings,
+        "decision_records": {
+            "zqz_chemistry": chem_decision,
+            "force_field_water": ff_decision,
+        },
     }
 
 
@@ -955,7 +1049,7 @@ def render_zqz_plan(registry: dict[str, Any]) -> str:
 
 The approved workflow has been completed and audited.
 
-- Audit report: `reports/phase5/zqz_parameter_audit_20260611.md`
+- Audit report: `reports/phase5/zqz_minus1_parameter_audit_20260612.md`
 - Package audit: `{zqz["audit_markdown"]}`
 - Machine-readable audit: `{zqz["audit_json"]}`
 - Package hashes: `{zqz["package_hashes"]}`
@@ -974,9 +1068,11 @@ package exists and passes preflight.
     return f"""---
 type: phase5-ligand-parameterization-plan
 ligand: ZQZ
-date: 2026-06-11
+date: 2026-06-12
 status: {status}
 md_executed: false
+launch_authorized: false
+do_not_run_md: true
 ---
 
 # ZQZ Parameterization Plan - Phase 5 Wave 1
@@ -989,8 +1085,10 @@ Use AMBER-compatible ligand parameters for the `8gla_holo_zqz` system:
 - Ligand force field: GAFF2.
 - Charge method: AM1-BCC through AmberTools `antechamber` (`-c bcc`), unless a later
   documented deviation is approved before launch.
-- Proposed net charge: 0, based on the RCSB ZQZ ligand record formal charge 0. This
-  must be re-verified from the exact protonated input before parameter generation.
+- Approved net charge: -1, based on the 2026-06-12 human review decision approving
+  deprotonated ZQZ. The prior neutral `-nc 0` package is superseded for production use.
+- Active package path:
+  `outputs/phase5_md/official_wave1_20260609/inputs/ligand_params/zqz_minus1/`.
 - Required tools: AmberTools26 `antechamber`, `parmchk2`, `tleap`, and `sqm`.
 
 AmberTools26 is selected because the official AmberTools page identifies AmberTools26
@@ -1010,11 +1108,11 @@ without planned-deviation documentation.
 
 ## Required Outputs
 
-- `zqz_gaff2_am1bcc.mol2`
-- `zqz_gaff2.frcmod`
-- `zqz_tleap.in`
-- `zqz_tleap.log`
-- `zqz_parameter_audit.json`
+- `zqz_minus1_gaff2_am1bcc.mol2`
+- `zqz_minus1_gaff2.frcmod`
+- `zqz_minus1_tleap.in`
+- `zqz_minus1_tleap.log`
+- `zqz_minus1_parameter_audit.json`
 - `PARAMETER_AUDIT.md`
 
 All outputs must include SHA256 hashes, generation commands, AmberTools version strings,
@@ -1023,7 +1121,7 @@ input hashes, net charge, atom count, warning/error logs, and manual-review note
 ## Fail-Closed Behavior
 
 Future production setup must refuse to continue if
-`outputs/phase5_md/official_wave1_20260609/inputs/ligand_params/zqz/PARAMETER_AUDIT.md`
+`outputs/phase5_md/official_wave1_20260609/inputs/ligand_params/zqz_minus1/PARAMETER_AUDIT.md`
 is absent, incomplete, or not linked from the system setup manifest. This turn intentionally
 does not run MD setup or simulation.
 
@@ -1035,9 +1133,9 @@ These commands are documentation only and must not be run until launch is explic
 authorized:
 
 ```bash
-antechamber -i zqz_input.sdf -fi sdf -o zqz_gaff2_am1bcc.mol2 -fo mol2 -at gaff2 -c bcc -nc 0 -rn ZQZ
-parmchk2 -i zqz_gaff2_am1bcc.mol2 -f mol2 -o zqz_gaff2.frcmod -s gaff2
-tleap -f zqz_tleap.in
+antechamber -i zqz_minus1_input.sdf -fi sdf -o zqz_minus1_gaff2_am1bcc.mol2 -fo mol2 -at gaff2 -c bcc -nc -1 -rn ZQZ
+parmchk2 -i zqz_minus1_gaff2_am1bcc.mol2 -f mol2 -o zqz_minus1_gaff2.frcmod -s gaff2
+tleap -f zqz_minus1_tleap.in
 ```
 
 Evidence status: {"verified parameter audit" if zqz.get("complete") else "plan only"}.
@@ -1109,11 +1207,33 @@ def render_readiness_report(registry: dict[str, Any]) -> str:
     zqz = registry["audits"].get("ZQZ_parameters", {})
     blockers = "\n".join(f"- {item}" for item in status["blockers"]) or "- none"
     warnings = "\n".join(f"- {item}" for item in status["warnings"]) or "- none"
+    decision_records = status.get("decision_records", {})
+    chem = decision_records.get("zqz_chemistry", {})
+    ff = decision_records.get("force_field_water", {})
+    package_status = status["package_preparation_status"]
+    production_status = status["production_launch_status"]
+    frontmatter_status = (
+        "NOT_READY_FOR_MD_LAUNCH_PRODUCTION_BLOCKED"
+        if package_status == "READY_FOR_HUMAN_REVIEW"
+        else "LAUNCH_READY_AWAITING_AUTHORIZATION_PRODUCTION_BLOCKED"
+    )
+    readiness_note = (
+        "Wave 1 package preparation blockers have been resolved by the recorded "
+        "human decisions and audited follow-up artifacts. Production launch remains "
+        "fail-closed because the official package still records `do_not_run_md: true` "
+        "and no future explicit Phase 5 launch authorization exists."
+        if package_status == "LAUNCH_READY_AWAITING_AUTHORIZATION"
+        else "Wave 1 production launch remains fail-closed. The preflight requires "
+        "resolution of package-preparation blockers and explicit human launch "
+        "authorization before any future launch discussion."
+    )
     return f"""---
 type: phase5-wave1-readiness-report
-date: 2026-06-11
-status: LAUNCH_READY_AWAITING_AUTHORIZATION_PRODUCTION_BLOCKED
+date: 2026-06-12
+status: {frontmatter_status}
 md_executed: false
+launch_authorized: false
+do_not_run_md: true
 ---
 
 # Wave 1 Readiness Report - Phase 5 Official Package
@@ -1135,8 +1255,18 @@ analysis, interpretation, or claims.
 - 1AXC PCNA windows are complete on all three PCNA chains A/C/E.
 - 8GLA biological assembly 1 is verified as the official trimer for the positive-control systems.
 - Manifest/provenance templates and preflight checks were added.
+- Approved protein force field: `{APPROVED_WAVE1_POLICY["protein_force_field"]}`.
+- Approved water model: `{APPROVED_WAVE1_POLICY["water_model"]}`.
+- Approved ion parameters: `{APPROVED_WAVE1_POLICY["ion_parameters"]}`.
 - ZQZ GAFF2/AM1-BCC parameter package status: `{zqz.get("status", "UNKNOWN")}`.
 - ZQZ parameter audit: `{zqz.get("audit_markdown", "missing")}`.
+- Active ZQZ parameter package: `{zqz.get("active_package_dir", "missing")}`.
+- Superseded neutral ZQZ package marker: `{zqz.get("neutral_superseded_marker", "missing")}`.
+
+## Decision Records
+
+- ZQZ chemistry decision: `{chem.get("path", "missing")}` — exists: {chem.get("exists", False)}; status: `{chem.get("status", "MISSING")}`.
+- Force-field/water-model policy decision: `{ff.get("path", "missing")}` — exists: {ff.get("exists", False)}; status: `{ff.get("status", "MISSING")}`.
 
 ## Gap Analysis
 
@@ -1148,12 +1278,10 @@ analysis, interpretation, or claims.
 
 ## Launch-Readiness Assessment
 
-- Package preparation status: `{status["package_preparation_status"]}`.
-- Production launch status: `{status["production_launch_status"]}`.
+- Package preparation status: `{package_status}`.
+- Production launch status: `{production_status}`.
 
-The official package is launch-ready at the preparation level, but production launch
-remains intentionally blocked. This is expected because MD execution is not yet
-authorized and the official package still records `do_not_run_md: true`.
+{readiness_note}
 
 ## Deliverables
 
@@ -1161,6 +1289,11 @@ authorized and the official package still records `do_not_run_md: true`.
 - `reports/phase5/1axc_preparation_audit_20260610.md`
 - `reports/phase5/zqz_parameterization_plan_20260610.md`
 - `reports/phase5/zqz_parameter_audit_20260611.md`
+- `reports/phase5/zqz_minus1_parameter_audit_20260612.md`
+- `reports/phase5/zqz_chemistry_decision_20260611.md`
+- `reports/phase5/force_field_water_policy_decision_20260611.md`
+- `reports/phase5/human_review_decision_package_20260612.md`
+- `reports/phase5/wave1_gpu_time_estimates_20260612.md`
 - `reports/phase5/manifest_provenance_templates_20260610.md`
 - `data/registries/phase5_wave1_preparation_audit_20260610.json`
 - `outputs/phase5_md/official_wave1_20260609/` manifest templates and audited ZQZ
@@ -1185,7 +1318,7 @@ def write_manifest_templates(registry: dict[str, Any]) -> None:
     for rel in [
         "inputs/8gla",
         "inputs/1axc",
-        "inputs/ligand_params/zqz",
+        "inputs/ligand_params/zqz_minus1",
         "analysis/trajectory_qa",
         "analysis/rmsd_rmsf",
         "analysis/pocket_accessibility",
@@ -1227,6 +1360,11 @@ def write_manifest_templates(registry: dict[str, Any]) -> None:
   - `T1A-206`: 206-210
   - `T2-134`: 134-138
 - Deferred windows not authorized in Wave 1: 170-174, 175-179, 152-156
+- Approved protein force field: {APPROVED_WAVE1_POLICY["protein_force_field"]}
+- Approved water model: {APPROVED_WAVE1_POLICY["water_model"]}
+- Approved ion parameters: {APPROVED_WAVE1_POLICY["ion_parameters"]}
+- Active ZQZ ligand package: `{APPROVED_WAVE1_POLICY["zqz_parameter_package"]}`
+- ZQZ net charge: {APPROVED_WAVE1_POLICY["zqz_net_charge"]}
 - Stop-condition log:
   - unresolved assembly mapping:
   - missing candidate residues:
@@ -1255,15 +1393,16 @@ This template is not a run manifest and does not authorize launch.
 - Required replicates: {spec["replicates"]}
 - Planned production length: {spec["production_ns"]} ns per replicate
 - Seeds: {", ".join(map(str, spec["seeds"]))}
-- Protein force field: AMBER ff19SB
-- Water model: TIP3P
-- Ion policy: neutralize and 150 mM NaCl
+- Protein force field: {APPROVED_WAVE1_POLICY["protein_force_field"]}
+- Water model: {APPROVED_WAVE1_POLICY["water_model"]}
+- Ion policy: {APPROVED_WAVE1_POLICY["ion_policy"]}
+- Ion parameters: {APPROVED_WAVE1_POLICY["ion_parameters"]}
 - Protonation policy: pH 7.4 standard-state policy, identical across comparable systems
 - Input coordinate hash:
 - Prepared coordinate hash:
 - Topology hash:
-- ZQZ parameter audit path:
-- ZQZ parameter hashes:
+- ZQZ parameter audit path: `{ZQZ_PARAMETER_AUDIT.relative_to(REPO_ROOT).as_posix()}`
+- ZQZ parameter hashes: `{(ZQZ_PARAMETER_DIR / "zqz_minus1_package_hashes.json").relative_to(REPO_ROOT).as_posix()}`
 - Environment:
 - Commands:
 - Stop conditions triggered:
@@ -1279,20 +1418,22 @@ copy it to `setup_manifest.md`, fill every required field, and link audited inpu
         zqz_readme = f"""# ZQZ Ligand Parameter Package
 
 Status: PARAMETERS_AUDITED_READY_FOR_SETUP_USE
+Active production-use package: deprotonated ZQZ, net charge -1
+Supersedes: `outputs/phase5_md/official_wave1_20260609/inputs/ligand_params/zqz/`
 
 Audit files:
 
 - `PARAMETER_AUDIT.md`
-- `zqz_parameter_audit.json`
-- `zqz_package_hashes.json`
+- `zqz_minus1_parameter_audit.json`
+- `zqz_minus1_package_hashes.json`
 
 Primary parameter files:
 
-- `zqz_gaff2_am1bcc.mol2`
-- `zqz_gaff2.frcmod`
-- `zqz_tleap.in`
-- `zqz_tleap.log`
-- `zqz_gaff2.lib`
+- `zqz_minus1_gaff2_am1bcc.mol2`
+- `zqz_minus1_gaff2.frcmod`
+- `zqz_minus1_tleap.in`
+- `zqz_minus1_tleap.log`
+- `zqz_minus1_gaff2.lib`
 
 Future production setup must still fail closed until an explicit launch authorization
 exists and the 8GLA setup manifest links this package and its hashes.
@@ -1306,18 +1447,18 @@ Status: TEMPLATE_ONLY_PARAMETERS_NOT_GENERATED
 
 Required before production:
 
-- `zqz_gaff2_am1bcc.mol2`
-- `zqz_gaff2.frcmod`
-- `zqz_tleap.in`
-- `zqz_tleap.log`
-- `zqz_parameter_audit.json`
+- `zqz_minus1_gaff2_am1bcc.mol2`
+- `zqz_minus1_gaff2.frcmod`
+- `zqz_minus1_tleap.in`
+- `zqz_minus1_tleap.log`
+- `zqz_minus1_parameter_audit.json`
 - `PARAMETER_AUDIT.md`
 
 Production setup must fail closed until `PARAMETER_AUDIT.md` exists and records input
 hashes, output hashes, AmberTools versions, charge method, net charge, command lines,
 warnings, and manual review.
 """
-    write_text(output / "inputs" / "ligand_params" / "zqz" / "README_TEMPLATE.md", zqz_readme)
+    write_text(ZQZ_PARAMETER_DIR / "README_TEMPLATE.md", zqz_readme)
 
 
 def write_reports(registry: dict[str, Any]) -> None:

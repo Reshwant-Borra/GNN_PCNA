@@ -5,6 +5,7 @@ status: PRE_EXECUTION_PACKAGE_ONLY
 decision_id: phase5_gate7_wave1_authorization_20260609
 authorization: reports/phase4/gate7_authorization_20260609.md
 do_not_run_md: true
+launch_authorized: false
 governance:
   - docs/scientific_governance/12_PCNA_SPECIFIC_CHECKS.md
   - docs/scientific_governance/13_MD_VALIDATION_RULES.md
@@ -18,8 +19,10 @@ governance:
 ## Status
 
 This is the official Phase 5 MD Wave 1 execution package. It is a pre-execution
-runbook and provenance plan only. No MD setup, parameterization, production run,
-trajectory generation, or analysis was executed while creating this file.
+runbook, human-review decision record, and provenance plan only. The 2026-06-12
+follow-up generated an audited ligand-only ZQZ replacement parameter package; no
+MD system setup, minimization, equilibration, production run, trajectory
+generation, trajectory analysis, interpretation, or claims were executed.
 
 The deprecated time-crunch RunPod workflow is out of scope and must not be used for
 this official Wave 1 plan.
@@ -33,7 +36,8 @@ Primary decision package:
 `reports/phase4/gate7_md_decision_draft_20260529.md`
 
 The user explicitly instructed that MD must not be run yet. Execution remains on hold
-until a later explicit launch instruction.
+until a later explicit launch authorization. Current package flags remain
+`do_not_run_md: true` and `launch_authorized: false`.
 
 ## Wave 1 Scientific Scope
 
@@ -74,8 +78,11 @@ Use this setup policy unless a deviation is documented before execution:
 
 - PCNA assembly: biological trimer preserved.
 - Protein force field: AMBER ff19SB.
-- Water model: TIP3P.
-- Ion policy: neutralize and use 150 mM NaCl.
+- Water model: OPC.
+- Ion policy: neutralize and use 150 mM NaCl with Joung-Cheatham OPC-compatible
+  ion parameters.
+- ZQZ ligand policy: use the approved deprotonated ZQZ package with net charge -1
+  from `outputs/phase5_md/official_wave1_20260609/inputs/ligand_params/zqz_minus1/`.
 - Protonation: pH 7.4 standard-state policy, same across systems.
 - Temperature/pressure: standard production MD settings must be recorded in the run
   manifest before launch.
@@ -103,7 +110,8 @@ If any seed changes, record the reason in the system manifest before production.
 - Identify canonical PCNA chains and map residues to UniProt P12004 numbering.
 - Record missing residues, insertion codes, alternate locations, non-PCNA chains,
   ions, waters, and ZQZ ligand placement.
-- `8gla_holo_zqz`: retain ZQZ and parameterize it before minimization.
+- `8gla_holo_zqz`: retain ZQZ and use the approved audited ZQZ net-charge -1
+  package before any future minimization.
 - `8gla_apo_from_holo`: remove ZQZ from the same starting coordinates, then minimize
   and equilibrate under the same policy.
 - Flag 8GLA resolution (3.77 Angstrom) in all manifests and interpretation; it is a
@@ -122,14 +130,21 @@ If any seed changes, record the reason in the system manifest before production.
 
 Before any `8gla_holo_zqz` production run:
 
-- choose and record the ligand parameterization method;
+- use the approved deprotonated ZQZ net-charge -1 parameter package;
 - record software versions, command lines, charge model, input ligand file, and output
   parameter hashes;
 - confirm ZQZ chemistry, protonation/tautomer assumptions, and atom naming;
 - run a setup audit for ligand connectivity and contacts before production.
 
-The draft package proposed GAFF2/AM1-BCC for ZQZ. If a different parameterization
-method is used, record it as a planned deviation before launch.
+Human review approved deprotonated ZQZ with net charge -1 on 2026-06-12. The active
+audited GAFF2/AM1-BCC package is:
+
+- `outputs/phase5_md/official_wave1_20260609/inputs/ligand_params/zqz_minus1/PARAMETER_AUDIT.md`
+- `reports/phase5/zqz_minus1_parameter_audit_20260612.md`
+
+The previous neutral `-nc 0` package under
+`outputs/phase5_md/official_wave1_20260609/inputs/ligand_params/zqz/` is superseded
+for production use and retained only as historical provenance.
 
 ## Planned Output Root
 
@@ -141,7 +156,8 @@ outputs/phase5_md/official_wave1_20260609/
   inputs/
     8gla/
     1axc/
-    ligand_params/zqz/
+    ligand_params/zqz_minus1/
+    ligand_params/zqz/  # superseded neutral package retained for provenance only
   systems/
     8gla_holo_zqz/
       setup_manifest.md
@@ -176,7 +192,7 @@ Do not execute these steps until the user explicitly authorizes launch.
 
 1. Record git commit, branch, dirty-state summary, machine, and environment.
 2. Prepare 8GLA and 1AXC input systems.
-3. Generate and audit ZQZ ligand parameters.
+3. Link the approved audited ZQZ net-charge -1 ligand parameters.
 4. Write setup manifests with input hashes.
 5. Minimize each system.
 6. Equilibrate each system under identical policy where comparable.
@@ -195,7 +211,7 @@ Do not start production if any condition below occurs:
 - 8GLA biological trimer mapping is unresolved.
 - 1AXC PCNA chain mapping is unresolved.
 - Canonical residue numbering cannot be mapped for candidate windows.
-- ZQZ ligand parameters are missing or unaudited.
+- Active ZQZ net-charge -1 ligand parameters are missing or unaudited.
 - Prepared systems lose PCNA trimer integrity during minimization/equilibration.
 - Temperature, pressure, density, or energy behavior is unstable during equilibration.
 - The output root already contains unregistered trajectory files.
@@ -241,6 +257,9 @@ target, confirmed mechanism, clinically actionable, or proof of ligand binding.
 - [x] Seeds specified.
 - [x] Structure-preparation requirements specified.
 - [x] ZQZ parameterization requirement specified.
+- [x] Human review approved deprotonated ZQZ with net charge -1.
+- [x] Neutral ZQZ `-nc 0` package marked superseded for production use.
+- [x] Human review approved ff19SB + OPC with Joung-Cheatham OPC-compatible ions.
 - [x] Output layout specified.
 - [x] Stop conditions specified.
 - [x] Post-run analysis and human-review gates specified.
@@ -248,7 +267,8 @@ target, confirmed mechanism, clinically actionable, or proof of ligand binding.
 
 ## Evidence Status
 
-Evidence status: pre-execution planning and authorization only.
+Evidence status: pre-execution planning, human-review decisions, and ligand-only
+ZQZ replacement parameter provenance. No MD system setup or MD outcome exists.
 
 Confidence: high for governance scope and required systems; no confidence statement is
 made about MD outcomes because no MD has been run.

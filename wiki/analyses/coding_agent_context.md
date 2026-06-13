@@ -384,3 +384,69 @@ Provenance:
   launch status; medium for runtime/cost/storage estimates
 - evidence_status: verified for package/local-system facts; inferred for future
   execution estimates; no MD outcomes
+
+## 32. Phase 5 human decisions resolved: ZQZ -1 and ff19SB + OPC
+
+As of 2026-06-12, human review resolved the two Phase 5 Wave 1 scientific
+decision blockers. The official ZQZ policy is deprotonated net charge `-1`.
+The active ligand-only package is
+`outputs/phase5_md/official_wave1_20260609/inputs/ligand_params/zqz_minus1/`,
+with human-readable audit `reports/phase5/zqz_minus1_parameter_audit_20260612.md`.
+The prior neutral `-nc 0` package under
+`outputs/phase5_md/official_wave1_20260609/inputs/ligand_params/zqz/` is
+superseded for production use and is preserved only as a historical audit
+artifact.
+
+The official Wave 1 force-field/water policy is AMBER ff19SB + OPC +
+Joung-Cheatham OPC-compatible ions. Manifest templates and preflight registry
+now record this policy. Production remains blocked fail-closed because
+`reports/phase5/official_wave1_execution_package_20260609.md` still records
+`do_not_run_md: true` and `reports/phase5/phase5_wave1_launch_authorization.md`
+is absent.
+
+Verification:
+
+- `python -m pytest tests/phase5/test_wave1_preflight.py -v` -> 8 passed.
+- `python scripts/phase5_wave1_preflight.py --preflight-stage production` ->
+  fail-closed only on `do_not_run_md: true` and absent launch authorization.
+
+Provenance:
+- date: 2026-06-12
+- source: `reports/phase5/human_review_decision_package_20260612.md`,
+  `reports/phase5/zqz_chemistry_decision_20260611.md`,
+  `reports/phase5/force_field_water_policy_decision_20260611.md`,
+  `reports/phase5/zqz_minus1_parameter_audit_20260612.md`,
+  `reports/phase5/wave1_readiness_report_20260610.md`,
+  `data/registries/phase5_wave1_preparation_audit_20260610.json`
+- governance: `docs/scientific_governance/13_MD_VALIDATION_RULES.md`,
+  `14_CLAIM_POLICY.md`, `15_PROVENANCE_AND_REPRODUCIBILITY.md`,
+  `19_STOP_CONDITIONS.md`, `21_READINESS_GATE.md`,
+  `26_HUMAN_REVIEW_GATES.md`, `33_PRE_MD_REALITY_CHECK.md`,
+  `34_AI_HALLUCINATION_DETECTION.md`
+- confidence: high for decision records, hashes, and fail-closed behavior
+- evidence_status: verified ligand-parameter/provenance artifact only; no
+  protein setup, minimization, equilibration, production, trajectory generation,
+  trajectory analysis, interpretation, launch authorization, or claims
+
+## 33. Phase 5 GPU time estimates after approved policy
+
+As of 2026-06-12, `reports/phase5/wave1_gpu_time_estimates_20260612.md`
+documents planning-only production runtime estimates for the official Wave 1 scope
+under the approved ff19SB + OPC + Joung-Cheatham OPC-compatible ion policy and
+active ZQZ net-charge `-1` ligand package. Scope remains 3 systems x 3 replicates x
+100 ns = 900 ns aggregate production MD. Estimates cover RTX 4070, L4, L40S, A100,
+H100, H200, and B200-class GPUs. L40S remains the recommended future execution
+platform after explicit launch authorization, using one GPU per independent
+replicate. Estimates remain inferred until prepared systems and a short benchmark
+record atom count, memory use, ns/day, output size, command lines, seeds, software,
+hardware, and hashes.
+
+Provenance:
+- date: 2026-06-12
+- source: `reports/phase5/wave1_gpu_time_estimates_20260612.md`
+- governance: `docs/scientific_governance/13_MD_VALIDATION_RULES.md`,
+  `docs/scientific_governance/15_PROVENANCE_AND_REPRODUCIBILITY.md`,
+  `docs/scientific_governance/26_HUMAN_REVIEW_GATES.md`
+- confidence: high for run counts and launch-blocked status; medium-low for runtime
+  estimates until benchmarked
+- evidence_status: inferred for performance estimates; verified for local report path

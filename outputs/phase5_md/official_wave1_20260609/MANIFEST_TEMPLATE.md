@@ -28,6 +28,11 @@
   - `T1A-206`: 206-210
   - `T2-134`: 134-138
 - Deferred windows not authorized in Wave 1: 170-174, 175-179, 152-156
+- Approved protein force field: AMBER ff19SB
+- Approved water model: OPC
+- Approved ion parameters: Joung-Cheatham OPC-compatible ions
+- Active ZQZ ligand package: `outputs/phase5_md/official_wave1_20260609/inputs/ligand_params/zqz_minus1`
+- ZQZ net charge: -1
 - Stop-condition log:
   - unresolved assembly mapping:
   - missing candidate residues:

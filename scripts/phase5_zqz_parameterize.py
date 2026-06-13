@@ -1,5 +1,5 @@
 #!/usr/bin/env python3
-"""Generate the audited Phase 5 Wave 1 ZQZ GAFF2/AM1-BCC parameter package.
+"""Generate audited Phase 5 Wave 1 ZQZ GAFF2/AM1-BCC parameter packages.
 
 This script performs ligand parameterization only. It does not prepare protein
 systems, minimize, equilibrate, run production MD, or analyze trajectories.
@@ -16,6 +16,7 @@ import shutil
 import subprocess
 import sys
 import urllib.request
+from dataclasses import dataclass
 from datetime import datetime, timezone
 from pathlib import Path
 from typing import Any
@@ -28,16 +29,21 @@ if str(SRC) not in sys.path:
 from phase5_md.wave1 import EIGHT_GLA_CIF, parse_atom_site  # noqa: E402
 
 
-OUTPUT_DIR = (
+LIGAND_PARAM_ROOT = (
     ROOT
     / "outputs"
     / "phase5_md"
     / "official_wave1_20260609"
     / "inputs"
     / "ligand_params"
+)
+OUTPUT_DIR = (
+    LIGAND_PARAM_ROOT
     / "zqz"
 )
+MINUS1_OUTPUT_DIR = LIGAND_PARAM_ROOT / "zqz_minus1"
 REPORT_PATH = ROOT / "reports" / "phase5" / "zqz_parameter_audit_20260611.md"
+MINUS1_REPORT_PATH = ROOT / "reports" / "phase5" / "zqz_minus1_parameter_audit_20260612.md"
 RCSB_IDEAL_SDF_URL = "https://files.rcsb.org/ligands/download/ZQZ_ideal.sdf"
 RCSB_COMPONENT_CIF_URL = "https://files.rcsb.org/ligands/download/ZQZ.cif"
 
@@ -55,6 +61,92 @@ FINAL_FILES = [
     "zqz_package_hashes.json",
     "PARAMETER_AUDIT.md",
 ]
+
+MINUS1_FINAL_FILES = [
+    "zqz_neutral_reference.sdf",
+    "zqz_minus1_input.sdf",
+    "ZQZ.cif",
+    "deposited_8gla_zqz_instances.pdb",
+    "deposited_8gla_zqz_instances.json",
+    "zqz_minus1_gaff2_am1bcc.mol2",
+    "zqz_minus1_gaff2.frcmod",
+    "zqz_minus1_tleap.in",
+    "zqz_minus1_tleap.log",
+    "zqz_minus1_gaff2.lib",
+    "zqz_minus1_parameter_audit.json",
+    "zqz_minus1_package_hashes.json",
+    "PARAMETER_AUDIT.md",
+]
+
+
+@dataclass(frozen=True)
+class ChargeConfig:
+    charge_state: str
+    output_dir: Path
+    report_path: Path
+    final_files: list[str]
+    input_sdf_name: str
+    mol2_name: str
+    frcmod_name: str
+    tleap_in_name: str
+    tleap_log_name: str
+    lib_name: str
+    audit_json_name: str
+    package_hashes_name: str
+    net_charge: int
+    expected_atom_count: int
+    expected_formula: str
+    parameterization_input: str
+    artifact_id: str
+    report_date: str
+    status: str = "PARAMETERS_AUDITED_READY_FOR_SETUP_USE"
+
+
+NEUTRAL_CONFIG = ChargeConfig(
+    charge_state="neutral",
+    output_dir=OUTPUT_DIR,
+    report_path=REPORT_PATH,
+    final_files=FINAL_FILES,
+    input_sdf_name="zqz_input.sdf",
+    mol2_name="zqz_gaff2_am1bcc.mol2",
+    frcmod_name="zqz_gaff2.frcmod",
+    tleap_in_name="zqz_tleap.in",
+    tleap_log_name="zqz_tleap.log",
+    lib_name="zqz_gaff2.lib",
+    audit_json_name="zqz_parameter_audit.json",
+    package_hashes_name="zqz_package_hashes.json",
+    net_charge=0,
+    expected_atom_count=63,
+    expected_formula="C29H26N2O6",
+    parameterization_input="RCSB ideal SDF, copied as `zqz_input.sdf`.",
+    artifact_id="phase5_wave1_zqz_gaff2_am1bcc_20260611",
+    report_date="2026-06-11",
+)
+
+MINUS1_CONFIG = ChargeConfig(
+    charge_state="minus1",
+    output_dir=MINUS1_OUTPUT_DIR,
+    report_path=MINUS1_REPORT_PATH,
+    final_files=MINUS1_FINAL_FILES,
+    input_sdf_name="zqz_minus1_input.sdf",
+    mol2_name="zqz_minus1_gaff2_am1bcc.mol2",
+    frcmod_name="zqz_minus1_gaff2.frcmod",
+    tleap_in_name="zqz_minus1_tleap.in",
+    tleap_log_name="zqz_minus1_tleap.log",
+    lib_name="zqz_minus1_gaff2.lib",
+    audit_json_name="zqz_minus1_parameter_audit.json",
+    package_hashes_name="zqz_minus1_package_hashes.json",
+    net_charge=-1,
+    expected_atom_count=62,
+    expected_formula="C29H25N2O6-",
+    parameterization_input=(
+        "RCSB ideal SDF deprotonated at the free side-chain carboxyl group; "
+        "neutral reference retained as `zqz_neutral_reference.sdf` and "
+        "deprotonated input written as `zqz_minus1_input.sdf`."
+    ),
+    artifact_id="phase5_wave1_zqz_minus1_gaff2_am1bcc_20260612",
+    report_date="2026-06-12",
+)
 
 
 def utc_now() -> str:
@@ -149,9 +241,9 @@ def conda_meta(prefix: Path) -> dict[str, Any]:
     return packages
 
 
-def clean_output_dir(output_dir: Path) -> None:
+def clean_output_dir(output_dir: Path, final_files: list[str] | None = None) -> None:
     output_dir.mkdir(parents=True, exist_ok=True)
-    for name in FINAL_FILES:
+    for name in final_files or FINAL_FILES:
         path = output_dir / name
         if path.exists():
             path.unlink()
@@ -165,6 +257,44 @@ def clean_output_dir(output_dir: Path) -> None:
 def download(url: str, dest: Path) -> None:
     with urllib.request.urlopen(url, timeout=120) as response:
         dest.write_bytes(response.read())
+
+
+def deprotonate_sidechain_carboxylate(reference_sdf: Path, output_sdf: Path) -> dict[str, Any]:
+    """Remove the reviewed side-chain carboxyl proton and assign O- formal charge.
+
+    Atom indices are the 1-based SDF indices documented in
+    reports/phase5/zqz_chemistry_decision_20260611.md: O34-H63 is the protonated
+    carboxyl O-H bond, and O34 becomes the deprotonated carboxylate oxygen.
+    """
+    from rdkit import Chem
+
+    supplier = Chem.SDMolSupplier(str(reference_sdf), removeHs=False, sanitize=False)
+    mol = supplier[0] if supplier and len(supplier) else None
+    if mol is None:
+        raise RuntimeError(f"RDKit could not read {reference_sdf}")
+
+    o34_idx = 34 - 1
+    h63_idx = 63 - 1
+    o34 = mol.GetAtomWithIdx(o34_idx)
+    h63 = mol.GetAtomWithIdx(h63_idx)
+    bond = mol.GetBondBetweenAtoms(o34_idx, h63_idx)
+    if o34.GetSymbol() != "O" or h63.GetSymbol() != "H" or bond is None:
+        raise RuntimeError("Expected O34-H63 bond was not found in the ZQZ reference SDF")
+
+    editable = Chem.RWMol(mol)
+    editable.RemoveAtom(h63_idx)
+    deprotonated = editable.GetMol()
+    deprotonated.GetAtomWithIdx(o34_idx).SetFormalCharge(-1)
+    deprotonated.GetAtomWithIdx(o34_idx).SetNoImplicit(True)
+    Chem.SanitizeMol(deprotonated)
+    Chem.MolToMolFile(deprotonated, str(output_sdf))
+    return {
+        "source_reference": file_record(reference_sdf),
+        "output_sdf": file_record(output_sdf),
+        "removed_atom": {"sdf_index": 63, "element": "H"},
+        "charged_atom": {"sdf_index": 34, "element": "O", "formal_charge": -1},
+        "source_bond": {"atom_indices": [34, 63], "bond_type": str(bond.GetBondType())},
+    }
 
 
 def sdf_audit(path: Path) -> dict[str, Any]:
@@ -294,16 +424,26 @@ def render_report(audit: dict[str, Any]) -> str:
     commands = audit["commands"]
     blockers = audit["remaining_launch_blockers"]
     warnings = audit["warnings"]
+    method = audit["method"]
     amber_pkg = audit["software"]["conda_packages"].get("ambertools-dac", {})
+    status = audit.get("status", "PARAMETERS_AUDITED_READY_FOR_SETUP_USE")
+    title = audit.get("report_title", "ZQZ Parameter Audit - Phase 5 Wave 1")
+    charge_state = method.get("protonation_state", "neutral")
+    supersession = audit.get("supersession_note", "")
+    tleap_notable = audit["parameter_checks"]["tleap_log"]["notable_lines"]
+    tleap_exit = next((line for line in tleap_notable if line.startswith("Exiting LEaP:")), "not recorded")
+    tleap_unit = "Unit is OK" if any("Unit is OK" in line for line in tleap_notable) else "Unit check not found"
     return f"""---
 type: phase5-zqz-parameter-audit
 ligand: ZQZ
-date: 2026-06-11
-status: PARAMETERS_AUDITED_READY_FOR_SETUP_USE
+date: {audit.get("report_date", "2026-06-11")}
+status: {status}
 md_executed: false
+launch_authorized: false
+do_not_run_md: true
 ---
 
-# ZQZ Parameter Audit - Phase 5 Wave 1
+# {title}
 
 ## Scope
 
@@ -315,14 +455,16 @@ scientific claims.
 ## Parameterization Decision
 
 - Ligand: ZQZ.
-- Parameterization input: RCSB ideal SDF, copied as `zqz_input.sdf`.
+- Parameterization input: {method.get("parameterization_input", "not recorded")}
 - Deposited-coordinate audit: all ZQZ instances in `data/raw_intake/pcna_structures/8GLA.cif`
   were extracted to `deposited_8gla_zqz_instances.pdb` and indexed in JSON.
-- Force field: GAFF2.
-- Charge model: AM1-BCC through AmberTools `antechamber -c bcc`.
-- Net charge: 0.
-- Residue name: ZQZ.
+- Force field: {method.get("force_field")}.
+- Charge model: {method.get("charge_model")} through AmberTools `antechamber -c bcc`.
+- Protonation state: {charge_state}.
+- Net charge: {method.get("net_charge")}.
+- Residue name: {method.get("residue_name")}.
 - Software package: AmberTools26 via `dacase::ambertools-dac=26.0.0`.
+{supersession}
 
 ## Input Audit
 
@@ -353,8 +495,8 @@ scientific claims.
 
 - MOL2 atom count: {audit["parameter_checks"]["mol2"]["atom_count"]}.
 - MOL2 charge sum: {audit["parameter_checks"]["mol2"]["charge_sum"]}.
-- `tleap` check: Unit is OK; errors 0, warnings 0, notes 0.
-- `parmchk2` generated GAFF2 fallback terms in `zqz_gaff2.frcmod`; these are retained
+- `tleap` check: {tleap_unit}; `{tleap_exit}`.
+- `parmchk2` generated GAFF2 fallback terms in `{method.get("frcmod_file")}`; these are retained
   and must be linked from future setup manifests.
 
 ## Software And Environment
@@ -382,26 +524,32 @@ biological interpretation exists.
 """
 
 
-def build_audit(args: argparse.Namespace) -> dict[str, Any]:
-    output_dir = OUTPUT_DIR
-    clean_output_dir(output_dir)
+def build_audit(args: argparse.Namespace, config: ChargeConfig = NEUTRAL_CONFIG) -> dict[str, Any]:
+    output_dir = config.output_dir
+    clean_output_dir(output_dir, config.final_files)
     commands_dir = output_dir / "commands"
 
-    zqz_sdf = output_dir / "zqz_input.sdf"
+    zqz_sdf = output_dir / config.input_sdf_name
     zqz_cif = output_dir / "ZQZ.cif"
-    download(RCSB_IDEAL_SDF_URL, zqz_sdf)
+    deprotonation_audit = None
+    if config.charge_state == "minus1":
+        reference_sdf = output_dir / "zqz_neutral_reference.sdf"
+        download(RCSB_IDEAL_SDF_URL, reference_sdf)
+        deprotonation_audit = deprotonate_sidechain_carboxylate(reference_sdf, zqz_sdf)
+    else:
+        download(RCSB_IDEAL_SDF_URL, zqz_sdf)
     download(RCSB_COMPONENT_CIF_URL, zqz_cif)
     deposited = extract_deposited_zqz(output_dir)
 
-    tleap_in = output_dir / "zqz_tleap.in"
+    tleap_in = output_dir / config.tleap_in_name
     tleap_in.write_text(
         "\n".join(
             [
                 "source leaprc.gaff2",
-                "ZQZ = loadmol2 zqz_gaff2_am1bcc.mol2",
-                "loadamberparams zqz_gaff2.frcmod",
+                f"ZQZ = loadmol2 {config.mol2_name}",
+                f"loadamberparams {config.frcmod_name}",
                 "check ZQZ",
-                "saveoff ZQZ zqz_gaff2.lib",
+                f"saveoff ZQZ {config.lib_name}",
                 "quit",
                 "",
             ]
@@ -414,11 +562,11 @@ def build_audit(args: argparse.Namespace) -> dict[str, Any]:
             [
                 "antechamber",
                 "-i",
-                "zqz_input.sdf",
+                config.input_sdf_name,
                 "-fi",
                 "sdf",
                 "-o",
-                "zqz_gaff2_am1bcc.mol2",
+                config.mol2_name,
                 "-fo",
                 "mol2",
                 "-at",
@@ -426,7 +574,7 @@ def build_audit(args: argparse.Namespace) -> dict[str, Any]:
                 "-c",
                 "bcc",
                 "-nc",
-                "0",
+                str(config.net_charge),
                 "-rn",
                 "ZQZ",
                 "-s",
@@ -440,11 +588,11 @@ def build_audit(args: argparse.Namespace) -> dict[str, Any]:
             [
                 "parmchk2",
                 "-i",
-                "zqz_gaff2_am1bcc.mol2",
+                config.mol2_name,
                 "-f",
                 "mol2",
                 "-o",
-                "zqz_gaff2.frcmod",
+                config.frcmod_name,
                 "-s",
                 "gaff2",
             ],
@@ -453,9 +601,9 @@ def build_audit(args: argparse.Namespace) -> dict[str, Any]:
             commands_dir / "parmchk2.stderr.log",
         ),
         command_record(
-            ["tleap", "-f", "zqz_tleap.in"],
+            ["tleap", "-f", config.tleap_in_name],
             output_dir,
-            output_dir / "zqz_tleap.log",
+            output_dir / config.tleap_log_name,
             None,
         ),
     ]
@@ -468,14 +616,21 @@ def build_audit(args: argparse.Namespace) -> dict[str, Any]:
     output_hashes = collect_package_hashes(
         output_dir,
         exclude={
-            "zqz_parameter_audit.json",
+            config.audit_json_name,
             "PARAMETER_AUDIT.md",
-            "zqz_package_hashes.json",
+            config.package_hashes_name,
         },
     )
     audit = {
         "schema_version": "1.0",
-        "artifact_id": "phase5_wave1_zqz_gaff2_am1bcc_20260611",
+        "artifact_id": config.artifact_id,
+        "status": config.status,
+        "report_title": (
+            "ZQZ Minus-1 Parameter Audit - Phase 5 Wave 1"
+            if config.charge_state == "minus1"
+            else "ZQZ Parameter Audit - Phase 5 Wave 1"
+        ),
+        "report_date": config.report_date,
         "generated_utc": utc_now(),
         "generated_by": "scripts/phase5_zqz_parameterize.py",
         "scope": {
@@ -501,10 +656,25 @@ def build_audit(args: argparse.Namespace) -> dict[str, Any]:
             "force_field": "GAFF2",
             "charge_model": "AM1-BCC",
             "charge_command_flag": "-c bcc",
-            "net_charge": 0,
+            "net_charge": config.net_charge,
+            "charge_state": config.charge_state,
+            "protonation_state": (
+                "deprotonated_sidechain_carboxylate"
+                if config.charge_state == "minus1"
+                else "neutral_sidechain_carboxylic_acid"
+            ),
             "residue_name": "ZQZ",
+            "parameterization_input": config.parameterization_input,
+            "input_sdf": config.input_sdf_name,
+            "mol2_file": config.mol2_name,
+            "frcmod_file": config.frcmod_name,
+            "tleap_input": config.tleap_in_name,
+            "tleap_log": config.tleap_log_name,
+            "library_file": config.lib_name,
             "planned_workflow": "reports/phase5/zqz_parameterization_plan_20260610.md",
+            "human_review_decision": "reports/phase5/human_review_decision_package_20260612.md",
         },
+        "deprotonation_audit": deprotonation_audit,
         "software": {
             "executables": {
                 "antechamber": shutil.which("antechamber"),
@@ -522,8 +692,8 @@ def build_audit(args: argparse.Namespace) -> dict[str, Any]:
         "commands": commands,
         "output_hashes": output_hashes,
         "parameter_checks": {
-            "mol2": mol2_charge_audit(output_dir / "zqz_gaff2_am1bcc.mol2"),
-            "tleap_log": scan_log(output_dir / "zqz_tleap.log"),
+            "mol2": mol2_charge_audit(output_dir / config.mol2_name),
+            "tleap_log": scan_log(output_dir / config.tleap_log_name),
             "sqm_log": scan_log(output_dir / "sqm.out"),
         },
         "environment": {
@@ -544,7 +714,15 @@ def build_audit(args: argparse.Namespace) -> dict[str, Any]:
             "Future explicit Phase 5 launch authorization record is absent.",
         ],
     }
-    audit_json = output_dir / "zqz_parameter_audit.json"
+    if config.charge_state == "minus1":
+        audit["warnings"].append(
+            "The prior neutral -nc 0 package is superseded for production use by human review decision."
+        )
+        audit["supersedes"] = {
+            "neutral_package": (OUTPUT_DIR / "PARAMETER_AUDIT.md").relative_to(ROOT).as_posix(),
+            "neutral_supersession_marker": (OUTPUT_DIR / "SUPERSEDED_FOR_PRODUCTION_USE.md").relative_to(ROOT).as_posix(),
+        }
+    audit_json = output_dir / config.audit_json_name
     audit_json.write_text(json.dumps(audit, indent=2) + "\n", encoding="utf-8")
     report_audit = dict(audit)
     report_audit["audit_artifact_hashes"] = {
@@ -552,15 +730,17 @@ def build_audit(args: argparse.Namespace) -> dict[str, Any]:
     }
     parameter_report = render_report(report_audit)
     (output_dir / "PARAMETER_AUDIT.md").write_text(parameter_report.rstrip() + "\n", encoding="utf-8")
-    REPORT_PATH.write_text(parameter_report.rstrip() + "\n", encoding="utf-8")
-    package_hashes = collect_package_hashes(output_dir, exclude={"zqz_package_hashes.json"})
-    package_hashes["reports/phase5/zqz_parameter_audit_20260611.md"] = file_record(REPORT_PATH)
-    (output_dir / "zqz_package_hashes.json").write_text(
+    config.report_path.write_text(parameter_report.rstrip() + "\n", encoding="utf-8")
+    package_hashes = collect_package_hashes(output_dir, exclude={config.package_hashes_name})
+    package_hashes[config.report_path.relative_to(ROOT).as_posix()] = file_record(config.report_path)
+    (output_dir / config.package_hashes_name).write_text(
         json.dumps(
             {
                 "schema_version": "1.0",
                 "generated_utc": utc_now(),
                 "note": "This file records final package hashes except its own self-hash.",
+                "charge_state": config.charge_state,
+                "net_charge": config.net_charge,
                 "hashes": package_hashes,
             },
             indent=2,
@@ -573,12 +753,30 @@ def build_audit(args: argparse.Namespace) -> dict[str, Any]:
 
 def main(argv: list[str] | None = None) -> int:
     parser = argparse.ArgumentParser(description=__doc__)
+    parser.add_argument(
+        "--charge-state",
+        choices=["minus1", "neutral"],
+        default="minus1",
+        help="ZQZ charge state to parameterize; default is the approved deprotonated -1 package.",
+    )
     parser.add_argument("--output-dir", default=str(OUTPUT_DIR), help=argparse.SUPPRESS)
     args = parser.parse_args(argv)
-    if Path(args.output_dir).resolve() != OUTPUT_DIR.resolve():
-        raise SystemExit("Only the official Wave 1 ZQZ output directory is supported.")
-    audit = build_audit(args)
-    print(json.dumps({"status": "PARAMETERS_AUDITED_READY_FOR_SETUP_USE", "artifact_id": audit["artifact_id"]}, indent=2))
+    config = MINUS1_CONFIG if args.charge_state == "minus1" else NEUTRAL_CONFIG
+    if args.output_dir != str(OUTPUT_DIR) and Path(args.output_dir).resolve() != config.output_dir.resolve():
+        raise SystemExit("Only the official Wave 1 ZQZ output directories are supported.")
+    audit = build_audit(args, config)
+    print(
+        json.dumps(
+            {
+                "status": audit["status"],
+                "artifact_id": audit["artifact_id"],
+                "charge_state": config.charge_state,
+                "net_charge": config.net_charge,
+                "output_dir": config.output_dir.relative_to(ROOT).as_posix(),
+            },
+            indent=2,
+        )
+    )
     return 0
 
 

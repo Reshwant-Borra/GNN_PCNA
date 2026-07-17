@@ -184,6 +184,11 @@ def compute_loss_apo(scores, labels, w_apo: float) -> torch.Tensor:
 
 def main(args: argparse.Namespace) -> None:
     device = "cpu"
+    global CKPT_V3, OUT_CKPT
+    if getattr(args, "pretrain", None):
+        CKPT_V3 = Path(args.pretrain)
+    if getattr(args, "out", None):
+        OUT_CKPT = Path(args.out)
 
     # ── Load 8GLA (holo, train=chainA, val=chainB) ────────────────────────────
     print("Loading 8GLA (holo)...")
@@ -363,4 +368,8 @@ if __name__ == "__main__":
     parser.add_argument("--margin",    type=float, default=0.3)
     parser.add_argument("--patience",  type=int,   default=15)
     parser.add_argument("--threshold", type=float, default=0.4)
+    parser.add_argument("--pretrain",  default=None,
+                        help="Override pretrain checkpoint (default checkpoints/pcna/best_pcna_v3.ckpt)")
+    parser.add_argument("--out",       default=None,
+                        help="Override output checkpoint path (default checkpoints/pcna/best_pcna_v3_fixed.ckpt)")
     main(parser.parse_args())

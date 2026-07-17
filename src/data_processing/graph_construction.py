@@ -14,7 +14,7 @@ Node feature layout (40 dims)
  [20]     sasa_norm           — SASA / 300, clamped to [0,1]
  [21:24]  ss_onehot           — helix / strand / coil
  [24]     b_factor_norm       — B-factor / 100, clamped to [0,1]
- [25]     rel_pos             — position / (len-1)
+ [25]     rel_pos             — position WITHIN CHAIN / (chain_len-1)  [BUG-020]
  [26]     hydrophobicity      — Kyte-Doolittle, normalized [0,1]
  [27]     charge              — formal charge at pH 7, in {-1, 0, +1}
  [28]     volume              — Van der Waals volume, normalized
@@ -34,7 +34,7 @@ Edge feature layout (6 dims)
  [1]  inv_dist       — 1 / (1 + dist)
  [2]  seq_sep_norm   — |i-j|/20, clamped [0,1]; 1.0 for cross-chain
  [3]  same_chain     — 1 if same chain, 0 otherwise
- [4]  is_backbone    — 1 if |i-j|==1 and same chain
+ [4]  is_backbone    — 1 if resid |i-j|==1 and same chain  [BUG-021]
  [5]  cross_chain    — 1 if different chains (redundant with same_chain, kept for clarity)
 """
 
@@ -120,15 +120,24 @@ def _pseudo_dihedral(p1: np.ndarray, p2: np.ndarray,
     return float(np.arctan2(sin_d, cos_d))
 
 
+def _consecutive(resids: np.ndarray, a: int, b: int) -> bool:
+    """True if residues a..b are covalently consecutive (resid increments by 1)."""
+    return all(int(resids[k + 1]) - int(resids[k]) == 1 for k in range(a, b))
+
+
 def _compute_pseudo_dihedrals(
     coords: np.ndarray,            # (N, 3)
     chain_ids: np.ndarray,         # (N,) str
+    resids: np.ndarray,            # (N,) int  — PDB residue numbers
 ) -> tuple[np.ndarray, np.ndarray]:
     """
     Compute two pseudo-dihedrals per residue i:
       phi-like: (i-1, i, i+1, i+2)
       psi-like: (i-2, i-1, i, i+1)
-    Residues at chain ends get 0.0.
+    Residues at chain ends — and across residue-numbering GAPS (missing loops) —
+    get 0.0. (BUG-021: a dihedral over array-adjacent but non-consecutive Cα that
+    span an unresolved loop is geometrically meaningless; requiring consecutive
+    resids removes it.)
     Returns (phi_arr, psi_arr) each shape (N,) in radians.
     """
     N = len(coords)
@@ -136,15 +145,17 @@ def _compute_pseudo_dihedrals(
     psi_arr = np.zeros(N, dtype=np.float32)
 
     for i in range(N):
-        # phi: needs i-1, i, i+1, i+2 — all same chain
+        # phi: needs i-1, i, i+1, i+2 — same chain AND consecutively numbered
         if (1 <= i < N - 2
-                and chain_ids[i-1] == chain_ids[i] == chain_ids[i+1] == chain_ids[i+2]):
+                and chain_ids[i-1] == chain_ids[i] == chain_ids[i+1] == chain_ids[i+2]
+                and _consecutive(resids, i - 1, i + 2)):
             phi_arr[i] = _pseudo_dihedral(
                 coords[i-1], coords[i], coords[i+1], coords[i+2])
 
-        # psi: needs i-2, i-1, i, i+1 — all same chain
+        # psi: needs i-2, i-1, i, i+1 — same chain AND consecutively numbered
         if (2 <= i < N - 1
-                and chain_ids[i-2] == chain_ids[i-1] == chain_ids[i] == chain_ids[i+1]):
+                and chain_ids[i-2] == chain_ids[i-1] == chain_ids[i] == chain_ids[i+1]
+                and _consecutive(resids, i - 2, i + 1)):
             psi_arr[i] = _pseudo_dihedral(
                 coords[i-2], coords[i-1], coords[i], coords[i+1])
 
@@ -171,11 +182,19 @@ def _build_node_matrix_v2(
     residues: list[Residue],
     coords: np.ndarray,     # (N, 3)
     chain_ids: np.ndarray,  # (N,) str
+    resids: np.ndarray,     # (N,) int
     dist_matrix: np.ndarray,  # (N, N)
+    zero_chain_onehot: bool = False,
 ) -> np.ndarray:
-    """Build (N, 40) node feature matrix for PocketGNN v2."""
+    """Build (N, 40) node feature matrix for PocketGNN v2.
+
+    zero_chain_onehot: if True, the chain one-hot (dims 37:40) is forced to zero
+    for every residue (dimensionality unchanged). PCNA is a homotrimer, so an
+    explicit A/B/C label lets the model shortcut the asymmetric A/B-only ground
+    truth (BUG-022 leakage). Zeroing it enforces chain-symmetric predictions.
+    """
     N = len(residues)
-    phi_arr, psi_arr = _compute_pseudo_dihedrals(coords, chain_ids)
+    phi_arr, psi_arr = _compute_pseudo_dihedrals(coords, chain_ids, resids)
 
     # Local density
     density_5  = (dist_matrix < 5.0).sum(axis=1) - 1   # subtract self
@@ -191,6 +210,20 @@ def _build_node_matrix_v2(
     unique_chains = sorted(set(chain_ids))
     chain_to_idx  = {c: k for k, c in enumerate(unique_chains[:3])}
 
+    # BUG-020: per-CHAIN relative position. The old code used the global array
+    # index i/(N-1), so the same residue in chains A/B/C of the homotrimer got a
+    # DIFFERENT positional feature — breaking the symmetry the symmetry-loss then
+    # tries to enforce. Position within the residue's own chain fixes it.
+    per_chain_total: dict = {}
+    for c in chain_ids:
+        per_chain_total[c] = per_chain_total.get(c, 0) + 1
+    running: dict = {}
+    rel_pos_arr = np.zeros(N, dtype=np.float32)
+    for i, c in enumerate(chain_ids):
+        L = per_chain_total[c]
+        rel_pos_arr[i] = running.get(c, 0) / max(L - 1, 1)
+        running[c] = running.get(c, 0) + 1
+
     rows = []
     for i, res in enumerate(residues):
         aa_onehot = np.zeros(20, dtype=np.float32)
@@ -202,7 +235,7 @@ def _build_node_matrix_v2(
         ss_onehot  = np.zeros(3, dtype=np.float32)
         ss_onehot[SS_MAP.get(res.secondary_structure, 2)] = 1.0
         b_norm     = min(res.b_factor / 100.0, 1.0)
-        rel_pos    = i / max(N - 1, 1)
+        rel_pos    = rel_pos_arr[i]
 
         hydro = HYDROPHOBICITY.get(res.resname, 0.5)
         chg   = CHARGE.get(res.resname, 0.0)
@@ -212,9 +245,10 @@ def _build_node_matrix_v2(
         phi, psi = phi_arr[i], psi_arr[i]
 
         chain_oh = np.zeros(3, dtype=np.float32)
-        cidx = chain_to_idx.get(res.chain, -1)
-        if 0 <= cidx < 3:
-            chain_oh[cidx] = 1.0
+        if not zero_chain_onehot:
+            cidx = chain_to_idx.get(res.chain, -1)
+            if 0 <= cidx < 3:
+                chain_oh[cidx] = 1.0
 
         row = np.array([
             *aa_onehot,                 # 20
@@ -243,17 +277,20 @@ def _build_edge_attr(
     j_idx: np.ndarray,
     dist_matrix: np.ndarray,
     chain_ids: np.ndarray,
+    resids: np.ndarray,
     cutoff: float,
 ) -> np.ndarray:
     """Build (E, 6) edge feature matrix.
 
-    Sequential separation uses array-index distance (not PDB resid numbers)
-    so PDB numbering gaps do not produce wrong seq_sep or is_backbone values.
+    BUG-021: sequential separation and is_backbone use PDB RESID distance, not
+    array-index distance. Array indices treat two residues that flank an
+    unresolved loop as |i-j|==1 (a spurious covalent bond); resid distance
+    correctly reports the true numbering gap.
     """
     dists      = dist_matrix[i_idx, j_idx]
     same_chain = (chain_ids[i_idx] == chain_ids[j_idx]).astype(np.float32)
 
-    raw_sep   = np.abs(i_idx - j_idx).astype(np.float32)
+    raw_sep   = np.abs(resids[i_idx] - resids[j_idx]).astype(np.float32)
     seq_sep   = np.where(same_chain.astype(bool),
                          np.minimum(raw_sep, 20.0) / 20.0, 1.0)
 
@@ -272,20 +309,23 @@ def _build_edge_attr(
 
 def _build_backbone_edges(
     chain_ids: np.ndarray,
-    dist_matrix: np.ndarray,
+    resids: np.ndarray,
     max_sep: int = 2,
 ) -> tuple[np.ndarray, np.ndarray]:
     """
-    Build backbone sequential edges: residue pairs where |i−j| ≤ max_sep
-    in array order and same chain. Uses array indices (not PDB resids) so
-    numbering gaps in the PDB file do not create spurious backbone bonds.
+    Build backbone sequential edges: residue pairs on the same chain whose PDB
+    resid numbers differ by ≤ max_sep.
+
+    BUG-021: this uses RESID distance, not array-index distance. Array-index
+    adjacency creates a spurious backbone bond between the two residues that
+    flank an unresolved loop (they are array-adjacent but 8+ residues apart in
+    sequence); resid distance excludes them correctly.
     Returns (i_idx, j_idx).
     """
     N = len(chain_ids)
-    arr_idx    = np.arange(N)
     same_chain = chain_ids[:, None] == chain_ids[None, :]              # (N, N)
-    idx_sep    = np.abs(arr_idx[:, None] - arr_idx[None, :])           # (N, N)
-    mask = same_chain & (idx_sep >= 1) & (idx_sep <= max_sep)
+    resid_sep  = np.abs(resids[:, None] - resids[None, :])             # (N, N)
+    mask = same_chain & (resid_sep >= 1) & (resid_sep <= max_sep)
     np.fill_diagonal(mask, False)
     i_idx, j_idx = np.where(mask)
     if len(i_idx) == 0:
@@ -342,6 +382,7 @@ def build_graph_v2(
     labels: np.ndarray | None = None,
     distance_cutoff: float = 8.0,
     backbone_max_sep: int = 2,
+    zero_chain_onehot: bool = False,
 ) -> Data:
     """
     v2 API: dual-graph Data for PocketGNN v2.
@@ -370,22 +411,27 @@ def build_graph_v2(
     dist_matrix = np.linalg.norm(diff, axis=-1)             # (N, N)
 
     # ── Node features (40-dim) ────────────────────────────────────────────
-    x = _build_node_matrix_v2(residues, coords, chain_ids, dist_matrix)
+    x = _build_node_matrix_v2(residues, coords, chain_ids, resids, dist_matrix,
+                              zero_chain_onehot=zero_chain_onehot)
 
     # ── Contact graph (spatial, 8 Å) ──────────────────────────────────────
     ci, cj = np.where((dist_matrix < distance_cutoff) & (dist_matrix > 0))
     if len(ci) == 0:
         raise ValueError(f"no spatial edges within {distance_cutoff} Å")
-    contact_attr = _build_edge_attr(ci, cj, dist_matrix, chain_ids, distance_cutoff)
+    contact_attr = _build_edge_attr(ci, cj, dist_matrix, chain_ids, resids, distance_cutoff)
 
-    # ── Backbone graph (sequential, |i-j| ≤ 2, same chain) ───────────────
-    bi, bj = _build_backbone_edges(chain_ids, dist_matrix, backbone_max_sep)
+    # ── Backbone graph (sequential, resid |i-j| ≤ 2, same chain) ──────────
+    bi, bj = _build_backbone_edges(chain_ids, resids, backbone_max_sep)
     if len(bi) > 0:
-        backbone_attr = _build_edge_attr(bi, bj, dist_matrix, chain_ids, distance_cutoff)
+        backbone_attr = _build_edge_attr(bi, bj, dist_matrix, chain_ids, resids, distance_cutoff)
     else:
         backbone_attr = np.empty((0, EDGE_DIM), dtype=np.float32)
 
     # ── Chain ID encoding ─────────────────────────────────────────────────
+    # chain_id_int is the FULL per-chain grouping key used by symmetry_loss; the
+    # node chain one-hot (dims 37:40) only encodes the first 3 chains. They are
+    # intentionally different roles (grouping key vs. bounded feature), both
+    # derived from the same sorted(unique_chains) ordering.
     unique_chains = sorted(set(chain_ids))
     chain_to_int  = {c: k for k, c in enumerate(unique_chains)}
     chain_id_int  = np.array([chain_to_int[c] for c in chain_ids], dtype=np.int64)
@@ -412,6 +458,7 @@ def build_graph_xl(
     labels: "np.ndarray | None" = None,
     distance_cutoff: float = 8.0,
     backbone_max_sep: int = 2,
+    zero_chain_onehot: bool = False,
 ) -> Data:
     """
     XL graph for PocketGNNXL: same topology as v2 but with ESM2 embeddings
@@ -419,12 +466,14 @@ def build_graph_xl(
 
     esm_features : (N, esm_dim) array from build_esm_features.py.
                    If None, falls back to 40-dim features only (same as v2).
+    zero_chain_onehot : forwarded to build_graph_v2 (BUG-022 leakage control).
 
     Returns Data with .x of shape (N, 40 + esm_dim) or (N, 40) if no ESM.
     """
     data = build_graph_v2(residues, labels=labels,
                           distance_cutoff=distance_cutoff,
-                          backbone_max_sep=backbone_max_sep)
+                          backbone_max_sep=backbone_max_sep,
+                          zero_chain_onehot=zero_chain_onehot)
 
     if esm_features is not None:
         esm_t = torch.from_numpy(esm_features.astype(np.float32))

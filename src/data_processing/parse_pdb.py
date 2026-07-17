@@ -71,7 +71,13 @@ def parse_pdb(pdb_path: Path, keep_ligand: str | None = None) -> list[Residue]:
     structure = parser.get_structure("X", str(pdb_path))
     model = structure[0]
 
-    # Per-residue SASA
+    # Per-residue SASA.
+    # NOTE: SASA is a node feature of the trained graphs, so the computation
+    # target (whole structure incl. waters/ligand) is intentionally left
+    # unchanged here to stay bit-compatible with the existing checkpoint. What
+    # is fixed: a failure no longer silently zeroes SASA for the WHOLE structure
+    # without any signal — it now warns, so a structure with all-zero SASA is
+    # not mistaken for a valid feature set. (See KNOWN_BUGS BUG-024.)
     sasa_map: dict[tuple[str, int], float] = {}
     try:
         sr = ShrakeRupley()
@@ -80,8 +86,10 @@ def parse_pdb(pdb_path: Path, keep_ligand: str | None = None) -> list[Residue]:
             for res in chain:
                 if res.get_id()[0] == ' ' and hasattr(res, 'sasa'):
                     sasa_map[(chain.get_id(), res.get_id()[1])] = float(res.sasa)
-    except Exception:
-        pass
+    except Exception as exc:
+        import warnings
+        warnings.warn(f"SASA computation failed for {pdb_path.name}: {exc!r}; "
+                      f"SASA feature defaults to 0.0 for all residues.")
 
     ss_map = _parse_secondary_structure(pdb_path)
     residues: list[Residue] = []

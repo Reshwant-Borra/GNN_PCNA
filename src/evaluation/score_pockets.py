@@ -43,6 +43,8 @@ def cluster_pocket_residues(
             'size': int(mask.sum()),
             'centroid': coords[indices].mean(axis=0).tolist(),
         })
+    # Honor the docstring contract: return sorted by mean_score descending.
+    pockets.sort(key=lambda p: p['mean_score'], reverse=True)
     return pockets
 
 
@@ -73,14 +75,20 @@ def write_scored_pdb(
 
     out_lines: list[str] = []
     for line in Path(pdb_path).read_text(errors='ignore').splitlines(keepends=True):
-        if line.startswith('ATOM') and len(line) >= 60:
+        if line.startswith('ATOM'):
+            # Separate any trailing newline so padding/slicing acts on the record body only.
+            body = line.rstrip('\n')
+            newline = line[len(body):]
             try:
-                chain = line[21]
-                resid = int(line[22:26].strip())
+                chain = body[21]
+                resid = int(body[22:26].strip())
                 key   = (chain, resid)
                 if key in score_map:
+                    # Pad short records to 66 cols so the B-factor field (61-66) is fully
+                    # addressable and any element/charge columns (67-80) are preserved.
+                    body  = body.ljust(66)
                     bfac  = f"{score_map[key]:6.2f}"
-                    line  = line[:60] + bfac + line[66:]
+                    line  = body[:60] + bfac + body[66:] + newline
             except (ValueError, IndexError):
                 pass
         out_lines.append(line)

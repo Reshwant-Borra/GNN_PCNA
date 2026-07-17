@@ -1,273 +1,282 @@
 """
-MD trajectory analysis for GNN-PCNA.
+MD trajectory analysis for GNN-PCNA — CORRECTED per-chain pocket dynamics.
 
-Reads a trajectory produced by colab_md_simulation.ipynb and computes:
-  - Per-residue Ca RMSF
-  - Dynamic Cross-Correlation Matrix (DCCM)
-  - Pocket volume time series (rolling convex-hull approximation)
-  - Apo pocket vs. background fold-change (MD version of the ANM comparison)
+Computes, for the AOH1996 cryptic pocket of PCNA (a homotrimer), the metrics
+that actually reveal whether the pocket has dynamics — measured PER CHAIN, not
+across the whole ring (see src/md/parse_trajectory.py header and KNOWN_BUGS
+BUG-013..BUG-019 for why the previous whole-ring convex hull was a flat artifact):
 
-Writes:
-  data/results/md_rmsf_1W60.json      -- per-residue RMSF
-  data/results/md_dccm_1W60.npy       -- N×N DCCM matrix
-  data/results/md_pocket_volume.json  -- pocket volume per frame
-  data/results/md_apo_comparison.json -- pocket vs. background stats
+  - per-chain pocket convex-hull VOLUME time series (breathing)
+  - per-chain pocket SASA time series (solvent exposure / opening)
+  - per-chain front-face MOUTH cross-wall Cα distances (open/close)
+  - per-chain pocket Cα RMSF about the mean, core-aligned (flexibility)
+  - per-chain backbone RMSD sanity gate (whole-trimer alignment inflated this to
+    ~25-40 Å — a false "corrupt" negative; per-chain alignment gives ~2-3 Å)
+
+Writes to data/results/:
+  md_pocket_volume.json   -- per-chain volume + sasa + mouth series & summaries
+  md_rmsf.json            -- per-residue, per-chain pocket & background RMSF
+  md_dccm.npy             -- chain-averaged Cα DCCM (signed)
+  md_apo_comparison.json  -- aggregate summary + honest ANM comparison
 
 Usage:
-    python scripts/run_md_analysis.py
-    python scripts/run_md_analysis.py --top data/md/1W60_topology.pdb \
-                                      --traj data/md/1W60_production.dcd \
-                                      --stride 10
+    python scripts/run_md_analysis.py                  # auto-discovers a trajectory
+    python scripts/run_md_analysis.py --top TOP.pdb --traj TRAJ.dcd
+    python scripts/run_md_analysis.py --stride 2 --equil-ns 5 --ns-per-frame 0.1
 """
 from __future__ import annotations
-import sys, json, argparse
+import sys, io, json, argparse
 from pathlib import Path
 
 import numpy as np
 
+# Force UTF-8 on Windows consoles (cp1252 chokes on Å, ×, etc.)
+if sys.stdout.encoding and sys.stdout.encoding.lower() not in ("utf-8", "utf8"):
+    sys.stdout = io.TextIOWrapper(sys.stdout.buffer, encoding="utf-8", errors="replace")
+
 REPO = Path(__file__).parent.parent
 sys.path.insert(0, str(REPO))
 
-# AOH1996 ground-truth pocket residue IDs (transferred to 1W60 by sequence)
-AOH_GT_BY_CHAIN = {
-    "A": {25,26,27,38,39,40,41,42,44,45,46,47,
-          123,125,126,128,231,232,233,234,250,251,252,253},
-    "B": {23,25,26,27,38,39,40,41,42,44,45,46,47,
-          123,125,126,128,231,232,233,234,250,251,252},
-}
-AOH_GT = set().union(*AOH_GT_BY_CHAIN.values())
+from src.md.parse_trajectory import (           # noqa: E402
+    load_trajectory, analyze_pocket_dynamics, protein_chain_indices,
+    pocket_rmsf, compute_dccm, pocket_for_all_chains,
+)
+
+# ── self-validating verdict thresholds ────────────────────────────────────────
+# A broken analysis (e.g. whole-trimer misalignment) inflates per-chain backbone
+# RMSD to ~25-40 Å. A folded monomer over ns-timescale MD should stay < ~5 Å.
+RMSD_SANITY_MAX_A   = 5.0     # above this → analysis INVALID, not a negative
+VOL_RANGE_DYN_A3    = 150.0   # pocket volume fluctuation range that counts as dynamics
+SASA_RANGE_DYN_A2   = 150.0
+MOUTH_RANGE_DYN_A   = 2.0
 
 
-def compute_rmsf(u, stride: int = 1):
-    """Align trajectory to first frame on backbone, then compute Ca RMSF."""
-    try:
-        from MDAnalysis.analysis import rms, align
-    except ImportError:
-        raise ImportError("pip install MDAnalysis")
+def classify_dynamics(agg: dict) -> tuple[str, str]:
+    """Three-way self-validating verdict so a BROKEN analysis can never be
+    mistaken for a genuine 'no dynamics' negative (the exact failure this
+    pipeline exists to prevent).
 
-    import MDAnalysis as mda
+    Returns (code, human_message) where code ∈
+      {"DYNAMICS", "VALID_NEGATIVE", "INVALID_ANALYSIS"}.
+    """
+    rmsd = agg.get("backbone_rmsd_mean_A", float("nan"))
+    if not (rmsd == rmsd) or rmsd > RMSD_SANITY_MAX_A or not agg.get("pbc_sane", False):
+        return ("INVALID_ANALYSIS",
+                f"per-chain backbone RMSD {rmsd:.1f} Å exceeds the {RMSD_SANITY_MAX_A} Å "
+                "sanity bound — the analysis frame of reference is broken (likely "
+                "whole-trimer alignment / PBC). This is INCONCLUSIVE, NOT a negative. "
+                "Do not report 'no dynamics'; fix alignment and re-run.")
+    vr = agg.get("vol_range_A3", float("nan"))
+    sr = agg.get("sasa_range_A2", float("nan"))
+    mr = agg.get("mouth_122-232_range_A", float("nan"))
+    signals = [(vr == vr and vr > VOL_RANGE_DYN_A3),
+               (sr == sr and sr > SASA_RANGE_DYN_A2),
+               (mr == mr and mr > MOUTH_RANGE_DYN_A)]
+    if any(signals):
+        return ("DYNAMICS",
+                "pocket shows measurable dynamics (volume/SASA/mouth fluctuate well "
+                "above the noise floor; analysis verified sane).")
+    return ("VALID_NEGATIVE",
+            "analysis is verified sane (backbone RMSD in range) but the pocket shows "
+            "no clear dynamics on this timescale — a TRUSTWORTHY negative. Consider "
+            "longer sampling / a positive control before concluding rigidity.")
 
-    ref = mda.Universe(u.filename)
-    print("  Aligning trajectory to reference (backbone)...")
-    # in_memory=False streams to a temp file (safe for large DCD); run() with no step aligns
-    # all frames so RMSF.run(step=stride) below doesn't double-skip frames
-    align.AlignTraj(u, ref, select="backbone", in_memory=False).run()
-
-    ca = u.select_atoms("name CA")
-    n_frames = len(u.trajectory) // stride
-    print(f"  Computing RMSF over {n_frames} frames ({ca.n_atoms} Ca atoms)...")
-    rmsf_calc = rms.RMSF(ca).run(step=stride)
-    return ca.resids.copy(), ca.segids.copy(), rmsf_calc.rmsf.copy()
-
-
-def compute_dccm(u, stride: int = 10):
-    """Compute Dynamic Cross-Correlation Matrix from Ca displacement."""
-    ca = u.select_atoms("name CA")
-    N = ca.n_atoms
-    n_frames = len(u.trajectory) // stride
-    print(f"  Computing DCCM: {N}×{N} over {n_frames} frames...")
-
-    # Accumulate mean and outer products
-    sum_r  = np.zeros((N, 3))
-    sum_rr = np.zeros((N, N))
-    sum_r2 = np.zeros(N)
-    count  = 0
-
-    for ts in u.trajectory[::stride]:
-        r = ca.positions.copy()
-        sum_r  += r
-        count  += 1
-
-    mean_r = sum_r / count  # (N, 3)
-
-    # Second pass: compute cross-correlations
-    for ts in u.trajectory[::stride]:
-        dr = ca.positions - mean_r   # (N, 3)
-        dot = (dr[:, None, :] * dr[None, :, :]).sum(axis=2)  # (N, N)
-        sum_rr += dot
-        sum_r2 += (dr ** 2).sum(axis=1)
-
-    cross = sum_rr / count
-    denom = np.sqrt(np.maximum(np.outer(sum_r2 / count, sum_r2 / count), 0.0))
-    denom[denom == 0] = 1.0
-    dccm = np.clip(cross / denom, -1.0, 1.0)
-    return dccm.astype(np.float32)
+# Candidate (topology, trajectory, structure-label) triples, tried in order.
+# The paper target (1W60) comes first; the 1AXC exploratory run that actually
+# exists on disk is the fallback so `run_md_analysis.py` "just works".
+def _discover() -> tuple[Path, Path, str] | None:
+    cands = [
+        (REPO / "data/md/1W60_solvated.pdb",   REPO / "data/md/1W60_production.dcd",  "1W60"),
+        (REPO / "data/md/1W60_topology.pdb",   REPO / "data/md/1W60_production.dcd",  "1W60"),
+        (REPO / "data/md/production_top.pdb",  REPO / "data/md/production.dcd",       "1W60"),
+    ]
+    # 1AXC 25 ns exploratory trajectory (lives in the sibling GNN_PNCA checkout)
+    for root in (REPO, REPO.parent / "GNN_PNCA", REPO.parent):
+        rep = root / "outputs/phase5_md/time_crunch_1axc_25ns/replicate_01"
+        cands.append((rep / "solvated_initial.pdb", rep / "trajectory.dcd", "1AXC"))
+    for top, traj, label in cands:
+        if top.exists() and traj.exists():
+            return top, traj, label
+    return None
 
 
-def compute_pocket_volume(u, pocket_resids: set, stride: int = 10):
-    """Estimate pocket volume per frame using Ca convex hull approximation."""
-    try:
-        from scipy.spatial import ConvexHull
-    except ImportError:
-        print("  scipy not available — skipping volume analysis")
-        return None
+def main() -> None:
+    ap = argparse.ArgumentParser(description=__doc__,
+                                 formatter_class=argparse.RawDescriptionHelpFormatter)
+    ap.add_argument("--top", type=Path, help="Topology (.pdb). Omit to auto-discover.")
+    ap.add_argument("--traj", type=Path, help="Trajectory (.dcd/.xtc). Omit to auto-discover.")
+    ap.add_argument("--structure", default=None, help="Structure label (e.g. 1W60, 1AXC).")
+    ap.add_argument("--stride", type=int, default=1, help="Frame stride when loading.")
+    ap.add_argument("--equil-ns", type=float, default=5.0, help="Equilibration discarded.")
+    ap.add_argument("--ns-per-frame", type=float, default=0.1,
+                    help="Save interval (ns/frame) of the STRIDED trajectory input.")
+    args = ap.parse_args()
 
-    from scipy.spatial import ConvexHull
+    if args.top and args.traj:
+        top, traj_path, label = args.top, args.traj, (args.structure or args.top.stem)
+    else:
+        found = _discover()
+        if not found:
+            print("ERROR: no trajectory found. Pass --top TOP.pdb --traj TRAJ.dcd.")
+            print("  (Looked for data/md/1W60_production.dcd and the 1AXC 25 ns run.)")
+            sys.exit(1)
+        top, traj_path, label = found
+        if args.structure:
+            label = args.structure
+        print(f"Auto-discovered {label} trajectory:\n  {traj_path}")
 
-    ca = u.select_atoms("name CA")
-    volumes = []
-    times_ps = []
-
-    for ts in u.trajectory[::stride]:
-        coords = ca.positions
-        resids = ca.resids
-        mask = np.array([r in pocket_resids for r in resids])
-        pocket_coords = coords[mask]
-        if len(pocket_coords) >= 4:
-            try:
-                hull = ConvexHull(pocket_coords)
-                volumes.append(float(hull.volume))  # Å³
-            except Exception:
-                volumes.append(float("nan"))
-        else:
-            volumes.append(float("nan"))
-        times_ps.append(float(ts.time))
-
-    return times_ps, volumes
-
-
-def main():
-    parser = argparse.ArgumentParser()
-    parser.add_argument("--top",    default="data/md/1W60_topology.pdb",
-                        help="Topology file (.pdb)")
-    parser.add_argument("--traj",   default="data/md/1W60_production.dcd",
-                        help="Trajectory file (.dcd or .xtc)")
-    parser.add_argument("--stride", type=int, default=10,
-                        help="Frame stride for DCCM/volume (default: 10 = every 100 ps)")
-    args = parser.parse_args()
-
-    top_path  = REPO / args.top
-    traj_path = REPO / args.traj
-    out_dir   = REPO / "data" / "results"
+    out_dir = REPO / "data" / "results"
     out_dir.mkdir(parents=True, exist_ok=True)
 
-    if not top_path.exists():
-        print(f"ERROR: topology not found: {top_path}")
-        print("  Run colab_md_simulation.ipynb first and copy outputs to data/md/")
-        sys.exit(1)
-    if not traj_path.exists():
-        print(f"ERROR: trajectory not found: {traj_path}")
-        print("  Run colab_md_simulation.ipynb first and copy outputs to data/md/")
-        sys.exit(1)
+    ns_per_frame = args.ns_per_frame * args.stride
+    print(f"Loading {top.name} + {traj_path.name} (stride {args.stride}) ...")
+    traj = load_trajectory(str(top), str(traj_path), stride=args.stride)
+    n_prot_chains = len(protein_chain_indices(traj))
+    print(f"  {traj.n_frames} frames, {traj.n_atoms} atoms, {n_prot_chains} protein chains, "
+          f"{ns_per_frame:.3f} ns/frame")
 
-    try:
-        import MDAnalysis as mda
-    except ImportError:
-        print("ERROR: MDAnalysis not installed. Run: pip install MDAnalysis")
-        sys.exit(1)
+    equil_frames = int(round(args.equil_ns / ns_per_frame))
 
-    print(f"Loading universe: {top_path.name} + {traj_path.name}")
-    u = mda.Universe(str(top_path), str(traj_path))
-    print(f"  {len(u.trajectory)} frames, {u.trajectory.dt:.1f} ps/frame")
-    print(f"  {u.atoms.n_atoms} atoms, {u.residues.n_residues} residues")
-    sim_time_ns = len(u.trajectory) * u.trajectory.dt / 1000
-    print(f"  Simulation length: {sim_time_ns:.1f} ns")
-
-    # ── 1. RMSF ───────────────────────────────────────────────────────────────
-    print("\n[1/3] Computing Ca RMSF...")
-    resids, chains, rmsf = compute_rmsf(u, stride=args.stride)
-
-    pocket_mask = np.array([r in AOH_GT for r in resids])
-    pocket_rmsf = float(rmsf[pocket_mask].mean()) if pocket_mask.any() else None
-    bg_rmsf     = float(rmsf[~pocket_mask].mean()) if (~pocket_mask).any() else None
-    fold_change = round(pocket_rmsf / bg_rmsf, 3) if pocket_rmsf and bg_rmsf else None
-
-    print(f"  Pocket RMSF : {pocket_rmsf:.3f} Å")
-    print(f"  Background  : {bg_rmsf:.3f} Å")
-    print(f"  Fold-change : {fold_change:.3f}")
-
-    rmsf_result = {
-        "source": "MDAnalysis Ca RMSF",
-        "topology": args.top,
-        "trajectory": args.traj,
-        "n_frames": len(u.trajectory),
-        "sim_time_ns": sim_time_ns,
-        "stride": args.stride,
-        "pocket_rmsf_angstrom": round(pocket_rmsf, 4) if pocket_rmsf else None,
-        "background_rmsf_angstrom": round(bg_rmsf, 4) if bg_rmsf else None,
-        "fold_change_pocket_vs_bg": fold_change,
-        "residues": [
-            {"resid": int(resids[i]), "chain": str(chains[i]),
-             "rmsf_angstrom": round(float(rmsf[i]), 4),
-             "in_aoh_pocket": bool(pocket_mask[i])}
-            for i in range(len(resids))
-        ],
+    # ── per-chain pocket dynamics (all 3 subunits = informal triplicate) ─────
+    pocket_by_chain = pocket_for_all_chains(traj)
+    print(f"Analyzing pocket dynamics on {len(pocket_by_chain)} chains "
+          f"(volume / SASA / mouth / RMSF) ...")
+    res = analyze_pocket_dynamics(traj, pocket_by_chain,
+                                  equil_frames=equil_frames, ns_per_frame=ns_per_frame)
+    agg = res["aggregate"]
+    vol_out = {
+        "structure": label,
+        "trajectory": str(traj_path),
+        "method": "per-chain Cα convex hull + SASA + mouth distances (corrected)",
+        "note": ("Convex hull is an approximate cavity proxy; use fpocket/MDpocket "
+                 "for absolute volumes. Metric is per-chain (A/B interface), NOT the "
+                 "whole-ring hull the previous version used."),
+        "ns_per_frame": ns_per_frame,
+        "equil_ns_discarded": args.equil_ns,
+        "aggregate": agg,
+        "chains": res["chains"],
     }
-    out_rmsf = out_dir / "md_rmsf_1W60.json"
-    out_rmsf.write_text(json.dumps(rmsf_result, indent=2), encoding="utf-8")
-    print(f"  Saved -> {out_rmsf.relative_to(REPO)}")
+    (out_dir / "md_pocket_volume.json").write_text(json.dumps(vol_out, indent=2), encoding="utf-8")
 
-    # ── 2. DCCM ──────────────────────────────────────────────────────────────
-    print("\n[2/3] Computing DCCM...")
-    dccm = compute_dccm(u, stride=args.stride)
-    out_dccm = out_dir / "md_dccm_1W60.npy"
-    np.save(str(out_dccm), dccm)
-    print(f"  DCCM shape: {dccm.shape}")
+    # ── per-residue RMSF (chain-aware: pocket vs background, averaged over chains) ─
+    print("Computing per-residue RMSF (chain-aware) ...")
+    prot = traj.atom_slice(traj.topology.select("protein"))
+    if prot.n_frames > equil_frames:
+        prot = prot[equil_frames:]
+    chains = protein_chain_indices(prot)
+    # accumulate per-residue RMSF over pocket residues of each chain
+    residues_out, pocket_vals, bg_vals = [], [], []
+    for ch in chains:
+        pocket = pocket_by_chain[ch]
+        # background = all this chain's residues NOT in the pocket
+        all_res = sorted(int(r.resSeq) for r in prot.topology.residues
+                         if r.chain.index == ch and r.is_protein)
+        bg = [r for r in all_res if r not in set(pocket)]
+        rseq_p, rmsf_p = pocket_rmsf(prot, ch, pocket)
+        rseq_b, rmsf_b = pocket_rmsf(prot, ch, bg)
+        for rs, v in zip(rseq_p.tolist(), rmsf_p.tolist()):
+            residues_out.append({"chain": ch, "resid": int(rs),
+                                 "rmsf_angstrom": round(float(v), 4), "in_aoh_pocket": True})
+            pocket_vals.append(v)
+        for rs, v in zip(rseq_b.tolist(), rmsf_b.tolist()):
+            residues_out.append({"chain": ch, "resid": int(rs),
+                                 "rmsf_angstrom": round(float(v), 4), "in_aoh_pocket": False})
+            bg_vals.append(v)
+    pocket_rmsf_mean = float(np.mean(pocket_vals)) if pocket_vals else None
+    bg_rmsf_mean = float(np.mean(bg_vals)) if bg_vals else None
+    fold_change = (round(pocket_rmsf_mean / bg_rmsf_mean, 3)
+                   if pocket_rmsf_mean and bg_rmsf_mean else None)
+    rmsf_out = {
+        "source": "mdtraj per-chain aligned Cα RMSF (about mean, pocket-excluded core)",
+        "structure": label, "trajectory": str(traj_path),
+        "n_frames": int(prot.n_frames), "ns_per_frame": ns_per_frame,
+        "pocket_rmsf_angstrom": round(pocket_rmsf_mean, 4) if pocket_rmsf_mean else None,
+        "background_rmsf_angstrom": round(bg_rmsf_mean, 4) if bg_rmsf_mean else None,
+        "fold_change_pocket_vs_bg": fold_change,
+        "residues": residues_out,
+    }
+    (out_dir / "md_rmsf.json").write_text(json.dumps(rmsf_out, indent=2), encoding="utf-8")
 
-    # Pocket internal DCCM
-    pocket_idx = np.where(pocket_mask)[0]
-    if len(pocket_idx) >= 2:
-        sub = dccm[np.ix_(pocket_idx, pocket_idx)]
-        off = sub[np.triu_indices(len(pocket_idx), k=1)]
-        pocket_dccm = float(off.mean())
-    else:
-        pocket_dccm = None
-    print(f"  Pocket internal DCCM: {pocket_dccm:.4f}")
-    print(f"  Saved -> {out_dccm.relative_to(REPO)}")
+    # ── DCCM (chain-averaged, signed, core-aligned) ──────────────────────────
+    print("Computing chain-averaged DCCM ...")
+    dccms, pocket_internal_vals = [], []
+    for ch in chains:
+        try:
+            m = compute_dccm(prot, ch, pocket_by_chain[ch])
+            dccms.append(m)
+            # pocket-internal signed DCCM for this chain
+            ca_res = [int(r.resSeq) for r in prot.topology.residues
+                      if r.chain.index == ch and r.is_protein]
+            want = set(pocket_by_chain[ch])
+            pidx = [i for i, rs in enumerate(ca_res) if rs in want]
+            if len(pidx) >= 2:
+                sub = m[np.ix_(pidx, pidx)]
+                pocket_internal_vals.append(float(sub[np.triu_indices(len(pidx), k=1)].mean()))
+        except Exception as exc:
+            print(f"  chain {ch} DCCM skipped: {exc}")
+    dccm = np.mean(dccms, axis=0).astype(np.float32) if dccms else np.zeros((0, 0), np.float32)
+    np.save(str(out_dir / "md_dccm.npy"), dccm)
+    pocket_internal_dccm = (float(np.mean(pocket_internal_vals))
+                            if pocket_internal_vals else None)
 
-    # ── 3. Pocket volume ──────────────────────────────────────────────────────
-    print("\n[3/3] Computing pocket volume time series...")
-    vol_result = compute_pocket_volume(u, AOH_GT, stride=args.stride)
+    # ── self-validating verdict (DYNAMICS / VALID_NEGATIVE / INVALID_ANALYSIS) ─
+    verdict_code, verdict_msg = classify_dynamics(agg)
 
-    if vol_result:
-        times_ps, volumes = vol_result
-        vols_clean = [v for v in volumes if not (isinstance(v, float) and v != v)]
-        mean_vol = float(np.nanmean(volumes))
-        max_vol  = float(np.nanmax(volumes))
-        print(f"  Mean pocket volume: {mean_vol:.1f} Å³")
-        print(f"  Max pocket volume:  {max_vol:.1f} Å³")
-        vol_data = {
-            "method": "Ca convex hull (approximate)",
-            "note": "Convex hull overestimates true pocket volume; use fpocket/MDpocket for accurate cavity volume",
-            "mean_volume_angstrom3": round(mean_vol, 1),
-            "max_volume_angstrom3": round(max_vol, 1),
-            "frames": [{"time_ps": t, "volume_angstrom3": v}
-                       for t, v in zip(times_ps, volumes)],
-        }
-        out_vol = out_dir / "md_pocket_volume.json"
-        out_vol.write_text(json.dumps(vol_data, indent=2), encoding="utf-8")
-        print(f"  Saved -> {out_vol.relative_to(REPO)}")
-
-    # ── Summary ───────────────────────────────────────────────────────────────
+    # ── summary + honest ANM comparison ──────────────────────────────────────
     summary = {
-        "topology": args.top,
-        "trajectory": args.traj,
-        "sim_time_ns": sim_time_ns,
-        "n_frames": len(u.trajectory),
-        "aoh_pocket_residues": int(pocket_mask.sum()),
-        "md_rmsf": {
-            "pocket_angstrom": round(pocket_rmsf, 4) if pocket_rmsf else None,
-            "background_angstrom": round(bg_rmsf, 4) if bg_rmsf else None,
-            "fold_change": fold_change,
-        },
-        "md_dccm": {
-            "pocket_internal": round(pocket_dccm, 4) if pocket_dccm else None,
-            "matrix_file": "data/results/md_dccm_1W60.npy",
+        "structure": label, "trajectory": str(traj_path),
+        "dynamics_verdict": {"code": verdict_code, "message": verdict_msg},
+        "aggregate": agg,
+        "md_rmsf": {"pocket_angstrom": rmsf_out["pocket_rmsf_angstrom"],
+                    "background_angstrom": rmsf_out["background_rmsf_angstrom"],
+                    "fold_change": fold_change},
+        "md_dccm": {"pocket_internal": (round(pocket_internal_dccm, 4)
+                                        if pocket_internal_dccm is not None else None),
+                    "matrix_file": "data/results/md_dccm.npy"},
+        "md_pocket_volume": {
+            "mean_volume_angstrom3": round(agg["vol_mean_A3"], 1) if agg["vol_mean_A3"] == agg["vol_mean_A3"] else None,
+            "max_volume_angstrom3": (round(agg["vol_mean_A3"] + agg["vol_range_A3"] / 2, 1)
+                                     if agg["vol_mean_A3"] == agg["vol_mean_A3"] else None),
+            "fluctuation_range_angstrom3": round(agg["vol_range_A3"], 1) if agg["vol_range_A3"] == agg["vol_range_A3"] else None,
         },
         "anm_comparison": {
-            "anm_fold_change_apo": 0.857,
-            "md_fold_change_apo": fold_change,
-            "note": "ANM fold-change was 0.857; MD fold-change here is the all-atom equivalent",
+            "anm_fold_change_apo_1W60": 0.857,
+            "md_fold_change": fold_change,
+            "note": ("ANM apo(1W60) pocket-vs-global fold-change is 0.857; the MD "
+                     "fold-change here is pocket-vs-background Cα RMSF on "
+                     f"{label}. Different references — compare qualitatively only."),
         },
+        "caveats": [
+            f"{label} exploratory MD; short timescale. No 8GLA positive control in this run.",
+            "Convex-hull volume is an approximate proxy, not an absolute cavity volume.",
+            "RMSF/SASA fluctuation shows the pocket is dynamic; it does NOT by itself "
+            "prove a full cryptic opening event.",
+        ],
     }
-    out_summary = out_dir / "md_apo_comparison.json"
-    out_summary.write_text(json.dumps(summary, indent=2), encoding="utf-8")
-    print(f"\nSummary -> {out_summary.relative_to(REPO)}")
-    print(f"\nANM vs MD comparison:")
-    print(f"  ANM fold-change (apo 1W60): 0.857")
-    print(f"  MD  fold-change (apo 1W60): {fold_change}")
-    print(f"  ANM internal DCCM:          0.0995")
-    print(f"  MD  internal DCCM:          {pocket_dccm:.4f}" if pocket_dccm else "  MD  internal DCCM: N/A")
+    (out_dir / "md_apo_comparison.json").write_text(json.dumps(summary, indent=2), encoding="utf-8")
+
+    # ── verdict ──────────────────────────────────────────────────────────────
+    def f(x, d=1):
+        return f"{x:.{d}f}" if isinstance(x, (int, float)) and x == x else "n/a"
+    print("\n" + "=" * 66)
+    print(f"  POCKET DYNAMICS — {label}  (per-chain, corrected)")
+    print("=" * 66)
+    print(f"  backbone RMSD (sanity) : mean {f(agg['backbone_rmsd_mean_A'],2)} Å   "
+          f"[PBC/align sane: {agg['pbc_sane']}]")
+    print(f"  pocket volume          : mean {f(agg['vol_mean_A3'],0)} Å³   "
+          f"fluctuation range {f(agg['vol_range_A3'],0)} Å³   (CV {f(agg['vol_cv'],3)})")
+    print(f"  pocket SASA range      : {f(agg['sasa_range_A2'],0)} Å²")
+    print(f"  mouth 122-232 open/close: {f(agg.get('mouth_122-232_range_A'),2)} Å")
+    print(f"  pocket Cα RMSF (mean)  : {f(agg['pocket_rmsf_mean_A'],2)} Å   "
+          f"fold vs background {f(fold_change,3) if fold_change else 'n/a'}")
+    banner = {"DYNAMICS": "✔ POCKET HAS MEASURABLE DYNAMICS",
+              "VALID_NEGATIVE": "○ NO DYNAMICS (verified-sane negative)",
+              "INVALID_ANALYSIS": "✗ ANALYSIS INVALID — inconclusive, NOT a negative"}[verdict_code]
+    print("-" * 66)
+    print(f"  VERDICT [{verdict_code}]: {banner}")
+    print(f"  {verdict_msg}")
+    print("=" * 66)
+    print(f"\nWrote md_pocket_volume.json, md_rmsf.json, md_dccm.npy, md_apo_comparison.json → {out_dir}")
 
 
 if __name__ == "__main__":

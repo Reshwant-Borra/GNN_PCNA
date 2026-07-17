@@ -1,21 +1,43 @@
 {
-  "topology": "data/md/1W60_solvated.pdb",
-  "trajectory": "data/md/1W60_production.dcd",
-  "sim_time_ns": 6.36000001896174,
-  "n_frames": 636,
-  "aoh_pocket_residues": 50,
+  "structure": "1AXC",
+  "trajectory": "C:\\Users\\advay\\GNN_PNCA\\outputs\\phase5_md\\time_crunch_1axc_25ns\\replicate_01\\trajectory.dcd",
+  "dynamics_verdict": {
+    "code": "DYNAMICS",
+    "message": "pocket shows measurable dynamics (volume/SASA/mouth fluctuate well above the noise floor; analysis verified sane)."
+  },
+  "aggregate": {
+    "n_chains": 3,
+    "vol_mean_A3": 1586.3341287878193,
+    "vol_range_A3": 429.367655578495,
+    "vol_cv": 0.05169598138691355,
+    "sasa_range_A2": 312.64536539713544,
+    "pocket_rmsf_mean_A": 0.7620171705881754,
+    "backbone_rmsd_mean_A": 1.646710197130839,
+    "mouth_122-232_range_A": 5.440452575683594,
+    "pbc_sane": true
+  },
   "md_rmsf": {
-    "pocket_angstrom": 3.3547,
-    "background_angstrom": 4.0318,
-    "fold_change": 0.832
+    "pocket_angstrom": 0.762,
+    "background_angstrom": 1.17,
+    "fold_change": 0.651
   },
   "md_dccm": {
-    "pocket_internal": 0.3018,
-    "matrix_file": "data/results/md_dccm_1W60.npy"
+    "pocket_internal": 0.2896,
+    "matrix_file": "data/results/md_dccm.npy"
+  },
+  "md_pocket_volume": {
+    "mean_volume_angstrom3": 1586.3,
+    "max_volume_angstrom3": 1801.0,
+    "fluctuation_range_angstrom3": 429.4
   },
   "anm_comparison": {
-    "anm_fold_change_apo": 0.857,
-    "md_fold_change_apo": 0.832,
-    "note": "ANM fold-change was 0.857; MD fold-change here is the all-atom equivalent"
-  }
+    "anm_fold_change_apo_1W60": 0.857,
+    "md_fold_change": 0.651,
+    "note": "ANM apo(1W60) pocket-vs-global fold-change is 0.857; the MD fold-change here is pocket-vs-background C\u03b1 RMSF on 1AXC. Different references \u2014 compare qualitatively only."
+  },
+  "caveats": [
+    "1AXC exploratory MD; short timescale. No 8GLA positive control in this run.",
+    "Convex-hull volume is an approximate proxy, not an absolute cavity volume.",
+    "RMSF/SASA fluctuation shows the pocket is dynamic; it does NOT by itself prove a full cryptic opening event."
+  ]
 }

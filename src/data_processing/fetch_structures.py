@@ -12,9 +12,14 @@ Handles:
 Verification layers (mirrors agents/pcna_crawler.py logic):
   1. HTTP 200 + non-empty file
   2. Valid PDB header (ATOM records present)
-  3. Chain count matches expected (PCNA = 3 chains)
-  4. Resolution filter (< 3.5 Å for crystallography)
-  5. Cα atom completeness (>= 95% of residues have a Cα)
+  3. Chain count matches expected (PCNA = 3 chains). The count is recorded
+     for every structure and a mismatch is WARNED. Hard-fail applies only
+     to non-core IDs whose caller explicitly declared a chain expectation;
+     PCNA_CORE_IDS ground-truth structures are warned, never failed.
+  4. Resolution filter (< 3.5 Å for crystallography; PCNA_CORE_IDS
+     ground-truth structures are exempt — the waiver is recorded, e.g.
+     8GLA at 3.77 Å).
+  5. Cα atom completeness (>= 90% of residues have a Cα)
 
 Usage (standalone):
     python -m src.data_processing.fetch_structures
@@ -55,6 +60,11 @@ POLITE_DELAY    = 0.4   # seconds between RCSB requests
 
 # Ground-truth structures — always fetch, never skip
 PCNA_CORE_IDS = ["1W60", "8GLA", "1AXC"]  # 1W61 removed — proline racemase (T. cruzi), not PCNA
+
+# PCNA is a homotrimer → 3 chains expected. Used to WARN on chain-count
+# mismatch (recorded on every FetchResult) and to hard-fail only non-core IDs
+# that a caller explicitly declares should be PCNA (see _verify_pdb_file).
+EXPECTED_PCNA_CHAINS = 3
 
 # CryptoSite benchmark PDB IDs (Cimermancic et al. 2016, Table S1)
 # Source: https://github.com/salilab/cryptosite (parsed from paper supplementary)
@@ -122,24 +132,33 @@ class FetchSession:
 
 # ── verification ─────────────────────────────────────────────────────────────────
 
-def _verify_pdb_file(path: Path, pdb_id: str) -> FetchResult:
+def _verify_pdb_file(path: Path, pdb_id: str,
+                     expected_chains: Optional[int] = None) -> FetchResult:
     """
     Run all verification checks on a downloaded .pdb file.
     Returns FetchResult with status 'ok' or 'failed'.
+
+    `expected_chains` lets a caller declare how many chains a NON-core
+    structure should have. When supplied and mismatched, a non-core ID
+    hard-fails; core ground-truth IDs (PCNA_CORE_IDS) are only warned.
+    It defaults to None so the standard CryptoSite fetch keeps its
+    current pass/fail behaviour unchanged.
     """
     text = path.read_text(errors="ignore")
     lines = text.splitlines()
+
+    notes: list[str] = []   # auditable, non-fatal observations folded into `reason`
 
     # Check 1: ATOM records present
     atom_lines = [l for l in lines if l.startswith("ATOM")]
     if not atom_lines:
         return FetchResult(pdb_id, "failed", path, "no ATOM records")
 
-    # Check 2: count chains
+    # Check 2: count chains (recorded on FetchResult.chains for every structure)
     chains = {l[21] for l in atom_lines if len(l) > 21}
     chain_count = len(chains)
 
-    # Check 3: resolution from REMARK 2
+    # resolution from REMARK 2
     resolution = None
     for l in lines:
         if l.startswith("REMARK   2 RESOLUTION"):
@@ -148,28 +167,65 @@ def _verify_pdb_file(path: Path, pdb_id: str) -> FetchResult:
                 resolution = float(m.group(1))
                 break
 
-    # Check 4: resolution filter — warn only for core structures, hard fail otherwise
+    # Check 3: chain-count validation (PCNA is a homotrimer → 3 chains).
+    # The count is ALWAYS recorded (FetchResult.chains). Core ground-truth
+    # IDs are validated against EXPECTED_PCNA_CHAINS but only WARNED on
+    # mismatch (never demoted to failed), so closing this long-open
+    # validation gap cannot change which structures the pipeline currently
+    # accepts. A hard failure is reserved for NON-core IDs whose caller
+    # explicitly declared a chain expectation via `expected_chains`; the
+    # default CryptoSite fetch passes none, so those verdicts are untouched.
+    expected = EXPECTED_PCNA_CHAINS if pdb_id in PCNA_CORE_IDS else expected_chains
+    if expected is not None and chain_count != expected:
+        if pdb_id in PCNA_CORE_IDS:
+            notes.append(f"chain count {chain_count} != expected {expected} "
+                         f"(core ground-truth, kept)")
+        else:
+            return FetchResult(pdb_id, "failed", path,
+                               f"chain count {chain_count} != expected {expected}",
+                               chain_count, resolution)
+
+    if resolution is None:
+        # NMR / EM (or unparseable header): the < 3.5 Å filter cannot apply.
+        # Record it rather than silently passing the resolution gate.
+        notes.append("resolution unknown (None) — resolution filter not applied")
+
+    # Check 4: resolution filter — warn/record for core structures, hard fail otherwise
     if resolution is not None and resolution > 3.5:
         if pdb_id in PCNA_CORE_IDS:
-            pass  # ground-truth structures kept regardless of resolution
+            # ground-truth structures kept regardless of resolution —
+            # record the waiver so the retained low-res keep is auditable
+            notes.append(f"KEPT despite resolution {resolution}Å > 3.5Å "
+                         f"(core ground-truth)")
         else:
             return FetchResult(pdb_id, "failed", path,
                                f"resolution {resolution}Å > 3.5Å threshold",
                                chain_count, resolution)
 
-    # Check 5: Cα completeness
+    # Check 5: Cα completeness.
+    # NOTE: the residue key intentionally EXCLUDES insertion codes. Folding
+    # them in would change the residue SET (and thus downstream graph nodes)
+    # for structures that carry them, so we only detect and record their
+    # presence rather than altering the key.
     residue_ids = {(l[21], l[22:26].strip()) for l in atom_lines}
     ca_lines    = [l for l in atom_lines
                    if len(l) > 16 and l[12:16].strip() == "CA"]
     ca_res      = {(l[21], l[22:26].strip()) for l in ca_lines}
     completeness = len(ca_res) / max(len(residue_ids), 1)
 
+    if any(len(l) > 26 and l[26].strip() for l in atom_lines):
+        notes.append("insertion codes present — not folded into residue key "
+                     "(residue set preserved)")
+
     if completeness < 0.90:
         return FetchResult(pdb_id, "failed", path,
                            f"Cα completeness {completeness:.1%} < 90%",
                            chain_count, resolution, len(residue_ids), completeness)
 
-    return FetchResult(pdb_id, "ok", path, "passed all checks",
+    reason = "passed all checks"
+    if notes:
+        reason += " [" + "; ".join(notes) + "]"
+    return FetchResult(pdb_id, "ok", path, reason,
                        chain_count, resolution, len(residue_ids), completeness)
 
 
@@ -185,9 +241,14 @@ def fetch_pdb(pdb_id: str, force: bool = False) -> FetchResult:
     dest   = RAW_DIR / f"{pdb_id}.pdb"
 
     if dest.exists() and not force:
+        # Re-run verification on the cached file instead of blindly skipping,
+        # so a corrupt / invalid cache is surfaced rather than silently
+        # accepted. Only mark 'skipped' when the cached file still passes.
         result = _verify_pdb_file(dest, pdb_id)
-        result.status  = "skipped"
-        result.reason  = "already exists"
+        if result.status == "failed":
+            return result
+        result.status = "skipped"
+        result.reason = f"already exists (verified: {result.reason})"
         return result
 
     url = RCSB_PDB_URL.format(pdb_id)
@@ -319,7 +380,10 @@ def main():
 
     if args.strip:
         print("\nStripping processed copies...")
-        for r in session.ok:
+        # ok = freshly downloaded + verified; skipped = cached files that still
+        # passed verification (fetch_pdb only marks 'skipped' after a passing
+        # re-check), so re-runs on already-downloaded files still get stripped.
+        for r in list(session.ok) + list(session.skipped):
             ligand = "ZQZ" if r.pdb_id == "8GLA" else None  # CCD code in downloaded PDB
             out = strip_processed(r.pdb_id, keep_ligand=ligand)
             if out:

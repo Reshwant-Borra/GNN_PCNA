@@ -61,28 +61,43 @@ def check_overlap(predicted: list[int], interface_map: dict[str, Any]) -> dict[s
         "allowed_claim_language": ALLOWED_CLAIM,
         "regions": {},
     }
-    any_known = set()
+    any_known_core = set()   # in a region's conservative literature core
+    any_known_broad = set()  # in a region's broader experimental footprint (structural_support)
     for name, region in regions.items():
         region_res = set(region["residues"])
+        # The registry also records a broader experimental footprint per region under
+        # structural_support.contact_residues (e.g. the PIP-box p21 contacts 208/211/27/29).
+        # Checking only the conservative core under-reports proximity to a known interface and
+        # can make a prediction look "not in any known region" when it abuts a real contact.
+        broad_res = set(region.get("structural_support", {}).get("contact_residues", []))
         hit = sorted(set(pred_set) & region_res)
-        any_known.update(hit)
+        broad_only = sorted((set(pred_set) & broad_res) - set(hit))
+        any_known_core.update(hit)
+        any_known_broad.update(set(pred_set) & (region_res | broad_res))
         report["regions"][name] = {
             "n_region_residues": len(region_res),
             "overlap_residues": hit,
             "n_overlap": len(hit),
+            "broad_footprint_only_residues": broad_only,
             "fraction_of_prediction": round(len(hit) / len(pred_set), 4) if pred_set else 0.0,
             "is_positive_control_region": bool(region.get("positive_control", False)),
             "source_pdb": region.get("source_pdb"),
             "source_pmid": region.get("source_pmid"),
         }
-    novel = sorted(set(pred_set) - any_known)
+    novel = sorted(set(pred_set) - any_known_broad)
+    adjacent = sorted(any_known_broad - any_known_core)
     report["residues_not_in_any_known_region"] = novel
     report["n_not_in_any_known_region"] = len(novel)
+    report["residues_in_broader_footprint_only"] = adjacent
+    report["n_in_broader_footprint_only"] = len(adjacent)
     report["interpretation_note"] = (
-        "Residues not overlapping any known region are NOT automatically novel pockets; "
-        "they may be unmapped surface, crystal artifacts, or trimer-interface-adjacent. "
-        "Any novelty statement requires the full PCNA-specific audit (governance doc 12) "
-        "and human review. This script does not assert novelty."
+        "'Not in any known region' now means outside BOTH each region's conservative core AND "
+        "its broader experimental footprint (structural_support). Residues in the broader "
+        "footprint only (residues_in_broader_footprint_only) ABUT a known interface (e.g. a p21 "
+        "PIP-box contact) and must NOT be called novel. Even genuinely un-mapped residues are NOT "
+        "automatically novel pockets - they may be unmapped surface, crystal artifacts, or "
+        "trimer-interface-adjacent. Any novelty statement requires the full PCNA-specific audit "
+        "(governance doc 12) and human review. This script does not assert novelty."
     )
     return report
 
@@ -111,9 +126,14 @@ def main() -> None:
     print("-" * 60)
     for name, info in report["regions"].items():
         tag = " [POSITIVE CONTROL]" if info["is_positive_control_region"] else ""
+        extra = (f"  (+broad-footprint {info['broad_footprint_only_residues']})"
+                 if info["broad_footprint_only_residues"] else "")
         print(f"{name}{tag}: {info['n_overlap']} overlap "
-              f"({info['fraction_of_prediction']*100:.0f}% of prediction) -> {info['overlap_residues']}")
+              f"({info['fraction_of_prediction']*100:.0f}% of prediction) -> {info['overlap_residues']}{extra}")
     print("-" * 60)
+    if report["n_in_broader_footprint_only"]:
+        print(f"In a known interface's BROADER footprint only ({report['n_in_broader_footprint_only']}) "
+              f"- abut a known interface, NOT novel: {report['residues_in_broader_footprint_only']}")
     print(f"Not in any known region ({report['n_not_in_any_known_region']}): "
           f"{report['residues_not_in_any_known_region']}")
     print(f"\nAllowed claim language: {report['allowed_claim_language']}")

@@ -38,9 +38,14 @@ only 4 of 72 structures carry heuristic scores and 3 of those are known complexe
 
 ## Hypothesis
 After removing the p21 peptide, does the front-face PIP-box pocket (40-44, 117-135, 230-235,
-251-253) **remain accessible** or collapse? Compared against the 5E0V apo-WT reference and the
-8GLA AOH1996 system (identical setup), this probes whether the heuristic-high 1AXC pocket is a
-stable surface feature.
+251-253) **remain accessible** or collapse? Compared against the true apo-WT reference **1W60**
+and the 8GLA AOH1996 system (identical setup), this probes whether the heuristic-high 1AXC pocket
+is a stable surface feature.
+
+> **Correction (2026-07-21 audit):** an earlier draft named 5E0V as the "apo-WT reference." 5E0V
+> is NOT apo wild-type PCNA — it is the S228I disease variant bound to a FEN1 peptide (Duffy 2016,
+> PMID 26688547), per `data/registries/pcna_interface_map.json` and the phase4 candidate manifest.
+> The true apo-WT reference is 1W60; the executed MD-validation package already uses 1W60.
 
 ## Expected observations
 If a stable pocket, apo-from-holo 1AXC retains partial pocket volume at the IDCL/40-47 patch

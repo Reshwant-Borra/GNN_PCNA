@@ -1,53 +1,74 @@
 #!/usr/bin/env python
 """
-PCNA cryptic-pocket MD validation — RTX 4070 edition.
-=====================================================
+PCNA cryptic-pocket MD validation - RTX 4070 edition (v2).
+==========================================================
 
-This is a clean, self-contained re-do of the Phase-5 MD validation. It bakes in
-fixes for EVERY reason the previous run came back as an uninterpretable negative:
+A clean, self-contained re-do of the Phase-5 MD validation. It bakes in fixes for
+EVERY reason the previous run came back as an uninterpretable negative, PLUS the
+structural-validity fixes from the 2026-07 biological-validity audit.
 
-  PROBLEM (last time)                          FIX (here)
-  -------------------------------------------  --------------------------------------------
-  Wrong "apo": 1AXC = p21-bound, 5E0V = S228I  Use the TRUE apo 1W60 + the holo 8GLA.
-  No positive control                          8GLA (open/holo conformation) IS the control.
-  Simulated arbitrary "novel windows"          Analysis targets the validated AOH1996 pocket.
-  n=1 (rep2/rep3 died at the budget wall)      RESUMABLE: a killed run continues, never restarts.
-  Topology not saved with trajectory           Saves system_solvated.pdb next to every DCD.
-  Underpowered, 2 fs, ~20 ns                   HMR + 4 fs -> ~2x throughput; default 3 x 100 ns.
-  PBC artifacts / bad analysis                 Sanity gate on RMSD; analysis (analyze_md.py) images first.
+  PROBLEM                                        FIX (here)
+  -------------------------------------------    -------------------------------------------
+  Wrong "apo": 1AXC = p21-bound, 5E0V = S228I    Use TRUE apo 1W60 + holo 8GLA (from pocket json).
+  No positive control                            8GLA (open/holo conformation) IS the control.
+  Simulated arbitrary "novel windows"            Analysis targets the pocket's DERIVED residues.
+  n=1 (rep2/rep3 died at the budget wall)        RESUMABLE: a killed run continues, never restarts.
+  Topology not saved with trajectory             Saves system_solvated.pdb next to every DCD.
+  Underpowered, 2 fs, ~20 ns                     HMR + 4 fs -> ~2x throughput; default 3 x 100 ns.
+  PBC artifacts / bad analysis                   Sanity gate on RMSD; analyze_md.py images first.
 
-WHAT THIS SIMULATES (no ligand parameterization needed — fully automatic):
-  * 1W60  = apo PCNA (pocket CLOSED). Question: does the AOH1996 pocket transiently open?
-  * 8GLA  = holo PCNA, ligand (ZQZ/AOH1996) stripped (pocket starts OPEN). POSITIVE CONTROL:
-            the pocket-volume metric MUST read larger here than in apo. If it can't tell
-            8GLA-open from 1W60-closed, the *method* failed — not the biology. That is the
-            check that makes a negative result trustworthy instead of meaningless.
+  === NEW in v2 (2026-07 biological-validity audit) ===
+  APO/HOLO WERE APPLES-TO-ORANGES (HIGH):        Build the BIOLOGICAL ASSEMBLY (homotrimer) for BOTH
+   PDBFixer(pdbid=) fetched the asymmetric         structures via gemmi, so apo and holo are matched
+   unit. 1W60's ASU is 2 chains that seed          3-chain rings with a genuine A-B interface. The
+   DIFFERENT crystallographic trimers (a           previous 1W60 run simulated 2 monomers whose
+   crystal contact, not the ring interface);       "interface" was a crystal-packing artifact.
+   8GLA's ASU is 4 chains. The pocket only
+   exists at a real subunit-subunit interface.
+  Chain count never enforced (HIGH):             Hard-fail unless the assembly yields exactly
+                                                   expected_protein_chains PCNA subunits.
+  "peptides stripped" but removeHeterogens        Keep only protein polymer chains >= min_chain_res;
+   keeps standard-AA peptides (p21) (LOW):         p21 / FEN1 peptides are dropped by length.
+  Pocket residues hand-curated, dropped IDCL      Pocket residues come from pockets/<name>.json
+   contacts under a false "6 A" comment (MED):     (derived, reproducible list). Single source of
+                                                   truth shared with analyze_md.py.
 
-USAGE (the friend runs exactly this):
+WHAT THIS SIMULATES (no ligand parameterization needed - fully automatic, protein-only):
+  * apo  (1W60) = pocket CLOSED. Does it transiently open over 100 ns?
+  * ctrl (8GLA) = holo, ligand stripped (pocket starts OPEN). POSITIVE CONTROL: the openness
+                  metric MUST read larger here than apo, or the *method* failed, not the biology.
+
+USAGE:
   conda env create -f environment.yml && conda activate pcna-md-4070
-  python run_md.py --pdb 8GLA --replicates 3 --ns 100      # positive control first
-  python run_md.py --pdb 1W60 --replicates 3 --ns 100      # apo
-  python analyze_md.py                                      # builds the comparison report
-  # then send the whole `outputs/` folder back (or: wormhole send outputs).
+  python run_md.py --pocket aoh1996 --run control --replicates 3 --ns 100   # 8GLA control FIRST
+  python run_md.py --pocket aoh1996 --run apo     --replicates 3 --ns 100   # 1W60 apo
+  python analyze_md.py --pocket aoh1996                                     # comparison report
 
-Re-run the SAME command after any crash/shutdown — it resumes each replicate from its
-last checkpoint automatically.
+Re-run the SAME command after any crash/shutdown - it resumes each replicate from its last
+checkpoint automatically. (Or use ./run_in_tmux.sh to run the whole thing detached in tmux.)
 """
 from __future__ import annotations
-import argparse, json, math, sys, time
+import argparse, json, math, sys, time, urllib.request
 from pathlib import Path
 from datetime import datetime, timezone
 
-# Ground-truth AOH1996 pocket residues (8GLA chains A+B, within 6 A of ZQZ).
-# Recorded here so the run manifest documents exactly what we care about.
-AOH_POCKET = {
-    "A": [25,26,27,38,39,40,41,42,44,45,46,47,123,125,126,128,231,232,233,234,250,251,252,253],
-    "B": [23,25,26,27,38,39,40,41,42,44,45,46,47,123,125,126,128,231,232,233,234,250,251,252],
-}
+HERE = Path(__file__).resolve().parent
+# Local CIF cache (present on Advay's machine); the friend's machine downloads from RCSB instead.
+LOCAL_CIF_DIRS = [HERE.parent / "data" / "raw_intake" / "pcna_structures"]
+
+
+def load_pocket(name: str) -> dict:
+    """Load the pocket definition (residues, apo/control PDBs, expected chain count)."""
+    p = HERE / "pockets" / f"{name}.json"
+    if not p.exists():
+        sys.exit(f"No pocket definition at {p}. Available: "
+                 f"{[q.stem for q in (HERE/'pockets').glob('*.json')]}")
+    return json.loads(p.read_text())
 
 
 def _imports():
     try:
+        import gemmi  # noqa: F401
         import openmm as mm
         from openmm import unit
         from openmm.app import (ForceField, Modeller, PDBFile, Simulation, PME, HBonds,
@@ -60,33 +81,135 @@ def _imports():
         DCDReporter, StateDataReporter, CheckpointReporter, PDBFixer
 
 
-def prepare_structure(pdb_id: str, work: Path, ph: float):
-    """Fetch + fix PCNA, strip all ligands/waters/peptides, keep protein chains only.
+def _fetch_cif(pdb_id: str, work: Path) -> Path:
+    """Return a local mmCIF path for pdb_id: use the repo cache if present, else download from RCSB."""
+    pdb_id = pdb_id.upper()
+    for d in LOCAL_CIF_DIRS:
+        c = d / f"{pdb_id}.cif"
+        if c.exists():
+            print(f"[prep] using cached CIF {c}")
+            return c
+    work.mkdir(parents=True, exist_ok=True)
+    dest = work / f"{pdb_id}.cif"
+    if not dest.exists():
+        url = f"https://files.rcsb.org/download/{pdb_id}.cif"
+        print(f"[prep] downloading {url}")
+        urllib.request.urlretrieve(url, dest)
+    return dest
 
-    Returns the path to a prepared (vacuum) protein PDB. Deterministic & cached.
+
+def prepare_structure(pdb_id: str, work: Path, ph: float,
+                      expected_chains: int, min_chain_res: int, pocket_resseq: list[int]):
+    """Build the BIOLOGICAL ASSEMBLY (homotrimer), keep protein chains only, fix + protonate.
+
+    This is the core fix vs v1: v1 called PDBFixer(pdbid=...) which loads only the deposited
+    asymmetric unit and NEVER applies crystallographic symmetry, so apo (1W60, 2-chain ASU) and
+    holo (8GLA, 4-chain ASU) were structurally non-comparable. Here gemmi applies the assembly
+    operators, so both structures become matched biological homotrimers with a real interface.
+
+    Returns the prepared (vacuum) protein PDB path. Deterministic & cached.
     """
+    import gemmi
     *_, PDBFile, _, _, _, _, _, _, PDBFixer = _imports()
     prepared = work / "prepared_protein.pdb"
+    audit = work / "prep_audit.json"
     if prepared.exists():
         print(f"[prep] reuse {prepared}")
         return prepared
-    print(f"[prep] PDBFixer downloading {pdb_id} ...")
-    fixer = PDBFixer(pdbid=pdb_id)
-    # Remove everything that is not a standard amino-acid chain (ligands, peptides, ions, water).
-    fixer.removeHeterogens(keepWater=False)
+    work.mkdir(parents=True, exist_ok=True)
+
+    cif = _fetch_cif(pdb_id, work)
+    st = gemmi.read_structure(str(cif))
+    st.setup_entities()
+
+    # --- 1. apply the biological-assembly operators (this is what v1 was missing) ---
+    if st.assemblies:
+        asm = st.assemblies[0]
+        model = gemmi.make_assembly(asm, st[0], gemmi.HowToNameCopiedChain.AddNumber)
+        assembly_id = asm.name
+    else:
+        model = st[0]
+        assembly_id = "(none: used deposited coordinates)"
+
+    # --- 2. keep only protein polymer chains with >= min_chain_res residues ---
+    #     This drops waters, ions, small-molecule ligands, AND standard-AA peptides
+    #     (p21 in 1AXC, FEN1 in 5E0V) that removeHeterogens would have wrongly kept.
+    kept = []
+    seen = []
+    for ch in model:
+        poly = ch.get_polymer()
+        seq = poly.make_one_letter_sequence() if poly else ""
+        ptype = poly.check_polymer_type() if poly else None
+        is_protein = ptype in (gemmi.PolymerType.PeptideL, gemmi.PolymerType.PeptideD)
+        seen.append({"chain": ch.name, "n_poly_res": len(seq), "protein": bool(is_protein)})
+        if is_protein and len(seq) >= min_chain_res:
+            kept.append(ch)
+
+    # --- 3. ENFORCE chain count (hard-fail, not the silent skip v1 relied on) ---
+    if len(kept) != expected_chains:
+        audit.write_text(json.dumps(
+            {"pdb_id": pdb_id, "assembly": assembly_id, "chains_seen": seen,
+             "kept_protein_chains": [c.name for c in kept],
+             "expected_protein_chains": expected_chains,
+             "ERROR": f"expected {expected_chains} PCNA chains, got {len(kept)}"}, indent=2))
+        sys.exit(f"[prep] FATAL: {pdb_id} biological assembly '{assembly_id}' yielded "
+                 f"{len(kept)} protein chains (>= {min_chain_res} aa), expected "
+                 f"{expected_chains}. See {audit}. Refusing to simulate a wrong oligomeric state.")
+
+    # --- 4. rebuild a clean single-model structure with single-letter chain ids ---
+    letters = "ABCDEFGHIJKLMNOPQRSTUVWXYZ"
+    clean = gemmi.Structure()
+    clean.cell = st.cell
+    clean.spacegroup_hm = st.spacegroup_hm
+    nm = gemmi.Model("1")
+    for i, ch in enumerate(kept):
+        nc = gemmi.Chain(letters[i])
+        for res in ch.get_polymer():
+            nc.add_residue(res)
+        nm.add_chain(nc)
+    clean.add_model(nm)
+    clean.setup_entities()
+    raw_pdb = work / "assembly_protein_raw.pdb"
+    clean.write_pdb(str(raw_pdb))
+
+    # --- 5. PDBFixer: repair missing atoms + protonate. Build only INTERNAL gaps (do not
+    #        fabricate long terminal tails). Record what was rebuilt for transparency. ---
+    fixer = PDBFixer(filename=str(raw_pdb))
     fixer.findMissingResidues()
+    # Drop terminal missing-residue runs so we don't invent floppy tails that never diffracted.
+    chains = list(fixer.topology.chains())
+    keys_to_drop = []
+    for (ch_idx, res_idx), _seq in list(fixer.missingResidues.items()):
+        chain_len = len(list(chains[ch_idx].residues()))
+        if res_idx == 0 or res_idx == chain_len:
+            keys_to_drop.append((ch_idx, res_idx))
+    for k in keys_to_drop:
+        fixer.missingResidues.pop(k, None)
+    n_internal_missing = sum(len(v) for v in fixer.missingResidues.values())
     fixer.findNonstandardResidues(); fixer.replaceNonstandardResidues()
     fixer.findMissingAtoms(); fixer.addMissingAtoms()
     fixer.addMissingHydrogens(ph)
-    work.mkdir(parents=True, exist_ok=True)
     with prepared.open("w") as fh:
         PDBFile.writeFile(fixer.topology, fixer.positions, fh, keepIds=True)
-    # Audit the chains so a human can confirm we kept the PCNA trimer (not a peptide).
-    chains = [{"id": c.id, "n_res": sum(1 for _ in c.residues())} for c in fixer.topology.chains()]
-    (work / "prep_audit.json").write_text(json.dumps(
-        {"pdb_id": pdb_id, "ph": ph, "chains_kept": chains,
-         "note": "All heterogens removed (ligand/peptide/water). Protein only."}, indent=2))
-    print(f"[prep] chains kept: {chains}")
+
+    # --- 6. audit: chain composition + how many residues were rebuilt (transparency) ---
+    final_chains = [{"id": c.id, "n_res": sum(1 for _ in c.residues())}
+                    for c in fixer.topology.chains()]
+    pocket_set = set(pocket_resseq)
+    audit.write_text(json.dumps({
+        "pdb_id": pdb_id, "assembly": assembly_id,
+        "chains_seen": seen, "kept_protein_chains": [c.name for c in kept],
+        "expected_protein_chains": expected_chains, "final_chains": final_chains,
+        "internal_missing_residues_rebuilt": n_internal_missing,
+        "note": ("Biological assembly reconstructed (gemmi). Protein-only, peptides/ligands/waters "
+                 "dropped by >= %d aa filter. Terminal missing residues NOT fabricated. "
+                 "%d internal residues rebuilt by PDBFixer - if this is large and the structure is "
+                 "low-resolution (e.g. 8GLA 3.77 A), treat pocket side-chain geometry as modeled, "
+                 "not observed (report as a caveat)." % (min_chain_res, n_internal_missing)),
+        "pocket_residues_resseq": sorted(pocket_set),
+    }, indent=2))
+    print(f"[prep] {pdb_id}: assembly '{assembly_id}' -> {len(kept)} PCNA chains "
+          f"{[c.name for c in kept]}, {n_internal_missing} internal residues rebuilt -> {prepared}")
     return prepared
 
 
@@ -245,7 +368,7 @@ def run_replicate(ff, topology, positions, solvated_pdb, run_dir: Path, rep: int
         # A numerical blow-up (e.g. OpenMM "Particle coordinate is nan") raises here. Record
         # it as FAILED so a re-run does not resume the corrupt checkpoint and crash forever.
         failed_flag.write_text(json.dumps({
-            "replicate": rep, "pdb": args.pdb, "seed": seed,
+            "replicate": rep, "pdb": args._pdb_id, "seed": seed,
             "steps": sim.context.getStepCount(),
             "reason": "exception during integration (numerical blow-up)",
             "error": str(exc),
@@ -277,7 +400,7 @@ def run_replicate(ff, topology, positions, solvated_pdb, run_dir: Path, rep: int
 
     if reason is not None:
         failed_flag.write_text(json.dumps({
-            "replicate": rep, "pdb": args.pdb, "seed": seed,
+            "replicate": rep, "pdb": args._pdb_id, "seed": seed,
             "steps": sim.context.getStepCount(),
             "final_potential_kj_mol": pe if math.isfinite(pe) else None,
             "backbone_rmsd_nm": rmsd_nm, "reason": reason,
@@ -288,7 +411,7 @@ def run_replicate(ff, topology, positions, solvated_pdb, run_dir: Path, rep: int
 
     production_ns = (sim.context.getStepCount() - equil_steps) * dt.value_in_unit(unit.nanoseconds)
     done_flag.write_text(json.dumps({
-        "replicate": rep, "pdb": args.pdb, "ns": args.ns,
+        "replicate": rep, "pdb": args._pdb_id, "ns": args.ns,
         "production_ns": production_ns, "equil_ns": args.equil_ns, "report_ps": args.report_ps,
         "seed": seed,
         "steps": sim.context.getStepCount(), "timestep_fs": dt.value_in_unit(unit.femtoseconds),
@@ -306,8 +429,10 @@ def run_replicate(ff, topology, positions, solvated_pdb, run_dir: Path, rep: int
 
 
 def main():
-    p = argparse.ArgumentParser(description="PCNA cryptic-pocket MD validation (RTX 4070).")
-    p.add_argument("--pdb", required=True, help="PDB id: 1W60 (apo) or 8GLA (holo positive control)")
+    p = argparse.ArgumentParser(description="PCNA cryptic-pocket MD validation (RTX 4070, v2).")
+    p.add_argument("--pocket", default="aoh1996", help="pocket name -> pockets/<name>.json")
+    p.add_argument("--run", choices=["apo", "control"], required=True,
+                   help="which structure to simulate: 'control' (holo positive control) FIRST, then 'apo'")
     p.add_argument("--replicates", type=int, default=3)
     p.add_argument("--ns", type=float, default=100.0, help="production ns per replicate")
     p.add_argument("--equil-ns", type=float, default=2.0)
@@ -318,8 +443,6 @@ def main():
     p.add_argument("--ionic", type=float, default=0.15)
     p.add_argument("--min-steps", type=int, default=5000)
     p.add_argument("--report-ps", type=float, default=50.0, help="DCD/log interval")
-    p.add_argument("--checkpoint-ps", type=float, default=500.0,
-                   help="(superseded: checkpoints now land at the DCD frame cadence to keep resume frame-exact)")
     p.add_argument("--hmr", action="store_true", default=True)
     p.add_argument("--no-hmr", dest="hmr", action="store_false")
     p.add_argument("--hmr-amu", type=float, default=4.0,
@@ -330,19 +453,35 @@ def main():
     p.add_argument("--outdir", default="outputs")
     args = p.parse_args()
 
-    root = Path(args.outdir) / args.pdb
-    prepared = prepare_structure(args.pdb, root / "prep", args.ph)
+    pocket = load_pocket(args.pocket)
+    pdb_id = (pocket["apo_pdb"] if args.run == "apo" else pocket["control_pdb"])
+    if pdb_id is None:
+        sys.exit(f"[main] pocket '{args.pocket}' has no {args.run}_pdb defined "
+                 f"(novel pocket with no {'apo' if args.run=='apo' else 'holo control'} structure). "
+                 f"Cannot run '{args.run}'.")
+    args._pdb_id = pdb_id
+    expected_chains = int(pocket.get("expected_protein_chains", 3))
+    min_chain_res = int(pocket.get("min_chain_residues", 200))
+    pocket_resseq = list(pocket.get("pocket_residues_resseq", []))
+
+    print(f"[main] pocket={pocket['pocket_name']} run={args.run} -> PDB {pdb_id} "
+          f"(expect {expected_chains} chains)")
+    root = Path(args.outdir) / pdb_id
+    prepared = prepare_structure(pdb_id, root / "prep", args.ph,
+                                 expected_chains, min_chain_res, pocket_resseq)
     ff, topology, positions, solvated = build_system(prepared, root / "rep01", args)
     (root / "pocket_definition.json").write_text(json.dumps(
-        {"aoh1996_pocket_residues": AOH_POCKET,
-         "note": "Analysis (analyze_md.py) targets these. Apo=1W60 closed, Holo=8GLA open control."},
+        {"pocket": pocket["pocket_name"], "run": args.run, "pdb_id": pdb_id,
+         "pocket_residues_resseq": pocket_resseq,
+         "interface_chain_indices": pocket.get("interface_chain_indices", [0, 1]),
+         "note": "Analysis (analyze_md.py) targets these residues on the biological assembly."},
         indent=2))
 
     t0 = time.time()
     for rep in range(1, args.replicates + 1):
         run_replicate(ff, topology, positions, solvated, root / f"rep{rep:02d}", rep, args)
-    print(f"\nAll replicates for {args.pdb} done in {(time.time()-t0)/3600:.2f} h. "
-          f"Next: run the other structure, then `python analyze_md.py`.")
+    print(f"\nAll replicates for {pdb_id} ({args.run}) done in {(time.time()-t0)/3600:.2f} h. "
+          f"Next: run the other structure, then `python analyze_md.py --pocket {args.pocket}`.")
 
 
 if __name__ == "__main__":

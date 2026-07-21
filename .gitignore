@@ -53,3 +53,9 @@ ResearchOS/
 *.pt
 *.pth
 *.ckpt
+
+# MD validation package — runtime artifacts (generated on the friend's machine)
+md_validation_4070/outputs/
+md_validation_4070/run_*.log
+md_validation_4070/.pcna_pipeline.sh
+md_validation_4070/**/__pycache__/

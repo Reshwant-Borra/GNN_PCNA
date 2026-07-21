@@ -1,0 +1,16 @@
+name: pcna-md-4070
+channels:
+  - conda-forge
+dependencies:
+  - python=3.11
+  - openmm>=8.1          # CUDA build is auto-selected on the 4070
+  - cudatoolkit          # let conda match the OpenMM CUDA build
+  - pdbfixer
+  - gemmi                # builds the BIOLOGICAL ASSEMBLY (homotrimer) from the mmCIF - required by run_md.py v2
+  - mdtraj
+  - numpy
+  - pandas
+  - scipy
+  - matplotlib
+  # optional but recommended for true pocket-volume tracking:
+  - fpocket

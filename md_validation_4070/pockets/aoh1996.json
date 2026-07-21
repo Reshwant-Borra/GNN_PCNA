@@ -1,0 +1,32 @@
+{
+  "pocket_name": "AOH1996",
+  "description": "Validated AOH1996 cryptic pocket on human PCNA. Ground-truth positive control for the whole MD-validation harness.",
+  "provenance": {
+    "residue_source": "structurally_derived_this_work",
+    "method": "PCNA heavy-atom distance <= 4.5 A to ligand ZQZ in co-crystal 8GLA",
+    "reproduce_with": "Desktop/GNN_PCNA/scripts/derive_pcna_interface_contacts.py",
+    "registry": "Desktop/GNN_PCNA/data/registries/pcna_interface_map.json -> regions.aoh1996_contact_region",
+    "source_pdb": "8GLA",
+    "ligand_code": "ZQZ",
+    "source_pmid": "37531956",
+    "note": "This list REPLACES the older hand-curated run_md.py list, which omitted the IDCL contacts 121/124/129/131 and added 42 under a false '6 A' provenance comment (bio-validity audit, medium finding)."
+  },
+  "caveat": "Per governance doc 12, this region overlaps known interfaces (PIP-box / IDCL / C-terminus). Recovering it is positive-control overlap with a KNOWN site, NOT evidence of a novel druggable pocket. The ZQZ ligand contacts residues across two PCNA chains, so the pocket is a genuine two-subunit interface site.",
+
+  "apo_pdb": "1W60",
+  "apo_role": "true apo PCNA homotrimer (pocket CLOSED). Question: does the pocket transiently open?",
+  "control_pdb": "8GLA",
+  "control_role": "holo PCNA, ligand ZQZ stripped (pocket starts OPEN). POSITIVE CONTROL: the openness metric MUST read larger here than apo, else the method cannot see opening and any apo result is inconclusive, not negative.",
+
+  "expected_protein_chains": 3,
+  "min_chain_residues": 200,
+  "interface_chain_indices": [0, 1],
+  "pocket_residues_resseq": [
+    23, 25, 26, 27, 38, 39, 40, 41, 44, 45, 46, 47,
+    121, 123, 124, 125, 126, 128, 129, 131,
+    231, 232, 233, 234, 250, 251, 252, 253
+  ],
+  "residue_numbering": "PDB author (auth_seq_id). Identical across PCNA structures because they share one canonical 261-aa sequence (UniProt P12004).",
+
+  "_schema_note": "To validate a NEW GNN-predicted pocket, copy this file, set pocket_name / pocket_residues_resseq (the GNN's site) / apo_pdb / control_pdb, then run `run_md.py --pocket <name>`. If no holo structure exists for the novel site, set control_pdb to null: the harness will then report 'no positive control -> inconclusive' rather than a false negative."
+}

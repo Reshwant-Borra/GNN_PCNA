@@ -11,7 +11,7 @@ from __future__ import annotations
 import torch
 import torch.nn as nn
 import torch.nn.functional as F
-from torch_geometric.nn import GATv2Conv
+from torch_geometric.nn import GATv2Conv, global_mean_pool
 
 
 # ── CrypticGNN v1 (preserved) ────────────────────────────────────────────────
@@ -305,6 +305,7 @@ class PocketGNNXL(nn.Module):
         edge_index_seq: torch.Tensor,
         edge_attr_seq : torch.Tensor,
         chain_id      : torch.Tensor | None = None,
+        batch         : torch.Tensor | None = None,
     ) -> torch.Tensor:
         h = self.node_encoder(x)
 
@@ -313,9 +314,18 @@ class PocketGNNXL(nn.Module):
         for conv, norm in zip(self.spatial_convs, self.spatial_norms):
             h_s = norm(h_s + conv(h_s, edge_index, edge_attr))
 
-        # Virtual node: aggregate → project → gate broadcast
-        h_vn  = self.vnode_proj(h_s.mean(dim=0, keepdim=True))    # (1, H)
-        vn_bc = h_vn.expand(h_s.size(0), -1)                      # (N, H)
+        # Virtual node: PER-GRAPH global context (never mix proteins in a batch).
+        # batch=None (single graph, e.g. inference): mean over all nodes — identical to the
+        # original. batch given (batched training): pool PER GRAPH and broadcast back only to
+        # that graph's residues, so protein A's virtual node never sees protein B. This fixes
+        # the batch-mixing bug where batch>1 previously averaged across every protein at once.
+        if batch is None:
+            h_vn  = self.vnode_proj(h_s.mean(dim=0, keepdim=True))    # (1, H)
+            vn_bc = h_vn.expand(h_s.size(0), -1)                      # (N, H)
+        else:
+            pooled = global_mean_pool(h_s, batch)                    # (B, H) per-graph mean
+            h_vn   = self.vnode_proj(pooled)                         # (B, H)
+            vn_bc  = h_vn[batch]                                     # (N, H) back to each node's graph
         vgate = torch.sigmoid(self.vnode_gate(torch.cat([h_s, vn_bc], dim=-1)))
         h_s   = h_s + vgate * vn_bc                               # (N, H)
 

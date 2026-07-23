@@ -1,5 +1,5 @@
 """Run PocketGNNXL (v3) on all 59 PCNA structures using ESM2 features."""
-import sys, io, csv, json
+import sys, io, csv, json, argparse
 from pathlib import Path
 sys.path.insert(0, str(Path(__file__).parent.parent))
 sys.stdout = io.TextIOWrapper(sys.stdout.buffer, encoding="utf-8", errors="replace")
@@ -16,7 +16,16 @@ REPO     = Path(__file__).parent.parent
 RAW      = REPO / "data" / "raw"
 ESM_DIR  = REPO / "data" / "esm_features"
 PDIR     = REPO / "results" / "per_structure"
-CKPT     = REPO / "checkpoints" / "pcna_reproduced" / "best.ckpt"
+# Checkpoint path is overridable so it can point at whatever finetune_v3_fixed.py wrote.
+# finetune's --out defaults to checkpoints/pcna/best_pcna_v3_fixed.ckpt, but this loader
+# defaults to checkpoints/pcna_reproduced/best.ckpt — keep them consistent by either passing
+# --ckpt checkpoints/pcna/best_pcna_v3_fixed.ckpt here, or retraining with
+# --out checkpoints/pcna_reproduced/best.ckpt. See RISHI_RUNBOOK.md.
+_ap = argparse.ArgumentParser(add_help=False)
+_ap.add_argument("--ckpt", default=None,
+                 help="model checkpoint path (default checkpoints/pcna_reproduced/best.ckpt)")
+_cli, _ = _ap.parse_known_args()
+CKPT     = Path(_cli.ckpt) if _cli.ckpt else REPO / "checkpoints" / "pcna_reproduced" / "best.ckpt"
 OUT_DIR  = REPO / "results" / "v3"
 OUT_DIR.mkdir(parents=True, exist_ok=True)
 

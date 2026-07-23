@@ -193,15 +193,25 @@ def _forward(model, batch, use_symmetry: bool = False, zero_esm: bool = False):
     x = _maybe_zero_esm(batch.x, zero_esm)
     if isinstance(model, (PocketGNN, PocketGNNXL)):
         chain_id = getattr(batch, "chain_id", None)
-        scores = model(
-            x, batch.edge_index, batch.edge_attr,
-            batch.edge_index_seq, batch.edge_attr_seq,
-            chain_id,
-        )
+        b = getattr(batch, "batch", None)
+        if isinstance(model, PocketGNNXL):
+            # Pass the per-graph batch vector so the virtual node pools PER PROTEIN.
+            # Without this, XL falls back to batch=None and averages across every
+            # protein in the batch (batch_size>1) — the batch-mixing leak.
+            scores = model(
+                x, batch.edge_index, batch.edge_attr,
+                batch.edge_index_seq, batch.edge_attr_seq,
+                chain_id, b,
+            )
+        else:
+            scores = model(
+                x, batch.edge_index, batch.edge_attr,
+                batch.edge_index_seq, batch.edge_attr_seq,
+                chain_id,
+            )
         if batch.y is None:
             return scores, scores.sum() * 0.0
         resid = getattr(batch, "resid", None)
-        b = getattr(batch, "batch", None)
         loss = pocket_loss(scores, batch.y.float(), chain_id, resid, b,
                            use_symmetry=use_symmetry)
     else:

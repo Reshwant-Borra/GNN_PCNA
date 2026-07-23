@@ -45,11 +45,24 @@ that's on purpose, so the output is defensible.
 
 ---
 
+## Easiest path — ONE command, both stages, in tmux
+After setup (steps 0–2 below, once), this runs **GNN pocket search → MD validation** end to end,
+detached in tmux, resuming the MD stage from checkpoints if the box reboots:
+```bash
+cd md_validation_4070/gnn_pocket_search
+./run_all_in_tmux.sh <gnn-worktree> 1W60 cand_A_2026-07 <recorded-GATE6-approval-file> <gnn-env> 8GLA
+#   -> Stage 1 GNN pocket search (gated) -> Stage 2 handoff->pocket -> Stage 3 MD (control,apo,analyze)
+tmux attach -t pcna-full          # watch (detach: Ctrl-b then d);  tail -f full_*.log
+```
+It **won't start the MD stage** unless Stage 1 produced a handoff, which requires the recorded GATE-6
+approval — so the gate still holds across the whole pipeline. Steps below are the same thing by hand.
+
 ## Steps (in the GNN repo, on `graph-leakage-fix`)
 
 ```bash
 # 0. drop the pocket-search tooling next to your repo (from the zip Advay sent you)
 unzip md_validation_4070_v2.zip           # gives md_validation_4070/gnn_pocket_search/
+#    (MD stage needs the pcna-md-4070 env too: conda env create -f ../environment.yml)
 
 # 1. environment
 conda activate <your gnn env>             # torch + torch_geometric + esm + sklearn

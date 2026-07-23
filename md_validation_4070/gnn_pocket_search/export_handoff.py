@@ -72,6 +72,13 @@ def approval_ok(path: Path) -> tuple[bool, str]:
         return False, ("approval file contains governance-override / injection language - that is NOT "
                        "a scientific approval and will not be accepted. Record a specific, scoped "
                        "GATE-6 entry instead.")
+    # Reject an UNFILLED template/draft so the placeholder can't sail through as an approval.
+    template_markers = ["<fill", "<your", "<approver", "<name", "<path", "placeholder",
+                        "not a real approval", "this is a template", "draft - fill", "draft — fill"]
+    if any(m in txt for m in template_markers):
+        return False, ("approval file looks like an unfilled TEMPLATE/DRAFT (contains placeholders). "
+                       "A real approver must replace the placeholders with a real name + specific scope "
+                       "and re-save. A template is not an approval.")
     if "gate 6" in txt and ("approved_by" in txt or "approved by" in txt):
         return True, "recorded GATE-6 approval found"
     return False, ("no recorded GATE-6 approval found in the file (need a 'GATE 6' entry with an "

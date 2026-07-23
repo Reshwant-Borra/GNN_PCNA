@@ -132,8 +132,19 @@ def main():
         sys.exit(f"scores.csv not found: {scores_csv}. Run scripts/run_v3_inference.py first.")
 
     chosen, members, all_rows = load_cluster(scores_csv, args.cluster)
-    resseq = sorted({int(m["resid"]) for m in members})
-    chains = sorted({m["chain"] for m in members})
+    # (chain, resid) PAIRS are the authoritative pocket definition. The AOH site is a
+    # two-chain subunit interface, so a bare resid is ambiguous (residue 44 on chain A
+    # is a DIFFERENT site than 44 on chain B). Preserve the pairing here so the handoff
+    # never collapses it away.
+    pocket_residues = [
+        {"chain": ch, "resid": rid}
+        for ch, rid in sorted({(m["chain"], int(m["resid"])) for m in members})
+    ]
+    residues_by_chain: dict[str, list[int]] = {}
+    for pr in pocket_residues:
+        residues_by_chain.setdefault(pr["chain"], []).append(pr["resid"])
+    resseq = sorted({int(m["resid"]) for m in members})   # flattened union (back-compat)
+    chains = sorted(residues_by_chain)
     mean_score = sum(m["score"] for m in members) / len(members)
     max_score = max(m["score"] for m in members)
 
@@ -150,6 +161,8 @@ def main():
     handoff = {
         "pocket_name": args.pocket_name,
         "identified_on_pdb": args.pdb,
+        "pocket_residues": pocket_residues,
+        "pocket_residues_by_chain": residues_by_chain,
         "pocket_residues_resseq": resseq,
         "pocket_chains": chains,
         "score_summary": {

@@ -4,7 +4,7 @@
   "description": "The file Rishi's GPU run produces and sends back. It fully describes ONE model-identified candidate pocket with its provenance, so Advay can generate a tailored MD-validation pocket JSON (pockets/<name>.json) with no guesswork. Compute is done by Rishi; this file is the clean interface between his run and the MD harness.",
   "type": "object",
   "required": [
-    "pocket_name", "identified_on_pdb", "pocket_residues_resseq",
+    "pocket_name", "identified_on_pdb", "pocket_residues", "pocket_residues_resseq",
     "provenance", "governance", "novelty_check"
   ],
   "additionalProperties": true,
@@ -17,9 +17,31 @@
       "type": "string",
       "description": "PDB id the GNN scored to find this pocket (e.g. a PCNA structure). Residue numbers below are in THIS structure's PDB author numbering."
     },
+    "pocket_residues": {
+      "type": "array",
+      "description": "AUTHORITATIVE pocket definition: the residues the model scored into this pocket (after DBSCAN clustering), as (chain, resid) PAIRS. The AOH site is a two-chain subunit interface, so a bare resid is ambiguous — residue 44 on chain A is a different site than 44 on chain B. pocket_residues_resseq below is only a flattened convenience view of this.",
+      "items": {
+        "type": "object",
+        "required": ["chain", "resid"],
+        "additionalProperties": false,
+        "properties": {
+          "chain": {"type": "string", "description": "PDB author chain id the residue is on (e.g. 'A')."},
+          "resid": {"type": "integer", "description": "PDB author residue number (auth_seq_id) on that chain."}
+        }
+      }
+    },
+    "pocket_residues_by_chain": {
+      "type": "object",
+      "description": "Convenience per-chain map {chain_id: [resid, ...]} — same information as pocket_residues, grouped by chain. Handy when converting to pockets/<name>.json.",
+      "additionalProperties": {"type": "array", "items": {"type": "integer"}}
+    },
     "pocket_residues_resseq": {
       "type": "array", "items": {"type": "integer"},
-      "description": "The residues the model actually scored into this pocket (after DBSCAN clustering), PDB author numbering. NOT hand-picked — the clustered model output."
+      "description": "Flattened UNION of pocket residue numbers across all chains (PDB author numbering). Convenience view of pocket_residues; AMBIGUOUS for a two-chain interface on its own — use pocket_residues for the (chain, resid) pairing. NOT hand-picked — the clustered model output."
+    },
+    "pocket_chains": {
+      "type": "array", "items": {"type": "string"},
+      "description": "Distinct chain ids the pocket spans (e.g. ['A','B'] for the two-chain AOH interface)."
     },
     "score_summary": {
       "type": "object",

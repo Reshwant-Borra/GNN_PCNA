@@ -29,7 +29,11 @@ Usage
 from __future__ import annotations
 
 import argparse
+import hashlib
+import json
+import random
 import sys
+from datetime import datetime
 from pathlib import Path
 
 import torch
@@ -184,6 +188,14 @@ def compute_loss_apo(scores, labels, w_apo: float) -> torch.Tensor:
 
 def main(args: argparse.Namespace) -> None:
     device = "cpu"
+    # Seed FIRST, before any model construction or stochastic op. Mirrors
+    # src/training/train.py:_set_seed, which this script was missing entirely.
+    seed = int(getattr(args, "seed", 42))
+    random.seed(seed)
+    np.random.seed(seed)
+    torch.manual_seed(seed)
+    torch.cuda.manual_seed_all(seed)
+    print(f"[seed] {seed}")
     global CKPT_V3, OUT_CKPT
     if getattr(args, "pretrain", None):
         CKPT_V3 = Path(args.pretrain)
@@ -290,11 +302,31 @@ def main(args: argparse.Namespace) -> None:
                 apo_fp_rates.append(float((sc_apo_np[apo_neg_mask] > args.threshold).mean()))
             fp_apo = np.mean(apo_fp_rates) * 100
 
-        is_best = not np.isnan(auroc_B) and auroc_B > best_auroc_B
+        # fp_apo is this script's own stated KEY NEW METRIC but was never consulted here,
+        # so an epoch at auroc 0.981 / fp_apo 60% would beat auroc 0.980 / fp_apo 0%.
+        # Opt-in (default None) so existing behaviour is unchanged unless requested.
+        fp_ok = (args.max_apo_fp is None) or (not np.isnan(fp_apo) and fp_apo <= args.max_apo_fp)
+        is_best = (not np.isnan(auroc_B)) and auroc_B > best_auroc_B and fp_ok
+        if (not fp_ok) and (not np.isnan(auroc_B)) and auroc_B > best_auroc_B:
+            print(f"    [select] epoch rejected: apo FP {fp_apo:.1f}% > --max_apo_fp {args.max_apo_fp}")
         if is_best:
             best_auroc_B = auroc_B
             patience_counter = 0
             torch.save(model.state_dict(), OUT_CKPT)
+            # Provenance sidecar: the checkpoint itself is a bare state_dict with no
+            # metadata, so without this nothing records which seed/epoch produced it.
+            try:
+                OUT_CKPT.with_name(OUT_CKPT.stem + "_meta.json").write_text(json.dumps({
+                    "seed": seed, "epoch": int(epoch), "auroc_B": float(auroc_B),
+                    "fp_apo_pct": (None if np.isnan(fp_apo) else float(fp_apo)),
+                    "val_criterion": "chain-B AUROC" + ("" if args.max_apo_fp is None
+                                                        else f" s.t. apo FP <= {args.max_apo_fp}%"),
+                    "pretrain_ckpt": str(CKPT_V3), "out_ckpt": str(OUT_CKPT),
+                    "sha256": hashlib.sha256(OUT_CKPT.read_bytes()).hexdigest(),
+                    "written_utc": datetime.utcnow().isoformat() + "Z",
+                }, indent=2), encoding="utf-8")
+            except Exception as exc:  # never let provenance bookkeeping kill training
+                print(f"    [select] warning: could not write meta sidecar: {exc}")
         else:
             patience_counter += 1
 
@@ -372,4 +404,15 @@ if __name__ == "__main__":
                         help="Override pretrain checkpoint (default checkpoints/pcna/best_pcna_v3.ckpt)")
     parser.add_argument("--out",       default=None,
                         help="Override output checkpoint path (default checkpoints/pcna/best_pcna_v3_fixed.ckpt)")
+    parser.add_argument("--seed",      type=int,   default=42,
+                        help="RNG seed. Without this the run is not reproducible: forward_xl's "
+                             "ESM row shuffle, 3x Dropout(0.2) and GATv2 attention init are all "
+                             "stochastic, and two identical invocations previously produced "
+                             "different checkpoints AND different candidate pockets "
+                             "(chain B/35 residues vs chain A/4 residues).")
+    parser.add_argument("--max_apo_fp", type=float, default=None,
+                        help="If set, refuse to select an epoch whose apo false-positive rate "
+                             "exceeds this percentage. fp_apo is the script's own stated KEY "
+                             "METRIC but was computed, printed, and then ignored by checkpoint "
+                             "selection (which used chain-B AUROC alone).")
     main(parser.parse_args())

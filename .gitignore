@@ -22,3 +22,4 @@ Thumbs.db
 # Word temp lock files (never real files)
 docs/~$*
 ~$*
+artifacts/

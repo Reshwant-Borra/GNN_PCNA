@@ -1,5 +1,6 @@
 """Run PocketGNNXL (v3) on all 59 PCNA structures using ESM2 features."""
-import sys, io, csv, json, argparse
+import sys, io, csv, json, argparse, hashlib
+from datetime import datetime
 from pathlib import Path
 sys.path.insert(0, str(Path(__file__).parent.parent))
 sys.stdout = io.TextIOWrapper(sys.stdout.buffer, encoding="utf-8", errors="replace")
@@ -26,8 +27,15 @@ _ap.add_argument("--ckpt", default=None,
                  help="model checkpoint path (default checkpoints/pcna_reproduced/best.ckpt)")
 _cli, _ = _ap.parse_known_args()
 CKPT     = Path(_cli.ckpt) if _cli.ckpt else REPO / "checkpoints" / "pcna_reproduced" / "best.ckpt"
-OUT_DIR  = REPO / "results" / "v3"
+# --out-dir keeps a seed-stability sweep from clobbering the committed results/v3, and
+# --only restricts scoring to the structure(s) under test instead of all 59.
+_ap.add_argument("--out-dir", default=None, help="override results dir (default results/v3)")
+_ap.add_argument("--only", default=None,
+                 help="comma-separated PDB ids to score (default: every structure in summary_table.csv)")
+_cli, _ = _ap.parse_known_args()
+OUT_DIR  = Path(_cli.out_dir) if _cli.out_dir else REPO / "results" / "v3"
 OUT_DIR.mkdir(parents=True, exist_ok=True)
+ONLY = {s.strip().upper() for s in _cli.only.split(",")} if _cli.only else None
 
 SKIP = {
     'HOH','WAT','SO4','EDO','PEG','GOL','DMS','PO4','MPD','FMT','ACT',
@@ -40,12 +48,51 @@ SKIP = {
 }
 AOH_GT = {25,26,27,38,39,40,41,42,44,45,46,47,123,125,126,128,231,232,233,234,250,251,252,253}
 
+# --- checkpoint provenance guard -------------------------------------------------------
+# PocketGNNXL's parameter set did NOT change when the virtual-node batch-mixing bug was
+# fixed (commit 84c6aaa, 2026-07-23), so a pre-fix checkpoint loads strict=True with no
+# error and no warning -- while having been trained under cross-protein pooling with
+# batch_size=4. Measured consequence: the 1W60 top cluster moves from chain A / 23 residues
+# to chain B / 35 residues (Jaccard 0.000) depending on which checkpoint is loaded.
+# The runbook's own one-command path never invokes the retrain, so "skip step 3" is the
+# easy path. Refuse to run a stale checkpoint unless the operator opts in explicitly.
+# Parsed, not hand-computed: an epoch literal here was wrong by a year and silently
+# disabled this guard (caught by tests/test_pre_md_release_gate.py).
+VIRTUAL_NODE_FIX_ISO = "2026-07-23T13:48:52-04:00"  # commit 84c6aaa
+VIRTUAL_NODE_FIX_EPOCH = datetime.fromisoformat(VIRTUAL_NODE_FIX_ISO).timestamp()
+_ap.add_argument("--allow-stale-ckpt", action="store_true",
+                 help="run even if the checkpoint predates the virtual-node fix (NOT for release)")
+_cli, _ = _ap.parse_known_args()
+
+if not CKPT.exists():
+    sys.exit(f"[ckpt] FATAL: checkpoint not found: {CKPT}\n"
+             f"       Runbook step 3 writes it: python scripts/finetune_v3_fixed.py --out {CKPT}")
+
+_ckpt_sha = hashlib.sha256(CKPT.read_bytes()).hexdigest()
+_ckpt_mtime = CKPT.stat().st_mtime
+print(f"[ckpt] {CKPT}\n[ckpt] sha256 {_ckpt_sha}\n"
+      f"[ckpt] mtime  {datetime.fromtimestamp(_ckpt_mtime).isoformat()}")
+if _ckpt_mtime < VIRTUAL_NODE_FIX_EPOCH:
+    msg = (f"[ckpt] STALE: this checkpoint predates the virtual-node batch-mixing fix "
+           f"(84c6aaa, 2026-07-23). It was trained while the virtual node averaged global "
+           f"context across every protein in the batch (batch_size default 4), so its "
+           f"predictions are not those of the current model. Retrain first:\n"
+           f"       python scripts/finetune_v3_fixed.py --seed 42 --out {CKPT}")
+    if not _cli.allow_stale_ckpt:
+        sys.exit(msg + "\n       (override for non-release experiments: --allow-stale-ckpt)")
+    print(msg + "\n[ckpt] --allow-stale-ckpt given; continuing. DO NOT use this for a release run.")
+
 model = PocketGNNXL().eval()
 model.load_state_dict(torch.load(CKPT, map_location="cpu", weights_only=True))
 print(f"Loaded PocketGNNXL: {sum(p.numel() for p in model.parameters()):,} params")
 
 rows = list(csv.DictReader(open(PDIR / "summary_table.csv", encoding="utf-8", errors="replace")))
 pcna_pdbs = [r["pdb"] for r in rows]
+if ONLY:
+    missing = ONLY - {p.upper() for p in pcna_pdbs}
+    if missing:
+        sys.exit(f"--only names structures not in summary_table.csv: {sorted(missing)}")
+    pcna_pdbs = [p for p in pcna_pdbs if p.upper() in ONLY]
 print(f"Running v3 on {len(pcna_pdbs)} PCNA structures...\n")
 
 summary_rows = []
@@ -169,7 +216,30 @@ with open(OUT_DIR / "v3_summary.csv", "w", newline="", encoding="utf-8") as f:
 print(f"\n{'='*60}")
 print("V1 vs V3 AUROC Comparison (structures with drug-like ligands)")
 print(f"{'='*60}")
-v1_aurocs = {r["pdb"]: float(r["auroc"]) for r in rows if r["auroc"]}
+# summary_table.csv has been written by two different generators with different headers:
+# per_structure_analysis.py emits "auroc", regenerate_pcna_xl_esm_full_reports.py emits
+# "auto_ligand_auroc_sanity". Reading a fixed column name crashed the whole run here with
+# KeyError('auroc') AFTER every score file was already written, and run_pocket_search.sh's
+# `set -euo pipefail` then aborted before the handoff was exported. This block is cosmetic
+# reporting only -- nothing downstream consumes v1_aurocs -- so it must never be fatal.
+_v1_key = next((k for k in ("auroc", "auto_ligand_auroc_sanity") if rows and k in rows[0]), None)
+
+
+def _as_float(value):
+    try:
+        return float(value)
+    except (TypeError, ValueError):
+        return None
+
+
+v1_aurocs = {}
+if _v1_key is not None:
+    for r in rows:
+        v = _as_float(r.get(_v1_key))
+        if v is not None:
+            v1_aurocs[r["pdb"]] = v
+else:
+    print(f"  (no v1 AUROC column in summary_table.csv; columns={list(rows[0]) if rows else []})")
 for row in summary_rows:
     pdb = row["pdb"]
     v3a = row["auroc_v3"]

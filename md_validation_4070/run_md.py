@@ -169,6 +169,30 @@ def prepare_structure(pdb_id: str, work: Path, ph: float,
         nm.add_chain(nc)
     clean.add_model(nm)
     clean.setup_entities()
+
+    # Carry the DEPOSITED full sequence onto the rebuilt entities so write_pdb emits SEQRES.
+    # Without SEQRES, PDBFixer.findMissingResidues() cannot see that residues are missing:
+    # it reported "internal_missing_residues_rebuilt: 0" for 8GLA despite ~50 unresolved
+    # internal residues, the loops were never rebuilt, and OpenMM then bonded C(i)-N(i+1)
+    # straight across each gap -- 13 covalent bonds up to 10.79 A (r0=1.33 A), one of them
+    # worth 183,222 kJ/mol. That fuses physically disconnected loops in the CONTROL only,
+    # i.e. an asymmetry between exactly the two systems whose pocket SASA is differenced.
+    seqres_ok = False
+    try:
+        full_seqs = [e.full_sequence for e in st.entities if e.full_sequence]
+        if full_seqs:
+            longest = max(full_seqs, key=len)
+            for ent in clean.entities:
+                if ent.entity_type == gemmi.EntityType.Polymer and len(longest) > len(ent.full_sequence):
+                    ent.full_sequence = list(longest)
+            seqres_ok = True
+    except Exception as exc:  # gemmi API drift must not silently degrade the prep
+        print(f"[prep] WARN: could not transfer SEQRES ({type(exc).__name__}: {exc})")
+    if not seqres_ok:
+        print("[prep] WARN: no deposited full sequence available; PDBFixer cannot detect "
+              "internal gaps and OpenMM may bond across them. The long-bond assertion below "
+              "is the backstop.")
+
     raw_pdb = work / "assembly_protein_raw.pdb"
     clean.write_pdb(str(raw_pdb))
 
@@ -236,6 +260,50 @@ def build_system(prepared_pdb: Path, run_dir: Path, args):
     return ff, modeller.topology, modeller.positions, solvated_pdb
 
 
+def assert_no_impossible_bonds(system, positions, max_len_nm=0.25):
+    """Refuse to simulate a system containing a covalent bond longer than a bond can be.
+
+    Backstop for the SEQRES/gap defect: when PDBFixer cannot see an unresolved loop, OpenMM
+    bonds the residues flanking it. Measured on 8GLA: 13 HarmonicBondForce terms above 2.5 A
+    (r0 = 1.33 A, k = 410032 kJ/mol/nm^2), the worst being chain0 184:C-193:N at 10.79 A
+    carrying 183,222 kJ/mol. Such a system minimises into a distorted structure rather than
+    failing, so nothing downstream would have flagged it -- hence an explicit assertion.
+    """
+    mm, unit, _, _, _, _, _, _, *_ = _imports()
+    import numpy as np
+
+    try:
+        xyz = np.array(positions.value_in_unit(unit.nanometer))
+    except AttributeError:
+        xyz = np.array([[v.x, v.y, v.z] for v in positions])
+
+    offenders = []
+    for force in system.getForces():
+        if not isinstance(force, mm.HarmonicBondForce):
+            continue
+        for i in range(force.getNumBonds()):
+            a, b, r0, k = force.getBondParameters(i)
+            d = float(np.linalg.norm(xyz[a] - xyz[b]))
+            if d > max_len_nm:
+                r0_nm = r0.value_in_unit(unit.nanometer) if hasattr(r0, "value_in_unit") else float(r0)
+                k_val = k.value_in_unit(unit.kilojoule_per_mole / unit.nanometer**2) \
+                    if hasattr(k, "value_in_unit") else float(k)
+                offenders.append((a, b, d, r0_nm, 0.5 * k_val * (d - r0_nm) ** 2))
+    if offenders:
+        offenders.sort(key=lambda t: -t[2])
+        lines = "\n".join(
+            f"    atoms {a}-{b}: {d*10:.2f} A (r0 {r0*10:.2f} A, E {e:,.0f} kJ/mol)"
+            for a, b, d, r0, e in offenders[:15]
+        )
+        sys.exit(
+            f"[prep] FATAL: {len(offenders)} covalent bond(s) longer than {max_len_nm*10:.1f} A "
+            f"in the parameterized system:\n{lines}\n"
+            "    These are almost certainly bonds across unresolved loops: the structure was "
+            "written without SEQRES, so PDBFixer never saw the gaps and OpenMM joined the "
+            "flanking residues. Refusing to simulate a chemically impossible system."
+        )
+
+
 def make_simulation(ff, topology, positions, args, seed):
     mm, unit, _, _, _, Simulation, PME, HBonds, *_ = _imports()
     # HMR (~4 amu repartitioned H) + 4 fs is the standard recipe to ~2x throughput vs the
@@ -246,6 +314,7 @@ def make_simulation(ff, topology, positions, args, seed):
                              constraints=HBonds,
                              hydrogenMass=(args.hmr_amu if args.hmr else 1.0) * unit.amu,
                              rigidWater=True)
+    assert_no_impossible_bonds(system, positions, max_len_nm=0.25)
     barostat = mm.MonteCarloBarostat(args.pressure * unit.bar, args.temp * unit.kelvin, 25)
     barostat.setRandomNumberSeed(seed)   # reproducibility: seed the barostat, not just the integrator
     system.addForce(barostat)

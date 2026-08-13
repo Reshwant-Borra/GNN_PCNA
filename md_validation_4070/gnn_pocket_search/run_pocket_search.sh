@@ -12,19 +12,31 @@
 #      and rejects governance-override / injection text outright).
 #
 # Usage:
-#   ./run_pocket_search.sh <worktree> <pdb> <pocket-name> <approval-file> [control-pdb]
+#   ./run_pocket_search.sh <worktree> <pdb> <pocket-name> <approval-file> <checkpoint> [control-pdb]
 # e.g.
-#   ./run_pocket_search.sh ~/gnn_xl_worktree 1W60 cand_A_2026-07 ~/gnn_xl_worktree/.memory/PROJECT_STATE.md 8GLA
+#   ./run_pocket_search.sh ~/gnn_xl_worktree 1W60 cand_A_2026-07 \
+#       ~/gnn_xl_worktree/.memory/PROJECT_STATE.md \
+#       ~/gnn_xl_worktree/checkpoints/pcna_reproduced/best.ckpt 8GLA
+#
+# The checkpoint is now a REQUIRED argument. It used to be implicit (inference defaulted to
+# checkpoints/pcna_reproduced/best.ckpt while the retrain wrote somewhere else), which meant
+# the model that produced the pocket and the model recorded in the handoff could differ, and
+# skipping the retrain silently scored PCNA with a pre-virtual-node-fix checkpoint. Measured:
+# the 1W60 top cluster moves chain A/23 residues -> chain B/35 residues (Jaccard 0.000)
+# depending on which checkpoint is loaded.
 # =============================================================================
 set -euo pipefail
 cd "$(dirname "$0")"
 HERE="$(pwd)"
 
-WORKTREE="${1:?usage: run_pocket_search.sh <worktree> <pdb> <pocket-name> <approval-file> [control-pdb]}"
+WORKTREE="${1:?usage: run_pocket_search.sh <worktree> <pdb> <pocket-name> <approval-file> <checkpoint> [control-pdb]}"
 PDB="${2:?need a PDB id, e.g. 1W60}"
 NAME="${3:?need a pocket name, e.g. cand_A_2026-07}"
 APPROVAL="${4:?need the recorded GATE-6 approval file path}"
-CONTROL="${5:-}"
+CKPT="${5:?need the checkpoint path that finetune_v3_fixed.py --out wrote (runbook step 3)}"
+CONTROL="${6:-}"
+
+[ -f "$CKPT" ] || { echo "checkpoint not found: $CKPT"; exit 1; }
 
 [ -d "$WORKTREE" ] || { echo "worktree not found: $WORKTREE"; exit 1; }
 
@@ -37,14 +49,21 @@ else
   echo "  leakage-fix: NOT detected  [WARN] a pocket from a pre-fix checkpoint is not defensible"
 fi
 echo "  approval file: $APPROVAL"
+echo "  checkpoint:    $CKPT"
+if command -v sha256sum >/dev/null 2>&1; then
+  echo "  ckpt sha256:   $(sha256sum "$CKPT" | cut -d' ' -f1)"
+fi
 
 echo "=== [2/3] GNN inference (this is the compute step) ==="
-( cd "$WORKTREE" && python scripts/run_v3_inference.py )
+# The SAME checkpoint goes to inference and to the provenance record, so they cannot diverge.
+# run_v3_inference.py additionally refuses a checkpoint older than the virtual-node fix.
+( cd "$WORKTREE" && python scripts/run_v3_inference.py --ckpt "$CKPT" )
 
 echo "=== [3/3] export handoff (gate-enforced) ==="
 python "$HERE/export_handoff.py" \
   --worktree "$WORKTREE" --pdb "$PDB" --pocket-name "$NAME" \
   --approval-file "$APPROVAL" \
+  --checkpoint "$CKPT" \
   ${CONTROL:+--control-pdb "$CONTROL"} \
   --out "$HERE/${NAME}_handoff.json"
 

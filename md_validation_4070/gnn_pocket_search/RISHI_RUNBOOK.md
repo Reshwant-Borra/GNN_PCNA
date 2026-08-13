@@ -50,12 +50,19 @@ After setup (steps 0–2 below, once), this runs **GNN pocket search → MD vali
 detached in tmux, resuming the MD stage from checkpoints if the box reboots:
 ```bash
 cd md_validation_4070/gnn_pocket_search
-./run_all_in_tmux.sh <gnn-worktree> 1W60 cand_A_2026-07 <recorded-GATE6-approval-file> <gnn-env> 8GLA
+./run_all_in_tmux.sh <gnn-worktree> 1W60 cand_A_2026-07 <recorded-GATE6-approval-file> <gnn-env> \
+                     <checkpoint-from-step-3> 8GLA
 #   -> Stage 1 GNN pocket search (gated) -> Stage 2 handoff->pocket -> Stage 3 MD (control,apo,analyze)
 tmux attach -t pcna-full          # watch (detach: Ctrl-b then d);  tail -f full_*.log
 ```
 It **won't start the MD stage** unless Stage 1 produced a handoff, which requires the recorded GATE-6
 approval — so the gate still holds across the whole pipeline. Steps below are the same thing by hand.
+
+> **CHANGED 2026-08-11 (pre-MD audit).** `<checkpoint>` is now a REQUIRED argument, and this
+> one-command path does **not** run the retrain — do step 3 first. Previously this path silently
+> skipped step 3 and scored PCNA with the pre-virtual-node-fix checkpoint; the resulting candidate
+> moved from chain A / 23 residues to chain B / 35 residues (Jaccard 0.000) purely on which
+> checkpoint was loaded. `run_v3_inference.py` now refuses a checkpoint older than the fix commit.
 
 ## Steps (in the GNN repo, on `graph-leakage-fix`)
 
@@ -73,17 +80,22 @@ python scripts/build_esm_features.py      # ESM2 t12 embeddings -> data/esm_feat
 python scripts/build_graphs_xl.py         # leakage-fixed graphs
 
 # 3. RETRAIN on your GPU (required — the virtual-node fix changed training).
-#    Pin the output path so inference finds it (this resolves the checkpoint-path conflict:
-#    finetune's default --out is checkpoints/pcna/best_pcna_v3_fixed.ckpt, but inference's default
-#    is checkpoints/pcna_reproduced/best.ckpt — so make them match explicitly):
-python scripts/finetune_v3_fixed.py --out checkpoints/pcna_reproduced/best.ckpt
+#    --seed is now REQUIRED in practice: without it this script was unseeded, and two identical
+#    invocations produced two different checkpoints AND two different candidate pockets
+#    (chain B/35 residues vs chain A/4 residues). Run >=3 seeds and only trust a candidate that
+#    is stable across them. A best.ckpt_meta.json sidecar now records seed/epoch/sha256.
+python scripts/finetune_v3_fixed.py --seed 42 --out checkpoints/pcna_reproduced/best.ckpt
+#    optional but recommended — refuse epochs with a high apo false-positive rate:
+#    python scripts/finetune_v3_fixed.py --seed 42 --max_apo_fp 5 --out checkpoints/pcna_reproduced/best.ckpt
 
 # 4. run the pocket search (inference + gate-enforced export)
-#    If you kept finetune's default --out instead, pass the SAME path here via CKPT (see run_pocket_search.sh),
-#    or run inference directly with:  python scripts/run_v3_inference.py --ckpt <that path>
+#    The checkpoint is now an EXPLICIT argument, passed to BOTH inference and the provenance
+#    record, so the model that produced the pocket and the model named in the handoff cannot
+#    diverge. Inference hard-fails on a checkpoint older than the virtual-node fix (84c6aaa).
 bash md_validation_4070/gnn_pocket_search/run_pocket_search.sh \
-     "$PWD" 1W60 cand_A_2026-07 "$PWD/.memory/PROJECT_STATE.md" 8GLA
-#   args: <gnn-repo-path> <pdb-to-score> <pocket-name> <recorded-approval-file> [holo-control-pdb]
+     "$PWD" 1W60 cand_A_2026-07 "$PWD/.memory/PROJECT_STATE.md" \
+     "$PWD/checkpoints/pcna_reproduced/best.ckpt" 8GLA
+#   args: <gnn-repo-path> <pdb-to-score> <pocket-name> <recorded-approval-file> <checkpoint> [holo-control-pdb]
 
 # 5. sanity-check the residue mapping before sending: open cand_A_2026-07_handoff.json and confirm
 #    pocket_residues is a list of {chain, resid} PAIRS (not bare numbers) and the chains/resids look

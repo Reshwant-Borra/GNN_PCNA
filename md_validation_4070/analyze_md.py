@@ -49,19 +49,135 @@ def _imports():
     return md, np, pd, plt
 
 
-def pocket_selection(top, resseqs, interface_chain_indices):
-    """Atom indices of pocket residues on the interface chains (by chain ORDER, post-assembly)."""
+def pocket_selection(top, resseqs, interface_chain_indices, allow_keys=None):
+    """Atom indices of pocket residues on the interface chains (by chain ORDER, post-assembly).
+
+    ``allow_keys``, when given, is an explicit set of ``(chain_index, resSeq)`` pairs and
+    overrides the chain x resseq product. Pass the apo/control INTERSECTION here so both
+    trajectories are measured over the identical atom set -- see :func:`resolved_pocket_keys`.
+    """
     want_chains = set(interface_chain_indices)
     resset = set(resseqs)
     sel = []
     for a in top.atoms:
-        if a.residue.chain.index in want_chains and a.residue.resSeq in resset:
+        if allow_keys is not None:
+            if (a.residue.chain.index, a.residue.resSeq, a.name) in allow_keys:
+                sel.append(a.index)
+        elif a.residue.chain.index in want_chains and a.residue.resSeq in resset:
             sel.append(a.index)
     return sorted(sel)
 
 
+def resolved_pocket_keys(top, resseqs, interface_chain_indices):
+    """The ``(chain_index, resSeq, atom_name)`` pocket ATOMS present in this topology.
+
+    Atom-level, not residue-level, deliberately. SASA is a per-atom quantity, and apo and
+    control were measured to resolve the SAME 56 pocket residues but 854 vs 855 atoms --
+    protonation and terminal/rebuilt side-chain differences survive a residue-level check.
+    """
+    want_chains = set(interface_chain_indices)
+    resset = set(resseqs)
+    return {(a.residue.chain.index, a.residue.resSeq, a.name) for a in top.atoms
+            if a.residue.chain.index in want_chains and a.residue.resSeq in resset}
+
+
+def resolved_pocket_residues(top, resseqs, interface_chain_indices):
+    """The ``(chain_index, resSeq)`` pocket residues present -- for human-readable reporting."""
+    return {(c, r) for c, r, _ in resolved_pocket_keys(top, resseqs, interface_chain_indices)}
+
+
+def _protein_top(md, top_pdb: Path):
+    """Protein-only topology, matching the slice analyze_replicate performs."""
+    t = md.load(str(top_pdb))
+    return t.atom_slice(t.top.select("protein")).top
+
+
+def terminal_or_gap_adjacent(top):
+    """``(chain_index, resSeq)`` residues at a chain end or beside a numbering gap.
+
+    Their solvent exposure is dominated by bookkeeping, not by pocket conformation: a
+    residue that is internal in one structure and a chain terminus in the other gains a
+    whole exposed face plus an OXT. Measured on the real prepared assemblies, residue 254
+    LYS was 0.920 nm^2 in apo (internal) but 2.416 nm^2 in the control (chain end) -- a
+    +1.496 nm^2 difference from terminus status alone, against only +0.435 nm^2 of genuine
+    structural difference summed over the other 22 pocket residues. Differencing those is
+    measuring where the crystal stopped, not whether the pocket opened.
+    """
+    out = set()
+    for ch in top.chains:
+        res = sorted(ch.residues, key=lambda r: r.resSeq)
+        if not res:
+            continue
+        out.add((ch.index, res[0].resSeq))
+        out.add((ch.index, res[-1].resSeq))
+        for a, b in zip(res, res[1:]):
+            if b.resSeq - a.resSeq > 1:            # unresolved loop between them
+                out.add((ch.index, a.resSeq))
+                out.add((ch.index, b.resSeq))
+    return out
+
+
+def pocket_parity(md, role_tops: dict, resseqs, iface, min_coverage=0.80,
+                  exclude_termini=True):
+    """Intersect the pocket residues resolved in every role's topology.
+
+    Apo and control are DIFFERENT crystal structures with different unmodelled regions --
+    8GLA (3.77 A) lacks residues 1W60 resolves. Measuring pocket SASA over different atom
+    sets makes ``control - apo`` a comparison of two different pockets: the missing
+    residue's own SASA enters as an additive bias, which was large enough to INVERT the
+    sign of the positive-control gate at analyze_md.py's ``holo.mean() > apo.mean()``.
+
+    Returns ``(allow_keys, report)``. Hard-fails below ``min_coverage`` because past that
+    point the intersection is no longer the pocket the GNN identified.
+    """
+    per_role = {role: resolved_pocket_keys(top, resseqs, iface) for role, top in role_tops.items()}
+    common = set.intersection(*per_role.values()) if per_role else set()
+    union = set().union(*per_role.values()) if per_role else set()
+
+    excluded_termini = set()
+    if exclude_termini and role_tops:
+        bad_res = set().union(*(terminal_or_gap_adjacent(t) for t in role_tops.values()))
+        excluded_termini = {(c, s) for c, s, _ in common if (c, s) in bad_res}
+        if excluded_termini:
+            common = {k for k in common if (k[0], k[1]) not in bad_res}
+            print(f"[parity] excluding {len(excluded_termini)} terminus/gap-adjacent residue(s) "
+                  "whose SASA reflects where the crystal ends, not pocket opening: "
+                  + ", ".join(f"chain{c}:{s}" for c, s in sorted(excluded_termini)))
+            if not common:
+                sys.exit("[parity] FATAL: every pocket residue is a chain terminus or beside an "
+                         "unresolved gap. There is nothing left to measure. Re-derive the pocket "
+                         "or pass --keep-termini and interpret the result with that caveat.")
+    dropped = {role: sorted(keys - common) for role, keys in per_role.items()}
+    coverage = (len(common) / len(union)) if union else 0.0
+    res_per_role = {r: {(c, s) for c, s, _ in k} for r, k in per_role.items()}
+    common_res = {(c, s) for c, s, _ in common}
+    report = {
+        "granularity": "atom (chain_index, resSeq, atom_name)",
+        "per_role_atoms": {r: len(k) for r, k in per_role.items()},
+        "per_role_residues": {r: len(k) for r, k in res_per_role.items()},
+        "common_atoms": len(common), "union_atoms": len(union),
+        "common_residues": len(common_res),
+        "atom_coverage": round(coverage, 4),
+        "excluded_terminus_or_gap_adjacent": sorted(f"chain{c}:{s}" for c, s in excluded_termini),
+        "dropped_per_role": {r: [f"chain{c}:{s}:{n}" for c, s, n in d] for r, d in dropped.items()},
+    }
+    for role, d in dropped.items():
+        if d:
+            print(f"[parity] {role}: dropping {len(d)} atom(s) absent from another role: "
+                  + ", ".join(f"chain{c}:{s}:{n}" for c, s, n in d[:12])
+                  + (" ..." if len(d) > 12 else ""))
+    if union and coverage < min_coverage:
+        sys.exit(f"[parity] FATAL: apo/control share only {len(common)}/{len(union)} pocket "
+                 f"atoms ({coverage:.0%} < {min_coverage:.0%}). The structures do not resolve "
+                 f"the same pocket, so control-minus-apo would not be a comparison of the same "
+                 f"site. Details: {json.dumps(report, indent=2)}")
+    print(f"[parity] measuring both roles over {len(common)} shared atoms "
+          f"({len(common_res)} residues, {coverage:.1%} of the union)")
+    return common, report
+
+
 def analyze_replicate(dcd: Path, top_pdb: Path, resseqs, interface_chain_indices,
-                      ns_per_frame_hint=0.05):
+                      ns_per_frame_hint=0.05, allow_keys=None):
     md, np, pd, _ = _imports()
     traj = md.load(str(dcd), top=str(top_pdb))
     # 1) PBC fix BEFORE anything else
@@ -71,7 +187,12 @@ def analyze_replicate(dcd: Path, top_pdb: Path, resseqs, interface_chain_indices
         traj.make_molecules_whole(inplace=True)
     protein = traj.atom_slice(traj.top.select("protein"))
     ca = protein.top.select("name CA")
-    pocket_atoms = pocket_selection(protein.top, resseqs, interface_chain_indices)
+    pocket_atoms = pocket_selection(protein.top, resseqs, interface_chain_indices,
+                                    allow_keys=allow_keys)
+    if not pocket_atoms:
+        sys.exit(f"[analyze] FATAL: empty pocket selection for {dcd} — "
+                 f"resseqs={sorted(set(resseqs))[:8]}... chains={interface_chain_indices}. "
+                 f"An empty selection must fail loudly, not silently produce NaN metrics.")
     pocket_ca = [i for i in pocket_atoms if protein.top.atom(i).name == "CA"]
     # 2) align on core Ca that EXCLUDES the pocket (no circularity)
     pocket_ca_set = set(pocket_ca)
@@ -192,6 +313,14 @@ def main():
     ap = argparse.ArgumentParser(description="PCNA MD validation analysis (v2).")
     ap.add_argument("--pocket", default="aoh1996")
     ap.add_argument("--outdir", default="outputs")
+    ap.add_argument("--keep-termini", action="store_true",
+                    help="do NOT drop terminus/gap-adjacent pocket residues (their SASA "
+                         "difference is dominated by where the crystal ends; measured to be "
+                         "77.5%% of the apparent positive-control signal)")
+    ap.add_argument("--min-pocket-coverage", type=float, default=0.80,
+                    dest="min_pocket_coverage",
+                    help="Hard-fail if apo and control share less than this fraction of the "
+                         "pocket's resolved residues (default 0.80).")
     args = ap.parse_args()
 
     md, np, pd, plt = _imports()
@@ -204,6 +333,20 @@ def main():
     rows, sasa_pool = [], {}
     # role -> pdb; keep labels so the report reads apo/control not raw ids
     role_pdb = [("apo", apo_pdb)] + ([("control", ctrl_pdb)] if ctrl_pdb else [])
+
+    # ---- pocket parity: apo and control MUST be measured over the same atoms ----
+    role_tops = {}
+    for role, pdb in role_pdb:
+        tp = out / pdb / "system_solvated.pdb"
+        if tp.exists():
+            role_tops[role] = _protein_top(md, tp)
+    allow_keys, parity_report = (None, {"skipped": "only one role present"})
+    if len(role_tops) > 1:
+        allow_keys, parity_report = pocket_parity(md, role_tops, resseqs, iface,
+                                                  min_coverage=args.min_pocket_coverage,
+                                                  exclude_termini=not args.keep_termini)
+    (adir / "pocket_parity.json").write_text(json.dumps(parity_report, indent=2), encoding="utf-8")
+
     for role, pdb in role_pdb:
         base = out / pdb
         top = base / "system_solvated.pdb"
@@ -215,7 +358,7 @@ def main():
             if not dcd.exists() or dcd.stat().st_size < 100_000:
                 print(f"[skip] {pdb}/{rep_dir.name}: missing/empty DCD"); continue
             print(f"[analyze] {role} {pdb}/{rep_dir.name} ...")
-            r = analyze_replicate(dcd, top, resseqs, iface)
+            r = analyze_replicate(dcd, top, resseqs, iface, allow_keys=allow_keys)
             sasa_pool[role].extend(r.pop("_sasa_series"))
             r.update({"role": role, "pdb": pdb, "replicate": rep_dir.name}); rows.append(r)
 

@@ -104,6 +104,62 @@ def load_cluster(scores_csv: Path, cluster: str):
     return chosen, members, rows
 
 
+def sanity_check_cluster(chosen, members, rows, min_res=8, max_res=60,
+                         max_chain_frac=0.25, min_margin=0.02):
+    """Refuse to export a cluster that cannot be a pocket. Returns a diagnostics dict.
+
+    Three failure modes measured on real runs of this exact selection logic:
+      * SIZE. Ranking is by MEAN score and therefore size-blind: 49 of 59 structures
+        selected a 3-residue "pocket". A 3-residue cluster is not a druggable site.
+      * RUNAWAY. DBSCAN eps=6.0 A exceeds the consecutive CA-CA spacing in PCNA
+        (measured 3.75-3.83 A, mean 3.80), so 100% of consecutive residue pairs are within
+        eps and any contiguous above-threshold run merges. One checkpoint produced a
+        505/510-residue "cluster" -- whole-chain SASA, which cannot test pocket opening.
+      * MARGIN. The exported candidate beat a chemically different runner-up by 0.0036 mean
+        score. At that separation the candidate is not determined by the model.
+    """
+    n_res = len({(m["chain"], int(m["resid"])) for m in members})
+    per_chain = {}
+    for r in rows:
+        per_chain[r["chain"]] = per_chain.get(r["chain"], 0) + 1
+    chain_counts = {}
+    for m in members:
+        chain_counts[m["chain"]] = chain_counts.get(m["chain"], 0) + 1
+    frac = max((c / max(per_chain.get(ch, 1), 1)) for ch, c in chain_counts.items()) if chain_counts else 0.0
+
+    ids = sorted({r["cluster"] for r in rows if r["cluster"] >= 0})
+    means = sorted(
+        ((sum(r["score"] for r in rows if r["cluster"] == c)
+          / max(1, sum(1 for r in rows if r["cluster"] == c)))
+         for c in ids), reverse=True)
+    margin = (means[0] - means[1]) if len(means) > 1 else float("inf")
+
+    diag = {"n_residues": n_res, "max_chain_fraction": round(frac, 4),
+            "n_clusters": len(ids), "top_minus_runner_up": (None if margin == float("inf")
+                                                            else round(margin, 5))}
+    problems = []
+    if n_res < min_res:
+        problems.append(f"only {n_res} residues (< {min_res}): too small to be a pocket; "
+                        f"cluster ranking is by MEAN score and is size-blind")
+    if n_res > max_res:
+        problems.append(f"{n_res} residues (> {max_res}): a PCNA subunit is 255 aa; this is a "
+                        f"region, not a pocket")
+    if frac > max_chain_frac:
+        problems.append(f"covers {frac:.0%} of a chain (> {max_chain_frac:.0%}): DBSCAN eps has "
+                        f"merged the pocket into the backbone")
+    if margin < min_margin:
+        problems.append(f"top cluster beats the runner-up by only {margin:.4f} mean score "
+                        f"(< {min_margin}): the candidate is not determined by the model")
+    if problems:
+        sys.exit("[REFUSED] the selected cluster does not look like a pocket:\n"
+                 + "\n".join(f"  - {p}" for p in problems)
+                 + f"\n  diagnostics: {json.dumps(diag)}\n"
+                 "  No handoff written. Re-run selection across >=3 retrain seeds and export "
+                 "only residues stable across them, or pass --no-sanity-check to override "
+                 "(and say so explicitly in the handoff).")
+    return diag
+
+
 def main():
     ap = argparse.ArgumentParser(description="Export a GNN pocket to pocket_handoff.json (gate-enforcing).")
     ap.add_argument("--worktree", type=Path, required=True, help="path to the leakage-fixed GNN repo")
@@ -118,6 +174,9 @@ def main():
     ap.add_argument("--control-pdb", default="", help="holo/open structure, or leave blank if none")
     ap.add_argument("--scores-csv", type=Path, default=None,
                     help="override; default <worktree>/results/v3/<pdb>/scores.csv")
+    ap.add_argument("--no-sanity-check", action="store_true",
+                    help="skip the pocket plausibility guards (size / chain-fraction / margin). "
+                         "Only for deliberate experiments -- never for a release handoff.")
     ap.add_argument("--out", type=Path, default=Path("pocket_handoff.json"))
     ap.add_argument("--esm-model", default="facebook/esm2_t12_35M_UR50D")
     args = ap.parse_args()
@@ -139,6 +198,8 @@ def main():
         sys.exit(f"scores.csv not found: {scores_csv}. Run scripts/run_v3_inference.py first.")
 
     chosen, members, all_rows = load_cluster(scores_csv, args.cluster)
+    cluster_diag = ({"skipped": "--no-sanity-check"} if args.no_sanity_check
+                    else sanity_check_cluster(chosen, members, all_rows))
     # (chain, resid) PAIRS are the authoritative pocket definition. The AOH site is a
     # two-chain subunit interface, so a bare resid is ambiguous (residue 44 on chain A
     # is a DIFFERENT site than 44 on chain B). Preserve the pairing here so the handoff

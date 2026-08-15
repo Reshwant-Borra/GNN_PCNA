@@ -1,0 +1,219 @@
+{
+  "candidate": {
+    "core_3of3": [
+      {
+        "chain": "A",
+        "resid": 25,
+        "resname": "GLU"
+      },
+      {
+        "chain": "A",
+        "resid": 26,
+        "resname": "ALA"
+      },
+      {
+        "chain": "A",
+        "resid": 38,
+        "resname": "GLN"
+      },
+      {
+        "chain": "A",
+        "resid": 39,
+        "resname": "SER"
+      },
+      {
+        "chain": "A",
+        "resid": 40,
+        "resname": "MET"
+      },
+      {
+        "chain": "A",
+        "resid": 41,
+        "resname": "ASP"
+      },
+      {
+        "chain": "A",
+        "resid": 42,
+        "resname": "SER"
+      },
+      {
+        "chain": "A",
+        "resid": 44,
+        "resname": "HIS"
+      },
+      {
+        "chain": "A",
+        "resid": 45,
+        "resname": "VAL"
+      },
+      {
+        "chain": "A",
+        "resid": 46,
+        "resname": "SER"
+      },
+      {
+        "chain": "A",
+        "resid": 47,
+        "resname": "LEU"
+      }
+    ],
+    "fringe_2of3": [
+      {
+        "chain": "A",
+        "resid": 27,
+        "resname": "CYS"
+      },
+      {
+        "chain": "A",
+        "resid": 43,
+        "resname": "SER"
+      },
+      {
+        "chain": "A",
+        "resid": 232,
+        "resname": "ASP"
+      },
+      {
+        "chain": "A",
+        "resid": 233,
+        "resname": "VAL"
+      },
+      {
+        "chain": "A",
+        "resid": 234,
+        "resname": "PRO"
+      }
+    ],
+    "pdb": "1W60",
+    "primary_consensus_residues_ge_2of3": [
+      {
+        "chain": "A",
+        "resid": 25
+      },
+      {
+        "chain": "A",
+        "resid": 26
+      },
+      {
+        "chain": "A",
+        "resid": 27
+      },
+      {
+        "chain": "A",
+        "resid": 38
+      },
+      {
+        "chain": "A",
+        "resid": 39
+      },
+      {
+        "chain": "A",
+        "resid": 40
+      },
+      {
+        "chain": "A",
+        "resid": 41
+      },
+      {
+        "chain": "A",
+        "resid": 42
+      },
+      {
+        "chain": "A",
+        "resid": 43
+      },
+      {
+        "chain": "A",
+        "resid": 44
+      },
+      {
+        "chain": "A",
+        "resid": 45
+      },
+      {
+        "chain": "A",
+        "resid": 46
+      },
+      {
+        "chain": "A",
+        "resid": 47
+      },
+      {
+        "chain": "A",
+        "resid": 232
+      },
+      {
+        "chain": "A",
+        "resid": 233
+      },
+      {
+        "chain": "A",
+        "resid": 234
+      }
+    ],
+    "seed_specific_boundary_union_only": [
+      {
+        "chain": "A",
+        "resid": 231,
+        "resname": "ALA"
+      },
+      {
+        "chain": "A",
+        "resid": 250,
+        "resname": "TYR"
+      },
+      {
+        "chain": "A",
+        "resid": 251,
+        "resname": "LEU"
+      },
+      {
+        "chain": "A",
+        "resid": 252,
+        "resname": "ALA"
+      }
+    ]
+  },
+  "commands": {
+    "analysis": "./md.sh analyze",
+    "benchmark_after_gate6": "./md.sh benchmark",
+    "control_first_validation": "./md.sh control5",
+    "first_md_preparation_command": "./md.sh smoke",
+    "production_after_gate6": "./md.sh production",
+    "status": "./md.sh status",
+    "supersedes_old_direct_python_commands": true
+  },
+  "created_at": "2026-08-15T17:21:16.076968Z",
+  "do_not_start_long_production_without_human_approval": true,
+  "expected_outputs": [
+    "md_validation_4070/outputs/8GLA/rep*/production.dcd",
+    "md_validation_4070/outputs/1W60/rep*/production.dcd",
+    "md_validation_4070/outputs/analysis/summary.json",
+    "md_validation_4070/outputs/analysis/REPORT.md"
+  ],
+  "final_recommendation": "PROCEED_TO_RTX_4070_SMOKE_THROUGH_MD_SH",
+  "frozen_checkpoints": {
+    "42": "03d01eba42eb7f6da01c0147dea434b1e1797bd2302e8a178d6bbd9b19526ce5",
+    "43": "7f145d6f54d03744f71c0224df4f170ad4aab388387e242234ebffda1acae17b",
+    "44": "0a739dec47248651499942207b82139e5dea8bebfafe5ed50aabcbbdfd6aa3f6"
+  },
+  "frozen_extraction_policy": {
+    "path": "artifacts/pre_md_independent_extraction_20260815/frozen_extraction_method.json",
+    "policy_id": "independent_mcc_rank_fraction_size_weighted_cluster",
+    "sha256": "24979c81c86c012fc8cbb9d665f6a5294da6de2e30a28eb71827abfb5009abcf"
+  },
+  "gate6_status": "REQUIRED_BEFORE_PRODUCTION_MD",
+  "positive_control": {
+    "definition": "ligand-stripped holo/open PCNA AOH1996-bound structure; control-first MD must show interpretable openness contrast before candidate production replicates",
+    "pdb": "8GLA"
+  },
+  "stop_failure_conditions": [
+    "Gate-6 approval absent or not specific to this handoff",
+    "biological assembly chain count mismatch",
+    "pocket residues fail to resolve in prepared apo/control structures",
+    "PDBFixer/gemmi/OpenMM preparation reports long-bond or topology errors",
+    "short smoke test is unstable or produces invalid energies",
+    "positive-control openness is not interpretable",
+    "analysis detects severe PBC/RMSD artifacts"
+  ]
+}

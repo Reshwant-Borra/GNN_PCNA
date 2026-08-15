@@ -1,5 +1,11 @@
 # GNN-PCNA — Biological & ML validity audit (2026-07-21)
 
+HISTORICAL / SUPERSEDED STATUS NOTE (2026-08-15): this July audit is preserved as
+historical evidence. Current source of truth is `PROJECT_STATUS.md`; current MD
+execution must use `./md.sh` and `md_validation_4070/FINAL_MD_EXECUTION_INSTRUCTIONS.md`.
+Do not treat older `run_in_tmux.sh`, direct Python MD commands, or July candidate
+windows as current workflow instructions.
+
 **Scope:** the whole pipeline — structure prep, MD validation, graph/feature construction, GNN
 training/eval, PCNA inference, and claim-to-evidence alignment.
 **Method:** two independent multi-agent code audits. Every finding was **adversarially

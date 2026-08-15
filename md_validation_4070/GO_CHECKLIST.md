@@ -1,4 +1,21 @@
-# Pre-MD GO checklist — GNN pocket search → MD dynamics validation
+# Pre-MD GO Checklist
+
+HISTORICAL / SUPERSEDED.
+
+This checklist documents the older generic `cand_A_2026-08` pre-MD gate flow.
+It is not the current execution runbook. Current source of truth is
+`PROJECT_STATUS.md`; current practical commands are in
+`md_validation_4070/FINAL_MD_EXECUTION_INSTRUCTIONS.md` and must use `./md.sh`.
+
+The current frozen pocket is `final_consensus_1w60_20260815`; the current exact
+next command is:
+
+```bash
+./md.sh smoke
+```
+
+Do not use the direct `python run_md.py ... cand_A_2026-08` examples below as
+current instructions.
 
 **Definition of GO used here:** we are ready to run the GNN over the PCNA structures, score
 every residue, identify candidate pockets, and then use MD to test whether a candidate pocket

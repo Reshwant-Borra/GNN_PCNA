@@ -1,0 +1,272 @@
+# LIMITATIONS.md — Honest Scope and Known Constraints
+
+This document covers every known limitation of the GNN-PCNA project: data, labeling,
+model, validation, and reporting. Read this before interpreting any result.
+
+---
+
+## 1. Structural Data
+
+### 1.1 Asymmetric unit vs. biological assembly
+
+PDB files store the **asymmetric unit** — the minimal crystallographic repeat, not
+necessarily the biologically active form. For homotrimeric PCNA, the full ring is
+reconstructed by applying crystallographic symmetry operators.
+
+Current MD code does not simulate the raw asymmetric unit. `md_validation_4070/run_md.py`
+uses `gemmi` to build assembly 1, keeps protein chains with at least 200 residues,
+strips ligands/waters/short peptides, and renames the prepared homotrimer chains A/B/C.
+
+| PDB | Deposited/asymmetric-unit context | Current MD assembly role |
+|-----|---------------|---------------------|
+| 1W60 (apo) | two deposited polymer instances in current audit | apo/candidate 3-chain homotrimer |
+| 8GLA (open/reference control) | four deposited polymer instances, ZQZ ligand stripped for MD | open/reference 3-chain homotrimer |
+
+**Effect on this project:** older GNN/static utilities may read deposited PDB chains
+directly, but current MD preparation uses biological assemblies and hard-fails on the
+wrong PCNA chain count.
+
+Neither 1W60 nor 8GLA is in the CryptoSite pre-training split. 8GLA is used in PCNA fine-tuning (see §4.1); model weights on the CryptoSite evaluation are unaffected.
+
+Current structural caveats for MD: 8GLA is 3.77 A resolution, required 50
+internal residues rebuilt in preflight, and declares Cys135-Cys162 disulfides not
+declared in 1W60. Structure preparation is smoke-ready, not production-approved.
+
+### 1.2 Multi-chain complexes include all protein chains
+
+`parse_pdb` includes every chain that contains standard amino acids. It does not
+distinguish the "target" protein from binding partners.
+
+| PDB | Issue |
+|-----|-------|
+| 1AXC | PCNA on chains A/C/E; p21/WAF1 peptide on chains B/D/F. Parser includes B/D/F. |
+| 9B8T | Chain A = DNA polymerase epsilon catalytic subunit. PCNA = chains B/C/D. P/T = DNA strands. Pipeline restricts to PCNA chains B/C/D via `PCNA_CHAIN_WHITELIST`. |
+
+**Effect on this project:** Per-structure reports for these structures include non-PCNA
+residues. Region annotations (IDCL, AOH1996 pocket) are derived from PCNA residue numbers
+and are invalid for non-PCNA chains. Model training is unaffected — neither 1AXC nor 9B8T
+is in the training split.
+
+### 1.3 Chain one-hot encoding
+
+Node feature dims [37:40] encode chain identity as `A=100, B=010, C=001, other=000`.
+Chains beyond C (D, E, F, ...) all receive the same `000` encoding — chain identity is
+lost for those residues. For standard homotrimeric PCNA (A/B/C) this is correct. For
+structures with non-alphabetical or more than 3 chains this is a silent approximation.
+
+### 1.4 1W61 excluded
+
+1W61 is Trypanosoma cruzi proline racemase, not PCNA. It was removed from `data/raw/`,
+`data/pcna/`, and `data/pcna_xl/` and was never in the training split. See `KNOWN_BUGS.md`.
+
+---
+
+## 2. Residue Labeling
+
+### 2.1 Labels are Cα-proximity, not curated annotations
+
+Residue labels (`y = 1`) are assigned by a simple geometric rule:
+
+> **A residue is labeled positive if its Cα atom is within 6 Å of any heavy atom of the
+> ligand, as found in the deposited PDB file.**
+
+This is a computational proxy, not expert-curated pocket annotation. Residues with large
+side chains pointing *away* from the ligand but with a close Cα will be false positives;
+residues with side chains extending *toward* the ligand but a distant Cα may be missed.
+The standard in the literature is to use any heavy atom of the residue vs. any heavy atom
+of the ligand. This project uses Cα only. See `src/data_processing/parse_pdb.py:187`.
+
+### 2.2 Labels are not CryptoSite benchmark annotations
+
+The training data uses 87 proteins from the CryptoSite set but **recomputes labels from
+scratch** using the Cα-proximity rule above. The published CryptoSite benchmark uses
+expert-curated annotations. Results are not directly comparable to published CryptoSite
+AUROC numbers without accounting for this labeling difference.
+
+### 2.3 Region annotations are PCNA-specific residue-number lookups
+
+Per-structure reports annotate residues with labels like "IDCL", "AOH1996 cryptic pocket
+region", "Front-face loop". These labels are assigned by matching the residue number against
+a hardcoded lookup table derived from the PCNA structure. In structures with non-PCNA chains
+(e.g., 9B8T chain A = DNA polymerase epsilon catalytic subunit), residue numbers from the non-PCNA chain may
+accidentally match PCNA annotation ranges and receive incorrect labels. Note: 9B8T is handled
+correctly in the pipeline — chain A is excluded by `PCNA_CHAIN_WHITELIST`.
+
+---
+
+## 3. Model
+
+### 3.1 What the model does and does not learn
+
+PocketGNNXL is trained on the pattern of residue features around known cryptic pocket
+residues across 55 proteins. It learns what a cryptic pocket looks like in terms of local
+geometry, chemistry, and sequence context — it does not learn PCNA-specific biology. When
+applied to PCNA, it generalizes from that learned pattern.
+
+### 3.2 The model cannot predict dynamics
+
+The model operates on a **single static structure**. It has no access to MD trajectories,
+thermal fluctuations, or time-resolved data. High scores indicate structural similarity to
+known cryptic pocket contexts — not that a pocket will open under any specific condition.
+
+### 3.3 Scores are not calibrated probabilities
+
+The per-residue output is passed through a sigmoid and lies in (0, 1), but it is **not a
+calibrated probability**. A score of 0.8 does not mean "80% chance this residue is in a
+cryptic pocket." The 0.7 threshold used as the AOH gate is a project-defined threshold
+chosen to pass the positive control; it has no external calibration.
+
+---
+
+## 4. Validation and Metrics
+
+### 4.1 8GLA AOH gate is a positive-control check, not independent validation
+
+The model was fine-tuned using data that includes 8GLA (the AOH1996-bound structure).
+The AOH gate (mean score over AOH1996 residues > 0.7) is therefore a **sanity check**
+that the model has not catastrophically forgotten its fine-tuning signal. It is not an
+independent performance metric. See `KNOWN_BUGS.md` BUG-006 and the 8GLA entry in
+`VERIFICATION_REPORT.md` (LEAK verdict).
+
+**Additional 8GLA caveats:**
+- 8GLA is a modified PCNA structure (4 chains A–D in the asymmetric unit; chains A and B carry ZQZ, C and D do not).
+- Resolution is 3.77 Å — lower than 1W60 (3.15 Å). At this resolution, Cα positional uncertainty is ~0.4–0.5 Å, adding noise on top of the 6 Å labeling cutoff.
+- Ligand ZQZ is AOH1996-1LE, a derivative of AOH1996, not AOH1996 itself. Contact residues may differ from those of the parent compound.
+
+### 4.2 AUROC is inflated by class imbalance; AUPRC is the meaningful metric
+
+Pocket residues are sparse (~5–15% of residues). AUROC treats all thresholds equally,
+including the irrelevant large fraction where both FPR and TPR are near 0. For rare
+positive classes, AUROC is systematically optimistic.
+
+**AUPRC (mean precision at different recall levels) is the correct primary metric.**
+
+The earlier 13-protein random split evaluation is superseded because homology leakage was
+detected between train and held-out structures. Final reports must use the MMseqs2
+homology-clean split and cite AUPRC with structure-bootstrap confidence intervals:
+
+| Artifact | Required status |
+|---|---|
+| `data/splits/cryptosite_homology30_split.json` | created by MMseqs2 30% clustering |
+| `data/results/homology30_audit.json` | zero train-to-val/test cluster overlap |
+| `data/results/clean_split_evaluation.json` | three seeds and all ablations complete |
+| `data/results/clean_split_summary.md` | AUPRC primary, AUROC secondary |
+
+A model that randomly ranks residues achieves AUPRC = positive residue fraction.
+A model that perfectly ranks all pocket residues first achieves AUPRC = 1.0.
+Degenerate structures with fewer than 5 positive residues must be reported individually
+and excluded from aggregate claims.
+
+The 13 protein set spans kinase, protease, transferase, oxidoreductase, hydrolase, and
+other families distinct from PCNA, making this a cross-family transfer check. The sample
+size is still small enough that confidence intervals are wide — these numbers should not
+be overinterpreted.
+
+Full clean-split results: `data/results/clean_split_evaluation.json`
+
+Clean-split summary:
+
+| Condition | Seeds | Test AUPRC mean | 95% CI | Test AUROC mean | Degenerate test structures |
+|---|---:|---:|---|---:|---:|
+| small_geometry | 3 | 0.1551 | 0.0549-0.2426 | 0.7626 | 2 |
+| xl_geometry | 3 | 0.1923 | 0.1161-0.2682 | 0.8325 | 2 |
+| xl_esm_zero | 3 | 0.1071 | 0.0465-0.1773 | 0.6815 | 2 |
+| xl_esm_full | 3 | 0.2513 | 0.1267-0.3815 | 0.8649 | 2 |
+
+The best condition is `xl_esm_full`, so the clean benchmark should be framed as ESM2-augmented. Because `xl_esm_zero` falls to AUPRC 0.1071 and `xl_geometry` reaches 0.1923, ESM2/sequence context is a major contributor and the result should not be described as pure structural learning.
+
+**Cross-method comparison caveat:** Comparisons to PocketMiner, CryptoSite, or CryptoBench are not valid until this project is evaluated on the same split with the same label standard. This repository currently uses C-alpha ligand-proximity labels, not curated cryptic-pocket annotations.
+
+### 4.3 Homology-clean evaluation is required
+
+Validation and test structures must come from structure-level connected components, not
+individual proteins or chains. Training refuses to start when the homology audit is
+missing or reports leakage.
+
+### 4.4 PCNA xl_esm_full regeneration downgrades the final PCNA claim
+
+PCNA-specific reporting must use the clean-split `xl_esm_full` checkpoint:
+
+`checkpoints/clean_split/xl_esm_full/seed_42/best.ckpt`
+
+All PCNA tables and figures should be labeled:
+
+> ESM2-augmented GNN prioritization results.
+
+The regenerated PCNA outputs do not support a hidden-pocket discovery claim:
+
+| Item | Regenerated result |
+|---|---:|
+| PCNA structures regenerated | 59 |
+| Structures with thresholded clusters | 22 |
+| Top structure | `1W60` |
+| Top `1W60` cluster mean score | 0.710175 |
+| Top `1W60` cluster size | 4 residues |
+| Top `1W60` AOH/MD-region overlap | 3 residues |
+| `8GLA` thresholded clusters | 0 |
+| Maximum top-cluster AOH overlap across structures | 3 residues |
+
+The top `1W60` signal is biologically locatable near the front-face/PIP-box groove, but
+it is too sparse to call a recovered pocket. The full AOH1996/MD pocket is not recovered
+as a ranked cluster. Therefore the safest claim is residue prioritization and hypothesis
+generation, not hidden pocket discovery, druggability, docking readiness, or validated
+apo-to-holo opening.
+
+### 4.5 ANM and MD evidence are preliminary
+
+The ANM (Anisotropic Network Model) analysis uses a physics-based normal-mode model with
+a 7.5 Å cutoff and 20 non-trivial modes. It is a rapid coarse-grained approximation that
+correlates with full MD RMSF at r~0.6–0.8 (Eyal et al. 2006) but is not a substitute for
+all-atom molecular dynamics. Current dynamics evidence is preliminary and should not be
+treated as validation of enhanced apo pocket flexibility. Full MD simulation would be
+required before making dynamics claims.
+
+**Literature context for the fold-change value:** No published paper reports an ANM fold-change scalar as a standard benchmark metric for cryptic pockets. CryptoBench (Skrhak et al. 2024, *Bioinformatics*) reports that apo–holo backbone RMSD at cryptic sites ranges from 0.45–22.45 Å across 1,107 structures, with 67% of pairs differing by less than 3 Å. This suggests that small conformational changes (including the subtle flexibility difference we measure via ANM) are consistent with the majority of known cryptic pocket transitions, but the fold-change value is not directly comparable to any published reference range.
+
+### 4.6 MD trajectories are not final validation
+
+The MD analysis infrastructure exists in `src/md/`, and E003 records a short 6.4 ns
+apo-PCNA smoketest. This is a workflow check, not final validation. The current MD
+fold-change is below 1.0 and does not support enhanced apo pocket flexibility. Do not use
+MD figures to claim pocket opening or druggability.
+
+---
+
+## 5. Training Data Provenance
+
+### 5.1 CryptoSite proteins: asymmetric units only
+
+Training structures are downloaded as standard PDB files and parsed as-is. If a CryptoSite
+protein has an asymmetric unit that is only a fraction of the biological assembly, the model
+trained on that partial structure. This is standard practice in structure-based ML but means
+the model has not seen full symmetric assemblies for oligomeric training proteins.
+
+### 5.2 Training labels can include non-target chains
+
+For training structures that are protein-ligand complexes with multiple protein chains
+(e.g., a kinase bound to a regulatory peptide), the parser includes all protein chains.
+Residues from the non-target chain are labeled based on their Cα distance to the ligand.
+If the ligand is at the interface, interface residues from both chains receive positive
+labels. This is intentional — the model learns that interfaces near ligands can be
+pocket-like.
+
+---
+
+## 6. What Is and Is Not a Problem
+
+| Issue | Affects model? | Affects training? | What it affects |
+|-------|---------------|------------------|-----------------|
+| 1W60 asymmetric unit (2 chains) | No | No | ANM fold-change values |
+| 1AXC includes p21 peptide chains | No | No | Per-structure report annotation |
+| 9B8T chain assignment | No | No | Fixed: chain A=pol-epsilon excluded; PCNA=B/C/D analyzed |
+| Cα-only labeling (not heavy-atom) | Yes — disclosed approximation | Yes — same approximation used consistently | Label precision: ~1-2 residue boundary fuzziness |
+| Labels not curated CryptoSite annotations | Yes — by design | Yes — by design | AUROC not comparable to CryptoSite benchmark |
+| 8GLA in fine-tuning data | Yes | Yes | 8GLA AUROC is invalid as performance metric |
+| AUROC vs AUPRC framing | No | No | How results are described |
+| 0.7 threshold not calibrated | No | No | How the gate is described |
+| Preliminary MD only | No | No | Dynamics claims: workflow check only, not validation |
+| chain_onehot encoding beyond C | Minor | Minor | Structures with >3 chains or non-A/B/C chains |
+
+---
+
+*Last updated: 2026-05-23*

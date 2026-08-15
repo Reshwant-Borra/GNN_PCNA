@@ -1,4 +1,14 @@
-# Pocket handoff protocol — GNN run (Rishi, GPU) → MD validation (Advay)
+# Pocket Handoff Protocol
+
+HISTORICAL / SUPERSEDED.
+
+This document records the older Rishi/Advay handoff model. Current execution is
+launcher-first through `./md.sh` from the repository root, with current status in
+`PROJECT_STATUS.md` and practical instructions in
+`md_validation_4070/FINAL_MD_EXECUTION_INSTRUCTIONS.md`.
+
+The frozen current candidate is `final_consensus_1w60_20260815`; do not use the
+older `<name>`/`cand_A_2026-07` examples below as current commands.
 
 Clean division of labor: **Rishi's GPU does the compute**, the pocket comes out of a **real run**,
 and Advay builds the **tailored 4070 MD validation** for whatever that run identifies. This file is
@@ -29,7 +39,7 @@ recorded GATE-6 approval ref. Send that JSON back to Advay.
 
 ## Step 3 — Advay builds the tailored 4070 MD validation
 Advay converts the handoff JSON into `pockets/<name>.json` (a one-file drop — the harness is already
-parameterized) and hands back the run package. Rishi (or the friend) runs:
+parameterized) and hands back the run package. Historical command, not current:
 ```bash
 ./run_in_tmux.sh <name>          # control first, then apo, then analysis — detached, resumable
 ```

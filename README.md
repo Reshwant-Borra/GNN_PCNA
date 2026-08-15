@@ -1,72 +1,72 @@
-# GNN ResearchOS
+# GNN-PCNA
 
-Conservative autonomous research operating system for the GNN-PCNA + molecular-dynamics validation project. ResearchOS routes user requests to specialized agents, enforces scientific gates, tracks artifact provenance, and prevents claim drift. **No agent may approve its own work.**
+GNN-PCNA is a residue-level graph-neural-network and MD-validation project for prioritizing candidate PCNA pocket regions.
 
-The full design lives in `docs/`. The implementation lives in `research_os/`. Runtime state lives in `research_os_memory/`, `research_os_registries/`, and `reports/research_os/` (the last is git-ignored — regenerated on every run).
+Primary current source of truth: `PROJECT_STATUS.md`.
 
----
+Practical MD runbook: `md_validation_4070/FINAL_MD_EXECUTION_INSTRUCTIONS.md`.
 
-## For collaborators pulling this branch
+## What is being studied?
 
-1. Install once:
-   ```bash
-   pip install -e .
-   pip install pytest
-   ```
-2. Confirm everything imports + tests pass:
-   ```bash
-   python -m pytest tests/ -q
-   ```
-   You should see `58 passed`.
-3. Initialize / refresh your local runtime state:
-   ```bash
-   python -m research_os bootstrap
-   ```
-4. Run a full audit on the repo:
-   ```bash
-   python -m research_os audit
-   ```
-   The first run will block with the leakage gate at `not_started` and the validation gate at `fail`. That is **intentional** — the system refuses to let you proceed until the dataset, split protocol, and validation status are documented. See `STATUS.md` for the punch list.
+Human PCNA (UniProt P12004), especially AOH1996/ZQZ-adjacent PCNA interface regions and candidate pockets predicted from GNN residue scores.
 
----
+## Current Scientific Question
 
-## Quickstart
+The GNN identifies where on PCNA to investigate. MD tests whether that frozen predicted region reproducibly exhibits predefined accessibility, geometry, flexibility, correlated-motion, or cavity-like dynamics under the simulated conditions.
 
-```bash
-# Routing only — show which agents and gates a request would touch
-python -m research_os route "Can we say MD validated the cryptic pocket?"
+This is a hypothesis-generation workflow, not a binding-proof workflow.
 
-# Full audit workflow
-python -m research_os audit
+## What the model predicts
 
-# Targeted workflows
-python -m research_os training-eval
-python -m research_os verify-metrics --metrics path/to/results.json
-python -m research_os validate-md   --report path/to/md_report_dir
-python -m research_os claim-audit   --paper path/to/manuscript.md
-python -m research_os readiness     --paper path/to/manuscript.md
+The GNN outputs per-residue prioritization scores. Scores are clustered into candidate pocket regions. They are not calibrated binding probabilities.
 
-# Introspection
-python -m research_os inspect-memory
-python -m research_os inspect-registries
+## Training data
+
+The project uses ligand/proximity and cryptic-pocket-related proxy labels with homology/split controls. AOH1996/ZQZ contacts from PDB 8GLA are a positive-control region, not independent novelty evidence.
+
+## What MD tests
+
+MD tests whether the selected region shows interpretable dynamics/openness under a positive-control-first protocol:
+
+1. control: ligand-stripped 8GLA, open AOH1996/ZQZ site;
+2. apo: 1W60 PCNA;
+3. analysis: RMSD/RMSF/SASA/DCCM/openness with atom-parity controls.
+
+MD does not prove ligand binding, druggability, therapeutic relevance, mechanism, or experimental existence of a cryptic pocket.
+
+## Current status
+
+Frozen 1W60 GNN handoff is `MODERATE / EXPLORATORY PASS` with mean literal Jaccard `0.6792`.
+
+Structure/preparation validation is smoke-ready, the frozen analysis protocol is hashed, and infrastructure restart behavior has been validated on disposable technical runs. The 0.1 ns RTX 4070 smoke test has not yet passed in current status artifacts. Production remains blocked.
+
+```text
+PRODUCTION BLOCKED: Gate-6 human approval required.
 ```
 
-Every workflow writes a markdown + JSON report under `reports/research_os/<workflow>/<timestamp>/`.
+## Exact next command
 
----
+Run the launcher-first 0.1 ns RTX 4070 smoke test:
 
-## Design
+```bash
+./md.sh smoke
+```
 
-Read `docs/README.md` first, then walk the numbered docs in order. The key non-negotiable rules:
+## Canonical directories
 
-- The Code Builder cannot approve its own code.
-- The Model Training agent cannot approve its own metrics.
-- The Paper agent cannot approve its own claims.
-- The Validation agent cannot ignore contradictions.
-- A headline metric is invalid until Leakage **and** Metrics agents approve.
-- A biological claim is invalid until Biological Realism **and** Claim agents approve.
-- A report, checkpoint, plot, or table is unsafe until Provenance records its inputs, command, commit, environment, and status.
+- `src/` — GNN model/data/evaluation package
+- `scripts/` — GNN/data commands
+- `md_validation_4070/` — MD prep, execution, analysis, and GNN-to-MD handoff
+- `data/raw_intake/` — official source downloads
+- `data/registries/` — active project registries
+- `docs/research_base/` — facts, assumptions, decisions, inferences, sources
+- `reports/final_consolidation/` — final audit outputs
+- `artifacts/pre_md_independent_extraction_20260815/` — frozen extraction policy and final 1W60 pre-MD stability artifacts
+- `reports/strong_robustness_20260815/` and `artifacts/strong_robustness_20260815/` — post-pass stronger internal robustness audit outputs
+- `archive/` — historical material not part of the executable path
 
-## Status
+Generated/rebuildable artifact directories include `data/raw/`, `data/esm_features/`, `data/graphs*`, `checkpoints/`, `results/`, and MD trajectory outputs unless explicitly registered as final artifacts.
 
-See `STATUS.md` for what is done, what is partial, and what the human-in-the-loop owes the system before the project can move forward.
+## Research base
+
+Start at `docs/research_base/INDEX.md`.

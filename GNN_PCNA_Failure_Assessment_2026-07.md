@@ -1,6 +1,13 @@
 # GNN-PCNA — Assessment of the Failed Validation Attempt
 ### Why the last cycle stalled and why the predicted pocket "came back with no dynamics"
 
+HISTORICAL / SUPERSEDED STATUS NOTE (2026-08-15): this document is preserved as a
+post-mortem for the failed July validation attempt. Current source of truth is
+`PROJECT_STATUS.md`; current MD execution must use `./md.sh` and
+`md_validation_4070/FINAL_MD_EXECUTION_INSTRUCTIONS.md`. Do not treat older
+`run_in_tmux.sh`, direct Python MD commands, `aoh1996` run-package defaults, or
+July residue windows as current workflow instructions.
+
 **Project:** GNN-based cryptic-pocket prediction on human PCNA (Proliferating Cell Nuclear Antigen)
 **Repository:** `Reshwant-Borra/GNN_PCNA` (local: `C:/Users/advay/GNN_PNCA/`)
 **Authors of the work:** Advay (validation / MD / audit track) · Reshwant Borra (model / training / evaluation)

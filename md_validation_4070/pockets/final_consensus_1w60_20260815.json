@@ -1,0 +1,252 @@
+{
+  "pocket_name": "final_consensus_1w60_20260815",
+  "description": "Frozen GNN-identified PCNA candidate region on 1W60 under independent_mcc_rank_fraction_size_weighted_cluster. This is an exploratory MD hypothesis about where to investigate dynamics, not evidence of ligand binding, druggability, or a true cryptic pocket.",
+  "identified_on_pdb": "1W60",
+  "apo_pdb": "1W60",
+  "apo_role": "true apo human PCNA homotrimer; used to test whether the independently predicted candidate region exhibits reproducible transient accessibility/opening-like dynamics under the simulated conditions.",
+  "control_pdb": "8GLA",
+  "control_role": "AOH1996-derivative-bound PCNA reference; ligand stripped for protein-only MD. Used to test whether preparation and frozen analysis can recognize the relevant open/reference structural distinction, not to require spontaneous opening in short MD.",
+  "core_3of3": [
+    {
+      "chain": "A",
+      "resid": 25,
+      "resname": "GLU"
+    },
+    {
+      "chain": "A",
+      "resid": 26,
+      "resname": "ALA"
+    },
+    {
+      "chain": "A",
+      "resid": 38,
+      "resname": "GLN"
+    },
+    {
+      "chain": "A",
+      "resid": 39,
+      "resname": "SER"
+    },
+    {
+      "chain": "A",
+      "resid": 40,
+      "resname": "MET"
+    },
+    {
+      "chain": "A",
+      "resid": 41,
+      "resname": "ASP"
+    },
+    {
+      "chain": "A",
+      "resid": 42,
+      "resname": "SER"
+    },
+    {
+      "chain": "A",
+      "resid": 44,
+      "resname": "HIS"
+    },
+    {
+      "chain": "A",
+      "resid": 45,
+      "resname": "VAL"
+    },
+    {
+      "chain": "A",
+      "resid": 46,
+      "resname": "SER"
+    },
+    {
+      "chain": "A",
+      "resid": 47,
+      "resname": "LEU"
+    }
+  ],
+  "expected_protein_chains": 3,
+  "fringe_2of3": [
+    {
+      "chain": "A",
+      "resid": 27,
+      "resname": "CYS"
+    },
+    {
+      "chain": "A",
+      "resid": 43,
+      "resname": "SER"
+    },
+    {
+      "chain": "A",
+      "resid": 232,
+      "resname": "ASP"
+    },
+    {
+      "chain": "A",
+      "resid": 233,
+      "resname": "VAL"
+    },
+    {
+      "chain": "A",
+      "resid": 234,
+      "resname": "PRO"
+    }
+  ],
+  "frozen_policy_sha256": "24979c81c86c012fc8cbb9d665f6a5294da6de2e30a28eb71827abfb5009abcf",
+  "gate6_human_approval": "REQUIRED_BEFORE_PRODUCTION_MD",
+  "interface_chain_indices": [
+    0
+  ],
+  "min_chain_res": 200,
+  "min_chain_residues": 200,
+  "name": "final_consensus_1w60_20260815",
+  "notes": [
+    "Computational candidate only; no binding, druggability, or biological efficacy established.",
+    "Literal boundary stability is moderate; 3/3 core is the higher-confidence region."
+  ],
+  "pocket_residues": [
+    {
+      "chain": "A",
+      "resid": 25
+    },
+    {
+      "chain": "A",
+      "resid": 26
+    },
+    {
+      "chain": "A",
+      "resid": 27
+    },
+    {
+      "chain": "A",
+      "resid": 38
+    },
+    {
+      "chain": "A",
+      "resid": 39
+    },
+    {
+      "chain": "A",
+      "resid": 40
+    },
+    {
+      "chain": "A",
+      "resid": 41
+    },
+    {
+      "chain": "A",
+      "resid": 42
+    },
+    {
+      "chain": "A",
+      "resid": 43
+    },
+    {
+      "chain": "A",
+      "resid": 44
+    },
+    {
+      "chain": "A",
+      "resid": 45
+    },
+    {
+      "chain": "A",
+      "resid": 46
+    },
+    {
+      "chain": "A",
+      "resid": 47
+    },
+    {
+      "chain": "A",
+      "resid": 232
+    },
+    {
+      "chain": "A",
+      "resid": 233
+    },
+    {
+      "chain": "A",
+      "resid": 234
+    }
+  ],
+  "pocket_residues_by_chain": {
+    "A": [
+      25,
+      26,
+      27,
+      38,
+      39,
+      40,
+      41,
+      42,
+      43,
+      44,
+      45,
+      46,
+      47,
+      232,
+      233,
+      234
+    ]
+  },
+  "pocket_residues_resseq": [
+    25,
+    26,
+    27,
+    38,
+    39,
+    40,
+    41,
+    42,
+    43,
+    44,
+    45,
+    46,
+    47,
+    232,
+    233,
+    234
+  ],
+  "pocket_resseq": [
+    25,
+    26,
+    27,
+    38,
+    39,
+    40,
+    41,
+    42,
+    43,
+    44,
+    45,
+    46,
+    47,
+    232,
+    233,
+    234
+  ],
+  "uncertain_fringe_1of3": [
+    {
+      "chain": "A",
+      "resid": 231,
+      "resname": "ALA"
+    },
+    {
+      "chain": "A",
+      "resid": 250,
+      "resname": "TYR"
+    },
+    {
+      "chain": "A",
+      "resid": 251,
+      "resname": "LEU"
+    },
+    {
+      "chain": "A",
+      "resid": 252,
+      "resname": "ALA"
+    }
+  ],
+  "residue_numbering": "PDB author/auth_seq_id numbering. Candidate was selected on 1W60 chain A; PCNA is homotrimeric, so symmetry-equivalent residues must be mapped through the canonical chain mapping before analysis.",
+  "source": "final benchmark expansion handoff; derived from frozen three-seed >=2/3 consensus"
+}

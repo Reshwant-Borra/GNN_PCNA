@@ -1,0 +1,76 @@
+{
+  "derived_from": "three-seed consensus under frozen independent extraction policy",
+  "frozen_policy_sha256": "24979c81c86c012fc8cbb9d665f6a5294da6de2e30a28eb71827abfb5009abcf",
+  "gate6_human_approval": "REQUIRED_BEFORE_PRODUCTION_MD",
+  "pdb": "1W60",
+  "pocket_chains": [
+    "A"
+  ],
+  "pocket_residues": [
+    {
+      "chain": "A",
+      "resid": 25
+    },
+    {
+      "chain": "A",
+      "resid": 26
+    },
+    {
+      "chain": "A",
+      "resid": 27
+    },
+    {
+      "chain": "A",
+      "resid": 38
+    },
+    {
+      "chain": "A",
+      "resid": 39
+    },
+    {
+      "chain": "A",
+      "resid": 40
+    },
+    {
+      "chain": "A",
+      "resid": 41
+    },
+    {
+      "chain": "A",
+      "resid": 42
+    },
+    {
+      "chain": "A",
+      "resid": 43
+    },
+    {
+      "chain": "A",
+      "resid": 44
+    },
+    {
+      "chain": "A",
+      "resid": 45
+    },
+    {
+      "chain": "A",
+      "resid": 46
+    },
+    {
+      "chain": "A",
+      "resid": 47
+    },
+    {
+      "chain": "A",
+      "resid": 232
+    },
+    {
+      "chain": "A",
+      "resid": 233
+    },
+    {
+      "chain": "A",
+      "resid": 234
+    }
+  ],
+  "pre_md_stability": "PASS"
+}

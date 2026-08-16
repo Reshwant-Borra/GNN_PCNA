@@ -2,6 +2,1289 @@
   "registry": "artifact_registry",
   "id_prefix": "ART",
   "created_at": "2026-05-24T19:05:16Z",
-  "updated_at": "2026-05-24T19:05:16Z",
-  "entries": []
+  "updated_at": "2026-08-15T17:21:16.099526Z",
+  "entries": [
+    {
+      "artifact_id": "ART-0001",
+      "path": "artifacts/pre_md_independent_extraction_20260815/predeclared_extraction_selection_spec.json",
+      "artifact_type": "other",
+      "status": "current",
+      "created_at": "",
+      "updated_at": "2026-08-15T16:32:22Z",
+      "created_by_agent": "codex.pre_md_governance",
+      "git_commit": "5b2ce676c790c4aac0caa10dc4226b5a924791c0",
+      "git_dirty": true,
+      "dataset_hash": "",
+      "checkpoint_hash": "",
+      "environment_hash": "",
+      "machine": "",
+      "command": "python3 scripts/independent_extraction_gate.py select-policy",
+      "inputs": [
+        "artifacts/diagnostics/threshold_calibration_independent_20260814/calibration_scores_seed_42.csv",
+        "artifacts/diagnostics/threshold_calibration_independent_20260814/calibration_scores_seed_43.csv",
+        "artifacts/diagnostics/threshold_calibration_independent_20260814/calibration_scores_seed_44.csv"
+      ],
+      "outputs": [
+        "artifacts/pre_md_independent_extraction_20260815/predeclared_extraction_selection_spec.json"
+      ],
+      "status_reason": "",
+      "associated_claims": [],
+      "associated_experiments": [],
+      "associated_figures": [],
+      "associated_tables": [],
+      "associated_reports": [],
+      "dependencies": [],
+      "downstream_artifacts": [],
+      "notes": "sha256=87c0317f66cda0b2dff8715710fc32b64a67429367a33c87689432f6f6be2b32; label=predeclared_extraction_selection_spec"
+    },
+    {
+      "artifact_id": "ART-0002",
+      "path": "artifacts/pre_md_independent_extraction_20260815/frozen_extraction_method.json",
+      "artifact_type": "other",
+      "status": "current",
+      "created_at": "",
+      "updated_at": "2026-08-15T16:32:22Z",
+      "created_by_agent": "codex.pre_md_governance",
+      "git_commit": "5b2ce676c790c4aac0caa10dc4226b5a924791c0",
+      "git_dirty": true,
+      "dataset_hash": "",
+      "checkpoint_hash": "",
+      "environment_hash": "",
+      "machine": "",
+      "command": "python3 scripts/independent_extraction_gate.py select-policy",
+      "inputs": [
+        "ART-0001"
+      ],
+      "outputs": [
+        "artifacts/pre_md_independent_extraction_20260815/frozen_extraction_method.json"
+      ],
+      "status_reason": "",
+      "associated_claims": [],
+      "associated_experiments": [],
+      "associated_figures": [],
+      "associated_tables": [],
+      "associated_reports": [],
+      "dependencies": [
+        "ART-0001"
+      ],
+      "downstream_artifacts": [],
+      "notes": "sha256=24979c81c86c012fc8cbb9d665f6a5294da6de2e30a28eb71827abfb5009abcf; label=frozen_extraction_method"
+    },
+    {
+      "artifact_id": "ART-0003",
+      "path": "artifacts/pre_md_independent_extraction_20260815/independent_extraction_selection_results.json",
+      "artifact_type": "metric",
+      "status": "current",
+      "created_at": "",
+      "updated_at": "2026-08-15T16:32:22Z",
+      "created_by_agent": "codex.pre_md_governance",
+      "git_commit": "5b2ce676c790c4aac0caa10dc4226b5a924791c0",
+      "git_dirty": true,
+      "dataset_hash": "",
+      "checkpoint_hash": "",
+      "environment_hash": "",
+      "machine": "",
+      "command": "python3 scripts/independent_extraction_gate.py select-policy",
+      "inputs": [
+        "ART-0001",
+        "ART-0002"
+      ],
+      "outputs": [
+        "artifacts/pre_md_independent_extraction_20260815/independent_extraction_selection_results.json"
+      ],
+      "status_reason": "",
+      "associated_claims": [],
+      "associated_experiments": [],
+      "associated_figures": [],
+      "associated_tables": [],
+      "associated_reports": [],
+      "dependencies": [
+        "ART-0001",
+        "ART-0002"
+      ],
+      "downstream_artifacts": [],
+      "notes": "sha256=cbbe0ea36db20911ceea5112284eb6f7ea0581eefdc480b59f084e2e31b52b7e; label=independent_extraction_selection_results"
+    },
+    {
+      "artifact_id": "ART-0004",
+      "path": "artifacts/pre_md_independent_extraction_20260815/final_1w60_three_seed_stability_report.json",
+      "artifact_type": "metric",
+      "status": "current",
+      "created_at": "",
+      "updated_at": "2026-08-15T16:32:22Z",
+      "created_by_agent": "codex.pre_md_governance",
+      "git_commit": "5b2ce676c790c4aac0caa10dc4226b5a924791c0",
+      "git_dirty": true,
+      "dataset_hash": "",
+      "checkpoint_hash": "",
+      "environment_hash": "",
+      "machine": "",
+      "command": "python3 scripts/independent_extraction_gate.py apply-1w60",
+      "inputs": [
+        "ART-0002",
+        "artifacts/go_prep/seed_stability_scores/run0/1W60/scores.csv",
+        "artifacts/go_prep/seed_stability_scores/run1/1W60/scores.csv",
+        "artifacts/go_prep/seed_stability_scores/run2/1W60/scores.csv"
+      ],
+      "outputs": [
+        "artifacts/pre_md_independent_extraction_20260815/final_1w60_three_seed_stability_report.json"
+      ],
+      "status_reason": "",
+      "associated_claims": [],
+      "associated_experiments": [],
+      "associated_figures": [],
+      "associated_tables": [],
+      "associated_reports": [],
+      "dependencies": [
+        "ART-0002"
+      ],
+      "downstream_artifacts": [],
+      "notes": "sha256=b3eea77a72307aecf6715464b06717a73a9af3e9fd902f2c10c96b9cbb700116; label=final_1w60_stability"
+    },
+    {
+      "artifact_id": "ART-0005",
+      "path": "artifacts/pre_md_independent_extraction_20260815/final_consensus_pocket_handoff.json",
+      "artifact_type": "processed_data",
+      "status": "current",
+      "created_at": "",
+      "updated_at": "2026-08-15T16:32:22Z",
+      "created_by_agent": "codex.pre_md_governance",
+      "git_commit": "5b2ce676c790c4aac0caa10dc4226b5a924791c0",
+      "git_dirty": true,
+      "dataset_hash": "",
+      "checkpoint_hash": "",
+      "environment_hash": "",
+      "machine": "",
+      "command": "python3 scripts/independent_extraction_gate.py apply-1w60",
+      "inputs": [
+        "ART-0004"
+      ],
+      "outputs": [
+        "artifacts/pre_md_independent_extraction_20260815/final_consensus_pocket_handoff.json"
+      ],
+      "status_reason": "",
+      "associated_claims": [],
+      "associated_experiments": [],
+      "associated_figures": [],
+      "associated_tables": [],
+      "associated_reports": [],
+      "dependencies": [
+        "ART-0004"
+      ],
+      "downstream_artifacts": [],
+      "notes": "sha256=bf0c0fd772bac1f43671f9449587d0e2cd9ca252c89f8c6e93c458b6030c0c13; label=final_consensus_pocket_handoff"
+    },
+    {
+      "artifact_id": "ART-0006",
+      "path": "reports/pre_md_independent_extraction_20260815/INDEPENDENT_EXTRACTION_SELECTION_REPORT.md",
+      "artifact_type": "report",
+      "status": "current",
+      "created_at": "",
+      "updated_at": "2026-08-15T16:32:22Z",
+      "created_by_agent": "codex.pre_md_governance",
+      "git_commit": "5b2ce676c790c4aac0caa10dc4226b5a924791c0",
+      "git_dirty": true,
+      "dataset_hash": "",
+      "checkpoint_hash": "",
+      "environment_hash": "",
+      "machine": "",
+      "command": "python3 scripts/independent_extraction_gate.py select-policy",
+      "inputs": [
+        "ART-0003"
+      ],
+      "outputs": [
+        "reports/pre_md_independent_extraction_20260815/INDEPENDENT_EXTRACTION_SELECTION_REPORT.md"
+      ],
+      "status_reason": "",
+      "associated_claims": [],
+      "associated_experiments": [],
+      "associated_figures": [],
+      "associated_tables": [],
+      "associated_reports": [],
+      "dependencies": [
+        "ART-0003"
+      ],
+      "downstream_artifacts": [],
+      "notes": "sha256=35741ac0c553b35bbaafb74066755abdd8e879db7c3456af678370babfd319a6; label=independent_selection_report"
+    },
+    {
+      "artifact_id": "ART-0007",
+      "path": "reports/pre_md_independent_extraction_20260815/FINAL_1W60_THREE_SEED_STABILITY_REPORT.md",
+      "artifact_type": "report",
+      "status": "current",
+      "created_at": "",
+      "updated_at": "2026-08-15T16:32:22Z",
+      "created_by_agent": "codex.pre_md_governance",
+      "git_commit": "5b2ce676c790c4aac0caa10dc4226b5a924791c0",
+      "git_dirty": true,
+      "dataset_hash": "",
+      "checkpoint_hash": "",
+      "environment_hash": "",
+      "machine": "",
+      "command": "python3 scripts/independent_extraction_gate.py apply-1w60",
+      "inputs": [
+        "ART-0004"
+      ],
+      "outputs": [
+        "reports/pre_md_independent_extraction_20260815/FINAL_1W60_THREE_SEED_STABILITY_REPORT.md"
+      ],
+      "status_reason": "",
+      "associated_claims": [],
+      "associated_experiments": [],
+      "associated_figures": [],
+      "associated_tables": [],
+      "associated_reports": [],
+      "dependencies": [
+        "ART-0004"
+      ],
+      "downstream_artifacts": [],
+      "notes": "sha256=1f99c60ccd132f19da6d6a7ed50bc236eb1a9add91b8dd9c290b68244793e09c; label=final_1w60_report"
+    },
+    {
+      "artifact_id": "ART-0008",
+      "path": "reports/pre_md_independent_extraction_20260815/REPO_CONSOLIDATION_REPORT.md",
+      "artifact_type": "report",
+      "status": "current",
+      "created_at": "",
+      "updated_at": "2026-08-15T16:35:37Z",
+      "created_by_agent": "codex.pre_md_governance",
+      "git_commit": "5b2ce676c790c4aac0caa10dc4226b5a924791c0",
+      "git_dirty": true,
+      "dataset_hash": "",
+      "checkpoint_hash": "",
+      "environment_hash": "",
+      "machine": "",
+      "command": "source-grounded consolidation/governance pass",
+      "inputs": [
+        "ART-0001",
+        "ART-0002",
+        "ART-0003",
+        "ART-0004",
+        "ART-0005"
+      ],
+      "outputs": [
+        "reports/pre_md_independent_extraction_20260815/REPO_CONSOLIDATION_REPORT.md"
+      ],
+      "status_reason": "",
+      "associated_claims": [],
+      "associated_experiments": [],
+      "associated_figures": [],
+      "associated_tables": [],
+      "associated_reports": [],
+      "dependencies": [
+        "ART-0001",
+        "ART-0002",
+        "ART-0003",
+        "ART-0004",
+        "ART-0005"
+      ],
+      "downstream_artifacts": [],
+      "notes": "sha256=0ac1346d7faf289ac0fa741e8d4129fc743e418c6ce0b29a80e776e617dc3981; label=repo_consolidation_report"
+    },
+    {
+      "artifact_id": "ART-0009",
+      "path": "reports/pre_md_independent_extraction_20260815/METHODOLOGY_CONCORDANCE_REPORT.md",
+      "artifact_type": "report",
+      "status": "current",
+      "created_at": "",
+      "updated_at": "2026-08-15T16:35:37Z",
+      "created_by_agent": "codex.pre_md_governance",
+      "git_commit": "5b2ce676c790c4aac0caa10dc4226b5a924791c0",
+      "git_dirty": true,
+      "dataset_hash": "",
+      "checkpoint_hash": "",
+      "environment_hash": "",
+      "machine": "",
+      "command": "source-grounded consolidation/governance pass",
+      "inputs": [
+        "ART-0001",
+        "ART-0002",
+        "ART-0003",
+        "ART-0004",
+        "ART-0005"
+      ],
+      "outputs": [
+        "reports/pre_md_independent_extraction_20260815/METHODOLOGY_CONCORDANCE_REPORT.md"
+      ],
+      "status_reason": "",
+      "associated_claims": [],
+      "associated_experiments": [],
+      "associated_figures": [],
+      "associated_tables": [],
+      "associated_reports": [],
+      "dependencies": [
+        "ART-0001",
+        "ART-0002",
+        "ART-0003",
+        "ART-0004",
+        "ART-0005"
+      ],
+      "downstream_artifacts": [],
+      "notes": "sha256=bec3a37b78111add24119f6a89bdfc961c3b6f99575ff43b3d35e2a720e8662c; label=methodology_concordance_report"
+    },
+    {
+      "artifact_id": "ART-0010",
+      "path": "reports/pre_md_independent_extraction_20260815/SCIENTIFIC_KNOWLEDGE_AUDIT.md",
+      "artifact_type": "report",
+      "status": "current",
+      "created_at": "",
+      "updated_at": "2026-08-15T16:35:37Z",
+      "created_by_agent": "codex.pre_md_governance",
+      "git_commit": "5b2ce676c790c4aac0caa10dc4226b5a924791c0",
+      "git_dirty": true,
+      "dataset_hash": "",
+      "checkpoint_hash": "",
+      "environment_hash": "",
+      "machine": "",
+      "command": "source-grounded consolidation/governance pass",
+      "inputs": [
+        "ART-0001",
+        "ART-0002",
+        "ART-0003",
+        "ART-0004",
+        "ART-0005"
+      ],
+      "outputs": [
+        "reports/pre_md_independent_extraction_20260815/SCIENTIFIC_KNOWLEDGE_AUDIT.md"
+      ],
+      "status_reason": "",
+      "associated_claims": [],
+      "associated_experiments": [],
+      "associated_figures": [],
+      "associated_tables": [],
+      "associated_reports": [],
+      "dependencies": [
+        "ART-0001",
+        "ART-0002",
+        "ART-0003",
+        "ART-0004",
+        "ART-0005"
+      ],
+      "downstream_artifacts": [],
+      "notes": "sha256=120b97f859666196795d199a2e864ea6127d7ac47c4d11d7e50aef98c5e0b1ee; label=scientific_knowledge_audit"
+    },
+    {
+      "artifact_id": "ART-0011",
+      "path": "reports/pre_md_independent_extraction_20260815/REPRODUCIBILITY_REPORT.md",
+      "artifact_type": "report",
+      "status": "current",
+      "created_at": "",
+      "updated_at": "2026-08-15T16:35:37Z",
+      "created_by_agent": "codex.pre_md_governance",
+      "git_commit": "5b2ce676c790c4aac0caa10dc4226b5a924791c0",
+      "git_dirty": true,
+      "dataset_hash": "",
+      "checkpoint_hash": "",
+      "environment_hash": "",
+      "machine": "",
+      "command": "source-grounded consolidation/governance pass",
+      "inputs": [
+        "ART-0001",
+        "ART-0002",
+        "ART-0003",
+        "ART-0004",
+        "ART-0005"
+      ],
+      "outputs": [
+        "reports/pre_md_independent_extraction_20260815/REPRODUCIBILITY_REPORT.md"
+      ],
+      "status_reason": "",
+      "associated_claims": [],
+      "associated_experiments": [],
+      "associated_figures": [],
+      "associated_tables": [],
+      "associated_reports": [],
+      "dependencies": [
+        "ART-0001",
+        "ART-0002",
+        "ART-0003",
+        "ART-0004",
+        "ART-0005"
+      ],
+      "downstream_artifacts": [],
+      "notes": "sha256=4630f6c6e69dafbedb3fbe0260cfa9f532b68d3d4ab4bdb78479de57183da6be; label=reproducibility_report"
+    },
+    {
+      "artifact_id": "ART-0012",
+      "path": "artifacts/strong_robustness_20260815/strong_robustness_summary.json",
+      "artifact_type": "metric",
+      "status": "current",
+      "created_at": "2026-08-15T16:58:48Z",
+      "updated_at": "2026-08-15T16:58:48Z",
+      "created_by_agent": "codex.strong_robustness_audit",
+      "git_commit": "5b2ce676c790c4aac0caa10dc4226b5a924791c0",
+      "git_dirty": true,
+      "dataset_hash": "",
+      "checkpoint_hash": "",
+      "environment_hash": "",
+      "machine": "",
+      "command": ".venv_gnn_pcna/bin/python scripts/strong_robustness_audit.py",
+      "inputs": [
+        "artifacts/pre_md_independent_extraction_20260815/frozen_extraction_method.json",
+        "artifacts/pre_md_independent_extraction_20260815/final_1w60_three_seed_stability_report.json",
+        "artifacts/diagnostics/threshold_calibration_independent_20260814/calibration_scores_seed_42.csv",
+        "artifacts/diagnostics/threshold_calibration_independent_20260814/calibration_scores_seed_43.csv",
+        "artifacts/diagnostics/threshold_calibration_independent_20260814/calibration_scores_seed_44.csv",
+        "artifacts/go_prep/seed_stability_scores/run0/1W60/scores.csv",
+        "artifacts/go_prep/seed_stability_scores/run1/1W60/scores.csv",
+        "artifacts/go_prep/seed_stability_scores/run2/1W60/scores.csv"
+      ],
+      "outputs": [
+        "artifacts/strong_robustness_20260815/strong_robustness_summary.json"
+      ],
+      "status_reason": "",
+      "associated_claims": [],
+      "associated_experiments": [
+        "EXP-0002"
+      ],
+      "associated_figures": [],
+      "associated_tables": [],
+      "associated_reports": [],
+      "dependencies": [
+        "ART-0002",
+        "ART-0004"
+      ],
+      "downstream_artifacts": [],
+      "notes": "sha256=a72cb247a431a7e0dbaaeaa9f0d0b13974b39a881fea6ee97c60299dd8515c06; label=strong_robustness_summary; post-pass stronger internal robustness audit; no production MD started"
+    },
+    {
+      "artifact_id": "ART-0013",
+      "path": "artifacts/strong_robustness_20260815/current_06792_geometric_diagnosis.json",
+      "artifact_type": "metric",
+      "status": "current",
+      "created_at": "2026-08-15T16:58:48Z",
+      "updated_at": "2026-08-15T16:58:48Z",
+      "created_by_agent": "codex.strong_robustness_audit",
+      "git_commit": "5b2ce676c790c4aac0caa10dc4226b5a924791c0",
+      "git_dirty": true,
+      "dataset_hash": "",
+      "checkpoint_hash": "",
+      "environment_hash": "",
+      "machine": "",
+      "command": ".venv_gnn_pcna/bin/python scripts/strong_robustness_audit.py",
+      "inputs": [
+        "artifacts/pre_md_independent_extraction_20260815/frozen_extraction_method.json",
+        "artifacts/pre_md_independent_extraction_20260815/final_1w60_three_seed_stability_report.json",
+        "artifacts/diagnostics/threshold_calibration_independent_20260814/calibration_scores_seed_42.csv",
+        "artifacts/diagnostics/threshold_calibration_independent_20260814/calibration_scores_seed_43.csv",
+        "artifacts/diagnostics/threshold_calibration_independent_20260814/calibration_scores_seed_44.csv",
+        "artifacts/go_prep/seed_stability_scores/run0/1W60/scores.csv",
+        "artifacts/go_prep/seed_stability_scores/run1/1W60/scores.csv",
+        "artifacts/go_prep/seed_stability_scores/run2/1W60/scores.csv"
+      ],
+      "outputs": [
+        "artifacts/strong_robustness_20260815/current_06792_geometric_diagnosis.json"
+      ],
+      "status_reason": "",
+      "associated_claims": [],
+      "associated_experiments": [
+        "EXP-0002"
+      ],
+      "associated_figures": [],
+      "associated_tables": [],
+      "associated_reports": [],
+      "dependencies": [
+        "ART-0002",
+        "ART-0004"
+      ],
+      "downstream_artifacts": [],
+      "notes": "sha256=606ebac2e7ce48ad87c24a62944e52735fa868b63623a42a46553525a418d632; label=current_06792_geometric_diagnosis; post-pass stronger internal robustness audit; no production MD started"
+    },
+    {
+      "artifact_id": "ART-0014",
+      "path": "artifacts/strong_robustness_20260815/current_06792_residue_membership.csv",
+      "artifact_type": "table",
+      "status": "current",
+      "created_at": "2026-08-15T16:58:48Z",
+      "updated_at": "2026-08-15T16:58:48Z",
+      "created_by_agent": "codex.strong_robustness_audit",
+      "git_commit": "5b2ce676c790c4aac0caa10dc4226b5a924791c0",
+      "git_dirty": true,
+      "dataset_hash": "",
+      "checkpoint_hash": "",
+      "environment_hash": "",
+      "machine": "",
+      "command": ".venv_gnn_pcna/bin/python scripts/strong_robustness_audit.py",
+      "inputs": [
+        "artifacts/pre_md_independent_extraction_20260815/frozen_extraction_method.json",
+        "artifacts/pre_md_independent_extraction_20260815/final_1w60_three_seed_stability_report.json",
+        "artifacts/diagnostics/threshold_calibration_independent_20260814/calibration_scores_seed_42.csv",
+        "artifacts/diagnostics/threshold_calibration_independent_20260814/calibration_scores_seed_43.csv",
+        "artifacts/diagnostics/threshold_calibration_independent_20260814/calibration_scores_seed_44.csv",
+        "artifacts/go_prep/seed_stability_scores/run0/1W60/scores.csv",
+        "artifacts/go_prep/seed_stability_scores/run1/1W60/scores.csv",
+        "artifacts/go_prep/seed_stability_scores/run2/1W60/scores.csv"
+      ],
+      "outputs": [
+        "artifacts/strong_robustness_20260815/current_06792_residue_membership.csv"
+      ],
+      "status_reason": "",
+      "associated_claims": [],
+      "associated_experiments": [
+        "EXP-0002"
+      ],
+      "associated_figures": [],
+      "associated_tables": [],
+      "associated_reports": [],
+      "dependencies": [
+        "ART-0002",
+        "ART-0004"
+      ],
+      "downstream_artifacts": [],
+      "notes": "sha256=870eff5f433c5f75898e86a8384508f9ecde743d9bae44de0aae2319aef9271c; label=current_06792_residue_membership; post-pass stronger internal robustness audit; no production MD started"
+    },
+    {
+      "artifact_id": "ART-0015",
+      "path": "artifacts/strong_robustness_20260815/current_06792_membership_colored_ca.pdb",
+      "artifact_type": "processed_data",
+      "status": "current",
+      "created_at": "2026-08-15T16:58:48Z",
+      "updated_at": "2026-08-15T16:58:48Z",
+      "created_by_agent": "codex.strong_robustness_audit",
+      "git_commit": "5b2ce676c790c4aac0caa10dc4226b5a924791c0",
+      "git_dirty": true,
+      "dataset_hash": "",
+      "checkpoint_hash": "",
+      "environment_hash": "",
+      "machine": "",
+      "command": ".venv_gnn_pcna/bin/python scripts/strong_robustness_audit.py",
+      "inputs": [
+        "artifacts/pre_md_independent_extraction_20260815/frozen_extraction_method.json",
+        "artifacts/pre_md_independent_extraction_20260815/final_1w60_three_seed_stability_report.json",
+        "artifacts/diagnostics/threshold_calibration_independent_20260814/calibration_scores_seed_42.csv",
+        "artifacts/diagnostics/threshold_calibration_independent_20260814/calibration_scores_seed_43.csv",
+        "artifacts/diagnostics/threshold_calibration_independent_20260814/calibration_scores_seed_44.csv",
+        "artifacts/go_prep/seed_stability_scores/run0/1W60/scores.csv",
+        "artifacts/go_prep/seed_stability_scores/run1/1W60/scores.csv",
+        "artifacts/go_prep/seed_stability_scores/run2/1W60/scores.csv"
+      ],
+      "outputs": [
+        "artifacts/strong_robustness_20260815/current_06792_membership_colored_ca.pdb"
+      ],
+      "status_reason": "",
+      "associated_claims": [],
+      "associated_experiments": [
+        "EXP-0002"
+      ],
+      "associated_figures": [],
+      "associated_tables": [],
+      "associated_reports": [],
+      "dependencies": [
+        "ART-0002",
+        "ART-0004"
+      ],
+      "downstream_artifacts": [],
+      "notes": "sha256=b087b87ae1c1da7d3ef9c957be39ce25d6bf0aed28ec85c0345976e9e36fef31; label=current_06792_membership_colored_ca; post-pass stronger internal robustness audit; no production MD started"
+    },
+    {
+      "artifact_id": "ART-0016",
+      "path": "artifacts/strong_robustness_20260815/seed_ranking_and_calibration_diagnosis.json",
+      "artifact_type": "metric",
+      "status": "current",
+      "created_at": "2026-08-15T16:58:48Z",
+      "updated_at": "2026-08-15T16:58:48Z",
+      "created_by_agent": "codex.strong_robustness_audit",
+      "git_commit": "5b2ce676c790c4aac0caa10dc4226b5a924791c0",
+      "git_dirty": true,
+      "dataset_hash": "",
+      "checkpoint_hash": "",
+      "environment_hash": "",
+      "machine": "",
+      "command": ".venv_gnn_pcna/bin/python scripts/strong_robustness_audit.py",
+      "inputs": [
+        "artifacts/pre_md_independent_extraction_20260815/frozen_extraction_method.json",
+        "artifacts/pre_md_independent_extraction_20260815/final_1w60_three_seed_stability_report.json",
+        "artifacts/diagnostics/threshold_calibration_independent_20260814/calibration_scores_seed_42.csv",
+        "artifacts/diagnostics/threshold_calibration_independent_20260814/calibration_scores_seed_43.csv",
+        "artifacts/diagnostics/threshold_calibration_independent_20260814/calibration_scores_seed_44.csv",
+        "artifacts/go_prep/seed_stability_scores/run0/1W60/scores.csv",
+        "artifacts/go_prep/seed_stability_scores/run1/1W60/scores.csv",
+        "artifacts/go_prep/seed_stability_scores/run2/1W60/scores.csv"
+      ],
+      "outputs": [
+        "artifacts/strong_robustness_20260815/seed_ranking_and_calibration_diagnosis.json"
+      ],
+      "status_reason": "",
+      "associated_claims": [],
+      "associated_experiments": [
+        "EXP-0002"
+      ],
+      "associated_figures": [],
+      "associated_tables": [],
+      "associated_reports": [],
+      "dependencies": [
+        "ART-0002",
+        "ART-0004"
+      ],
+      "downstream_artifacts": [],
+      "notes": "sha256=efb7351efc80b30dda0ce7e730dafb71a5dbde16a196bdee5ba0f346e903480c; label=seed_ranking_and_calibration_diagnosis; post-pass stronger internal robustness audit; no production MD started"
+    },
+    {
+      "artifact_id": "ART-0017",
+      "path": "artifacts/strong_robustness_20260815/independent_method_robustness_audit.json",
+      "artifact_type": "metric",
+      "status": "current",
+      "created_at": "2026-08-15T16:58:48Z",
+      "updated_at": "2026-08-15T16:58:48Z",
+      "created_by_agent": "codex.strong_robustness_audit",
+      "git_commit": "5b2ce676c790c4aac0caa10dc4226b5a924791c0",
+      "git_dirty": true,
+      "dataset_hash": "",
+      "checkpoint_hash": "",
+      "environment_hash": "",
+      "machine": "",
+      "command": ".venv_gnn_pcna/bin/python scripts/strong_robustness_audit.py",
+      "inputs": [
+        "artifacts/pre_md_independent_extraction_20260815/frozen_extraction_method.json",
+        "artifacts/pre_md_independent_extraction_20260815/final_1w60_three_seed_stability_report.json",
+        "artifacts/diagnostics/threshold_calibration_independent_20260814/calibration_scores_seed_42.csv",
+        "artifacts/diagnostics/threshold_calibration_independent_20260814/calibration_scores_seed_43.csv",
+        "artifacts/diagnostics/threshold_calibration_independent_20260814/calibration_scores_seed_44.csv",
+        "artifacts/go_prep/seed_stability_scores/run0/1W60/scores.csv",
+        "artifacts/go_prep/seed_stability_scores/run1/1W60/scores.csv",
+        "artifacts/go_prep/seed_stability_scores/run2/1W60/scores.csv"
+      ],
+      "outputs": [
+        "artifacts/strong_robustness_20260815/independent_method_robustness_audit.json"
+      ],
+      "status_reason": "",
+      "associated_claims": [],
+      "associated_experiments": [
+        "EXP-0002"
+      ],
+      "associated_figures": [],
+      "associated_tables": [],
+      "associated_reports": [],
+      "dependencies": [
+        "ART-0002",
+        "ART-0004"
+      ],
+      "downstream_artifacts": [],
+      "notes": "sha256=4d20d550154792e13f6032944b230f13deebee2c914c8d91793389e0f50cf487; label=independent_method_robustness_audit; post-pass stronger internal robustness audit; no production MD started"
+    },
+    {
+      "artifact_id": "ART-0018",
+      "path": "artifacts/strong_robustness_20260815/independent_method_full_grid_summary.csv",
+      "artifact_type": "table",
+      "status": "current",
+      "created_at": "2026-08-15T16:58:48Z",
+      "updated_at": "2026-08-15T16:58:48Z",
+      "created_by_agent": "codex.strong_robustness_audit",
+      "git_commit": "5b2ce676c790c4aac0caa10dc4226b5a924791c0",
+      "git_dirty": true,
+      "dataset_hash": "",
+      "checkpoint_hash": "",
+      "environment_hash": "",
+      "machine": "",
+      "command": ".venv_gnn_pcna/bin/python scripts/strong_robustness_audit.py",
+      "inputs": [
+        "artifacts/pre_md_independent_extraction_20260815/frozen_extraction_method.json",
+        "artifacts/pre_md_independent_extraction_20260815/final_1w60_three_seed_stability_report.json",
+        "artifacts/diagnostics/threshold_calibration_independent_20260814/calibration_scores_seed_42.csv",
+        "artifacts/diagnostics/threshold_calibration_independent_20260814/calibration_scores_seed_43.csv",
+        "artifacts/diagnostics/threshold_calibration_independent_20260814/calibration_scores_seed_44.csv",
+        "artifacts/go_prep/seed_stability_scores/run0/1W60/scores.csv",
+        "artifacts/go_prep/seed_stability_scores/run1/1W60/scores.csv",
+        "artifacts/go_prep/seed_stability_scores/run2/1W60/scores.csv"
+      ],
+      "outputs": [
+        "artifacts/strong_robustness_20260815/independent_method_full_grid_summary.csv"
+      ],
+      "status_reason": "",
+      "associated_claims": [],
+      "associated_experiments": [
+        "EXP-0002"
+      ],
+      "associated_figures": [],
+      "associated_tables": [],
+      "associated_reports": [],
+      "dependencies": [
+        "ART-0002",
+        "ART-0004"
+      ],
+      "downstream_artifacts": [],
+      "notes": "sha256=47296f66d405c6c52172e9520c4468b8ebc389aac1daf6c5118e6ba181ef59cf; label=independent_method_full_grid_summary; post-pass stronger internal robustness audit; no production MD started"
+    },
+    {
+      "artifact_id": "ART-0019",
+      "path": "artifacts/strong_robustness_20260815/leave_one_protein_out_summary.csv",
+      "artifact_type": "table",
+      "status": "current",
+      "created_at": "2026-08-15T16:58:48Z",
+      "updated_at": "2026-08-15T16:58:48Z",
+      "created_by_agent": "codex.strong_robustness_audit",
+      "git_commit": "5b2ce676c790c4aac0caa10dc4226b5a924791c0",
+      "git_dirty": true,
+      "dataset_hash": "",
+      "checkpoint_hash": "",
+      "environment_hash": "",
+      "machine": "",
+      "command": ".venv_gnn_pcna/bin/python scripts/strong_robustness_audit.py",
+      "inputs": [
+        "artifacts/pre_md_independent_extraction_20260815/frozen_extraction_method.json",
+        "artifacts/pre_md_independent_extraction_20260815/final_1w60_three_seed_stability_report.json",
+        "artifacts/diagnostics/threshold_calibration_independent_20260814/calibration_scores_seed_42.csv",
+        "artifacts/diagnostics/threshold_calibration_independent_20260814/calibration_scores_seed_43.csv",
+        "artifacts/diagnostics/threshold_calibration_independent_20260814/calibration_scores_seed_44.csv",
+        "artifacts/go_prep/seed_stability_scores/run0/1W60/scores.csv",
+        "artifacts/go_prep/seed_stability_scores/run1/1W60/scores.csv",
+        "artifacts/go_prep/seed_stability_scores/run2/1W60/scores.csv"
+      ],
+      "outputs": [
+        "artifacts/strong_robustness_20260815/leave_one_protein_out_summary.csv"
+      ],
+      "status_reason": "",
+      "associated_claims": [],
+      "associated_experiments": [
+        "EXP-0002"
+      ],
+      "associated_figures": [],
+      "associated_tables": [],
+      "associated_reports": [],
+      "dependencies": [
+        "ART-0002",
+        "ART-0004"
+      ],
+      "downstream_artifacts": [],
+      "notes": "sha256=26d58a0bfbb57afef322307f36cc7a5586f27074804550c5f4405805cc7ae3c8; label=leave_one_protein_out_summary; post-pass stronger internal robustness audit; no production MD started"
+    },
+    {
+      "artifact_id": "ART-0020",
+      "path": "artifacts/strong_robustness_20260815/leave_one_protein_out_cases.csv",
+      "artifact_type": "table",
+      "status": "current",
+      "created_at": "2026-08-15T16:58:48Z",
+      "updated_at": "2026-08-15T16:58:48Z",
+      "created_by_agent": "codex.strong_robustness_audit",
+      "git_commit": "5b2ce676c790c4aac0caa10dc4226b5a924791c0",
+      "git_dirty": true,
+      "dataset_hash": "",
+      "checkpoint_hash": "",
+      "environment_hash": "",
+      "machine": "",
+      "command": ".venv_gnn_pcna/bin/python scripts/strong_robustness_audit.py",
+      "inputs": [
+        "artifacts/pre_md_independent_extraction_20260815/frozen_extraction_method.json",
+        "artifacts/pre_md_independent_extraction_20260815/final_1w60_three_seed_stability_report.json",
+        "artifacts/diagnostics/threshold_calibration_independent_20260814/calibration_scores_seed_42.csv",
+        "artifacts/diagnostics/threshold_calibration_independent_20260814/calibration_scores_seed_43.csv",
+        "artifacts/diagnostics/threshold_calibration_independent_20260814/calibration_scores_seed_44.csv",
+        "artifacts/go_prep/seed_stability_scores/run0/1W60/scores.csv",
+        "artifacts/go_prep/seed_stability_scores/run1/1W60/scores.csv",
+        "artifacts/go_prep/seed_stability_scores/run2/1W60/scores.csv"
+      ],
+      "outputs": [
+        "artifacts/strong_robustness_20260815/leave_one_protein_out_cases.csv"
+      ],
+      "status_reason": "",
+      "associated_claims": [],
+      "associated_experiments": [
+        "EXP-0002"
+      ],
+      "associated_figures": [],
+      "associated_tables": [],
+      "associated_reports": [],
+      "dependencies": [
+        "ART-0002",
+        "ART-0004"
+      ],
+      "downstream_artifacts": [],
+      "notes": "sha256=430a3a25122fdfe80a9873c366b91982971b7ef72a1351124814c1cc33048f19; label=leave_one_protein_out_cases; post-pass stronger internal robustness audit; no production MD started"
+    },
+    {
+      "artifact_id": "ART-0021",
+      "path": "artifacts/strong_robustness_20260815/bootstrap_policy_scores.csv",
+      "artifact_type": "table",
+      "status": "current",
+      "created_at": "2026-08-15T16:58:48Z",
+      "updated_at": "2026-08-15T16:58:48Z",
+      "created_by_agent": "codex.strong_robustness_audit",
+      "git_commit": "5b2ce676c790c4aac0caa10dc4226b5a924791c0",
+      "git_dirty": true,
+      "dataset_hash": "",
+      "checkpoint_hash": "",
+      "environment_hash": "",
+      "machine": "",
+      "command": ".venv_gnn_pcna/bin/python scripts/strong_robustness_audit.py",
+      "inputs": [
+        "artifacts/pre_md_independent_extraction_20260815/frozen_extraction_method.json",
+        "artifacts/pre_md_independent_extraction_20260815/final_1w60_three_seed_stability_report.json",
+        "artifacts/diagnostics/threshold_calibration_independent_20260814/calibration_scores_seed_42.csv",
+        "artifacts/diagnostics/threshold_calibration_independent_20260814/calibration_scores_seed_43.csv",
+        "artifacts/diagnostics/threshold_calibration_independent_20260814/calibration_scores_seed_44.csv",
+        "artifacts/go_prep/seed_stability_scores/run0/1W60/scores.csv",
+        "artifacts/go_prep/seed_stability_scores/run1/1W60/scores.csv",
+        "artifacts/go_prep/seed_stability_scores/run2/1W60/scores.csv"
+      ],
+      "outputs": [
+        "artifacts/strong_robustness_20260815/bootstrap_policy_scores.csv"
+      ],
+      "status_reason": "",
+      "associated_claims": [],
+      "associated_experiments": [
+        "EXP-0002"
+      ],
+      "associated_figures": [],
+      "associated_tables": [],
+      "associated_reports": [],
+      "dependencies": [
+        "ART-0002",
+        "ART-0004"
+      ],
+      "downstream_artifacts": [],
+      "notes": "sha256=a0ccbbf25c51630ba400425075d50a51a3e2eefa94a4725561037bc46f878f1f; label=bootstrap_policy_scores; post-pass stronger internal robustness audit; no production MD started"
+    },
+    {
+      "artifact_id": "ART-0022",
+      "path": "artifacts/strong_robustness_20260815/independent_selection_file_read_log.json",
+      "artifact_type": "metric",
+      "status": "current",
+      "created_at": "2026-08-15T16:58:48Z",
+      "updated_at": "2026-08-15T16:58:48Z",
+      "created_by_agent": "codex.strong_robustness_audit",
+      "git_commit": "5b2ce676c790c4aac0caa10dc4226b5a924791c0",
+      "git_dirty": true,
+      "dataset_hash": "",
+      "checkpoint_hash": "",
+      "environment_hash": "",
+      "machine": "",
+      "command": ".venv_gnn_pcna/bin/python scripts/strong_robustness_audit.py",
+      "inputs": [
+        "artifacts/pre_md_independent_extraction_20260815/frozen_extraction_method.json",
+        "artifacts/pre_md_independent_extraction_20260815/final_1w60_three_seed_stability_report.json",
+        "artifacts/diagnostics/threshold_calibration_independent_20260814/calibration_scores_seed_42.csv",
+        "artifacts/diagnostics/threshold_calibration_independent_20260814/calibration_scores_seed_43.csv",
+        "artifacts/diagnostics/threshold_calibration_independent_20260814/calibration_scores_seed_44.csv",
+        "artifacts/go_prep/seed_stability_scores/run0/1W60/scores.csv",
+        "artifacts/go_prep/seed_stability_scores/run1/1W60/scores.csv",
+        "artifacts/go_prep/seed_stability_scores/run2/1W60/scores.csv"
+      ],
+      "outputs": [
+        "artifacts/strong_robustness_20260815/independent_selection_file_read_log.json"
+      ],
+      "status_reason": "",
+      "associated_claims": [],
+      "associated_experiments": [
+        "EXP-0002"
+      ],
+      "associated_figures": [],
+      "associated_tables": [],
+      "associated_reports": [],
+      "dependencies": [
+        "ART-0002",
+        "ART-0004"
+      ],
+      "downstream_artifacts": [],
+      "notes": "sha256=c7f590d43c91f0e2b3bd344dbfbf52528ab2ab8a3f4fec86ae457b2c1114a7dc; label=independent_selection_file_read_log; post-pass stronger internal robustness audit; no production MD started"
+    },
+    {
+      "artifact_id": "ART-0023",
+      "path": "reports/strong_robustness_20260815/CURRENT_06792_GEOMETRIC_DIAGNOSIS.md",
+      "artifact_type": "report",
+      "status": "current",
+      "created_at": "2026-08-15T16:58:48Z",
+      "updated_at": "2026-08-15T16:58:48Z",
+      "created_by_agent": "codex.strong_robustness_audit",
+      "git_commit": "5b2ce676c790c4aac0caa10dc4226b5a924791c0",
+      "git_dirty": true,
+      "dataset_hash": "",
+      "checkpoint_hash": "",
+      "environment_hash": "",
+      "machine": "",
+      "command": ".venv_gnn_pcna/bin/python scripts/strong_robustness_audit.py",
+      "inputs": [
+        "artifacts/pre_md_independent_extraction_20260815/frozen_extraction_method.json",
+        "artifacts/pre_md_independent_extraction_20260815/final_1w60_three_seed_stability_report.json",
+        "artifacts/diagnostics/threshold_calibration_independent_20260814/calibration_scores_seed_42.csv",
+        "artifacts/diagnostics/threshold_calibration_independent_20260814/calibration_scores_seed_43.csv",
+        "artifacts/diagnostics/threshold_calibration_independent_20260814/calibration_scores_seed_44.csv",
+        "artifacts/go_prep/seed_stability_scores/run0/1W60/scores.csv",
+        "artifacts/go_prep/seed_stability_scores/run1/1W60/scores.csv",
+        "artifacts/go_prep/seed_stability_scores/run2/1W60/scores.csv"
+      ],
+      "outputs": [
+        "reports/strong_robustness_20260815/CURRENT_06792_GEOMETRIC_DIAGNOSIS.md"
+      ],
+      "status_reason": "",
+      "associated_claims": [],
+      "associated_experiments": [
+        "EXP-0002"
+      ],
+      "associated_figures": [],
+      "associated_tables": [],
+      "associated_reports": [],
+      "dependencies": [
+        "ART-0002",
+        "ART-0004"
+      ],
+      "downstream_artifacts": [],
+      "notes": "sha256=60d62437f1fe11881cfb0dab7f773bd062774cb5d3c7bf4701b6dbb7f78c81ca; label=current_06792_geometric_diagnosis_report; post-pass stronger internal robustness audit; no production MD started"
+    },
+    {
+      "artifact_id": "ART-0024",
+      "path": "reports/strong_robustness_20260815/SEED_RANKING_AND_CALIBRATION_DIAGNOSIS.md",
+      "artifact_type": "report",
+      "status": "current",
+      "created_at": "2026-08-15T16:58:48Z",
+      "updated_at": "2026-08-15T16:58:48Z",
+      "created_by_agent": "codex.strong_robustness_audit",
+      "git_commit": "5b2ce676c790c4aac0caa10dc4226b5a924791c0",
+      "git_dirty": true,
+      "dataset_hash": "",
+      "checkpoint_hash": "",
+      "environment_hash": "",
+      "machine": "",
+      "command": ".venv_gnn_pcna/bin/python scripts/strong_robustness_audit.py",
+      "inputs": [
+        "artifacts/pre_md_independent_extraction_20260815/frozen_extraction_method.json",
+        "artifacts/pre_md_independent_extraction_20260815/final_1w60_three_seed_stability_report.json",
+        "artifacts/diagnostics/threshold_calibration_independent_20260814/calibration_scores_seed_42.csv",
+        "artifacts/diagnostics/threshold_calibration_independent_20260814/calibration_scores_seed_43.csv",
+        "artifacts/diagnostics/threshold_calibration_independent_20260814/calibration_scores_seed_44.csv",
+        "artifacts/go_prep/seed_stability_scores/run0/1W60/scores.csv",
+        "artifacts/go_prep/seed_stability_scores/run1/1W60/scores.csv",
+        "artifacts/go_prep/seed_stability_scores/run2/1W60/scores.csv"
+      ],
+      "outputs": [
+        "reports/strong_robustness_20260815/SEED_RANKING_AND_CALIBRATION_DIAGNOSIS.md"
+      ],
+      "status_reason": "",
+      "associated_claims": [],
+      "associated_experiments": [
+        "EXP-0002"
+      ],
+      "associated_figures": [],
+      "associated_tables": [],
+      "associated_reports": [],
+      "dependencies": [
+        "ART-0002",
+        "ART-0004"
+      ],
+      "downstream_artifacts": [],
+      "notes": "sha256=5d609c59f0b8e566b1aae5d5023668756c75ae6fc9dfae3d35e00abfd552bb04; label=seed_ranking_and_calibration_report; post-pass stronger internal robustness audit; no production MD started"
+    },
+    {
+      "artifact_id": "ART-0025",
+      "path": "reports/strong_robustness_20260815/INDEPENDENT_METHOD_ROBUSTNESS_AUDIT.md",
+      "artifact_type": "report",
+      "status": "current",
+      "created_at": "2026-08-15T16:58:48Z",
+      "updated_at": "2026-08-15T16:58:48Z",
+      "created_by_agent": "codex.strong_robustness_audit",
+      "git_commit": "5b2ce676c790c4aac0caa10dc4226b5a924791c0",
+      "git_dirty": true,
+      "dataset_hash": "",
+      "checkpoint_hash": "",
+      "environment_hash": "",
+      "machine": "",
+      "command": ".venv_gnn_pcna/bin/python scripts/strong_robustness_audit.py",
+      "inputs": [
+        "artifacts/pre_md_independent_extraction_20260815/frozen_extraction_method.json",
+        "artifacts/pre_md_independent_extraction_20260815/final_1w60_three_seed_stability_report.json",
+        "artifacts/diagnostics/threshold_calibration_independent_20260814/calibration_scores_seed_42.csv",
+        "artifacts/diagnostics/threshold_calibration_independent_20260814/calibration_scores_seed_43.csv",
+        "artifacts/diagnostics/threshold_calibration_independent_20260814/calibration_scores_seed_44.csv",
+        "artifacts/go_prep/seed_stability_scores/run0/1W60/scores.csv",
+        "artifacts/go_prep/seed_stability_scores/run1/1W60/scores.csv",
+        "artifacts/go_prep/seed_stability_scores/run2/1W60/scores.csv"
+      ],
+      "outputs": [
+        "reports/strong_robustness_20260815/INDEPENDENT_METHOD_ROBUSTNESS_AUDIT.md"
+      ],
+      "status_reason": "",
+      "associated_claims": [],
+      "associated_experiments": [
+        "EXP-0002"
+      ],
+      "associated_figures": [],
+      "associated_tables": [],
+      "associated_reports": [],
+      "dependencies": [
+        "ART-0002",
+        "ART-0004"
+      ],
+      "downstream_artifacts": [],
+      "notes": "sha256=e78a5b7d7bea0c3ad1a0426f5de69c6f90c10c1ba79b47c7ad0658edaee29310; label=independent_method_robustness_audit_report; post-pass stronger internal robustness audit; no production MD started"
+    },
+    {
+      "artifact_id": "ART-0026",
+      "path": "reports/strong_robustness_20260815/VALIDATION_SET_ADEQUACY_REPORT.md",
+      "artifact_type": "report",
+      "status": "current",
+      "created_at": "2026-08-15T16:58:48Z",
+      "updated_at": "2026-08-15T16:58:48Z",
+      "created_by_agent": "codex.strong_robustness_audit",
+      "git_commit": "5b2ce676c790c4aac0caa10dc4226b5a924791c0",
+      "git_dirty": true,
+      "dataset_hash": "",
+      "checkpoint_hash": "",
+      "environment_hash": "",
+      "machine": "",
+      "command": ".venv_gnn_pcna/bin/python scripts/strong_robustness_audit.py",
+      "inputs": [
+        "artifacts/pre_md_independent_extraction_20260815/frozen_extraction_method.json",
+        "artifacts/pre_md_independent_extraction_20260815/final_1w60_three_seed_stability_report.json",
+        "artifacts/diagnostics/threshold_calibration_independent_20260814/calibration_scores_seed_42.csv",
+        "artifacts/diagnostics/threshold_calibration_independent_20260814/calibration_scores_seed_43.csv",
+        "artifacts/diagnostics/threshold_calibration_independent_20260814/calibration_scores_seed_44.csv",
+        "artifacts/go_prep/seed_stability_scores/run0/1W60/scores.csv",
+        "artifacts/go_prep/seed_stability_scores/run1/1W60/scores.csv",
+        "artifacts/go_prep/seed_stability_scores/run2/1W60/scores.csv"
+      ],
+      "outputs": [
+        "reports/strong_robustness_20260815/VALIDATION_SET_ADEQUACY_REPORT.md"
+      ],
+      "status_reason": "",
+      "associated_claims": [],
+      "associated_experiments": [
+        "EXP-0002"
+      ],
+      "associated_figures": [],
+      "associated_tables": [],
+      "associated_reports": [],
+      "dependencies": [
+        "ART-0002",
+        "ART-0004"
+      ],
+      "downstream_artifacts": [],
+      "notes": "sha256=cd48018dae161ac824c0049670cdb91765673f51084023df1854a8c13408f247; label=validation_set_adequacy_report; post-pass stronger internal robustness audit; no production MD started"
+    },
+    {
+      "artifact_id": "ART-0027",
+      "path": "reports/strong_robustness_20260815/LEAVE_ONE_PROTEIN_OUT_EXTRACTION_REPORT.md",
+      "artifact_type": "report",
+      "status": "current",
+      "created_at": "2026-08-15T16:58:48Z",
+      "updated_at": "2026-08-15T16:58:48Z",
+      "created_by_agent": "codex.strong_robustness_audit",
+      "git_commit": "5b2ce676c790c4aac0caa10dc4226b5a924791c0",
+      "git_dirty": true,
+      "dataset_hash": "",
+      "checkpoint_hash": "",
+      "environment_hash": "",
+      "machine": "",
+      "command": ".venv_gnn_pcna/bin/python scripts/strong_robustness_audit.py",
+      "inputs": [
+        "artifacts/pre_md_independent_extraction_20260815/frozen_extraction_method.json",
+        "artifacts/pre_md_independent_extraction_20260815/final_1w60_three_seed_stability_report.json",
+        "artifacts/diagnostics/threshold_calibration_independent_20260814/calibration_scores_seed_42.csv",
+        "artifacts/diagnostics/threshold_calibration_independent_20260814/calibration_scores_seed_43.csv",
+        "artifacts/diagnostics/threshold_calibration_independent_20260814/calibration_scores_seed_44.csv",
+        "artifacts/go_prep/seed_stability_scores/run0/1W60/scores.csv",
+        "artifacts/go_prep/seed_stability_scores/run1/1W60/scores.csv",
+        "artifacts/go_prep/seed_stability_scores/run2/1W60/scores.csv"
+      ],
+      "outputs": [
+        "reports/strong_robustness_20260815/LEAVE_ONE_PROTEIN_OUT_EXTRACTION_REPORT.md"
+      ],
+      "status_reason": "",
+      "associated_claims": [],
+      "associated_experiments": [
+        "EXP-0002"
+      ],
+      "associated_figures": [],
+      "associated_tables": [],
+      "associated_reports": [],
+      "dependencies": [
+        "ART-0002",
+        "ART-0004"
+      ],
+      "downstream_artifacts": [],
+      "notes": "sha256=cdfb6b28213d083781a764347fd93a34fabcfd9410f6843027aed00182d09a0b; label=leave_one_protein_out_report; post-pass stronger internal robustness audit; no production MD started"
+    },
+    {
+      "artifact_id": "ART-0028",
+      "path": "reports/strong_robustness_20260815/SCALE_INVARIANT_METHOD_COMPARISON.md",
+      "artifact_type": "report",
+      "status": "current",
+      "created_at": "2026-08-15T16:58:48Z",
+      "updated_at": "2026-08-15T16:58:48Z",
+      "created_by_agent": "codex.strong_robustness_audit",
+      "git_commit": "5b2ce676c790c4aac0caa10dc4226b5a924791c0",
+      "git_dirty": true,
+      "dataset_hash": "",
+      "checkpoint_hash": "",
+      "environment_hash": "",
+      "machine": "",
+      "command": ".venv_gnn_pcna/bin/python scripts/strong_robustness_audit.py",
+      "inputs": [
+        "artifacts/pre_md_independent_extraction_20260815/frozen_extraction_method.json",
+        "artifacts/pre_md_independent_extraction_20260815/final_1w60_three_seed_stability_report.json",
+        "artifacts/diagnostics/threshold_calibration_independent_20260814/calibration_scores_seed_42.csv",
+        "artifacts/diagnostics/threshold_calibration_independent_20260814/calibration_scores_seed_43.csv",
+        "artifacts/diagnostics/threshold_calibration_independent_20260814/calibration_scores_seed_44.csv",
+        "artifacts/go_prep/seed_stability_scores/run0/1W60/scores.csv",
+        "artifacts/go_prep/seed_stability_scores/run1/1W60/scores.csv",
+        "artifacts/go_prep/seed_stability_scores/run2/1W60/scores.csv"
+      ],
+      "outputs": [
+        "reports/strong_robustness_20260815/SCALE_INVARIANT_METHOD_COMPARISON.md"
+      ],
+      "status_reason": "",
+      "associated_claims": [],
+      "associated_experiments": [
+        "EXP-0002"
+      ],
+      "associated_figures": [],
+      "associated_tables": [],
+      "associated_reports": [],
+      "dependencies": [
+        "ART-0002",
+        "ART-0004"
+      ],
+      "downstream_artifacts": [],
+      "notes": "sha256=2c5353a6c813a1400bac3963dbfece9a1a57531b9c0a11aac035088e9751c007; label=scale_invariant_method_comparison_report; post-pass stronger internal robustness audit; no production MD started"
+    },
+    {
+      "artifact_id": "ART-0029",
+      "path": "reports/strong_robustness_20260815/POCKET_CORE_VS_FRINGE_ANALYSIS.md",
+      "artifact_type": "report",
+      "status": "current",
+      "created_at": "2026-08-15T16:58:48Z",
+      "updated_at": "2026-08-15T16:58:48Z",
+      "created_by_agent": "codex.strong_robustness_audit",
+      "git_commit": "5b2ce676c790c4aac0caa10dc4226b5a924791c0",
+      "git_dirty": true,
+      "dataset_hash": "",
+      "checkpoint_hash": "",
+      "environment_hash": "",
+      "machine": "",
+      "command": ".venv_gnn_pcna/bin/python scripts/strong_robustness_audit.py",
+      "inputs": [
+        "artifacts/pre_md_independent_extraction_20260815/frozen_extraction_method.json",
+        "artifacts/pre_md_independent_extraction_20260815/final_1w60_three_seed_stability_report.json",
+        "artifacts/diagnostics/threshold_calibration_independent_20260814/calibration_scores_seed_42.csv",
+        "artifacts/diagnostics/threshold_calibration_independent_20260814/calibration_scores_seed_43.csv",
+        "artifacts/diagnostics/threshold_calibration_independent_20260814/calibration_scores_seed_44.csv",
+        "artifacts/go_prep/seed_stability_scores/run0/1W60/scores.csv",
+        "artifacts/go_prep/seed_stability_scores/run1/1W60/scores.csv",
+        "artifacts/go_prep/seed_stability_scores/run2/1W60/scores.csv"
+      ],
+      "outputs": [
+        "reports/strong_robustness_20260815/POCKET_CORE_VS_FRINGE_ANALYSIS.md"
+      ],
+      "status_reason": "",
+      "associated_claims": [],
+      "associated_experiments": [
+        "EXP-0002"
+      ],
+      "associated_figures": [],
+      "associated_tables": [],
+      "associated_reports": [],
+      "dependencies": [
+        "ART-0002",
+        "ART-0004"
+      ],
+      "downstream_artifacts": [],
+      "notes": "sha256=bdab474b7a205aa40fd3a12732943b2168d0c211c42bc793af6e078ac75d0887; label=pocket_core_vs_fringe_report; post-pass stronger internal robustness audit; no production MD started"
+    },
+    {
+      "artifact_id": "ART-0030",
+      "path": "reports/strong_robustness_20260815/ENSEMBLE_FEASIBILITY_REPORT.md",
+      "artifact_type": "report",
+      "status": "current",
+      "created_at": "2026-08-15T16:58:48Z",
+      "updated_at": "2026-08-15T16:58:48Z",
+      "created_by_agent": "codex.strong_robustness_audit",
+      "git_commit": "5b2ce676c790c4aac0caa10dc4226b5a924791c0",
+      "git_dirty": true,
+      "dataset_hash": "",
+      "checkpoint_hash": "",
+      "environment_hash": "",
+      "machine": "",
+      "command": ".venv_gnn_pcna/bin/python scripts/strong_robustness_audit.py",
+      "inputs": [
+        "artifacts/pre_md_independent_extraction_20260815/frozen_extraction_method.json",
+        "artifacts/pre_md_independent_extraction_20260815/final_1w60_three_seed_stability_report.json",
+        "artifacts/diagnostics/threshold_calibration_independent_20260814/calibration_scores_seed_42.csv",
+        "artifacts/diagnostics/threshold_calibration_independent_20260814/calibration_scores_seed_43.csv",
+        "artifacts/diagnostics/threshold_calibration_independent_20260814/calibration_scores_seed_44.csv",
+        "artifacts/go_prep/seed_stability_scores/run0/1W60/scores.csv",
+        "artifacts/go_prep/seed_stability_scores/run1/1W60/scores.csv",
+        "artifacts/go_prep/seed_stability_scores/run2/1W60/scores.csv"
+      ],
+      "outputs": [
+        "reports/strong_robustness_20260815/ENSEMBLE_FEASIBILITY_REPORT.md"
+      ],
+      "status_reason": "",
+      "associated_claims": [],
+      "associated_experiments": [
+        "EXP-0002"
+      ],
+      "associated_figures": [],
+      "associated_tables": [],
+      "associated_reports": [],
+      "dependencies": [
+        "ART-0002",
+        "ART-0004"
+      ],
+      "downstream_artifacts": [],
+      "notes": "sha256=2001626d7b8dfa6239e5eb7b4e4e0f4037213061e2f0b9a9cbacb2971268172c; label=ensemble_feasibility_report; post-pass stronger internal robustness audit; no production MD started"
+    },
+    {
+      "artifact_id": "ART-0031",
+      "path": "reports/strong_robustness_20260815/RETRAINING_NECESSITY_ASSESSMENT.md",
+      "artifact_type": "report",
+      "status": "current",
+      "created_at": "2026-08-15T16:58:48Z",
+      "updated_at": "2026-08-15T16:58:48Z",
+      "created_by_agent": "codex.strong_robustness_audit",
+      "git_commit": "5b2ce676c790c4aac0caa10dc4226b5a924791c0",
+      "git_dirty": true,
+      "dataset_hash": "",
+      "checkpoint_hash": "",
+      "environment_hash": "",
+      "machine": "",
+      "command": ".venv_gnn_pcna/bin/python scripts/strong_robustness_audit.py",
+      "inputs": [
+        "artifacts/pre_md_independent_extraction_20260815/frozen_extraction_method.json",
+        "artifacts/pre_md_independent_extraction_20260815/final_1w60_three_seed_stability_report.json",
+        "artifacts/diagnostics/threshold_calibration_independent_20260814/calibration_scores_seed_42.csv",
+        "artifacts/diagnostics/threshold_calibration_independent_20260814/calibration_scores_seed_43.csv",
+        "artifacts/diagnostics/threshold_calibration_independent_20260814/calibration_scores_seed_44.csv",
+        "artifacts/go_prep/seed_stability_scores/run0/1W60/scores.csv",
+        "artifacts/go_prep/seed_stability_scores/run1/1W60/scores.csv",
+        "artifacts/go_prep/seed_stability_scores/run2/1W60/scores.csv"
+      ],
+      "outputs": [
+        "reports/strong_robustness_20260815/RETRAINING_NECESSITY_ASSESSMENT.md"
+      ],
+      "status_reason": "",
+      "associated_claims": [],
+      "associated_experiments": [
+        "EXP-0002"
+      ],
+      "associated_figures": [],
+      "associated_tables": [],
+      "associated_reports": [],
+      "dependencies": [
+        "ART-0002",
+        "ART-0004"
+      ],
+      "downstream_artifacts": [],
+      "notes": "sha256=e2ab138722ffd38ac48f6411432fd0a86de55d8c34bfb6be078f892d3c198b31; label=retraining_necessity_assessment; post-pass stronger internal robustness audit; no production MD started"
+    },
+    {
+      "artifact_id": "ART-0032",
+      "path": "artifacts/final_benchmark_expansion_20260815/all_candidate_structures.csv",
+      "artifact_type": "processed_data",
+      "status": "current",
+      "created_at": "2026-08-15T17:19:50.674163Z",
+      "updated_at": "2026-08-15T17:19:50.674164Z",
+      "created_by_agent": "codex.final_benchmark_expansion",
+      "git_commit": "5b2ce676c790c4aac0caa10dc4226b5a924791c0",
+      "git_dirty": true,
+      "command": ".venv_gnn_pcna/bin/python scripts/final_benchmark_expansion_20260815.py",
+      "inputs": [
+        "data/results/split_integrity_520.json",
+        "data/results/homology30_audit.json",
+        "archive/historical_desktop_gnn_pcna_202605_phase2_phase4/data/labels/label_manifest.json",
+        "artifacts/strong_robustness_20260815/independent_method_robustness_audit.json"
+      ],
+      "outputs": [
+        "artifacts/final_benchmark_expansion_20260815/all_candidate_structures.csv",
+        "FINAL_BENCHMARK_ELIGIBILITY_REPORT.md"
+      ]
+    }
+  ]
 }

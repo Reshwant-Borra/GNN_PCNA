@@ -1,0 +1,99 @@
+{
+  "source": "Biopython ShrakeRupley and CA geometry on PDBFixer-prepared protein-only assemblies from preflight_outputs_min5000.",
+  "regions": {
+    "core_3of3": {
+      "1W60": {
+        "n_residues": 11,
+        "sasa_A2": 471.714,
+        "ca_rg_A": 6.056,
+        "ca_max_pair_distance_A": 15.44,
+        "ca_convex_hull_volume_A3": 184.252
+      },
+      "8GLA": {
+        "n_residues": 11,
+        "sasa_A2": 530.919,
+        "ca_rg_A": 6.127,
+        "ca_max_pair_distance_A": 15.606,
+        "ca_convex_hull_volume_A3": 185.313
+      },
+      "control_minus_apo": {
+        "sasa_A2": 59.205,
+        "ca_rg_A": 0.071,
+        "ca_max_pair_distance_A": 0.166,
+        "ca_convex_hull_volume_A3": 1.061
+      }
+    },
+    "supported_ge2of3": {
+      "1W60": {
+        "n_residues": 16,
+        "sasa_A2": 778.027,
+        "ca_rg_A": 9.102,
+        "ca_max_pair_distance_A": 28.55,
+        "ca_convex_hull_volume_A3": 511.12
+      },
+      "8GLA": {
+        "n_residues": 16,
+        "sasa_A2": 839.109,
+        "ca_rg_A": 9.126,
+        "ca_max_pair_distance_A": 28.381,
+        "ca_convex_hull_volume_A3": 610.253
+      },
+      "control_minus_apo": {
+        "sasa_A2": 61.082,
+        "ca_rg_A": 0.024,
+        "ca_max_pair_distance_A": -0.169,
+        "ca_convex_hull_volume_A3": 99.133
+      }
+    },
+    "full_union_exploratory": {
+      "1W60": {
+        "n_residues": 20,
+        "sasa_A2": 886.56,
+        "ca_rg_A": 9.506,
+        "ca_max_pair_distance_A": 30.44,
+        "ca_convex_hull_volume_A3": 749.953
+      },
+      "8GLA": {
+        "n_residues": 20,
+        "sasa_A2": 938.598,
+        "ca_rg_A": 9.473,
+        "ca_max_pair_distance_A": 29.342,
+        "ca_convex_hull_volume_A3": 888.507
+      },
+      "control_minus_apo": {
+        "sasa_A2": 52.038,
+        "ca_rg_A": -0.033,
+        "ca_max_pair_distance_A": -1.098,
+        "ca_convex_hull_volume_A3": 138.554
+      }
+    }
+  },
+  "atom_parity": {
+    "core_3of3": {
+      "1W60_heavy_atoms": 82,
+      "8GLA_heavy_atoms": 82,
+      "common_heavy_atoms": 82,
+      "union_heavy_atoms": 82,
+      "coverage": 1.0
+    },
+    "supported_ge2of3": {
+      "1W60_heavy_atoms": 116,
+      "8GLA_heavy_atoms": 116,
+      "common_heavy_atoms": 116,
+      "union_heavy_atoms": 116,
+      "coverage": 1.0
+    },
+    "full_union_exploratory": {
+      "1W60_heavy_atoms": 146,
+      "8GLA_heavy_atoms": 146,
+      "common_heavy_atoms": 146,
+      "union_heavy_atoms": 146,
+      "coverage": 1.0
+    }
+  },
+  "reference_midpoint_thresholds": {
+    "core_sasa_A2": 501.317,
+    "supported_sasa_A2": 808.568,
+    "supported_ca_convex_hull_volume_A3": 560.687
+  }
+}

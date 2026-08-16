@@ -1,0 +1,7 @@
+method,scale_invariant,description,seed42_selected,seed43_selected,seed44_selected,seed42_top_cluster_n,seed43_top_cluster_n,seed44_top_cluster_n,jaccard_42_43,jaccard_42_44,jaccard_43_44,mean_pairwise_jaccard,consensus_n_residues,verdict,selected_as_frozen_method
+fixed_0.4,False,legacy absolute fixed threshold,161,85,11,39,24,7,0.0,0.0,0.2917,0.0972,7,UNSTABLE,False
+independent_mcc_abs_threshold,False,absolute threshold from independent calibration set,32,16,1,16,11,0,0.5882,0.0,0.0,0.1961,10,UNSTABLE,False
+validation_mcc_abs_threshold,False,absolute threshold from 8GLA chain-B validation MCC,49,22,37,22,13,21,0.5909,0.9545,0.619,0.7215,21,STABLE,False
+validation_mcc_rank_count,True,"top-N target residues, N from validation MCC positive-call count",27,30,23,15,13,18,0.6471,0.65,0.6316,0.6429,16,STABLE,False
+validation_mcc_rank_fraction,True,"top fraction of target residues, fraction from validation MCC positive-call rate",57,64,49,23,21,21,0.8333,0.913,0.8261,0.8575,22,STABLE,True
+validation_mcc_rank_chain_fraction,True,"top fraction per target chain, fraction from validation MCC positive-call rate",58,64,48,23,13,21,0.5652,0.913,0.619,0.6991,21,STABLE,False

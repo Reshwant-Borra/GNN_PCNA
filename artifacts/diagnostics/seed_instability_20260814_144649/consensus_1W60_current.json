@@ -1,0 +1,50 @@
+{
+  "pocket_residues": [
+    {
+      "chain": "A",
+      "resid": 25
+    },
+    {
+      "chain": "A",
+      "resid": 26
+    },
+    {
+      "chain": "A",
+      "resid": 27
+    },
+    {
+      "chain": "A",
+      "resid": 38
+    },
+    {
+      "chain": "A",
+      "resid": 39
+    },
+    {
+      "chain": "A",
+      "resid": 40
+    },
+    {
+      "chain": "A",
+      "resid": 41
+    }
+  ],
+  "pocket_residues_by_chain": {
+    "A": [
+      25,
+      26,
+      27,
+      38,
+      39,
+      40,
+      41
+    ]
+  },
+  "pocket_chains": [
+    "A"
+  ],
+  "derived_from": "multi-seed consensus",
+  "n_runs": 3,
+  "min_fraction": 0.6,
+  "mean_pairwise_jaccard": 0.0972
+}

@@ -187,6 +187,8 @@ class DecisionEntry:
     date: str
     decision_maker: str
     request: str
+    created_at: str = ""
+    updated_at: str = ""
     options: List[str] = field(default_factory=list)
     decision: str = ""
     rationale: str = ""

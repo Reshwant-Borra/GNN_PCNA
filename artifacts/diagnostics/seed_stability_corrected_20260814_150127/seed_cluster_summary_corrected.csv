@@ -1,0 +1,4 @@
+seed,threshold,checkpoint,n_residues,top_mean,runner_up_margin,residues
+42,0.5251,artifacts/go_prep/seed_42/best.ckpt,22,0.63343,0.0048,A25 A26 A27 A38 A39 A40 A41 A42 A43 A44 A45 A46 A47 A231 A232 A233 A234 A235 A250 A251 A252 A253
+43,0.5,artifacts/go_prep/seed_43/best.ckpt,13,0.58301,0.04199,A25 A26 A27 A38 A39 A40 A41 A42 A43 A44 A45 A46 A47
+44,0.3653,artifacts/go_prep/seed_44/best.ckpt,21,0.39841,0.01369,A25 A26 A27 A38 A39 A40 A41 A42 A43 A44 A45 A46 A47 A231 A232 A233 A234 A235 A250 A251 A252

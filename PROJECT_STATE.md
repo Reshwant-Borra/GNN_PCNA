@@ -1,12 +1,12 @@
 # Project State
 
-Date: 2026-08-15
+Date: 2026-08-16
 Branch: final-consolidation-audit
 Base HEAD: 5b2ce676c790c4aac0caa10dc4226b5a924791c0
 
 ## Current phase
 
-Pre-MD release consolidation, independent extraction-policy freeze, final 1W60 three-seed stability gate, post-pass stronger internal robustness audit, MD structure/parameter preflight, frozen analysis protocol hashing, and infrastructure restart validation are complete.
+Pre-MD release consolidation, independent extraction-policy freeze, final 1W60 three-seed stability gate, post-pass stronger internal robustness audit, MD structure/parameter preflight, frozen analysis protocol reconciliation, and infrastructure restart validation are complete. Full historical GNN reproducibility is not complete.
 
 Current source of truth: `PROJECT_STATUS.md`.
 
@@ -30,7 +30,7 @@ Can the already frozen 1W60 candidate pocket meet the new post-pass stronger int
 
 ## Model status
 
-Frozen seed artifacts are present under `artifacts/go_prep/seed_{42,43,44}` with checkpoint hashes recorded in `best_meta.json`. No retraining was run in this task.
+Frozen seed artifacts are present locally under `artifacts/go_prep/seed_{42,43,44}` with checkpoint hashes recorded in `best_meta.json`, but the checkpoint binaries are ignored local-only artifacts with no durable retrieval location recorded. No retraining was run in this task.
 
 ## Candidate status
 
@@ -40,7 +40,7 @@ The later POST-PASS STRONGER INTERNAL ROBUSTNESS REQUIREMENT asks for mean liter
 
 ## MD status
 
-NO-GO for production MD. The current legitimate next execution stage is the launcher-first 0.1 ns RTX 4070 smoke test. No legitimate human Gate-6 approval is recorded.
+NO-GO for production MD and NO-GO for historical GNN reproducibility. The current legitimate next execution stage for forward MD infrastructure is the launcher-first 0.1 ns RTX 4070 smoke test. No legitimate human Gate-6 approval is recorded.
 
 ## Active blockers
 
@@ -49,6 +49,7 @@ NO-GO for production MD. The current legitimate next execution stage is the laun
 3. Human Gate-6 approval is not recorded and must not be fabricated.
 4. Runtime ML/MD packages are not active in this shell, so production MD prep/smoke tests were not run.
 5. Large artifact tracking policy remains unresolved.
+6. Exact 520-dim label manifest, graph manifest file, explicit model config, durable checkpoint retrieval, and frozen-output identity reproduction remain unresolved.
 
 ## Next action
 

@@ -23,6 +23,7 @@ coverage.xml
 
 # Virtual environments
 .venv/
+.venv_*/
 venv/
 env/
 ENV/
@@ -37,6 +38,11 @@ ENV/
 .DS_Store
 Thumbs.db
 desktop.ini
+
+# JavaScript scratch dependencies generated during local audits
+node_modules/
+package.json
+package-lock.json
 
 # Workflow report outputs (timestamped, regenerated on every run)
 reports/research_os/
@@ -53,9 +59,11 @@ ResearchOS/
 *.pt
 *.pth
 *.ckpt
+*.npy
 
 # MD validation package — runtime artifacts (generated on the friend's machine)
 md_validation_4070/outputs/
+md_validation_4070/preflight_outputs*/
 md_validation_4070/run_*.log
 md_validation_4070/.pcna_pipeline.sh
 md_validation_4070/**/__pycache__/

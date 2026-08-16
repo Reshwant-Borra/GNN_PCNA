@@ -1,0 +1,62 @@
+{
+  "artifact_type": "REPRODUCIBILITY_MANIFEST",
+  "created_utc": "2026-08-16T00:00:00Z",
+  "repository_head_at_start": "a3103ec5aaab667790e685615f064a3065d11f3d",
+  "branch_at_start": "final-consolidation-audit",
+  "historical_result_provenance": "FAIL",
+  "forward_pipeline_reproducibility": "PARTIAL",
+  "hashes": {
+    "split_manifest": "828fd6d4e694cc6e258a2de8e63c4130876a9c7897dd14ccc2db15a3e6c1f06a",
+    "graph_manifest": "69744b548e812697ba9015c6563ed526f1af2e915b1595badb1dd47fd1b4c64f",
+    "label_manifest": "MISSING",
+    "gnn_architecture": "2268d104af83dd19c1bec50d4ada7c4d6b46a73845e939fc39a2b060bea6d0a8",
+    "gnn_model_config": "MISSING_EXPLICIT_CONFIG_FILE",
+    "pretrain_checkpoint": "1438638c912193002d1feea43035c0af4177920f95168758c76b3c7f989fa93f",
+    "seed_42_checkpoint": "03d01eba42eb7f6da01c0147dea434b1e1797bd2302e8a178d6bbd9b19526ce5",
+    "seed_43_checkpoint": "7f145d6f54d03744f71c0224df4f170ad4aab388387e242234ebffda1acae17b",
+    "seed_44_checkpoint": "0a739dec47248651499942207b82139e5dea8bebfafe5ed50aabcbbdfd6aa3f6",
+    "frozen_inference_artifact": "d9efd97400f24cb1cd9ab55cf112c174f2a610e405714758f688cd4944cad193",
+    "final_pocket_handoff": "da19358def0a68e8ce727b9761e028fc4ed27140a6bbe6738a51b76d765f720e",
+    "md_handoff_packet": "eb6ebde04a80dd93d9689dd94856801f5d1169205a196018b2869bb8bcb455f4",
+    "md_protocol_code": "95d41539bdc523a99698e915d79ffedb2d973afb315249fe9d6865599d9a59bb",
+    "analysis_protocol": "587f27cf2e402fe50b264d98d3d60fbbdcc8f9095025b2a89d12c7aebd633e56",
+    "analysis_code": "b6c23f1d19d7c76b05ee8fe955f4d3241224abb6beb93ab04e00b9ac62054312",
+    "launcher": "5219395a2927fa53f0712e79873977dc6949ff4fe15a0b392c4bb8e3c484c7c8"
+  },
+  "external_or_ignored_artifacts": [
+    {
+      "path": "checkpoints/pcna/best_pcna_v3.ckpt",
+      "sha256": "1438638c912193002d1feea43035c0af4177920f95168758c76b3c7f989fa93f",
+      "bytes": 53485974,
+      "status": "IGNORED_LOCAL_ONLY",
+      "retrieval_location": "MISSING"
+    },
+    {
+      "path": "artifacts/go_prep/seed_42/best.ckpt",
+      "sha256": "03d01eba42eb7f6da01c0147dea434b1e1797bd2302e8a178d6bbd9b19526ce5",
+      "bytes": 53485974,
+      "status": "IGNORED_LOCAL_ONLY",
+      "retrieval_location": "MISSING"
+    },
+    {
+      "path": "artifacts/go_prep/seed_43/best.ckpt",
+      "sha256": "7f145d6f54d03744f71c0224df4f170ad4aab388387e242234ebffda1acae17b",
+      "bytes": 53485974,
+      "status": "IGNORED_LOCAL_ONLY",
+      "retrieval_location": "MISSING"
+    },
+    {
+      "path": "artifacts/go_prep/seed_44/best.ckpt",
+      "sha256": "0a739dec47248651499942207b82139e5dea8bebfafe5ed50aabcbbdfd6aa3f6",
+      "bytes": 53485974,
+      "status": "IGNORED_LOCAL_ONLY",
+      "retrieval_location": "MISSING"
+    }
+  ],
+  "verification_commands": [
+    "shasum -a 256 md_validation_4070/FROZEN_MD_ANALYSIS_PROTOCOL.json",
+    "python3 -m pytest tests/test_md_launcher_and_control_gate.py tests/test_label_alignment.py -q",
+    "./md.sh smoke"
+  ],
+  "production_status": "BLOCKED_UNTIL_SMOKE_CONTROL_GATE_GATE6_AND_GNN_PROVENANCE_BLOCKERS_ARE_RESOLVED"
+}

@@ -1,0 +1,47 @@
+{
+  "created_at": "2026-08-15T18:58:43.139697+00:00",
+  "checks": {
+    "pocket_required_keys_for_run_md": true,
+    "pocket_supported_residue_set_matches_membership": true,
+    "pocket_core_matches_membership": true,
+    "pocket_supported_fringe_matches_membership": true,
+    "pocket_uncertain_fringe_matches_membership": true,
+    "handoff_core_matches_membership": true,
+    "handoff_supported_fringe_matches_membership": true,
+    "handoff_uncertain_fringe_matches_membership": true,
+    "stability_consensus_n_16": true,
+    "stability_mean_jaccard_recorded": true,
+    "frozen_policy_matches": true
+  },
+  "status": "PASS",
+  "core_3of3": [
+    "A:25",
+    "A:26",
+    "A:38",
+    "A:39",
+    "A:40",
+    "A:41",
+    "A:42",
+    "A:44",
+    "A:45",
+    "A:46",
+    "A:47"
+  ],
+  "supported_fringe_2of3": [
+    "A:232",
+    "A:233",
+    "A:234",
+    "A:27",
+    "A:43"
+  ],
+  "uncertain_fringe_1of3": [
+    "A:231",
+    "A:250",
+    "A:251",
+    "A:252"
+  ],
+  "literal_jaccard_mean": 0.6791537667698658,
+  "policy_id": "independent_mcc_rank_fraction_size_weighted_cluster",
+  "pocket_sha256": "81281e852785fa51165fd3d0a0c7486a2a232cab2611a071607050368d8019c3",
+  "handoff_sha256": "ee40ba64751681c900c62d83a8efed457b62401cd75ae44fbda372b65e67882b"
+}

@@ -24,13 +24,17 @@ Reads outputs/{APO,CONTROL}/rep*/production.dcd (topology = system_solvated.pdb)
 Outputs: outputs/analysis/{summary.json, per_replicate.csv, REPORT.md, *.png}
 """
 from __future__ import annotations
-import argparse, json, sys
+import argparse, json, math, sys
 from pathlib import Path
 
 HERE = Path(__file__).resolve().parent
 EQUIL_NS = 5.0  # discard before RMSF/pocket stats
 PBC_JUMP_NM = 0.30   # frame-to-frame backbone RMSD jump above which a PBC/imaging artifact is suspected
 DRIFT_INFO_NM = 0.60  # smooth drift above this is reported (info only, NOT a failure)
+CONTROL_MIN_REPLICATES = 3
+CONTROL_MIN_NS = 5.0
+CONTROL_MIN_RMSF_NM = 0.015
+CONTROL_MIN_OPEN_LIKE_FRACTION = 0.20
 
 
 def load_pocket(name: str) -> dict:
@@ -61,7 +65,8 @@ def pocket_selection(top, resseqs, interface_chain_indices, allow_keys=None):
     sel = []
     for a in top.atoms:
         if allow_keys is not None:
-            if (a.residue.chain.index, a.residue.resSeq, a.name) in allow_keys:
+            if (a.residue.chain.index in want_chains and a.residue.resSeq in resset
+                    and (a.residue.chain.index, a.residue.resSeq, a.name) in allow_keys):
                 sel.append(a.index)
         elif a.residue.chain.index in want_chains and a.residue.resSeq in resset:
             sel.append(a.index)
@@ -176,8 +181,177 @@ def pocket_parity(md, role_tops: dict, resseqs, iface, min_coverage=0.80,
     return common, report
 
 
+def _resseqs(items):
+    out = []
+    for item in items or []:
+        if isinstance(item, dict):
+            out.append(int(item["resid"]))
+        else:
+            out.append(int(item))
+    return out
+
+
+def analysis_regions(pocket: dict) -> dict[str, list[int]]:
+    """Frozen region groupings when present; fallback to a single pocket region."""
+    core = _resseqs(pocket.get("core_3of3"))
+    fringe2 = _resseqs(pocket.get("fringe_2of3"))
+    fringe1 = _resseqs(pocket.get("uncertain_fringe_1of3"))
+    supported = sorted(set(_resseqs(pocket.get("pocket_residues_resseq")) or (core + fringe2)))
+    if core or fringe2 or fringe1:
+        regions = {
+            "core_3of3": sorted(set(core)),
+            "supported_ge2of3": supported,
+        }
+        if fringe2:
+            regions["supported_fringe_2of3"] = sorted(set(fringe2))
+        if fringe1:
+            regions["seed_specific_uncertain_fringe_1of3"] = sorted(set(fringe1))
+            regions["full_union_exploratory"] = sorted(set(supported + fringe1))
+        return {k: v for k, v in regions.items() if v}
+    return {"pocket": sorted(set(_resseqs(pocket.get("pocket_residues_resseq"))))}
+
+
+def convex_hull_volume_A3(xyz_nm, np):
+    if len(xyz_nm) < 4:
+        return float("nan")
+    try:
+        from scipy.spatial import ConvexHull
+        return float(ConvexHull(np.asarray(xyz_nm) * 10.0).volume)
+    except Exception:
+        return float("nan")
+
+
+def _dccm_matrix(prod, ca, np):
+    if prod.n_frames < 2 or len(ca) < 2:
+        return None
+    xyz = prod.xyz[:, ca, :]
+    disp = xyz - xyz.mean(axis=0, keepdims=True)
+    cov = np.einsum("tix,tjx->ij", disp, disp) / max(1, prod.n_frames)
+    ms = np.einsum("tix,tix->i", disp, disp) / max(1, prod.n_frames)
+    denom = np.sqrt(ms[:, None] * ms[None, :])
+    return np.divide(cov, denom, out=np.zeros_like(cov), where=denom > 0)
+
+
+def _dccm_region_summary(dccm, ca, region_ca, np):
+    if dccm is None or not region_ca:
+        return {
+            "internal_mean": None,
+            "internal_mean_abs": None,
+            "region_to_rest_mean": None,
+            "region_to_rest_mean_abs": None,
+        }
+    pos = {atom_idx: i for i, atom_idx in enumerate(ca)}
+    idx = [pos[i] for i in region_ca if i in pos]
+    rest = [i for i in range(len(ca)) if i not in set(idx)]
+    if not idx:
+        return {
+            "internal_mean": None,
+            "internal_mean_abs": None,
+            "region_to_rest_mean": None,
+            "region_to_rest_mean_abs": None,
+        }
+    internal_vals = []
+    if len(idx) > 1:
+        block = dccm[np.ix_(idx, idx)]
+        mask = ~np.eye(len(idx), dtype=bool)
+        internal_vals = block[mask]
+    rest_vals = dccm[np.ix_(idx, rest)].ravel() if rest else np.array([])
+
+    def mean_or_none(values, absolute=False):
+        if len(values) == 0:
+            return None
+        values = np.abs(values) if absolute else values
+        return float(values.mean())
+
+    return {
+        "internal_mean": mean_or_none(internal_vals),
+        "internal_mean_abs": mean_or_none(internal_vals, absolute=True),
+        "region_to_rest_mean": mean_or_none(rest_vals),
+        "region_to_rest_mean_abs": mean_or_none(rest_vals, absolute=True),
+    }
+
+
+def _event_summary(mask, dt_ns):
+    runs = []
+    start = None
+    for i, val in enumerate(mask):
+        if val and start is None:
+            start = i
+        elif not val and start is not None:
+            runs.append((start, i - 1))
+            start = None
+    if start is not None:
+        runs.append((start, len(mask) - 1))
+    qualifying = [(a, b) for a, b in runs if (b - a + 1) >= 2]
+    durations = [(b - a + 1) * dt_ns for a, b in qualifying]
+    return {
+        "open_like_frame_count": int(sum(bool(x) for x in mask)),
+        "open_like_fraction": float(sum(bool(x) for x in mask) / len(mask)) if len(mask) else 0.0,
+        "opening_event_count_min_2_frames": len(qualifying),
+        "max_opening_event_duration_ns": float(max(durations)) if durations else 0.0,
+    }
+
+
+def evaluate_control_interpretability(rows, min_replicates=CONTROL_MIN_REPLICATES):
+    """Trajectory-derived positive-control criterion.
+
+    This gate deliberately ignores frame-zero/static apo-control separation. It asks whether
+    independent ligand-stripped 8GLA control trajectories are complete, artifact-free, and
+    show non-trivial local motion while remaining open-like under the frozen thresholds.
+    """
+    control = [r for r in rows if r.get("role") == "control"]
+    issues = []
+    if len(control) < min_replicates:
+        issues.append(f"control replicates {len(control)} < {min_replicates}")
+
+    qualifying = 0
+    for r in control:
+        rep = f"{r.get('pdb', 'control')}/{r.get('replicate', '?')}"
+        ns = float(r.get("n_frames", 0)) * float(r.get("dt_ns", 0.0))
+        if ns + 1e-9 < CONTROL_MIN_NS:
+            issues.append(f"{rep}: analyzed trajectory length {ns:.3f} ns < {CONTROL_MIN_NS:.1f} ns")
+        if r.get("pbc_artifact_suspected"):
+            issues.append(f"{rep}: PBC artifact suspected")
+        if r.get("duplicate_log_times") or r.get("frame_count_status") == "too_many_frames_duplicate_risk":
+            issues.append(f"{rep}: duplicate-frame risk")
+        openness = r.get("openness", {})
+        if not openness.get("available"):
+            issues.append(f"{rep}: openness thresholds unavailable")
+        rmsf = float(r.get("pocket_rmsf_mean_nm") or 0.0)
+        open_frac = float(openness.get("open_like_fraction") or 0.0)
+        if rmsf < CONTROL_MIN_RMSF_NM:
+            issues.append(f"{rep}: pocket RMSF {rmsf:.4f} nm below dynamic floor {CONTROL_MIN_RMSF_NM:.4f} nm")
+        if open_frac < CONTROL_MIN_OPEN_LIKE_FRACTION:
+            issues.append(
+                f"{rep}: open-like fraction {open_frac:.3f} below {CONTROL_MIN_OPEN_LIKE_FRACTION:.3f}"
+            )
+        if rmsf >= CONTROL_MIN_RMSF_NM and open_frac >= CONTROL_MIN_OPEN_LIKE_FRACTION:
+            qualifying += 1
+
+    pass_gate = len(control) >= min_replicates and qualifying >= min_replicates and not issues
+    return {
+        "name": "trajectory_dynamic_control_gate_v1",
+        "status": "PASS" if pass_gate else "FAIL",
+        "interpretable": bool(pass_gate),
+        "criterion_frozen_before_meaningful_control_md": True,
+        "uses_frame_zero_or_static_apo_control_difference": False,
+        "minimum_control_replicates": int(min_replicates),
+        "minimum_control_ns_per_replicate": CONTROL_MIN_NS,
+        "minimum_pocket_rmsf_nm": CONTROL_MIN_RMSF_NM,
+        "minimum_open_like_fraction": CONTROL_MIN_OPEN_LIKE_FRACTION,
+        "qualifying_control_replicates": int(qualifying),
+        "issues": issues,
+        "reason": (
+            "PASS: independent control trajectories are complete, artifact-free, open-like, and dynamic."
+            if pass_gate else
+            "FAIL: static starting-state separation or tiny random noise is insufficient for control validation."
+        ),
+    }
+
+
 def analyze_replicate(dcd: Path, top_pdb: Path, resseqs, interface_chain_indices,
-                      ns_per_frame_hint=0.05, allow_keys=None):
+                      ns_per_frame_hint=0.05, allow_keys=None, regions=None,
+                      thresholds=None, done_payload=None):
     md, np, pd, _ = _imports()
     traj = md.load(str(dcd), top=str(top_pdb))
     # 1) PBC fix BEFORE anything else
@@ -223,27 +397,113 @@ def analyze_replicate(dcd: Path, top_pdb: Path, resseqs, interface_chain_indices
     rmsf = np.sqrt(((prod.xyz[:, pocket_ca, :] - mean_xyz) ** 2).sum(axis=2).mean(axis=0))  # nm
     # 4) pocket openness proxies, PER CHAIN then averaged (never summed across chains)
     sasa_res = md.shrake_rupley(prod, mode="residue")  # nm^2 per residue
-    pocket_res_by_chain = {}
-    for i in pocket_atoms:
-        res = protein.top.atom(i).residue
-        pocket_res_by_chain.setdefault(res.chain.index, set()).add(res.index)
-    per_chain_sasa = []
-    for cidx in sorted(pocket_res_by_chain):
-        per_chain_sasa.append(sasa_res[:, sorted(pocket_res_by_chain[cidx])].sum(axis=1))
-    per_chain_sasa = np.array(per_chain_sasa)
-    pocket_sasa = per_chain_sasa.mean(axis=0)
-    rg_list = []
-    for cidx in sorted(pocket_res_by_chain):
-        ca_this = [i for i in pocket_ca if protein.top.atom(i).residue.chain.index == cidx]
-        if ca_this:
-            rg_list.append(md.compute_rg(prod.atom_slice(ca_this)))
-    rg_pocket = (np.mean(np.array(rg_list), axis=0) if rg_list
-                 else md.compute_rg(prod.atom_slice(pocket_ca)))
+    dccm = _dccm_matrix(prod, ca, np)
+
+    def region_series(region_atoms, region_ca):
+        res_by_chain = {}
+        for atom_i in region_atoms:
+            res = protein.top.atom(atom_i).residue
+            res_by_chain.setdefault(res.chain.index, set()).add(res.index)
+        per_chain = []
+        for cidx in sorted(res_by_chain):
+            per_chain.append(sasa_res[:, sorted(res_by_chain[cidx])].sum(axis=1))
+        per_chain = np.array(per_chain)
+        sasa_nm2 = per_chain.mean(axis=0) if len(per_chain) else np.array([])
+        rg_list = []
+        for cidx in sorted(res_by_chain):
+            ca_this = [i for i in region_ca if protein.top.atom(i).residue.chain.index == cidx]
+            if ca_this:
+                rg_list.append(md.compute_rg(prod.atom_slice(ca_this)))
+        rg = (np.mean(np.array(rg_list), axis=0) if rg_list
+              else (md.compute_rg(prod.atom_slice(region_ca)) if region_ca else np.array([])))
+        if region_ca:
+            region_mean = prod.xyz[:, region_ca, :].mean(axis=0)
+            region_rmsf = np.sqrt(((prod.xyz[:, region_ca, :] - region_mean) ** 2).sum(axis=2).mean(axis=0))
+            hull = np.array([convex_hull_volume_A3(frame_xyz, np)
+                             for frame_xyz in prod.xyz[:, region_ca, :]])
+        else:
+            region_rmsf = np.array([])
+            hull = np.array([])
+        return res_by_chain, sasa_nm2, rg, region_rmsf, hull
+
+    regions = regions or {"pocket": list(resseqs)}
+    region_metrics = {}
+    for region_name, region_resseqs in regions.items():
+        region_atoms = pocket_selection(protein.top, region_resseqs, interface_chain_indices,
+                                        allow_keys=allow_keys)
+        region_ca = [i for i in region_atoms if protein.top.atom(i).name == "CA"]
+        res_by_chain, sasa_nm2, rg, region_rmsf, hull_A3 = region_series(region_atoms, region_ca)
+        available = bool(len(region_atoms) and len(region_ca) and len(sasa_nm2))
+        region_metrics[region_name] = {
+            "available": available,
+            "n_atoms": int(len(region_atoms)),
+            "n_ca": int(len(region_ca)),
+            "n_chains": int(len(res_by_chain)),
+            "sasa_mean_A2": float(sasa_nm2.mean() * 100.0) if len(sasa_nm2) else None,
+            "sasa_std_A2": float(sasa_nm2.std() * 100.0) if len(sasa_nm2) else None,
+            "sasa_max_A2": float(sasa_nm2.max() * 100.0) if len(sasa_nm2) else None,
+            "rmsf_mean_nm": float(region_rmsf.mean()) if len(region_rmsf) else None,
+            "rmsf_max_nm": float(region_rmsf.max()) if len(region_rmsf) else None,
+            "rg_mean_nm": float(rg.mean()) if len(rg) else None,
+            "rg_max_nm": float(rg.max()) if len(rg) else None,
+            "ca_convex_hull_volume_mean_A3": (
+                float(np.nanmean(hull_A3)) if len(hull_A3) and not np.isnan(hull_A3).all() else None
+            ),
+            "ca_convex_hull_volume_max_A3": (
+                float(np.nanmax(hull_A3)) if len(hull_A3) and not np.isnan(hull_A3).all() else None
+            ),
+            "dccm": _dccm_region_summary(dccm, ca, region_ca, np),
+        }
+        if len(sasa_nm2):
+            region_metrics[region_name]["_sasa_series_A2"] = (sasa_nm2 * 100.0).tolist()
+        if len(hull_A3):
+            region_metrics[region_name]["_hull_series_A3"] = hull_A3.tolist()
+
+    pocket_res_by_chain, pocket_sasa, rg_pocket, _, _ = region_series(pocket_atoms, pocket_ca)
+    thresholds = thresholds or {}
+    openness = {"available": False, "reason": "supported_ge2of3 region or thresholds unavailable"}
+    supported = region_metrics.get("supported_ge2of3")
+    if supported and "_sasa_series_A2" in supported and "_hull_series_A3" in supported:
+        sasa_thr = thresholds.get("supported_sasa_A2")
+        hull_thr = thresholds.get("supported_ca_convex_hull_volume_A3")
+        if sasa_thr is not None and hull_thr is not None:
+            s = np.asarray(supported["_sasa_series_A2"], dtype=float)
+            h = np.asarray(supported["_hull_series_A3"], dtype=float)
+            mask = (s >= float(sasa_thr)) & (h >= float(hull_thr))
+            openness = {
+                "available": True,
+                "thresholds": {
+                    "supported_sasa_A2": float(sasa_thr),
+                    "supported_ca_convex_hull_volume_A3": float(hull_thr),
+                },
+                **_event_summary(mask, dt_ns),
+            }
+    for metric in region_metrics.values():
+        metric.pop("_sasa_series_A2", None)
+        metric.pop("_hull_series_A3", None)
+    times = _parse_log_times(dcd.parent / "production.log")
+    duplicate_log_times = bool(times and len(times) != len(set(times)))
+    expected_frames = None
+    frame_count_status = "unchecked"
+    if done_payload:
+        try:
+            expected_frames = int(math.floor(
+                (float(done_payload.get("production_ns", 0.0)) * 1000.0)
+                / float(done_payload.get("report_ps", 50.0)) + 1e-9
+            ))
+            if n > expected_frames:
+                frame_count_status = "too_many_frames_duplicate_risk"
+            elif n < expected_frames:
+                frame_count_status = "fewer_frames_than_regular_cadence"
+            else:
+                frame_count_status = "ok"
+        except Exception:
+            frame_count_status = "could_not_evaluate"
     return {
         "n_frames": int(n), "equil_frames": int(equil_used),
         "dt_ns": float(dt_ns), "dt_source": dt_src,
         "equil_ns_actual": float(equil_used * dt_ns),
-        "n_pocket_chains": int(len(per_chain_sasa)),
+        "n_pocket_chains": int(len(pocket_res_by_chain)),
         "rmsd_mean_nm": float(rmsd_prod.mean()), "rmsd_max_nm": float(rmsd.max()),
         "max_frame_jump_nm": max_jump_nm,
         "pbc_artifact_suspected": pbc_artifact_suspected,
@@ -252,6 +512,11 @@ def analyze_replicate(dcd: Path, top_pdb: Path, resseqs, interface_chain_indices
         "pocket_sasa_mean_nm2": float(pocket_sasa.mean()), "pocket_sasa_std_nm2": float(pocket_sasa.std()),
         "pocket_sasa_max_nm2": float(pocket_sasa.max()),
         "pocket_rg_mean_nm": float(rg_pocket.mean()), "pocket_rg_max_nm": float(rg_pocket.max()),
+        "regions": region_metrics,
+        "openness": openness,
+        "expected_frames_from_done": expected_frames,
+        "frame_count_status": frame_count_status,
+        "duplicate_log_times": duplicate_log_times,
         "_sasa_series": pocket_sasa.tolist(),
     }
 
@@ -295,6 +560,32 @@ def _frame_interval_ns(rep_dir: Path, np, hint: float):
     return float(hint), "hint(fallback)"
 
 
+def _analysis_done_status(rep_dir: Path):
+    done = rep_dir / "DONE.json"
+    if not done.exists():
+        return False, "DONE.json missing", None
+    try:
+        payload = json.loads(done.read_text(encoding="utf-8"))
+    except Exception as exc:
+        return False, f"DONE.json unreadable: {exc}", None
+    if not str(payload.get("sanity_gate", "")).startswith("passed"):
+        return False, "DONE sanity gate did not pass", payload
+    if float(payload.get("production_ns", 0.0)) <= 0.0:
+        return False, "DONE production_ns is zero", payload
+    if int(payload.get("steps", 0)) < int(payload.get("target_total_steps", payload.get("steps", 0))):
+        return False, "DONE steps are below target_total_steps", payload
+    return True, "complete", payload
+
+
+def _protocol_thresholds():
+    protocol = HERE / "FROZEN_MD_ANALYSIS_PROTOCOL.json"
+    try:
+        data = json.loads(protocol.read_text(encoding="utf-8"))
+        return data.get("metrics", {}).get("openness", {}).get("thresholds", {})
+    except Exception:
+        return {}
+
+
 def _prep_caveat(out: Path, pdb: str):
     """Surface resolution / rebuilt-residue caveats from prep_audit.json (audit medium finding)."""
     ap = out / pdb / "prep" / "prep_audit.json"
@@ -311,8 +602,10 @@ def _prep_caveat(out: Path, pdb: str):
 
 def main():
     ap = argparse.ArgumentParser(description="PCNA MD validation analysis (v2).")
-    ap.add_argument("--pocket", default="aoh1996")
+    ap.add_argument("--pocket", default="final_consensus_1w60_20260815")
     ap.add_argument("--outdir", default="outputs")
+    ap.add_argument("--allow-incomplete", action="store_true",
+                    help="analyze DCDs without a valid DONE.json; for debugging only")
     ap.add_argument("--keep-termini", action="store_true",
                     help="do NOT drop terminus/gap-adjacent pocket residues (their SASA "
                          "difference is dominated by where the crystal ends; measured to be "
@@ -325,12 +618,15 @@ def main():
 
     md, np, pd, plt = _imports()
     pocket = load_pocket(args.pocket)
-    resseqs = list(pocket["pocket_residues_resseq"])
+    regions = analysis_regions(pocket)
+    parity_resseqs = sorted(set(r for vals in regions.values() for r in vals))
+    primary_resseqs = regions.get("supported_ge2of3") or regions.get("pocket") or parity_resseqs
+    thresholds = _protocol_thresholds()
     iface = list(pocket.get("interface_chain_indices", [0, 1]))
     apo_pdb, ctrl_pdb = pocket["apo_pdb"], pocket.get("control_pdb")
 
     out = Path(args.outdir); adir = out / "analysis"; adir.mkdir(parents=True, exist_ok=True)
-    rows, sasa_pool = [], {}
+    rows, sasa_pool, skipped = [], {}, []
     # role -> pdb; keep labels so the report reads apo/control not raw ids
     role_pdb = [("apo", apo_pdb)] + ([("control", ctrl_pdb)] if ctrl_pdb else [])
 
@@ -342,7 +638,7 @@ def main():
             role_tops[role] = _protein_top(md, tp)
     allow_keys, parity_report = (None, {"skipped": "only one role present"})
     if len(role_tops) > 1:
-        allow_keys, parity_report = pocket_parity(md, role_tops, resseqs, iface,
+        allow_keys, parity_report = pocket_parity(md, role_tops, parity_resseqs, iface,
                                                   min_coverage=args.min_pocket_coverage,
                                                   exclude_termini=not args.keep_termini)
     (adir / "pocket_parity.json").write_text(json.dumps(parity_report, indent=2), encoding="utf-8")
@@ -356,19 +652,37 @@ def main():
         for rep_dir in sorted(base.glob("rep*")):
             dcd = rep_dir / "production.dcd"
             if not dcd.exists() or dcd.stat().st_size < 100_000:
-                print(f"[skip] {pdb}/{rep_dir.name}: missing/empty DCD"); continue
+                reason = "missing/empty DCD"
+                skipped.append({"role": role, "pdb": pdb, "replicate": rep_dir.name, "reason": reason})
+                print(f"[skip] {pdb}/{rep_dir.name}: {reason}"); continue
+            done_ok, done_reason, done_payload = _analysis_done_status(rep_dir)
+            if not done_ok and not args.allow_incomplete:
+                skipped.append({"role": role, "pdb": pdb, "replicate": rep_dir.name, "reason": done_reason})
+                print(f"[skip] {pdb}/{rep_dir.name}: incomplete ({done_reason})"); continue
             print(f"[analyze] {role} {pdb}/{rep_dir.name} ...")
-            r = analyze_replicate(dcd, top, resseqs, iface, allow_keys=allow_keys)
+            r = analyze_replicate(dcd, top, primary_resseqs, iface, allow_keys=allow_keys,
+                                  regions=regions, thresholds=thresholds,
+                                  done_payload=done_payload)
             sasa_pool[role].extend(r.pop("_sasa_series"))
             r.update({"role": role, "pdb": pdb, "replicate": rep_dir.name}); rows.append(r)
 
+    if skipped and not args.allow_incomplete:
+        (adir / "skipped_replicates.json").write_text(json.dumps(skipped, indent=2), encoding="utf-8")
+        sys.exit("Incomplete/corrupt trajectories were present. Refusing scientific analysis by default. "
+                 "Use --allow-incomplete only for NON-SCIENTIFIC / DIAGNOSTIC ONLY analysis.")
+
     if not rows:
-        sys.exit("No trajectories analyzed. Run run_md.py --run control then --run apo first.")
+        (adir / "skipped_replicates.json").write_text(json.dumps(skipped, indent=2), encoding="utf-8")
+        sys.exit("No complete trajectories analyzed. Run run_md.py first or pass --allow-incomplete "
+                 "only for debugging. See outputs/analysis/skipped_replicates.json.")
     df = pd.DataFrame(rows)
     df.to_csv(adir / "per_replicate.csv", index=False)
 
     # ---- positive-control gate: control(open) pocket SASA vs apo(closed) ----
-    verdict = {"interpretable": False, "reason": "no positive control available (control_pdb is null)"}
+    verdict = {
+        "interpretable": False,
+        "reason": "apo/control complete pair unavailable; positive-control comparison requires both roles",
+    }
     if sasa_pool.get("apo") and sasa_pool.get("control"):
         apo = np.array(sasa_pool["apo"]); holo = np.array(sasa_pool["control"])
         sep = float(holo.mean() - apo.mean())
@@ -409,25 +723,53 @@ def main():
 
     caveats = [c for c in (_prep_caveat(out, apo_pdb), _prep_caveat(out, ctrl_pdb) if ctrl_pdb else None) if c]
     any_pbc = bool(df["pbc_artifact_suspected"].any())
-    summary = {"pocket": pocket["pocket_name"], "per_replicate": rows, "positive_control": verdict,
+    any_duplicate_time = bool(df["duplicate_log_times"].any()) if "duplicate_log_times" in df else False
+    any_duplicate_frames = bool((df["frame_count_status"] == "too_many_frames_duplicate_risk").any()) \
+        if "frame_count_status" in df else False
+    trajectory_control = evaluate_control_interpretability(rows)
+    summary = {"pocket": pocket["pocket_name"], "per_replicate": rows,
+               "positive_control": verdict,
+               "control_interpretability_gate": trajectory_control,
                "equil_ns_discarded": EQUIL_NS,
+               "analysis_regions": regions,
+               "openness_thresholds": thresholds,
                "pbc_artifact_suspected_any": any_pbc,
+               "duplicate_log_times_any": any_duplicate_time,
+               "duplicate_frame_count_risk_any": any_duplicate_frames,
+               "skipped_replicates": skipped,
                "prep_caveats": caveats}
     (adir / "summary.json").write_text(json.dumps(summary, indent=2))
 
     # ---- human-readable report ----
     lines = [f"# PCNA MD validation - analysis report ({pocket['pocket_name']})", "",
              f"PBC-artifact suspected in any replicate (frame-to-frame jump > {PBC_JUMP_NM} nm): "
-             f"**{any_pbc}**", "",
+             f"**{any_pbc}**",
+             f"Duplicate frame-count risk in any complete replicate: **{any_duplicate_frames}**",
+             f"Skipped incomplete/missing replicates: **{len(skipped)}**", "",
              "## Per-replicate", "",
              "| role | pdb | rep | RMSD mean (nm) | max frame-jump (nm) | pocket RMSF (nm) | "
-             "pocket SASA (nm^2) | PBC-artifact? |",
-             "|---|---|---|---|---|---|---|---|"]
+             "pocket SASA (nm^2) | open-like fraction | frame count | PBC-artifact? |",
+             "|---|---|---|---|---|---|---|---|---|"]
     for r in rows:
+        open_frac = r.get("openness", {}).get("open_like_fraction")
+        open_txt = f"{open_frac:.3f}" if isinstance(open_frac, float) else "n/a"
         lines.append(f"| {r['role']} | {r['pdb']} | {r['replicate']} | {r['rmsd_mean_nm']:.3f} | "
                      f"{r['max_frame_jump_nm']:.3f} | {r['pocket_rmsf_mean_nm']:.3f} | "
-                     f"{r['pocket_sasa_mean_nm2']:.1f} | {r['pbc_artifact_suspected']} |")
+                     f"{r['pocket_sasa_mean_nm2']:.1f} | {open_txt} | "
+                     f"{r.get('frame_count_status', 'unchecked')} | {r['pbc_artifact_suspected']} |")
     lines += ["", "## Positive-control gate (the anti-false-negative check)", "",
+              "The production gate uses the trajectory-derived control gate below; pooled "
+              "apo/control SASA separation is descriptive only and cannot satisfy Gate-6.",
+              "",
+              f"- trajectory control gate: **{trajectory_control['status']}**",
+              f"- qualifying control replicates: "
+              f"{trajectory_control['qualifying_control_replicates']}/"
+              f"{trajectory_control['minimum_control_replicates']}",
+              f"- static frame-zero separation used: "
+              f"{trajectory_control['uses_frame_zero_or_static_apo_control_difference']}",
+              f"- reason: {trajectory_control['reason']}",
+              "",
+              "## Descriptive apo/control SASA contrast (not a gate)", "",
               f"- apo     ({apo_pdb}) pocket SASA:  {verdict.get('apo_pocket_sasa_nm2','n/a')}",
               f"- control ({ctrl_pdb}) pocket SASA:  {verdict.get('control_pocket_sasa_nm2','n/a')}",
               f"- control - apo: {verdict.get('control_minus_apo_nm2','n/a')}  "

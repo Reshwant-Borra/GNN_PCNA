@@ -1,0 +1,83 @@
+{
+  "current_policy_status": "kept",
+  "homology_audit": "data/results/homology30_audit.json",
+  "md_readiness": "PROCEED TO CONTROL-FIRST MD",
+  "new_policy": null,
+  "pcna_rerun": null,
+  "quality": {
+    "chain_distribution": {
+      "1GQY": "A:468;B:469",
+      "2HNX": "A:136",
+      "2K1V": "A:20;B:27",
+      "2WER": "A:214;B:214",
+      "3FU8": "A:558;B:558"
+    },
+    "label_prevalence": {
+      "1GQY": 0.04162219911813736,
+      "2HNX": 0.06617647409439087,
+      "2K1V": 0.12765957415103912,
+      "2WER": 0.07009346038103104,
+      "3FU8": 0.01344086043536663
+    },
+    "n": 5,
+    "pocket_size_distribution": {
+      "max": 39,
+      "mean": 19.8,
+      "median": 15,
+      "min": 6,
+      "values": [
+        39,
+        9,
+        6,
+        30,
+        15
+      ]
+    },
+    "protein_size_distribution": {
+      "max": 1116,
+      "mean": 532.8,
+      "median": 428,
+      "min": 47,
+      "values": [
+        937,
+        136,
+        47,
+        428,
+        1116
+      ]
+    },
+    "representativeness": "limited: high-quality independent benchmark remains only five heterogeneous validation proteins; adequate for rejecting obviously brittle extraction changes, not for universal method optimality"
+  },
+  "retraining": "RETRAINING NOT JUSTIFIED",
+  "split_integrity_rerun": "artifacts/final_benchmark_expansion_20260815/split_integrity_520_rerun_from_git_snapshot.json",
+  "summary": {
+    "current_role_counts": {
+      "not_current_clean_split": 1182,
+      "test": 6,
+      "train": 43,
+      "val": 6
+    },
+    "discovered_candidates": 1237,
+    "eligible_candidates": 5,
+    "eligible_ids": [
+      "1GQY",
+      "2HNX",
+      "2K1V",
+      "2WER",
+      "3FU8"
+    ],
+    "excluded_candidates": 1232,
+    "exclusion_reason_counts": {
+      "PCNA/PCNA-family structure; forbidden for independent extraction selection": 62,
+      "eligible": 5,
+      "no frozen-checkpoint prediction scores available in active canonical calibration artifacts": 1150,
+      "no machine-readable residue/pocket labels": 20
+    },
+    "label_quality_counts": {
+      "canonical_degenerate": 6,
+      "canonical_non_degenerate": 49,
+      "historical_only_unverified": 1100,
+      "none": 82
+    }
+  }
+}

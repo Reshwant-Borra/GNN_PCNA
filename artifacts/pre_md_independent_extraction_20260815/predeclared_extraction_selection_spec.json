@@ -1,0 +1,133 @@
+{
+  "candidate_policies": [
+    {
+      "cluster": true,
+      "policy_id": "fixed_0p4_primary_cluster",
+      "ranking": "mean_score",
+      "scale_invariant": false,
+      "selection": "fixed_abs",
+      "threshold": 0.4
+    },
+    {
+      "cluster": true,
+      "policy_id": "independent_mcc_abs_primary_cluster",
+      "ranking": "mean_score",
+      "scale_invariant": false,
+      "selection": "mcc_abs"
+    },
+    {
+      "cluster": true,
+      "policy_id": "independent_mcc_rank_count_primary_cluster",
+      "ranking": "mean_score",
+      "scale_invariant": true,
+      "selection": "rank_count_mean"
+    },
+    {
+      "cluster": true,
+      "policy_id": "independent_mcc_rank_fraction_primary_cluster",
+      "ranking": "mean_score",
+      "scale_invariant": true,
+      "selection": "rank_fraction"
+    },
+    {
+      "cluster": true,
+      "policy_id": "independent_mcc_rank_chain_fraction_primary_cluster",
+      "ranking": "mean_score",
+      "scale_invariant": true,
+      "selection": "rank_chain_fraction"
+    },
+    {
+      "cluster": true,
+      "policy_id": "independent_mcc_rank_fraction_size_weighted_cluster",
+      "ranking": "mean_score_sqrt_size",
+      "scale_invariant": true,
+      "selection": "rank_fraction"
+    }
+  ],
+  "created_at": "2026-08-15T16:21:10.645599Z",
+  "deterministic_selection_rule": "Exclude policies with valid_cluster_rate < 0.80 or mean_recall < 0.20. Maximize composite_score = mean_f1 + 0.50*mean_label_jaccard + 0.25*mean_seed_jaccard + 0.10*scale_robustness - 0.25*invalid_cluster_rate. Tie-breakers: higher mean_recall, higher mean_precision, lower mean_selected_n, rank-based before absolute threshold, then lexical policy_id.",
+  "eligible_non_pcna_structures": [
+    "1GQY",
+    "2HNX",
+    "2K1V",
+    "2WER",
+    "3FU8"
+  ],
+  "excluded_structures": {
+    "1W60": "final PCNA target; forbidden for extraction-method selection",
+    "2CNN": "degenerate validation labels in canonical clean split: n_positive=4 < min_positive=5",
+    "8GLA": "PCNA positive-control/fine-tuning/checkpoint-selection structure; forbidden for independent extraction selection"
+  },
+  "fixed_clustering": {
+    "algorithm": "DBSCAN over selected residue CA coordinates",
+    "eps_angstrom": 6.0,
+    "min_samples": 3,
+    "minimum_cluster_size": 3,
+    "primary_cluster_default_ranking": "mean_score"
+  },
+  "forbidden_target_use": "No 1W60/PCNA score, stability, or geometry input may be read during select-policy.",
+  "gate_for_final_1w60": {
+    "pre_md_pass_requires": [
+      "policy_id and parameters exactly match frozen_extraction_method.json",
+      "valid primary cluster in all three seeds",
+      "literal mean pairwise Jaccard >= 0.50",
+      "consensus residues at >=2/3 seeds >= 8",
+      "no seed has primary-vs-runner-up margin <= 0 when runner-up exists"
+    ],
+    "symmetry_normalized_jaccard": "supplementary only if chain mapping is justified; literal Jaccard remains primary"
+  },
+  "git_commit": "5b2ce676c790c4aac0caa10dc4226b5a924791c0",
+  "selection_metrics": [
+    "mean primary-cluster F1 against non-PCNA labels",
+    "mean primary-cluster label Jaccard",
+    "mean primary-cluster recall and precision",
+    "valid-cluster rate",
+    "mean within-structure pairwise seed Jaccard",
+    "scale robustness under monotonic score transformations"
+  ],
+  "threshold_records_from_non_pcna": {
+    "42": {
+      "f1": 0.46332046332046334,
+      "fn": 39,
+      "fp": 100,
+      "mcc": 0.4514649681587273,
+      "precision": 0.375,
+      "predicted_positive_residues": 160,
+      "rank_count_mean_per_structure": 32,
+      "rank_fraction": 0.06006006006006006,
+      "recall": 0.6060606060606061,
+      "threshold": 0.60981947,
+      "tn": 2465,
+      "tp": 60
+    },
+    "43": {
+      "f1": 0.3537906137184116,
+      "fn": 50,
+      "fp": 129,
+      "mcc": 0.3368417750713607,
+      "precision": 0.2752808988764045,
+      "predicted_positive_residues": 178,
+      "rank_count_mean_per_structure": 36,
+      "rank_fraction": 0.06681681681681682,
+      "recall": 0.494949494949495,
+      "threshold": 0.54032308,
+      "tn": 2436,
+      "tp": 49
+    },
+    "44": {
+      "f1": 0.30275229357798167,
+      "fn": 66,
+      "fp": 86,
+      "mcc": 0.27452561829160804,
+      "precision": 0.2773109243697479,
+      "predicted_positive_residues": 119,
+      "rank_count_mean_per_structure": 24,
+      "rank_fraction": 0.04466966966966967,
+      "recall": 0.3333333333333333,
+      "threshold": 0.42164546,
+      "tn": 2479,
+      "tp": 33
+    }
+  },
+  "version": "independent_extraction_policy_selection_v1"
+}

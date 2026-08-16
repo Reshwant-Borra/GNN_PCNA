@@ -1,0 +1,196 @@
+{
+  "created_at": "2026-08-15T18:58:43.139697+00:00",
+  "numbering": "PDB author/auth_seq_id",
+  "canonical_sequence_length": 261,
+  "simulated_assembly_chains": {
+    "1W60": {
+      "A": "1W60 assembly1 copy A1",
+      "B": "1W60 assembly1 copy A2",
+      "C": "1W60 assembly1 copy A3"
+    },
+    "8GLA": {
+      "A": "8GLA assembly1 chain A1",
+      "B": "8GLA assembly1 chain B1",
+      "C": "8GLA assembly1 chain C1"
+    }
+  },
+  "analysis_chain_indices": {
+    "0": "chain A in prepared PDB",
+    "1": "chain B",
+    "2": "chain C"
+  },
+  "candidate_regions": {
+    "core_3of3": [
+      {
+        "chain": "A",
+        "resid": 25,
+        "resname": "GLU"
+      },
+      {
+        "chain": "A",
+        "resid": 26,
+        "resname": "ALA"
+      },
+      {
+        "chain": "A",
+        "resid": 38,
+        "resname": "GLN"
+      },
+      {
+        "chain": "A",
+        "resid": 39,
+        "resname": "SER"
+      },
+      {
+        "chain": "A",
+        "resid": 40,
+        "resname": "MET"
+      },
+      {
+        "chain": "A",
+        "resid": 41,
+        "resname": "ASP"
+      },
+      {
+        "chain": "A",
+        "resid": 42,
+        "resname": "SER"
+      },
+      {
+        "chain": "A",
+        "resid": 44,
+        "resname": "HIS"
+      },
+      {
+        "chain": "A",
+        "resid": 45,
+        "resname": "VAL"
+      },
+      {
+        "chain": "A",
+        "resid": 46,
+        "resname": "SER"
+      },
+      {
+        "chain": "A",
+        "resid": 47,
+        "resname": "LEU"
+      }
+    ],
+    "supported_fringe_2of3": [
+      {
+        "chain": "A",
+        "resid": 27,
+        "resname": "CYS"
+      },
+      {
+        "chain": "A",
+        "resid": 43,
+        "resname": "SER"
+      },
+      {
+        "chain": "A",
+        "resid": 232,
+        "resname": "ASP"
+      },
+      {
+        "chain": "A",
+        "resid": 233,
+        "resname": "VAL"
+      },
+      {
+        "chain": "A",
+        "resid": 234,
+        "resname": "PRO"
+      }
+    ],
+    "supported_ge2of3_primary": [
+      {
+        "chain": "A",
+        "resid": 25
+      },
+      {
+        "chain": "A",
+        "resid": 26
+      },
+      {
+        "chain": "A",
+        "resid": 27
+      },
+      {
+        "chain": "A",
+        "resid": 38
+      },
+      {
+        "chain": "A",
+        "resid": 39
+      },
+      {
+        "chain": "A",
+        "resid": 40
+      },
+      {
+        "chain": "A",
+        "resid": 41
+      },
+      {
+        "chain": "A",
+        "resid": 42
+      },
+      {
+        "chain": "A",
+        "resid": 43
+      },
+      {
+        "chain": "A",
+        "resid": 44
+      },
+      {
+        "chain": "A",
+        "resid": 45
+      },
+      {
+        "chain": "A",
+        "resid": 46
+      },
+      {
+        "chain": "A",
+        "resid": 47
+      },
+      {
+        "chain": "A",
+        "resid": 232
+      },
+      {
+        "chain": "A",
+        "resid": 233
+      },
+      {
+        "chain": "A",
+        "resid": 234
+      }
+    ],
+    "seed_specific_uncertain_fringe_1of3_exploratory": [
+      {
+        "chain": "A",
+        "resid": 231,
+        "resname": "ALA"
+      },
+      {
+        "chain": "A",
+        "resid": 250,
+        "resname": "TYR"
+      },
+      {
+        "chain": "A",
+        "resid": 251,
+        "resname": "LEU"
+      },
+      {
+        "chain": "A",
+        "resid": 252,
+        "resname": "ALA"
+      }
+    ]
+  }
+}

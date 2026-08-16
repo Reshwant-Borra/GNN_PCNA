@@ -1,0 +1,441 @@
+{
+  "created_at": "2026-08-14T15:20:00-04:00",
+  "scope": "independent threshold calibration only; frozen seed 42/43/44 checkpoints; no retraining; no MD",
+  "threshold_selection_rule": "Per checkpoint, select one threshold maximizing Matthews correlation coefficient on pooled residues from the independent calibration set. Candidate thresholds are precision_recall_curve thresholds plus 0.5; predictions use score >= threshold. This mirrors scripts/evaluate_clean_split.py.",
+  "calibration_ids": [
+    "1GQY",
+    "2HNX",
+    "2K1V",
+    "2WER",
+    "3FU8"
+  ],
+  "excluded_validation_structures": {
+    "2CNN": "degenerate validation labels: n_positive=4 < min_positive=5"
+  },
+  "calibration_structures": [
+    {
+      "pdb_id": "1GQY",
+      "split": "val",
+      "manifest_graph": "data\\graphs_xl\\1GQY.pt",
+      "manifest_graph_sha256": "dcc49cd9ac322a1547bfde2328e8a620ecbee64f88322f2825244d73709b5b6d",
+      "local_graph_sha256": "0873a71261bc2536683efab50b2d8ef3dc2e4f90b64b7f1fbc803fb7b2551251",
+      "raw_pdb_sha256": "181e81e5ddff608b2e374fe694b079af3dd0ed390638b86013092789e15a2389",
+      "esm_sha256": "1cd9172b2fe212c81c488ed1ae571217c0e44517f07b9b82aeb8181193b9e636",
+      "n_nodes": 937,
+      "node_dim": 520,
+      "n_positive": 39,
+      "positive_fraction": 0.04162219911813736,
+      "source_url": "https://files.rcsb.org/download/1GQY.pdb"
+    },
+    {
+      "pdb_id": "2HNX",
+      "split": "val",
+      "manifest_graph": "data\\graphs_xl\\2HNX.pt",
+      "manifest_graph_sha256": "3b46cba18930aae6cd0413eb2783583e1315817e42674508adf49f2249ae74b4",
+      "local_graph_sha256": "cc65811f889d2585f6e2f4c9e290d6beceb0e9edb846c3257881322033607d4e",
+      "raw_pdb_sha256": "62d698f9b61b4d8e699673e7e6dd9c64ecc5d40693f34754d6946ee2689d1d3f",
+      "esm_sha256": "c41798241e565b38a64e585b429b590ba6f80f09225813fac80cb56208b49915",
+      "n_nodes": 136,
+      "node_dim": 520,
+      "n_positive": 9,
+      "positive_fraction": 0.06617647409439087,
+      "source_url": "https://files.rcsb.org/download/2HNX.pdb"
+    },
+    {
+      "pdb_id": "2K1V",
+      "split": "val",
+      "manifest_graph": "data\\graphs_xl\\2K1V.pt",
+      "manifest_graph_sha256": "31a7f7d5446efc170884f64fa9e4ecec864194798cc0ce5914592df48722477b",
+      "local_graph_sha256": "d81e168c220a2af1059aae32f072c5e8d04ecb3f19a2422957694a7df00a5fe4",
+      "raw_pdb_sha256": "989315e8a04c8bc5626a2b3a53060ec45d57488107e8f60ed178115444862461",
+      "esm_sha256": "3cf56bfb6b62c5f4b98ea0decd6581d3335d502056b707c9a9a948ab56524669",
+      "n_nodes": 47,
+      "node_dim": 520,
+      "n_positive": 6,
+      "positive_fraction": 0.12765957415103912,
+      "source_url": "https://files.rcsb.org/download/2K1V.pdb"
+    },
+    {
+      "pdb_id": "2WER",
+      "split": "val",
+      "manifest_graph": "data\\graphs_xl\\2WER.pt",
+      "manifest_graph_sha256": "46b420aeb21dcb91c276a036daca9b6e53d2b3e5c16c8efa3b5eb223797889d6",
+      "local_graph_sha256": "832173d8fd80fc650ad4b73e96d0079f3e03ddef71caa276c6018f884416c6a7",
+      "raw_pdb_sha256": "7225aa2aabd7416971608126318779074c22588af005873e641b0ee621e2c4f7",
+      "esm_sha256": "a3afb0f3790854f1a849e593171da0fe6144c140ef1f1a77f1472b719af585cf",
+      "n_nodes": 428,
+      "node_dim": 520,
+      "n_positive": 30,
+      "positive_fraction": 0.07009346038103104,
+      "source_url": "https://files.rcsb.org/download/2WER.pdb"
+    },
+    {
+      "pdb_id": "3FU8",
+      "split": "val",
+      "manifest_graph": "data\\graphs_xl\\3FU8.pt",
+      "manifest_graph_sha256": "316948499a4fbaf68001bea302f5e0566e1aa9439981dca38a90787c81352c8a",
+      "local_graph_sha256": "1e3ecfb6854bfe4f7bb692e3baf8bd18ca8baf526f95281d02084e045ef59077",
+      "raw_pdb_sha256": "7b03a7aa7c09e0d5fcc72c484d7b0890ca2291e1f84fac3afe39d36fe515608e",
+      "esm_sha256": "344a2a57a0ac0fbaf6f36682d3d1bb3d2a71216363487794bf57ff64dd08b293",
+      "n_nodes": 1116,
+      "node_dim": 520,
+      "n_positive": 15,
+      "positive_fraction": 0.01344086043536663,
+      "source_url": "https://files.rcsb.org/download/3FU8.pdb"
+    }
+  ],
+  "split_integrity": {
+    "file": "data/results/split_integrity_520.json",
+    "split_counts": {
+      "train": 43,
+      "val": 6,
+      "test": 6
+    },
+    "graph_manifest_hash": "69744b548e812697ba9015c6563ed526f1af2e915b1595badb1dd47fd1b4c64f",
+    "ok": true,
+    "min_positive": 5
+  },
+  "homology_audit": {
+    "file": "data/results/homology30_audit.json",
+    "verdict": "PASS",
+    "leakage_detected": false,
+    "component_overlaps": {},
+    "sequence_cluster_overlaps": {}
+  },
+  "independence_assertions": {
+    "independent_of_fine_tuning_8GLA_A": true,
+    "independent_of_checkpoint_selection_8GLA_B": true,
+    "independent_of_final_inference_1W60": true,
+    "non_pcna": true,
+    "not_final_test": true,
+    "homology_audit_passed": true,
+    "no_ids_in_finetune_selection_or_inference": []
+  },
+  "fine_tune_data": "8GLA chain A; apo-negative auxiliary includes 1W60 chains A/B in finetune_v3_fixed.py; checkpoints frozen",
+  "checkpoint_selection_data": "8GLA chain B AUROC; see artifacts/go_prep/seed_*/best_meta.json",
+  "final_inference_data": "1W60 chains A/B",
+  "threshold_records": [
+    {
+      "seed": 42,
+      "checkpoint": "artifacts/go_prep/seed_42/best.ckpt",
+      "checkpoint_sha256": "03d01eba42eb7f6da01c0147dea434b1e1797bd2302e8a178d6bbd9b19526ce5",
+      "threshold": 0.6098194718360901,
+      "calibration_mcc": 0.4514649681587273,
+      "metrics_at_threshold": {
+        "mcc": 0.4514649681587273,
+        "precision": 0.375,
+        "recall": 0.6060606060606061,
+        "f1": 0.46332046332046334,
+        "predicted_positive_residues": 160,
+        "tp": 60,
+        "fp": 100,
+        "fn": 39,
+        "tn": 2465
+      },
+      "n_calibration_residues": 2664,
+      "n_calibration_positives": 99,
+      "calibration_scores_csv": "artifacts/diagnostics/threshold_calibration_independent_20260814/calibration_scores_seed_42.csv"
+    },
+    {
+      "seed": 43,
+      "checkpoint": "artifacts/go_prep/seed_43/best.ckpt",
+      "checkpoint_sha256": "7f145d6f54d03744f71c0224df4f170ad4aab388387e242234ebffda1acae17b",
+      "threshold": 0.5403230786323547,
+      "calibration_mcc": 0.3368417750713607,
+      "metrics_at_threshold": {
+        "mcc": 0.3368417750713607,
+        "precision": 0.2752808988764045,
+        "recall": 0.494949494949495,
+        "f1": 0.3537906137184116,
+        "predicted_positive_residues": 178,
+        "tp": 49,
+        "fp": 129,
+        "fn": 50,
+        "tn": 2436
+      },
+      "n_calibration_residues": 2664,
+      "n_calibration_positives": 99,
+      "calibration_scores_csv": "artifacts/diagnostics/threshold_calibration_independent_20260814/calibration_scores_seed_43.csv"
+    },
+    {
+      "seed": 44,
+      "checkpoint": "artifacts/go_prep/seed_44/best.ckpt",
+      "checkpoint_sha256": "0a739dec47248651499942207b82139e5dea8bebfafe5ed50aabcbbdfd6aa3f6",
+      "threshold": 0.42164546251296997,
+      "calibration_mcc": 0.27452561829160804,
+      "metrics_at_threshold": {
+        "mcc": 0.27452561829160804,
+        "precision": 0.2773109243697479,
+        "recall": 0.3333333333333333,
+        "f1": 0.30275229357798167,
+        "predicted_positive_residues": 119,
+        "tp": 33,
+        "fp": 86,
+        "fn": 66,
+        "tn": 2479
+      },
+      "n_calibration_residues": 2664,
+      "n_calibration_positives": 99,
+      "calibration_scores_csv": "artifacts/diagnostics/threshold_calibration_independent_20260814/calibration_scores_seed_44.csv"
+    }
+  ],
+  "stability": {
+    "pdb": "1W60",
+    "min_fraction": 0.6,
+    "min_jaccard": 0.5,
+    "min_consensus_residues": 8,
+    "literal_pairwise_jaccard": [
+      {
+        "a": 42,
+        "b": 43,
+        "jaccard": 0.5882352941176471
+      },
+      {
+        "a": 42,
+        "b": 44,
+        "jaccard": 0.0
+      },
+      {
+        "a": 43,
+        "b": 44,
+        "jaccard": 0.0
+      }
+    ],
+    "literal_mean_pairwise_jaccard": 0.19607843137254902,
+    "literal_consensus_n_residues": 10,
+    "literal_consensus_residues": [
+      {
+        "chain": "A",
+        "resid": 25
+      },
+      {
+        "chain": "A",
+        "resid": 26
+      },
+      {
+        "chain": "A",
+        "resid": 38
+      },
+      {
+        "chain": "A",
+        "resid": 39
+      },
+      {
+        "chain": "A",
+        "resid": 40
+      },
+      {
+        "chain": "A",
+        "resid": 41
+      },
+      {
+        "chain": "A",
+        "resid": 42
+      },
+      {
+        "chain": "A",
+        "resid": 43
+      },
+      {
+        "chain": "A",
+        "resid": 44
+      },
+      {
+        "chain": "A",
+        "resid": 45
+      }
+    ],
+    "symmetry_normalized_pairwise_jaccard": [
+      {
+        "a": 42,
+        "b": 43,
+        "jaccard": 0.5882352941176471
+      },
+      {
+        "a": 42,
+        "b": 44,
+        "jaccard": 0.0
+      },
+      {
+        "a": 43,
+        "b": 44,
+        "jaccard": 0.0
+      }
+    ],
+    "symmetry_normalized_mean_pairwise_jaccard": 0.19607843137254902,
+    "symmetry_normalized_consensus_n_residues": 10,
+    "symmetry_normalized_consensus_residues": [
+      25,
+      26,
+      38,
+      39,
+      40,
+      41,
+      42,
+      43,
+      44,
+      45
+    ],
+    "chain_equivalence_verified": true,
+    "chain_equivalence_summary": {
+      "A": {
+        "n_residues": 255,
+        "first_resid": 1,
+        "last_resid": 255
+      },
+      "B": {
+        "n_residues": 255,
+        "first_resid": 1,
+        "last_resid": 255
+      }
+    },
+    "literal_gate_pass": false,
+    "symmetry_gate_pass": false,
+    "verdict": "UNSTABLE",
+    "reasons": [
+      "literal mean pairwise Jaccard 0.196 < 0.5"
+    ],
+    "runs": [
+      {
+        "seed": 42,
+        "checkpoint": "artifacts/go_prep/seed_42/best.ckpt",
+        "threshold": 0.6098194718360901,
+        "scores_csv": "artifacts/diagnostics/threshold_calibration_independent_20260814/scores/run0/1W60/scores.csv",
+        "n_residues": 16,
+        "top_mean_score": 0.66065625,
+        "runner_up_margin": 0.0123812499999999,
+        "residues": [
+          {
+            "chain": "A",
+            "resid": 25
+          },
+          {
+            "chain": "A",
+            "resid": 26
+          },
+          {
+            "chain": "A",
+            "resid": 38
+          },
+          {
+            "chain": "A",
+            "resid": 39
+          },
+          {
+            "chain": "A",
+            "resid": 40
+          },
+          {
+            "chain": "A",
+            "resid": 41
+          },
+          {
+            "chain": "A",
+            "resid": 42
+          },
+          {
+            "chain": "A",
+            "resid": 43
+          },
+          {
+            "chain": "A",
+            "resid": 44
+          },
+          {
+            "chain": "A",
+            "resid": 45
+          },
+          {
+            "chain": "A",
+            "resid": 46
+          },
+          {
+            "chain": "A",
+            "resid": 47
+          },
+          {
+            "chain": "A",
+            "resid": 232
+          },
+          {
+            "chain": "A",
+            "resid": 233
+          },
+          {
+            "chain": "A",
+            "resid": 234
+          },
+          {
+            "chain": "A",
+            "resid": 252
+          }
+        ]
+      },
+      {
+        "seed": 43,
+        "checkpoint": "artifacts/go_prep/seed_43/best.ckpt",
+        "threshold": 0.5403230786323547,
+        "scores_csv": "artifacts/diagnostics/threshold_calibration_independent_20260814/scores/run1/1W60/scores.csv",
+        "n_residues": 11,
+        "top_mean_score": 0.5961454545454545,
+        "runner_up_margin": 0.03710545454545455,
+        "residues": [
+          {
+            "chain": "A",
+            "resid": 25
+          },
+          {
+            "chain": "A",
+            "resid": 26
+          },
+          {
+            "chain": "A",
+            "resid": 27
+          },
+          {
+            "chain": "A",
+            "resid": 38
+          },
+          {
+            "chain": "A",
+            "resid": 39
+          },
+          {
+            "chain": "A",
+            "resid": 40
+          },
+          {
+            "chain": "A",
+            "resid": 41
+          },
+          {
+            "chain": "A",
+            "resid": 42
+          },
+          {
+            "chain": "A",
+            "resid": 43
+          },
+          {
+            "chain": "A",
+            "resid": 44
+          },
+          {
+            "chain": "A",
+            "resid": 45
+          }
+        ]
+      },
+      {
+        "seed": 44,
+        "checkpoint": "artifacts/go_prep/seed_44/best.ckpt",
+        "threshold": 0.42164546251296997,
+        "scores_csv": "artifacts/diagnostics/threshold_calibration_independent_20260814/scores/run2/1W60/scores.csv",
+        "n_residues": 0,
+        "top_mean_score": null,
+        "runner_up_margin": null,
+        "residues": []
+      }
+    ]
+  }
+}

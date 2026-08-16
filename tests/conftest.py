@@ -10,6 +10,13 @@ from research_os.orchestrator import Orchestrator
 from research_os.registries.store import RegistryStore, ensure_registries_initialized
 
 
+def pytest_configure(config):
+    config.addinivalue_line(
+        "markers",
+        "slow: expensive checks (CPU training runs). Deselect with -m 'not slow'.",
+    )
+
+
 @pytest.fixture
 def tmp_memory(tmp_path: Path) -> MemoryStore:
     store = MemoryStore(tmp_path / "mem")

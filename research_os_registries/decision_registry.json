@@ -2,6 +2,146 @@
   "registry": "decision_registry",
   "id_prefix": "DEC",
   "created_at": "2026-05-24T19:05:16Z",
-  "updated_at": "2026-05-24T19:05:16Z",
-  "entries": []
+  "updated_at": "2026-08-15T17:21:16.099137Z",
+  "entries": [
+    {
+      "decision_id": "DEC-0001",
+      "date": "2026-08-15",
+      "decision_maker": "codex.agent_non_human",
+      "request": "Freeze extraction policy and apply pre-MD 1W60 stability gate without PCNA method selection.",
+      "created_at": "",
+      "updated_at": "2026-08-15T16:32:22Z",
+      "options": [
+        "absolute threshold",
+        "rank count",
+        "rank fraction",
+        "chain rank fraction",
+        "size-weighted rank cluster"
+      ],
+      "decision": "Selected independent_mcc_rank_fraction_size_weighted_cluster by predeclared non-PCNA benchmark.",
+      "rationale": "Highest predeclared composite score among eligible policies; no PCNA inputs read during select-policy.",
+      "evidence": [
+        "ART-0001",
+        "ART-0002",
+        "ART-0003",
+        "ART-0004",
+        "ART-0005",
+        "ART-0006",
+        "ART-0007",
+        "EXP-0001"
+      ],
+      "affected_claims": [],
+      "affected_artifacts": [
+        "ART-0001",
+        "ART-0002",
+        "ART-0003",
+        "ART-0004",
+        "ART-0005",
+        "ART-0006",
+        "ART-0007"
+      ],
+      "follow_up": [
+        "Human Gate-6 approval required before any MD."
+      ],
+      "notes": "Non-human process decision only. This is not human Gate-6 approval."
+    },
+    {
+      "decision_id": "DEC-0002",
+      "date": "2026-08-15",
+      "decision_maker": "codex.agent_non_human",
+      "request": "Apply a post-pass stronger internal robustness standard without tuning on PCNA or starting MD.",
+      "created_at": "2026-08-15T16:58:48Z",
+      "updated_at": "2026-08-15T16:58:48Z",
+      "options": [
+        "keep current frozen policy",
+        "freeze new independently justified policy",
+        "retrain model",
+        "start production MD"
+      ],
+      "decision": "Keep the current frozen policy; do not freeze a replacement, do not retrain, and do not start production MD.",
+      "rationale": "The stricter >=0.75 mean-Jaccard target was adopted after the 0.6792 result. Independent LOPO/bootstrap/grid analysis did not identify a materially better policy robust enough to justify a new one-shot PCNA evaluation. Ranking diagnostics do not justify retraining.",
+      "evidence": [
+        "ART-0012",
+        "ART-0013",
+        "ART-0014",
+        "ART-0015",
+        "ART-0016",
+        "ART-0017",
+        "ART-0018",
+        "ART-0019",
+        "ART-0020",
+        "ART-0021",
+        "ART-0022",
+        "ART-0023",
+        "ART-0024",
+        "ART-0025",
+        "ART-0026",
+        "ART-0027",
+        "ART-0028",
+        "ART-0029",
+        "ART-0030",
+        "ART-0031",
+        "EXP-0002"
+      ],
+      "affected_claims": [
+        "CLAIM-PCNA-001"
+      ],
+      "affected_artifacts": [
+        "ART-0002",
+        "ART-0004",
+        "ART-0012",
+        "ART-0013",
+        "ART-0014",
+        "ART-0015",
+        "ART-0016",
+        "ART-0017",
+        "ART-0018",
+        "ART-0019",
+        "ART-0020",
+        "ART-0021",
+        "ART-0022",
+        "ART-0023",
+        "ART-0024",
+        "ART-0025",
+        "ART-0026",
+        "ART-0027",
+        "ART-0028",
+        "ART-0029",
+        "ART-0030",
+        "ART-0031"
+      ],
+      "follow_up": [
+        "Expand or strengthen the independent non-PCNA validation benchmark before production MD if the stronger internal release standard remains required.",
+        "Do not use 1W60 stability to tune extraction parameters.",
+        "Human Gate-6 approval remains required before any MD."
+      ],
+      "notes": "Non-human process decision only. This is not human Gate-6 approval."
+    },
+    {
+      "decision_id": "DEC-0003",
+      "date": "2026-08-15",
+      "decision_maker": "codex.agent_non_human",
+      "request": "Final benchmark-expansion pass before MD readiness decision.",
+      "created_at": "2026-08-15T17:19:50.673747Z",
+      "updated_at": "2026-08-15T17:19:50.673753Z",
+      "options": [
+        "keep current policy",
+        "freeze replacement policy",
+        "retrain",
+        "hold before MD",
+        "proceed to control-first MD"
+      ],
+      "decision": "Keep current independently frozen extraction policy; do not retrain; proceed to control-first MD after Gate-6 approval.",
+      "rationale": "No additional eligible independent non-PCNA structures survived strict gate; existing LOPO/bootstrap did not justify replacement; PCNA evidence supports same physical pocket core with boundary uncertainty.",
+      "evidence": [
+        "artifacts/final_benchmark_expansion_20260815/final_benchmark_eligibility_report.json"
+      ],
+      "affected_claims": [
+        "CLAIM-PCNA-001"
+      ],
+      "follow_up": [
+        "Human Gate-6 approval required before MD preparation/production."
+      ]
+    }
+  ]
 }

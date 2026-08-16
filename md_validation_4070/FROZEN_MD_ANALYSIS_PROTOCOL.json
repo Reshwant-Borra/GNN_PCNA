@@ -1,0 +1,263 @@
+{
+  "created_at": "2026-08-15T18:58:43.139697+00:00",
+  "status": "FROZEN_FOR_PRE_PRODUCTION_VALIDATION",
+  "do_not_change_after_candidate_production": true,
+  "gnn_interpretation": {
+    "policy": "independent_mcc_rank_fraction_size_weighted_cluster",
+    "literal_mean_jaccard": 0.6791537667698658,
+    "interpretation": "MODERATE / EXPLORATORY PASS; same physical candidate region, not strong residue-level reproducibility."
+  },
+  "residue_sets": {
+    "core_3of3": [
+      {
+        "chain": "A",
+        "resid": 25,
+        "resname": "GLU"
+      },
+      {
+        "chain": "A",
+        "resid": 26,
+        "resname": "ALA"
+      },
+      {
+        "chain": "A",
+        "resid": 38,
+        "resname": "GLN"
+      },
+      {
+        "chain": "A",
+        "resid": 39,
+        "resname": "SER"
+      },
+      {
+        "chain": "A",
+        "resid": 40,
+        "resname": "MET"
+      },
+      {
+        "chain": "A",
+        "resid": 41,
+        "resname": "ASP"
+      },
+      {
+        "chain": "A",
+        "resid": 42,
+        "resname": "SER"
+      },
+      {
+        "chain": "A",
+        "resid": 44,
+        "resname": "HIS"
+      },
+      {
+        "chain": "A",
+        "resid": 45,
+        "resname": "VAL"
+      },
+      {
+        "chain": "A",
+        "resid": 46,
+        "resname": "SER"
+      },
+      {
+        "chain": "A",
+        "resid": 47,
+        "resname": "LEU"
+      }
+    ],
+    "supported_fringe_2of3": [
+      {
+        "chain": "A",
+        "resid": 27,
+        "resname": "CYS"
+      },
+      {
+        "chain": "A",
+        "resid": 43,
+        "resname": "SER"
+      },
+      {
+        "chain": "A",
+        "resid": 232,
+        "resname": "ASP"
+      },
+      {
+        "chain": "A",
+        "resid": 233,
+        "resname": "VAL"
+      },
+      {
+        "chain": "A",
+        "resid": 234,
+        "resname": "PRO"
+      }
+    ],
+    "supported_ge2of3_primary": [
+      {
+        "chain": "A",
+        "resid": 25
+      },
+      {
+        "chain": "A",
+        "resid": 26
+      },
+      {
+        "chain": "A",
+        "resid": 27
+      },
+      {
+        "chain": "A",
+        "resid": 38
+      },
+      {
+        "chain": "A",
+        "resid": 39
+      },
+      {
+        "chain": "A",
+        "resid": 40
+      },
+      {
+        "chain": "A",
+        "resid": 41
+      },
+      {
+        "chain": "A",
+        "resid": 42
+      },
+      {
+        "chain": "A",
+        "resid": 43
+      },
+      {
+        "chain": "A",
+        "resid": 44
+      },
+      {
+        "chain": "A",
+        "resid": 45
+      },
+      {
+        "chain": "A",
+        "resid": 46
+      },
+      {
+        "chain": "A",
+        "resid": 47
+      },
+      {
+        "chain": "A",
+        "resid": 232
+      },
+      {
+        "chain": "A",
+        "resid": 233
+      },
+      {
+        "chain": "A",
+        "resid": 234
+      }
+    ],
+    "seed_specific_uncertain_fringe_1of3_exploratory": [
+      {
+        "chain": "A",
+        "resid": 231,
+        "resname": "ALA"
+      },
+      {
+        "chain": "A",
+        "resid": 250,
+        "resname": "TYR"
+      },
+      {
+        "chain": "A",
+        "resid": 251,
+        "resname": "LEU"
+      },
+      {
+        "chain": "A",
+        "resid": 252,
+        "resname": "ALA"
+      }
+    ]
+  },
+  "reference_structures": {
+    "apo": {
+      "pdb": "1W60",
+      "role": "closed/reference apo PCNA"
+    },
+    "positive_control": {
+      "pdb": "8GLA",
+      "role": "AOH1996-derivative-bound reference, ligand stripped for protein-only MD",
+      "expectation": "control-first validation must be trajectory-derived: complete independent control replicates must remain artifact-free, open-like under the frozen thresholds, and show non-trivial local fluctuation. Static 8GLA-vs-1W60 starting-state separation is descriptive only and cannot pass the gate."
+    }
+  },
+  "atom_selections": {
+    "alignment": "protein CA excluding the supported_ge2of3 pocket residues",
+    "primary_pocket": "chain index 0 residues in core_3of3 and supported_ge2of3",
+    "exploratory_union": "core + supported fringe + 1-of-3 seed-specific fringe; never primary by itself",
+    "sasa": "protein context, Shrake-Rupley, atom-key parity enforced across apo/control before comparison"
+  },
+  "metrics": {
+    "rmsd": "backbone/CA RMSD after PBC imaging and alignment; stability descriptor only",
+    "rmsf": "per-residue fluctuation after alignment, summarized by core/support/fringe; no pseudoreplication across frames",
+    "sasa": "sum residue SASA for each predefined region, measured over identical atom keys across systems",
+    "dccm": "CA dynamic cross-correlation after alignment; qualitative/supportive unless replicate-stable",
+    "openness": {
+      "formula": "open_like_frame if supported-region SASA and supported-region CA convex-hull volume both exceed reference midpoint thresholds; core SASA is reported as the primary localization check",
+      "thresholds_source": "prepared 1W60 and ligand-stripped prepared 8GLA static references before candidate production",
+      "thresholds": {
+        "core_sasa_A2": 501.317,
+        "supported_sasa_A2": 808.568,
+        "supported_ca_convex_hull_volume_A3": 560.687
+      }
+    },
+    "pocket_volume": {
+      "metric": "CA convex hull volume of the predefined region",
+      "status": "adopted as a geometric descriptor, not a ligand-volume estimate; validated only as static reference discriminator before production"
+    }
+  },
+  "event_definitions": {
+    "opening_event": {
+      "minimum_duration": ">= 2 consecutive saved frames",
+      "frame_rule": "supported_sasa_A2 >= threshold.supported_sasa_A2 and supported_ca_convex_hull_volume_A3 >= threshold.supported_ca_convex_hull_volume_A3",
+      "localization_rule": "core_sasa_A2 must be reported; events dominated only by seed-specific fringe are exploratory, not primary support"
+    }
+  },
+  "control_interpretability_gate": {
+    "name": "trajectory_dynamic_control_gate_v1",
+    "frozen_before_meaningful_control_md": true,
+    "uses_frame_zero_or_static_apo_control_difference": false,
+    "minimum_control_replicates": 3,
+    "minimum_control_ns_per_replicate": 5.0,
+    "minimum_pocket_rmsf_nm": 0.015,
+    "minimum_open_like_fraction": 0.2,
+    "negative_diagnostic": "starting structures differ plus tiny random coordinate noise must fail because static separation alone is not dynamic validation"
+  },
+  "replicate_aggregation": {
+    "independent_unit": "trajectory replicate, not frame",
+    "summaries": [
+      "replicate traces",
+      "median",
+      "mean",
+      "range/IQR",
+      "bootstrap CI across replicates only when n is sufficient",
+      "event frequency",
+      "event duration",
+      "fraction open-like"
+    ]
+  },
+  "interpretation_categories": {
+    "supportive": "multiple independent candidate trajectories show reproducible predefined opening/accessibility dynamics centered on core/supported region and controls remain interpretable",
+    "partially_supportive": "some predefined behavior appears, but magnitude/frequency/replicate consistency is limited",
+    "inconclusive": "sampling, control behavior, mapping, or variability prevents reliable conclusion",
+    "weakening": "region remains closed/stable under adequate sampling where control demonstrates assay sensitivity",
+    "contradictory": "evidence conflicts with a specific prospective prediction"
+  },
+  "source_hashes": {
+    "previous_claimed_protocol_sha256": "2497def9e4675538dd08051ae6e5a448a41fbd32a1d7dc59cfb528d74d64ce3c",
+    "reconciliation_change_reason": "positive-control gate repaired to reject static starting-state differences alone",
+    "pocket_definition_sha256": "81281e852785fa51165fd3d0a0c7486a2a232cab2611a071607050368d8019c3",
+    "static_reference_metrics_sha256": "34de1c510a7188c38fd5c058ca2107bae2baae6186e5f29dd3bf6e191a5d24a1"
+  }
+}

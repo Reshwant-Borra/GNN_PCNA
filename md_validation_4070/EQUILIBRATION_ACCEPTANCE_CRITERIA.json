@@ -1,0 +1,43 @@
+{
+  "created_at": "2026-08-15T18:58:43.139697+00:00",
+  "temperature_K": {
+    "target": 310.0,
+    "accept_mean_range": [
+      300.0,
+      320.0
+    ],
+    "no_runaway": "no sustained drift > 15 K from target after first 20 percent of equilibration"
+  },
+  "pressure_bar": {
+    "target": 1.0,
+    "accept_mean_range": [
+      0.5,
+      1.5
+    ],
+    "applies_to": "NPT only; fluctuations are expected"
+  },
+  "density_g_ml": {
+    "accept_final_range": [
+      0.95,
+      1.1
+    ]
+  },
+  "potential_energy": {
+    "requirement": "finite, no monotonic runaway over final half of equilibration"
+  },
+  "box_vectors": {
+    "requirement": "finite, positive dimensions, no collapse, no abrupt discontinuity after equilibration"
+  },
+  "protein_backbone_rmsd_nm": {
+    "warning": 0.5,
+    "fail": 1.0,
+    "reference": "post-minimization/equilibrated start"
+  },
+  "candidate_region": {
+    "requirement": "all core/support residues present; no nonfinite coordinates; no chain break or gross distortion"
+  },
+  "control_region": {
+    "requirement": "same as candidate plus atom-parity-safe analysis"
+  },
+  "proceed_to_production": "all fail criteria absent and smoke/analysis/control gates passed"
+}

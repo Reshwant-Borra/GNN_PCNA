@@ -1,0 +1,780 @@
+{
+  "created_at": "2026-08-15T18:58:43.139697+00:00",
+  "cif": {
+    "1W60": {
+      "pdb_id": "1W60",
+      "title": "NATIVE HUMAN PCNA",
+      "method": "X-RAY DIFFRACTION",
+      "resolution_A": 3.15,
+      "r_free": 0.278,
+      "r_work": 0.193,
+      "deposited_polymer_instances": 2,
+      "deposited_unmodeled_polymer_monomers": 12,
+      "metadata_disulfide_count": 0,
+      "assembly1": {
+        "assembly_id": "1",
+        "protein_label_asym_ids": [
+          "A"
+        ],
+        "protein_chain_count_after_ops": 3
+      },
+      "chains": [
+        {
+          "chain": "A",
+          "n_modeled_protein_residues": 255,
+          "first_residue": 1,
+          "last_residue": 255,
+          "n_missing_vs_entity_sequence": 6,
+          "missing_residues_vs_entity_sequence": [
+            256,
+            257,
+            258,
+            259,
+            260,
+            261
+          ],
+          "internal_gaps": [],
+          "backbone_missing": [],
+          "candidate_missing": [],
+          "candidate_residue_names": {
+            "25": "GLU",
+            "26": "ALA",
+            "27": "CYS",
+            "38": "GLN",
+            "39": "SER",
+            "40": "MET",
+            "41": "ASP",
+            "42": "SER",
+            "43": "SER",
+            "44": "HIS",
+            "45": "VAL",
+            "46": "SER",
+            "47": "LEU",
+            "231": "ALA",
+            "232": "ASP",
+            "233": "VAL",
+            "234": "PRO",
+            "250": "TYR",
+            "251": "LEU",
+            "252": "ALA"
+          }
+        },
+        {
+          "chain": "B",
+          "n_modeled_protein_residues": 255,
+          "first_residue": 1,
+          "last_residue": 255,
+          "n_missing_vs_entity_sequence": 6,
+          "missing_residues_vs_entity_sequence": [
+            256,
+            257,
+            258,
+            259,
+            260,
+            261
+          ],
+          "internal_gaps": [],
+          "backbone_missing": [],
+          "candidate_missing": [],
+          "candidate_residue_names": {
+            "25": "GLU",
+            "26": "ALA",
+            "27": "CYS",
+            "38": "GLN",
+            "39": "SER",
+            "40": "MET",
+            "41": "ASP",
+            "42": "SER",
+            "43": "SER",
+            "44": "HIS",
+            "45": "VAL",
+            "46": "SER",
+            "47": "LEU",
+            "231": "ALA",
+            "232": "ASP",
+            "233": "VAL",
+            "234": "PRO",
+            "250": "TYR",
+            "251": "LEU",
+            "252": "ALA"
+          }
+        }
+      ],
+      "heterogens": {
+        "HOH": 1
+      },
+      "struct_conn_disulfides": [],
+      "source_files": {
+        "cif": "data/raw_intake/pcna_structures/1W60.cif",
+        "metadata": "data/raw_intake/pcna_structures/1W60_metadata.json"
+      }
+    },
+    "8GLA": {
+      "pdb_id": "8GLA",
+      "title": "Co-crystal structure of caPCNA bound to the AOH1996 derivative, AOH1996-1LE",
+      "method": "X-RAY DIFFRACTION",
+      "resolution_A": 3.77,
+      "r_free": 0.26,
+      "r_work": 0.2051,
+      "deposited_polymer_instances": 4,
+      "deposited_unmodeled_polymer_monomers": 92,
+      "metadata_disulfide_count": 4,
+      "assembly1": {
+        "assembly_id": "1",
+        "protein_label_asym_ids": [
+          "A",
+          "B",
+          "C"
+        ],
+        "protein_chain_count_after_ops": 3
+      },
+      "chains": [
+        {
+          "chain": "A",
+          "n_modeled_protein_residues": 236,
+          "first_residue": 2,
+          "last_residue": 254,
+          "n_missing_vs_entity_sequence": 25,
+          "missing_residues_vs_entity_sequence": [
+            1,
+            94,
+            95,
+            96,
+            106,
+            107,
+            108,
+            109,
+            165,
+            166,
+            185,
+            186,
+            187,
+            188,
+            189,
+            190,
+            191,
+            192,
+            255,
+            256,
+            257,
+            258,
+            259,
+            260,
+            261
+          ],
+          "internal_gaps": [
+            [
+              93,
+              97
+            ],
+            [
+              105,
+              110
+            ],
+            [
+              164,
+              167
+            ],
+            [
+              184,
+              193
+            ]
+          ],
+          "backbone_missing": [],
+          "candidate_missing": [],
+          "candidate_residue_names": {
+            "25": "GLU",
+            "26": "ALA",
+            "27": "CYS",
+            "38": "GLN",
+            "39": "SER",
+            "40": "MET",
+            "41": "ASP",
+            "42": "SER",
+            "43": "SER",
+            "44": "HIS",
+            "45": "VAL",
+            "46": "SER",
+            "47": "LEU",
+            "231": "ALA",
+            "232": "ASP",
+            "233": "VAL",
+            "234": "PRO",
+            "250": "TYR",
+            "251": "LEU",
+            "252": "ALA"
+          }
+        },
+        {
+          "chain": "B",
+          "n_modeled_protein_residues": 240,
+          "first_residue": 1,
+          "last_residue": 253,
+          "n_missing_vs_entity_sequence": 21,
+          "missing_residues_vs_entity_sequence": [
+            83,
+            163,
+            164,
+            165,
+            166,
+            186,
+            187,
+            188,
+            189,
+            190,
+            191,
+            192,
+            193,
+            254,
+            255,
+            256,
+            257,
+            258,
+            259,
+            260,
+            261
+          ],
+          "internal_gaps": [
+            [
+              82,
+              84
+            ],
+            [
+              162,
+              167
+            ],
+            [
+              185,
+              194
+            ]
+          ],
+          "backbone_missing": [],
+          "candidate_missing": [],
+          "candidate_residue_names": {
+            "25": "GLU",
+            "26": "ALA",
+            "27": "CYS",
+            "38": "GLN",
+            "39": "SER",
+            "40": "MET",
+            "41": "ASP",
+            "42": "SER",
+            "43": "SER",
+            "44": "HIS",
+            "45": "VAL",
+            "46": "SER",
+            "47": "LEU",
+            "231": "ALA",
+            "232": "ASP",
+            "233": "VAL",
+            "234": "PRO",
+            "250": "TYR",
+            "251": "LEU",
+            "252": "ALA"
+          }
+        },
+        {
+          "chain": "C",
+          "n_modeled_protein_residues": 234,
+          "first_residue": 2,
+          "last_residue": 255,
+          "n_missing_vs_entity_sequence": 27,
+          "missing_residues_vs_entity_sequence": [
+            1,
+            93,
+            94,
+            95,
+            96,
+            106,
+            107,
+            108,
+            122,
+            163,
+            164,
+            165,
+            166,
+            186,
+            187,
+            188,
+            189,
+            190,
+            191,
+            192,
+            199,
+            256,
+            257,
+            258,
+            259,
+            260,
+            261
+          ],
+          "internal_gaps": [
+            [
+              92,
+              97
+            ],
+            [
+              105,
+              109
+            ],
+            [
+              121,
+              123
+            ],
+            [
+              162,
+              167
+            ],
+            [
+              185,
+              193
+            ],
+            [
+              198,
+              200
+            ]
+          ],
+          "backbone_missing": [],
+          "candidate_missing": [],
+          "candidate_residue_names": {
+            "25": "GLU",
+            "26": "ALA",
+            "27": "CYS",
+            "38": "GLN",
+            "39": "SER",
+            "40": "MET",
+            "41": "ASP",
+            "42": "SER",
+            "43": "SER",
+            "44": "HIS",
+            "45": "VAL",
+            "46": "SER",
+            "47": "LEU",
+            "231": "ALA",
+            "232": "ASP",
+            "233": "VAL",
+            "234": "PRO",
+            "250": "TYR",
+            "251": "LEU",
+            "252": "ALA"
+          }
+        },
+        {
+          "chain": "D",
+          "n_modeled_protein_residues": 242,
+          "first_residue": 2,
+          "last_residue": 255,
+          "n_missing_vs_entity_sequence": 19,
+          "missing_residues_vs_entity_sequence": [
+            1,
+            106,
+            155,
+            165,
+            166,
+            185,
+            186,
+            187,
+            188,
+            189,
+            190,
+            191,
+            192,
+            256,
+            257,
+            258,
+            259,
+            260,
+            261
+          ],
+          "internal_gaps": [
+            [
+              105,
+              107
+            ],
+            [
+              154,
+              156
+            ],
+            [
+              164,
+              167
+            ],
+            [
+              184,
+              193
+            ]
+          ],
+          "backbone_missing": [],
+          "candidate_missing": [],
+          "candidate_residue_names": {
+            "25": "GLU",
+            "26": "ALA",
+            "27": "CYS",
+            "38": "GLN",
+            "39": "SER",
+            "40": "MET",
+            "41": "ASP",
+            "42": "SER",
+            "43": "SER",
+            "44": "HIS",
+            "45": "VAL",
+            "46": "SER",
+            "47": "LEU",
+            "231": "ALA",
+            "232": "ASP",
+            "233": "VAL",
+            "234": "PRO",
+            "250": "TYR",
+            "251": "LEU",
+            "252": "ALA"
+          }
+        }
+      ],
+      "heterogens": {
+        "ZQZ": 1,
+        "CL": 1
+      },
+      "struct_conn_disulfides": [
+        {
+          "chain1": "A",
+          "resid1": "135",
+          "atom1": "SG",
+          "chain2": "A",
+          "resid2": "162",
+          "atom2": "SG"
+        },
+        {
+          "chain1": "B",
+          "resid1": "135",
+          "atom1": "SG",
+          "chain2": "B",
+          "resid2": "162",
+          "atom2": "SG"
+        },
+        {
+          "chain1": "C",
+          "resid1": "135",
+          "atom1": "SG",
+          "chain2": "C",
+          "resid2": "162",
+          "atom2": "SG"
+        },
+        {
+          "chain1": "D",
+          "resid1": "135",
+          "atom1": "SG",
+          "chain2": "D",
+          "resid2": "162",
+          "atom2": "SG"
+        }
+      ],
+      "source_files": {
+        "cif": "data/raw_intake/pcna_structures/8GLA.cif",
+        "metadata": "data/raw_intake/pcna_structures/8GLA_metadata.json"
+      }
+    }
+  },
+  "preflight_min5000": {
+    "1W60": {
+      "pdb_id": "1W60",
+      "prep_audit": {
+        "pdb_id": "1W60",
+        "assembly": "1",
+        "chains_seen": [
+          {
+            "chain": "A1",
+            "n_poly_res": 255,
+            "protein": true
+          },
+          {
+            "chain": "A2",
+            "n_poly_res": 255,
+            "protein": true
+          },
+          {
+            "chain": "A3",
+            "n_poly_res": 255,
+            "protein": true
+          }
+        ],
+        "kept_protein_chains": [
+          "A1",
+          "A2",
+          "A3"
+        ],
+        "expected_protein_chains": 3,
+        "final_chains": [
+          {
+            "id": "A",
+            "n_res": 255
+          },
+          {
+            "id": "B",
+            "n_res": 255
+          },
+          {
+            "id": "C",
+            "n_res": 255
+          }
+        ],
+        "internal_missing_residues_rebuilt": 0,
+        "note": "Biological assembly reconstructed (gemmi). Protein-only, peptides/ligands/waters dropped by >= 200 aa filter. Terminal missing residues NOT fabricated. 0 internal residues rebuilt by PDBFixer - if this is large and the structure is low-resolution (e.g. 8GLA 3.77 A), treat pocket side-chain geometry as modeled, not observed (report as a caveat).",
+        "pocket_residues_resseq": [
+          25,
+          26,
+          27,
+          38,
+          39,
+          40,
+          41,
+          42,
+          43,
+          44,
+          45,
+          46,
+          47,
+          232,
+          233,
+          234
+        ]
+      },
+      "done": {
+        "replicate": 1,
+        "pdb": "1W60",
+        "ns": 0.0,
+        "production_ns": 0.0,
+        "equil_ns": 0.0,
+        "report_ps": 50.0,
+        "seed": 20260001,
+        "steps": 0,
+        "timestep_fs": 4.0,
+        "hmr": true,
+        "hmr_amu": 4.0,
+        "final_potential_kj_mol": -2613008.9280652665,
+        "backbone_rmsd_nm": 1.525891809460589e-15,
+        "minimization": {
+          "initial_potential_kj_mol": -1404053.3494220332,
+          "minimized_potential_kj_mol": -2613008.9280652674,
+          "delta_potential_kj_mol": -1208955.5786432342,
+          "max_force_initial_kj_mol_nm": 221886.41653393747,
+          "max_force_minimized_kj_mol_nm": 2681.1571588571273,
+          "max_iterations": 5000
+        },
+        "sanity_gate": "passed: finite energy+coords, backbone RMSD 0.00 nm < 1.0 nm",
+        "topology": "system_solvated.pdb",
+        "trajectory": "production.dcd",
+        "finished_utc": "2026-08-15T18:50:14.363199+00:00"
+      },
+      "prepared_sha256": "cd15d13881f779030ec1fd11c21ab34cba1f7fc0e3c733dbbea8eabc50d0e305",
+      "solvated_topology_sha256": "ff626b07e844cc54fe3b82e15ed9110cbca619179b454082efbbb33e037c3be6",
+      "close_contacts": {
+        "prepared_pdb": "md_validation_4070/preflight_outputs_min5000/1W60/prep/prepared_protein.pdb",
+        "heavy_atom_count": 5892,
+        "severe_nonbonded_close_contacts_lt_1p5A": 0,
+        "suspicious_nonbonded_close_contacts_1p5_to_2p0A": 0,
+        "examples": []
+      }
+    },
+    "8GLA": {
+      "pdb_id": "8GLA",
+      "prep_audit": {
+        "pdb_id": "8GLA",
+        "assembly": "1",
+        "chains_seen": [
+          {
+            "chain": "A1",
+            "n_poly_res": 240,
+            "protein": true
+          },
+          {
+            "chain": "B1",
+            "n_poly_res": 242,
+            "protein": true
+          },
+          {
+            "chain": "C1",
+            "n_poly_res": 239,
+            "protein": true
+          }
+        ],
+        "kept_protein_chains": [
+          "A1",
+          "B1",
+          "C1"
+        ],
+        "expected_protein_chains": 3,
+        "final_chains": [
+          {
+            "id": "A",
+            "n_res": 253
+          },
+          {
+            "id": "B",
+            "n_res": 253
+          },
+          {
+            "id": "C",
+            "n_res": 254
+          }
+        ],
+        "internal_missing_residues_rebuilt": 50,
+        "note": "Biological assembly reconstructed (gemmi). Protein-only, peptides/ligands/waters dropped by >= 200 aa filter. Terminal missing residues NOT fabricated. 50 internal residues rebuilt by PDBFixer - if this is large and the structure is low-resolution (e.g. 8GLA 3.77 A), treat pocket side-chain geometry as modeled, not observed (report as a caveat).",
+        "pocket_residues_resseq": [
+          25,
+          26,
+          27,
+          38,
+          39,
+          40,
+          41,
+          42,
+          43,
+          44,
+          45,
+          46,
+          47,
+          232,
+          233,
+          234
+        ]
+      },
+      "done": {
+        "replicate": 1,
+        "pdb": "8GLA",
+        "ns": 0.0,
+        "production_ns": 0.0,
+        "equil_ns": 0.0,
+        "report_ps": 50.0,
+        "seed": 20260001,
+        "steps": 0,
+        "timestep_fs": 4.0,
+        "hmr": true,
+        "hmr_amu": 4.0,
+        "final_potential_kj_mol": -2624393.0883399993,
+        "backbone_rmsd_nm": 9.370437305931089e-16,
+        "minimization": {
+          "initial_potential_kj_mol": 28180448291244.523,
+          "minimized_potential_kj_mol": -2624393.0883399984,
+          "delta_potential_kj_mol": -28180450915637.613,
+          "max_force_initial_kj_mol_nm": 6884228945714757.0,
+          "max_force_minimized_kj_mol_nm": 2749.2570978618855,
+          "max_iterations": 5000
+        },
+        "sanity_gate": "passed: finite energy+coords, backbone RMSD 0.00 nm < 1.0 nm",
+        "topology": "system_solvated.pdb",
+        "trajectory": "production.dcd",
+        "finished_utc": "2026-08-15T18:44:56.573067+00:00"
+      },
+      "prepared_sha256": "da2a56c3c23fc54b7106587e8293fabcf5fe54a24b9d18e7c0fa7dd4884ecd53",
+      "solvated_topology_sha256": "ae96534600698e19362c90639de0b01ad8c1930fb47eaeebed942de437bff733",
+      "close_contacts": {
+        "prepared_pdb": "md_validation_4070/preflight_outputs_min5000/8GLA/prep/prepared_protein.pdb",
+        "heavy_atom_count": 5851,
+        "severe_nonbonded_close_contacts_lt_1p5A": 35,
+        "suspicious_nonbonded_close_contacts_1p5_to_2p0A": 63,
+        "examples": [
+          {
+            "a": "B:187:C",
+            "b": "B:189:CA",
+            "distance_A": 0.876
+          },
+          {
+            "a": "C:162:O",
+            "b": "C:165:CG",
+            "distance_A": 1.208
+          },
+          {
+            "a": "C:162:O",
+            "b": "C:165:OD2",
+            "distance_A": 0.262
+          },
+          {
+            "a": "C:163:CA",
+            "b": "C:165:OD2",
+            "distance_A": 1.049
+          },
+          {
+            "a": "A:191:OE1",
+            "b": "A:195:N",
+            "distance_A": 1.168
+          },
+          {
+            "a": "C:107:CB",
+            "b": "C:109:OE2",
+            "distance_A": 1.312
+          },
+          {
+            "a": "C:163:O",
+            "b": "C:165:OD2",
+            "distance_A": 1.395
+          },
+          {
+            "a": "A:163:N",
+            "b": "A:166:N",
+            "distance_A": 1.329
+          },
+          {
+            "a": "C:135:CB",
+            "b": "C:199:CE",
+            "distance_A": 1.082
+          },
+          {
+            "a": "A:163:O",
+            "b": "A:165:C",
+            "distance_A": 0.899
+          },
+          {
+            "a": "A:163:C",
+            "b": "A:165:O",
+            "distance_A": 1.881
+          },
+          {
+            "a": "A:187:C",
+            "b": "A:189:N",
+            "distance_A": 1.994
+          },
+          {
+            "a": "C:135:SG",
+            "b": "C:199:CG",
+            "distance_A": 1.726
+          },
+          {
+            "a": "C:187:C",
+            "b": "C:189:N",
+            "distance_A": 1.871
+          },
+          {
+            "a": "B:190:C",
+            "b": "B:192:N",
+            "distance_A": 1.71
+          },
+          {
+            "a": "A:163:C",
+            "b": "A:165:N",
+            "distance_A": 1.999
+          },
+          {
+            "a": "B:190:CE",
+            "b": "B:193:N",
+            "distance_A": 1.79
+          },
+          {
+            "a": "C:163:N",
+            "b": "C:165:OD1",
+            "distance_A": 1.507
+          },
+          {
+            "a": "A:163:C",
+            "b": "A:165:CB",
+            "distance_A": 1.554
+          },
+          {
+            "a": "A:188:CB",
+            "b": "A:190:N",
+            "distance_A": 1.667
+          }
+        ]
+      }
+    }
+  }
+}

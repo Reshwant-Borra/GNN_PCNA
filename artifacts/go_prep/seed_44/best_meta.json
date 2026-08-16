@@ -1,0 +1,11 @@
+{
+  "seed": 44,
+  "epoch": 31,
+  "auroc_B": 0.9959490740740741,
+  "fp_apo_pct": 22.916666666666664,
+  "val_criterion": "chain-B AUROC",
+  "pretrain_ckpt": "/Users/rishiborra/Desktop/GNN_PCNA/checkpoints/pcna/best_pcna_v3.ckpt",
+  "out_ckpt": "artifacts/go_prep/seed_44/best.ckpt",
+  "sha256": "0a739dec47248651499942207b82139e5dea8bebfafe5ed50aabcbbdfd6aa3f6",
+  "written_utc": "2026-08-14T18:35:49.931526Z"
+}

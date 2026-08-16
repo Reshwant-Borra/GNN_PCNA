@@ -1,0 +1,13 @@
+{
+  "paths": [
+    "artifacts/diagnostics/threshold_calibration_independent_20260814/calibration_scores_seed_42.csv",
+    "artifacts/diagnostics/threshold_calibration_independent_20260814/calibration_scores_seed_43.csv",
+    "artifacts/diagnostics/threshold_calibration_independent_20260814/calibration_scores_seed_44.csv",
+    "data/raw/1GQY.pdb",
+    "data/raw/2HNX.pdb",
+    "data/raw/2K1V.pdb",
+    "data/raw/2WER.pdb",
+    "data/raw/3FU8.pdb"
+  ],
+  "pcna_inputs_read_during_selection": []
+}

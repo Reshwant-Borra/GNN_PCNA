@@ -1,0 +1,105 @@
+{
+  "cluster_algorithm": "DBSCAN",
+  "cluster_ranking_rule": "mean_score_sqrt_size",
+  "created_at": "2026-08-15T16:21:10.770321Z",
+  "dbscan_eps_angstrom": 6.0,
+  "dbscan_min_samples": 3,
+  "excluded_from_selection": {
+    "1W60": "final PCNA target; forbidden for extraction-method selection",
+    "2CNN": "degenerate validation labels in canonical clean split: n_positive=4 < min_positive=5",
+    "8GLA": "PCNA positive-control/fine-tuning/checkpoint-selection structure; forbidden for independent extraction selection"
+  },
+  "git_commit": "5b2ce676c790c4aac0caa10dc4226b5a924791c0",
+  "go_gate": {
+    "pre_md_pass_requires": [
+      "policy_id and parameters exactly match frozen_extraction_method.json",
+      "valid primary cluster in all three seeds",
+      "literal mean pairwise Jaccard >= 0.50",
+      "consensus residues at >=2/3 seeds >= 8",
+      "no seed has primary-vs-runner-up margin <= 0 when runner-up exists"
+    ],
+    "symmetry_normalized_jaccard": "supplementary only if chain mapping is justified; literal Jaccard remains primary"
+  },
+  "independent_development_structures": [
+    "1GQY",
+    "2HNX",
+    "2K1V",
+    "2WER",
+    "3FU8"
+  ],
+  "minimum_cluster_size": 3,
+  "pcna_inputs_read_during_selection": [],
+  "policy_id": "independent_mcc_rank_fraction_size_weighted_cluster",
+  "predeclared_spec": "artifacts/pre_md_independent_extraction_20260815/predeclared_extraction_selection_spec.json",
+  "predeclared_spec_sha256": "87c0317f66cda0b2dff8715710fc32b64a67429367a33c87689432f6f6be2b32",
+  "rationale": "Selected by the predeclared deterministic rule on independent non-PCNA calibration structures only. Prior PCNA/8GLA-derived extraction results are historical provenance and are not inputs to this selection.",
+  "scale_invariant": true,
+  "score_transformation": "rank order only",
+  "selected_without_pcna": true,
+  "selection": "rank_fraction",
+  "selection_metrics": {
+    "composite_score": 0.6328100582921496,
+    "mean_f1": 0.3080545278807799,
+    "mean_label_jaccard": 0.19653160933044994,
+    "mean_precision": 0.43046822458587164,
+    "mean_primary_cluster_n": 14.933333333333334,
+    "mean_recall": 0.2703133903133903,
+    "mean_seed_jaccard": 0.5726255696512462,
+    "mean_selected_precluster_n": 30.533333333333335,
+    "scale_robustness": 1.0,
+    "valid_cluster_rate": 0.9333333333333333
+  },
+  "source_hashes": {
+    "artifacts/diagnostics/threshold_calibration_independent_20260814/calibration_provenance_and_stability.json": "b0679dba0e0526a4a20a15b97a889876da42cc1825c1233d1f765a12184aed30",
+    "artifacts/diagnostics/threshold_calibration_independent_20260814/calibration_scores_seed_42.csv": "3a1db8e976010407177571d4b4dc517522cd68ce3a578a7aae99781cc3f604c2",
+    "artifacts/diagnostics/threshold_calibration_independent_20260814/calibration_scores_seed_43.csv": "2228fa6b3f835d7fcc4cf26398f9dd0bb282204d6663c81a913b20c04a70eea1",
+    "artifacts/diagnostics/threshold_calibration_independent_20260814/calibration_scores_seed_44.csv": "7e2f489423a8796410fd01ea9f9e95fafa19bfca2915cdb2874838ac468c1a25",
+    "data/results/homology30_audit.json": "bb6a368274bc153405d232855cc63d8764e037ac09afef70966b219419b1ddf2",
+    "data/results/split_integrity_520.json": "22627e987a5bc49f69cf5e76a950a587d413333b8743c0c14bdb260f96bc3439"
+  },
+  "threshold_records_by_seed": {
+    "42": {
+      "f1": 0.46332046332046334,
+      "fn": 39,
+      "fp": 100,
+      "mcc": 0.4514649681587273,
+      "precision": 0.375,
+      "predicted_positive_residues": 160,
+      "rank_count_mean_per_structure": 32,
+      "rank_fraction": 0.06006006006006006,
+      "recall": 0.6060606060606061,
+      "threshold": 0.60981947,
+      "tn": 2465,
+      "tp": 60
+    },
+    "43": {
+      "f1": 0.3537906137184116,
+      "fn": 50,
+      "fp": 129,
+      "mcc": 0.3368417750713607,
+      "precision": 0.2752808988764045,
+      "predicted_positive_residues": 178,
+      "rank_count_mean_per_structure": 36,
+      "rank_fraction": 0.06681681681681682,
+      "recall": 0.494949494949495,
+      "threshold": 0.54032308,
+      "tn": 2436,
+      "tp": 49
+    },
+    "44": {
+      "f1": 0.30275229357798167,
+      "fn": 66,
+      "fp": 86,
+      "mcc": 0.27452561829160804,
+      "precision": 0.2773109243697479,
+      "predicted_positive_residues": 119,
+      "rank_count_mean_per_structure": 24,
+      "rank_fraction": 0.04466966966966967,
+      "recall": 0.3333333333333333,
+      "threshold": 0.42164546,
+      "tn": 2479,
+      "tp": 33
+    }
+  },
+  "version": "frozen_extraction_method_v1"
+}

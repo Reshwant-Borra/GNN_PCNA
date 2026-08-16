@@ -1,0 +1,214 @@
+{
+  "created_at": "2026-08-15T16:58:46.959630Z",
+  "diagnosis": {
+    "extraction_boundary": "literal Jaccard is limited by fringe/boundary residues around a shared core",
+    "model_ranking": "highly correlated globally and locally; no evidence of qualitatively different pocket solution",
+    "score_calibration": "substantial absolute scale differences persist, especially seed 44 compression"
+  },
+  "pairwise_global_spearman": [
+    {
+      "a": 42,
+      "b": 43,
+      "global_spearman": 0.8496916314464031
+    },
+    {
+      "a": 42,
+      "b": 44,
+      "global_spearman": 0.8069496449716984
+    },
+    {
+      "a": 43,
+      "b": 44,
+      "global_spearman": 0.8786814757706076
+    }
+  ],
+  "rank_of_seed_selected_residues": [
+    {
+      "best_rank": 2,
+      "median_rank": 11.5,
+      "n": 16,
+      "own_set": true,
+      "ranking_seed": 42,
+      "residue_set_from_seed": 42,
+      "worst_rank": 28
+    },
+    {
+      "best_rank": 2,
+      "median_rank": 13,
+      "n": 13,
+      "own_set": false,
+      "ranking_seed": 42,
+      "residue_set_from_seed": 43,
+      "worst_rank": 33
+    },
+    {
+      "best_rank": 2,
+      "median_rank": 12.5,
+      "n": 18,
+      "own_set": false,
+      "ranking_seed": 42,
+      "residue_set_from_seed": 44,
+      "worst_rank": 48
+    },
+    {
+      "best_rank": 1,
+      "median_rank": 10.5,
+      "n": 16,
+      "own_set": false,
+      "ranking_seed": 43,
+      "residue_set_from_seed": 42,
+      "worst_rank": 68
+    },
+    {
+      "best_rank": 1,
+      "median_rank": 7,
+      "n": 13,
+      "own_set": true,
+      "ranking_seed": 43,
+      "residue_set_from_seed": 43,
+      "worst_rank": 21
+    },
+    {
+      "best_rank": 1,
+      "median_rank": 12.5,
+      "n": 18,
+      "own_set": false,
+      "ranking_seed": 43,
+      "residue_set_from_seed": 44,
+      "worst_rank": 71
+    },
+    {
+      "best_rank": 1,
+      "median_rank": 10.5,
+      "n": 16,
+      "own_set": false,
+      "ranking_seed": 44,
+      "residue_set_from_seed": 42,
+      "worst_rank": 30
+    },
+    {
+      "best_rank": 1,
+      "median_rank": 9,
+      "n": 13,
+      "own_set": false,
+      "ranking_seed": 44,
+      "residue_set_from_seed": 43,
+      "worst_rank": 25
+    },
+    {
+      "best_rank": 1,
+      "median_rank": 10.5,
+      "n": 18,
+      "own_set": true,
+      "ranking_seed": 44,
+      "residue_set_from_seed": 44,
+      "worst_rank": 22
+    }
+  ],
+  "score_distributions": {
+    "42": {
+      "max": 0.7123,
+      "mean": 0.3651052941176471,
+      "median": 0.3667,
+      "min": 0.1666,
+      "q05": 0.189225,
+      "q25": 0.292775,
+      "q75": 0.416675,
+      "q95": 0.638695
+    },
+    "43": {
+      "max": 0.6273,
+      "mean": 0.24546196078431373,
+      "median": 0.2253,
+      "min": 0.074,
+      "q05": 0.082745,
+      "q25": 0.108525,
+      "q75": 0.342025,
+      "q95": 0.4815149999999999
+    },
+    "44": {
+      "max": 0.423,
+      "mean": 0.2576905882352941,
+      "median": 0.2469,
+      "min": 0.1829,
+      "q05": 0.1859,
+      "q25": 0.2046,
+      "q75": 0.29907500000000004,
+      "q95": 0.38212999999999997
+    }
+  },
+  "top_k_overlap": [
+    {
+      "a": 42,
+      "b": 43,
+      "jaccard": 0.25,
+      "k": 10
+    },
+    {
+      "a": 42,
+      "b": 44,
+      "jaccard": 0.3333333333333333,
+      "k": 10
+    },
+    {
+      "a": 43,
+      "b": 44,
+      "jaccard": 0.3333333333333333,
+      "k": 10
+    },
+    {
+      "a": 42,
+      "b": 43,
+      "jaccard": 0.48148148148148145,
+      "k": 20
+    },
+    {
+      "a": 42,
+      "b": 44,
+      "jaccard": 0.5384615384615384,
+      "k": 20
+    },
+    {
+      "a": 43,
+      "b": 44,
+      "jaccard": 0.42857142857142855,
+      "k": 20
+    },
+    {
+      "a": 42,
+      "b": 43,
+      "jaccard": 0.6216216216216216,
+      "k": 30
+    },
+    {
+      "a": 42,
+      "b": 44,
+      "jaccard": 0.6666666666666666,
+      "k": 30
+    },
+    {
+      "a": 43,
+      "b": 44,
+      "jaccard": 0.5384615384615384,
+      "k": 30
+    },
+    {
+      "a": 42,
+      "b": 43,
+      "jaccard": 0.6129032258064516,
+      "k": 50
+    },
+    {
+      "a": 42,
+      "b": 44,
+      "jaccard": 0.6666666666666666,
+      "k": 50
+    },
+    {
+      "a": 43,
+      "b": 44,
+      "jaccard": 0.6129032258064516,
+      "k": 50
+    }
+  ]
+}

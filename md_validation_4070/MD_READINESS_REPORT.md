@@ -14,7 +14,8 @@ This means production MD is not ready. The current next technical stage is the e
 - Structure preparation preflight: 1W60 and 8GLA biological assemblies produced exactly 3 PCNA chains.
 - Default minimization: finite energies for both systems.
 - Static analysis: 8GLA reference is modestly more exposed/expanded than 1W60 under frozen core/support metrics.
-- Frozen analysis protocol hash: `2497def9e4675538dd08051ae6e5a448a41fbd32a1d7dc59cfb528d74d64ce3c`.
+- Frozen analysis protocol hash: `587f27cf2e402fe50b264d98d3d60fbbdcc8f9095025b2a89d12c7aebd633e56`.
+- Previous pre-reconciliation protocol hash: `2497def9e4675538dd08051ae6e5a448a41fbd32a1d7dc59cfb528d74d64ce3c`.
 
 ## Blockers
 

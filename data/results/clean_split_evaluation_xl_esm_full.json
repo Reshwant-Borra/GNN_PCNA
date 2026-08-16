@@ -1,0 +1,1115 @@
+{
+  "created_at": "2026-05-22T23:40:55.125848Z",
+  "split_file": "C:\\Users\\reshw\\GNN_PNCA\\data\\splits\\cryptosite_homology30_split.json",
+  "primary_metric": "AUPRC",
+  "threshold_rule": "Select MCC threshold on validation residues only, then freeze for test.",
+  "bootstrap_unit": "structure",
+  "runs_by_condition": {
+    "xl_esm_full": [
+      {
+        "condition": "xl_esm_full",
+        "seed": 42,
+        "checkpoint": "C:\\Users\\reshw\\GNN_PNCA\\checkpoints\\clean_split\\xl_esm_full\\seed_42\\best.ckpt",
+        "checkpoint_meta": "C:\\Users\\reshw\\GNN_PNCA\\checkpoints\\clean_split\\xl_esm_full\\seed_42\\best_meta.json",
+        "model_size": "xl",
+        "node_dim": 520,
+        "zero_esm": false,
+        "validation_selected_threshold": 0.7001100182533264,
+        "validation_mcc_at_selected_threshold": 0.2963569246879136,
+        "meta": {
+          "epoch": 8,
+          "val_auroc": 0.807074,
+          "val_loss": 0.014993,
+          "train_loss": 0.011791,
+          "model_class": "PocketGNNXL",
+          "model_size": "xl",
+          "n_params": 13364354,
+          "phase": "pretrain",
+          "resume_ckpt": null,
+          "train_dir": "None",
+          "val_dir": "None",
+          "train_manifest": "data/splits/cryptosite_homology30_split.json",
+          "graph_dir": "data/graphs_xl",
+          "split_hash": "a88bd6e6885aec63cb47077eab779fa1cbc5e8a6a29b27e02faa61fdcb6d3ee7",
+          "graph_manifest_hash": "69744b548e812697ba9015c6563ed526f1af2e915b1595badb1dd47fd1b4c64f",
+          "condition": "xl_esm_full",
+          "node_dim": 520,
+          "zero_esm": false,
+          "homology_audit": "data/results/homology30_audit.json",
+          "command": "C:\\Users\\reshw\\GNN_PNCA\\src\\training\\train.py --train_manifest data/splits/cryptosite_homology30_split.json --graph_dir data/graphs_xl --checkpoint_dir checkpoints/clean_split/xl_esm_full/seed_42 --model_size xl --node_dim 520 --condition xl_esm_full --homology_audit data/results/homology30_audit.json --require_clean_audit --seed 42 --epochs 100 --batch_size 4 --lr 0.0003 --weight_decay 0.0001 --patience 20",
+          "git_commit": "3db514e6b2c59ca067ca5e1f30333fe765d2d715",
+          "environment": {
+            "python": "3.11.7",
+            "torch": "2.9.1+cpu",
+            "cuda_available": "False",
+            "torch_geometric": "2.7.0",
+            "torch_scatter": "2.1.2+pt29cpu",
+            "torch_sparse": "0.6.18+pt29cpu",
+            "numpy": "1.26.4",
+            "sklearn": "1.3.0"
+          },
+          "lr": 0.0003,
+          "weight_decay": 0.0001,
+          "batch_size": 4,
+          "seed": 42,
+          "timestamp": "2026-05-22T23:24:45.643667Z"
+        },
+        "splits": {
+          "val": {
+            "full": {
+              "n_structures": 6,
+              "mean_auroc": 0.7779163399502225,
+              "mean_auprc": 0.24415774782984767,
+              "mean_mcc": 0.07644527229415658,
+              "mean_precision_at_k": 0.1957264957264957,
+              "mean_recall_at_k": 0.1957264957264957,
+              "mean_enrichment_factor": 3.339738476148732,
+              "mean_positive_fraction": 0.05580047306683517
+            },
+            "clean": {
+              "n_structures": 5,
+              "mean_auroc": 0.778077921193279,
+              "mean_auprc": 0.2847352242024114,
+              "mean_mcc": 0.09451116729099038,
+              "mean_precision_at_k": 0.23487179487179483,
+              "mean_recall_at_k": 0.23487179487179483,
+              "mean_enrichment_factor": 4.007686171378479,
+              "mean_positive_fraction": 0.06379851234423384
+            },
+            "degenerate_excluded": {
+              "n_structures": 5,
+              "mean_auroc": 0.778077921193279,
+              "mean_auprc": 0.2847352242024114,
+              "mean_mcc": 0.09451116729099038,
+              "mean_precision_at_k": 0.23487179487179483,
+              "mean_recall_at_k": 0.23487179487179483,
+              "mean_enrichment_factor": 4.007686171378479,
+              "mean_positive_fraction": 0.06379851234423384
+            },
+            "bootstrap_ci": {
+              "auroc": {
+                "low": 0.6489448408758456,
+                "high": 0.8694887117319008
+              },
+              "auprc": {
+                "low": 0.12478569485024442,
+                "high": 0.46193802537544626
+              },
+              "mcc": {
+                "low": 0.0,
+                "high": 0.28353350187297116
+              },
+              "precision_at_k": {
+                "low": 0.06153846153846154,
+                "high": 0.40833333333333316
+              },
+              "recall_at_k": {
+                "low": 0.06653846153846155,
+                "high": 0.40820512820512816
+              },
+              "enrichment_factor": {
+                "low": 1.0074074074074073,
+                "high": 7.007964935349551
+              }
+            },
+            "degenerate_structures": [
+              "2CNN"
+            ],
+            "per_structure": [
+              {
+                "n_residues": 937,
+                "n_positive": 39,
+                "positive_fraction": 0.0416221985058698,
+                "degenerate_labels": false,
+                "auroc": 0.8691679515732967,
+                "auprc": 0.3904193427927674,
+                "auprc_baseline": 0.0416221985058698,
+                "mcc": 0.4725558364549519,
+                "threshold": 0.7001100182533264,
+                "precision_at_k": 0.3076923076923077,
+                "recall_at_k": 0.3076923076923077,
+                "enrichment_factor": 7.39250493096647,
+                "pdb_id": "1GQY",
+                "split": "val"
+              },
+              {
+                "n_residues": 253,
+                "n_positive": 4,
+                "positive_fraction": 0.015810276679841896,
+                "degenerate_labels": true,
+                "auroc": 0.7771084337349399,
+                "auprc": 0.041270365967029266,
+                "auprc_baseline": 0.015810276679841896,
+                "mcc": -0.013884202690012466,
+                "threshold": 0.7001100182533264,
+                "precision_at_k": 0.0,
+                "recall_at_k": 0.0,
+                "enrichment_factor": 0.0,
+                "pdb_id": "2CNN",
+                "split": "val"
+              },
+              {
+                "n_residues": 136,
+                "n_positive": 9,
+                "positive_fraction": 0.0661764705882353,
+                "degenerate_labels": false,
+                "auroc": 0.8171478565179352,
+                "auprc": 0.257355503944737,
+                "auprc_baseline": 0.0661764705882353,
+                "mcc": 0.0,
+                "threshold": 0.7001100182533264,
+                "precision_at_k": 0.3333333333333333,
+                "recall_at_k": 0.3333333333333333,
+                "enrichment_factor": 5.037037037037036,
+                "pdb_id": "2HNX",
+                "split": "val"
+              },
+              {
+                "n_residues": 47,
+                "n_positive": 6,
+                "positive_fraction": 0.1276595744680851,
+                "degenerate_labels": false,
+                "auroc": 0.5203252032520325,
+                "auprc": 0.14142641672053438,
+                "auprc_baseline": 0.1276595744680851,
+                "mcc": 0.0,
+                "threshold": 0.7001100182533264,
+                "precision_at_k": 0.0,
+                "recall_at_k": 0.0,
+                "enrichment_factor": 0.0,
+                "pdb_id": "2K1V",
+                "split": "val"
+              },
+              {
+                "n_residues": 428,
+                "n_positive": 30,
+                "positive_fraction": 0.07009345794392523,
+                "degenerate_labels": false,
+                "auroc": 0.8959798994974875,
+                "auprc": 0.5926147891213098,
+                "auprc_baseline": 0.07009345794392523,
+                "mcc": 0.0,
+                "threshold": 0.7001100182533264,
+                "precision_at_k": 0.5333333333333333,
+                "recall_at_k": 0.5333333333333333,
+                "enrichment_factor": 7.608888888888889,
+                "pdb_id": "2WER",
+                "split": "val"
+              },
+              {
+                "n_residues": 1116,
+                "n_positive": 15,
+                "positive_fraction": 0.013440860215053764,
+                "degenerate_labels": false,
+                "auroc": 0.7877686951256433,
+                "auprc": 0.041860068432708196,
+                "auprc_baseline": 0.013440860215053764,
+                "mcc": 0.0,
+                "threshold": 0.7001100182533264,
+                "precision_at_k": 0.0,
+                "recall_at_k": 0.0,
+                "enrichment_factor": 0.0,
+                "pdb_id": "3FU8",
+                "split": "val"
+              }
+            ]
+          },
+          "test": {
+            "full": {
+              "n_structures": 6,
+              "mean_auroc": 0.8172332338433901,
+              "mean_auprc": 0.30392150044930355,
+              "mean_mcc": 0.17534581182737524,
+              "mean_precision_at_k": 0.26416666666666666,
+              "mean_recall_at_k": 0.26416666666666666,
+              "mean_enrichment_factor": 5.223569444444444,
+              "mean_positive_fraction": 0.030558327454506016
+            },
+            "clean": {
+              "n_structures": 4,
+              "mean_auroc": 0.8975415423042375,
+              "mean_auprc": 0.37599562556162947,
+              "mean_mcc": 0.21918226478421904,
+              "mean_precision_at_k": 0.3302083333333333,
+              "mean_recall_at_k": 0.3302083333333333,
+              "mean_enrichment_factor": 6.529461805555555,
+              "mean_positive_fraction": 0.04385336419763204
+            },
+            "degenerate_excluded": {
+              "n_structures": 4,
+              "mean_auroc": 0.8975415423042375,
+              "mean_auprc": 0.37599562556162947,
+              "mean_mcc": 0.21918226478421904,
+              "mean_precision_at_k": 0.3302083333333333,
+              "mean_recall_at_k": 0.3302083333333333,
+              "mean_enrichment_factor": 6.529461805555555,
+              "mean_positive_fraction": 0.04385336419763204
+            },
+            "bootstrap_ci": {
+              "auroc": {
+                "low": 0.842143229002335,
+                "high": 0.9449611167771546
+              },
+              "auprc": {
+                "low": 0.15617843027561382,
+                "high": 0.5949856403051931
+              },
+              "mcc": {
+                "low": 0.0,
+                "high": 0.4383645295684381
+              },
+              "precision_at_k": {
+                "low": 0.11458333333333333,
+                "high": 0.5104166666666666
+              },
+              "recall_at_k": {
+                "low": 0.11458333333333333,
+                "high": 0.5104166666666666
+              },
+              "enrichment_factor": {
+                "low": 2.4074999999999998,
+                "high": 10.299375
+              }
+            },
+            "degenerate_structures": [
+              "2NMO",
+              "2QKH"
+            ],
+            "per_structure": [
+              {
+                "n_residues": 312,
+                "n_positive": 16,
+                "positive_fraction": 0.05128205128205128,
+                "degenerate_labels": false,
+                "auroc": 0.9611486486486487,
+                "auprc": 0.6511946700958541,
+                "auprc_baseline": 0.05128205128205128,
+                "mcc": 0.4808341694682598,
+                "threshold": 0.7001100182533264,
+                "precision_at_k": 0.5625,
+                "recall_at_k": 0.5625,
+                "enrichment_factor": 10.96875,
+                "pdb_id": "1M17",
+                "split": "test"
+              },
+              {
+                "n_residues": 289,
+                "n_positive": 24,
+                "positive_fraction": 0.08304498269896193,
+                "degenerate_labels": false,
+                "auroc": 0.9287735849056604,
+                "auprc": 0.5387766105145321,
+                "auprc_baseline": 0.08304498269896193,
+                "mcc": 0.3958948896686163,
+                "threshold": 0.7001100182533264,
+                "precision_at_k": 0.4583333333333333,
+                "recall_at_k": 0.4583333333333333,
+                "enrichment_factor": 5.519097222222222,
+                "pdb_id": "1XKK",
+                "split": "test"
+              },
+              {
+                "n_residues": 138,
+                "n_positive": 0,
+                "positive_fraction": 0.0,
+                "degenerate_labels": true,
+                "auroc": null,
+                "auprc": null,
+                "mcc": null,
+                "precision_at_k": null,
+                "recall_at_k": null,
+                "enrichment_factor": null,
+                "pdb_id": "2NMO",
+                "split": "test"
+              },
+              {
+                "n_residues": 642,
+                "n_positive": 20,
+                "positive_fraction": 0.03115264797507788,
+                "degenerate_labels": false,
+                "auroc": 0.8869774919614147,
+                "auprc": 0.28536551810682403,
+                "auprc_baseline": 0.03115264797507788,
+                "mcc": 0.0,
+                "threshold": 0.7001100182533264,
+                "precision_at_k": 0.3,
+                "recall_at_k": 0.3,
+                "enrichment_factor": 9.629999999999999,
+                "pdb_id": "2P0R",
+                "split": "test"
+              },
+              {
+                "n_residues": 126,
+                "n_positive": 1,
+                "positive_fraction": 0.007936507936507936,
+                "degenerate_labels": true,
+                "auroc": 0.496,
+                "auprc": 0.015625,
+                "auprc_baseline": 0.007936507936507936,
+                "mcc": 0.0,
+                "threshold": 0.7001100182533264,
+                "precision_at_k": 0.0,
+                "recall_at_k": 0.0,
+                "enrichment_factor": 0.0,
+                "pdb_id": "2QKH",
+                "split": "test"
+              },
+              {
+                "n_residues": 604,
+                "n_positive": 6,
+                "positive_fraction": 0.009933774834437087,
+                "degenerate_labels": false,
+                "auroc": 0.8132664437012264,
+                "auprc": 0.02864570352930768,
+                "auprc_baseline": 0.009933774834437087,
+                "mcc": 0.0,
+                "threshold": 0.7001100182533264,
+                "precision_at_k": 0.0,
+                "recall_at_k": 0.0,
+                "enrichment_factor": 0.0,
+                "pdb_id": "3CL7",
+                "split": "test"
+              }
+            ]
+          }
+        }
+      },
+      {
+        "condition": "xl_esm_full",
+        "seed": 43,
+        "checkpoint": "C:\\Users\\reshw\\GNN_PNCA\\checkpoints\\clean_split\\xl_esm_full\\seed_43\\best.ckpt",
+        "checkpoint_meta": "C:\\Users\\reshw\\GNN_PNCA\\checkpoints\\clean_split\\xl_esm_full\\seed_43\\best_meta.json",
+        "model_size": "xl",
+        "node_dim": 520,
+        "zero_esm": false,
+        "validation_selected_threshold": 0.5281685590744019,
+        "validation_mcc_at_selected_threshold": 0.25677047879758036,
+        "meta": {
+          "epoch": 2,
+          "val_auroc": 0.801468,
+          "val_loss": 0.013855,
+          "train_loss": 0.02008,
+          "model_class": "PocketGNNXL",
+          "model_size": "xl",
+          "n_params": 13364354,
+          "phase": "pretrain",
+          "resume_ckpt": null,
+          "train_dir": "None",
+          "val_dir": "None",
+          "train_manifest": "data/splits/cryptosite_homology30_split.json",
+          "graph_dir": "data/graphs_xl",
+          "split_hash": "a88bd6e6885aec63cb47077eab779fa1cbc5e8a6a29b27e02faa61fdcb6d3ee7",
+          "graph_manifest_hash": "69744b548e812697ba9015c6563ed526f1af2e915b1595badb1dd47fd1b4c64f",
+          "condition": "xl_esm_full",
+          "node_dim": 520,
+          "zero_esm": false,
+          "homology_audit": "data/results/homology30_audit.json",
+          "command": "C:\\Users\\reshw\\GNN_PNCA\\src\\training\\train.py --train_manifest data/splits/cryptosite_homology30_split.json --graph_dir data/graphs_xl --checkpoint_dir checkpoints/clean_split/xl_esm_full/seed_43 --model_size xl --node_dim 520 --condition xl_esm_full --homology_audit data/results/homology30_audit.json --require_clean_audit --seed 43 --epochs 100 --batch_size 4 --lr 0.0003 --weight_decay 0.0001 --patience 20",
+          "git_commit": "3db514e6b2c59ca067ca5e1f30333fe765d2d715",
+          "environment": {
+            "python": "3.11.7",
+            "torch": "2.9.1+cpu",
+            "cuda_available": "False",
+            "torch_geometric": "2.7.0",
+            "torch_scatter": "2.1.2+pt29cpu",
+            "torch_sparse": "0.6.18+pt29cpu",
+            "numpy": "1.26.4",
+            "sklearn": "1.3.0"
+          },
+          "lr": 0.0003,
+          "weight_decay": 0.0001,
+          "batch_size": 4,
+          "seed": 43,
+          "timestamp": "2026-05-22T23:29:47.082665Z"
+        },
+        "splits": {
+          "val": {
+            "full": {
+              "n_structures": 6,
+              "mean_auroc": 0.6971798076432604,
+              "mean_auprc": 0.15893040297911679,
+              "mean_mcc": 0.1584120357829655,
+              "mean_precision_at_k": 0.11324786324786325,
+              "mean_recall_at_k": 0.11324786324786325,
+              "mean_enrichment_factor": 2.575752794214333,
+              "mean_positive_fraction": 0.05580047306683517
+            },
+            "clean": {
+              "n_structures": 5,
+              "mean_auroc": 0.7231619539108681,
+              "mean_auprc": 0.18639180561794047,
+              "mean_mcc": 0.19752116814699855,
+              "mean_precision_at_k": 0.13589743589743591,
+              "mean_recall_at_k": 0.13589743589743591,
+              "mean_enrichment_factor": 3.0909033530571994,
+              "mean_positive_fraction": 0.06379851234423384
+            },
+            "degenerate_excluded": {
+              "n_structures": 5,
+              "mean_auroc": 0.7231619539108681,
+              "mean_auprc": 0.18639180561794047,
+              "mean_mcc": 0.19752116814699855,
+              "mean_precision_at_k": 0.13589743589743591,
+              "mean_recall_at_k": 0.13589743589743591,
+              "mean_enrichment_factor": 3.0909033530571994,
+              "mean_positive_fraction": 0.06379851234423384
+            },
+            "bootstrap_ci": {
+              "auroc": {
+                "low": 0.526224737292965,
+                "high": 0.9028521545768621
+              },
+              "auprc": {
+                "low": 0.09071879381531223,
+                "high": 0.32764002886295035
+              },
+              "mcc": {
+                "low": 0.04010066678005453,
+                "high": 0.35823588413072666
+              },
+              "precision_at_k": {
+                "low": 0.013333333333333332,
+                "high": 0.2958974358974359
+              },
+              "recall_at_k": {
+                "low": 0.013333333333333332,
+                "high": 0.30923076923076925
+              },
+              "enrichment_factor": {
+                "low": 0.8624589086127548,
+                "high": 5.319347797501644
+              }
+            },
+            "degenerate_structures": [
+              "2CNN"
+            ],
+            "per_structure": [
+              {
+                "n_residues": 937,
+                "n_positive": 39,
+                "positive_fraction": 0.0416221985058698,
+                "degenerate_labels": false,
+                "auroc": 0.8877277140083376,
+                "auprc": 0.17882817910704396,
+                "auprc_baseline": 0.0416221985058698,
+                "mcc": 0.2850640499252636,
+                "threshold": 0.5281685590744019,
+                "precision_at_k": 0.1794871794871795,
+                "recall_at_k": 0.1794871794871795,
+                "enrichment_factor": 4.312294543063774,
+                "pdb_id": "1GQY",
+                "split": "val"
+              },
+              {
+                "n_residues": 253,
+                "n_positive": 4,
+                "positive_fraction": 0.015810276679841896,
+                "degenerate_labels": true,
+                "auroc": 0.5672690763052208,
+                "auprc": 0.02162338978499853,
+                "auprc_baseline": 0.015810276679841896,
+                "mcc": -0.03713362603719971,
+                "threshold": 0.5281685590744019,
+                "precision_at_k": 0.0,
+                "recall_at_k": 0.0,
+                "enrichment_factor": 0.0,
+                "pdb_id": "2CNN",
+                "split": "val"
+              },
+              {
+                "n_residues": 136,
+                "n_positive": 9,
+                "positive_fraction": 0.0661764705882353,
+                "degenerate_labels": false,
+                "auroc": 0.5083114610673666,
+                "auprc": 0.07073958737166236,
+                "auprc_baseline": 0.0661764705882353,
+                "mcc": 0.0,
+                "threshold": 0.5281685590744019,
+                "precision_at_k": 0.0,
+                "recall_at_k": 0.0,
+                "enrichment_factor": 0.0,
+                "pdb_id": "2HNX",
+                "split": "val"
+              },
+              {
+                "n_residues": 47,
+                "n_positive": 6,
+                "positive_fraction": 0.1276595744680851,
+                "degenerate_labels": false,
+                "auroc": 0.4065040650406504,
+                "auprc": 0.1176874595992243,
+                "auprc_baseline": 0.1276595744680851,
+                "mcc": 0.0,
+                "threshold": 0.5281685590744019,
+                "precision_at_k": 0.0,
+                "recall_at_k": 0.0,
+                "enrichment_factor": 0.0,
+                "pdb_id": "2K1V",
+                "split": "val"
+              },
+              {
+                "n_residues": 428,
+                "n_positive": 30,
+                "positive_fraction": 0.07009345794392523,
+                "degenerate_labels": false,
+                "auroc": 0.9099664991624792,
+                "auprc": 0.4674901346447656,
+                "auprc_baseline": 0.07009345794392523,
+                "mcc": 0.5020384569094566,
+                "threshold": 0.5281685590744019,
+                "precision_at_k": 0.43333333333333335,
+                "recall_at_k": 0.43333333333333335,
+                "enrichment_factor": 6.182222222222223,
+                "pdb_id": "2WER",
+                "split": "val"
+              },
+              {
+                "n_residues": 1116,
+                "n_positive": 15,
+                "positive_fraction": 0.013440860215053764,
+                "degenerate_labels": false,
+                "auroc": 0.9033000302755071,
+                "auprc": 0.09721366736700605,
+                "auprc_baseline": 0.013440860215053764,
+                "mcc": 0.20050333390027264,
+                "threshold": 0.5281685590744019,
+                "precision_at_k": 0.06666666666666667,
+                "recall_at_k": 0.06666666666666667,
+                "enrichment_factor": 4.96,
+                "pdb_id": "3FU8",
+                "split": "val"
+              }
+            ]
+          },
+          "test": {
+            "full": {
+              "n_structures": 6,
+              "mean_auroc": 0.7896872715902645,
+              "mean_auprc": 0.14197457001649338,
+              "mean_mcc": 0.21369889029898137,
+              "mean_precision_at_k": 0.12666666666666665,
+              "mean_recall_at_k": 0.12666666666666665,
+              "mean_enrichment_factor": 2.9152361111111107,
+              "mean_positive_fraction": 0.030558327454506016
+            },
+            "clean": {
+              "n_structures": 4,
+              "mean_auroc": 0.8511090894878306,
+              "mean_auprc": 0.17315786769303051,
+              "mean_mcc": 0.2671236128737267,
+              "mean_precision_at_k": 0.15833333333333333,
+              "mean_recall_at_k": 0.15833333333333333,
+              "mean_enrichment_factor": 3.6440451388888886,
+              "mean_positive_fraction": 0.04385336419763204
+            },
+            "degenerate_excluded": {
+              "n_structures": 4,
+              "mean_auroc": 0.8511090894878306,
+              "mean_auprc": 0.17315786769303051,
+              "mean_mcc": 0.2671236128737267,
+              "mean_precision_at_k": 0.15833333333333333,
+              "mean_recall_at_k": 0.15833333333333333,
+              "mean_enrichment_factor": 3.6440451388888886,
+              "mean_positive_fraction": 0.04385336419763204
+            },
+            "bootstrap_ci": {
+              "auroc": {
+                "low": 0.8207428360533074,
+                "high": 0.8891472378453364
+              },
+              "auprc": {
+                "low": 0.09363845257817217,
+                "high": 0.24622102245152044
+              },
+              "mcc": {
+                "low": 0.2146737005973638,
+                "high": 0.3199367122001348
+              },
+              "precision_at_k": {
+                "low": 0.052083333333333336,
+                "high": 0.25625
+              },
+              "recall_at_k": {
+                "low": 0.052083333333333336,
+                "high": 0.2770833333333333
+              },
+              "enrichment_factor": {
+                "low": 0.627170138888889,
+                "high": 7.831874999999999
+              }
+            },
+            "degenerate_structures": [
+              "2NMO",
+              "2QKH"
+            ],
+            "per_structure": [
+              {
+                "n_residues": 312,
+                "n_positive": 16,
+                "positive_fraction": 0.05128205128205128,
+                "degenerate_labels": false,
+                "auroc": 0.8532516891891893,
+                "auprc": 0.15664348458156294,
+                "auprc_baseline": 0.05128205128205128,
+                "mcc": 0.3486284891537317,
+                "threshold": 0.5281685590744019,
+                "precision_at_k": 0.125,
+                "recall_at_k": 0.125,
+                "enrichment_factor": 2.4375,
+                "pdb_id": "1M17",
+                "split": "test"
+              },
+              {
+                "n_residues": 289,
+                "n_positive": 24,
+                "positive_fraction": 0.08304498269896193,
+                "degenerate_labels": false,
+                "auroc": 0.8139937106918239,
+                "auprc": 0.20258477151723503,
+                "auprc_baseline": 0.08304498269896193,
+                "mcc": 0.29051856114644764,
+                "threshold": 0.5281685590744019,
+                "precision_at_k": 0.20833333333333334,
+                "recall_at_k": 0.20833333333333334,
+                "enrichment_factor": 2.508680555555556,
+                "pdb_id": "1XKK",
+                "split": "test"
+              },
+              {
+                "n_residues": 138,
+                "n_positive": 0,
+                "positive_fraction": 0.0,
+                "degenerate_labels": true,
+                "auroc": null,
+                "auprc": null,
+                "mcc": null,
+                "precision_at_k": null,
+                "recall_at_k": null,
+                "enrichment_factor": null,
+                "pdb_id": "2NMO",
+                "split": "test"
+              },
+              {
+                "n_residues": 642,
+                "n_positive": 20,
+                "positive_fraction": 0.03115264797507788,
+                "degenerate_labels": false,
+                "auroc": 0.827491961414791,
+                "auprc": 0.27608020174150627,
+                "auprc_baseline": 0.03115264797507788,
+                "mcc": 0.2170756684144316,
+                "threshold": 0.5281685590744019,
+                "precision_at_k": 0.3,
+                "recall_at_k": 0.3,
+                "enrichment_factor": 9.629999999999999,
+                "pdb_id": "2P0R",
+                "split": "test"
+              },
+              {
+                "n_residues": 126,
+                "n_positive": 1,
+                "positive_fraction": 0.007936507936507936,
+                "degenerate_labels": true,
+                "auroc": 0.544,
+                "auprc": 0.017241379310344827,
+                "auprc_baseline": 0.007936507936507936,
+                "mcc": 0.0,
+                "threshold": 0.5281685590744019,
+                "precision_at_k": 0.0,
+                "recall_at_k": 0.0,
+                "enrichment_factor": 0.0,
+                "pdb_id": "2QKH",
+                "split": "test"
+              },
+              {
+                "n_residues": 604,
+                "n_positive": 6,
+                "positive_fraction": 0.009933774834437087,
+                "degenerate_labels": false,
+                "auroc": 0.9096989966555183,
+                "auprc": 0.05732301293181789,
+                "auprc_baseline": 0.009933774834437087,
+                "mcc": 0.212271732780296,
+                "threshold": 0.5281685590744019,
+                "precision_at_k": 0.0,
+                "recall_at_k": 0.0,
+                "enrichment_factor": 0.0,
+                "pdb_id": "3CL7",
+                "split": "test"
+              }
+            ]
+          }
+        }
+      },
+      {
+        "condition": "xl_esm_full",
+        "seed": 44,
+        "checkpoint": "C:\\Users\\reshw\\GNN_PNCA\\checkpoints\\clean_split\\xl_esm_full\\seed_44\\best.ckpt",
+        "checkpoint_meta": "C:\\Users\\reshw\\GNN_PNCA\\checkpoints\\clean_split\\xl_esm_full\\seed_44\\best_meta.json",
+        "model_size": "xl",
+        "node_dim": 520,
+        "zero_esm": false,
+        "validation_selected_threshold": 0.7225040793418884,
+        "validation_mcc_at_selected_threshold": 0.25611111954575955,
+        "meta": {
+          "epoch": 2,
+          "val_auroc": 0.803859,
+          "val_loss": 0.014293,
+          "train_loss": 0.016445,
+          "model_class": "PocketGNNXL",
+          "model_size": "xl",
+          "n_params": 13364354,
+          "phase": "pretrain",
+          "resume_ckpt": null,
+          "train_dir": "None",
+          "val_dir": "None",
+          "train_manifest": "data/splits/cryptosite_homology30_split.json",
+          "graph_dir": "data/graphs_xl",
+          "split_hash": "a88bd6e6885aec63cb47077eab779fa1cbc5e8a6a29b27e02faa61fdcb6d3ee7",
+          "graph_manifest_hash": "69744b548e812697ba9015c6563ed526f1af2e915b1595badb1dd47fd1b4c64f",
+          "condition": "xl_esm_full",
+          "node_dim": 520,
+          "zero_esm": false,
+          "homology_audit": "data/results/homology30_audit.json",
+          "command": "C:\\Users\\reshw\\GNN_PNCA\\src\\training\\train.py --train_manifest data/splits/cryptosite_homology30_split.json --graph_dir data/graphs_xl --checkpoint_dir checkpoints/clean_split/xl_esm_full/seed_44 --model_size xl --node_dim 520 --condition xl_esm_full --homology_audit data/results/homology30_audit.json --require_clean_audit --seed 44 --epochs 100 --batch_size 4 --lr 0.0003 --weight_decay 0.0001 --patience 20",
+          "git_commit": "3db514e6b2c59ca067ca5e1f30333fe765d2d715",
+          "environment": {
+            "python": "3.11.7",
+            "torch": "2.9.1+cpu",
+            "cuda_available": "False",
+            "torch_geometric": "2.7.0",
+            "torch_scatter": "2.1.2+pt29cpu",
+            "torch_sparse": "0.6.18+pt29cpu",
+            "numpy": "1.26.4",
+            "sklearn": "1.3.0"
+          },
+          "lr": 0.0003,
+          "weight_decay": 0.0001,
+          "batch_size": 4,
+          "seed": 44,
+          "timestamp": "2026-05-22T23:34:50.283072Z"
+        },
+        "splits": {
+          "val": {
+            "full": {
+              "n_structures": 6,
+              "mean_auroc": 0.7179132969808394,
+              "mean_auprc": 0.21025541244455712,
+              "mean_mcc": 0.15814186767756236,
+              "mean_precision_at_k": 0.1799145299145299,
+              "mean_recall_at_k": 0.1799145299145299,
+              "mean_enrichment_factor": 3.573777485572357,
+              "mean_positive_fraction": 0.05580047306683517
+            },
+            "clean": {
+              "n_structures": 5,
+              "mean_auroc": 0.7189256752525093,
+              "mean_auprc": 0.24544312686320394,
+              "mean_mcc": 0.19404628146014918,
+              "mean_precision_at_k": 0.21589743589743587,
+              "mean_recall_at_k": 0.21589743589743587,
+              "mean_enrichment_factor": 4.288532982686829,
+              "mean_positive_fraction": 0.06379851234423384
+            },
+            "degenerate_excluded": {
+              "n_structures": 5,
+              "mean_auroc": 0.7189256752525093,
+              "mean_auprc": 0.24544312686320394,
+              "mean_mcc": 0.19404628146014918,
+              "mean_precision_at_k": 0.21589743589743587,
+              "mean_recall_at_k": 0.21589743589743587,
+              "mean_enrichment_factor": 4.288532982686829,
+              "mean_positive_fraction": 0.06379851234423384
+            },
+            "bootstrap_ci": {
+              "auroc": {
+                "low": 0.48573974475154086,
+                "high": 0.882098687280146
+              },
+              "auprc": {
+                "low": 0.10935007373056238,
+                "high": 0.3962291786168932
+              },
+              "mcc": {
+                "low": 0.043930410176521856,
+                "high": 0.3519003409413136
+              },
+              "precision_at_k": {
+                "low": 0.07589743589743589,
+                "high": 0.38
+              },
+              "recall_at_k": {
+                "low": 0.06256410256410257,
+                "high": 0.3692948717948717
+              },
+              "enrichment_factor": {
+                "low": 1.984,
+                "high": 6.134458908612755
+              }
+            },
+            "degenerate_structures": [
+              "2CNN"
+            ],
+            "per_structure": [
+              {
+                "n_residues": 937,
+                "n_positive": 39,
+                "positive_fraction": 0.0416221985058698,
+                "degenerate_labels": false,
+                "auroc": 0.83144880360916,
+                "auprc": 0.1417938791611836,
+                "auprc_baseline": 0.0416221985058698,
+                "mcc": 0.24886383290995112,
+                "threshold": 0.7225040793418884,
+                "precision_at_k": 0.1794871794871795,
+                "recall_at_k": 0.1794871794871795,
+                "enrichment_factor": 4.312294543063774,
+                "pdb_id": "1GQY",
+                "split": "val"
+              },
+              {
+                "n_residues": 253,
+                "n_positive": 4,
+                "positive_fraction": 0.015810276679841896,
+                "degenerate_labels": true,
+                "auroc": 0.7128514056224899,
+                "auprc": 0.03431684035132311,
+                "auprc_baseline": 0.015810276679841896,
+                "mcc": -0.021380201235371675,
+                "threshold": 0.7225040793418884,
+                "precision_at_k": 0.0,
+                "recall_at_k": 0.0,
+                "enrichment_factor": 0.0,
+                "pdb_id": "2CNN",
+                "split": "val"
+              },
+              {
+                "n_residues": 136,
+                "n_positive": 9,
+                "positive_fraction": 0.0661764705882353,
+                "degenerate_labels": false,
+                "auroc": 0.68503937007874,
+                "auprc": 0.3837859736808426,
+                "auprc_baseline": 0.0661764705882353,
+                "mcc": 0.0,
+                "threshold": 0.7225040793418884,
+                "precision_at_k": 0.3333333333333333,
+                "recall_at_k": 0.3333333333333333,
+                "enrichment_factor": 5.037037037037036,
+                "pdb_id": "2HNX",
+                "split": "val"
+              },
+              {
+                "n_residues": 47,
+                "n_positive": 6,
+                "positive_fraction": 0.1276595744680851,
+                "degenerate_labels": false,
+                "auroc": 0.2886178861788618,
+                "auprc": 0.0999206873216494,
+                "auprc_baseline": 0.1276595744680851,
+                "mcc": 0.0,
+                "threshold": 0.7225040793418884,
+                "precision_at_k": 0.0,
+                "recall_at_k": 0.0,
+                "enrichment_factor": 0.0,
+                "pdb_id": "2K1V",
+                "split": "val"
+              },
+              {
+                "n_residues": 428,
+                "n_positive": 30,
+                "positive_fraction": 0.07009345794392523,
+                "degenerate_labels": false,
+                "auroc": 0.8778056951423786,
+                "auprc": 0.49912415862561577,
+                "auprc_baseline": 0.07009345794392523,
+                "mcc": 0.5017155235081855,
+                "threshold": 0.7225040793418884,
+                "precision_at_k": 0.5,
+                "recall_at_k": 0.5,
+                "enrichment_factor": 7.133333333333334,
+                "pdb_id": "2WER",
+                "split": "val"
+              },
+              {
+                "n_residues": 1116,
+                "n_positive": 15,
+                "positive_fraction": 0.013440860215053764,
+                "degenerate_labels": false,
+                "auroc": 0.911716621253406,
+                "auprc": 0.10259093552672825,
+                "auprc_baseline": 0.013440860215053764,
+                "mcc": 0.21965205088260928,
+                "threshold": 0.7225040793418884,
+                "precision_at_k": 0.06666666666666667,
+                "recall_at_k": 0.06666666666666667,
+                "enrichment_factor": 4.96,
+                "pdb_id": "3FU8",
+                "split": "val"
+              }
+            ]
+          },
+          "test": {
+            "full": {
+              "n_structures": 6,
+              "mean_auroc": 0.7616754716459474,
+              "mean_auprc": 0.16657593271071633,
+              "mean_mcc": 0.19262091049940783,
+              "mean_precision_at_k": 0.17583333333333334,
+              "mean_recall_at_k": 0.17583333333333334,
+              "mean_enrichment_factor": 4.001680555555556,
+              "mean_positive_fraction": 0.030558327454506016
+            },
+            "clean": {
+              "n_structures": 4,
+              "mean_auroc": 0.8460943395574343,
+              "mean_auprc": 0.20479525835414886,
+              "mean_mcc": 0.2407761381242598,
+              "mean_precision_at_k": 0.21979166666666666,
+              "mean_recall_at_k": 0.21979166666666666,
+              "mean_enrichment_factor": 5.002100694444445,
+              "mean_positive_fraction": 0.04385336419763204
+            },
+            "degenerate_excluded": {
+              "n_structures": 4,
+              "mean_auroc": 0.8460943395574343,
+              "mean_auprc": 0.20479525835414886,
+              "mean_mcc": 0.2407761381242598,
+              "mean_precision_at_k": 0.21979166666666666,
+              "mean_recall_at_k": 0.21979166666666666,
+              "mean_enrichment_factor": 5.002100694444445,
+              "mean_positive_fraction": 0.04385336419763204
+            },
+            "bootstrap_ci": {
+              "auroc": {
+                "low": 0.8061406409357471,
+                "high": 0.8947930672624966
+              },
+              "auprc": {
+                "low": 0.13021542454944082,
+                "high": 0.3033239209798716
+              },
+              "mcc": {
+                "low": 0.17393516744382517,
+                "high": 0.3076171088046944
+              },
+              "precision_at_k": {
+                "low": 0.07291666666666667,
+                "high": 0.34687500000000004
+              },
+              "recall_at_k": {
+                "low": 0.07291666666666667,
+                "high": 0.34687500000000004
+              },
+              "enrichment_factor": {
+                "low": 0.9140625,
+                "high": 10.508038194444445
+              }
+            },
+            "degenerate_structures": [
+              "2NMO",
+              "2QKH"
+            ],
+            "per_structure": [
+              {
+                "n_residues": 312,
+                "n_positive": 16,
+                "positive_fraction": 0.05128205128205128,
+                "degenerate_labels": false,
+                "auroc": 0.8283361486486487,
+                "auprc": 0.18778026385885768,
+                "auprc_baseline": 0.05128205128205128,
+                "mcc": 0.28551519553213206,
+                "threshold": 0.7225040793418884,
+                "precision_at_k": 0.1875,
+                "recall_at_k": 0.1875,
+                "enrichment_factor": 3.65625,
+                "pdb_id": "1M17",
+                "split": "test"
+              },
+              {
+                "n_residues": 289,
+                "n_positive": 24,
+                "positive_fraction": 0.08304498269896193,
+                "degenerate_labels": false,
+                "auroc": 0.7987421383647798,
+                "auprc": 0.21583673307025192,
+                "auprc_baseline": 0.08304498269896193,
+                "mcc": 0.17314463979304406,
+                "threshold": 0.7225040793418884,
+                "precision_at_k": 0.2916666666666667,
+                "recall_at_k": 0.2916666666666667,
+                "enrichment_factor": 3.512152777777778,
+                "pdb_id": "1XKK",
+                "split": "test"
+              },
+              {
+                "n_residues": 138,
+                "n_positive": 0,
+                "positive_fraction": 0.0,
+                "degenerate_labels": true,
+                "auroc": null,
+                "auprc": null,
+                "mcc": null,
+                "precision_at_k": null,
+                "recall_at_k": null,
+                "enrichment_factor": null,
+                "pdb_id": "2NMO",
+                "split": "test"
+              },
+              {
+                "n_residues": 642,
+                "n_positive": 20,
+                "positive_fraction": 0.03115264797507788,
+                "degenerate_labels": false,
+                "auroc": 0.8403536977491962,
+                "auprc": 0.3418384733535429,
+                "auprc_baseline": 0.03115264797507788,
+                "mcc": 0.3297190220772568,
+                "threshold": 0.7225040793418884,
+                "precision_at_k": 0.4,
+                "recall_at_k": 0.4,
+                "enrichment_factor": 12.84,
+                "pdb_id": "2P0R",
+                "split": "test"
+              },
+              {
+                "n_residues": 126,
+                "n_positive": 1,
+                "positive_fraction": 0.007936507936507936,
+                "degenerate_labels": true,
+                "auroc": 0.42400000000000004,
+                "auprc": 0.0136986301369863,
+                "auprc_baseline": 0.007936507936507936,
+                "mcc": 0.0,
+                "threshold": 0.7225040793418884,
+                "precision_at_k": 0.0,
+                "recall_at_k": 0.0,
+                "enrichment_factor": 0.0,
+                "pdb_id": "2QKH",
+                "split": "test"
+              },
+              {
+                "n_residues": 604,
+                "n_positive": 6,
+                "positive_fraction": 0.009933774834437087,
+                "degenerate_labels": false,
+                "auroc": 0.9169453734671126,
+                "auprc": 0.07372556313394292,
+                "auprc_baseline": 0.009933774834437087,
+                "mcc": 0.17472569509460628,
+                "threshold": 0.7225040793418884,
+                "precision_at_k": 0.0,
+                "recall_at_k": 0.0,
+                "enrichment_factor": 0.0,
+                "pdb_id": "3CL7",
+                "split": "test"
+              }
+            ]
+          }
+        }
+      }
+    ]
+  }
+}

@@ -1,0 +1,71 @@
+{
+  "artifact_type": "AUGUST_GRAPH_FEATURE_LINEAGE",
+  "authoritative_code": {
+    "esm_builder": {
+      "path": "scripts/build_esm_features.py",
+      "sha256": "ec8d48eb8fd4a3cf2e3badbdf9291dd01c1d29dbca4e50fc5f8b28ad9eda43c5"
+    },
+    "extraction": {
+      "path": "scripts/independent_extraction_gate.py",
+      "sha256": "e83975f55087d3dd97302d0849ea5b811144b9cf429d22b82b808250e2488e33"
+    },
+    "graph_builder": {
+      "path": "src/data_processing/graph_construction.py",
+      "sha256": "394e65282f7ef75305973eadc3056062c93fd035cd59dbf7c69ab35839c7c1e7"
+    },
+    "inference": {
+      "path": "scripts/run_v3_inference.py",
+      "sha256": "423a2ee71db3863b8929ea94161d35db82f690ddd3a546731660d34d272faa01"
+    },
+    "parser": {
+      "path": "src/data_processing/parse_pdb.py",
+      "sha256": "b7e93e36dd8f693c894c4d75d964904edd3362de0fe89233ffd72ada9ccf427e"
+    }
+  },
+  "chain_handling": "run_v3_inference.py parses all PCNA summary_table structures directly; 1W60 score file contains chains A and B as parsed from data/raw/1W60.pdb.",
+  "classification_reason": "Both lineages use PocketGNNXL with a 520-dimensional input contract (40 graph features plus 480 ESM2 t12 features), but the August handoff is a separate fine-tuned seed 42/43/44 lineage using run_v3_inference.py and frozen independent extraction; it is not the d9efd clean-split single-seed summary regeneration lineage.",
+  "classification_vs_d9efd_lineage": "COMPATIBLE_BUT_DIFFERENT",
+  "created_utc": "2026-08-16T00:00:00Z",
+  "feature_contract": {
+    "edge_features": 6,
+    "esm_features": 480,
+    "esm_model": "facebook/esm2_t12_35M_UR50D",
+    "feature_order": "torch.cat([data.x, esm_feats], dim=1)",
+    "handcrafted_graph_features": 40,
+    "node_features_total": 520,
+    "sequential_edges": "build_graph_v2 edge_index_seq/edge_attr_seq backbone graph",
+    "spatial_edges": "build_graph_v2 contact graph"
+  },
+  "fine_tune_context_inputs_recorded_not_rerun": {
+    "8GLA_esm_features": {
+      "dtype": "float32",
+      "path": "data/esm_features/8GLA.npy",
+      "sha256": "7ddc9c5b272a9efdf23089934db257e4aba0c9d7b40c3e736c5e598dcff6c6a8",
+      "shape": [
+        952,
+        480
+      ]
+    },
+    "8GLA_pdb": {
+      "path": "data/raw/8GLA.pdb",
+      "sha256": "79cc39d2253f0d36728ecfbc2588e751169bfcbc36f4d7e8215663fef87195cd"
+    }
+  },
+  "normalization_preprocessing": "No feature normalization beyond graph_construction.py feature scaling and ESM float32 embeddings; inference concatenates tensors directly.",
+  "pcna_inference_inputs": {
+    "1W60_esm_features": {
+      "dtype": "float32",
+      "path": "data/esm_features/1W60.npy",
+      "sha256": "b47aeb292d4641d5a8bb17cb676b0d17b4dc6309e2a28b665afad22d19fbb3fc",
+      "shape": [
+        510,
+        480
+      ]
+    },
+    "1W60_pdb": {
+      "path": "data/raw/1W60.pdb",
+      "sha256": "3e1f1f0d22a893da67e36042aff4e2ab4b9da267f40fe1a22f7b8be2a32d5e5c"
+    }
+  },
+  "status": "PASS_FOR_AUGUST_HANDOFF_REPRODUCTION_INPUTS"
+}

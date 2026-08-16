@@ -1,0 +1,54 @@
+{
+  "method_id": "validation-mcc-rank-fraction",
+  "status": "FROZEN_FOR_3_SEED_PCNA_STABILITY_GATE",
+  "frozen_at": "2026-08-15T00:00:00-04:00",
+  "frozen_artifacts": {
+    "comparison_csv": "artifacts/diagnostics/seed_stability_rank_fraction_20260815/method_comparison.csv",
+    "stability_report": "artifacts/diagnostics/seed_stability_rank_fraction_20260815/stability_1W60_validation_mcc_rank_fraction.json",
+    "consensus": "artifacts/diagnostics/seed_stability_rank_fraction_20260815/consensus_1W60_validation_mcc_rank_fraction.json"
+  },
+  "validation_source": {
+    "pdb": "8GLA",
+    "chain": "B",
+    "positive_residue_set": "DEFAULT_AOH_POSITIVES in seed_stability.py",
+    "selection_metric": "MCC on validation chain labels"
+  },
+  "target_rule": [
+    "For each frozen checkpoint, score target PDB with raw GNN scores.",
+    "On validation chain, choose the score threshold maximizing MCC.",
+    "Convert that validation threshold to a rank fraction: predicted_positive_residues / n_validation_residues.",
+    "On target PDB, select round(rank_fraction * n_target_residues) highest-scoring residues for that seed.",
+    "Run unchanged DBSCAN eps=6.0 min_samples=3 on CA coordinates of selected residues.",
+    "Choose top cluster by mean raw score, then apply unchanged multi-seed consensus gate."
+  ],
+  "reason_selected": "Best stable scale-invariant candidate in comparison: mean pairwise Jaccard 0.8575, 22 consensus residues, and all three seeds produced valid clustered pockets.",
+  "stability_summary": {
+    "verdict": "STABLE",
+    "mean_pairwise_jaccard": 0.8575,
+    "consensus_n_residues": 22,
+    "pairwise_jaccard": [
+      {
+        "a": 0,
+        "b": 1,
+        "jaccard": 0.8333
+      },
+      {
+        "a": 0,
+        "b": 2,
+        "jaccard": 0.913
+      },
+      {
+        "a": 1,
+        "b": 2,
+        "jaccard": 0.8261
+      }
+    ]
+  },
+  "constraints": {
+    "retrained": false,
+    "added_training_data": false,
+    "ran_md": false,
+    "changed_dbscan_parameters": false,
+    "changed_checkpoint_selection": false
+  }
+}

@@ -2,6 +2,156 @@
   "registry": "experiment_registry",
   "id_prefix": "EXP",
   "created_at": "2026-05-24T19:05:16Z",
-  "updated_at": "2026-05-24T19:05:16Z",
-  "entries": []
+  "updated_at": "2026-08-15T17:21:16.099276Z",
+  "entries": [
+    {
+      "experiment_id": "EXP-0001",
+      "title": "Independent non-PCNA extraction selection and final 1W60 pre-MD gate",
+      "purpose": "Freeze extraction policy without PCNA and apply once to frozen 1W60 seed outputs.",
+      "hypothesis_tested": "A non-PCNA-selected extraction policy yields a seed-stable candidate 1W60 region.",
+      "null_hypothesis": "",
+      "expected_outcome": "",
+      "status": "completed",
+      "created_at": "",
+      "updated_at": "2026-08-15T16:35:43Z",
+      "created_by_agent": "codex.pre_md_governance",
+      "input_artifacts": [
+        "ART-0001",
+        "ART-0002",
+        "ART-0003"
+      ],
+      "output_artifacts": [
+        "ART-0004",
+        "ART-0005",
+        "ART-0006",
+        "ART-0007",
+        "ART-0008",
+        "ART-0009",
+        "ART-0010",
+        "ART-0011"
+      ],
+      "script_or_workflow": "scripts/independent_extraction_gate.py",
+      "command": "python3 scripts/independent_extraction_gate.py select-policy && python3 scripts/independent_extraction_gate.py apply-1w60",
+      "parameters": {},
+      "environment_id": "",
+      "git_commit": "5b2ce676c790c4aac0caa10dc4226b5a924791c0",
+      "metrics": {
+        "literal_mean_jaccard": 0.6791537667698658,
+        "consensus_residues": 16,
+        "pre_md_stability": "PASS"
+      },
+      "actual_outcome": "PRE-MD STABILITY PASS; production MD not started.",
+      "interpretation": "Supports governed MD handoff request only.",
+      "failure_modes": [],
+      "evidence_classification": "supports_claim",
+      "associated_claims": [],
+      "gate_results": {
+        "pre_md_stability": "pass",
+        "gate6_human_approval": "not_recorded"
+      },
+      "human_approval": {
+        "required": true,
+        "decision_id": "",
+        "status": "required_before_md"
+      },
+      "notes": ""
+    },
+    {
+      "experiment_id": "EXP-0002",
+      "title": "Post-pass stronger internal robustness audit for 1W60 extraction stability",
+      "purpose": "Diagnose the prior 0.6792 1W60 Jaccard result and test whether an independently justified extraction refinement can meet the new internal >=0.75 mean-Jaccard release target.",
+      "hypothesis_tested": "A stronger extraction policy can be justified from non-PCNA validation without using PCNA stability and then optionally applied once to 1W60.",
+      "null_hypothesis": "No materially better independent extraction policy is justified; the current 0.6792 result remains below the new internal release target.",
+      "expected_outcome": "UNVERIFIED / INSUFFICIENT PROJECT EVIDENCE before this audit.",
+      "status": "completed",
+      "created_at": "2026-08-15T16:58:48Z",
+      "updated_at": "2026-08-15T16:58:48Z",
+      "created_by_agent": "codex.strong_robustness_audit",
+      "input_artifacts": [
+        "ART-0002",
+        "ART-0004"
+      ],
+      "output_artifacts": [
+        "ART-0012",
+        "ART-0013",
+        "ART-0014",
+        "ART-0015",
+        "ART-0016",
+        "ART-0017",
+        "ART-0018",
+        "ART-0019",
+        "ART-0020",
+        "ART-0021",
+        "ART-0022",
+        "ART-0023",
+        "ART-0024",
+        "ART-0025",
+        "ART-0026",
+        "ART-0027",
+        "ART-0028",
+        "ART-0029",
+        "ART-0030",
+        "ART-0031"
+      ],
+      "script_or_workflow": "scripts/strong_robustness_audit.py",
+      "command": ".venv_gnn_pcna/bin/python scripts/strong_robustness_audit.py",
+      "parameters": {
+        "strong_mean_literal_jaccard_target": 0.75,
+        "minimum_pairwise_literal_jaccard": 0.65,
+        "pcna_inputs_read_during_independent_selection": []
+      },
+      "environment_id": "",
+      "git_commit": "5b2ce676c790c4aac0caa10dc4226b5a924791c0",
+      "metrics": {
+        "prior_literal_mean_jaccard": 0.6791537667698658,
+        "prior_min_pairwise_jaccard": 0.6316,
+        "n_3of3_core": 11,
+        "n_2of3_or_better": 16,
+        "materially_better_policy_found": false,
+        "new_1w60_evaluation_run": false
+      },
+      "actual_outcome": "Same physical pocket core with nontrivial boundary/fringe extension disagreement; no materially better extraction policy was independently justified; no second 1W60 run and no MD were started.",
+      "interpretation": "Strong internal pre-MD release robustness target was not achieved. Retraining is not currently justified by this evidence.",
+      "failure_modes": [
+        "strong_internal_mean_jaccard_target_not_met",
+        "no_independently_justified_policy_replacement"
+      ],
+      "evidence_classification": "inconclusive",
+      "associated_claims": [],
+      "gate_results": {
+        "strong_pre_md_robustness": "fail",
+        "production_md_started": "no",
+        "gate6_human_approval": "not_recorded"
+      },
+      "human_approval": {
+        "required": true,
+        "decision_id": "",
+        "status": "required_before_md"
+      },
+      "notes": "This is a post-pass stricter internal release standard, not a retroactive change to the earlier exploratory PASS and not a universal literature threshold."
+    },
+    {
+      "experiment_id": "EXP-0003",
+      "title": "Final independent benchmark expansion before MD decision",
+      "purpose": "Search for additional eligible independent extraction-development structures and decide whether a replacement extraction policy is justified.",
+      "status": "completed",
+      "created_at": "2026-08-15T17:19:50.673902Z",
+      "updated_at": "2026-08-15T17:19:50.673903Z",
+      "created_by_agent": "codex.final_benchmark_expansion",
+      "script_or_workflow": "scripts/final_benchmark_expansion_20260815.py",
+      "command": ".venv_gnn_pcna/bin/python scripts/final_benchmark_expansion_20260815.py",
+      "metrics": {
+        "discovered_candidates": 1240,
+        "eligible_candidates": 5,
+        "new_policy_frozen": false,
+        "pcna_rerun": false
+      },
+      "actual_outcome": "No independently justified replacement policy; proceed to control-first MD after Gate-6 approval.",
+      "interpretation": "Moderate/exploratory computational pass with explicit boundary uncertainty.",
+      "human_approval": {
+        "required": true,
+        "status": "required_before_md"
+      }
+    }
+  ]
 }

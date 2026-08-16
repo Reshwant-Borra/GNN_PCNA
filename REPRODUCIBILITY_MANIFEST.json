@@ -1,0 +1,80 @@
+{
+  "artifact_type": "REPRODUCIBILITY_MANIFEST",
+  "august_three_seed_reproduction": {
+    "checkpoint_registry": "artifacts/provenance/AUGUST_THREE_SEED_CHECKPOINT_REGISTRY.json",
+    "graph_feature_lineage": "artifacts/provenance/AUGUST_GRAPH_FEATURE_LINEAGE.json",
+    "handoff_identity": "artifacts/provenance/AUGUST_HANDOFF_IDENTITY.json",
+    "max_abs_score_difference": 0.0,
+    "mean_abs_score_difference": 0.0,
+    "model_configs": "artifacts/provenance/AUGUST_THREE_SEED_MODEL_CONFIGS.json",
+    "per_seed_rows_compared": 510,
+    "residue_order_mismatches": 0,
+    "score_tolerance": 0.0,
+    "status": "PASS"
+  },
+  "branch_at_recovery_start": "final-consolidation-audit",
+  "branch_at_start": "final-consolidation-audit",
+  "created_utc": "2026-08-16T00:00:00Z",
+  "external_or_ignored_artifacts": [
+    {
+      "bytes": 53485974,
+      "path": "checkpoints/clean_split/xl_esm_full/seed_42/best.ckpt",
+      "retrieval_location": "git clone --branch pcna-xl-esm-full-final-framing --single-branch https://github.com/Reshwant-Borra/GNN_PCNA.git",
+      "sha256": "0114999ea9237b44f114c5a23a8529cb6939e80450339d71c07178ccd2d3addf",
+      "status": "RECOVERED_ORIGINAL_ON_REMOTE_BRANCH"
+    }
+  ],
+  "forward_pipeline_reproducibility": "PASS_AFTER_TRACKED_AUGUST_CHECKPOINT_PACKAGE_AND_VALIDATION",
+  "gnn_recovery_verification": {
+    "fresh_clone_checked": true,
+    "fresh_clone_checkpoint_sha256": "0114999ea9237b44f114c5a23a8529cb6939e80450339d71c07178ccd2d3addf",
+    "fresh_clone_head": "d7cf76d674bced192b3c9d2b4f7f4fbf7ac3a228",
+    "fresh_clone_summary_sha256": "d9efd97400f24cb1cd9ab55cf112c174f2a610e405714758f688cd4944cad193",
+    "inference_rerun_status": "PASS_WITH_NUMERICAL_TOLERANCE_FOR_D9EFD_ONLY",
+    "max_abs_score_difference": 1.0000000000287557e-06,
+    "mean_abs_score_difference": 2.5046666054651342e-08,
+    "top_residue_mismatches": 0
+  },
+  "hashes": {
+    "analysis_code": "b6c23f1d19d7c76b05ee8fe955f4d3241224abb6beb93ab04e00b9ac62054312",
+    "analysis_protocol": "587f27cf2e402fe50b264d98d3d60fbbdcc8f9095025b2a89d12c7aebd633e56",
+    "august_1w60_esm_features": "b47aeb292d4641d5a8bb17cb676b0d17b4dc6309e2a28b665afad22d19fbb3fc",
+    "august_8gla_esm_features": "7ddc9c5b272a9efdf23089934db257e4aba0c9d7b40c3e736c5e598dcff6c6a8",
+    "august_graph_feature_lineage": "c05d5f3cb7454b62cbc026e598a62707c4f614437287e4993aec03cae0f0f6de",
+    "august_handoff_identity": "d0a62a56d33f07183a9ca5e042ff6e659d64f0adc34a829035192459ef92ad23",
+    "august_three_seed_checkpoint_registry": "d545bf5b087985aa43ef9e3a7d241aea0214dcba5fac3780cd2025b91b040696",
+    "august_three_seed_model_configs": "983c8b7d7c0ef15fe9cdaabec06116ed5d0a0e327fe6aeb2322fb4eefe838b40",
+    "derived_label_manifest_from_graphs": "5fbe5c79648641429c2ae70661bfec069b04d528261825fbc9cf0f96702f9d4c",
+    "feature_schema": "360189099c521ef2d05576a998bd44a247bc36063e1318987d1181e3e634a285",
+    "final_pocket_handoff": "da19358def0a68e8ce727b9761e028fc4ed27140a6bbe6738a51b76d765f720e",
+    "frozen_gnn_provenance": "275553619a6cae573bf01479651f3c020380a1fa57acebd27d1ec48916f7cbca",
+    "frozen_inference_artifact": "d9efd97400f24cb1cd9ab55cf112c174f2a610e405714758f688cd4944cad193",
+    "frozen_output_identity_test": "0c26571039296216af52ac1bf38036aab13d59510797e2cc53749a05c4337a13",
+    "gnn_architecture": "2268d104af83dd19c1bec50d4ada7c4d6b46a73845e939fc39a2b060bea6d0a8",
+    "gnn_model_config": "e4ab797218e478a74f759fe46a58aadf400409a75d5a9a5875deca3dc74dab24",
+    "graph_manifest": "69744b548e812697ba9015c6563ed526f1af2e915b1595badb1dd47fd1b4c64f",
+    "label_chain_bug_impact_json": "43eeb5e2732e6b8de399bc564d48a29ba97961259eecbbcd15fb9c04c96ab001",
+    "label_chain_bug_impact_md": "712fc38eae9b5d677de02db67c956ed4d9b686d3510a0833623043af7e26fc52",
+    "label_manifest": "MISSING_STANDALONE",
+    "launcher": "5219395a2927fa53f0712e79873977dc6949ff4fe15a0b392c4bb8e3c484c7c8",
+    "md_handoff_packet": "eb6ebde04a80dd93d9689dd94856801f5d1169205a196018b2869bb8bcb455f4",
+    "md_protocol_code": "95d41539bdc523a99698e915d79ffedb2d973afb315249fe9d6865599d9a59bb",
+    "pretrain_checkpoint": "1438638c912193002d1feea43035c0af4177920f95168758c76b3c7f989fa93f",
+    "recovered_d9efd_checkpoint": "0114999ea9237b44f114c5a23a8529cb6939e80450339d71c07178ccd2d3addf",
+    "recovered_d9efd_checkpoint_meta": "e6a3e7fe747fe39081099682f7547e81d4dff599f15f8cfc45f9ba5f9f795154",
+    "seed_42_checkpoint": "03d01eba42eb7f6da01c0147dea434b1e1797bd2302e8a178d6bbd9b19526ce5",
+    "seed_43_checkpoint": "7f145d6f54d03744f71c0224df4f170ad4aab388387e242234ebffda1acae17b",
+    "seed_44_checkpoint": "0a739dec47248651499942207b82139e5dea8bebfafe5ed50aabcbbdfd6aa3f6",
+    "split_manifest": "828fd6d4e694cc6e258a2de8e63c4130876a9c7897dd14ccc2db15a3e6c1f06a",
+    "split_manifest_crlf_recorded_in_training_meta": "a88bd6e6885aec63cb47077eab779fa1cbc5e8a6a29b27e02faa61fdcb6d3ee7"
+  },
+  "historical_result_provenance": "PASS_WITH_NUMERICAL_TOLERANCE_FOR_D9EFD_SCORE_ARTIFACT; PASS_FOR_AUGUST_THREE_SEED_MD_HANDOFF_WITH_EXACT_SCORE_AND_CONSENSUS_REPRODUCTION",
+  "production_status": "BLOCKED_PENDING_RTX_4070_SMOKE_AND_GATE6_HUMAN_APPROVAL; GNN_PROVENANCE_CLOSED_FOR_SMOKE",
+  "repository_head_at_recovery_start": "0fedaa3bf2bf6e9c736167f105b8927ed4ba1b45",
+  "repository_head_at_start": "a3103ec5aaab667790e685615f064a3065d11f3d",
+  "verification_commands": [
+    "shasum -a 256 md_validation_4070/FROZEN_MD_ANALYSIS_PROTOCOL.json",
+    "python3 -m pytest tests/test_md_launcher_and_control_gate.py tests/test_label_alignment.py -q",
+    "./md.sh smoke"
+  ]
+}

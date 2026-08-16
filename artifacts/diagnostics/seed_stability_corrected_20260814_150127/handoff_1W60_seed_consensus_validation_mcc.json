@@ -1,0 +1,308 @@
+{
+  "pocket_name": "gnn_pcna_1w60_seed_consensus_validation_mcc_20260814",
+  "identified_on_pdb": "1W60",
+  "pocket_residues": [
+    {
+      "chain": "A",
+      "resid": 25
+    },
+    {
+      "chain": "A",
+      "resid": 26
+    },
+    {
+      "chain": "A",
+      "resid": 27
+    },
+    {
+      "chain": "A",
+      "resid": 38
+    },
+    {
+      "chain": "A",
+      "resid": 39
+    },
+    {
+      "chain": "A",
+      "resid": 40
+    },
+    {
+      "chain": "A",
+      "resid": 41
+    },
+    {
+      "chain": "A",
+      "resid": 42
+    },
+    {
+      "chain": "A",
+      "resid": 43
+    },
+    {
+      "chain": "A",
+      "resid": 44
+    },
+    {
+      "chain": "A",
+      "resid": 45
+    },
+    {
+      "chain": "A",
+      "resid": 46
+    },
+    {
+      "chain": "A",
+      "resid": 47
+    },
+    {
+      "chain": "A",
+      "resid": 231
+    },
+    {
+      "chain": "A",
+      "resid": 232
+    },
+    {
+      "chain": "A",
+      "resid": 233
+    },
+    {
+      "chain": "A",
+      "resid": 234
+    },
+    {
+      "chain": "A",
+      "resid": 235
+    },
+    {
+      "chain": "A",
+      "resid": 250
+    },
+    {
+      "chain": "A",
+      "resid": 251
+    },
+    {
+      "chain": "A",
+      "resid": 252
+    }
+  ],
+  "pocket_residues_by_chain": {
+    "A": [
+      25,
+      26,
+      27,
+      38,
+      39,
+      40,
+      41,
+      42,
+      43,
+      44,
+      45,
+      46,
+      47,
+      231,
+      232,
+      233,
+      234,
+      235,
+      250,
+      251,
+      252
+    ]
+  },
+  "pocket_residues_resseq": [
+    25,
+    26,
+    27,
+    38,
+    39,
+    40,
+    41,
+    42,
+    43,
+    44,
+    45,
+    46,
+    47,
+    231,
+    232,
+    233,
+    234,
+    235,
+    250,
+    251,
+    252
+  ],
+  "pocket_chains": [
+    "A"
+  ],
+  "score_summary": {
+    "consensus_rule": "residue selected by >=60% of seeds after validation-MCC thresholding and existing DBSCAN eps=6.0/min_samples=3 mean-score ranking",
+    "mean_pairwise_jaccard": 0.7215,
+    "consensus_n_residues": 21,
+    "cluster_method": "DBSCAN eps=6.0 min_samples=3 on CA of residues scoring above per-checkpoint validation-MCC threshold; top cluster by mean residue score",
+    "threshold_mode": "validation-mcc",
+    "threshold_records": [
+      {
+        "threshold": 0.5251,
+        "mcc": 0.8922839874568601,
+        "f1": 0.9019607843137256,
+        "precision": 0.8518518518518519,
+        "recall": 0.9583333333333334,
+        "predicted_positive_residues": 27,
+        "validation_chain": "B",
+        "n_validation_residues": 240,
+        "n_validation_positives": 24,
+        "mode": "validation-mcc",
+        "validation_pdb": "8GLA",
+        "validation_scores_csv": "artifacts/diagnostics/seed_stability_corrected_20260814_150127/scores/run0_validation/8GLA/scores.csv"
+      },
+      {
+        "threshold": 0.5,
+        "mcc": 0.881917103688197,
+        "f1": 0.888888888888889,
+        "precision": 0.8,
+        "recall": 1.0,
+        "predicted_positive_residues": 30,
+        "validation_chain": "B",
+        "n_validation_residues": 240,
+        "n_validation_positives": 24,
+        "mode": "validation-mcc",
+        "validation_pdb": "8GLA",
+        "validation_scores_csv": "artifacts/diagnostics/seed_stability_corrected_20260814_150127/scores/run1_validation/8GLA/scores.csv"
+      },
+      {
+        "threshold": 0.3653,
+        "mcc": 0.9295038361991511,
+        "f1": 0.9361702127659574,
+        "precision": 0.9565217391304348,
+        "recall": 0.9166666666666666,
+        "predicted_positive_residues": 23,
+        "validation_chain": "B",
+        "n_validation_residues": 240,
+        "n_validation_positives": 24,
+        "mode": "validation-mcc",
+        "validation_pdb": "8GLA",
+        "validation_scores_csv": "artifacts/diagnostics/seed_stability_corrected_20260814_150127/scores/run2_validation/8GLA/scores.csv"
+      }
+    ],
+    "per_seed": [
+      {
+        "seed": 42,
+        "checkpoint": "artifacts/go_prep/seed_42/best.ckpt",
+        "checkpoint_sha256": "03d01eba42eb7f6da01c0147dea434b1e1797bd2302e8a178d6bbd9b19526ce5",
+        "selected_epoch": 7,
+        "threshold": 0.5251,
+        "n_residues": 22,
+        "top_mean_score": 0.63343,
+        "runner_up_margin": 0.0048
+      },
+      {
+        "seed": 43,
+        "checkpoint": "artifacts/go_prep/seed_43/best.ckpt",
+        "checkpoint_sha256": "7f145d6f54d03744f71c0224df4f170ad4aab388387e242234ebffda1acae17b",
+        "selected_epoch": 32,
+        "threshold": 0.5,
+        "n_residues": 13,
+        "top_mean_score": 0.58301,
+        "runner_up_margin": 0.04199
+      },
+      {
+        "seed": 44,
+        "checkpoint": "artifacts/go_prep/seed_44/best.ckpt",
+        "checkpoint_sha256": "0a739dec47248651499942207b82139e5dea8bebfafe5ed50aabcbbdfd6aa3f6",
+        "selected_epoch": 31,
+        "threshold": 0.3653,
+        "n_residues": 21,
+        "top_mean_score": 0.39841,
+        "runner_up_margin": 0.01369
+      }
+    ]
+  },
+  "apo_pdb": "1W60",
+  "control_pdb": "8GLA",
+  "provenance": {
+    "git_commit": "5b2ce676c790c4aac0caa10dc4226b5a924791c0",
+    "branch": "final-consolidation-audit",
+    "checkpoint": "multi-seed consensus; see checkpoints list",
+    "checkpoint_sha256": "multi-seed consensus; see checkpoints list",
+    "checkpoints": [
+      {
+        "seed": 42,
+        "checkpoint": "artifacts/go_prep/seed_42/best.ckpt",
+        "checkpoint_sha256": "03d01eba42eb7f6da01c0147dea434b1e1797bd2302e8a178d6bbd9b19526ce5",
+        "selected_epoch": 7,
+        "threshold": 0.5251,
+        "n_residues": 22,
+        "top_mean_score": 0.63343,
+        "runner_up_margin": 0.0048
+      },
+      {
+        "seed": 43,
+        "checkpoint": "artifacts/go_prep/seed_43/best.ckpt",
+        "checkpoint_sha256": "7f145d6f54d03744f71c0224df4f170ad4aab388387e242234ebffda1acae17b",
+        "selected_epoch": 32,
+        "threshold": 0.5,
+        "n_residues": 13,
+        "top_mean_score": 0.58301,
+        "runner_up_margin": 0.04199
+      },
+      {
+        "seed": 44,
+        "checkpoint": "artifacts/go_prep/seed_44/best.ckpt",
+        "checkpoint_sha256": "0a739dec47248651499942207b82139e5dea8bebfafe5ed50aabcbbdfd6aa3f6",
+        "selected_epoch": 31,
+        "threshold": 0.3653,
+        "n_residues": 21,
+        "top_mean_score": 0.39841,
+        "runner_up_margin": 0.01369
+      }
+    ],
+    "split_file": "none in active tree; PCNA fine-tune split is 8GLA chain A train / 8GLA chain B validation with 1W60 A/B AOH-position apo-negative auxiliary labels from existing production script",
+    "split_hash": "6061cfbb88dd1c8b979863bd1f8d4e0e16575efe65257c1a3eee99c5d99102ad",
+    "dataset_hash": "see diagnostic report; raw active inputs data/raw/8GLA.pdb, data/raw/1W60.pdb, data/esm_features/8GLA.npy, data/esm_features/1W60.npy",
+    "seeds": [
+      42,
+      43,
+      44
+    ],
+    "leakage_fixed": true,
+    "esm_model": "facebook/esm2_t12_35M_UR50D (480-dim precomputed arrays)",
+    "stability_report": "artifacts/diagnostics/seed_stability_corrected_20260814_150127/stability_1W60_validation_mcc.json",
+    "stability_report_sha256": "973ab7882b83c9667ed4390623a1f73c9194ace88bd170db70a3ae8b20a43bcf"
+  },
+  "novelty_check": {
+    "classification": "overlaps_known_interface",
+    "overlap_detail": {
+      "note": "Consensus overlaps the known AOH1996/PIP-groove-adjacent PCNA interface residue-number region; this is not a novelty claim.",
+      "overlap_resseq": [
+        25,
+        26,
+        27,
+        38,
+        39,
+        40,
+        41,
+        42,
+        44,
+        45,
+        46,
+        47,
+        231,
+        232,
+        233,
+        234,
+        250,
+        251,
+        252
+      ]
+    }
+  },
+  "governance": {
+    "gate6_approval_recorded": false,
+    "approval_ref": "User requested root-cause/correction/re-verification; no production MD run by Codex in this task.",
+    "human_reviewer": "pending user review before launching MD"
+  }
+}

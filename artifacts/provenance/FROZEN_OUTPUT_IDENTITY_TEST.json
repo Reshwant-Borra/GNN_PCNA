@@ -1,0 +1,57 @@
+{
+  "artifact_type": "FROZEN_OUTPUT_IDENTITY_TEST",
+  "status_for_d9efd_score_artifact": "PASS_WITH_NUMERICAL_TOLERANCE",
+  "status_for_august_three_seed_handoff": "FAIL_NOT_TESTED_AUTHORITY_UNRESOLVED",
+  "historical_commit_tested": "d7cf76d674bced192b3c9d2b4f7f4fbf7ac3a228",
+  "source_branch": "origin/pcna-xl-esm-full-final-framing",
+  "fresh_remote_clone": {
+    "path": "/private/tmp/pcna_remote_xl_clone",
+    "head": "d7cf76d674bced192b3c9d2b4f7f4fbf7ac3a228",
+    "checkpoint_sha256": "0114999ea9237b44f114c5a23a8529cb6939e80450339d71c07178ccd2d3addf",
+    "summary_table_sha256": "d9efd97400f24cb1cd9ab55cf112c174f2a610e405714758f688cd4944cad193"
+  },
+  "rerun_environment": {
+    "worktree": "/private/tmp/pcna_d7_repro",
+    "command": "python scripts/regenerate_pcna_xl_esm_full_reports.py",
+    "venv": "/Users/rishiborra/Desktop/GNN_PCNA/.venv_gnn_pcna",
+    "note": "No MD and no training were run; only inference/report regeneration was executed."
+  },
+  "original_artifact": {
+    "path": "results/per_structure/summary_table.csv",
+    "sha256": "d9efd97400f24cb1cd9ab55cf112c174f2a610e405714758f688cd4944cad193"
+  },
+  "regenerated_summary_artifact": {
+    "path": "/private/tmp/pcna_d7_repro/results/per_structure/summary_table.csv",
+    "sha256": "78fa86c8fccb316cbce91cb72e35e37e1bced9a15389fb64dcc57b681dda644c"
+  },
+  "byte_for_byte_equal": false,
+  "byte_mismatch_explanation": "Regenerated summary differs in line endings/path separators and tiny floating-point formatting differences under a newer local torch/PyG environment.",
+  "tolerance": {
+    "score_absolute_tolerance": 1e-05,
+    "basis": "score CSVs are rounded to six decimal places and inference uses FP32 operations; tolerance is 10x the observed CSV quantization step and far below score-scale biological thresholds"
+  },
+  "score_level_comparison": {
+    "score_files_compared": 59,
+    "rows_compared": 65358,
+    "max_absolute_score_difference": 1.0000000000287557e-06,
+    "mean_absolute_score_difference": 2.5046666054651342e-08,
+    "residue_identity_or_order_mismatches": 0,
+    "top_residue_mismatches": 0,
+    "ranking_correlation": "not_computed_exactly; top-residue agreement was exact and per-row score differences were <=1.0000000000287557e-06"
+  },
+  "summary_level_comparison": {
+    "rows_compared": 59,
+    "pdb_order_mismatches": 0,
+    "n_clusters_mismatches": 0,
+    "top_cluster_n_mismatches": 0,
+    "top_aoh_overlap_mismatches": 0,
+    "n_above_threshold_mismatches": 0,
+    "threshold_mismatches": 0,
+    "top_cluster_mean_max_abs_difference": 1.1920928955078125e-07,
+    "top_cluster_max_max_abs_difference": 5.960464477539063e-08,
+    "score_max_max_abs_difference": 5.960464477539063e-08,
+    "score_mean_max_abs_difference": 4.470348358154297e-08,
+    "score_std_max_abs_difference": 1.4901161193847656e-08
+  },
+  "limitation": "This identity test validates the recovered d9efd score artifact lineage only. It does not validate the later August three-seed MD handoff lineage."
+}

@@ -4,8 +4,8 @@
   "provenance": {
     "residue_source": "structurally_derived_this_work",
     "method": "PCNA heavy-atom distance <= 4.5 A to ligand ZQZ in co-crystal 8GLA",
-    "reproduce_with": "Desktop/GNN_PCNA/scripts/derive_pcna_interface_contacts.py",
-    "registry": "Desktop/GNN_PCNA/data/registries/pcna_interface_map.json -> regions.aoh1996_contact_region",
+    "reproduce_with": "scripts/derive_pcna_interface_contacts.py",
+    "registry": "data/registries/pcna_interface_map.json -> regions.aoh1996_contact_region",
     "source_pdb": "8GLA",
     "ligand_code": "ZQZ",
     "source_pmid": "37531956",

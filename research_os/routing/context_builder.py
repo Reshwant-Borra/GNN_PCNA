@@ -122,6 +122,85 @@ _INTENT_REGISTRIES: Dict[str, tuple[str, ...]] = {
 }
 
 
+_RESEARCH_BASE_CONTEXT: Dict[str, tuple[str, ...]] = {
+    "source_of_truth_query": (
+        "docs/research_base/INDEX.md",
+        "docs/research_base/sources/SOURCE_REGISTRY.md",
+        "docs/research_base/decisions/DECISION_REGISTRY.md",
+        "docs/research_base/assumptions/ASSUMPTION_REGISTRY.md",
+        "docs/research_base/inferences/INFERENCE_REGISTRY.md",
+        "docs/research_base/project/CLAIMS_AND_EVIDENCE.md",
+        "docs/research_base/project/KNOWN_LIMITATIONS.md",
+    ),
+    "research_design": (
+        "docs/research_base/project/RESEARCH_QUESTION.md",
+        "docs/research_base/project/HYPOTHESES.md",
+        "docs/research_base/decisions/DECISION_REGISTRY.md",
+        "docs/research_base/assumptions/ASSUMPTION_REGISTRY.md",
+        "docs/research_base/inferences/INFERENCE_REGISTRY.md",
+    ),
+    "data_audit": (
+        "docs/research_base/datasets/DATA_PROVENANCE.md",
+        "docs/research_base/datasets/SPLIT_AND_HOMOLOGY_POLICY.md",
+        "docs/research_base/datasets/LABEL_DEFINITION.md",
+        "docs/research_base/assumptions/ASSUMPTION_REGISTRY.md",
+    ),
+    "split_or_leakage": (
+        "docs/research_base/datasets/SPLIT_AND_HOMOLOGY_POLICY.md",
+        "docs/research_base/decisions/DECISION_REGISTRY.md",
+        "docs/research_base/project/KNOWN_LIMITATIONS.md",
+    ),
+    "preprocessing_audit": (
+        "docs/research_base/ml/GRAPH_REPRESENTATION.md",
+        "docs/research_base/ml/FEATURES.md",
+        "docs/research_base/assumptions/ASSUMPTION_REGISTRY.md",
+    ),
+    "code_review": (
+        "docs/research_base/decisions/DECISION_REGISTRY.md",
+        "docs/research_base/assumptions/ASSUMPTION_REGISTRY.md",
+        "docs/research_base/inferences/INFERENCE_REGISTRY.md",
+        "docs/research_base/project/KNOWN_LIMITATIONS.md",
+    ),
+    "metric_verification": (
+        "docs/research_base/ml/METRICS.md",
+        "docs/research_base/ml/SEED_STABILITY.md",
+        "docs/research_base/decisions/DECISION_REGISTRY.md",
+        "docs/research_base/inferences/INFERENCE_REGISTRY.md",
+    ),
+    "md_or_validation": (
+        "docs/research_base/md/MD_OBJECTIVE.md",
+        "docs/research_base/md/POCKET_OPENING_CRITERIA.md",
+        "docs/research_base/md/POSITIVE_CONTROL.md",
+        "docs/research_base/project/KNOWN_LIMITATIONS.md",
+        "docs/research_base/inferences/INFERENCE_REGISTRY.md",
+    ),
+    "claim_or_paper": (
+        "docs/research_base/project/CLAIMS_AND_EVIDENCE.md",
+        "docs/research_base/project/KNOWN_LIMITATIONS.md",
+        "docs/research_base/sources/SOURCE_REGISTRY.md",
+    ),
+    "contradiction_hunt": (
+        "docs/research_base/sources/SOURCE_REGISTRY.md",
+        "docs/research_base/decisions/DECISION_REGISTRY.md",
+        "docs/research_base/assumptions/ASSUMPTION_REGISTRY.md",
+        "docs/research_base/inferences/INFERENCE_REGISTRY.md",
+        "docs/research_base/project/KNOWN_LIMITATIONS.md",
+        "docs/research_base/questions/OPEN_QUESTIONS.md",
+    ),
+    "submission_readiness": (
+        "docs/research_base/INDEX.md",
+        "docs/research_base/sources/SOURCE_REGISTRY.md",
+        "docs/research_base/decisions/DECISION_REGISTRY.md",
+        "docs/research_base/assumptions/ASSUMPTION_REGISTRY.md",
+        "docs/research_base/inferences/INFERENCE_REGISTRY.md",
+        "docs/research_base/project/CLAIMS_AND_EVIDENCE.md",
+        "docs/research_base/project/KNOWN_LIMITATIONS.md",
+        "docs/CANONICAL_PIPELINE.md",
+        "docs/REPO_STRUCTURE.md",
+    ),
+}
+
+
 def _dedup(seq) -> list:
     seen: set = set()
     out: list = []
@@ -165,6 +244,17 @@ def build_context_packet(
                 registry_entries[name] = registry_store.all_entries(name)
             except Exception:
                 continue
+
+    research_base_files: list[str] = []
+    for intent in intents or ["general"]:
+        research_base_files.extend(_RESEARCH_BASE_CONTEXT.get(intent, ()))
+    if research_base_files:
+        repo_root = registry_store.base_dir.parent if registry_store is not None else None
+        projected_repo_files = list(repo_files or [])
+        for rel in _dedup(research_base_files):
+            if repo_root is None or (repo_root / rel).exists():
+                projected_repo_files.append(rel)
+        repo_files = _dedup(projected_repo_files)
 
     return ContextPacket(
         task=task,

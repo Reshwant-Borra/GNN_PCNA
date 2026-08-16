@@ -1,0 +1,191 @@
+{
+  "artifact_type": "FROZEN_MODEL_CONFIG",
+  "status": "RECOVERED_ORIGINAL_PLUS_CHECKPOINT_INFERRED_FIELDS",
+  "historical_commit": "d7cf76d674bced192b3c9d2b4f7f4fbf7ac3a228",
+  "fields": {
+    "model_class": {
+      "value": "PocketGNNXL",
+      "evidence_source": "best_meta.json and src/models/cryptic_gnn.py",
+      "confidence": "HIGH",
+      "hash_where_applicable": "e6a3e7fe747fe39081099682f7547e81d4dff599f15f8cfc45f9ba5f9f795154"
+    },
+    "node_in_dim": {
+      "value": 520,
+      "evidence_source": "best_meta.json node_dim and checkpoint node_encoder.0.weight shape [384,520]",
+      "confidence": "HIGH",
+      "hash_where_applicable": "0114999ea9237b44f114c5a23a8529cb6939e80450339d71c07178ccd2d3addf"
+    },
+    "edge_dim": {
+      "value": 6,
+      "evidence_source": "src/models/cryptic_gnn.py EDGE_DIM and GATv2Conv edge encoders",
+      "confidence": "HIGH",
+      "hash_where_applicable": "70d776736748bf754140e4fd2477dcfa457cadb02594b1e021e7263c808d1e4f"
+    },
+    "hidden_dim": {
+      "value": 768,
+      "evidence_source": "PocketGNNXL default and checkpoint layer shapes",
+      "confidence": "HIGH",
+      "hash_where_applicable": "0114999ea9237b44f114c5a23a8529cb6939e80450339d71c07178ccd2d3addf"
+    },
+    "spatial_layers": {
+      "value": 5,
+      "evidence_source": "PocketGNNXL default and checkpoint spatial_convs.0 through spatial_convs.4",
+      "confidence": "HIGH",
+      "hash_where_applicable": "0114999ea9237b44f114c5a23a8529cb6939e80450339d71c07178ccd2d3addf"
+    },
+    "sequential_layers": {
+      "value": 4,
+      "evidence_source": "PocketGNNXL default and checkpoint seq_convs.0 through seq_convs.3",
+      "confidence": "HIGH",
+      "hash_where_applicable": "0114999ea9237b44f114c5a23a8529cb6939e80450339d71c07178ccd2d3addf"
+    },
+    "num_heads": {
+      "value": 8,
+      "evidence_source": "PocketGNNXL default and hidden/head-dim checkpoint compatibility",
+      "confidence": "HIGH",
+      "hash_where_applicable": "70d776736748bf754140e4fd2477dcfa457cadb02594b1e021e7263c808d1e4f"
+    },
+    "dropout": {
+      "value": 0.2,
+      "evidence_source": "PocketGNNXL default in historical code; inactive during eval inference",
+      "confidence": "HIGH",
+      "hash_where_applicable": "70d776736748bf754140e4fd2477dcfa457cadb02594b1e021e7263c808d1e4f"
+    },
+    "activation": {
+      "value": "ReLU",
+      "evidence_source": "src/models/cryptic_gnn.py",
+      "confidence": "HIGH",
+      "hash_where_applicable": "70d776736748bf754140e4fd2477dcfa457cadb02594b1e021e7263c808d1e4f"
+    },
+    "aggregation": {
+      "value": "GATv2Conv attention in spatial and sequential branches plus gated fusion and virtual node",
+      "evidence_source": "src/models/cryptic_gnn.py",
+      "confidence": "HIGH",
+      "hash_where_applicable": "70d776736748bf754140e4fd2477dcfa457cadb02594b1e021e7263c808d1e4f"
+    },
+    "edge_handling": {
+      "value": "dual spatial and sequential edge_index/edge_attr with 6 edge features",
+      "evidence_source": "src/models/cryptic_gnn.py and graph_construction.py",
+      "confidence": "HIGH",
+      "hash_where_applicable": "1e6a9c33a969757b3fcef4ab6cb4a5b46b3607048341ab3ab7cc94342e066fc8"
+    },
+    "loss": {
+      "value": "binary cross entropy per residue with labels from graph Data.y",
+      "evidence_source": "src/training/train.py",
+      "confidence": "HIGH",
+      "hash_where_applicable": "888e6d743585f474daac592423c5ea40d5c7e5ff691ca1ec743622b432135fb6"
+    },
+    "class_weighting": {
+      "value": "not explicitly recovered as a standalone config; use train.py behavior at historical commit",
+      "evidence_source": "src/training/train.py",
+      "confidence": "MEDIUM",
+      "hash_where_applicable": "888e6d743585f474daac592423c5ea40d5c7e5ff691ca1ec743622b432135fb6"
+    },
+    "optimizer": {
+      "value": "AdamW inferred from historical train.py and metadata lr/weight_decay",
+      "evidence_source": "src/training/train.py plus best_meta lr/weight_decay",
+      "confidence": "HIGH",
+      "hash_where_applicable": "888e6d743585f474daac592423c5ea40d5c7e5ff691ca1ec743622b432135fb6"
+    },
+    "learning_rate": {
+      "value": 0.0003,
+      "evidence_source": "best_meta.json command and lr field",
+      "confidence": "HIGH",
+      "hash_where_applicable": "e6a3e7fe747fe39081099682f7547e81d4dff599f15f8cfc45f9ba5f9f795154"
+    },
+    "weight_decay": {
+      "value": 0.0001,
+      "evidence_source": "best_meta.json command and weight_decay field",
+      "confidence": "HIGH",
+      "hash_where_applicable": "e6a3e7fe747fe39081099682f7547e81d4dff599f15f8cfc45f9ba5f9f795154"
+    },
+    "scheduler": {
+      "value": "historical train.py behavior; no standalone scheduler config recovered",
+      "evidence_source": "src/training/train.py",
+      "confidence": "MEDIUM",
+      "hash_where_applicable": "888e6d743585f474daac592423c5ea40d5c7e5ff691ca1ec743622b432135fb6"
+    },
+    "epochs_requested": {
+      "value": 100,
+      "evidence_source": "best_meta.json command --epochs 100",
+      "confidence": "HIGH",
+      "hash_where_applicable": "e6a3e7fe747fe39081099682f7547e81d4dff599f15f8cfc45f9ba5f9f795154"
+    },
+    "selected_epoch": {
+      "value": 8,
+      "evidence_source": "best_meta.json epoch",
+      "confidence": "HIGH",
+      "hash_where_applicable": "e6a3e7fe747fe39081099682f7547e81d4dff599f15f8cfc45f9ba5f9f795154"
+    },
+    "early_stopping_patience": {
+      "value": 20,
+      "evidence_source": "best_meta.json command --patience 20",
+      "confidence": "HIGH",
+      "hash_where_applicable": "e6a3e7fe747fe39081099682f7547e81d4dff599f15f8cfc45f9ba5f9f795154"
+    },
+    "batch_size": {
+      "value": 4,
+      "evidence_source": "best_meta.json command and batch_size field",
+      "confidence": "HIGH",
+      "hash_where_applicable": "e6a3e7fe747fe39081099682f7547e81d4dff599f15f8cfc45f9ba5f9f795154"
+    },
+    "seed": {
+      "value": 42,
+      "evidence_source": "best_meta.json seed field and checkpoint path",
+      "confidence": "HIGH",
+      "hash_where_applicable": "e6a3e7fe747fe39081099682f7547e81d4dff599f15f8cfc45f9ba5f9f795154"
+    },
+    "checkpoint_selection_criterion": {
+      "value": "lowest validation loss checkpoint with recorded val_auroc 0.807074 at epoch 8",
+      "evidence_source": "best_meta.json metrics and train.py checkpoint behavior",
+      "confidence": "MEDIUM",
+      "hash_where_applicable": "e6a3e7fe747fe39081099682f7547e81d4dff599f15f8cfc45f9ba5f9f795154"
+    }
+  },
+  "checkpoint_compatibility": {
+    "checkpoint_sha256": "0114999ea9237b44f114c5a23a8529cb6939e80450339d71c07178ccd2d3addf",
+    "bytes": 53485974,
+    "n_tensors": 107,
+    "n_params": 13364354,
+    "selected_tensor_shapes": {
+      "node_encoder.0.weight": [
+        384,
+        520
+      ],
+      "spatial_convs.0.lin_l.weight": [
+        768,
+        768
+      ],
+      "spatial_convs.4.lin_l.weight": [
+        768,
+        768
+      ],
+      "seq_convs.0.lin_l.weight": [
+        768,
+        768
+      ],
+      "seq_convs.3.lin_l.weight": [
+        768,
+        768
+      ],
+      "gate_proj.weight": [
+        768,
+        1536
+      ],
+      "head.0.weight": [
+        384,
+        768
+      ]
+    }
+  },
+  "historical_environment": {
+    "python": "3.11.7",
+    "torch": "2.9.1+cpu",
+    "cuda_available": "False",
+    "torch_geometric": "2.7.0",
+    "torch_scatter": "2.1.2+pt29cpu",
+    "torch_sparse": "0.6.18+pt29cpu",
+    "numpy": "1.26.4",
+    "sklearn": "1.3.0"
+  }
+}

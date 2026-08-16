@@ -1,0 +1,16 @@
+[ckpt] /Users/rishiborra/Desktop/GNN_PCNA/artifacts/go_prep/seed_42/best.ckpt
+[ckpt] sha256 03d01eba42eb7f6da01c0147dea434b1e1797bd2302e8a178d6bbd9b19526ce5
+[ckpt] mtime  2026-08-14T14:34:25.126076
+Loaded PocketGNNXL: 13,364,354 params
+Running v3 on 1 PCNA structures...
+
+  1W60  : top_score=0.661 top_n= 16 aoh=15/24 AUROC=N/A
+
+============================================================
+V1 vs V3 AUROC Comparison (structures with drug-like ligands)
+============================================================
+
+Results -> /Users/rishiborra/Desktop/GNN_PCNA/artifacts/diagnostics/threshold_calibration_independent_20260814/scores/run0
+Processed: 1/1 structures
+
+STDERR:

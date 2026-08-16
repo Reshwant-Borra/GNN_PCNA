@@ -326,6 +326,60 @@ class ContradictionHunterAgent(BaseAgent):
             notes=notes,
         )
 
+    def classify_suspected_scientific_issue(
+        self,
+        observed_behavior: str,
+        *,
+        contradictory_evidence: str = "",
+    ) -> Dict[str, str]:
+        """Classify a suspected issue against the canonical research base.
+
+        Documentation changes how an audit should phrase a finding; it does not
+        make the method automatically valid. A documented choice with contrary
+        evidence is a scientific risk or methodology contradiction, not a
+        silently ignored issue.
+        """
+        text = observed_behavior.lower()
+        contradiction = contradictory_evidence.lower().strip()
+        hits = self._research_base_hits(text)
+        if contradiction and hits:
+            return {
+                "classification": "scientific_risk_or_methodology_contradiction",
+                "bug_status": "not_a_software_bug_by_default",
+                "rationale": (
+                    "The behavior is documented in the research base, but the "
+                    "provided evidence challenges its scientific validity."
+                ),
+                "evidence": "; ".join(hits[:5]),
+            }
+        if any("decisions/" in h for h in hits):
+            return {
+                "classification": "documented_methodological_choice",
+                "bug_status": "not_a_software_bug_by_default",
+                "rationale": "The behavior matches an explicit project decision.",
+                "evidence": "; ".join(hits[:5]),
+            }
+        if any("assumptions/" in h for h in hits):
+            return {
+                "classification": "unresolved_scientific_assumption",
+                "bug_status": "not_a_software_bug_by_default",
+                "rationale": "The behavior is tracked as an assumption and remains challengeable.",
+                "evidence": "; ".join(hits[:5]),
+            }
+        if any("inferences/" in h for h in hits):
+            return {
+                "classification": "supported_inference",
+                "bug_status": "not_a_software_bug_by_default",
+                "rationale": "The behavior is recorded as an inference, not as a source fact.",
+                "evidence": "; ".join(hits[:5]),
+            }
+        return {
+            "classification": "unverified_or_possible_defect",
+            "bug_status": "requires_source_code_and_artifact_audit",
+            "rationale": "No matching canonical decision, assumption, inference, or limitation was found.",
+            "evidence": "",
+        }
+
     def _extract_classification(self, body: str) -> str:
         m = re.search(
             r"Evidence classification[^\n]*\n+\W*`?([a-z_]+)`?",
@@ -345,6 +399,20 @@ class ContradictionHunterAgent(BaseAgent):
                 if any(token in p.name.lower() for token in ("manuscript", "paper", "abstract", "draft")):
                     candidates.append(p)
         return sorted(set(candidates))
+
+    def _research_base_hits(self, text: str) -> List[str]:
+        repo_root = Path(self.ctx.repo_root)
+        base = repo_root / "docs" / "research_base"
+        if not base.exists():
+            return []
+        tokens = {t for t in re.findall(r"[a-z0-9_./-]+", text.lower()) if len(t) >= 4}
+        hits: List[str] = []
+        for p in sorted(base.glob("**/*.md")):
+            body = p.read_text(encoding="utf-8", errors="ignore").lower()
+            score = sum(1 for t in tokens if t in body)
+            if score >= max(2, min(4, len(tokens))):
+                hits.append(str(p.relative_to(repo_root)))
+        return hits
 
 
 __all__ = [

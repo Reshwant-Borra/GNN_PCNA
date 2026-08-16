@@ -1,0 +1,525 @@
+{
+  "pdb": "1W60",
+  "n_runs": 3,
+  "mean_pairwise_jaccard": 0.8575,
+  "pairwise_jaccard": [
+    {
+      "a": 0,
+      "b": 1,
+      "jaccard": 0.8333
+    },
+    {
+      "a": 0,
+      "b": 2,
+      "jaccard": 0.913
+    },
+    {
+      "a": 1,
+      "b": 2,
+      "jaccard": 0.8261
+    }
+  ],
+  "consensus_min_fraction": 0.6,
+  "consensus_n_residues": 22,
+  "consensus_residues": [
+    {
+      "chain": "A",
+      "resid": 25
+    },
+    {
+      "chain": "A",
+      "resid": 26
+    },
+    {
+      "chain": "A",
+      "resid": 27
+    },
+    {
+      "chain": "A",
+      "resid": 38
+    },
+    {
+      "chain": "A",
+      "resid": 39
+    },
+    {
+      "chain": "A",
+      "resid": 40
+    },
+    {
+      "chain": "A",
+      "resid": 41
+    },
+    {
+      "chain": "A",
+      "resid": 42
+    },
+    {
+      "chain": "A",
+      "resid": 43
+    },
+    {
+      "chain": "A",
+      "resid": 44
+    },
+    {
+      "chain": "A",
+      "resid": 45
+    },
+    {
+      "chain": "A",
+      "resid": 46
+    },
+    {
+      "chain": "A",
+      "resid": 47
+    },
+    {
+      "chain": "A",
+      "resid": 230
+    },
+    {
+      "chain": "A",
+      "resid": 231
+    },
+    {
+      "chain": "A",
+      "resid": 232
+    },
+    {
+      "chain": "A",
+      "resid": 233
+    },
+    {
+      "chain": "A",
+      "resid": 234
+    },
+    {
+      "chain": "A",
+      "resid": 235
+    },
+    {
+      "chain": "A",
+      "resid": 250
+    },
+    {
+      "chain": "A",
+      "resid": 251
+    },
+    {
+      "chain": "A",
+      "resid": 252
+    }
+  ],
+  "residue_frequency": {
+    "A:25": 3,
+    "A:26": 3,
+    "A:27": 3,
+    "A:38": 3,
+    "A:39": 3,
+    "A:40": 3,
+    "A:41": 3,
+    "A:42": 3,
+    "A:43": 3,
+    "A:44": 3,
+    "A:45": 3,
+    "A:46": 3,
+    "A:47": 3,
+    "A:229": 1,
+    "A:230": 2,
+    "A:231": 3,
+    "A:232": 3,
+    "A:233": 3,
+    "A:234": 3,
+    "A:235": 3,
+    "A:250": 3,
+    "A:251": 2,
+    "A:252": 2,
+    "A:253": 1
+  },
+  "threshold_mode": "validation-mcc-rank-fraction",
+  "threshold_records": [
+    {
+      "threshold": 0.5251,
+      "mcc": 0.8922839874568601,
+      "f1": 0.9019607843137256,
+      "precision": 0.8518518518518519,
+      "recall": 0.9583333333333334,
+      "predicted_positive_residues": 27,
+      "validation_chain": "B",
+      "n_validation_residues": 240,
+      "n_validation_positives": 24,
+      "mode": "validation-mcc-rank-fraction",
+      "validation_pdb": "8GLA",
+      "validation_scores_csv": "artifacts/diagnostics/seed_stability_rank_fraction_20260815/scores/run0_validation/8GLA/scores.csv",
+      "rank_budget": 57,
+      "rank_budget_basis": "validation predicted-positive fraction",
+      "validation_rank_fraction": 0.1125,
+      "selected_target_residues": 57,
+      "scale_invariant": true
+    },
+    {
+      "threshold": 0.5,
+      "mcc": 0.881917103688197,
+      "f1": 0.888888888888889,
+      "precision": 0.8,
+      "recall": 1.0,
+      "predicted_positive_residues": 30,
+      "validation_chain": "B",
+      "n_validation_residues": 240,
+      "n_validation_positives": 24,
+      "mode": "validation-mcc-rank-fraction",
+      "validation_pdb": "8GLA",
+      "validation_scores_csv": "artifacts/diagnostics/seed_stability_rank_fraction_20260815/scores/run1_validation/8GLA/scores.csv",
+      "rank_budget": 64,
+      "rank_budget_basis": "validation predicted-positive fraction",
+      "validation_rank_fraction": 0.125,
+      "selected_target_residues": 64,
+      "scale_invariant": true
+    },
+    {
+      "threshold": 0.3653,
+      "mcc": 0.9295038361991511,
+      "f1": 0.9361702127659574,
+      "precision": 0.9565217391304348,
+      "recall": 0.9166666666666666,
+      "predicted_positive_residues": 23,
+      "validation_chain": "B",
+      "n_validation_residues": 240,
+      "n_validation_positives": 24,
+      "mode": "validation-mcc-rank-fraction",
+      "validation_pdb": "8GLA",
+      "validation_scores_csv": "artifacts/diagnostics/seed_stability_rank_fraction_20260815/scores/run2_validation/8GLA/scores.csv",
+      "rank_budget": 49,
+      "rank_budget_basis": "validation predicted-positive fraction",
+      "validation_rank_fraction": 0.09583333333333334,
+      "selected_target_residues": 49,
+      "scale_invariant": true
+    }
+  ],
+  "runs": [
+    {
+      "checkpoint": "artifacts/go_prep/seed_42/best.ckpt",
+      "n_residues": 23,
+      "threshold": 0.5251,
+      "extraction_method": "validation-mcc-rank-fraction",
+      "selected_target_residues": 57,
+      "rank_budget": 57,
+      "rank_budget_by_chain": null,
+      "cluster_sizes": {
+        "0": 23,
+        "1": 5,
+        "2": 23,
+        "3": 5
+      },
+      "top_mean_score": 0.6282,
+      "runner_up_margin": 0.01627,
+      "residues": [
+        [
+          "A",
+          25
+        ],
+        [
+          "A",
+          26
+        ],
+        [
+          "A",
+          27
+        ],
+        [
+          "A",
+          38
+        ],
+        [
+          "A",
+          39
+        ],
+        [
+          "A",
+          40
+        ],
+        [
+          "A",
+          41
+        ],
+        [
+          "A",
+          42
+        ],
+        [
+          "A",
+          43
+        ],
+        [
+          "A",
+          44
+        ],
+        [
+          "A",
+          45
+        ],
+        [
+          "A",
+          46
+        ],
+        [
+          "A",
+          47
+        ],
+        [
+          "A",
+          230
+        ],
+        [
+          "A",
+          231
+        ],
+        [
+          "A",
+          232
+        ],
+        [
+          "A",
+          233
+        ],
+        [
+          "A",
+          234
+        ],
+        [
+          "A",
+          235
+        ],
+        [
+          "A",
+          250
+        ],
+        [
+          "A",
+          251
+        ],
+        [
+          "A",
+          252
+        ],
+        [
+          "A",
+          253
+        ]
+      ]
+    },
+    {
+      "checkpoint": "artifacts/go_prep/seed_43/best.ckpt",
+      "n_residues": 21,
+      "threshold": 0.5,
+      "extraction_method": "validation-mcc-rank-fraction",
+      "selected_target_residues": 64,
+      "rank_budget": 64,
+      "rank_budget_by_chain": null,
+      "cluster_sizes": {
+        "0": 21,
+        "1": 10,
+        "2": 6,
+        "3": 13,
+        "4": 7,
+        "5": 5
+      },
+      "top_mean_score": 0.53906,
+      "runner_up_margin": 0.02046,
+      "residues": [
+        [
+          "A",
+          25
+        ],
+        [
+          "A",
+          26
+        ],
+        [
+          "A",
+          27
+        ],
+        [
+          "A",
+          38
+        ],
+        [
+          "A",
+          39
+        ],
+        [
+          "A",
+          40
+        ],
+        [
+          "A",
+          41
+        ],
+        [
+          "A",
+          42
+        ],
+        [
+          "A",
+          43
+        ],
+        [
+          "A",
+          44
+        ],
+        [
+          "A",
+          45
+        ],
+        [
+          "A",
+          46
+        ],
+        [
+          "A",
+          47
+        ],
+        [
+          "A",
+          229
+        ],
+        [
+          "A",
+          230
+        ],
+        [
+          "A",
+          231
+        ],
+        [
+          "A",
+          232
+        ],
+        [
+          "A",
+          233
+        ],
+        [
+          "A",
+          234
+        ],
+        [
+          "A",
+          235
+        ],
+        [
+          "A",
+          250
+        ]
+      ]
+    },
+    {
+      "checkpoint": "artifacts/go_prep/seed_44/best.ckpt",
+      "n_residues": 21,
+      "threshold": 0.3653,
+      "extraction_method": "validation-mcc-rank-fraction",
+      "selected_target_residues": 49,
+      "rank_budget": 49,
+      "rank_budget_by_chain": null,
+      "cluster_sizes": {
+        "0": 21,
+        "1": 4,
+        "2": 4,
+        "3": 3,
+        "4": 13,
+        "5": 4
+      },
+      "top_mean_score": 0.39841,
+      "runner_up_margin": 0.01826,
+      "residues": [
+        [
+          "A",
+          25
+        ],
+        [
+          "A",
+          26
+        ],
+        [
+          "A",
+          27
+        ],
+        [
+          "A",
+          38
+        ],
+        [
+          "A",
+          39
+        ],
+        [
+          "A",
+          40
+        ],
+        [
+          "A",
+          41
+        ],
+        [
+          "A",
+          42
+        ],
+        [
+          "A",
+          43
+        ],
+        [
+          "A",
+          44
+        ],
+        [
+          "A",
+          45
+        ],
+        [
+          "A",
+          46
+        ],
+        [
+          "A",
+          47
+        ],
+        [
+          "A",
+          231
+        ],
+        [
+          "A",
+          232
+        ],
+        [
+          "A",
+          233
+        ],
+        [
+          "A",
+          234
+        ],
+        [
+          "A",
+          235
+        ],
+        [
+          "A",
+          250
+        ],
+        [
+          "A",
+          251
+        ],
+        [
+          "A",
+          252
+        ]
+      ]
+    }
+  ],
+  "verdict": "STABLE",
+  "reasons": []
+}

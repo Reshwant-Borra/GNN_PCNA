@@ -1,0 +1,196 @@
+{
+  "artifact_type": "FROZEN_FEATURE_SCHEMA",
+  "status": "RECOVERED_FROM_HISTORICAL_CODE",
+  "historical_commit": "d7cf76d674bced192b3c9d2b4f7f4fbf7ac3a228",
+  "total_node_dim": 520,
+  "node_feature_contract": [
+    {
+      "range": "0:20",
+      "dimensions": 20,
+      "name": "amino_acid_one_hot",
+      "preprocessing": "20 standard residues in graph_construction.AA_ONE_HOT order; unknown residues all zero",
+      "normalization": "binary",
+      "missing_value_handling": "all-zero if residue not in AA_ONE_HOT"
+    },
+    {
+      "range": "20",
+      "dimensions": 1,
+      "name": "sasa_norm",
+      "preprocessing": "residue SASA divided by 300.0",
+      "normalization": "clamped to [0,1]",
+      "missing_value_handling": "uses parsed residue SASA value"
+    },
+    {
+      "range": "21:24",
+      "dimensions": 3,
+      "name": "secondary_structure_one_hot",
+      "preprocessing": "H/E/C map with default C",
+      "normalization": "binary",
+      "missing_value_handling": "unknown secondary structure maps to coil"
+    },
+    {
+      "range": "24",
+      "dimensions": 1,
+      "name": "b_factor_norm",
+      "preprocessing": "B-factor divided by 100.0",
+      "normalization": "clamped to [0,1]",
+      "missing_value_handling": "uses parsed residue B-factor value"
+    },
+    {
+      "range": "25",
+      "dimensions": 1,
+      "name": "relative_position",
+      "preprocessing": "array index i / max(N-1,1)",
+      "normalization": "[0,1] by sequence-array length",
+      "missing_value_handling": "single-residue graph denominator forced to 1"
+    },
+    {
+      "range": "26",
+      "dimensions": 1,
+      "name": "hydrophobicity",
+      "preprocessing": "Kyte-Doolittle rescaled from [-4.5,4.5]",
+      "normalization": "[0,1]",
+      "missing_value_handling": "default 0.5"
+    },
+    {
+      "range": "27",
+      "dimensions": 1,
+      "name": "formal_charge_pH7",
+      "preprocessing": "ARG/LYS=1, ASP/GLU=-1, HIS=0.1, others=0",
+      "normalization": "none",
+      "missing_value_handling": "default 0.0"
+    },
+    {
+      "range": "28",
+      "dimensions": 1,
+      "name": "vdw_volume",
+      "preprocessing": "Van der Waals volume divided by TRP 227.8",
+      "normalization": "relative to 227.8",
+      "missing_value_handling": "default 100/227.8"
+    },
+    {
+      "range": "29",
+      "dimensions": 1,
+      "name": "flexibility_propensity",
+      "preprocessing": "Vihinen propensity rescaled by min/max table",
+      "normalization": "[0,1]",
+      "missing_value_handling": "default raw 0.4 before rescaling lookup fallback"
+    },
+    {
+      "range": "30:32",
+      "dimensions": 2,
+      "name": "pseudo_phi_sin_cos",
+      "preprocessing": "CA pseudo-dihedral (i-1,i,i+1,i+2), same chain only",
+      "normalization": "sin/cos",
+      "missing_value_handling": "0.0 angle at chain ends or degenerate geometry"
+    },
+    {
+      "range": "32:34",
+      "dimensions": 2,
+      "name": "pseudo_psi_sin_cos",
+      "preprocessing": "CA pseudo-dihedral (i-2,i-1,i,i+1), same chain only",
+      "normalization": "sin/cos",
+      "missing_value_handling": "0.0 angle at chain ends or degenerate geometry"
+    },
+    {
+      "range": "34",
+      "dimensions": 1,
+      "name": "local_density_5A",
+      "preprocessing": "neighbor count with distance <5A excluding self divided by 10",
+      "normalization": "clamped to [0,1]",
+      "missing_value_handling": "computed from CA coordinates"
+    },
+    {
+      "range": "35",
+      "dimensions": 1,
+      "name": "local_density_10A",
+      "preprocessing": "neighbor count with distance <10A excluding self divided by 30",
+      "normalization": "clamped to [0,1]",
+      "missing_value_handling": "computed from CA coordinates"
+    },
+    {
+      "range": "36",
+      "dimensions": 1,
+      "name": "interface_flag",
+      "preprocessing": "1 if any cross-chain neighbor within 8A",
+      "normalization": "binary",
+      "missing_value_handling": "computed from chain IDs and distances"
+    },
+    {
+      "range": "37:40",
+      "dimensions": 3,
+      "name": "chain_one_hot",
+      "preprocessing": "first three sorted chain IDs map to one-hot positions",
+      "normalization": "binary",
+      "missing_value_handling": "chain beyond first three or absent maps all-zero"
+    },
+    {
+      "range": "40:520",
+      "dimensions": 480,
+      "name": "ESM2_t12_embedding",
+      "preprocessing": "facebook/esm2_t12_35M_UR50D last_hidden_state token embeddings with special tokens removed; long sequences chunked with overlapping windows and averaged",
+      "normalization": "model-native embeddings, no extra normalization recorded",
+      "missing_value_handling": "XL build requires ESM feature files for 520-dim graphs; 40-dim fallback is not compatible with frozen checkpoint"
+    }
+  ],
+  "edge_feature_contract": [
+    {
+      "index": 0,
+      "name": "dist_norm",
+      "preprocessing": "CA distance / cutoff"
+    },
+    {
+      "index": 1,
+      "name": "inv_dist",
+      "preprocessing": "1/(1+distance)"
+    },
+    {
+      "index": 2,
+      "name": "seq_sep_norm",
+      "preprocessing": "same-chain array-index separation capped at 20 and divided by 20; cross-chain set to 1.0"
+    },
+    {
+      "index": 3,
+      "name": "same_chain",
+      "preprocessing": "binary chain equality"
+    },
+    {
+      "index": 4,
+      "name": "is_backbone",
+      "preprocessing": "same chain and array-index separation exactly 1"
+    },
+    {
+      "index": 5,
+      "name": "cross_chain",
+      "preprocessing": "1 - same_chain"
+    }
+  ],
+  "graph_topology": {
+    "spatial_edges": "CA contact graph using 8A cutoff",
+    "sequential_edges": "same-chain array-index edges with |i-j| <= 2",
+    "residue_ordering": "parsed residue array order from historical parse_pdb/graph construction pipeline"
+  },
+  "evidence": {
+    "graph_construction_code": {
+      "path": "src/data_processing/graph_construction.py",
+      "source": "RECOVERED_ORIGINAL",
+      "commit": "d7cf76d674bced192b3c9d2b4f7f4fbf7ac3a228",
+      "sha256": "1e6a9c33a969757b3fcef4ab6cb4a5b46b3607048341ab3ab7cc94342e066fc8"
+    },
+    "esm_generation_code": {
+      "path": "scripts/build_esm_features.py",
+      "source": "RECOVERED_ORIGINAL",
+      "commit": "d7cf76d674bced192b3c9d2b4f7f4fbf7ac3a228",
+      "sha256": "ec8d48eb8fd4a3cf2e3badbdf9291dd01c1d29dbca4e50fc5f8b28ad9eda43c5"
+    },
+    "checkpoint_input_layer": {
+      "tensor": "node_encoder.0.weight",
+      "shape": [
+        384,
+        520
+      ],
+      "source": "RECOVERED_ORIGINAL_CHECKPOINT",
+      "checkpoint_sha256": "0114999ea9237b44f114c5a23a8529cb6939e80450339d71c07178ccd2d3addf"
+    }
+  }
+}

@@ -1,0 +1,40 @@
+{
+  "benchmark_id": "final_benchmark_expansion_20260815_extraction_development",
+  "created_at": "2026-08-15T17:21:16.020963Z",
+  "eligible_structures": [
+    "1GQY",
+    "2HNX",
+    "2K1V",
+    "2WER",
+    "3FU8"
+  ],
+  "forbidden_selection_inputs": [
+    "1W60",
+    "8GLA",
+    "PCNA structures",
+    "final held-out test split",
+    "training split"
+  ],
+  "note": "No new eligible structures survived; comparison relies on the existing eligible validation subset and previously generated robust audit.",
+  "pcna_inputs_read_during_selection": [],
+  "replacement_requirement": {
+    "aggregate_improvement": "clear, not tiny 0.01-0.02 noise",
+    "pcna_not_used_for_selection": true,
+    "robustness": "equal or better LOPO/worst-case/valid-cluster behavior"
+  },
+  "selection_metrics_frozen_before_comparison": [
+    "precision",
+    "recall",
+    "F1",
+    "MCC",
+    "Jaccard/IoU",
+    "valid-cluster rate",
+    "centroid distance to labeled pocket",
+    "cluster fragmentation",
+    "physical compactness",
+    "seed variance",
+    "worst-case protein performance",
+    "leave-one-protein-out robustness",
+    "bootstrap resampling across proteins"
+  ]
+}

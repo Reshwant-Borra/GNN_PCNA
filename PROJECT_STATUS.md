@@ -1,6 +1,12 @@
 # Project Status
 
-Last synchronized: 2026-08-15
+Last synchronized: 2026-08-16
+
+## Reconciliation Verdict
+
+Repository reconciliation is currently **GO for frozen GNN provenance** and **not production-ready for MD**.
+
+Forward MD execution is launcher-gated through `md.sh`, and the analysis/control gate has been repaired to reject static starting-state differences alone. The August three-seed 1W60 handoff is now reproduced exactly from recovered seed 42/43/44 checkpoints at score CSV, extraction, consensus, and handoff scientific-content level. Production remains blocked by RTX 4070 smoke/control validation and Gate-6 human approval.
 
 ## Current Objective
 
@@ -82,7 +88,13 @@ Source of truth: `md_validation_4070/run_md.py` plus launcher defaults in `md.sh
 
 Source of truth: `md_validation_4070/analyze_md.py` and `md_validation_4070/FROZEN_MD_ANALYSIS_PROTOCOL.json`.
 
-Frozen protocol SHA-256:
+Frozen protocol SHA-256 after reconciliation:
+
+```text
+587f27cf2e402fe50b264d98d3d60fbbdcc8f9095025b2a89d12c7aebd633e56
+```
+
+Previous claimed protocol SHA-256 before the static-control repair:
 
 ```text
 2497def9e4675538dd08051ae6e5a448a41fbd32a1d7dc59cfb528d74d64ce3c
@@ -97,19 +109,21 @@ Implemented metrics:
 - Region geometry/openness: supported-region SASA and CA convex-hull thresholds.
 - Convex hull: CA convex-hull volume descriptor, not a ligand-volume estimate.
 - Core/support/fringe analysis: `core_3of3`, `supported_ge2of3`, `supported_fringe_2of3`, `seed_specific_uncertain_fringe_1of3`, and `full_union_exploratory` when available.
+- Positive-control interpretability: trajectory-derived control gate requiring complete 3 x 5 ns control replicates, artifact-free trajectories, open-like behavior under frozen thresholds, and non-trivial local RMSF. Static 8GLA-vs-1W60 starting-state separation is descriptive only and cannot pass the gate.
 
 No implemented MDpocket/fpocket cavity-volume metric is part of the frozen analysis. Do not document such a metric as current unless code is added and the frozen protocol is intentionally revised before candidate production.
 
 ## Validation State
 
-- GNN handoff integrity: verified.
+- GNN handoff integrity: **PASS for August three-seed handoff**; see `artifacts/provenance/AUGUST_HANDOFF_IDENTITY.json` and `reports/AUGUST_HANDOFF_IDENTITY_REPORT.md`.
 - Structure/preparation validation: preflight PASS for smoke-readiness; not production approval.
 - MD parameter validation: current defaults audited.
-- Frozen analysis protocol: written and hashed.
+- Frozen analysis protocol: reconciled and hashed.
 - Static analysis validation: partial static pass; trajectory validation pending.
 - Infrastructure interruption/resume: validated as infrastructure only on disposable runs, not scientific MD evidence.
 - RTX 4070 smoke test: not yet passed in current status artifacts.
 - Control-first validation: not executed/passed in current status artifacts.
+- Historical 520-dim GNN provenance: the d9efd single-seed lineage is a separate recovered lineage with numerical-tolerance score reproduction; the August three-seed MD handoff is reproduced exactly from recovered checkpoints and frozen score/extraction artifacts. These lineages are distinct and must not be collapsed.
 
 ## Production Gate State
 
@@ -132,6 +146,8 @@ Run the 0.1 ns RTX 4070 smoke test through the launcher:
 ```bash
 ./md.sh smoke
 ```
+
+Do not treat a successful smoke run as production approval. It is only the next hardware/runtime gate after GNN provenance closure.
 
 ## Authoritative Documentation
 

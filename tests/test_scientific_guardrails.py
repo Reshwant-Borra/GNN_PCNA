@@ -26,6 +26,7 @@ from research_os.agents import (
     TestingEnvironmentAgent,
     ValidationSkepticAgent,
 )
+from research_os.routing.context_builder import build_context_packet
 from research_os.memory.store import (
     MemoryStore,
     MemoryUpdateProposal,
@@ -165,3 +166,61 @@ def test_testing_environment_flags_no_tests_dir(ctx, tmp_path):
     packet = ContextPacket(task="run tests", intents=["code_review"], risk_level="medium")
     out = TestingEnvironmentAgent(ctx).run(packet)
     assert any("No tests/ directory" in f.title for f in out.findings)
+
+
+def test_scientific_audit_context_includes_research_base(ctx):
+    rb = ctx.repo_root / "docs" / "research_base"
+    for rel in (
+        "decisions/DECISION_REGISTRY.md",
+        "assumptions/ASSUMPTION_REGISTRY.md",
+        "inferences/INFERENCE_REGISTRY.md",
+        "project/KNOWN_LIMITATIONS.md",
+        "md/MD_OBJECTIVE.md",
+        "md/POCKET_OPENING_CRITERIA.md",
+        "md/POSITIVE_CONTROL.md",
+        "sources/SOURCE_REGISTRY.md",
+        "questions/OPEN_QUESTIONS.md",
+    ):
+        path = rb / rel
+        path.parent.mkdir(parents=True, exist_ok=True)
+        path.write_text("# test\n", encoding="utf-8")
+    packet = build_context_packet(
+        task="audit suspected methodology issue",
+        intents=["contradiction_hunt", "md_or_validation"],
+        risk_level="high",
+        memory_store=ctx.memory_store,
+        registry_store=ctx.registry_store,
+    )
+    assert any(p.endswith("docs/research_base/decisions/DECISION_REGISTRY.md") for p in packet.repo_files)
+    assert any(p.endswith("docs/research_base/assumptions/ASSUMPTION_REGISTRY.md") for p in packet.repo_files)
+    assert any(p.endswith("docs/research_base/inferences/INFERENCE_REGISTRY.md") for p in packet.repo_files)
+    assert any(p.endswith("docs/research_base/project/KNOWN_LIMITATIONS.md") for p in packet.repo_files)
+
+
+def test_documented_choice_is_not_bug_but_remains_challengeable(tmp_path):
+    rb = tmp_path / "docs" / "research_base"
+    (rb / "decisions").mkdir(parents=True)
+    (rb / "assumptions").mkdir(parents=True)
+    (rb / "inferences").mkdir(parents=True)
+    (rb / "project").mkdir(parents=True)
+    (rb / "decisions" / "DECISION_REGISTRY.md").write_text(
+        "DECISION-CLUSTER: DBSCAN eps=6.0 and min_samples=3 are the frozen extraction choice.\n",
+        encoding="utf-8",
+    )
+    (rb / "assumptions" / "ASSUMPTION_REGISTRY.md").write_text(
+        "ASSUMPTION-CLUSTER: DBSCAN eps=6.0 is a methodological assumption, not a source fact.\n",
+        encoding="utf-8",
+    )
+    (rb / "inferences" / "INFERENCE_REGISTRY.md").write_text("", encoding="utf-8")
+    (rb / "project" / "KNOWN_LIMITATIONS.md").write_text("", encoding="utf-8")
+    agent = ContradictionHunterAgent(AgentContext(repo_root=tmp_path))
+
+    documented = agent.classify_suspected_scientific_issue("DBSCAN eps=6.0 min_samples=3")
+    assert documented["classification"] == "documented_methodological_choice"
+    assert documented["bug_status"] == "not_a_software_bug_by_default"
+
+    challenged = agent.classify_suspected_scientific_issue(
+        "DBSCAN eps=6.0 min_samples=3",
+        contradictory_evidence="Fragments known labeled pockets on independent proteins.",
+    )
+    assert challenged["classification"] == "scientific_risk_or_methodology_contradiction"

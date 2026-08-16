@@ -1,0 +1,125 @@
+{
+  "pocket_residues": [
+    {
+      "chain": "A",
+      "resid": 25
+    },
+    {
+      "chain": "A",
+      "resid": 26
+    },
+    {
+      "chain": "A",
+      "resid": 27
+    },
+    {
+      "chain": "A",
+      "resid": 38
+    },
+    {
+      "chain": "A",
+      "resid": 39
+    },
+    {
+      "chain": "A",
+      "resid": 40
+    },
+    {
+      "chain": "A",
+      "resid": 41
+    },
+    {
+      "chain": "A",
+      "resid": 42
+    },
+    {
+      "chain": "A",
+      "resid": 43
+    },
+    {
+      "chain": "A",
+      "resid": 44
+    },
+    {
+      "chain": "A",
+      "resid": 45
+    },
+    {
+      "chain": "A",
+      "resid": 46
+    },
+    {
+      "chain": "A",
+      "resid": 47
+    },
+    {
+      "chain": "A",
+      "resid": 230
+    },
+    {
+      "chain": "A",
+      "resid": 231
+    },
+    {
+      "chain": "A",
+      "resid": 232
+    },
+    {
+      "chain": "A",
+      "resid": 233
+    },
+    {
+      "chain": "A",
+      "resid": 234
+    },
+    {
+      "chain": "A",
+      "resid": 235
+    },
+    {
+      "chain": "A",
+      "resid": 250
+    },
+    {
+      "chain": "A",
+      "resid": 251
+    },
+    {
+      "chain": "A",
+      "resid": 252
+    }
+  ],
+  "pocket_residues_by_chain": {
+    "A": [
+      25,
+      26,
+      27,
+      38,
+      39,
+      40,
+      41,
+      42,
+      43,
+      44,
+      45,
+      46,
+      47,
+      230,
+      231,
+      232,
+      233,
+      234,
+      235,
+      250,
+      251,
+      252
+    ]
+  },
+  "pocket_chains": [
+    "A"
+  ],
+  "derived_from": "multi-seed consensus (validation-mcc-rank-fraction)",
+  "n_runs": 3,
+  "min_fraction": 0.6,
+  "mean_pairwise_jaccard": 0.8575
+}

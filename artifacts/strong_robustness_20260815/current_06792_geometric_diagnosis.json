@@ -1,0 +1,360 @@
+{
+  "centroid_pair_distances": [
+    {
+      "a": 42,
+      "b": 43,
+      "distance_A": 4.4541468368729085
+    },
+    {
+      "a": 42,
+      "b": 44,
+      "distance_A": 1.3938313495954124
+    },
+    {
+      "a": 43,
+      "b": 44,
+      "distance_A": 5.091160048852773
+    }
+  ],
+  "centroids": {
+    "42": [
+      25.1763125,
+      -1.8525,
+      -11.1263125
+    ],
+    "43": [
+      22.709307692307693,
+      1.7820769230769231,
+      -11.863307692307693
+    ],
+    "44": [
+      24.945611111111113,
+      -2.315888888888889,
+      -9.832166666666666
+    ]
+  },
+  "created_at": "2026-08-15T16:58:46.953428Z",
+  "global_spearman": [
+    {
+      "a": 42,
+      "b": 43,
+      "spearman": 0.8496916314464031
+    },
+    {
+      "a": 42,
+      "b": 44,
+      "spearman": 0.8069496449716984
+    },
+    {
+      "a": 43,
+      "b": 44,
+      "spearman": 0.8786814757706076
+    }
+  ],
+  "interpretation": "same physical pocket core with nontrivial boundary/fringe extension disagreement",
+  "local_rank_spearman": [
+    {
+      "a": 42,
+      "b": 43,
+      "local_8A_spearman": 0.8631108066123907,
+      "n_local": 55
+    },
+    {
+      "a": 42,
+      "b": 44,
+      "local_8A_spearman": 0.9249639249639251,
+      "n_local": 55
+    },
+    {
+      "a": 43,
+      "b": 44,
+      "local_8A_spearman": 0.8982124498656344,
+      "n_local": 55
+    }
+  ],
+  "n_2of3_or_better": 16,
+  "n_3of3_core": 11,
+  "n_union": 20,
+  "neighborhood_overlap": {
+    "4.0": [
+      {
+        "a": 42,
+        "b": 43,
+        "distance": 4.0,
+        "symmetric_near_fraction": 0.875
+      },
+      {
+        "a": 42,
+        "b": 44,
+        "distance": 4.0,
+        "symmetric_near_fraction": 0.9722222222222222
+      },
+      {
+        "a": 43,
+        "b": 44,
+        "distance": 4.0,
+        "symmetric_near_fraction": 0.8333333333333333
+      }
+    ],
+    "6.0": [
+      {
+        "a": 42,
+        "b": 43,
+        "distance": 6.0,
+        "symmetric_near_fraction": 0.90625
+      },
+      {
+        "a": 42,
+        "b": 44,
+        "distance": 6.0,
+        "symmetric_near_fraction": 1.0
+      },
+      {
+        "a": 43,
+        "b": 44,
+        "distance": 6.0,
+        "symmetric_near_fraction": 0.8888888888888888
+      }
+    ],
+    "8.0": [
+      {
+        "a": 42,
+        "b": 43,
+        "distance": 8.0,
+        "symmetric_near_fraction": 0.90625
+      },
+      {
+        "a": 42,
+        "b": 44,
+        "distance": 8.0,
+        "symmetric_near_fraction": 1.0
+      },
+      {
+        "a": 43,
+        "b": 44,
+        "distance": 8.0,
+        "symmetric_near_fraction": 0.8888888888888888
+      }
+    ]
+  },
+  "post_pass_stronger_internal_robustness_requirement": {
+    "history_note": "This stricter standard was imposed after the earlier 0.6792 exploratory PASS and was not predeclared before that result.",
+    "mean_literal_jaccard_target": 0.75,
+    "minimum_pairwise_literal_jaccard": 0.65
+  },
+  "previous_policy": "independent_mcc_rank_fraction_size_weighted_cluster",
+  "previous_policy_sha256": "24979c81c86c012fc8cbb9d665f6a5294da6de2e30a28eb71827abfb5009abcf",
+  "seed_fraction": {
+    "42": {
+      "cluster_n": 16,
+      "fraction_2of3_or_better": 0.9375,
+      "fraction_3of3_core": 0.6875
+    },
+    "43": {
+      "cluster_n": 13,
+      "fraction_2of3_or_better": 1.0,
+      "fraction_3of3_core": 0.8461538461538461
+    },
+    "44": {
+      "cluster_n": 18,
+      "fraction_2of3_or_better": 0.8333333333333334,
+      "fraction_3of3_core": 0.6111111111111112
+    }
+  },
+  "sets": {
+    "42": [
+      [
+        "A",
+        25
+      ],
+      [
+        "A",
+        26
+      ],
+      [
+        "A",
+        38
+      ],
+      [
+        "A",
+        39
+      ],
+      [
+        "A",
+        40
+      ],
+      [
+        "A",
+        41
+      ],
+      [
+        "A",
+        42
+      ],
+      [
+        "A",
+        43
+      ],
+      [
+        "A",
+        44
+      ],
+      [
+        "A",
+        45
+      ],
+      [
+        "A",
+        46
+      ],
+      [
+        "A",
+        47
+      ],
+      [
+        "A",
+        232
+      ],
+      [
+        "A",
+        233
+      ],
+      [
+        "A",
+        234
+      ],
+      [
+        "A",
+        252
+      ]
+    ],
+    "43": [
+      [
+        "A",
+        25
+      ],
+      [
+        "A",
+        26
+      ],
+      [
+        "A",
+        27
+      ],
+      [
+        "A",
+        38
+      ],
+      [
+        "A",
+        39
+      ],
+      [
+        "A",
+        40
+      ],
+      [
+        "A",
+        41
+      ],
+      [
+        "A",
+        42
+      ],
+      [
+        "A",
+        43
+      ],
+      [
+        "A",
+        44
+      ],
+      [
+        "A",
+        45
+      ],
+      [
+        "A",
+        46
+      ],
+      [
+        "A",
+        47
+      ]
+    ],
+    "44": [
+      [
+        "A",
+        25
+      ],
+      [
+        "A",
+        26
+      ],
+      [
+        "A",
+        27
+      ],
+      [
+        "A",
+        38
+      ],
+      [
+        "A",
+        39
+      ],
+      [
+        "A",
+        40
+      ],
+      [
+        "A",
+        41
+      ],
+      [
+        "A",
+        42
+      ],
+      [
+        "A",
+        44
+      ],
+      [
+        "A",
+        45
+      ],
+      [
+        "A",
+        46
+      ],
+      [
+        "A",
+        47
+      ],
+      [
+        "A",
+        231
+      ],
+      [
+        "A",
+        232
+      ],
+      [
+        "A",
+        233
+      ],
+      [
+        "A",
+        234
+      ],
+      [
+        "A",
+        250
+      ],
+      [
+        "A",
+        251
+      ]
+    ]
+  }
+}

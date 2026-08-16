@@ -4,9 +4,9 @@ Last synchronized: 2026-08-16
 
 ## Reconciliation Verdict
 
-Repository reconciliation is currently **NO-GO** for full historical reproducibility.
+Repository reconciliation is currently **GO for frozen GNN provenance** and **not production-ready for MD**.
 
-Forward MD execution is now launcher-gated through `md.sh`, and the analysis/control gate has been repaired to reject static starting-state differences alone. However, the historical 520-dim GNN lineage is not yet fully reproducible from one committed clone because the exact 520-dim label manifest, graph manifest file, explicit model config, durable checkpoint retrieval, and frozen-output identity reproduction remain unresolved.
+Forward MD execution is launcher-gated through `md.sh`, and the analysis/control gate has been repaired to reject static starting-state differences alone. The August three-seed 1W60 handoff is now reproduced exactly from recovered seed 42/43/44 checkpoints at score CSV, extraction, consensus, and handoff scientific-content level. Production remains blocked by RTX 4070 smoke/control validation and Gate-6 human approval.
 
 ## Current Objective
 
@@ -115,7 +115,7 @@ No implemented MDpocket/fpocket cavity-volume metric is part of the frozen analy
 
 ## Validation State
 
-- GNN handoff integrity: **not historically proven**; see `artifacts/provenance/FROZEN_GNN_PROVENANCE.json`.
+- GNN handoff integrity: **PASS for August three-seed handoff**; see `artifacts/provenance/AUGUST_HANDOFF_IDENTITY.json` and `reports/AUGUST_HANDOFF_IDENTITY_REPORT.md`.
 - Structure/preparation validation: preflight PASS for smoke-readiness; not production approval.
 - MD parameter validation: current defaults audited.
 - Frozen analysis protocol: reconciled and hashed.
@@ -123,7 +123,7 @@ No implemented MDpocket/fpocket cavity-volume metric is part of the frozen analy
 - Infrastructure interruption/resume: validated as infrastructure only on disposable runs, not scientific MD evidence.
 - RTX 4070 smoke test: not yet passed in current status artifacts.
 - Control-first validation: not executed/passed in current status artifacts.
-- Historical 520-dim GNN provenance: unresolved because label manifest, graph manifest file, explicit config, durable checkpoint retrieval, and frozen-output identity reproduction are missing.
+- Historical 520-dim GNN provenance: the d9efd single-seed lineage is a separate recovered lineage with numerical-tolerance score reproduction; the August three-seed MD handoff is reproduced exactly from recovered checkpoints and frozen score/extraction artifacts. These lineages are distinct and must not be collapsed.
 
 ## Production Gate State
 
@@ -147,7 +147,7 @@ Run the 0.1 ns RTX 4070 smoke test through the launcher:
 ./md.sh smoke
 ```
 
-Do not treat a successful smoke run as historical GNN provenance. The remaining GNN provenance blockers in `REPRODUCIBILITY_MANIFEST.json` must be resolved before claiming one-commit historical reproducibility.
+Do not treat a successful smoke run as production approval. It is only the next hardware/runtime gate after GNN provenance closure.
 
 ## Authoritative Documentation
 

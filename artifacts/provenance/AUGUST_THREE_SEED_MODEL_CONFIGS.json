@@ -1,0 +1,146 @@
+{
+  "artifact_type": "AUGUST_THREE_SEED_MODEL_CONFIGS",
+  "config_identity": "same architecture/config across all three checkpoints by state_dict shape and same training script lineage; seed/epoch/checkpoint bytes differ",
+  "created_utc": "2026-08-16T00:00:00Z",
+  "records": [
+    {
+      "aggregation_behavior": "virtual node uses per-graph global mean when batch is supplied; single-graph inference uses mean over nodes",
+      "best_epoch": 7,
+      "best_meta_path": "artifacts/go_prep/seed_42/best_meta.json",
+      "checkpoint": "artifacts/go_prep/seed_42/best.ckpt",
+      "checkpoint_selection_criterion": "chain-B AUROC on 8GLA validation chain, per best_meta.json; apo false-positive metric recorded but not selection-limiting because max_apo_fp absent",
+      "checkpoint_sha256": "03d01eba42eb7f6da01c0147dea434b1e1797bd2302e8a178d6bbd9b19526ce5",
+      "dropout": 0.2,
+      "edge_feature_behavior": "6-dimensional edge_attr used by GATv2Conv edge_dim=6 for spatial and sequential branches",
+      "feature_ordering": {
+        "0:40": "hand-crafted graph_construction.py NODE_DIM=40",
+        "40:520": "ESM2 t12 480-dim embeddings from facebook/esm2_t12_35M_UR50D"
+      },
+      "fields_source": "HISTORICALLY_RECORDED_PLUS_INFERRED_FROM_CHECKPOINT",
+      "heads": 8,
+      "hidden_dimension": 768,
+      "historically_recorded_fields": [
+        "training seed",
+        "epoch",
+        "checkpoint-selection criterion",
+        "pretrain checkpoint",
+        "checkpoint sha256 from best_meta.json and REPRODUCIBILITY_MANIFEST.json"
+      ],
+      "inference_mode": "model.eval() and torch.no_grad() in scripts/run_v3_inference.py",
+      "inferred_from_checkpoint_fields": [
+        "input_feature_dimension",
+        "hidden_dimension",
+        "number_of_spatial_layers",
+        "number_of_sequential_layers",
+        "heads",
+        "output_head shapes"
+      ],
+      "input_feature_dimension": 520,
+      "model_class": "src.models.cryptic_gnn.PocketGNNXL",
+      "normalization": "LayerNorm in node encoder, spatial branch, sequential branch, and vnode projection",
+      "number_of_sequential_layers": 4,
+      "number_of_spatial_layers": 5,
+      "output_head": "5-layer MLP ending Linear(hidden/16,1) with sigmoid output",
+      "pretrain_checkpoint": "/Users/rishiborra/Desktop/GNN_PCNA/checkpoints/pcna/best_pcna_v3.ckpt",
+      "pretrain_checkpoint_sha256": "1438638c912193002d1feea43035c0af4177920f95168758c76b3c7f989fa93f",
+      "seed": 42,
+      "sequential_edge_behavior": "edge_index_seq and edge_attr_seq passed to sequential GATv2 branch",
+      "training_run_identifier": "artifacts/go_prep/seed_42",
+      "training_seed": 42,
+      "training_split": "fine-tune lineage uses 8GLA chain A supervised train labels, 8GLA chain B validation labels, 1W60 chains A/B AOH residues as explicit apo negatives; not identical to d9efd clean-split training lineage"
+    },
+    {
+      "aggregation_behavior": "virtual node uses per-graph global mean when batch is supplied; single-graph inference uses mean over nodes",
+      "best_epoch": 32,
+      "best_meta_path": "artifacts/go_prep/seed_43/best_meta.json",
+      "checkpoint": "artifacts/go_prep/seed_43/best.ckpt",
+      "checkpoint_selection_criterion": "chain-B AUROC on 8GLA validation chain, per best_meta.json; apo false-positive metric recorded but not selection-limiting because max_apo_fp absent",
+      "checkpoint_sha256": "7f145d6f54d03744f71c0224df4f170ad4aab388387e242234ebffda1acae17b",
+      "dropout": 0.2,
+      "edge_feature_behavior": "6-dimensional edge_attr used by GATv2Conv edge_dim=6 for spatial and sequential branches",
+      "feature_ordering": {
+        "0:40": "hand-crafted graph_construction.py NODE_DIM=40",
+        "40:520": "ESM2 t12 480-dim embeddings from facebook/esm2_t12_35M_UR50D"
+      },
+      "fields_source": "HISTORICALLY_RECORDED_PLUS_INFERRED_FROM_CHECKPOINT",
+      "heads": 8,
+      "hidden_dimension": 768,
+      "historically_recorded_fields": [
+        "training seed",
+        "epoch",
+        "checkpoint-selection criterion",
+        "pretrain checkpoint",
+        "checkpoint sha256 from best_meta.json and REPRODUCIBILITY_MANIFEST.json"
+      ],
+      "inference_mode": "model.eval() and torch.no_grad() in scripts/run_v3_inference.py",
+      "inferred_from_checkpoint_fields": [
+        "input_feature_dimension",
+        "hidden_dimension",
+        "number_of_spatial_layers",
+        "number_of_sequential_layers",
+        "heads",
+        "output_head shapes"
+      ],
+      "input_feature_dimension": 520,
+      "model_class": "src.models.cryptic_gnn.PocketGNNXL",
+      "normalization": "LayerNorm in node encoder, spatial branch, sequential branch, and vnode projection",
+      "number_of_sequential_layers": 4,
+      "number_of_spatial_layers": 5,
+      "output_head": "5-layer MLP ending Linear(hidden/16,1) with sigmoid output",
+      "pretrain_checkpoint": "/Users/rishiborra/Desktop/GNN_PCNA/checkpoints/pcna/best_pcna_v3.ckpt",
+      "pretrain_checkpoint_sha256": "1438638c912193002d1feea43035c0af4177920f95168758c76b3c7f989fa93f",
+      "seed": 43,
+      "sequential_edge_behavior": "edge_index_seq and edge_attr_seq passed to sequential GATv2 branch",
+      "training_run_identifier": "artifacts/go_prep/seed_43",
+      "training_seed": 43,
+      "training_split": "fine-tune lineage uses 8GLA chain A supervised train labels, 8GLA chain B validation labels, 1W60 chains A/B AOH residues as explicit apo negatives; not identical to d9efd clean-split training lineage"
+    },
+    {
+      "aggregation_behavior": "virtual node uses per-graph global mean when batch is supplied; single-graph inference uses mean over nodes",
+      "best_epoch": 31,
+      "best_meta_path": "artifacts/go_prep/seed_44/best_meta.json",
+      "checkpoint": "artifacts/go_prep/seed_44/best.ckpt",
+      "checkpoint_selection_criterion": "chain-B AUROC on 8GLA validation chain, per best_meta.json; apo false-positive metric recorded but not selection-limiting because max_apo_fp absent",
+      "checkpoint_sha256": "0a739dec47248651499942207b82139e5dea8bebfafe5ed50aabcbbdfd6aa3f6",
+      "dropout": 0.2,
+      "edge_feature_behavior": "6-dimensional edge_attr used by GATv2Conv edge_dim=6 for spatial and sequential branches",
+      "feature_ordering": {
+        "0:40": "hand-crafted graph_construction.py NODE_DIM=40",
+        "40:520": "ESM2 t12 480-dim embeddings from facebook/esm2_t12_35M_UR50D"
+      },
+      "fields_source": "HISTORICALLY_RECORDED_PLUS_INFERRED_FROM_CHECKPOINT",
+      "heads": 8,
+      "hidden_dimension": 768,
+      "historically_recorded_fields": [
+        "training seed",
+        "epoch",
+        "checkpoint-selection criterion",
+        "pretrain checkpoint",
+        "checkpoint sha256 from best_meta.json and REPRODUCIBILITY_MANIFEST.json"
+      ],
+      "inference_mode": "model.eval() and torch.no_grad() in scripts/run_v3_inference.py",
+      "inferred_from_checkpoint_fields": [
+        "input_feature_dimension",
+        "hidden_dimension",
+        "number_of_spatial_layers",
+        "number_of_sequential_layers",
+        "heads",
+        "output_head shapes"
+      ],
+      "input_feature_dimension": 520,
+      "model_class": "src.models.cryptic_gnn.PocketGNNXL",
+      "normalization": "LayerNorm in node encoder, spatial branch, sequential branch, and vnode projection",
+      "number_of_sequential_layers": 4,
+      "number_of_spatial_layers": 5,
+      "output_head": "5-layer MLP ending Linear(hidden/16,1) with sigmoid output",
+      "pretrain_checkpoint": "/Users/rishiborra/Desktop/GNN_PCNA/checkpoints/pcna/best_pcna_v3.ckpt",
+      "pretrain_checkpoint_sha256": "1438638c912193002d1feea43035c0af4177920f95168758c76b3c7f989fa93f",
+      "seed": 44,
+      "sequential_edge_behavior": "edge_index_seq and edge_attr_seq passed to sequential GATv2 branch",
+      "training_run_identifier": "artifacts/go_prep/seed_44",
+      "training_seed": 44,
+      "training_split": "fine-tune lineage uses 8GLA chain A supervised train labels, 8GLA chain B validation labels, 1W60 chains A/B AOH residues as explicit apo negatives; not identical to d9efd clean-split training lineage"
+    }
+  ],
+  "shared_config_hash": "3348910eb1f52337a1894a87448a1198a911bbff7fe5c3cb613f2f42452efcd2"
+}

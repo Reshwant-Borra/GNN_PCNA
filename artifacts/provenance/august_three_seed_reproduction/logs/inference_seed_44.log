@@ -1,0 +1,14 @@
+[ckpt] artifacts/go_prep/seed_44/best.ckpt
+[ckpt] sha256 0a739dec47248651499942207b82139e5dea8bebfafe5ed50aabcbbdfd6aa3f6
+[ckpt] mtime  2026-08-14T14:35:49.907055
+Loaded PocketGNNXL: 13,364,354 params
+Running v3 on 1 PCNA structures...
+
+  1W60  : top_score=0.411 top_n=  7 aoh= 7/24 AUROC=N/A
+
+============================================================
+V1 vs V3 AUROC Comparison (structures with drug-like ligands)
+============================================================
+
+Results -> artifacts/provenance/august_three_seed_reproduction_20260815_235540/scores/run2
+Processed: 1/1 structures

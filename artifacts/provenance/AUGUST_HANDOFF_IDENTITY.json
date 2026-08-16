@@ -1,0 +1,1439 @@
+{
+  "artifact_type": "AUGUST_HANDOFF_IDENTITY",
+  "byte_identity": false,
+  "byte_identity_reason": "regenerated artifact is canonical in-memory JSON for identity testing, not a byte-for-byte rewrite with historical ordering/timestamps",
+  "consensus_reconstruction": {
+    "centroids": {
+      "42": [
+        25.1763125,
+        -1.8525,
+        -11.1263125
+      ],
+      "43": [
+        22.709307692307693,
+        1.7820769230769231,
+        -11.863307692307693
+      ],
+      "44": [
+        24.945611111111113,
+        -2.315888888888889,
+        -9.832166666666666
+      ]
+    },
+    "core_3of3": [
+      {
+        "chain": "A",
+        "resid": 25
+      },
+      {
+        "chain": "A",
+        "resid": 26
+      },
+      {
+        "chain": "A",
+        "resid": 38
+      },
+      {
+        "chain": "A",
+        "resid": 39
+      },
+      {
+        "chain": "A",
+        "resid": 40
+      },
+      {
+        "chain": "A",
+        "resid": 41
+      },
+      {
+        "chain": "A",
+        "resid": 42
+      },
+      {
+        "chain": "A",
+        "resid": 44
+      },
+      {
+        "chain": "A",
+        "resid": 45
+      },
+      {
+        "chain": "A",
+        "resid": 46
+      },
+      {
+        "chain": "A",
+        "resid": 47
+      }
+    ],
+    "mean_pairwise_jaccard": 0.6791537667698658,
+    "near_overlap": {
+      "4.0": [
+        {
+          "a": 42,
+          "b": 43,
+          "cutoff_A": 4.0,
+          "symmetric_near_fraction": 0.875
+        },
+        {
+          "a": 42,
+          "b": 44,
+          "cutoff_A": 4.0,
+          "symmetric_near_fraction": 0.9722222222222222
+        },
+        {
+          "a": 43,
+          "b": 44,
+          "cutoff_A": 4.0,
+          "symmetric_near_fraction": 0.8333333333333333
+        }
+      ],
+      "6.0": [
+        {
+          "a": 42,
+          "b": 43,
+          "cutoff_A": 6.0,
+          "symmetric_near_fraction": 0.90625
+        },
+        {
+          "a": 42,
+          "b": 44,
+          "cutoff_A": 6.0,
+          "symmetric_near_fraction": 1.0
+        },
+        {
+          "a": 43,
+          "b": 44,
+          "cutoff_A": 6.0,
+          "symmetric_near_fraction": 0.8888888888888888
+        }
+      ],
+      "8.0": [
+        {
+          "a": 42,
+          "b": 43,
+          "cutoff_A": 8.0,
+          "symmetric_near_fraction": 0.90625
+        },
+        {
+          "a": 42,
+          "b": 44,
+          "cutoff_A": 8.0,
+          "symmetric_near_fraction": 1.0
+        },
+        {
+          "a": 43,
+          "b": 44,
+          "cutoff_A": 8.0,
+          "symmetric_near_fraction": 0.8888888888888888
+        }
+      ]
+    },
+    "pairwise_jaccards": [
+      {
+        "a": 42,
+        "b": 43,
+        "centroid_distance_A": 4.4541468368729085,
+        "jaccard": 0.7058823529411765
+      },
+      {
+        "a": 42,
+        "b": 44,
+        "centroid_distance_A": 1.3938313495954124,
+        "jaccard": 0.7
+      },
+      {
+        "a": 43,
+        "b": 44,
+        "centroid_distance_A": 5.091160048852773,
+        "jaccard": 0.631578947368421
+      }
+    ],
+    "residue_frequency": {
+      "A:231": 1,
+      "A:232": 2,
+      "A:233": 2,
+      "A:234": 2,
+      "A:25": 3,
+      "A:250": 1,
+      "A:251": 1,
+      "A:252": 1,
+      "A:26": 3,
+      "A:27": 2,
+      "A:38": 3,
+      "A:39": 3,
+      "A:40": 3,
+      "A:41": 3,
+      "A:42": 3,
+      "A:43": 2,
+      "A:44": 3,
+      "A:45": 3,
+      "A:46": 3,
+      "A:47": 3
+    },
+    "seed_candidate_sets": {
+      "42": [
+        {
+          "chain": "A",
+          "resid": 25
+        },
+        {
+          "chain": "A",
+          "resid": 26
+        },
+        {
+          "chain": "A",
+          "resid": 38
+        },
+        {
+          "chain": "A",
+          "resid": 39
+        },
+        {
+          "chain": "A",
+          "resid": 40
+        },
+        {
+          "chain": "A",
+          "resid": 41
+        },
+        {
+          "chain": "A",
+          "resid": 42
+        },
+        {
+          "chain": "A",
+          "resid": 43
+        },
+        {
+          "chain": "A",
+          "resid": 44
+        },
+        {
+          "chain": "A",
+          "resid": 45
+        },
+        {
+          "chain": "A",
+          "resid": 46
+        },
+        {
+          "chain": "A",
+          "resid": 47
+        },
+        {
+          "chain": "A",
+          "resid": 232
+        },
+        {
+          "chain": "A",
+          "resid": 233
+        },
+        {
+          "chain": "A",
+          "resid": 234
+        },
+        {
+          "chain": "A",
+          "resid": 252
+        }
+      ],
+      "43": [
+        {
+          "chain": "A",
+          "resid": 25
+        },
+        {
+          "chain": "A",
+          "resid": 26
+        },
+        {
+          "chain": "A",
+          "resid": 27
+        },
+        {
+          "chain": "A",
+          "resid": 38
+        },
+        {
+          "chain": "A",
+          "resid": 39
+        },
+        {
+          "chain": "A",
+          "resid": 40
+        },
+        {
+          "chain": "A",
+          "resid": 41
+        },
+        {
+          "chain": "A",
+          "resid": 42
+        },
+        {
+          "chain": "A",
+          "resid": 43
+        },
+        {
+          "chain": "A",
+          "resid": 44
+        },
+        {
+          "chain": "A",
+          "resid": 45
+        },
+        {
+          "chain": "A",
+          "resid": 46
+        },
+        {
+          "chain": "A",
+          "resid": 47
+        }
+      ],
+      "44": [
+        {
+          "chain": "A",
+          "resid": 25
+        },
+        {
+          "chain": "A",
+          "resid": 26
+        },
+        {
+          "chain": "A",
+          "resid": 27
+        },
+        {
+          "chain": "A",
+          "resid": 38
+        },
+        {
+          "chain": "A",
+          "resid": 39
+        },
+        {
+          "chain": "A",
+          "resid": 40
+        },
+        {
+          "chain": "A",
+          "resid": 41
+        },
+        {
+          "chain": "A",
+          "resid": 42
+        },
+        {
+          "chain": "A",
+          "resid": 44
+        },
+        {
+          "chain": "A",
+          "resid": 45
+        },
+        {
+          "chain": "A",
+          "resid": 46
+        },
+        {
+          "chain": "A",
+          "resid": 47
+        },
+        {
+          "chain": "A",
+          "resid": 231
+        },
+        {
+          "chain": "A",
+          "resid": 232
+        },
+        {
+          "chain": "A",
+          "resid": 233
+        },
+        {
+          "chain": "A",
+          "resid": 234
+        },
+        {
+          "chain": "A",
+          "resid": 250
+        },
+        {
+          "chain": "A",
+          "resid": 251
+        }
+      ]
+    },
+    "support_ge2of3": [
+      {
+        "chain": "A",
+        "resid": 25
+      },
+      {
+        "chain": "A",
+        "resid": 26
+      },
+      {
+        "chain": "A",
+        "resid": 27
+      },
+      {
+        "chain": "A",
+        "resid": 38
+      },
+      {
+        "chain": "A",
+        "resid": 39
+      },
+      {
+        "chain": "A",
+        "resid": 40
+      },
+      {
+        "chain": "A",
+        "resid": 41
+      },
+      {
+        "chain": "A",
+        "resid": 42
+      },
+      {
+        "chain": "A",
+        "resid": 43
+      },
+      {
+        "chain": "A",
+        "resid": 44
+      },
+      {
+        "chain": "A",
+        "resid": 45
+      },
+      {
+        "chain": "A",
+        "resid": 46
+      },
+      {
+        "chain": "A",
+        "resid": 47
+      },
+      {
+        "chain": "A",
+        "resid": 232
+      },
+      {
+        "chain": "A",
+        "resid": 233
+      },
+      {
+        "chain": "A",
+        "resid": 234
+      }
+    ],
+    "uncertain_fringe_1of3": [
+      {
+        "chain": "A",
+        "resid": 231
+      },
+      {
+        "chain": "A",
+        "resid": 250
+      },
+      {
+        "chain": "A",
+        "resid": 251
+      },
+      {
+        "chain": "A",
+        "resid": 252
+      }
+    ],
+    "union": [
+      {
+        "chain": "A",
+        "resid": 25
+      },
+      {
+        "chain": "A",
+        "resid": 26
+      },
+      {
+        "chain": "A",
+        "resid": 27
+      },
+      {
+        "chain": "A",
+        "resid": 38
+      },
+      {
+        "chain": "A",
+        "resid": 39
+      },
+      {
+        "chain": "A",
+        "resid": 40
+      },
+      {
+        "chain": "A",
+        "resid": 41
+      },
+      {
+        "chain": "A",
+        "resid": 42
+      },
+      {
+        "chain": "A",
+        "resid": 43
+      },
+      {
+        "chain": "A",
+        "resid": 44
+      },
+      {
+        "chain": "A",
+        "resid": 45
+      },
+      {
+        "chain": "A",
+        "resid": 46
+      },
+      {
+        "chain": "A",
+        "resid": 47
+      },
+      {
+        "chain": "A",
+        "resid": 231
+      },
+      {
+        "chain": "A",
+        "resid": 232
+      },
+      {
+        "chain": "A",
+        "resid": 233
+      },
+      {
+        "chain": "A",
+        "resid": 234
+      },
+      {
+        "chain": "A",
+        "resid": 250
+      },
+      {
+        "chain": "A",
+        "resid": 251
+      },
+      {
+        "chain": "A",
+        "resid": 252
+      }
+    ]
+  },
+  "created_utc": "2026-08-16T00:00:00Z",
+  "frozen_handoff": {
+    "path": "artifacts/pre_md_independent_extraction_20260815/final_consensus_pocket_handoff.json",
+    "sha256": "da19358def0a68e8ce727b9761e028fc4ed27140a6bbe6738a51b76d765f720e"
+  },
+  "historical_report_match": {
+    "candidate_sets_match": true,
+    "consensus_residues_match": true,
+    "pairwise_jaccards_match": false,
+    "pre_md_stability_match": true
+  },
+  "per_seed_inference_identity": {
+    "42": {
+      "candidate_agreement_with_historical": true,
+      "candidate_jaccard_with_historical": 1.0,
+      "checkpoint_bytes": 53485974,
+      "checkpoint_sha256": "03d01eba42eb7f6da01c0147dea434b1e1797bd2302e8a178d6bbd9b19526ce5",
+      "clusters": [
+        {
+          "centroid": [
+            25.1763125,
+            -1.8525,
+            -11.1263125
+          ],
+          "cluster_id": 0,
+          "mean_score": 0.66065625,
+          "rank_score": 2.642625,
+          "residues": [
+            {
+              "chain": "A",
+              "resid": 25
+            },
+            {
+              "chain": "A",
+              "resid": 26
+            },
+            {
+              "chain": "A",
+              "resid": 38
+            },
+            {
+              "chain": "A",
+              "resid": 39
+            },
+            {
+              "chain": "A",
+              "resid": 40
+            },
+            {
+              "chain": "A",
+              "resid": 41
+            },
+            {
+              "chain": "A",
+              "resid": 42
+            },
+            {
+              "chain": "A",
+              "resid": 43
+            },
+            {
+              "chain": "A",
+              "resid": 44
+            },
+            {
+              "chain": "A",
+              "resid": 45
+            },
+            {
+              "chain": "A",
+              "resid": 46
+            },
+            {
+              "chain": "A",
+              "resid": 47
+            },
+            {
+              "chain": "A",
+              "resid": 232
+            },
+            {
+              "chain": "A",
+              "resid": 233
+            },
+            {
+              "chain": "A",
+              "resid": 234
+            },
+            {
+              "chain": "A",
+              "resid": 252
+            }
+          ],
+          "size": 16
+        },
+        {
+          "centroid": [
+            51.99675,
+            44.92,
+            23.327333333333335
+          ],
+          "cluster_id": 1,
+          "mean_score": 0.6526333333333334,
+          "rank_score": 2.260788184092737,
+          "residues": [
+            {
+              "chain": "B",
+              "resid": 25
+            },
+            {
+              "chain": "B",
+              "resid": 26
+            },
+            {
+              "chain": "B",
+              "resid": 38
+            },
+            {
+              "chain": "B",
+              "resid": 39
+            },
+            {
+              "chain": "B",
+              "resid": 40
+            },
+            {
+              "chain": "B",
+              "resid": 41
+            },
+            {
+              "chain": "B",
+              "resid": 42
+            },
+            {
+              "chain": "B",
+              "resid": 43
+            },
+            {
+              "chain": "B",
+              "resid": 44
+            },
+            {
+              "chain": "B",
+              "resid": 45
+            },
+            {
+              "chain": "B",
+              "resid": 46
+            },
+            {
+              "chain": "B",
+              "resid": 47
+            }
+          ],
+          "size": 12
+        },
+        {
+          "centroid": [
+            67.774,
+            43.49733333333334,
+            27.956333333333333
+          ],
+          "cluster_id": 2,
+          "mean_score": 0.6421333333333333,
+          "rank_score": 1.112207558566895,
+          "residues": [
+            {
+              "chain": "B",
+              "resid": 232
+            },
+            {
+              "chain": "B",
+              "resid": 233
+            },
+            {
+              "chain": "B",
+              "resid": 234
+            }
+          ],
+          "size": 3
+        }
+      ],
+      "historical_rows": 510,
+      "historical_score_file": "artifacts/go_prep/seed_stability_scores/run0/1W60/scores.csv",
+      "historical_score_sha256": "f9ae7aa1a5cf28aee680b33eb901b04c4b140d04f23afa2ed9b150f07d0b6038",
+      "max_abs_score_difference": 0.0,
+      "mean_abs_score_difference": 0.0,
+      "pearson": 0.9999999999999999,
+      "primary_cluster": [
+        {
+          "chain": "A",
+          "resid": 25
+        },
+        {
+          "chain": "A",
+          "resid": 26
+        },
+        {
+          "chain": "A",
+          "resid": 38
+        },
+        {
+          "chain": "A",
+          "resid": 39
+        },
+        {
+          "chain": "A",
+          "resid": 40
+        },
+        {
+          "chain": "A",
+          "resid": 41
+        },
+        {
+          "chain": "A",
+          "resid": 42
+        },
+        {
+          "chain": "A",
+          "resid": 43
+        },
+        {
+          "chain": "A",
+          "resid": 44
+        },
+        {
+          "chain": "A",
+          "resid": 45
+        },
+        {
+          "chain": "A",
+          "resid": 46
+        },
+        {
+          "chain": "A",
+          "resid": 47
+        },
+        {
+          "chain": "A",
+          "resid": 232
+        },
+        {
+          "chain": "A",
+          "resid": 233
+        },
+        {
+          "chain": "A",
+          "resid": 234
+        },
+        {
+          "chain": "A",
+          "resid": 252
+        }
+      ],
+      "primary_cluster_n": 16,
+      "rank_budget": 31,
+      "regenerated_rows": 510,
+      "regenerated_score_file": "artifacts/provenance/august_three_seed_reproduction/scores/run0/1W60/scores.csv",
+      "regenerated_score_sha256": "f9ae7aa1a5cf28aee680b33eb901b04c4b140d04f23afa2ed9b150f07d0b6038",
+      "residue_order_mismatches": 0,
+      "rows_compared": 510,
+      "runner_up_margin": 0.3818368159072629,
+      "selected_precluster_n": 31,
+      "spearman": 1.0,
+      "status": "PASS",
+      "top_n_agreement": {
+        "10": {
+          "exact_set_match": true,
+          "intersection": 10,
+          "jaccard": 1.0
+        },
+        "20": {
+          "exact_set_match": true,
+          "intersection": 20,
+          "jaccard": 1.0
+        },
+        "30": {
+          "exact_set_match": true,
+          "intersection": 30,
+          "jaccard": 1.0
+        },
+        "50": {
+          "exact_set_match": true,
+          "intersection": 50,
+          "jaccard": 1.0
+        }
+      }
+    },
+    "43": {
+      "candidate_agreement_with_historical": true,
+      "candidate_jaccard_with_historical": 1.0,
+      "checkpoint_bytes": 53485974,
+      "checkpoint_sha256": "7f145d6f54d03744f71c0224df4f170ad4aab388387e242234ebffda1acae17b",
+      "clusters": [
+        {
+          "centroid": [
+            22.709307692307693,
+            1.7820769230769231,
+            -11.863307692307693
+          ],
+          "cluster_id": 0,
+          "mean_score": 0.5830076923076923,
+          "rank_score": 2.102064128605317,
+          "residues": [
+            {
+              "chain": "A",
+              "resid": 25
+            },
+            {
+              "chain": "A",
+              "resid": 26
+            },
+            {
+              "chain": "A",
+              "resid": 27
+            },
+            {
+              "chain": "A",
+              "resid": 38
+            },
+            {
+              "chain": "A",
+              "resid": 39
+            },
+            {
+              "chain": "A",
+              "resid": 40
+            },
+            {
+              "chain": "A",
+              "resid": 41
+            },
+            {
+              "chain": "A",
+              "resid": 42
+            },
+            {
+              "chain": "A",
+              "resid": 43
+            },
+            {
+              "chain": "A",
+              "resid": 44
+            },
+            {
+              "chain": "A",
+              "resid": 45
+            },
+            {
+              "chain": "A",
+              "resid": 46
+            },
+            {
+              "chain": "A",
+              "resid": 47
+            }
+          ],
+          "size": 13
+        },
+        {
+          "centroid": [
+            51.714454545454544,
+            44.43272727272727,
+            23.339545454545455
+          ],
+          "cluster_id": 3,
+          "mean_score": 0.5293181818181818,
+          "rank_score": 1.7555498038040287,
+          "residues": [
+            {
+              "chain": "B",
+              "resid": 26
+            },
+            {
+              "chain": "B",
+              "resid": 27
+            },
+            {
+              "chain": "B",
+              "resid": 38
+            },
+            {
+              "chain": "B",
+              "resid": 39
+            },
+            {
+              "chain": "B",
+              "resid": 40
+            },
+            {
+              "chain": "B",
+              "resid": 41
+            },
+            {
+              "chain": "B",
+              "resid": 42
+            },
+            {
+              "chain": "B",
+              "resid": 43
+            },
+            {
+              "chain": "B",
+              "resid": 44
+            },
+            {
+              "chain": "B",
+              "resid": 45
+            },
+            {
+              "chain": "B",
+              "resid": 46
+            }
+          ],
+          "size": 11
+        },
+        {
+          "centroid": [
+            31.3,
+            -14.0984,
+            -5.9886
+          ],
+          "cluster_id": 2,
+          "mean_score": 0.48182,
+          "rank_score": 1.0773822729189488,
+          "residues": [
+            {
+              "chain": "A",
+              "resid": 230
+            },
+            {
+              "chain": "A",
+              "resid": 231
+            },
+            {
+              "chain": "A",
+              "resid": 232
+            },
+            {
+              "chain": "A",
+              "resid": 233
+            },
+            {
+              "chain": "A",
+              "resid": 234
+            }
+          ],
+          "size": 5
+        },
+        {
+          "centroid": [
+            14.0638,
+            -0.8331999999999999,
+            -14.0738
+          ],
+          "cluster_id": 1,
+          "mean_score": 0.4786,
+          "rank_score": 1.0701821340313995,
+          "residues": [
+            {
+              "chain": "A",
+              "resid": 122
+            },
+            {
+              "chain": "A",
+              "resid": 123
+            },
+            {
+              "chain": "A",
+              "resid": 124
+            },
+            {
+              "chain": "A",
+              "resid": 125
+            },
+            {
+              "chain": "A",
+              "resid": 126
+            }
+          ],
+          "size": 5
+        }
+      ],
+      "historical_rows": 510,
+      "historical_score_file": "artifacts/go_prep/seed_stability_scores/run1/1W60/scores.csv",
+      "historical_score_sha256": "8e1af41a132b0bd70461ce386c031fdd08e2d4f492d9bc1f4ca27e2ffa376603",
+      "max_abs_score_difference": 0.0,
+      "mean_abs_score_difference": 0.0,
+      "pearson": 0.9999999999999998,
+      "primary_cluster": [
+        {
+          "chain": "A",
+          "resid": 25
+        },
+        {
+          "chain": "A",
+          "resid": 26
+        },
+        {
+          "chain": "A",
+          "resid": 27
+        },
+        {
+          "chain": "A",
+          "resid": 38
+        },
+        {
+          "chain": "A",
+          "resid": 39
+        },
+        {
+          "chain": "A",
+          "resid": 40
+        },
+        {
+          "chain": "A",
+          "resid": 41
+        },
+        {
+          "chain": "A",
+          "resid": 42
+        },
+        {
+          "chain": "A",
+          "resid": 43
+        },
+        {
+          "chain": "A",
+          "resid": 44
+        },
+        {
+          "chain": "A",
+          "resid": 45
+        },
+        {
+          "chain": "A",
+          "resid": 46
+        },
+        {
+          "chain": "A",
+          "resid": 47
+        }
+      ],
+      "primary_cluster_n": 13,
+      "rank_budget": 34,
+      "regenerated_rows": 510,
+      "regenerated_score_file": "artifacts/provenance/august_three_seed_reproduction/scores/run1/1W60/scores.csv",
+      "regenerated_score_sha256": "8e1af41a132b0bd70461ce386c031fdd08e2d4f492d9bc1f4ca27e2ffa376603",
+      "residue_order_mismatches": 0,
+      "rows_compared": 510,
+      "runner_up_margin": 0.3465143248012883,
+      "selected_precluster_n": 34,
+      "spearman": 1.0000000000000002,
+      "status": "PASS",
+      "top_n_agreement": {
+        "10": {
+          "exact_set_match": true,
+          "intersection": 10,
+          "jaccard": 1.0
+        },
+        "20": {
+          "exact_set_match": true,
+          "intersection": 20,
+          "jaccard": 1.0
+        },
+        "30": {
+          "exact_set_match": true,
+          "intersection": 30,
+          "jaccard": 1.0
+        },
+        "50": {
+          "exact_set_match": true,
+          "intersection": 50,
+          "jaccard": 1.0
+        }
+      }
+    },
+    "44": {
+      "candidate_agreement_with_historical": true,
+      "candidate_jaccard_with_historical": 1.0,
+      "checkpoint_bytes": 53485974,
+      "checkpoint_sha256": "0a739dec47248651499942207b82139e5dea8bebfafe5ed50aabcbbdfd6aa3f6",
+      "clusters": [
+        {
+          "centroid": [
+            24.945611111111113,
+            -2.315888888888889,
+            -9.832166666666666
+          ],
+          "cluster_id": 0,
+          "mean_score": 0.4023222222222222,
+          "rank_score": 1.7069086293322464,
+          "residues": [
+            {
+              "chain": "A",
+              "resid": 25
+            },
+            {
+              "chain": "A",
+              "resid": 26
+            },
+            {
+              "chain": "A",
+              "resid": 27
+            },
+            {
+              "chain": "A",
+              "resid": 38
+            },
+            {
+              "chain": "A",
+              "resid": 39
+            },
+            {
+              "chain": "A",
+              "resid": 40
+            },
+            {
+              "chain": "A",
+              "resid": 41
+            },
+            {
+              "chain": "A",
+              "resid": 42
+            },
+            {
+              "chain": "A",
+              "resid": 44
+            },
+            {
+              "chain": "A",
+              "resid": 45
+            },
+            {
+              "chain": "A",
+              "resid": 46
+            },
+            {
+              "chain": "A",
+              "resid": 47
+            },
+            {
+              "chain": "A",
+              "resid": 231
+            },
+            {
+              "chain": "A",
+              "resid": 232
+            },
+            {
+              "chain": "A",
+              "resid": 233
+            },
+            {
+              "chain": "A",
+              "resid": 234
+            },
+            {
+              "chain": "A",
+              "resid": 250
+            },
+            {
+              "chain": "A",
+              "resid": 251
+            }
+          ],
+          "size": 18
+        },
+        {
+          "centroid": [
+            46.550399999999996,
+            42.3172,
+            24.8828
+          ],
+          "cluster_id": 1,
+          "mean_score": 0.39546,
+          "rank_score": 0.8842754423820668,
+          "residues": [
+            {
+              "chain": "B",
+              "resid": 25
+            },
+            {
+              "chain": "B",
+              "resid": 26
+            },
+            {
+              "chain": "B",
+              "resid": 27
+            },
+            {
+              "chain": "B",
+              "resid": 39
+            },
+            {
+              "chain": "B",
+              "resid": 40
+            }
+          ],
+          "size": 5
+        }
+      ],
+      "historical_rows": 510,
+      "historical_score_file": "artifacts/go_prep/seed_stability_scores/run2/1W60/scores.csv",
+      "historical_score_sha256": "536b96429ed2876f19df7e98906cc7807365eb7ef87e16868d1db9dda37424c6",
+      "max_abs_score_difference": 0.0,
+      "mean_abs_score_difference": 0.0,
+      "pearson": 1.0000000000000002,
+      "primary_cluster": [
+        {
+          "chain": "A",
+          "resid": 25
+        },
+        {
+          "chain": "A",
+          "resid": 26
+        },
+        {
+          "chain": "A",
+          "resid": 27
+        },
+        {
+          "chain": "A",
+          "resid": 38
+        },
+        {
+          "chain": "A",
+          "resid": 39
+        },
+        {
+          "chain": "A",
+          "resid": 40
+        },
+        {
+          "chain": "A",
+          "resid": 41
+        },
+        {
+          "chain": "A",
+          "resid": 42
+        },
+        {
+          "chain": "A",
+          "resid": 44
+        },
+        {
+          "chain": "A",
+          "resid": 45
+        },
+        {
+          "chain": "A",
+          "resid": 46
+        },
+        {
+          "chain": "A",
+          "resid": 47
+        },
+        {
+          "chain": "A",
+          "resid": 231
+        },
+        {
+          "chain": "A",
+          "resid": 232
+        },
+        {
+          "chain": "A",
+          "resid": 233
+        },
+        {
+          "chain": "A",
+          "resid": 234
+        },
+        {
+          "chain": "A",
+          "resid": 250
+        },
+        {
+          "chain": "A",
+          "resid": 251
+        }
+      ],
+      "primary_cluster_n": 18,
+      "rank_budget": 23,
+      "regenerated_rows": 510,
+      "regenerated_score_file": "artifacts/provenance/august_three_seed_reproduction/scores/run2/1W60/scores.csv",
+      "regenerated_score_sha256": "536b96429ed2876f19df7e98906cc7807365eb7ef87e16868d1db9dda37424c6",
+      "residue_order_mismatches": 0,
+      "rows_compared": 510,
+      "runner_up_margin": 0.8226331869501796,
+      "selected_precluster_n": 23,
+      "spearman": 1.0,
+      "status": "PASS",
+      "top_n_agreement": {
+        "10": {
+          "exact_set_match": true,
+          "intersection": 10,
+          "jaccard": 1.0
+        },
+        "20": {
+          "exact_set_match": true,
+          "intersection": 20,
+          "jaccard": 1.0
+        },
+        "30": {
+          "exact_set_match": true,
+          "intersection": 30,
+          "jaccard": 1.0
+        },
+        "50": {
+          "exact_set_match": true,
+          "intersection": 50,
+          "jaccard": 1.0
+        }
+      }
+    }
+  },
+  "regenerated_handoff": {
+    "derived_from": "three-seed consensus under frozen independent extraction policy",
+    "frozen_policy_sha256": "24979c81c86c012fc8cbb9d665f6a5294da6de2e30a28eb71827abfb5009abcf",
+    "gate6_human_approval": "REQUIRED_BEFORE_MD",
+    "pdb": "1W60",
+    "pocket_chains": [
+      "A"
+    ],
+    "pocket_residues": [
+      {
+        "chain": "A",
+        "resid": 25
+      },
+      {
+        "chain": "A",
+        "resid": 26
+      },
+      {
+        "chain": "A",
+        "resid": 27
+      },
+      {
+        "chain": "A",
+        "resid": 38
+      },
+      {
+        "chain": "A",
+        "resid": 39
+      },
+      {
+        "chain": "A",
+        "resid": 40
+      },
+      {
+        "chain": "A",
+        "resid": 41
+      },
+      {
+        "chain": "A",
+        "resid": 42
+      },
+      {
+        "chain": "A",
+        "resid": 43
+      },
+      {
+        "chain": "A",
+        "resid": 44
+      },
+      {
+        "chain": "A",
+        "resid": 45
+      },
+      {
+        "chain": "A",
+        "resid": 46
+      },
+      {
+        "chain": "A",
+        "resid": 47
+      },
+      {
+        "chain": "A",
+        "resid": 232
+      },
+      {
+        "chain": "A",
+        "resid": 233
+      },
+      {
+        "chain": "A",
+        "resid": 234
+      }
+    ],
+    "pre_md_stability": "PASS"
+  },
+  "regenerated_handoff_canonical_sha256": "bf0c0fd772bac1f43671f9449587d0e2cd9ca252c89f8c6e93c458b6030c0c13",
+  "reproduction_dir": "artifacts/provenance/august_three_seed_reproduction",
+  "scientific_content_differences": {},
+  "scientific_content_identity": true,
+  "tolerance_policy": {
+    "reason": "score CSVs are rounded to four decimals by the historical inference path; exact CSV numeric equality is expected for same CPU pipeline",
+    "score_absolute_tolerance": 0.0
+  },
+  "verdict": "PASS"
+}

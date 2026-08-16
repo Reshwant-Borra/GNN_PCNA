@@ -212,6 +212,11 @@ as a ranked cluster. Therefore the safest claim is residue prioritization and hy
 generation, not hidden pocket discovery, druggability, docking readiness, or validated
 apo-to-holo opening.
 
+This clean-split d9efd single-seed regeneration is a separate historical lineage from the
+August 2026 three-seed MD handoff. The August handoff uses seed 42/43/44 fine-tuned
+checkpoints, the frozen independent rank-fraction size-weighted extraction policy, and a
+>=2/3 consensus region. The two lineages must not be merged into one provenance claim.
+
 ### 4.5 ANM and MD evidence are preliminary
 
 The ANM (Anisotropic Network Model) analysis uses a physics-based normal-mode model with

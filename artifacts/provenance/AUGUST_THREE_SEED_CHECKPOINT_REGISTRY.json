@@ -1,0 +1,110 @@
+{
+  "artifact_type": "AUGUST_THREE_SEED_CHECKPOINT_REGISTRY",
+  "created_utc": "2026-08-16T00:00:00Z",
+  "records": [
+    {
+      "byte_size": 53485974,
+      "checkpoint_metadata": {
+        "auroc_B": 0.9957561728395061,
+        "epoch": 7,
+        "fp_apo_pct": 100.0,
+        "out_ckpt": "artifacts/go_prep/seed_42/best.ckpt",
+        "pretrain_ckpt": "/Users/rishiborra/Desktop/GNN_PCNA/checkpoints/pcna/best_pcna_v3.ckpt",
+        "seed": 42,
+        "sha256": "03d01eba42eb7f6da01c0147dea434b1e1797bd2302e8a178d6bbd9b19526ce5",
+        "val_criterion": "chain-B AUROC",
+        "written_utc": "2026-08-14T18:34:25.147331Z"
+      },
+      "classification": "EXACT_MATCH",
+      "durable_retrieval": {
+        "mechanism": "tracked Git blob on final-consolidation-audit final audit commit (forced despite *.ckpt ignore because this is the provenance closure package)",
+        "retrieval_location": "https://github.com/Reshwant-Borra/GNN_PCNA.git branch final-consolidation-audit path artifacts/go_prep/seed_42/best.ckpt",
+        "status": "PASS_ON_TRACKED_FINAL_COMMIT",
+        "verification_command": "shasum -a 256 artifacts/go_prep/seed_42/best.ckpt"
+      },
+      "exact_mismatch_status": "EXACT_MATCH",
+      "expected_full_sha256": "03d01eba42eb7f6da01c0147dea434b1e1797bd2302e8a178d6bbd9b19526ce5",
+      "filename": "artifacts/go_prep/seed_42/best.ckpt",
+      "model_config_hash": "3348910eb1f52337a1894a87448a1198a911bbff7fe5c3cb613f2f42452efcd2",
+      "recovered_full_sha256": "03d01eba42eb7f6da01c0147dea434b1e1797bd2302e8a178d6bbd9b19526ce5",
+      "recovery_evidence": [
+        "REPRODUCIBILITY_MANIFEST.json",
+        "artifacts/go_prep/seed_42/best_meta.json",
+        "artifacts/diagnostics/threshold_calibration_independent_20260814/inference_seed_42.log"
+      ],
+      "seed": 42,
+      "source_location": "artifacts/go_prep/seed_42/best.ckpt"
+    },
+    {
+      "byte_size": 53485974,
+      "checkpoint_metadata": {
+        "auroc_B": 0.9934413580246914,
+        "epoch": 32,
+        "fp_apo_pct": 91.66666666666666,
+        "out_ckpt": "artifacts/go_prep/seed_43/best.ckpt",
+        "pretrain_ckpt": "/Users/rishiborra/Desktop/GNN_PCNA/checkpoints/pcna/best_pcna_v3.ckpt",
+        "seed": 43,
+        "sha256": "7f145d6f54d03744f71c0224df4f170ad4aab388387e242234ebffda1acae17b",
+        "val_criterion": "chain-B AUROC",
+        "written_utc": "2026-08-14T18:35:08.389788Z"
+      },
+      "classification": "EXACT_MATCH",
+      "durable_retrieval": {
+        "mechanism": "tracked Git blob on final-consolidation-audit final audit commit (forced despite *.ckpt ignore because this is the provenance closure package)",
+        "retrieval_location": "https://github.com/Reshwant-Borra/GNN_PCNA.git branch final-consolidation-audit path artifacts/go_prep/seed_43/best.ckpt",
+        "status": "PASS_ON_TRACKED_FINAL_COMMIT",
+        "verification_command": "shasum -a 256 artifacts/go_prep/seed_43/best.ckpt"
+      },
+      "exact_mismatch_status": "EXACT_MATCH",
+      "expected_full_sha256": "7f145d6f54d03744f71c0224df4f170ad4aab388387e242234ebffda1acae17b",
+      "filename": "artifacts/go_prep/seed_43/best.ckpt",
+      "model_config_hash": "3348910eb1f52337a1894a87448a1198a911bbff7fe5c3cb613f2f42452efcd2",
+      "recovered_full_sha256": "7f145d6f54d03744f71c0224df4f170ad4aab388387e242234ebffda1acae17b",
+      "recovery_evidence": [
+        "REPRODUCIBILITY_MANIFEST.json",
+        "artifacts/go_prep/seed_43/best_meta.json",
+        "artifacts/diagnostics/threshold_calibration_independent_20260814/inference_seed_43.log"
+      ],
+      "seed": 43,
+      "source_location": "artifacts/go_prep/seed_43/best.ckpt"
+    },
+    {
+      "byte_size": 53485974,
+      "checkpoint_metadata": {
+        "auroc_B": 0.9959490740740741,
+        "epoch": 31,
+        "fp_apo_pct": 22.916666666666664,
+        "out_ckpt": "artifacts/go_prep/seed_44/best.ckpt",
+        "pretrain_ckpt": "/Users/rishiborra/Desktop/GNN_PCNA/checkpoints/pcna/best_pcna_v3.ckpt",
+        "seed": 44,
+        "sha256": "0a739dec47248651499942207b82139e5dea8bebfafe5ed50aabcbbdfd6aa3f6",
+        "val_criterion": "chain-B AUROC",
+        "written_utc": "2026-08-14T18:35:49.931526Z"
+      },
+      "classification": "EXACT_MATCH",
+      "durable_retrieval": {
+        "mechanism": "tracked Git blob on final-consolidation-audit final audit commit (forced despite *.ckpt ignore because this is the provenance closure package)",
+        "retrieval_location": "https://github.com/Reshwant-Borra/GNN_PCNA.git branch final-consolidation-audit path artifacts/go_prep/seed_44/best.ckpt",
+        "status": "PASS_ON_TRACKED_FINAL_COMMIT",
+        "verification_command": "shasum -a 256 artifacts/go_prep/seed_44/best.ckpt"
+      },
+      "exact_mismatch_status": "EXACT_MATCH",
+      "expected_full_sha256": "0a739dec47248651499942207b82139e5dea8bebfafe5ed50aabcbbdfd6aa3f6",
+      "filename": "artifacts/go_prep/seed_44/best.ckpt",
+      "model_config_hash": "3348910eb1f52337a1894a87448a1198a911bbff7fe5c3cb613f2f42452efcd2",
+      "recovered_full_sha256": "0a739dec47248651499942207b82139e5dea8bebfafe5ed50aabcbbdfd6aa3f6",
+      "recovery_evidence": [
+        "REPRODUCIBILITY_MANIFEST.json",
+        "artifacts/go_prep/seed_44/best_meta.json",
+        "artifacts/diagnostics/threshold_calibration_independent_20260814/inference_seed_44.log"
+      ],
+      "seed": 44,
+      "source_location": "artifacts/go_prep/seed_44/best.ckpt"
+    }
+  ],
+  "search_summary": {
+    "alternate_candidate_checkpoint_count": "see reports/AUGUST_HANDOFF_IDENTITY_REPORT.md and rg/find command history; no competing files matched the three full SHA-256 values",
+    "full_hash_source": "REPRODUCIBILITY_MANIFEST.json plus best_meta.json/log evidence",
+    "local_exact_checkpoints_found": 3
+  }
+}

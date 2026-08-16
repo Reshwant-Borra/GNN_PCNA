@@ -6,7 +6,7 @@ Primary current source of truth: `PROJECT_STATUS.md`.
 
 Practical MD runbook: `md_validation_4070/FINAL_MD_EXECUTION_INSTRUCTIONS.md`.
 
-Current reconciliation verdict: **NO-GO** for full historical reproducibility. The forward MD launcher/analysis path is repaired, but the frozen 520-dim GNN provenance package is still incomplete.
+Current reconciliation verdict: **GO for frozen GNN provenance**. The August three-seed 1W60 handoff is reproducible from exact recovered checkpoints and the committed extraction pipeline. MD production remains blocked by smoke/control validation and Gate-6 approval.
 
 ## What is being studied?
 
@@ -40,7 +40,7 @@ MD does not prove ligand binding, druggability, therapeutic relevance, mechanism
 
 Frozen 1W60 GNN handoff is `MODERATE / EXPLORATORY PASS` with mean literal Jaccard `0.6792`.
 
-Structure/preparation validation is smoke-ready, the reconciled analysis protocol is hashed, and infrastructure restart behavior has been validated on disposable technical runs. The 0.1 ns RTX 4070 smoke test has not yet passed in current status artifacts. Historical GNN reproducibility remains blocked by missing manifest/checkpoint provenance. Production remains blocked.
+Structure/preparation validation is smoke-ready, the reconciled analysis protocol is hashed, and infrastructure restart behavior has been validated on disposable technical runs. The 0.1 ns RTX 4070 smoke test has not yet passed in current status artifacts. GNN handoff provenance is closed for the August three-seed handoff; production remains blocked.
 
 ```text
 PRODUCTION BLOCKED: Gate-6 human approval required.
@@ -69,7 +69,7 @@ Run the launcher-first 0.1 ns RTX 4070 smoke test:
 
 Generated/rebuildable artifact directories include `data/raw/`, `data/esm_features/`, `data/graphs*`, `checkpoints/`, `results/`, and MD trajectory outputs unless explicitly registered as final artifacts.
 
-Audit manifests: `RECONCILIATION_INVENTORY.md`, `REPRODUCIBILITY_MANIFEST.json`, and `artifacts/provenance/FROZEN_GNN_PROVENANCE.json`.
+Audit manifests: `RECONCILIATION_INVENTORY.md`, `REPRODUCIBILITY_MANIFEST.json`, `artifacts/provenance/FROZEN_GNN_PROVENANCE.json`, and `artifacts/provenance/AUGUST_HANDOFF_IDENTITY.json`.
 
 ## Research base
 

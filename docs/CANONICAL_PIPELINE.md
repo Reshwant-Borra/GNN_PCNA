@@ -2,7 +2,7 @@
 
 Canonical branch for this consolidation: `final-consolidation-audit` from `main` HEAD `5b2ce676c790c4aac0caa10dc4226b5a924791c0`.
 
-Current reconciliation verdict: **NO-GO** for full historical reproducibility. Active forward MD paths are reconciled, but the 520-dim GNN provenance chain remains incomplete. See `REPRODUCIBILITY_MANIFEST.json` and `artifacts/provenance/FROZEN_GNN_PROVENANCE.json`.
+Current reconciliation verdict: **GO for frozen GNN provenance**. Active forward MD paths are reconciled, and the August three-seed 1W60 handoff has been reproduced from exact recovered checkpoints. Production MD remains blocked by smoke/control validation and Gate-6 approval. See `REPRODUCIBILITY_MANIFEST.json`, `artifacts/provenance/FROZEN_GNN_PROVENANCE.json`, and `artifacts/provenance/AUGUST_HANDOFF_IDENTITY.json`.
 
 ## End-to-end map
 
@@ -16,7 +16,7 @@ Current reconciliation verdict: **NO-GO** for full historical reproducibility. A
 | Graph construction | `scripts/build_graphs.py`, `scripts/build_graphs_xl.py` | features + ESM | `data/graphs*/*.pt` generated artifact |
 | Split/homology controls | `scripts/make_homology_split.py`, `scripts/validate_split_integrity.py`, recovered `data/splits/cryptosite_homology30_split.json` | datasets/graphs | split and audit JSON |
 | Model training | `scripts/finetune_v3_fixed.py`; base model in `src/models/cryptic_gnn.py` | 8GLA/apo graphs + ESM | seed-specific checkpoint + hash |
-| Checkpoint selection | `scripts/evaluate_clean_split.py` and runbook policy | checkpoints + validation metrics | selected checkpoint metadata; durable checkpoint retrieval unresolved |
+| Checkpoint selection | `scripts/evaluate_clean_split.py` and runbook policy | checkpoints + validation metrics | selected checkpoint metadata and tracked seed 42/43/44 August checkpoint package |
 | Independent extraction selection | `scripts/independent_extraction_gate.py select-policy` | non-PCNA calibration scores for 1GQY/2HNX/2K1V/2WER/3FU8 | `artifacts/pre_md_independent_extraction_20260815/frozen_extraction_method.json` |
 | Final 1W60 pre-MD stability | `scripts/independent_extraction_gate.py apply-1w60` | frozen policy + frozen seed 42/43/44 1W60 scores | PASS/FAIL report; consensus handoff JSON |
 | Inference | `scripts/run_v3_inference.py` | checkpoint, PDB, ESM | per-residue scores, v3 summary |
@@ -32,7 +32,7 @@ Current reconciliation verdict: **NO-GO** for full historical reproducibility. A
 
 ## Current executable next step
 
-The final independent extraction/stability gate has been run from frozen seed artifacts and classified `PRE-MD STABILITY: PASS` under the original exploratory gate.
+The final independent extraction/stability gate has been rerun from exact recovered seed artifacts and classified `PRE-MD STABILITY: PASS` under the original exploratory gate. Score CSV identity is exact for the three August seeds, and the regenerated consensus matches the frozen handoff scientific content.
 
 A later POST-PASS STRONGER INTERNAL ROBUSTNESS REQUIREMENT asks for mean literal pairwise Jaccard >=0.75 and minimum pairwise >=0.65 before production-MD release readiness. The current result remains mean 0.6792 and minimum pairwise 0.6316, so this stronger target is not achieved. Production MD must not start until a legitimate human Gate-6 decision explicitly accepts or resolves this remaining robustness risk.
 

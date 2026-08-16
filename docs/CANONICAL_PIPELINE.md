@@ -14,6 +14,7 @@ Current reconciliation verdict: **GO for frozen GNN provenance**. Active forward
 | Features | `src/data_processing/graph_construction.py` | residues | 40-dim node features, 6-dim edge features |
 | ESM embeddings | `scripts/build_esm_features.py` | residue sequence | `data/esm_features/*.npy` generated artifact |
 | Graph construction | `scripts/build_graphs.py`, `scripts/build_graphs_xl.py` | features + ESM | `data/graphs*/*.pt` generated artifact |
+| 520-dim graph lineage | `artifacts/provenance/GRAPH_LINEAGE_520_MANIFEST.json`, `scripts/verify_graph_lineage.py` | remote branch `pcna-xl-esm-full-final-framing` | retrieve/verify 55 graph tensors by SHA-256 |
 | Split/homology controls | `scripts/make_homology_split.py`, `scripts/validate_split_integrity.py`, recovered `data/splits/cryptosite_homology30_split.json` | datasets/graphs | split and audit JSON |
 | Model training | `scripts/finetune_v3_fixed.py`; base model in `src/models/cryptic_gnn.py` | 8GLA/apo graphs + ESM | seed-specific checkpoint + hash |
 | Checkpoint selection | `scripts/evaluate_clean_split.py` and runbook policy | checkpoints + validation metrics | selected checkpoint metadata and tracked seed 42/43/44 August checkpoint package |
@@ -29,6 +30,26 @@ Current reconciliation verdict: **GO for frozen GNN provenance**. Active forward
 | Apo MD | `./md.sh production` after Gate-6 | 1W60 | apo/candidate trajectories |
 | Analysis | `./md.sh analyze` / `md_validation_4070/analyze_md.py` | trajectories | RMSD/RMSF/SASA/DCCM/openness report |
 | Interpretation | `PROJECT_STATUS.md`, `docs/research_base/`, `PROJECT_STATE.md` | GNN + MD reports | scoped scientific conclusions |
+
+## Production entry point
+
+THE ONLY SUPPORTED PRODUCTION ENTRY POINT IS:
+
+```bash
+./md.sh production
+```
+
+Direct production-scale `python md_validation_4070/run_md.py --replicates 3 --ns 100`
+execution is blocked unless `run_md.py` receives the short-lived production
+authorization written by the canonical `md_workflow.py production-gate` path.
+Legacy wrappers are not production entry points:
+
+| Path | Classification | Current behavior |
+|---|---|---|
+| `md.sh` | ACTIVE_CANONICAL | smoke/control5/benchmark/analyze/production launcher |
+| `md_validation_4070/run_in_tmux.sh` | DEPRECATED | delegates arguments to `./md.sh` after printing deprecation notice |
+| `md_validation_4070/gnn_pocket_search/run_all_in_tmux.sh` | HISTORICAL_DISABLED | exits with instructions; no runnable MD commands remain |
+| `md_validation_4070/gnn_pocket_search/run_pocket_search.sh` | DIAGNOSTIC_NONPRODUCTION | GNN handoff helper only; no MD launch |
 
 ## Current executable next step
 

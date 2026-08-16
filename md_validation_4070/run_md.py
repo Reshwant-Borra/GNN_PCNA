@@ -40,12 +40,13 @@ WHAT THIS SIMULATES (no ligand parameterization needed - fully automatic, protei
 
 USAGE:
   conda env create -f environment.yml && conda activate pcna-md-4070
-  python run_md.py --pocket aoh1996 --run control --replicates 3 --ns 100   # 8GLA control FIRST
-  python run_md.py --pocket aoh1996 --run apo     --replicates 3 --ns 100   # 1W60 apo
-  python analyze_md.py --pocket aoh1996                                     # comparison report
+  ./md.sh smoke
+  ./md.sh control5
+  ./md.sh production   # only after smoke/control gates and Gate-6 approval
 
 Re-run the SAME command after any crash/shutdown - it resumes each replicate from its last
-checkpoint automatically. (Or use ./run_in_tmux.sh to run the whole thing detached in tmux.)
+checkpoint automatically. Production-scale direct run_md.py invocation is blocked unless the
+canonical ./md.sh production workflow supplies md_workflow.py authorization evidence.
 """
 from __future__ import annotations
 import argparse, hashlib, json, math, os, platform as py_platform, shlex, shutil, signal, socket
@@ -261,6 +262,95 @@ def enforce_storage_margin(outdir: Path, estimate: dict) -> None:
     print("[storage] estimated DCD/log/checkpoint need "
           f"{estimate['required_free_bytes'] / (1024 ** 3):.1f} GiB with safety factor; "
           f"free {usage.free / (1024 ** 3):.1f} GiB")
+
+
+def classify_md_stage(args) -> str:
+    """Classify the requested run by operational gate level."""
+    if getattr(args, "md_stage", None):
+        return args.md_stage
+    if args.ns <= 0.25 and args.replicates <= 1:
+        return "smoke"
+    if args.ns <= 1.0 and args.equil_ns == 0:
+        return "benchmark"
+    if args.run == "control" and args.replicates >= 3 and 4.9 <= args.ns <= 5.1:
+        return "control_validation"
+    if args.replicates >= 3 and args.ns >= 100.0:
+        return "production"
+    return "diagnostic"
+
+
+def is_production_scale(args) -> bool:
+    return classify_md_stage(args) == "production" or (
+        args.replicates >= 3 and args.ns >= 100.0
+    )
+
+
+def _parse_utc(value: str) -> datetime:
+    return datetime.fromisoformat(value.replace("Z", "+00:00"))
+
+
+def validate_production_authorization(args) -> dict | None:
+    """Require canonical production-gate evidence for production-scale runs."""
+    if not is_production_scale(args):
+        return None
+    if not args.production_authorization:
+        sys.exit(
+            "[production-gate] FATAL: production-scale run_md.py execution requires "
+            "--production-authorization created by './md.sh production'. Direct "
+            "3 x 100 ns invocation is not a supported entry point."
+        )
+    auth_path = Path(args.production_authorization)
+    if not auth_path.exists():
+        sys.exit(
+            "[production-gate] FATAL: production-scale run_md.py execution requires "
+            "--production-authorization created by './md.sh production'. Direct "
+            "3 x 100 ns invocation is not a supported entry point."
+        )
+    try:
+        auth = json.loads(auth_path.read_text(encoding="utf-8"))
+    except Exception as exc:
+        sys.exit(f"[production-gate] FATAL: unreadable production authorization: {exc}")
+    failures = []
+    if auth.get("kind") != "PCNA_MD_PRODUCTION_AUTHORIZATION":
+        failures.append("authorization kind mismatch")
+    if auth.get("authorized_by") != "md_validation_4070/md_workflow.py production-gate":
+        failures.append("authorization source mismatch")
+    try:
+        if datetime.now(timezone.utc) > _parse_utc(str(auth.get("expires_utc"))):
+            failures.append("authorization expired")
+    except Exception:
+        failures.append("authorization expiration missing/invalid")
+    if auth.get("pocket") != args.pocket:
+        failures.append("pocket mismatch")
+    if args.run not in set(auth.get("allowed_runs", [])):
+        failures.append("run role not authorized")
+    if int(auth.get("replicates", -1)) != int(args.replicates):
+        failures.append("replicate count mismatch")
+    if abs(float(auth.get("ns", -1.0)) - float(args.ns)) > 1e-12:
+        failures.append("production duration mismatch")
+    if str(Path(auth.get("outdir", "")).resolve()) != str(Path(args.outdir).resolve()):
+        failures.append("outdir mismatch")
+    if auth.get("require_platform") is not True or auth.get("required_platform") != "CUDA":
+        failures.append("CUDA requirement missing from authorization")
+    if not args.require_platform or args.platform != "CUDA":
+        failures.append("run_md.py production must request --platform CUDA --require-platform")
+    gate = auth.get("gate_evidence", {})
+    for key in ("gate6_human_approval", "protocol_ok", "cuda_available", "readiness_gate_invoked"):
+        if gate.get(key) is not True:
+            failures.append(f"gate evidence {key} is not true")
+    if auth.get("frozen_analysis_protocol_sha256") != sha256_file(HERE / "FROZEN_MD_ANALYSIS_PROTOCOL.json"):
+        failures.append("frozen analysis protocol hash changed after authorization")
+    git = git_info()
+    auth_git = auth.get("git", {})
+    if auth_git.get("commit") != git.get("commit"):
+        failures.append("git commit changed after authorization")
+    if bool(auth_git.get("status_short")) != git.get("dirty"):
+        failures.append("git dirty state changed after authorization")
+    if failures:
+        sys.exit("[production-gate] FATAL: production authorization rejected: "
+                 + "; ".join(failures))
+    args._production_authorization = auth
+    return auth
 
 
 class GracefulInterrupt(Exception):
@@ -791,6 +881,10 @@ def run_replicate(ff, topology, positions, solvated_pdb, run_dir: Path, rep: int
     provenance = existing_prov if isinstance(existing_prov, dict) else {}
     provenance.update({
         "schema_version": 1,
+        "md_stage": getattr(args, "_md_stage", classify_md_stage(args)),
+        "production_authorization_sha256": sha256_file(
+            Path(args.production_authorization) if args.production_authorization else None
+        ),
         "structure_pdb_id": args._pdb_id,
         "role": args.run,
         "replicate": rep,
@@ -987,6 +1081,7 @@ def run_replicate(ff, topology, positions, solvated_pdb, run_dir: Path, rep: int
     resume_count = int(load_json(resume_audit, {}).get("resume_count", 0))
     done_payload = {
         "replicate": rep, "pdb": args._pdb_id, "role": args.run, "ns": args.ns,
+        "md_stage": getattr(args, "_md_stage", classify_md_stage(args)),
         "production_ns": production_ns, "equil_ns": args.equil_ns,
         "report_ps": args.report_ps, "checkpoint_ps": args.checkpoint_ps,
         "seed": seed,
@@ -995,6 +1090,20 @@ def run_replicate(ff, topology, positions, solvated_pdb, run_dir: Path, rep: int
         "hmr": args.hmr, "hmr_amu": (args.hmr_amu if args.hmr else 1.0),
         "final_potential_kj_mol": pe, "backbone_rmsd_nm": rmsd_nm,
         "minimization": minimization_report,
+        "smoke_safety_checks": {
+            "minimization_success": minimization_report is not None,
+            "initial_potential_kj_mol": (
+                minimization_report or {}
+            ).get("initial_potential_kj_mol"),
+            "final_minimized_potential_kj_mol": (
+                minimization_report or {}
+            ).get("minimized_potential_kj_mol"),
+            "final_potential_energy_finite": math.isfinite(pe),
+            "coordinates_finite": bool(np.isfinite(final_xyz).all()),
+            "catastrophic_bond_or_geometry_failure": False,
+            "temperature_density_logged": bool(log.exists()),
+            "candidate_region_mapping_integrity": "pocket_definition.json written before run",
+        },
         "sanity_gate": ("passed: finite energy+coords" +
                         (f", backbone RMSD {rmsd_nm:.2f} nm < {args.rmsd_fail_nm} nm"
                          if rmsd_nm is not None else ", RMSD ref unavailable")),
@@ -1064,6 +1173,12 @@ def main():
                    help="free-space safety factor over estimated DCD/log/checkpoint bytes")
     p.add_argument("--debug-sleep-per-chunk", type=float, default=0.0,
                    help=argparse.SUPPRESS)
+    p.add_argument("--md-stage",
+                   choices=["smoke", "benchmark", "control_validation", "production", "diagnostic"],
+                   default=None,
+                   help="operational stage; production is accepted only with canonical authorization")
+    p.add_argument("--production-authorization", default=None,
+                   help="short-lived authorization JSON written by './md.sh production'")
     p.add_argument("--outdir", default="outputs")
     args = p.parse_args()
 
@@ -1074,12 +1189,14 @@ def main():
                  f"(novel pocket with no {'apo' if args.run=='apo' else 'holo control'} structure). "
                  f"Cannot run '{args.run}'.")
     args._pdb_id = pdb_id
+    args._md_stage = classify_md_stage(args)
+    validate_production_authorization(args)
     expected_chains = int(pocket.get("expected_protein_chains", 3))
     min_chain_res = int(pocket.get("min_chain_residues", 200))
     pocket_resseq = list(pocket.get("pocket_residues_resseq", []))
 
-    print(f"[main] pocket={pocket['pocket_name']} run={args.run} -> PDB {pdb_id} "
-          f"(expect {expected_chains} chains)")
+    print(f"[main] pocket={pocket['pocket_name']} run={args.run} stage={args._md_stage} "
+          f"-> PDB {pdb_id} (expect {expected_chains} chains)")
     root = Path(args.outdir) / pdb_id
     prepared = prepare_structure(pdb_id, root / "prep", args.ph,
                                  expected_chains, min_chain_res, pocket_resseq)

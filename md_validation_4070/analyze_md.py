@@ -35,6 +35,7 @@ CONTROL_MIN_REPLICATES = 3
 CONTROL_MIN_NS = 5.0
 CONTROL_MIN_RMSF_NM = 0.015
 CONTROL_MIN_OPEN_LIKE_FRACTION = 0.20
+DIAGNOSTIC_MARK = "DIAGNOSTIC_ONLY - NOT_FOR_SCIENTIFIC_INTERPRETATION"
 
 
 def load_pocket(name: str) -> dict:
@@ -292,6 +293,210 @@ def _event_summary(mask, dt_ns):
     }
 
 
+def expected_frame_count_from_done(done_payload: dict) -> int:
+    """Exact DCD frame count expected from the run_md.py production-step accounting."""
+    timestep_fs = float(done_payload.get("timestep_fs", 4.0))
+    report_ps = float(done_payload.get("report_ps", 50.0))
+    production_ns = float(done_payload.get("ns", done_payload.get("production_ns", 0.0)))
+    dt_ps = timestep_fs / 1000.0
+    dt_ns = timestep_fs / 1_000_000.0
+    prod_steps = int(round(production_ns / dt_ns))
+    report_every = max(1, int(round(report_ps / dt_ps)))
+    return prod_steps // report_every
+
+
+def _read_json(path: Path):
+    try:
+        return json.loads(path.read_text(encoding="utf-8"))
+    except Exception:
+        return None
+
+
+def _dcd_frame_count(path: Path) -> int | None:
+    try:
+        from mdtraj.formats import DCDTrajectoryFile
+        with DCDTrajectoryFile(str(path), "r") as fh:
+            return len(fh)
+    except Exception:
+        return None
+
+
+def validate_scientific_replicate(rep_dir: Path, expected_pdb: str | None = None,
+                                  expected_role: str | None = None,
+                                  expected_min_ns: float | None = None) -> dict:
+    """Fail-closed completion validation for final scientific analysis."""
+    issues: list[str] = []
+    failed = rep_dir / "FAILED.json"
+    done_path = rep_dir / "DONE.json"
+    dcd = rep_dir / "production.dcd"
+    provenance_path = rep_dir / "PROVENANCE.json"
+
+    failed_payload = _read_json(failed) if failed.exists() else None
+    if failed.exists():
+        issues.append("FAILED.json present")
+        if isinstance(failed_payload, dict) and failed_payload.get("reason"):
+            issues.append(f"FAILED reason: {failed_payload['reason']}")
+
+    done = _read_json(done_path) if done_path.exists() else None
+    if not done_path.exists():
+        issues.append("DONE.json missing")
+    elif not isinstance(done, dict):
+        issues.append("DONE.json unreadable")
+
+    if not isinstance(done, dict):
+        return {"ok": False, "issues": issues, "done": done, "expected_frames": None,
+                "observed_frames": None}
+
+    if not str(done.get("sanity_gate", "")).startswith("passed"):
+        issues.append("DONE sanity_gate is not passed")
+    if expected_pdb and done.get("pdb") != expected_pdb:
+        issues.append(f"topology/run pdb identity mismatch: {done.get('pdb')} != {expected_pdb}")
+    if expected_role and done.get("role") != expected_role:
+        issues.append(f"replicate role mismatch: {done.get('role')} != {expected_role}")
+    if expected_min_ns is not None and float(done.get("production_ns", 0.0)) + 1e-12 < expected_min_ns:
+        issues.append(f"target duration not reached: {done.get('production_ns')} < {expected_min_ns}")
+    if int(done.get("steps", 0)) < int(done.get("target_total_steps", done.get("steps", 0))):
+        issues.append("target total steps not reached")
+
+    if float(done.get("report_ps", 0.0)) <= 0.0:
+        issues.append("invalid output interval report_ps")
+        expected_frames = None
+    else:
+        expected_frames = expected_frame_count_from_done(done)
+
+    if not dcd.exists() or dcd.stat().st_size == 0:
+        issues.append("production trajectory missing or empty")
+        observed_frames = None
+    else:
+        observed_frames = _dcd_frame_count(dcd)
+        if observed_frames is None:
+            observed_frames = done.get("dcd_frames")
+        if expected_frames is not None and observed_frames is not None:
+            if int(observed_frames) < int(expected_frames):
+                issues.append(f"trajectory truncated: {observed_frames} frames < expected {expected_frames}")
+            elif int(observed_frames) > int(expected_frames):
+                issues.append(f"duplicate frame risk: {observed_frames} frames > expected {expected_frames}")
+
+    done_frames = done.get("dcd_frames")
+    if done_frames is not None and observed_frames is not None and int(done_frames) != int(observed_frames):
+        issues.append(f"DONE dcd_frames mismatch: {done_frames} != observed {observed_frames}")
+
+    topology_name = done.get("topology")
+    if not topology_name:
+        issues.append("DONE topology field missing")
+    elif not (rep_dir.parent / str(topology_name)).exists():
+        issues.append(f"topology file missing: {topology_name}")
+    if done.get("trajectory") and done.get("trajectory") != "production.dcd":
+        issues.append(f"trajectory identity mismatch: {done.get('trajectory')} != production.dcd")
+
+    provenance = _read_json(provenance_path)
+    if isinstance(provenance, dict):
+        if expected_pdb and provenance.get("structure_pdb_id") != expected_pdb:
+            issues.append("PROVENANCE structure_pdb_id mismatch")
+        if expected_role and provenance.get("role") != expected_role:
+            issues.append("PROVENANCE role mismatch")
+        hashes = provenance.get("input_hashes", {})
+        protocol = hashes.get("frozen_analysis_protocol_sha256")
+        if not protocol:
+            issues.append("protocol identity hash missing from PROVENANCE")
+    else:
+        issues.append("PROVENANCE.json missing or unreadable")
+
+    times = _parse_log_times(rep_dir / "production.log")
+    if times and len(times) != len(set(times)):
+        issues.append("duplicate frame/log artifacts: duplicate log times")
+    if len(times) >= 2:
+        diffs = [round(b - a, 9) for a, b in zip(times, times[1:])]
+        if len(set(diffs)) > 1:
+            issues.append("output interval inconsistent across production.log")
+
+    return {"ok": not issues, "issues": issues, "done": done,
+            "expected_frames": expected_frames, "observed_frames": observed_frames}
+
+
+def assess_convergence(series, n_blocks=3, max_final_shift_sd=0.5):
+    """Block-wise convergence evidence for trajectory-derived time series."""
+    import numpy as _np
+    x = _np.asarray(series, dtype=float)
+    x = x[_np.isfinite(x)]
+    if x.size < n_blocks * 2:
+        return {"status": "INSUFFICIENT_DATA", "n": int(x.size), "n_blocks": int(n_blocks)}
+    blocks = _np.array_split(x, n_blocks)
+    means = _np.asarray([float(b.mean()) for b in blocks])
+    sds = _np.asarray([float(b.std(ddof=1)) if b.size > 1 else 0.0 for b in blocks])
+    pooled_sd = float(x.std(ddof=1)) if x.size > 1 else 0.0
+    final_shift = float(abs(means[-1] - means[0]))
+    threshold = float(max_final_shift_sd * pooled_sd)
+    stable = final_shift <= threshold if pooled_sd > 0 else final_shift == 0.0
+    monotonic = bool(_np.all(_np.diff(means) >= 0) or _np.all(_np.diff(means) <= 0))
+    return {
+        "status": "STABLE_BLOCKS" if stable else "DRIFTING_BLOCKS",
+        "n": int(x.size),
+        "n_blocks": int(n_blocks),
+        "block_means": [float(v) for v in means],
+        "block_sds": [float(v) for v in sds],
+        "first_to_last_shift": final_shift,
+        "pooled_sd": pooled_sd,
+        "max_allowed_shift": threshold,
+        "monotonic_block_means": monotonic,
+    }
+
+
+def aggregate_replicates(rows: list[dict], metric_path: tuple[str, ...] = ("openness", "open_like_fraction")) -> dict:
+    """Aggregate per-replicate metrics without concatenating independent replicas."""
+    import statistics
+
+    def get(row):
+        cur = row
+        for key in metric_path:
+            if not isinstance(cur, dict) or key not in cur:
+                return None
+            cur = cur[key]
+        return cur
+
+    grouped: dict[str, list[dict]] = {}
+    for row in rows:
+        grouped.setdefault(str(row.get("role", "unknown")), []).append(row)
+    out = {}
+    for role, reps in grouped.items():
+        vals = [float(v) for r in reps if (v := get(r)) is not None]
+        mean = statistics.mean(vals) if vals else None
+        sd = statistics.stdev(vals) if len(vals) > 1 else 0.0 if len(vals) == 1 else None
+        ci = None
+        if len(vals) >= 2:
+            half = 1.96 * sd / math.sqrt(len(vals))
+            ci = [mean - half, mean + half]
+        convergence = [r.get("convergence", {}).get("overall_status") for r in reps]
+        out[role] = {
+            "independent_unit": "replicate",
+            "metric": ".".join(metric_path),
+            "replicate_count": len(reps),
+            "support_count": len(vals),
+            "failed_or_incomplete_count": sum(1 for r in reps if r.get("completion_status") != "PASS"),
+            "per_replicate": [{"replicate": r.get("replicate"), "value": get(r)} for r in reps],
+            "mean": mean,
+            "sd": sd,
+            "approx_95ci_across_replicates": ci,
+            "range": [min(vals), max(vals)] if vals else None,
+            "convergence_statuses": convergence,
+        }
+    return out
+
+
+def kabsch_rmsd_nm(mobile, reference):
+    import numpy as _np
+    p = _np.asarray(mobile, dtype=float)
+    q = _np.asarray(reference, dtype=float)
+    pc = p - p.mean(axis=0)
+    qc = q - q.mean(axis=0)
+    h = pc.T @ qc
+    u, _s, vt = _np.linalg.svd(h)
+    d = 1.0 if _np.linalg.det(vt.T @ u.T) >= 0.0 else -1.0
+    rot = vt.T @ _np.diag([1.0, 1.0, d]) @ u.T
+    diff = (pc @ rot.T) - qc
+    return float(_np.sqrt((diff * diff).sum(axis=1).mean()))
+
+
 def evaluate_control_interpretability(rows, min_replicates=CONTROL_MIN_REPLICATES):
     """Trajectory-derived positive-control criterion.
 
@@ -421,10 +626,27 @@ def analyze_replicate(dcd: Path, top_pdb: Path, resseqs, interface_chain_indices
             region_rmsf = np.sqrt(((prod.xyz[:, region_ca, :] - region_mean) ** 2).sum(axis=2).mean(axis=0))
             hull = np.array([convex_hull_volume_A3(frame_xyz, np)
                              for frame_xyz in prod.xyz[:, region_ca, :]])
+            local_rmsd = md.rmsd(protein, protein, 0, atom_indices=region_ca)[equil_used:]
+            if local_rmsd.size == 0:
+                local_rmsd = md.rmsd(protein, protein, 0, atom_indices=region_ca)
         else:
             region_rmsf = np.array([])
             hull = np.array([])
-        return res_by_chain, sasa_nm2, rg, region_rmsf, hull
+            local_rmsd = np.array([])
+        convergence = {}
+        if len(sasa_nm2):
+            convergence["sasa_A2"] = assess_convergence(sasa_nm2 * 100.0)
+        if len(hull):
+            convergence["ca_convex_hull_volume_A3"] = assess_convergence(hull)
+        if len(local_rmsd):
+            convergence["local_rmsd_nm"] = assess_convergence(local_rmsd)
+        overall_status = "INSUFFICIENT_DATA"
+        if convergence:
+            statuses = [v.get("status") for v in convergence.values()]
+            overall_status = "DRIFTING_BLOCKS" if "DRIFTING_BLOCKS" in statuses else (
+                "STABLE_BLOCKS" if "STABLE_BLOCKS" in statuses else "INSUFFICIENT_DATA"
+            )
+        return res_by_chain, sasa_nm2, rg, region_rmsf, hull, local_rmsd, convergence, overall_status
 
     regions = regions or {"pocket": list(resseqs)}
     region_metrics = {}
@@ -432,7 +654,9 @@ def analyze_replicate(dcd: Path, top_pdb: Path, resseqs, interface_chain_indices
         region_atoms = pocket_selection(protein.top, region_resseqs, interface_chain_indices,
                                         allow_keys=allow_keys)
         region_ca = [i for i in region_atoms if protein.top.atom(i).name == "CA"]
-        res_by_chain, sasa_nm2, rg, region_rmsf, hull_A3 = region_series(region_atoms, region_ca)
+        res_by_chain, sasa_nm2, rg, region_rmsf, hull_A3, local_rmsd, convergence, overall_status = (
+            region_series(region_atoms, region_ca)
+        )
         available = bool(len(region_atoms) and len(region_ca) and len(sasa_nm2))
         region_metrics[region_name] = {
             "available": available,
@@ -444,6 +668,8 @@ def analyze_replicate(dcd: Path, top_pdb: Path, resseqs, interface_chain_indices
             "sasa_max_A2": float(sasa_nm2.max() * 100.0) if len(sasa_nm2) else None,
             "rmsf_mean_nm": float(region_rmsf.mean()) if len(region_rmsf) else None,
             "rmsf_max_nm": float(region_rmsf.max()) if len(region_rmsf) else None,
+            "local_rmsd_mean_nm": float(local_rmsd.mean()) if len(local_rmsd) else None,
+            "local_rmsd_max_nm": float(local_rmsd.max()) if len(local_rmsd) else None,
             "rg_mean_nm": float(rg.mean()) if len(rg) else None,
             "rg_max_nm": float(rg.max()) if len(rg) else None,
             "ca_convex_hull_volume_mean_A3": (
@@ -453,13 +679,14 @@ def analyze_replicate(dcd: Path, top_pdb: Path, resseqs, interface_chain_indices
                 float(np.nanmax(hull_A3)) if len(hull_A3) and not np.isnan(hull_A3).all() else None
             ),
             "dccm": _dccm_region_summary(dccm, ca, region_ca, np),
+            "convergence": convergence | {"overall_status": overall_status},
         }
         if len(sasa_nm2):
             region_metrics[region_name]["_sasa_series_A2"] = (sasa_nm2 * 100.0).tolist()
         if len(hull_A3):
             region_metrics[region_name]["_hull_series_A3"] = hull_A3.tolist()
 
-    pocket_res_by_chain, pocket_sasa, rg_pocket, _, _ = region_series(pocket_atoms, pocket_ca)
+    pocket_res_by_chain, pocket_sasa, rg_pocket, _, _, _, _, _ = region_series(pocket_atoms, pocket_ca)
     thresholds = thresholds or {}
     openness = {"available": False, "reason": "supported_ge2of3 region or thresholds unavailable"}
     supported = region_metrics.get("supported_ge2of3")
@@ -487,10 +714,7 @@ def analyze_replicate(dcd: Path, top_pdb: Path, resseqs, interface_chain_indices
     frame_count_status = "unchecked"
     if done_payload:
         try:
-            expected_frames = int(math.floor(
-                (float(done_payload.get("production_ns", 0.0)) * 1000.0)
-                / float(done_payload.get("report_ps", 50.0)) + 1e-9
-            ))
+            expected_frames = expected_frame_count_from_done(done_payload)
             if n > expected_frames:
                 frame_count_status = "too_many_frames_duplicate_risk"
             elif n < expected_frames:
@@ -604,8 +828,10 @@ def main():
     ap = argparse.ArgumentParser(description="PCNA MD validation analysis (v2).")
     ap.add_argument("--pocket", default="final_consensus_1w60_20260815")
     ap.add_argument("--outdir", default="outputs")
-    ap.add_argument("--allow-incomplete", action="store_true",
-                    help="analyze DCDs without a valid DONE.json; for debugging only")
+    ap.add_argument("--allow-incomplete-diagnostic", action="store_true",
+                    help="analyze incomplete DCDs for debugging only; outputs are marked "
+                         "DIAGNOSTIC_ONLY / NOT_FOR_SCIENTIFIC_INTERPRETATION")
+    ap.add_argument("--allow-incomplete", action="store_true", help=argparse.SUPPRESS)
     ap.add_argument("--keep-termini", action="store_true",
                     help="do NOT drop terminus/gap-adjacent pocket residues (their SASA "
                          "difference is dominated by where the crystal ends; measured to be "
@@ -615,6 +841,7 @@ def main():
                     help="Hard-fail if apo and control share less than this fraction of the "
                          "pocket's resolved residues (default 0.80).")
     args = ap.parse_args()
+    args.allow_incomplete_diagnostic = bool(args.allow_incomplete_diagnostic or args.allow_incomplete)
 
     md, np, pd, plt = _imports()
     pocket = load_pocket(args.pocket)
@@ -655,25 +882,49 @@ def main():
                 reason = "missing/empty DCD"
                 skipped.append({"role": role, "pdb": pdb, "replicate": rep_dir.name, "reason": reason})
                 print(f"[skip] {pdb}/{rep_dir.name}: {reason}"); continue
-            done_ok, done_reason, done_payload = _analysis_done_status(rep_dir)
-            if not done_ok and not args.allow_incomplete:
-                skipped.append({"role": role, "pdb": pdb, "replicate": rep_dir.name, "reason": done_reason})
+            completion = validate_scientific_replicate(rep_dir, expected_pdb=pdb, expected_role=role)
+            done_ok, done_reason, done_payload = (
+                completion["ok"], "; ".join(completion["issues"]) or "complete", completion["done"]
+            )
+            if not done_ok and not args.allow_incomplete_diagnostic:
+                skipped.append({"role": role, "pdb": pdb, "replicate": rep_dir.name,
+                                "reason": done_reason, "completion": completion})
                 print(f"[skip] {pdb}/{rep_dir.name}: incomplete ({done_reason})"); continue
             print(f"[analyze] {role} {pdb}/{rep_dir.name} ...")
             r = analyze_replicate(dcd, top, primary_resseqs, iface, allow_keys=allow_keys,
                                   regions=regions, thresholds=thresholds,
                                   done_payload=done_payload)
-            sasa_pool[role].extend(r.pop("_sasa_series"))
-            r.update({"role": role, "pdb": pdb, "replicate": rep_dir.name}); rows.append(r)
+            if done_ok:
+                sasa_pool[role].extend(r.pop("_sasa_series"))
+            else:
+                r.pop("_sasa_series", None)
+            overall_conv = [
+                m.get("convergence", {}).get("overall_status")
+                for m in r.get("regions", {}).values()
+            ]
+            r.update({
+                "role": role, "pdb": pdb, "replicate": rep_dir.name,
+                "completion_status": "PASS" if done_ok else "DIAGNOSTIC_ONLY",
+                "completion_issues": completion["issues"],
+                "convergence": {
+                    "overall_status": "DRIFTING_BLOCKS" if "DRIFTING_BLOCKS" in overall_conv
+                    else ("STABLE_BLOCKS" if "STABLE_BLOCKS" in overall_conv else "INSUFFICIENT_DATA")
+                },
+            })
+            if not done_ok:
+                r["diagnostic_mark"] = DIAGNOSTIC_MARK
+                skipped.append({"role": role, "pdb": pdb, "replicate": rep_dir.name,
+                                "reason": done_reason, "diagnostic_analyzed": True})
+            rows.append(r)
 
-    if skipped and not args.allow_incomplete:
+    if skipped and not args.allow_incomplete_diagnostic:
         (adir / "skipped_replicates.json").write_text(json.dumps(skipped, indent=2), encoding="utf-8")
         sys.exit("Incomplete/corrupt trajectories were present. Refusing scientific analysis by default. "
-                 "Use --allow-incomplete only for NON-SCIENTIFIC / DIAGNOSTIC ONLY analysis.")
+                 "Use --allow-incomplete-diagnostic only for NON-SCIENTIFIC / DIAGNOSTIC ONLY analysis.")
 
     if not rows:
         (adir / "skipped_replicates.json").write_text(json.dumps(skipped, indent=2), encoding="utf-8")
-        sys.exit("No complete trajectories analyzed. Run run_md.py first or pass --allow-incomplete "
+        sys.exit("No complete trajectories analyzed. Run run_md.py first or pass --allow-incomplete-diagnostic "
                  "only for debugging. See outputs/analysis/skipped_replicates.json.")
     df = pd.DataFrame(rows)
     df.to_csv(adir / "per_replicate.csv", index=False)
@@ -727,11 +978,38 @@ def main():
     any_duplicate_frames = bool((df["frame_count_status"] == "too_many_frames_duplicate_risk").any()) \
         if "frame_count_status" in df else False
     trajectory_control = evaluate_control_interpretability(rows)
+    replica_aggregation = {
+        "open_like_fraction": aggregate_replicates(rows, ("openness", "open_like_fraction")),
+        "pocket_rmsf_mean_nm": aggregate_replicates(rows, ("pocket_rmsf_mean_nm",)),
+        "pocket_sasa_mean_nm2": aggregate_replicates(rows, ("pocket_sasa_mean_nm2",)),
+    }
     summary = {"pocket": pocket["pocket_name"], "per_replicate": rows,
+               "diagnostic_only": bool(args.allow_incomplete_diagnostic),
+               "diagnostic_mark": DIAGNOSTIC_MARK if args.allow_incomplete_diagnostic else None,
                "positive_control": verdict,
                "control_interpretability_gate": trajectory_control,
+               "replica_aggregation": replica_aggregation,
                "equil_ns_discarded": EQUIL_NS,
                "analysis_regions": regions,
+               "rmsd_protocol": {
+                   "global_rmsd": {
+                       "alignment_selection": "protein CA excluding primary pocket CA",
+                       "measurement_selection": "same scaffold CA alignment set",
+                       "reference": "frame 0 after PBC imaging",
+                       "units": "nm",
+                       "pbc_preprocessing": "image_molecules or make_molecules_whole before alignment",
+                   },
+                   "local_region_rmsd": {
+                       "alignment_selection": "protein CA excluding primary pocket CA",
+                       "measurement_selection": "region CA after scaffold alignment",
+                       "reference": "frame 0 after PBC imaging",
+                       "units": "nm",
+                   },
+               },
+               "sasa_protocol": {
+                   "scope": "frozen experiment uses interface_chain_indices from pocket JSON; current frozen pocket is chain index 0",
+                   "method": "mdtraj Shrake-Rupley in protein context, atom-key parity across apo/control",
+               },
                "openness_thresholds": thresholds,
                "pbc_artifact_suspected_any": any_pbc,
                "duplicate_log_times_any": any_duplicate_time,

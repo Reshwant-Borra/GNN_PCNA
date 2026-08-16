@@ -25,6 +25,21 @@
     }
   ],
   "forward_pipeline_reproducibility": "PASS_AFTER_TRACKED_AUGUST_CHECKPOINT_PACKAGE_AND_VALIDATION",
+  "graph_lineage_520_reproducibility": {
+    "status": "EXTERNAL_WITH_RETRIEVAL_AND_HASH_VALIDATION",
+    "manifest": "artifacts/provenance/GRAPH_LINEAGE_520_MANIFEST.json",
+    "source_split_integrity_manifest": "data/results/split_integrity_520.json",
+    "structure_count": 55,
+    "node_features_total": 520,
+    "split_counts": {
+      "train": 43,
+      "val": 6,
+      "test": 6
+    },
+    "graph_manifest_hash": "69744b548e812697ba9015c6563ed526f1af2e915b1595badb1dd47fd1b4c64f",
+    "retrieval_command": "python3 scripts/verify_graph_lineage.py --retrieve-from-origin",
+    "validation_command": "python3 scripts/verify_graph_lineage.py"
+  },
   "gnn_recovery_verification": {
     "fresh_clone_checked": true,
     "fresh_clone_checkpoint_sha256": "0114999ea9237b44f114c5a23a8529cb6939e80450339d71c07178ccd2d3addf",
@@ -36,7 +51,7 @@
     "top_residue_mismatches": 0
   },
   "hashes": {
-    "analysis_code": "b6c23f1d19d7c76b05ee8fe955f4d3241224abb6beb93ab04e00b9ac62054312",
+    "analysis_code": "5ffe15258982260f46ea60af27acdef38566ce8f42d6ce0b320d63475ada3129",
     "analysis_protocol": "587f27cf2e402fe50b264d98d3d60fbbdcc8f9095025b2a89d12c7aebd633e56",
     "august_1w60_esm_features": "b47aeb292d4641d5a8bb17cb676b0d17b4dc6309e2a28b665afad22d19fbb3fc",
     "august_8gla_esm_features": "7ddc9c5b272a9efdf23089934db257e4aba0c9d7b40c3e736c5e598dcff6c6a8",
@@ -56,9 +71,12 @@
     "label_chain_bug_impact_json": "43eeb5e2732e6b8de399bc564d48a29ba97961259eecbbcd15fb9c04c96ab001",
     "label_chain_bug_impact_md": "712fc38eae9b5d677de02db67c956ed4d9b686d3510a0833623043af7e26fc52",
     "label_manifest": "MISSING_STANDALONE",
-    "launcher": "5219395a2927fa53f0712e79873977dc6949ff4fe15a0b392c4bb8e3c484c7c8",
+    "graph_lineage_520_manifest": "58b389157ae2c1fbe6f5853020badbc566f5083a5c32bc9b179d934002124d4f",
+    "graph_lineage_verifier": "43998856b6cf4fd4efff9bc49f6e57548627481634bb3902e0aac2e4d26d752f",
+    "launcher": "56f7a7fb17db47f949ca3782f5dfc69659263a42c89e37a83ff45e9d66204365",
     "md_handoff_packet": "eb6ebde04a80dd93d9689dd94856801f5d1169205a196018b2869bb8bcb455f4",
-    "md_protocol_code": "95d41539bdc523a99698e915d79ffedb2d973afb315249fe9d6865599d9a59bb",
+    "md_protocol_code": "35b929679f8a646e6b7e7029e72d9a9e117bf0df2403bdcd775339c7a0f58bdc",
+    "md_workflow": "afa78aff49ce9d6dd7ceaabaf96bec8b73ac418e73cf433f58b4b5fcc624a756",
     "pretrain_checkpoint": "1438638c912193002d1feea43035c0af4177920f95168758c76b3c7f989fa93f",
     "recovered_d9efd_checkpoint": "0114999ea9237b44f114c5a23a8529cb6939e80450339d71c07178ccd2d3addf",
     "recovered_d9efd_checkpoint_meta": "e6a3e7fe747fe39081099682f7547e81d4dff599f15f8cfc45f9ba5f9f795154",

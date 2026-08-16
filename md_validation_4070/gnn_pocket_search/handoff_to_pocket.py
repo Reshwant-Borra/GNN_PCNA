@@ -72,7 +72,7 @@ def main():
     print(f"[ok] wrote {out}")
     print(f"     pocket '{name}': {len(resseq)} residues on chains {chains} "
           f"(interface indices {interface}); apo={pocket['apo_pdb']} control={pocket['control_pdb']}")
-    print(f"     -> run MD: ./run_in_tmux.sh {name}")
+    print("     -> run MD through the canonical launcher: ./md.sh smoke")
 
 
 if __name__ == "__main__":

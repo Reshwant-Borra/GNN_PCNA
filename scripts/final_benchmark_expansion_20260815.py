@@ -398,11 +398,10 @@ def md_handoff(existing: dict[str, Any]) -> dict[str, Any]:
             "definition": "ligand-stripped holo/open PCNA AOH1996-bound structure; control-first MD must show interpretable openness contrast before candidate production replicates",
         },
         "commands": {
-            "first_md_preparation_command": "cd md_validation_4070 && python run_md.py --pocket final_consensus_1w60_20260815 --run control --replicates 1 --ns 0.1",
-            "prepare_apo_smoke": "cd md_validation_4070 && python run_md.py --pocket final_consensus_1w60_20260815 --run apo --replicates 1 --ns 0.1",
-            "control_first_md": "cd md_validation_4070 && python run_md.py --pocket final_consensus_1w60_20260815 --run control --replicates 3 --ns 100",
-            "apo_md_after_control_interpretable": "cd md_validation_4070 && python run_md.py --pocket final_consensus_1w60_20260815 --run apo --replicates 3 --ns 100",
-            "analysis": "cd md_validation_4070 && python analyze_md.py --pocket final_consensus_1w60_20260815",
+            "first_md_preparation_command": "./md.sh smoke",
+            "control_first_md": "./md.sh control5",
+            "production_after_all_gates": "./md.sh production",
+            "analysis": "./md.sh analyze",
         },
         "expected_outputs": [
             "md_validation_4070/outputs/control/rep*/production.dcd",

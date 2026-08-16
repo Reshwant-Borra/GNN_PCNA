@@ -1,0 +1,59 @@
+{
+  "artifact_type": "GRAPH_LINEAGE_520_MANIFEST",
+  "status": "EXTERNAL_WITH_RETRIEVAL_AND_HASH_VALIDATION",
+  "created_utc": "2026-08-16T00:00:00Z",
+  "purpose": "Clean-clone reproducibility contract for the 55-structure 520-dimensional XL/ESM graph lineage used by the frozen clean homology split.",
+  "feature_contract": {
+    "handcrafted_graph_features": 40,
+    "esm_features": 480,
+    "node_features_total": 520,
+    "edge_features": 6,
+    "esm_model": "facebook/esm2_t12_35M_UR50D",
+    "feature_order": "torch.cat([data.x, esm_feats], dim=1)"
+  },
+  "graphs": {
+    "source_split_integrity_manifest": "data/results/split_integrity_520.json",
+    "structure_count": 55,
+    "split_counts": {
+      "train": 43,
+      "val": 6,
+      "test": 6
+    },
+    "graph_manifest_hash": "69744b548e812697ba9015c6563ed526f1af2e915b1595badb1dd47fd1b4c64f",
+    "degenerate_structures": [
+      "1OIN",
+      "2BKM",
+      "2VO5",
+      "2CNN",
+      "2NMO",
+      "2QKH"
+    ],
+    "total_positive_labels": 1630
+  },
+  "homology_split": {
+    "split_file": "data/splits/cryptosite_homology30_split.json",
+    "identity_threshold": 0.3,
+    "backend": "mmseqs_or_recorded_components",
+    "integrity_manifest": "data/results/split_integrity_520.json"
+  },
+  "label_integrity": {
+    "composite_chain_bug_status": "DOES_NOT_AFFECT_AUGUST_PCNA_LINEAGE; full split graph labels are verified by manifest hashes and label counts",
+    "label_manifest": "artifacts/provenance/FROZEN_LABEL_MANIFEST_DERIVED_FROM_GRAPHS.json"
+  },
+  "retrieval": {
+    "method": "git remote branch artifact retrieval",
+    "git_source": {
+      "remote": "origin",
+      "repository": "https://github.com/Reshwant-Borra/GNN_PCNA.git",
+      "branch": "pcna-xl-esm-full-final-framing",
+      "commit": "d7cf76d674bced192b3c9d2b4f7f4fbf7ac3a228",
+      "paths": [
+        "data/graphs_xl",
+        "data/esm_features"
+      ]
+    },
+    "verification_command": "python3 scripts/verify_graph_lineage.py --retrieve-from-origin",
+    "local_validation_command": "python3 scripts/verify_graph_lineage.py"
+  },
+  "clean_clone_contract": "A clean clone can fetch data/graphs_xl from origin/pcna-xl-esm-full-final-framing, then verify all 55 split graphs, node dimensions, split identities, label counts, and the aggregate graph manifest hash."
+}

@@ -50,27 +50,37 @@ source .venv/bin/activate
 
 ## Step 3 — Install dependencies
 
-> **Do NOT run `pip install -r requirements.txt` directly.** `torch-scatter` and `torch-sparse` require a wheel URL matching your CUDA build. Use the install script instead.
+There is no supported `install.sh` or root `requirements.txt` in the current
+repository. Use the dependency set that matches the task you are validating.
+
+For lightweight repository checks:
 
 ```bash
-# CPU-only (default — works on any machine)
-bash install.sh
+python -m pip install -U pip
+python -m pip install -e ".[test]"
+python -m pip install numpy scipy biopython scikit-learn pandas matplotlib requests beautifulsoup4
+```
 
-# NVIDIA GPU — CUDA 11.8
-bash install.sh cu118
+For GNN inference or graph validation, install PyTorch and PyTorch Geometric
+with wheels matching your CPU/CUDA runtime. Example CPU install:
 
-# NVIDIA GPU — CUDA 12.1
-bash install.sh cu121
+```bash
+python -m pip install torch --index-url https://download.pytorch.org/whl/cpu
+python -m pip install torch-geometric torch-scatter torch-sparse \
+  -f https://data.pyg.org/whl/torch-2.1.0+cpu.html
+```
 
-# Windows
-install.bat        # CPU
-install.bat cu118  # NVIDIA GPU
+For MD validation:
+
+```bash
+conda env create -f md_validation_4070/environment.yml
+conda activate pcna-md-4070
 ```
 
 ### Final check
 
 ```bash
-python scripts/check_env.py
+python3 scripts/check_env.py
 # Should show [PASS] for every line
 ```
 
@@ -105,15 +115,14 @@ Results written to `data/results/test_split_eval.json`.
 
 ---
 
-## Step 6 — Run the full test suite
+## Step 6 — Run the full feasible lightweight test suite
 
 ```bash
-python -m pytest -v
+python3 -m pytest -v
 ```
 
-Expected: **16 passed**. All tests pass with PyG installed.
-
-If you see `11 skipped` with a message about `torch_geometric not installed`, go back to Step 3b.
+Some ML tests are skipped when PyTorch Geometric is not installed. MD production
+is never part of the lightweight test suite.
 
 ---
 
@@ -159,18 +168,19 @@ Results written to `data/results/nma_1W60.json` and `data/results/nma_8GLA.json`
 
 ---
 
-## Key results already computed
+## 520-dim graph lineage
 
-These files are committed — no recomputation needed to verify numbers:
+The full 55-structure `data/graphs_xl` tensor package is treated as an
+external generated artifact. A clean clone can retrieve and verify it from the
+recorded remote branch:
 
-| File | Contents |
-|---|---|
-| `data/results/EVALUATION_REPORT.md` | Full per-structure AUROC table |
-| `data/results/v3_summary.csv` | V3 per-structure scores |
-| `data/results/nma_apo_holo_comparison.json` | ANM flexibility comparison |
-| `data/splits/cryptosite_split.json` | Train/val/test split manifest |
-| `data/manifests/pdb_checksums.json` | SHA256 checksums for all 149 PDB files |
-| `VERIFICATION_REPORT.md` | Automated claim verification (52 VERIFIED, 0 WRONG) |
+```bash
+python3 scripts/verify_graph_lineage.py --retrieve-from-origin
+```
+
+The verifier checks 55 structures, 520-dimensional node features, train/val/test
+identity, label counts, and the aggregate graph manifest hash recorded in
+`artifacts/provenance/GRAPH_LINEAGE_520_MANIFEST.json`.
 
 ---
 

@@ -3,6 +3,7 @@
 from __future__ import annotations
 
 import argparse
+import secrets
 import hashlib
 import json
 import os
@@ -18,6 +19,7 @@ HERE = Path(__file__).resolve().parent
 ROOT = HERE.parent
 DEFAULT_OUTDIR = HERE / "outputs"
 EXPECTED_ANALYSIS_PROTOCOL_SHA256 = "587f27cf2e402fe50b264d98d3d60fbbdcc8f9095025b2a89d12c7aebd633e56"
+AUTHORIZATION_TTL_SECONDS = 6 * 60 * 60
 
 
 def load_json(path: Path, default=None):
@@ -175,6 +177,53 @@ def protocol_ok() -> tuple[bool, str]:
     return True, "frozen analysis protocol hash matches"
 
 
+def write_production_authorization(args) -> Path:
+    """Write a short-lived authorization consumed by run_md.py.
+
+    This is defense in depth, not the primary gate. The primary gate remains the
+    fail-closed production_gate() checks below. The token records the current
+    gate evidence and the exact production command contract that run_md.py must
+    match before it will run production-scale trajectories.
+    """
+    outdir = Path(args.outdir)
+    git = {
+        "commit": run_text(["git", "-C", str(ROOT), "rev-parse", "HEAD"]),
+        "branch": run_text(["git", "-C", str(ROOT), "rev-parse", "--abbrev-ref", "HEAD"]),
+        "status_short": run_text(["git", "-C", str(ROOT), "status", "--short"]),
+    }
+    now = datetime.now(timezone.utc)
+    payload = {
+        "schema_version": 1,
+        "kind": "PCNA_MD_PRODUCTION_AUTHORIZATION",
+        "authorized_by": "md_validation_4070/md_workflow.py production-gate",
+        "created_utc": now.isoformat(),
+        "expires_utc": datetime.fromtimestamp(
+            now.timestamp() + AUTHORIZATION_TTL_SECONDS, timezone.utc
+        ).isoformat(),
+        "nonce": secrets.token_hex(32),
+        "pocket": args.pocket,
+        "allowed_runs": ["control", "apo"],
+        "replicates": int(args.replicates),
+        "ns": float(args.ns),
+        "required_platform": "CUDA",
+        "require_platform": True,
+        "outdir": str(outdir.resolve()),
+        "git": git,
+        "frozen_analysis_protocol_sha256": sha256_file(HERE / "FROZEN_MD_ANALYSIS_PROTOCOL.json"),
+        "md_workflow_sha256": sha256_file(HERE / "md_workflow.py"),
+        "run_md_sha256": sha256_file(HERE / "run_md.py"),
+        "gate_evidence": {
+            "gate6_human_approval": gate6_approved(),
+            "protocol_ok": protocol_ok()[0],
+            "cuda_available": cuda_available()[0],
+            "readiness_gate_invoked": True,
+        },
+    }
+    path = outdir / ".production_authorization.json"
+    write_json(path, payload)
+    return path
+
+
 def production_gate(args) -> int:
     if not gate6_approved():
         print("PRODUCTION BLOCKED: Gate-6 human approval required.")
@@ -196,7 +245,12 @@ def production_gate(args) -> int:
         print(proc.stdout.rstrip())
     if proc.stderr:
         print(proc.stderr.rstrip())
-    return proc.returncode
+    if proc.returncode != 0:
+        return proc.returncode
+    if getattr(args, "authorize_run", False):
+        path = write_production_authorization(args)
+        print(f"PRODUCTION AUTHORIZED FOR CANONICAL WORKFLOW: {path}")
+    return 0
 
 
 def complete_reps(outdir: Path, pdb: str, n_reps: int, min_ns: float) -> tuple[bool, list[str]]:
@@ -292,6 +346,11 @@ def main() -> int:
     ap = argparse.ArgumentParser()
     ap.add_argument("command", choices=["status", "production-gate", "control-report", "benchmark-report"])
     ap.add_argument("--outdir", default=str(DEFAULT_OUTDIR))
+    ap.add_argument("--authorize-run", action="store_true",
+                    help="after all production gates pass, write run_md.py authorization evidence")
+    ap.add_argument("--pocket", default="final_consensus_1w60_20260815")
+    ap.add_argument("--replicates", type=int, default=3)
+    ap.add_argument("--ns", type=float, default=100.0)
     args = ap.parse_args()
     if args.command == "status":
         return print_status(args)

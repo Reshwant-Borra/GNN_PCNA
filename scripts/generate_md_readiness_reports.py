@@ -750,7 +750,7 @@ Status: {smoke_status}
 Required command:
 
 ```bash
-cd md_validation_4070 && python run_md.py --pocket final_consensus_1w60_20260815 --run control --replicates 1 --ns 0.1
+./md.sh smoke
 ```
 
 Result: {smoke_reason}
@@ -902,7 +902,7 @@ Not approved. Human approval is required after smoke, trajectory-analysis valida
 ## Next Legitimate Command
 
 ```bash
-cd md_validation_4070 && python run_md.py --pocket final_consensus_1w60_20260815 --run control --replicates 1 --ns 0.1
+./md.sh smoke
 ```
 """,
     )

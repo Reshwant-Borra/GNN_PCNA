@@ -39,9 +39,10 @@ recorded GATE-6 approval ref. Send that JSON back to Advay.
 
 ## Step 3 — Advay builds the tailored 4070 MD validation
 Advay converts the handoff JSON into `pockets/<name>.json` (a one-file drop — the harness is already
-parameterized) and hands back the run package. Historical command, not current:
+parameterized) and hands back the run package. Current MD launch is only through
+the repository-root canonical launcher:
 ```bash
-./run_in_tmux.sh <name>          # control first, then apo, then analysis — detached, resumable
+./md.sh smoke
 ```
 `analyze_md.py` writes `outputs/analysis/REPORT.md` with the per-replicate trajectory metrics and the
 positive-control gate. **The gate reports whatever is true** — `Interpretable: True/False`,

@@ -148,7 +148,8 @@ run_smoke() {
   require_cuda
   local cmd
   cmd="$(cmd_join "$PYTHON_BIN" "$MD/run_md.py" --pocket "$POCKET" --run control \
-      --replicates 1 --ns 0.1 --outdir "$OUTDIR" --platform CUDA --require-platform) && "
+      --replicates 1 --ns 0.1 --outdir "$OUTDIR" --platform CUDA --require-platform \
+      --md-stage smoke) && "
   cmd+="$(cmd_join "$PYTHON_BIN" "$MD/analyze_md.py" --pocket "$POCKET" --outdir "$OUTDIR")"
   launch_tmux "pcna_smoke" "smoke" "$cmd" "Next after completion: ./md.sh status, then ./md.sh control5"
 }
@@ -159,7 +160,8 @@ run_control5() {
   require_cuda
   local cmd
   cmd="$(cmd_join "$PYTHON_BIN" "$MD/run_md.py" --pocket "$POCKET" --run control \
-      --replicates 3 --ns 5 --outdir "$OUTDIR" --platform CUDA --require-platform) && "
+      --replicates 3 --ns 5 --outdir "$OUTDIR" --platform CUDA --require-platform \
+      --md-stage control_validation) && "
   cmd+="$(cmd_join "$PYTHON_BIN" "$MD/analyze_md.py" --pocket "$POCKET" --outdir "$OUTDIR") && "
   cmd+="$(cmd_join "$PYTHON_BIN" "$MD/md_workflow.py" control-report --outdir "$OUTDIR")"
   launch_tmux "pcna_control5" "control5" "$cmd" \
@@ -175,7 +177,7 @@ run_benchmark() {
   local cmd
   cmd="$(cmd_join "$PYTHON_BIN" "$MD/run_md.py" --pocket "$POCKET" --run control \
       --replicates 1 --ns "$bench_ns" --equil-ns 0 --min-steps 0 \
-      --outdir "$bench_out" --platform CUDA --require-platform) && "
+      --outdir "$bench_out" --platform CUDA --require-platform --md-stage benchmark) && "
   cmd+="$(cmd_join "$PYTHON_BIN" "$MD/md_workflow.py" benchmark-report --outdir "$bench_out")"
   launch_tmux "pcna_benchmark" "benchmark" "$cmd" "Next after completion: ./md.sh status"
 }
@@ -189,13 +191,17 @@ run_analyze() {
 }
 
 run_production() {
-  "$PYTHON_BIN" "$MD/md_workflow.py" production-gate --outdir "$OUTDIR"
+  "$PYTHON_BIN" "$MD/md_workflow.py" production-gate --outdir "$OUTDIR" \
+    --authorize-run --pocket "$POCKET" --replicates 3 --ns 100
   require_deps
+  local auth="$OUTDIR/.production_authorization.json"
   local cmd
   cmd="$(cmd_join "$PYTHON_BIN" "$MD/run_md.py" --pocket "$POCKET" --run control \
-      --replicates 3 --ns 100 --outdir "$OUTDIR" --platform CUDA --require-platform) && "
+      --replicates 3 --ns 100 --outdir "$OUTDIR" --platform CUDA --require-platform \
+      --md-stage production --production-authorization "$auth") && "
   cmd+="$(cmd_join "$PYTHON_BIN" "$MD/run_md.py" --pocket "$POCKET" --run apo \
-      --replicates 3 --ns 100 --outdir "$OUTDIR" --platform CUDA --require-platform) && "
+      --replicates 3 --ns 100 --outdir "$OUTDIR" --platform CUDA --require-platform \
+      --md-stage production --production-authorization "$auth") && "
   cmd+="$(cmd_join "$PYTHON_BIN" "$MD/analyze_md.py" --pocket "$POCKET" --outdir "$OUTDIR")"
   launch_tmux "pcna_production" "production" "$cmd" "Next after completion: ./md.sh analyze"
 }

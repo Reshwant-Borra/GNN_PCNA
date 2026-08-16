@@ -11,6 +11,9 @@ exactly what to install if anything is missing.
 from __future__ import annotations
 import sys
 import importlib
+import json
+import shutil
+import subprocess
 from pathlib import Path
 
 REPO = Path(__file__).parent.parent
@@ -73,15 +76,59 @@ def main():
     check("prody",       "prody")
     print()
 
-    print("Repo data:")
+    print("MD stack:")
+    ok_openmm = check("openmm")
+    check("mdtraj")
+    check("pdbfixer")
+    check("gemmi")
+    if ok_openmm:
+        try:
+            import openmm as mm
+            platforms = [mm.Platform.getPlatform(i).getName() for i in range(mm.Platform.getNumPlatforms())]
+            gpu_requested = "--gpu" in sys.argv or "--cuda" in sys.argv
+            status = PASS if (not gpu_requested or "CUDA" in platforms) else FAIL
+            print(f"  {status}  OpenMM platforms      {platforms}")
+        except Exception as exc:
+            print(f"  {WARN}  OpenMM platforms      unavailable: {exc}")
+    print(f"  {PASS if shutil.which('tmux') else WARN}  tmux                  "
+          f"{shutil.which('tmux') or 'not installed; required by md.sh launchers'}")
+    print()
+
+    print("Current repository artifacts:")
     n_pdb = len(list((REPO / "data" / "raw").glob("*.pdb")))
-    n_pt  = len(list((REPO / "data" / "graphs").glob("*.pt")))
-    manifest = REPO / "data" / "manifests" / "pdb_checksums.json"
-    ckpt_v3f = REPO / "checkpoints" / "pcna" / "best_pcna_v3_fixed.ckpt"
-    print(f"  {'[PASS]' if n_pdb >= 59 else '[FAIL]'}  PDB files              {n_pdb} in data/raw/  (need >=59)")
-    print(f"  {'[PASS]' if n_pt  >= 80 else '[FAIL]'}  Graph tensors          {n_pt} in data/graphs/  (need >=80)")
-    print(f"  {'[PASS]' if manifest.exists() else '[FAIL]'}  Checksum manifest      {'present' if manifest.exists() else 'MISSING'}")
-    print(f"  {'[PASS]' if ckpt_v3f.exists() else '[FAIL]'}  Fixed checkpoint       {'present' if ckpt_v3f.exists() else 'MISSING'}")
+    n_graph_xl = len(list((REPO / "data" / "graphs_xl").glob("*.pt")))
+    gnn_registry = REPO / "artifacts" / "provenance" / "AUGUST_THREE_SEED_CHECKPOINT_REGISTRY.json"
+    graph_manifest = REPO / "artifacts" / "provenance" / "GRAPH_LINEAGE_520_MANIFEST.json"
+    handoff = REPO / "md_validation_4070" / "pockets" / "final_consensus_1w60_20260815.json"
+    protocol = REPO / "md_validation_4070" / "FROZEN_MD_ANALYSIS_PROTOCOL.json"
+    mdsh = REPO / "md.sh"
+    expected_ckpts = [
+        REPO / "artifacts" / "go_prep" / f"seed_{seed}" / "best.ckpt"
+        for seed in (42, 43, 44)
+    ]
+    print(f"  {PASS if n_pdb >= 7 else FAIL}  PCNA raw PDBs          {n_pdb} in data/raw/")
+    print(f"  {PASS if all(p.exists() for p in expected_ckpts) else FAIL}  Frozen checkpoints    "
+          f"{sum(p.exists() for p in expected_ckpts)}/3 present")
+    print(f"  {PASS if gnn_registry.exists() else FAIL}  Checkpoint registry  "
+          f"{'present' if gnn_registry.exists() else 'MISSING'}")
+    print(f"  {PASS if handoff.exists() else FAIL}  Frozen handoff       "
+          f"{'present' if handoff.exists() else 'MISSING'}")
+    print(f"  {PASS if protocol.exists() else FAIL}  Frozen MD protocol   "
+          f"{'present' if protocol.exists() else 'MISSING'}")
+    print(f"  {PASS if mdsh.exists() else FAIL}  Canonical launcher   "
+          f"{'present' if mdsh.exists() else 'MISSING'}")
+    print(f"  {PASS if graph_manifest.exists() else FAIL}  Graph lineage       "
+          f"{'present' if graph_manifest.exists() else 'MISSING'}")
+    print(f"  {PASS if n_graph_xl >= 55 else WARN}  Local 520-dim graphs  "
+          f"{n_graph_xl} in data/graphs_xl/ (55 required for full split validation)")
+    if graph_manifest.exists():
+        proc = subprocess.run(
+            [sys.executable, str(REPO / "scripts" / "verify_graph_lineage.py"), "--allow-missing"],
+            cwd=REPO, text=True, capture_output=True, timeout=120,
+        )
+        status = PASS if proc.returncode == 0 else WARN
+        print(f"  {status}  Graph lineage check   "
+              f"{'available/retrievable' if proc.returncode == 0 else 'see verify_graph_lineage.py'}")
     print()
 
     # Summary and fix instructions
@@ -103,7 +150,12 @@ def main():
     if not ok_numpy or not ok_scipy or not ok_bio or not ok_sklearn:
         issues.append((
             "Install remaining dependencies",
-            "pip install -r requirements.txt"
+            "pip install numpy scipy biopython scikit-learn pandas matplotlib requests beautifulsoup4"
+        ))
+    if not ok_openmm:
+        issues.append((
+            "Install the MD environment",
+            "conda env create -f md_validation_4070/environment.yml && conda activate pcna-md-4070"
         ))
 
     if issues:
@@ -118,9 +170,9 @@ def main():
     else:
         print("=" * 55)
         print("  All checks passed. Ready to run:")
-        print("    python scripts/aoh_gate_check.py")
-        print("    python scripts/run_test_eval.py")
-        print("    streamlit run src/ui/app.py")
+        print("    python3 scripts/verify_graph_lineage.py --retrieve-from-origin")
+        print("    python3 -m pytest -q")
+        print("    ./md.sh smoke")
         print("=" * 55)
 
 if __name__ == "__main__":

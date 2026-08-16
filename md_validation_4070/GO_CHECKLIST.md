@@ -157,8 +157,8 @@ export tool refuses without one, and refuses governance-override text.
 ## Stage 5 — MD preparation smoke test
 
 ```bash
-cd md_validation_4070
-python run_md.py --pocket cand_A_2026-08 --run control --replicates 1 --ns 0.05 --equil-ns 0.01
+cd <repo-root>
+./md.sh smoke
 ```
 
 **Pass:** prep prints the biological assembly with **exactly 3 PCNA chains**, a non-zero
@@ -175,20 +175,19 @@ python run_md.py --pocket cand_A_2026-08 --run control --replicates 1 --ns 0.05 
 ## Stage 6 — MD production
 
 ```bash
-python run_md.py --pocket cand_A_2026-08 --run control --replicates 3 --ns 100   # control FIRST
-python run_md.py --pocket cand_A_2026-08 --run apo     --replicates 3 --ns 100
+./md.sh production
 ```
 
-Run the **control first**. If the control cannot show opening, the apo result cannot be a
-negative — only "inconclusive". Seeds are recorded for integrator and barostat; production ns
-excludes equilibration; restart does not duplicate frames.
+Production is blocked unless smoke, control-first validation, Gate-6 approval,
+CUDA enforcement, and `md_workflow.py production-gate` all pass. Direct
+production-scale `run_md.py` commands are not supported.
 
 ---
 
 ## Stage 7 — analysis and the positive-control gate
 
 ```bash
-python analyze_md.py --pocket cand_A_2026-08
+./md.sh analyze
 ```
 
 **Pass:** `[parity]` reports apo and control measured over an **identical atom count**, and

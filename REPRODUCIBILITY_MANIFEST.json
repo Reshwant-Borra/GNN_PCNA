@@ -3,14 +3,14 @@
   "created_utc": "2026-08-16T00:00:00Z",
   "repository_head_at_start": "a3103ec5aaab667790e685615f064a3065d11f3d",
   "branch_at_start": "final-consolidation-audit",
-  "historical_result_provenance": "FAIL",
-  "forward_pipeline_reproducibility": "PARTIAL",
+  "historical_result_provenance": "PASS_WITH_NUMERICAL_TOLERANCE_FOR_D9EFD_SCORE_ARTIFACT; FAIL_FOR_AUGUST_THREE_SEED_MD_HANDOFF",
+  "forward_pipeline_reproducibility": "FAIL_FOR_FINAL_GNN_HANDOFF_UNTIL_LINEAGE_FORK_RESOLVED",
   "hashes": {
     "split_manifest": "828fd6d4e694cc6e258a2de8e63c4130876a9c7897dd14ccc2db15a3e6c1f06a",
     "graph_manifest": "69744b548e812697ba9015c6563ed526f1af2e915b1595badb1dd47fd1b4c64f",
-    "label_manifest": "MISSING",
+    "label_manifest": "MISSING_STANDALONE",
     "gnn_architecture": "2268d104af83dd19c1bec50d4ada7c4d6b46a73845e939fc39a2b060bea6d0a8",
-    "gnn_model_config": "MISSING_EXPLICIT_CONFIG_FILE",
+    "gnn_model_config": "e4ab797218e478a74f759fe46a58aadf400409a75d5a9a5875deca3dc74dab24",
     "pretrain_checkpoint": "1438638c912193002d1feea43035c0af4177920f95168758c76b3c7f989fa93f",
     "seed_42_checkpoint": "03d01eba42eb7f6da01c0147dea434b1e1797bd2302e8a178d6bbd9b19526ce5",
     "seed_43_checkpoint": "7f145d6f54d03744f71c0224df4f170ad4aab388387e242234ebffda1acae17b",
@@ -21,35 +21,44 @@
     "md_protocol_code": "95d41539bdc523a99698e915d79ffedb2d973afb315249fe9d6865599d9a59bb",
     "analysis_protocol": "587f27cf2e402fe50b264d98d3d60fbbdcc8f9095025b2a89d12c7aebd633e56",
     "analysis_code": "b6c23f1d19d7c76b05ee8fe955f4d3241224abb6beb93ab04e00b9ac62054312",
-    "launcher": "5219395a2927fa53f0712e79873977dc6949ff4fe15a0b392c4bb8e3c484c7c8"
+    "launcher": "5219395a2927fa53f0712e79873977dc6949ff4fe15a0b392c4bb8e3c484c7c8",
+    "split_manifest_crlf_recorded_in_training_meta": "a88bd6e6885aec63cb47077eab779fa1cbc5e8a6a29b27e02faa61fdcb6d3ee7",
+    "derived_label_manifest_from_graphs": "5fbe5c79648641429c2ae70661bfec069b04d528261825fbc9cf0f96702f9d4c",
+    "feature_schema": "360189099c521ef2d05576a998bd44a247bc36063e1318987d1181e3e634a285",
+    "recovered_d9efd_checkpoint": "0114999ea9237b44f114c5a23a8529cb6939e80450339d71c07178ccd2d3addf",
+    "recovered_d9efd_checkpoint_meta": "e6a3e7fe747fe39081099682f7547e81d4dff599f15f8cfc45f9ba5f9f795154",
+    "frozen_output_identity_test": "0c26571039296216af52ac1bf38036aab13d59510797e2cc53749a05c4337a13",
+    "frozen_gnn_provenance": "9f85181f6bb6475e27348c71711cdaf653cdbbb5373285dcf28ca304746d1da0",
+    "label_chain_bug_impact_json": "43eeb5e2732e6b8de399bc564d48a29ba97961259eecbbcd15fb9c04c96ab001",
+    "label_chain_bug_impact_md": "712fc38eae9b5d677de02db67c956ed4d9b686d3510a0833623043af7e26fc52"
   },
   "external_or_ignored_artifacts": [
     {
-      "path": "checkpoints/pcna/best_pcna_v3.ckpt",
-      "sha256": "1438638c912193002d1feea43035c0af4177920f95168758c76b3c7f989fa93f",
+      "path": "checkpoints/clean_split/xl_esm_full/seed_42/best.ckpt",
+      "sha256": "0114999ea9237b44f114c5a23a8529cb6939e80450339d71c07178ccd2d3addf",
       "bytes": 53485974,
-      "status": "IGNORED_LOCAL_ONLY",
-      "retrieval_location": "MISSING"
+      "status": "RECOVERED_ORIGINAL_ON_REMOTE_BRANCH",
+      "retrieval_location": "git clone --branch pcna-xl-esm-full-final-framing --single-branch https://github.com/Reshwant-Borra/GNN_PCNA.git"
     },
     {
       "path": "artifacts/go_prep/seed_42/best.ckpt",
       "sha256": "03d01eba42eb7f6da01c0147dea434b1e1797bd2302e8a178d6bbd9b19526ce5",
       "bytes": 53485974,
-      "status": "IGNORED_LOCAL_ONLY",
+      "status": "UNVERIFIED_LOCAL_ONLY_FOR_AUGUST_HANDOFF",
       "retrieval_location": "MISSING"
     },
     {
       "path": "artifacts/go_prep/seed_43/best.ckpt",
       "sha256": "7f145d6f54d03744f71c0224df4f170ad4aab388387e242234ebffda1acae17b",
       "bytes": 53485974,
-      "status": "IGNORED_LOCAL_ONLY",
+      "status": "UNVERIFIED_LOCAL_ONLY_FOR_AUGUST_HANDOFF",
       "retrieval_location": "MISSING"
     },
     {
       "path": "artifacts/go_prep/seed_44/best.ckpt",
       "sha256": "0a739dec47248651499942207b82139e5dea8bebfafe5ed50aabcbbdfd6aa3f6",
       "bytes": 53485974,
-      "status": "IGNORED_LOCAL_ONLY",
+      "status": "UNVERIFIED_LOCAL_ONLY_FOR_AUGUST_HANDOFF",
       "retrieval_location": "MISSING"
     }
   ],
@@ -58,5 +67,17 @@
     "python3 -m pytest tests/test_md_launcher_and_control_gate.py tests/test_label_alignment.py -q",
     "./md.sh smoke"
   ],
-  "production_status": "BLOCKED_UNTIL_SMOKE_CONTROL_GATE_GATE6_AND_GNN_PROVENANCE_BLOCKERS_ARE_RESOLVED"
+  "production_status": "BLOCKED_BY_UNRESOLVED_AUGUST_GNN_HANDOFF_LINEAGE_AND_GPU_GATES",
+  "repository_head_at_recovery_start": "0fedaa3bf2bf6e9c736167f105b8927ed4ba1b45",
+  "branch_at_recovery_start": "final-consolidation-audit",
+  "gnn_recovery_verification": {
+    "fresh_clone_checked": true,
+    "fresh_clone_head": "d7cf76d674bced192b3c9d2b4f7f4fbf7ac3a228",
+    "fresh_clone_checkpoint_sha256": "0114999ea9237b44f114c5a23a8529cb6939e80450339d71c07178ccd2d3addf",
+    "fresh_clone_summary_sha256": "d9efd97400f24cb1cd9ab55cf112c174f2a610e405714758f688cd4944cad193",
+    "inference_rerun_status": "PASS_WITH_NUMERICAL_TOLERANCE_FOR_D9EFD_ONLY",
+    "max_abs_score_difference": 1.0000000000287557e-06,
+    "mean_abs_score_difference": 2.5046666054651342e-08,
+    "top_residue_mismatches": 0
+  }
 }

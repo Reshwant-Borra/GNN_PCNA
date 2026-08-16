@@ -1,68 +1,76 @@
 {
   "artifact_type": "FROZEN_GNN_PROVENANCE",
   "created_utc": "2026-08-16T00:00:00Z",
-  "historical_recovery_policy": "Recovered files are distinguished from new reconciliation records. Missing historical artifacts are marked MISSING.",
+  "updated_by_task": "final frozen-GNN provenance recovery",
+  "historical_recovery_policy": "Every artifact is classified as RECOVERED_ORIGINAL, DERIVED_FROM_ORIGINAL, NEWLY_RECONSTRUCTED, or UNVERIFIED. Newly reconstructed records are not represented as historical artifacts.",
   "conclusions": {
-    "HISTORICAL_RESULT_PROVENANCE": "FAIL",
-    "FORWARD_PIPELINE_REPRODUCIBILITY": "PARTIAL",
-    "reason": "The repository now contains recovered split and local score/handoff artifacts, but the frozen 520-dim checkpoint chain is not cryptographically tied to the frozen August score artifact from an independently committed checkpoint bundle or durable external location."
+    "HISTORICAL_RESULT_PROVENANCE_FOR_D9EFD_SCORE_ARTIFACT": "PASS_WITH_NUMERICAL_TOLERANCE",
+    "HISTORICAL_RESULT_PROVENANCE_FOR_AUGUST_THREE_SEED_MD_HANDOFF": "FAIL",
+    "FORWARD_PIPELINE_REPRODUCIBILITY": "FAIL_FOR_FINAL_HANDOFF_UNTIL_LINEAGE_FORK_RESOLVED",
+    "overall_frozen_gnn_provenance_verdict": "NO-GO",
+    "reason": "The d9efd score artifact is reproducibly tied to the recovered historical XL branch and seed-42 checkpoint. The active August MD handoff is a separate three-seed lineage using local-only checkpoints and is not cryptographically tied to d9efd or independently reproduced."
   },
-  "frozen_output_identity_test": {
-    "required": true,
-    "status": "FAIL",
+  "recovered_d9efd_score_lineage": {
+    "classification": "RECOVERED_ORIGINAL",
+    "source_branch": "origin/pcna-xl-esm-full-final-framing",
+    "source_commit": "d7cf76d674bced192b3c9d2b4f7f4fbf7ac3a228",
+    "checkpoint": {
+      "path": "checkpoints/clean_split/xl_esm_full/seed_42/best.ckpt",
+      "sha256": "0114999ea9237b44f114c5a23a8529cb6939e80450339d71c07178ccd2d3addf",
+      "bytes": 53485974,
+      "classification": "RECOVERED_ORIGINAL",
+      "durable_retrieval": "git clone --branch pcna-xl-esm-full-final-framing --single-branch https://github.com/Reshwant-Borra/GNN_PCNA.git"
+    },
+    "checkpoint_meta": {
+      "path": "checkpoints/clean_split/xl_esm_full/seed_42/best_meta.json",
+      "sha256": "e6a3e7fe747fe39081099682f7547e81d4dff599f15f8cfc45f9ba5f9f795154",
+      "classification": "RECOVERED_ORIGINAL"
+    },
+    "graph_manifest_hash": "69744b548e812697ba9015c6563ed526f1af2e915b1595badb1dd47fd1b4c64f",
+    "split_manifest_sha256_lf": "828fd6d4e694cc6e258a2de8e63c4130876a9c7897dd14ccc2db15a3e6c1f06a",
+    "split_manifest_sha256_crlf_recorded_in_meta": "a88bd6e6885aec63cb47077eab779fa1cbc5e8a6a29b27e02faa61fdcb6d3ee7",
+    "label_manifest": "MISSING_STANDALONE; labels embedded in graph tensors and summarized by derived manifest",
+    "derived_label_manifest": {
+      "path": "artifacts/provenance/FROZEN_LABEL_MANIFEST_DERIVED_FROM_GRAPHS.json",
+      "sha256": "5fbe5c79648641429c2ae70661bfec069b04d528261825fbc9cf0f96702f9d4c",
+      "classification": "DERIVED_FROM_ORIGINAL"
+    },
+    "feature_schema": {
+      "path": "artifacts/provenance/FROZEN_FEATURE_SCHEMA.json",
+      "sha256": "360189099c521ef2d05576a998bd44a247bc36063e1318987d1181e3e634a285",
+      "classification": "DERIVED_FROM_ORIGINAL_CODE"
+    },
+    "model_config": {
+      "path": "artifacts/provenance/FROZEN_MODEL_CONFIG.json",
+      "sha256": "e4ab797218e478a74f759fe46a58aadf400409a75d5a9a5875deca3dc74dab24",
+      "classification": "RECOVERED_ORIGINAL_PLUS_CHECKPOINT_INFERRED_FIELDS"
+    },
+    "training_metrics": {
+      "path": "data/results/clean_split_evaluation_xl_esm_full.json",
+      "sha256": "cc375b56a0f1bf1fdd3710baaecef1fcec78ecadf0c8cfa402cbb3f66da9f2bd",
+      "classification": "RECOVERED_ORIGINAL"
+    },
+    "inference_script": {
+      "path": "scripts/regenerate_pcna_xl_esm_full_reports.py",
+      "sha256": "96d03ac550d3d336c0fb8473921dc0e252175ddf1b4e5596c42185b366af8fef",
+      "classification": "RECOVERED_ORIGINAL"
+    },
     "frozen_score_artifact": {
       "path": "results/per_structure/summary_table.csv",
-      "sha256": "d9efd97400f24cb1cd9ab55cf112c174f2a610e405714758f688cd4944cad193"
+      "sha256": "d9efd97400f24cb1cd9ab55cf112c174f2a610e405714758f688cd4944cad193",
+      "classification": "RECOVERED_ORIGINAL"
     },
-    "frozen_pcna_handoff": {
+    "frozen_output_identity_test": {
+      "path": "artifacts/provenance/FROZEN_OUTPUT_IDENTITY_TEST.json",
+      "sha256": "0c26571039296216af52ac1bf38036aab13d59510797e2cc53749a05c4337a13",
+      "status": "PASS_WITH_NUMERICAL_TOLERANCE"
+    }
+  },
+  "unresolved_august_three_seed_handoff_lineage": {
+    "classification": "UNVERIFIED",
+    "handoff": {
       "path": "artifacts/pre_md_independent_extraction_20260815/final_consensus_pocket_handoff.json",
       "sha256": "da19358def0a68e8ce727b9761e028fc4ed27140a6bbe6738a51b76d765f720e"
-    },
-    "deterministic_reproduction_from_committed_tree": "NOT_DEMONSTRATED"
-  },
-  "model": {
-    "architecture_file": {
-      "path": "src/models/cryptic_gnn.py",
-      "sha256": "2268d104af83dd19c1bec50d4ada7c4d6b46a73845e939fc39a2b060bea6d0a8"
-    },
-    "model_class": "PocketGNNXL",
-    "expected_feature_dim": 520,
-    "feature_definition": "40 hand-crafted graph features plus 480-dim ESM2 t12 embeddings",
-    "model_config_hash": "MISSING_EXPLICIT_CONFIG_FILE"
-  },
-  "graph_and_split": {
-    "graph_generation_code": {
-      "path": "scripts/build_graphs_xl.py",
-      "sha256": "a6d327eb674d41b12deab0e80473d6fbd61ebcd682b401bdab8c1e50bfdd9151"
-    },
-    "esm_generation_code": {
-      "path": "scripts/build_esm_features.py",
-      "sha256": "ec8d48eb8fd4a3cf2e3badbdf9291dd01c1d29dbca4e50fc5f8b28ad9eda43c5"
-    },
-    "graph_manifest_hash_from_split_integrity_report": "69744b548e812697ba9015c6563ed526f1af2e915b1595badb1dd47fd1b4c64f",
-    "graph_manifest_file": "MISSING",
-    "split_manifest": {
-      "path": "data/splits/cryptosite_homology30_split.json",
-      "sha256": "828fd6d4e694cc6e258a2de8e63c4130876a9c7897dd14ccc2db15a3e6c1f06a",
-      "source": "RECOVERED_ORIGINAL_FROM_GIT_HISTORY",
-      "source_commit": "d7cf76d674bced192b3c9d2b4f7f4fbf7ac3a228"
-    },
-    "training_recorded_split_hash": "a88bd6e6885aec63cb47077eab779fa1cbc5e8a6a29b27e02faa61fdcb6d3ee7",
-    "split_hash_note": "Recorded training hash does not equal raw file SHA-256; original hash procedure or exact file canonicalization is MISSING."
-  },
-  "labeling": {
-    "label_generation_code": "MISSING_FOR_520_DIM_LINEAGE",
-    "label_manifest_hash": "MISSING",
-    "historical_25_dim_label_code": "archive/historical_desktop_gnn_pcna_202605_phase2_phase4/src/phase3_data/labels.py",
-    "historical_25_dim_composite_chain_parser_status": "PRESENT_AND_SPLITS_A-B"
-  },
-  "training": {
-    "pretrain_checkpoint": {
-      "path": "checkpoints/pcna/best_pcna_v3.ckpt",
-      "sha256": "1438638c912193002d1feea43035c0af4177920f95168758c76b3c7f989fa93f",
-      "bytes": 53485974,
-      "git_status": "IGNORED_LOCAL_ONLY",
-      "durable_retrieval": "MISSING"
     },
     "seed_checkpoints": [
       {
@@ -70,50 +78,34 @@
         "path": "artifacts/go_prep/seed_42/best.ckpt",
         "sha256": "03d01eba42eb7f6da01c0147dea434b1e1797bd2302e8a178d6bbd9b19526ce5",
         "bytes": 53485974,
-        "git_status": "IGNORED_LOCAL_ONLY"
+        "classification": "UNVERIFIED_LOCAL_ONLY",
+        "durable_retrieval": "MISSING"
       },
       {
         "seed": 43,
         "path": "artifacts/go_prep/seed_43/best.ckpt",
         "sha256": "7f145d6f54d03744f71c0224df4f170ad4aab388387e242234ebffda1acae17b",
         "bytes": 53485974,
-        "git_status": "IGNORED_LOCAL_ONLY"
+        "classification": "UNVERIFIED_LOCAL_ONLY",
+        "durable_retrieval": "MISSING"
       },
       {
         "seed": 44,
         "path": "artifacts/go_prep/seed_44/best.ckpt",
         "sha256": "0a739dec47248651499942207b82139e5dea8bebfafe5ed50aabcbbdfd6aa3f6",
         "bytes": 53485974,
-        "git_status": "IGNORED_LOCAL_ONLY"
+        "classification": "UNVERIFIED_LOCAL_ONLY",
+        "durable_retrieval": "MISSING"
       }
     ],
-    "training_config": "PARTIAL_IN_DATA_RESULTS_CLEAN_SPLIT_EVALUATION",
-    "training_metrics": {
-      "path": "data/results/clean_split_evaluation_xl_esm_full.json",
-      "sha256": "cc375b56a0f1bf1fdd3710baaecef1fcec78ecadf0c8cfa402cbb3f66da9f2bd"
-    }
-  },
-  "inference": {
-    "script": {
-      "path": "scripts/run_v3_inference.py",
-      "sha256": "423a2ee71db3863b8929ea94161d35db82f690ddd3a546731660d34d272faa01"
+    "pretrain_checkpoint": {
+      "path": "checkpoints/pcna/best_pcna_v3.ckpt",
+      "sha256": "1438638c912193002d1feea43035c0af4177920f95168758c76b3c7f989fa93f",
+      "classification": "RECOVERED_IN_HISTORICAL_BRANCH_BUT_SUPERSEDED_META_AND_NOT_D9EFD_IDENTITY_CHECKPOINT"
     },
-    "threshold": 0.7001100182533264,
-    "score_artifact_hash": "d9efd97400f24cb1cd9ab55cf112c174f2a610e405714758f688cd4944cad193",
-    "mapping_to_final_consensus": {
-      "frozen_extraction_policy": {
-        "path": "artifacts/diagnostics/seed_stability_rank_fraction_20260815/frozen_extraction_method.json",
-        "sha256": "f353a2fb9eb6fb021493697c0e6daff5ae8802c61eb67fcc504ce3647fcea836"
-      },
-      "consensus": {
-        "path": "artifacts/diagnostics/seed_stability_rank_fraction_20260815/consensus_1W60_validation_mcc_rank_fraction.json",
-        "sha256": "9410d044d4274ce8c33596c403adda764b28dc46e95c1efe5bf2805296bf5614"
-      }
-    }
+    "contradiction": "The handoff says it derives from a three-seed consensus, while the reproducible d9efd artifact derives from a single clean-split seed-42 checkpoint on the historical XL branch."
   },
   "remaining_blockers": [
-    "Publish or commit durable checkpoint package retrieval for the 520-dim seed checkpoints.",
-    "Provide the exact graph manifest file and label manifest/hash used for 520-dim training.",
-    "Demonstrate deterministic reproduction or cryptographic identity from recovered checkpoints to the frozen score artifact."
+    "Resolve the lineage fork for the August MD handoff by recovering/publishing the three-seed checkpoint lineage and reproducing its frozen handoff artifact, or explicitly refreeze the MD handoff to the recovered d9efd lineage."
   ]
 }

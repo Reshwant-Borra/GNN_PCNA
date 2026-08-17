@@ -22,6 +22,40 @@ Authorizes **only** `./md.sh smoke`. Does **not** authorize control5, benchmark,
 
 ---
 
+## Addendum — 2026-08-17: §3.7 is retracted, the pretrain checkpoint exists
+
+**§3.7 below states that `checkpoints/pcna/best_pcna_v3.ckpt` is unrecoverable. That was wrong, and this addendum supersedes it.**
+
+The file was found during workspace consolidation in a local worktree (`~/gnn_xl_worktree`, branch `graph-leakage-fix`) that the original audit did not inspect — it audited a clean clone, which is the correct method for a reproducibility audit, but it meant a local-only copy was invisible. Verified:
+
+```
+checkpoints/pcna/best_pcna_v3.ckpt
+sha256   1438638c912193002d1feea43035c0af4177920f95168758c76b3c7f989fa93f
+matches  REPRODUCIBILITY_MANIFEST.json -> hashes.pretrain_checkpoint   (exact)
+size     53,485,974 bytes
+```
+
+It is now at the path `scripts/finetune_v3_fixed.py:51` expects (`CKPT_V3 = REPO_ROOT/checkpoints/pcna/best_pcna_v3.ckpt`). With it present, the two tests that commit `ce2e02b` skips both **run and pass**, including `test_two_seeded_retrains_are_bitwise_identical`, which performs two real short trainings and confirms bitwise-identical checkpoints (245 s). No revert of `ce2e02b` is needed — its skip is correctly conditional on the file existing.
+
+Also recovered in the same worktree: `checkpoints/clean_split/xl_esm_full/seed_42/best.ckpt`, sha256 `0114999e…`, matching the `d9efd` clean-split entry already recorded in the manifest.
+
+**What this does and does not change.** Retraining determinism is now *demonstrated* rather than untestable. But the checkpoint is git-ignored (`*.ckpt`) and has no durable remote, so it exists on one machine. **The retraining reproducibility gap is closeable, not yet closed** — publishing it the way the clean-split checkpoint was published (a tracked branch, recorded in the manifest with a retrieval command) would close it. `REPRODUCIBILITY_MANIFEST.json -> external_or_ignored_artifacts` now records it as `RECOVERED_LOCALLY_HASH_VERIFIED_NOT_YET_DURABLY_RETRIEVABLE`.
+
+### Two portability bugs in the new repair code
+
+Both are Windows-only and pass on Linux, so neither affects the RTX 4070 run. The second is worth fixing anyway.
+
+| Test | Cause |
+|---|---|
+| `test_scientific_guardrails.py::test_documented_choice_is_not_bug…` | `research_os/agents/context_provenance.py:355` tests `"decisions/" in h` while `hits` holds `str(p.relative_to(root))` — backslashes on Windows. Pre-existing. |
+| `test_cloud_result_bundle.py::test_manifest_hashes_every_large_cloud_resident_source` | `BUNDLE_MANIFEST.json` records `1W60\rep01\production.dcd`; the test asserts `8GLA/rep01/production.dcd`. New in `b16cb43`. |
+
+The bundle-manifest one matters beyond the test: that manifest is a provenance artifact designed to travel from the GPU box to another machine, and path-keyed hash lookups will not match across platforms if the separator follows the producing OS. Emitting POSIX-style relative paths would make it platform-stable.
+
+Current suite on Windows at `4de7a5d` with the checkpoint restored: **315 passed, 2 failed (both above), 2 skipped.**
+
+---
+
 ## 1. What the repair pass genuinely fixed
 
 Each of these was re-tested by execution, not accepted from the repair report.
@@ -218,7 +252,9 @@ Also note the equilibration call sits outside the try/except that wraps producti
 
 ---
 
-### 3.7 Retraining is not reproducible from a clean clone — **blocks end-to-end reproducibility claims**
+### 3.7 Retraining is not reproducible from a clean clone — **RETRACTED, see the 2026-08-17 addendum above**
+
+> **Correction.** The checkpoint described below as absent was located on 2026-08-17 and hash-verified against the manifest. The retraining tests now run and pass. The section is left in place unedited for the record; read the addendum for what actually holds.
 
 `checkpoints/pcna/best_pcna_v3.ckpt` — the pretrain base that `finetune_v3_fixed.py` fine-tunes from — is absent, has no retrieval location in `REPRODUCIBILITY_MANIFEST.json` (unlike the seed-42 clean-split checkpoint, which does), and its recorded provenance path is a personal machine. It causes both real test failures.
 

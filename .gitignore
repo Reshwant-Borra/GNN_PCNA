@@ -106,3 +106,7 @@ md_validation_4070/logs/
 
 # Gate-6 decision is created on the cloud instance by a human, never committed
 md_validation_4070/GATE6_DECISION.json
+
+# Local checkpoint working directory (52 MB binaries + meta sidecars).
+# Frozen provenance checkpoints live under artifacts/go_prep/ and ARE tracked.
+checkpoints/

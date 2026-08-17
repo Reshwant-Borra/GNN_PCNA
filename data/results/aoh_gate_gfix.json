@@ -1,0 +1,15 @@
+{
+  "checkpoint": "checkpoints\\pcna_gfix\\best.ckpt",
+  "model": "xl",
+  "n_residues_total": 952,
+  "n_aoh_labeled": 48,
+  "aoh_mean_score": 0.3516,
+  "aoh_median_score": 0.3327,
+  "aoh_min_score": 0.2963,
+  "aoh_max_score": 0.5394,
+  "rank_of_best_aoh_residue": 8,
+  "gate_threshold": 0.7,
+  "gate_pass": false,
+  "verdict": "FAIL (mean 0.3516 < 0.7)",
+  "command": "python scripts/aoh_gate_check.py --ckpt checkpoints\\pcna_gfix\\best.ckpt --model xl"
+}

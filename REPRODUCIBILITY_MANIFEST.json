@@ -22,6 +22,13 @@
       "retrieval_location": "git clone --branch pcna-xl-esm-full-final-framing --single-branch https://github.com/Reshwant-Borra/GNN_PCNA.git",
       "sha256": "0114999ea9237b44f114c5a23a8529cb6939e80450339d71c07178ccd2d3addf",
       "status": "RECOVERED_ORIGINAL_ON_REMOTE_BRANCH"
+    },
+    {
+      "bytes": 53485974,
+      "path": "checkpoints/pcna/best_pcna_v3.ckpt",
+      "retrieval_location": "NONE YET. Located 2026-08-17 in a local worktree (~/gnn_xl_worktree) during workspace consolidation and hash-verified against hashes.pretrain_checkpoint. Present in the C:/GNN working copy only; git-ignored (*.ckpt) with no durable remote. Publishing it the way the clean-split checkpoint was published would close the retraining reproducibility gap.",
+      "sha256": "1438638c912193002d1feea43035c0af4177920f95168758c76b3c7f989fa93f",
+      "status": "RECOVERED_LOCALLY_HASH_VERIFIED_NOT_YET_DURABLY_RETRIEVABLE"
     }
   ],
   "forward_pipeline_reproducibility": "PASS_AFTER_TRACKED_AUGUST_CHECKPOINT_PACKAGE_AND_VALIDATION",

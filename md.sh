@@ -13,6 +13,8 @@ Usage:
   ./md.sh precheck    # environment + GPU + protocol + gate checks; runs NO simulation
   ./md.sh smoke       # 0.1 ns 8GLA control smoke in tmux
   ./md.sh control5    # 3 x 5 ns 8GLA control-first validation in tmux
+  ./md.sh control20   # prospectively amended continuation of the SAME 3 replicates to
+                      # 20 ns TOTAL production each; never approves Gate 6 or production
   ./md.sh benchmark   # short real-system CUDA benchmark in tmux (PERFORMANCE_ONLY)
   ./md.sh production  # gated 3 x 100 ns control + 3 x 100 ns apo/candidate
   ./md.sh analyze     # run frozen analyzer ON THIS MACHINE, over local trajectories
@@ -176,6 +178,51 @@ run_control5() {
     "Next after PASS: Gate-6 human review. Production remains blocked until approval is recorded."
 }
 
+# Control-20: the prospectively amended continuation of the completed 3 x 5 ns 8GLA control.
+#
+# --ns 20 is TOTAL production per replicate, so each existing 5 ns replicate adds 15 ns by
+# resuming from its own checkpoint and appending to its own production.dcd. This command
+# neither approves Gate 6 nor launches production; ./md.sh production remains the only path
+# to the frozen 3 x 100 ns contract and still requires Gate-6 human approval.
+CONTROL20_OUTDIR="${PCNA_MD_CONTROL20_OUTDIR:-$MD/outputs_control5}"
+CONTROL20_AMENDMENT="$MD/CONTROL20_PROSPECTIVE_AMENDMENT_20260817.md"
+
+run_control20() {
+  # The amendment and the prior 5 ns state are checked FIRST, so the reason a Control-20
+  # launch is refused is always the scientific one, not a missing local tool.
+  if [[ ! -s "$CONTROL20_AMENDMENT" ]]; then
+    echo "CONTROL-20 BLOCKED: prospective amendment not found:" >&2
+    echo "  $CONTROL20_AMENDMENT" >&2
+    echo "The continuation past 5 ns is authorized only by that pre-recorded amendment." >&2
+    exit 1
+  fi
+  if [[ ! -d "$CONTROL20_OUTDIR/8GLA" ]]; then
+    echo "CONTROL-20 BLOCKED: no existing control trajectories at $CONTROL20_OUTDIR/8GLA." >&2
+    echo "control_extension continues the SAME 3 replicates; it cannot start fresh ones." >&2
+    exit 1
+  fi
+
+  require_tmux
+  require_deps
+  require_analysis_deps
+  require_cuda
+
+  echo "=== CONTROL-20 PREFLIGHT (no simulation) ==="
+  "$PYTHON_BIN" "$MD/run_md.py" --pocket "$POCKET" --run control \
+    --replicates 3 --ns 20 --outdir "$CONTROL20_OUTDIR" \
+    --platform CUDA --require-platform --md-stage control_extension \
+    --control-extension-preflight-only
+
+  local cmd
+  cmd="$(cmd_join "$PYTHON_BIN" "$MD/run_md.py" --pocket "$POCKET" --run control \
+      --replicates 3 --ns 20 --outdir "$CONTROL20_OUTDIR" --platform CUDA --require-platform \
+      --md-stage control_extension) && "
+  cmd+="$(cmd_join "$PYTHON_BIN" "$MD/analyze_md.py" --pocket "$POCKET" --outdir "$CONTROL20_OUTDIR") && "
+  cmd+="$(cmd_join "$PYTHON_BIN" "$MD/md_workflow.py" control-report --outdir "$CONTROL20_OUTDIR")"
+  launch_tmux "pcna_control20" "control20" "$cmd" \
+    "Gate 6 is NOT approved by this run and production is NOT launched. Next: ./md.sh status, then human Gate-6 review."
+}
+
 run_benchmark() {
   require_tmux
   require_deps
@@ -271,6 +318,7 @@ case "${1:-}" in
   gate6) "$PYTHON_BIN" "$MD/md_workflow.py" gate6-status ;;
   estimates) shift || true; "$PYTHON_BIN" "$MD/md_workflow.py" estimates --outdir "$OUTDIR" "$@" ;;
   control5) run_control5 ;;
+  control20) run_control20 ;;
   benchmark) run_benchmark ;;
   production) run_production ;;
   analyze) run_analyze ;;

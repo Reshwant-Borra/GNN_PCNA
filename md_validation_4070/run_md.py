@@ -293,9 +293,81 @@ STAGE_LIMITS = {
     "benchmark": {"max_replicates": 1, "max_ns_per_replicate": 1.0, "max_total_ns": 1.0},
     "control_validation": {"max_replicates": 3, "max_ns_per_replicate": 5.0, "max_total_ns": 15.0},
     "diagnostic": {"max_replicates": 2, "max_ns_per_replicate": 2.0, "max_total_ns": 4.0},
+    # control_extension is NOT a general envelope. Its ceilings below are only the outer
+    # bound; the stage additionally requires an EXACT shape (see CONTROL_EXTENSION_CONTRACT)
+    # and on-disk evidence of a prospective amendment plus a completed 3 x 5 ns control.
+    "control_extension": {"max_replicates": 3, "max_ns_per_replicate": 20.0,
+                          "max_total_ns": 60.0},
 }
 PRODUCTION_LIMITS = {"max_replicates": 3, "max_ns_per_replicate": 100.0, "max_total_ns": 300.0}
 _NS_EPS = 1e-9
+
+# --------------------------------------------------------------------------------------
+# Control-20 extension stage (prospective protocol amendment, recorded 2026-08-17).
+#
+# The initial 8GLA control validation ran as 3 x 5 ns and the trajectory-derived control
+# gate returned FAIL with 2/3 qualifying replicates. A PROSPECTIVE amendment -- written and
+# committed BEFORE any extended data existed -- authorizes continuing those same three
+# replicates to 20 ns of production each. This stage exists so that continuation does not
+# have to be smuggled through control_validation (capped at 5 ns) or through the production
+# gate (which exists for the frozen 3 x 100 ns contract and requires Gate-6).
+#
+# It is deliberately the narrowest possible authorization:
+#   * exact shape only -- control / 8GLA / exactly 3 replicates / exactly 20.0 ns each;
+#   * continuation only -- every replicate must already hold a 5 ns DONE.json, a loadable
+#     checkpoint and a non-empty production.dcd, so no fresh replicate can ever start here;
+#   * evidence-bound -- the amendment file must exist and the recorded prior Gate-5 result
+#     must be the FAIL / 2-of-3 outcome the amendment was written against.
+# Anything else falls through to the unchanged production-authorization path, which
+# control_extension can never satisfy on its own.
+# --------------------------------------------------------------------------------------
+CONTROL_EXTENSION_STAGE = "control_extension"
+CONTROL_EXTENSION_CONTRACT = {
+    "role": "control",
+    "pdb": "8GLA",
+    "replicates": 3,
+    "target_production_ns_per_replicate": 20.0,
+    "total_integration_ns": 60.0,
+    "prior_stage": "control_validation",
+    "prior_production_ns_per_replicate": 5.0,
+    "prior_gate_status": "FAIL",
+    "prior_qualifying_control_replicates": 2,
+    "prior_minimum_control_replicates": 3,
+    "amendment_relative_path": "CONTROL20_PROSPECTIVE_AMENDMENT_20260817.md",
+    "continuation_only": True,
+    "authorizes_production": False,
+    "authorizes_apo": False,
+}
+CONTROL_EXTENSION_AMENDMENT = HERE / CONTROL_EXTENSION_CONTRACT["amendment_relative_path"]
+# An outdir whose path carries any of these markers is the immutable 5 ns archive, never a
+# continuation target: continuing in place appends to production.dcd and rewrites DONE.json.
+CONTROL_EXTENSION_FORBIDDEN_OUTDIR_MARKERS = ("immutable", "backup", "archive", "frozen")
+
+
+def control_extension_shape_violations(args) -> list[str]:
+    """Exact-shape breaches for --md-stage control_extension. Empty means the shape is exact.
+
+    Exact, not bounded: 3 x 20 ns and nothing else. A shorter or longer run, a different
+    replicate count, apo, or a different structure are all violations and therefore fall
+    through to the unchanged production-authorization path.
+    """
+    c = CONTROL_EXTENSION_CONTRACT
+    out: list[str] = []
+    if getattr(args, "run", None) != c["role"]:
+        out.append(f"run role {getattr(args, 'run', None)!r} != {c['role']!r} "
+                   f"(control_extension never authorizes apo)")
+    pdb = getattr(args, "_pdb_id", None)
+    if pdb is not None and str(pdb).upper() != c["pdb"]:
+        out.append(f"structure {pdb!r} != {c['pdb']!r}")
+    if int(args.replicates) != int(c["replicates"]):
+        out.append(f"{args.replicates} replicates != exactly {c['replicates']}")
+    if abs(float(args.ns) - float(c["target_production_ns_per_replicate"])) > _NS_EPS:
+        out.append(f"{args.ns} ns per replicate != exactly "
+                   f"{c['target_production_ns_per_replicate']} ns total production")
+    if abs(total_integration_ns(args) - float(c["total_integration_ns"])) > _NS_EPS:
+        out.append(f"total integration {total_integration_ns(args):g} ns != exactly "
+                   f"{c['total_integration_ns']} ns")
+    return out
 
 
 def total_integration_ns(args) -> float:
@@ -338,6 +410,8 @@ def classify_md_stage(args) -> str:
         return "benchmark"
     if args.run == "control" and int(args.replicates) == 3 and abs(float(args.ns) - 5.0) <= 0.1:
         return "control_validation"
+    # control_extension is never inferred. A 3 x 20 ns control run that does not DECLARE the
+    # stage stays production-scale and is refused, exactly as before this stage existed.
     if fits_stage(args, "diagnostic")[0]:
         return "diagnostic"
     return "production"          # anything larger than every safe envelope is production-scale
@@ -358,6 +432,11 @@ def production_scale_reasons(args) -> list[str]:
     if not ok:
         return [f"declared md_stage={stage!r} but the request exceeds that stage: "
                 + "; ".join(breaches)]
+    if stage == CONTROL_EXTENSION_STAGE:
+        shape = control_extension_shape_violations(args)
+        if shape:
+            return [f"declared md_stage={stage!r} but the request is not the exact "
+                    f"3 x 20 ns 8GLA control continuation: " + "; ".join(shape)]
     if total_integration_ns(args) > PRODUCTION_LIMITS["max_total_ns"] + _NS_EPS:
         return [f"total integration budget {total_integration_ns(args):g} ns exceeds the "
                 f"production ceiling {PRODUCTION_LIMITS['max_total_ns']} ns"]
@@ -367,6 +446,270 @@ def production_scale_reasons(args) -> list[str]:
 def is_production_scale(args) -> bool:
     """True when the request must present canonical production authorization."""
     return bool(production_scale_reasons(args))
+
+
+def _control_extension_provenance(args, rep: int) -> dict | None:
+    """Per-replicate amendment provenance written into PROVENANCE.json; None off-stage."""
+    evidence = getattr(args, "_control_extension_evidence", None)
+    if not evidence:
+        return None
+    return {
+        "kind": "PROSPECTIVE_PROTOCOL_AMENDMENT",
+        "recorded_before_any_extended_data": True,
+        "stage": CONTROL_EXTENSION_STAGE,
+        "amendment_path": evidence["amendment"]["path"],
+        "amendment_sha256": evidence["amendment"]["sha256"],
+        "target_production_ns_total": float(args.ns),
+        "continued_from": evidence["prior_control5"]["replicates"].get(f"rep{rep:02d}"),
+        "prior_control_gate": evidence["prior_control_gate"],
+        "authorizes_production": False,
+        "authorizes_gate6": False,
+    }
+
+
+def _control_extension_prior_5ns(rep_dir: Path, rep: int, tolerance_ns: float = 0.05):
+    """The archived-or-live DONE.json recording this replicate's completed 5 ns baseline.
+
+    Once the continuation starts, run_replicate archives the 5 ns DONE.json as
+    DONE.stale.<stamp>.json (it no longer meets the 20 ns target) and later writes a fresh
+    20 ns DONE.json. The baseline evidence must therefore be looked for in BOTH, so that a
+    resumed or completed continuation still proves what it was continued from.
+    """
+    target = float(CONTROL_EXTENSION_CONTRACT["prior_production_ns_per_replicate"])
+    candidates = [rep_dir / "DONE.json"] + sorted(rep_dir.glob("DONE.stale.*.json"))
+    for path in candidates:
+        done = load_json(path, None)
+        if not isinstance(done, dict):
+            continue
+        try:
+            produced = float(done.get("production_ns", -1.0))
+        except (TypeError, ValueError):
+            continue
+        if abs(produced - target) <= tolerance_ns:
+            return path, done
+    return None, None
+
+
+def control_extension_prerequisites(args) -> tuple[bool, list[str], dict]:
+    """Evidence required before any 8GLA control replicate may be continued past 5 ns.
+
+    Pure: returns (ok, failures, evidence) and never exits, so tests and the launcher
+    preflight can evaluate it without touching a simulation.
+    """
+    c = CONTROL_EXTENSION_CONTRACT
+    failures: list[str] = []
+    outdir = Path(args.outdir)
+    root = outdir / c["pdb"]
+    evidence: dict = {
+        "schema_version": 1,
+        "stage": CONTROL_EXTENSION_STAGE,
+        "checked_utc": utc_now(),
+        "contract": dict(c),
+        "outdir": str(outdir.resolve()) if outdir.exists() else str(outdir),
+        "amendment": {},
+        "prior_control5": {"replicates": {}},
+        "prior_control_gate": {},
+    }
+
+    # 1. exact shape -------------------------------------------------------------------
+    shape = control_extension_shape_violations(args)
+    evidence["shape_violations"] = shape
+    failures.extend(shape)
+
+    # 2. the prospective amendment must exist -------------------------------------------
+    amendment = CONTROL_EXTENSION_AMENDMENT
+    exists = amendment.is_file() and amendment.stat().st_size > 0
+    evidence["amendment"] = {
+        "path": str(amendment),
+        "exists": bool(exists),
+        "sha256": sha256_file(amendment) if exists else None,
+        "bytes": amendment.stat().st_size if exists else 0,
+        "character": "PROSPECTIVE protocol amendment recorded before any extended data existed",
+    }
+    if not exists:
+        failures.append(
+            f"prospective amendment {amendment} is missing or empty; the Control-20 "
+            f"continuation is authorized only by that pre-recorded amendment")
+
+    # 3. the continuation must not overwrite the immutable 5 ns archive ------------------
+    parts = [p.lower() for p in Path(args.outdir).resolve().parts]
+    marked = sorted({m for m in CONTROL_EXTENSION_FORBIDDEN_OUTDIR_MARKERS
+                     if any(m in part for part in parts)})
+    evidence["immutable_archive_guard"] = {"outdir_markers_found": marked}
+    if marked:
+        failures.append(
+            f"--outdir {args.outdir} looks like the immutable 5 ns archive "
+            f"(path markers {marked}); continuing in place would append to its "
+            f"production.dcd and rewrite its DONE.json")
+
+    # 4. all three replicates must already hold a complete, resumable 5 ns state ---------
+    for rep in range(1, int(c["replicates"]) + 1):
+        rep_dir = root / f"rep{rep:02d}"
+        chk = rep_dir / "state.chk"
+        dcd = rep_dir / "production.dcd"
+        done_path, done = _control_extension_prior_5ns(rep_dir, rep)
+        expected_seed = 20260000 + rep
+        rec: dict = {
+            "rep_dir": str(rep_dir),
+            "done_json": str(done_path) if done_path else None,
+            "done_json_sha256": sha256_file(done_path) if done_path else None,
+            "checkpoint_exists": chk.is_file() and chk.stat().st_size > 0,
+            "checkpoint_bytes": chk.stat().st_size if chk.is_file() else 0,
+            "production_dcd_exists": dcd.is_file() and dcd.stat().st_size > 0,
+            "production_dcd_bytes": dcd.stat().st_size if dcd.is_file() else 0,
+            "expected_seed": expected_seed,
+        }
+        tag = f"{c['pdb']}/rep{rep:02d}"
+        if done is None:
+            failures.append(f"{tag}: no DONE.json (live or archived) recording a completed "
+                            f"{c['prior_production_ns_per_replicate']} ns production")
+        else:
+            rec.update({
+                "prior_production_ns": done.get("production_ns"),
+                "prior_production_steps": done.get("production_steps"),
+                "prior_total_steps": done.get("steps"),
+                "prior_equil_ns": done.get("equil_ns"),
+                "prior_timestep_fs": done.get("timestep_fs"),
+                "prior_seed": done.get("seed"),
+                "prior_md_stage": done.get("md_stage"),
+                "prior_role": done.get("role"),
+                "prior_pdb": done.get("pdb"),
+                "prior_report_ps": done.get("report_ps"),
+                "prior_checkpoint_ps": done.get("checkpoint_ps"),
+            })
+            if str(done.get("pdb", "")).upper() != c["pdb"]:
+                failures.append(f"{tag}: prior run is {done.get('pdb')!r}, not {c['pdb']}")
+            if done.get("role") != c["role"]:
+                failures.append(f"{tag}: prior run role {done.get('role')!r} != {c['role']!r}")
+            if done.get("md_stage") != c["prior_stage"]:
+                failures.append(f"{tag}: prior md_stage {done.get('md_stage')!r} != "
+                                f"{c['prior_stage']!r}; only the recorded Control-5 may be extended")
+            if int(done.get("seed", -1)) != expected_seed:
+                failures.append(f"{tag}: prior seed {done.get('seed')} != {expected_seed}; "
+                                f"the continuation must reuse the same seeds")
+            if not str(done.get("sanity_gate", "")).startswith("passed"):
+                failures.append(f"{tag}: prior replicate did not pass its sanity gate")
+            for field, requested in (("equil_ns", float(args.equil_ns)),
+                                     ("timestep_fs", 4.0 if args.hmr else 2.0),
+                                     ("report_ps", float(args.report_ps)),
+                                     ("checkpoint_ps", float(args.checkpoint_ps))):
+                try:
+                    prior = float(done.get(field))
+                except (TypeError, ValueError):
+                    failures.append(f"{tag}: prior {field} is missing; cannot prove the "
+                                    f"continuation keeps the same integration settings")
+                    continue
+                if abs(prior - requested) > 1e-9:
+                    failures.append(f"{tag}: prior {field}={prior:g} != requested {requested:g}; "
+                                    f"the continuation must not change integration settings")
+        if not rec["checkpoint_exists"]:
+            failures.append(f"{tag}: no state.chk; control_extension continues existing "
+                            f"replicates and must never start a fresh one")
+        if not rec["production_dcd_exists"]:
+            failures.append(f"{tag}: no non-empty production.dcd to append to")
+        evidence["prior_control5"]["replicates"][f"rep{rep:02d}"] = rec
+
+    # 5. the recorded Gate-5 outcome must be the one the amendment was written against ---
+    summary_path = outdir / "analysis" / "summary.json"
+    summary = load_json(summary_path, None)
+    gate = (summary or {}).get("control_interpretability_gate", {}) if isinstance(summary, dict) else {}
+    evidence["prior_control_gate"] = {
+        "summary_json": str(summary_path),
+        "summary_exists": isinstance(summary, dict),
+        "name": gate.get("name"),
+        "status": gate.get("status"),
+        "qualifying_control_replicates": gate.get("qualifying_control_replicates"),
+        "minimum_control_replicates": gate.get("minimum_control_replicates"),
+        "summary_sha256": sha256_file(summary_path) if summary_path.is_file() else None,
+    }
+    if not isinstance(summary, dict):
+        failures.append(f"{summary_path} is missing; the prior Control-5 gate result is "
+                        f"unproven")
+    elif not gate:
+        failures.append(f"{summary_path} has no control_interpretability_gate block")
+    else:
+        if gate.get("status") != c["prior_gate_status"]:
+            failures.append(
+                f"prior control gate status {gate.get('status')!r} != "
+                f"{c['prior_gate_status']!r}; the amendment was written against the "
+                f"{c['prior_gate_status']} / "
+                f"{c['prior_qualifying_control_replicates']}-of-"
+                f"{c['prior_minimum_control_replicates']} outcome")
+        if int(gate.get("qualifying_control_replicates", -1)) != int(
+                c["prior_qualifying_control_replicates"]):
+            failures.append(
+                f"prior qualifying control replicates "
+                f"{gate.get('qualifying_control_replicates')} != "
+                f"{c['prior_qualifying_control_replicates']}")
+        if int(gate.get("minimum_control_replicates", -1)) != int(
+                c["prior_minimum_control_replicates"]):
+            failures.append(
+                f"prior gate required {gate.get('minimum_control_replicates')} replicates != "
+                f"{c['prior_minimum_control_replicates']}; the 3/3 aggregation rule must be "
+                f"unchanged")
+
+    evidence["failures"] = failures
+    evidence["ok"] = not failures
+    return not failures, failures, evidence
+
+
+def validate_control_extension(args, *, write_to: Path | None = None) -> dict | None:
+    """Fail closed unless every control_extension prerequisite is satisfied.
+
+    Returns the evidence record (also used as run provenance) or exits. Runs for the
+    DECLARED stage regardless of any production authorization: control_extension is an
+    additional restriction, never an alternative route to a larger run.
+    """
+    if getattr(args, "_md_stage", None) != CONTROL_EXTENSION_STAGE:
+        return None
+    ok, failures, evidence = control_extension_prerequisites(args)
+    # Never create a directory for a run that is about to be refused: a legitimate
+    # continuation always writes into an outdir that already holds the 5 ns trajectories.
+    if write_to is not None and write_to.parent.is_dir():
+        try:
+            # Accumulate rather than overwrite, as RESUME_AUDIT.json does: the record of the
+            # original 5 ns state taken before the FIRST continuation must survive relaunches.
+            prior = load_json(write_to, None)
+            history = []
+            if isinstance(prior, dict):
+                history = list(prior.get("previous_checks", []))
+                history.append({k: v for k, v in prior.items() if k != "previous_checks"})
+            evidence["previous_checks"] = history[-20:]
+            write_json(write_to, evidence)
+            evidence["preflight_record"] = str(write_to)
+        except Exception as exc:                    # recording must never mask the verdict
+            print(f"[control-extension] warn: could not write {write_to}: {exc}")
+    if not ok:
+        sys.exit(
+            "[control-extension] FATAL: the Control-20 continuation is not authorized by the "
+            "evidence on disk.\n"
+            f"    requested : {args.run} {args.replicates} x {args.ns} ns "
+            f"= {total_integration_ns(args):g} ns total, outdir {args.outdir}\n"
+            f"    contract  : control / {CONTROL_EXTENSION_CONTRACT['pdb']} / exactly "
+            f"{CONTROL_EXTENSION_CONTRACT['replicates']} replicates x "
+            f"{CONTROL_EXTENSION_CONTRACT['target_production_ns_per_replicate']} ns total "
+            f"production, continuing the existing replicates from their checkpoints\n"
+            "    blocking  :\n"
+            + "\n".join(f"      - {f}" for f in failures)
+            + "\n    This stage never authorizes apo, production, 100 ns, a fresh start, or "
+              "any shape other than the exact one above."
+        )
+    print(f"[control-extension] prerequisites satisfied: prospective amendment "
+          f"{CONTROL_EXTENSION_AMENDMENT.name} sha256="
+          f"{evidence['amendment']['sha256']}, three 8GLA replicates at "
+          f"{CONTROL_EXTENSION_CONTRACT['prior_production_ns_per_replicate']} ns with "
+          f"checkpoints, prior control gate "
+          f"{evidence['prior_control_gate']['status']} "
+          f"{evidence['prior_control_gate']['qualifying_control_replicates']}/"
+          f"{evidence['prior_control_gate']['minimum_control_replicates']}")
+    print(f"[control-extension] continuing the SAME replicates to "
+          f"{args.ns} ns TOTAL production each (adds "
+          f"{float(args.ns) - float(CONTROL_EXTENSION_CONTRACT['prior_production_ns_per_replicate']):g} "
+          f"ns per replicate); no reminimization, no new equilibration, no new replicates.")
+    print("[control-extension] this stage does NOT approve Gate 6 and does NOT authorize "
+          "production.")
+    args._control_extension_evidence = evidence
+    return evidence
 
 
 def _parse_utc(value: str) -> datetime:
@@ -1218,6 +1561,9 @@ def run_replicate(ff, topology, positions, solvated_pdb, run_dir: Path, rep: int
         "production_authorization_sha256": sha256_file(
             Path(args.production_authorization) if args.production_authorization else None
         ),
+        # For control_extension: the prospective amendment that authorizes continuing this
+        # replicate past 5 ns, plus the exact 5 ns state it was continued from.
+        "protocol_amendment": _control_extension_provenance(args, rep),
         "structure_pdb_id": args._pdb_id,
         "role": args.run,
         "replicate": rep,
@@ -1260,6 +1606,20 @@ def run_replicate(ff, topology, positions, solvated_pdb, run_dir: Path, rep: int
     append = False
     minimization_report = load_json(min_json, None)
     resumed, checkpoint_used = (False, None)
+    if getattr(args, "_md_stage", None) == CONTROL_EXTENSION_STAGE and not chk.exists():
+        # Defence in depth behind the preflight: control_extension continues existing
+        # replicates. Reaching the fresh-start branch here would minimize and re-equilibrate
+        # a NEW replicate under the amendment's authority, which the amendment does not grant.
+        reason = (f"{CONTROL_EXTENSION_STAGE} requires an existing checkpoint for rep{rep}; "
+                  "refusing to start a fresh replicate (no reminimization, no new "
+                  "equilibration, no replacement replicas)")
+        write_json(failed_flag, {
+            "replicate": rep, "pdb": args._pdb_id, "seed": seed,
+            "reason": reason, "failed_utc": utc_now(),
+        })
+        update_status("FAILED", reason=reason)
+        print(f"[rep{rep}] FAILED: {reason}")
+        return "failed"
     if chk.exists():
         resumed, checkpoint_used = load_latest_checkpoint(sim, chk, report_every, equil_steps,
                                                           dcd, resume_audit, dt_ns)
@@ -1641,11 +2001,17 @@ def main():
     p.add_argument("--debug-sleep-per-chunk", type=float, default=0.0,
                    help=argparse.SUPPRESS)
     p.add_argument("--md-stage",
-                   choices=["smoke", "benchmark", "control_validation", "production", "diagnostic"],
+                   choices=["smoke", "benchmark", "control_validation", "control_extension",
+                            "production", "diagnostic"],
                    default=None,
-                   help="operational stage; production is accepted only with canonical authorization")
+                   help="operational stage; production is accepted only with canonical "
+                        "authorization; control_extension is the prospectively amended "
+                        "3 x 20 ns 8GLA control continuation and nothing else")
     p.add_argument("--production-authorization", default=None,
                    help="short-lived authorization JSON written by './md.sh production'")
+    p.add_argument("--control-extension-preflight-only", action="store_true",
+                   help="evaluate the control_extension prerequisites, record them, and exit "
+                        "without simulating anything")
     p.add_argument("--outdir", default="outputs")
     args = p.parse_args()
 
@@ -1658,6 +2024,16 @@ def main():
     args._pdb_id = pdb_id
     args._md_stage = classify_md_stage(args)
     validate_production_authorization(args)
+    if args.control_extension_preflight_only and args._md_stage != CONTROL_EXTENSION_STAGE:
+        sys.exit("[control-extension] FATAL: --control-extension-preflight-only requires "
+                 f"--md-stage {CONTROL_EXTENSION_STAGE}")
+    # Runs before any structure preparation, GPU work or directory creation.
+    validate_control_extension(
+        args, write_to=Path(args.outdir) / "CONTROL_EXTENSION_PREFLIGHT.json")
+    if args.control_extension_preflight_only:
+        print("[control-extension] PREFLIGHT ONLY: prerequisites satisfied; nothing was "
+              "simulated.")
+        return
     expected_chains = int(pocket.get("expected_protein_chains", 3))
     min_chain_res = int(pocket.get("min_chain_residues", 200))
     pocket_resseq = list(pocket.get("pocket_residues_resseq", []))

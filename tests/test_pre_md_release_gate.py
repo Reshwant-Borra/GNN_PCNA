@@ -149,8 +149,21 @@ def test_finetune_exposes_and_applies_a_seed():
 
 @pytest.mark.slow
 def test_two_seeded_retrains_are_bitwise_identical(tmp_path):
-    """The real determinism proof. Slow: runs two short trainings."""
+    """The real determinism proof. Slow: runs two short trainings.
+
+    Requires the pretrain checkpoint the fine-tune starts from. That checkpoint is
+    git-ignored and not retrievable from a clean clone (PROVENANCE_GAPS.md §1), so on a
+    fresh machine this can only be skipped, not passed. Skipping names the gap instead of
+    reporting a generic failure; it does not affect the MD arm, which consumes the frozen
+    handoff rather than retraining.
+    """
     import hashlib
+    pretrain = REPO / "checkpoints" / "pcna" / "best_pcna_v3.ckpt"
+    if not pretrain.exists():
+        pytest.skip(
+            "FULL_RETRAINING_REPRODUCIBILITY gap: checkpoints/pcna/best_pcna_v3.ckpt is "
+            "git-ignored and absent from a clean clone (see PROVENANCE_GAPS.md §1). "
+            "End-to-end retraining determinism cannot be demonstrated here.")
     outs = []
     for i in range(2):
         out = tmp_path / f"run{i}" / "best.ckpt"

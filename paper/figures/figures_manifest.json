@@ -4,20 +4,20 @@
   "figures": [
     {
       "figure_id": "baseline_comparison",
-      "path": "C:\\Users\\advay\\GNN_PNCA\\paper\\figures\\baseline_comparison.png",
+      "path": "C:\\Users\\advay\\OneDrive\\Desktop\\GNN\\paper\\figures\\baseline_comparison.png",
       "title": "Validation macro-AUPRC across models and baselines",
       "caption": "Validation macro-AUPRC (mean of per-protein AUPRC) for the primary GraphSAGE-3L model and all baselines, evaluated on the same frozen, homology-blocked split (hash 24dd5e34). Error bars are \u00b11 SD over 4 folds \u00d7 3 seeds where applicable. Random and degree references indicate the prevalence floor. Test set was not evaluated; these are validation, model-selection metrics only. No scientific claims are made.",
       "reviewer_question": "Were baselines compared under the same leakage-clean split?",
       "claim_support": "The trained GNN separates candidate pocket residues better than naive and ablated baselines on held-out validation folds.",
       "kind": "result",
       "data_sources": [
-        "C:\\Users\\advay\\GNN_PNCA\\Desktop\\GNN_PCNA\\reports\\phase3\\baseline_runs\\random_manifest.json",
-        "C:\\Users\\advay\\GNN_PNCA\\Desktop\\GNN_PCNA\\reports\\phase3\\baseline_runs\\degree_manifest.json",
-        "C:\\Users\\advay\\GNN_PNCA\\Desktop\\GNN_PCNA\\reports\\phase3\\baseline_runs\\sage_no_spatial_manifest.json",
-        "C:\\Users\\advay\\GNN_PNCA\\Desktop\\GNN_PCNA\\reports\\phase3\\baseline_runs\\gcn_1l_manifest.json",
-        "C:\\Users\\advay\\GNN_PNCA\\Desktop\\GNN_PCNA\\reports\\phase3\\baseline_runs\\gat_2l_manifest.json",
-        "C:\\Users\\advay\\GNN_PNCA\\Desktop\\GNN_PCNA\\reports\\phase3\\baseline_runs\\sage_no_sequential_manifest.json",
-        "C:\\Users\\advay\\GNN_PNCA\\Desktop\\GNN_PCNA\\reports\\phase3\\training_runs\\all_runs_summary.json"
+        "C:\\Users\\advay\\OneDrive\\Desktop\\GNN\\archive\\historical_desktop_gnn_pcna_202605_phase2_phase4\\reports\\phase3\\baseline_runs\\random_manifest.json",
+        "C:\\Users\\advay\\OneDrive\\Desktop\\GNN\\archive\\historical_desktop_gnn_pcna_202605_phase2_phase4\\reports\\phase3\\baseline_runs\\degree_manifest.json",
+        "C:\\Users\\advay\\OneDrive\\Desktop\\GNN\\archive\\historical_desktop_gnn_pcna_202605_phase2_phase4\\reports\\phase3\\baseline_runs\\sage_no_spatial_manifest.json",
+        "C:\\Users\\advay\\OneDrive\\Desktop\\GNN\\archive\\historical_desktop_gnn_pcna_202605_phase2_phase4\\reports\\phase3\\baseline_runs\\gcn_1l_manifest.json",
+        "C:\\Users\\advay\\OneDrive\\Desktop\\GNN\\archive\\historical_desktop_gnn_pcna_202605_phase2_phase4\\reports\\phase3\\baseline_runs\\gat_2l_manifest.json",
+        "C:\\Users\\advay\\OneDrive\\Desktop\\GNN\\archive\\historical_desktop_gnn_pcna_202605_phase2_phase4\\reports\\phase3\\baseline_runs\\sage_no_sequential_manifest.json",
+        "C:\\Users\\advay\\OneDrive\\Desktop\\GNN\\archive\\historical_desktop_gnn_pcna_202605_phase2_phase4\\reports\\phase3\\training_runs\\all_runs_summary.json"
       ],
       "command": "python -m paper_engine.figures.render --only baseline_comparison"
     },
@@ -82,15 +82,15 @@
     },
     {
       "figure_id": "dataset_split",
-      "path": "C:\\Users\\advay\\GNN_PNCA\\paper\\figures\\dataset_split.png",
+      "path": "C:\\Users\\advay\\OneDrive\\Desktop\\GNN\\paper\\figures\\dataset_split.png",
       "title": "Dataset composition and frozen split",
       "caption": "Left: structure counts across the frozen cross-validation folds and the held-out test set (homology-blocked at 30% sequence identity; PCNA cluster held out entirely). Right: residue label composition (positive vs masked) under the positive-unlabeled policy. Split manifest hash 24dd5e34; the test set was never loaded during model selection.",
       "reviewer_question": "Is the test set independent at the protein level (not residue level)?",
       "claim_support": "The split is frozen, homology-blocked at 30% identity, with PCNA held out and the test set never loaded.",
       "kind": "dataset",
       "data_sources": [
-        "C:\\Users\\advay\\GNN_PNCA\\Desktop\\GNN_PCNA\\data\\registries\\split_manifest_frozen.json",
-        "C:\\Users\\advay\\GNN_PNCA\\Desktop\\GNN_PCNA\\data\\labels\\label_manifest.json"
+        "C:\\Users\\advay\\OneDrive\\Desktop\\GNN\\archive\\historical_desktop_gnn_pcna_202605_phase2_phase4\\data\\registries\\split_manifest_frozen.json",
+        "C:\\Users\\advay\\OneDrive\\Desktop\\GNN\\archive\\historical_desktop_gnn_pcna_202605_phase2_phase4\\data\\labels\\label_manifest.json"
       ],
       "command": "python -m paper_engine.figures.render --only dataset_split"
     },

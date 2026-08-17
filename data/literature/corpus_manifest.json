@@ -1,0 +1,2291 @@
+{
+  "schema": "paper_engine.corpus/v1",
+  "note": "Open-access full text only; downloaded under each item's OA license.",
+  "count": 121,
+  "items": [
+    {
+      "key": "doi:10.1039/d0sc05131d",
+      "doi": "10.1039/d0sc05131d",
+      "title": "Discovery of cryptic allosteric sites using reversed allosteric communication by a combined computational and experimental strategy",
+      "year": 2020,
+      "authors": [
+        "Duan Ni",
+        "Jiacheng Wei",
+        "Xinheng He",
+        "Ashfaq Ur Rehman",
+        "Xinyi Li",
+        "Yuran Qiu",
+        "Jun Pu",
+        "Shaoyong Lu",
+        "Jian Zhang"
+      ],
+      "url": "https://pubs.rsc.org/en/content/articlepdf/2021/sc/d0sc05131d",
+      "host": "pubs.rsc.org",
+      "license": "cc-by-nc",
+      "oa_status": "diamond",
+      "path": "data\\literature\\pdfs\\ff\\ffda13ce4a015922.pdf",
+      "bytes": 3231287
+    },
+    {
+      "key": "title:graph attention networks",
+      "doi": "",
+      "title": "Graph Attention Networks",
+      "year": 2017,
+      "authors": [
+        "Veli\\v{c}kovi\\'c, Petar",
+        "Guillem Cucurull",
+        "Arantxa Casanova",
+        "Adriana Romero",
+        "Li\\`o, Pietro",
+        "Yoshua Bengio"
+      ],
+      "url": "https://arxiv.org/pdf/1710.10903",
+      "host": "arxiv.org",
+      "license": "",
+      "oa_status": "green",
+      "path": "data\\literature\\pdfs\\36\\36cabeace02d198d.pdf",
+      "bytes": 1637828
+    },
+    {
+      "key": "doi:10.48550/arxiv.1812.08434",
+      "doi": "10.48550/arxiv.1812.08434",
+      "title": "Graph Neural Networks: A Review of Methods and Applications",
+      "year": 2018,
+      "authors": [
+        "Jie Zhou",
+        "Ganqu Cui",
+        "Shengding Hu",
+        "Zhengyan Zhang",
+        "Cheng Yang",
+        "Zhiyuan Liu",
+        "Lifeng Wang",
+        "Changcheng Li",
+        "Maosong Sun"
+      ],
+      "url": "https://arxiv.org/pdf/1812.08434",
+      "host": "arxiv.org",
+      "license": "",
+      "oa_status": "green",
+      "path": "data\\literature\\pdfs\\9b\\9b39f173eaced869.pdf",
+      "bytes": 3335058
+    },
+    {
+      "key": "doi:10.3389/fcell.2017.00010",
+      "doi": "10.3389/fcell.2017.00010",
+      "title": "Strategies to Inhibit Myc and Their Clinical Applicability",
+      "year": 2017,
+      "authors": [
+        "Jonathan R. Whitfield",
+        "Marie-\u00c8ve Beaulieu",
+        "Laura Soucek"
+      ],
+      "url": "https://www.frontiersin.org/articles/10.3389/fcell.2017.00010/pdf",
+      "host": "www.frontiersin.org",
+      "license": "cc-by",
+      "oa_status": "gold",
+      "path": "data\\literature\\pdfs\\ff\\ff427a33f9352341.pdf",
+      "bytes": 1240835
+    },
+    {
+      "key": "doi:10.1371/journal.pone.0016046",
+      "doi": "10.1371/journal.pone.0016046",
+      "title": "Proliferating Cell Nuclear Antigen (PCNA) Regulates Primordial Follicle Assembly by Promoting Apoptosis of Oocytes in Fetal and Neonatal Mouse Ovaries",
+      "year": 2011,
+      "authors": [
+        "Bo Xu",
+        "Juan Hua",
+        "Yuanwei Zhang",
+        "Xiaohua Jiang",
+        "Huan Zhang",
+        "Tieliang Ma",
+        "Zheng Wei",
+        "Rui Sun",
+        "Wei Shen",
+        "Jiahao Sha",
+        "Howard J. Cooke",
+        "Qinghua Shi"
+      ],
+      "url": "https://journals.plos.org/plosone/article/file?id=10.1371/journal.pone.0016046&type=printable",
+      "host": "journals.plos.org",
+      "license": "cc-by",
+      "oa_status": "gold",
+      "path": "data\\literature\\pdfs\\d6\\d66792ed9db988d9.pdf",
+      "bytes": 5648781
+    },
+    {
+      "key": "doi:10.1590/s0103-64402005000100010",
+      "doi": "10.1590/s0103-64402005000100010",
+      "title": "Proliferating cell nuclear antigen (PCNA) and p53 protein expression in ameloblastoma and adenomatoid adontogenic tumor",
+      "year": 2005,
+      "authors": [
+        "Carlos Augusto Galv\u00e3o Barboza",
+        "Le\u00e3o Pereira Pinto",
+        "Roseana de Almeida Freitas",
+        "Ant\u00f4nio de Lisboa Lopes Costa",
+        "L\u00e9lia Batista de Souza"
+      ],
+      "url": "https://www.scielo.br/j/bdj/a/r7R53vpSYcpTnnjk3CkxycJ/?lang=en&format=pdf",
+      "host": "www.scielo.br",
+      "license": "cc-by",
+      "oa_status": "gold",
+      "path": "data\\literature\\pdfs\\7a\\7a4fa1d69032ec8f.pdf",
+      "bytes": 335319
+    },
+    {
+      "key": "doi:10.1267/ahc.25.13",
+      "doi": "10.1267/ahc.25.13",
+      "title": "Immunohistochemical demonstration of proliferating cell nuclear antigen(PCNA) in formalin-fixed. paraffin-embedded sections from rat and human tissues.",
+      "year": 1992,
+      "authors": [
+        "Koichi Suzuki",
+        "Ryohei Katoh",
+        "Akira Kawaoi"
+      ],
+      "url": "https://www.jstage.jst.go.jp/article/ahc1968/25/1-2/25_1-2_13/_pdf",
+      "host": "www.jstage.jst.go.jp",
+      "license": "",
+      "oa_status": "bronze",
+      "path": "data\\literature\\pdfs\\d1\\d18e1f7096db80f6.pdf",
+      "bytes": 6381573
+    },
+    {
+      "key": "doi:10.2741/tsurimoto",
+      "doi": "10.2741/tsurimoto",
+      "title": "PCNA binding proteins",
+      "year": 1999,
+      "authors": [
+        "Toshiki Tsurimoto"
+      ],
+      "url": "https://www.imrpress.com/journal/FBL/4/4/10.2741/tsurimoto/pdf",
+      "host": "www.imrpress.com",
+      "license": "",
+      "oa_status": "bronze",
+      "path": "data\\literature\\pdfs\\2a\\2a2cfeea38755716.pdf",
+      "bytes": 286799
+    },
+    {
+      "key": "doi:10.1371/journal.pone.0048390",
+      "doi": "10.1371/journal.pone.0048390",
+      "title": "Proliferating Cell Nuclear Antigen (PCNA) Interactions in Solution Studied by NMR",
+      "year": 2012,
+      "authors": [
+        "Alfredo De Biasio",
+        "Ram\u00f3n Campos\u2010Olivas",
+        "Ricardo S\u00e1nchez",
+        "Jorge P. L\u00f3pez\u2010Alonso",
+        "David Pantoja\u2010Uceda",
+        "Nekane Merino",
+        "Maider Villate",
+        "Jos\u00e9 M. Mart\u00edn-Garc\u00eda",
+        "Francisco Castillo",
+        "Irene Luque",
+        "Francisco J. Blanco"
+      ],
+      "url": "https://journals.plos.org/plosone/article/file?id=10.1371/journal.pone.0048390&type=printable",
+      "host": "journals.plos.org",
+      "license": "cc-by",
+      "oa_status": "gold",
+      "path": "data\\literature\\pdfs\\12\\124db5347644e223.pdf",
+      "bytes": 672243
+    },
+    {
+      "key": "doi:10.1371/journal.pone.0016600",
+      "doi": "10.1371/journal.pone.0016600",
+      "title": "Reduced Stability and Increased Dynamics in the Human Proliferating Cell Nuclear Antigen (PCNA) Relative to the Yeast Homolog",
+      "year": 2011,
+      "authors": [
+        "Alfredo De Biasio",
+        "Ricardo S\u00e1nchez",
+        "Jes\u00fas Pr\u00eceto",
+        "Maider Villate",
+        "Ram\u00f3n Campos\u2010Olivas",
+        "Francisco J. Blanco"
+      ],
+      "url": "https://journals.plos.org/plosone/article/file?id=10.1371/journal.pone.0016600&type=printable",
+      "host": "journals.plos.org",
+      "license": "cc-by",
+      "oa_status": "gold",
+      "path": "data\\literature\\pdfs\\2a\\2a70b8a649c127fb.pdf",
+      "bytes": 1117482
+    },
+    {
+      "key": "doi:10.1679/aohc.58.103",
+      "doi": "10.1679/aohc.58.103",
+      "title": "The Identification of Proliferating Cell Nuclear Antigen(PCNA) on Rat Tissue Cryosections and Its Application to Double Immunostaining with Other Markers.",
+      "year": 1995,
+      "authors": [
+        "Taichi Ezaki",
+        "Yao Li",
+        "Kenjiro Matsuno"
+      ],
+      "url": "https://www.jstage.jst.go.jp/article/aohc1988/58/1/58_1_103/_pdf",
+      "host": "www.jstage.jst.go.jp",
+      "license": "",
+      "oa_status": "bronze",
+      "path": "data\\literature\\pdfs\\ad\\ad0a8e39e7430000.pdf",
+      "bytes": 13423860
+    },
+    {
+      "key": "doi:10.1371/journal.pone.0005479",
+      "doi": "10.1371/journal.pone.0005479",
+      "title": "Vaccinia Virus G8R Protein: A Structural Ortholog of Proliferating Cell Nuclear Antigen (PCNA)",
+      "year": 2009,
+      "authors": [
+        "Melissa Da Silva",
+        "Chris Upton"
+      ],
+      "url": "https://journals.plos.org/plosone/article/file?id=10.1371/journal.pone.0005479&type=printable",
+      "host": "journals.plos.org",
+      "license": "cc-by",
+      "oa_status": "gold",
+      "path": "data\\literature\\pdfs\\95\\950ec2883fcf9fdf.pdf",
+      "bytes": 1637854
+    },
+    {
+      "key": "doi:10.1172/jci117214",
+      "doi": "10.1172/jci117214",
+      "title": "Localization of proliferating cell nuclear antigen, vimentin, c-Fos, and clusterin in the postischemic kidney. Evidence for a heterogenous genetic response among nephron segments, and a large pool of mitotically active and dedifferentiated cells.",
+      "year": 1994,
+      "authors": [
+        "Ralph Witzgall",
+        "Dennis Brown",
+        "Christoph Schwarz",
+        "J. V. Bonventre"
+      ],
+      "url": "http://www.jci.org/articles/view/117214/files/pdf",
+      "host": "www.jci.org",
+      "license": "",
+      "oa_status": "bronze",
+      "path": "data\\literature\\pdfs\\f2\\f2abb10b2d5c939d.pdf",
+      "bytes": 7573672
+    },
+    {
+      "key": "doi:10.1172/jci118224",
+      "doi": "10.1172/jci118224",
+      "title": "Parathyroid cell proliferation in normal and chronic renal failure rats. The effects of calcium, phosphate, and vitamin D.",
+      "year": 1995,
+      "authors": [
+        "Tally Naveh\u2010Many",
+        "Ruth Rahamimov",
+        "N Livni",
+        "J. Silver"
+      ],
+      "url": "http://www.jci.org/articles/view/118224/files/pdf",
+      "host": "www.jci.org",
+      "license": "",
+      "oa_status": "bronze",
+      "path": "data\\literature\\pdfs\\4b\\4be3799d797925f9.pdf",
+      "bytes": 2679341
+    },
+    {
+      "key": "doi:10.4081/923",
+      "doi": "10.4081/923",
+      "title": "The assessment of proliferating cell nuclear antigen (PCNA) immunostaining in myelodysplastic syndromes and its prognostic significance",
+      "year": 2009,
+      "authors": [
+        "MG Alexandrakis",
+        "Freda Passam",
+        "Konstantina I. Dambaki",
+        "F Nalbanti",
+        "ES Stathopoulos",
+        "D. Kyriakou"
+      ],
+      "url": "https://www.ejh.it/index.php/ejh/article/download/923/1041",
+      "host": "www.ejh.it",
+      "license": "cc-by-nc",
+      "oa_status": "gold",
+      "path": "data\\literature\\pdfs\\b5\\b5f2f6520b721cd2.pdf",
+      "bytes": 153132
+    },
+    {
+      "key": "doi:10.1590/s1516-31802007000200003",
+      "doi": "10.1590/s1516-31802007000200003",
+      "title": "Proliferating cell nuclear antigen (PCNA), p53 and MDM2 expression in Hodgkin\u2019s disease",
+      "year": 2007,
+      "authors": [
+        "Gevina Silva Pinheiro",
+        "Maria Regina R\u00e9gis Silva",
+        "Celso Arrais-Rodrigues",
+        "J Kerbauy",
+        "Jos\u00e9 Salvador Rodrigues de Oliveira"
+      ],
+      "url": "https://www.scielo.br/j/spmj/a/Kkfj4mk5Hq4ghYWGRbWYBVK/?lang=en&format=pdf",
+      "host": "www.scielo.br",
+      "license": "cc-by",
+      "oa_status": "diamond",
+      "path": "data\\literature\\pdfs\\7a\\7ade5d7caa48f1e6.pdf",
+      "bytes": 165818
+    },
+    {
+      "key": "doi:10.1172/jci118281",
+      "doi": "10.1172/jci118281",
+      "title": "Adenovirus-mediated over-expression of the cyclin/cyclin-dependent kinase inhibitor, p21 inhibits vascular smooth muscle cell proliferation and neointima formation in the rat carotid artery model of balloon angioplasty.",
+      "year": 1995,
+      "authors": [
+        "M W Chang",
+        "Emily Barr",
+        "Min L\u00fc",
+        "Kevin Barton",
+        "Jeffrey M. Leiden"
+      ],
+      "url": "http://www.jci.org/articles/view/118281/files/pdf",
+      "host": "www.jci.org",
+      "license": "",
+      "oa_status": "bronze",
+      "path": "data\\literature\\pdfs\\5c\\5c68a8b5572ed394.pdf",
+      "bytes": 2363257
+    },
+    {
+      "key": "doi:10.1371/journal.pcbi.1003741",
+      "doi": "10.1371/journal.pcbi.1003741",
+      "title": "Structure-Based Druggability Assessment of the Mammalian Structural Proteome with Inclusion of Light Protein Flexibility",
+      "year": 2014,
+      "authors": [
+        "Kathryn Loving",
+        "Andy Lin",
+        "Alan C. Cheng"
+      ],
+      "url": "https://journals.plos.org/ploscompbiol/article/file?id=10.1371/journal.pcbi.1003741&type=printable",
+      "host": "journals.plos.org",
+      "license": "cc-by",
+      "oa_status": "gold",
+      "path": "data\\literature\\pdfs\\d2\\d26d9e01c7fb9209.pdf",
+      "bytes": 849562
+    },
+    {
+      "key": "doi:10.1371/journal.pcbi.1002326",
+      "doi": "10.1371/journal.pcbi.1002326",
+      "title": "Using Multiple Microenvironments to Find Similar Ligand-Binding Sites: Application to Kinase Inhibitor Binding",
+      "year": 2011,
+      "authors": [
+        "Tianyun Liu",
+        "Russ B. Altman"
+      ],
+      "url": "https://journals.plos.org/ploscompbiol/article/file?id=10.1371/journal.pcbi.1002326&type=printable",
+      "host": "journals.plos.org",
+      "license": "cc-by",
+      "oa_status": "gold",
+      "path": "data\\literature\\pdfs\\20\\20099edbee33a200.pdf",
+      "bytes": 3081062
+    },
+    {
+      "key": "doi:10.1039/d1sc00244a",
+      "doi": "10.1039/d1sc00244a",
+      "title": "Determination of intermediate state structures in the opening pathway of SARS-CoV-2 spike using cryo-electron microscopy",
+      "year": 2021,
+      "authors": [
+        "Z. Faidon Brotzakis",
+        "Thomas L\u00f6hr",
+        "Michele Vendruscolo"
+      ],
+      "url": "https://pubs.rsc.org/en/content/articlepdf/2021/sc/d1sc00244a",
+      "host": "pubs.rsc.org",
+      "license": "cc-by-nc",
+      "oa_status": "diamond",
+      "path": "data\\literature\\pdfs\\6d\\6d1224e8c493f368.pdf",
+      "bytes": 755323
+    },
+    {
+      "key": "doi:10.3389/fmolb.2023.1171143",
+      "doi": "10.3389/fmolb.2023.1171143",
+      "title": "Discovery of a cryptic pocket in the AI-predicted structure of PPM1D phosphatase explains the binding site and potency of its allosteric inhibitors",
+      "year": 2023,
+      "authors": [
+        "Artur Meller",
+        "Saulo De Oliveira",
+        "Aram Davtyan",
+        "Tigran M. Abramyan",
+        "Gregory R. Bowman",
+        "Henry van den Bedem"
+      ],
+      "url": "https://www.frontiersin.org/articles/10.3389/fmolb.2023.1171143/pdf",
+      "host": "www.frontiersin.org",
+      "license": "cc-by",
+      "oa_status": "gold",
+      "path": "data\\literature\\pdfs\\13\\137f63444da243ef.pdf",
+      "bytes": 1918520
+    },
+    {
+      "key": "doi:10.1039/d1ob01120k",
+      "doi": "10.1039/d1ob01120k",
+      "title": "Design and synthesis of a new orthogonally protected glutamic acid analog and its use in the preparation of high affinity polo-like kinase 1 polo-box domain \u2013 binding peptide macrocycles",
+      "year": 2021,
+      "authors": [
+        "David Hymel",
+        "Kohei Tsuji",
+        "Robert A. Grant",
+        "Ramesh Chingle",
+        "Dominique L. Kunciw",
+        "Michael B. Yaffe",
+        "Terrence R. Burke"
+      ],
+      "url": "https://pubs.rsc.org/en/content/articlepdf/2021/ob/d1ob01120k",
+      "host": "pubs.rsc.org",
+      "license": "cc-by-nc",
+      "oa_status": "hybrid",
+      "path": "data\\literature\\pdfs\\91\\91900692d53a402c.pdf",
+      "bytes": 4458471
+    },
+    {
+      "key": "doi:10.1038/nrd.2016.29",
+      "doi": "10.1038/nrd.2016.29",
+      "title": "Small molecules, big targets: drug discovery faces the protein\u2013protein interaction challenge",
+      "year": 2016,
+      "authors": [
+        "Duncan E. Scott",
+        "Andrew R. Bayly",
+        "Chris Abell",
+        "John Skidmore"
+      ],
+      "url": "https://www.repository.cam.ac.uk/bitstreams/19511413-990b-4a55-867f-8562bc7e43ce/download",
+      "host": "www.repository.cam.ac.uk",
+      "license": "",
+      "oa_status": "green",
+      "path": "data\\literature\\pdfs\\ad\\ad6d111fb745b86a.pdf",
+      "bytes": 3077258
+    },
+    {
+      "key": "doi:10.1371/journal.pone.0132138",
+      "doi": "10.1371/journal.pone.0132138",
+      "title": "The Interaction of FABP with Kap\u03b1",
+      "year": 2015,
+      "authors": [
+        "Ortal Amber-Vitos",
+        "N E Kucherenko",
+        "Esther Nachliel",
+        "Menachem Gutman",
+        "Yossi Tsfadia"
+      ],
+      "url": "https://journals.plos.org/plosone/article/file?id=10.1371/journal.pone.0132138&type=printable",
+      "host": "journals.plos.org",
+      "license": "cc-by",
+      "oa_status": "gold",
+      "path": "data\\literature\\pdfs\\c6\\c6852b8cf4674f9a.pdf",
+      "bytes": 9797602
+    },
+    {
+      "key": "doi:10.1172/jci69738",
+      "doi": "10.1172/jci69738",
+      "title": "New and emerging HDAC inhibitors for cancer treatment",
+      "year": 2014,
+      "authors": [
+        "Alison C. West",
+        "Ricky W. Johnstone"
+      ],
+      "url": "http://www.jci.org/articles/view/69738/files/pdf",
+      "host": "www.jci.org",
+      "license": "",
+      "oa_status": "bronze",
+      "path": "data\\literature\\pdfs\\16\\16a7c7be4f1a6124.pdf",
+      "bytes": 730620
+    },
+    {
+      "key": "doi:10.1093/bib/bbaf424",
+      "doi": "10.1093/bib/bbaf424",
+      "title": "STINGAllo: a web server for high-throughput prediction of allosteric site-forming residues using internal protein nanoenvironment descriptors",
+      "year": 2025,
+      "authors": [
+        "Folorunsho Bright Omage",
+        "Jos\u00e9 Augusto Salim",
+        "Ivan Mazoni",
+        "I. H. Yano",
+        "Jorge Enrique Hern\u00e1ndez Gonz\u00e1lez",
+        "P. F. Giachetto",
+        "Ljubica Tasi\u0107",
+        "Raghuvir K. Arni",
+        "Goran Neshich"
+      ],
+      "url": "http://www.alice.cnptia.embrapa.br/bitstream/doc/1178194/1/Ap-STINGAllo-2025.pdf",
+      "host": "www.alice.cnptia.embrapa.br",
+      "license": "cc-by",
+      "oa_status": "gold",
+      "path": "data\\literature\\pdfs\\1d\\1dc9e6c24d5670c7.pdf",
+      "bytes": 1582367
+    },
+    {
+      "key": "doi:10.1371/journal.pcbi.1009986",
+      "doi": "10.1371/journal.pcbi.1009986",
+      "title": "Fast protein structure comparison through effective representation learning with contrastive graph neural networks",
+      "year": 2022,
+      "authors": [
+        "Chunqiu Xia",
+        "Shihao Feng",
+        "Ying Xia",
+        "Xiaoyong Pan",
+        "Hong\u2010Bin Shen"
+      ],
+      "url": "https://journals.plos.org/ploscompbiol/article/file?id=10.1371/journal.pcbi.1009986&type=printable",
+      "host": "journals.plos.org",
+      "license": "cc-by",
+      "oa_status": "gold",
+      "path": "data\\literature\\pdfs\\a8\\a897af222316d184.pdf",
+      "bytes": 3196884
+    },
+    {
+      "key": "doi:10.17863/cam.48429",
+      "doi": "10.17863/cam.48429",
+      "title": "Graph Attention Networks",
+      "year": 2017,
+      "authors": [
+        "Petar Veli\u010dkovi\u0107",
+        "Guillem Cucurull",
+        "Arantxa Casanova",
+        "Adriana Romero",
+        "P\u00edetro Li\u00f3",
+        "Yoshua Bengio"
+      ],
+      "url": "https://arxiv.org/pdf/1710.10903",
+      "host": "arxiv.org",
+      "license": "",
+      "oa_status": "green",
+      "path": "data\\literature\\pdfs\\03\\032360b6c3e3a1dc.pdf",
+      "bytes": 1637828
+    },
+    {
+      "key": "doi:10.1002/3527602755",
+      "doi": "10.1002/3527602755",
+      "title": "Handbook of Graphs and Networks",
+      "year": 2002,
+      "authors": [
+        "Vicente Sol\u00e9, Ricardo",
+        "Pastor Satorras, Romualdo"
+      ],
+      "url": "https://arxiv.org/pdf/cond-mat/0205260.pdf",
+      "host": "arxiv.org",
+      "license": "cc-by-nc-nd",
+      "oa_status": "green",
+      "path": "data\\literature\\pdfs\\1c\\1c7dcb126004cb43.pdf",
+      "bytes": 227048
+    },
+    {
+      "key": "doi:10.1145/3219819.3219947",
+      "doi": "10.1145/3219819.3219947",
+      "title": "Large-Scale Learnable Graph Convolutional Networks",
+      "year": 2018,
+      "authors": [
+        "Hongyang Gao",
+        "Zhengyang Wang",
+        "Shuiwang Ji"
+      ],
+      "url": "https://arxiv.org/pdf/1808.03965",
+      "host": "arxiv.org",
+      "license": "",
+      "oa_status": "gold",
+      "path": "data\\literature\\pdfs\\23\\2375c916b7747740.pdf",
+      "bytes": 860942
+    },
+    {
+      "key": "doi:10.48550/arxiv.2201.13299",
+      "doi": "10.48550/arxiv.2201.13299",
+      "title": "Orientation-Aware Graph Neural Networks for Protein Structure Representation Learning",
+      "year": 2022,
+      "authors": [
+        "Jiahan Li",
+        "Shitong Luo",
+        "Congyue Deng",
+        "Chaoran Cheng",
+        "Jiaqi Guan",
+        "Leonidas Guibas",
+        "Jian Peng",
+        "Jianzhu Ma"
+      ],
+      "url": "https://arxiv.org/pdf/2201.13299",
+      "host": "arxiv.org",
+      "license": "",
+      "oa_status": "green",
+      "path": "data\\literature\\pdfs\\ee\\ee80ab0d3352a54c.pdf",
+      "bytes": 2454233
+    },
+    {
+      "key": "doi:10.1021/acsomega.5c05484",
+      "doi": "10.1021/acsomega.5c05484",
+      "title": "Integrating ESM-2 and Graph Neural Networks with AlphaFold-2 Structures for Enhanced Protein Function Prediction",
+      "year": 2025,
+      "authors": [
+        "Thi-Tuyen Nguyen",
+        "Zhuocheng Jiang",
+        "Van-Nui Nguyen",
+        "Nguyen Quoc Khanh Le",
+        "Matthew Chin Heng Chua"
+      ],
+      "url": "https://pubs.acs.org/doi/pdf/10.1021/acsomega.5c05484?ref=article_openPDF",
+      "host": "pubs.acs.org",
+      "license": "cc-by",
+      "oa_status": "gold",
+      "path": "data\\literature\\pdfs\\53\\53f667b82e9fcab9.pdf",
+      "bytes": 2932594
+    },
+    {
+      "key": "doi:10.1109/tnnls.2024.3371592",
+      "doi": "10.1109/tnnls.2024.3371592",
+      "title": "Guest Editorial: Deep Neural Networks for Graphs: Theory, Models, Algorithms, and Applications",
+      "year": 2024,
+      "authors": [
+        "Ming Li",
+        "Alessio Micheli",
+        "Yu Guang Wang",
+        "Shirui Pan",
+        "P\u00edetro Li\u00f3",
+        "Giorgio Stefano Gnecco",
+        "Marcello Sanguineti"
+      ],
+      "url": "https://ieeexplore.ieee.org/ielx7/5962385/10492491/10492652.pdf",
+      "host": "ieeexplore.ieee.org",
+      "license": "",
+      "oa_status": "bronze",
+      "path": "data\\literature\\pdfs\\df\\dfdf9480da0d77ea.pdf",
+      "bytes": 5651176
+    },
+    {
+      "key": "doi:10.1371/journal.pone.0249404",
+      "doi": "10.1371/journal.pone.0249404",
+      "title": "Development of a graph convolutional neural network model for efficient prediction of protein-ligand binding affinities",
+      "year": 2021,
+      "authors": [
+        "Jeongtae Son",
+        "Dongsup Kim"
+      ],
+      "url": "https://journals.plos.org/plosone/article/file?id=10.1371/journal.pone.0249404&type=printable",
+      "host": "journals.plos.org",
+      "license": "cc-by",
+      "oa_status": "gold",
+      "path": "data\\literature\\pdfs\\e6\\e61be453175b665f.pdf",
+      "bytes": 994092
+    },
+    {
+      "key": "doi:10.48550/arxiv.2009.01411",
+      "doi": "10.48550/arxiv.2009.01411",
+      "title": "Learning from Protein Structure with Geometric Vector Perceptrons",
+      "year": 2020,
+      "authors": [
+        "Bowen Jing",
+        "Stephan Eismann",
+        "Patricia Suriana",
+        "Raphael J.L. Townshend",
+        "Ron O. Dror"
+      ],
+      "url": "https://arxiv.org/pdf/2009.01411",
+      "host": "arxiv.org",
+      "license": "",
+      "oa_status": "green",
+      "path": "data\\literature\\pdfs\\54\\54ae0352668c7a83.pdf",
+      "bytes": 838993
+    },
+    {
+      "key": "doi:10.1073/pnas.2104878118",
+      "doi": "10.1073/pnas.2104878118",
+      "title": "Neural networks to learn protein sequence\u2013function relationships from deep mutational scanning data",
+      "year": 2021,
+      "authors": [
+        "Sam Gelman",
+        "Sarah A. Fahlberg",
+        "Pete Heinzelman",
+        "Philip A. Romero",
+        "Anthony Gitter"
+      ],
+      "url": "https://www.osti.gov/servlets/purl/1982395",
+      "host": "www.osti.gov",
+      "license": "cc-by",
+      "oa_status": "hybrid",
+      "path": "data\\literature\\pdfs\\02\\02e8eeb39d92f033.pdf",
+      "bytes": 3025522
+    },
+    {
+      "key": "doi:10.48550/arxiv.2107.10670",
+      "doi": "10.48550/arxiv.2107.10670",
+      "title": "Structure-aware Interactive Graph Neural Networks for the Prediction of Protein-Ligand Binding Affinity",
+      "year": 2021,
+      "authors": [
+        "Shuangli Li",
+        "Jingbo Zhou",
+        "Tong Xu",
+        "Liang Huang",
+        "Fan Wang",
+        "Haoyi Xiong",
+        "Weili Huang",
+        "Dejing Dou",
+        "Hui Xiong"
+      ],
+      "url": "https://arxiv.org/pdf/2107.10670",
+      "host": "arxiv.org",
+      "license": "cc-by-nc-nd",
+      "oa_status": "green",
+      "path": "data\\literature\\pdfs\\88\\880df6482c9d8be4.pdf",
+      "bytes": 3462235
+    },
+    {
+      "key": "doi:10.1093/bioinformatics/btx275",
+      "doi": "10.1093/bioinformatics/btx275",
+      "title": "Neuro-symbolic representation learning on biological knowledge graphs",
+      "year": 2017,
+      "authors": [
+        "Mona Alshahrani",
+        "Mohammad Asif Khan",
+        "Omar Maddouri",
+        "Akira R. Kinjo",
+        "N\u00faria Queralt-Rosi\u00f1ach",
+        "Robert Hoehndorf"
+      ],
+      "url": "https://arxiv.org/pdf/1612.04256",
+      "host": "arxiv.org",
+      "license": "cc-by",
+      "oa_status": "hybrid",
+      "path": "data\\literature\\pdfs\\66\\663bbdd1a857b9e7.pdf",
+      "bytes": 871486
+    },
+    {
+      "key": "doi:10.3389/fmolb.2021.647915",
+      "doi": "10.3389/fmolb.2021.647915",
+      "title": "Protein Docking Model Evaluation by Graph Neural Networks",
+      "year": 2021,
+      "authors": [
+        "Xiao Wang",
+        "Sean T. Flannery",
+        "Daisuke Kihara"
+      ],
+      "url": "https://www.frontiersin.org/articles/10.3389/fmolb.2021.647915/pdf",
+      "host": "www.frontiersin.org",
+      "license": "cc-by",
+      "oa_status": "gold",
+      "path": "data\\literature\\pdfs\\27\\27497f138d860653.pdf",
+      "bytes": 2257659
+    },
+    {
+      "key": "doi:10.1039/d0cp00305k",
+      "doi": "10.1039/d0cp00305k",
+      "title": "Are 2D fingerprints still valuable for drug discovery?",
+      "year": 2020,
+      "authors": [
+        "Kaifu Gao",
+        "Duc Duy Nguyen",
+        "Vishnu Sresht",
+        "Alan M. Mathiowetz",
+        "Meihua Tu",
+        "Guo\u2010Wei Wei"
+      ],
+      "url": "https://arxiv.org/pdf/1911.00930",
+      "host": "arxiv.org",
+      "license": "",
+      "oa_status": "green",
+      "path": "data\\literature\\pdfs\\7e\\7e23978ee828ee4c.pdf",
+      "bytes": 1870950
+    },
+    {
+      "key": "doi:10.1021/acs.jcim.9b00927",
+      "doi": "10.1021/acs.jcim.9b00927",
+      "title": "Combining Docking Pose Rank and Structure with Deep Learning Improves Protein\u2013Ligand Binding Mode Prediction over a Baseline Docking Approach",
+      "year": 2020,
+      "authors": [
+        "Joseph A. Morrone",
+        "Jeffrey K. Weber",
+        "Tien Huynh",
+        "Heng Luo",
+        "Wendy D. Cornell"
+      ],
+      "url": "https://arxiv.org/pdf/1910.02845",
+      "host": "arxiv.org",
+      "license": "",
+      "oa_status": "green",
+      "path": "data\\literature\\pdfs\\9e\\9eb88db932c027dc.pdf",
+      "bytes": 944548
+    },
+    {
+      "key": "doi:10.3389/fbinf.2025.1651623",
+      "doi": "10.3389/fbinf.2025.1651623",
+      "title": "Inferred global dense residue transition graphs from primary structure sequences enable protein interaction prediction via directed graph convolutional neural networks",
+      "year": 2025,
+      "authors": [
+        "Islam Akef Ebeid",
+        "Haoteng Tang",
+        "Pengfei Gu"
+      ],
+      "url": "https://www.frontiersin.org/journals/bioinformatics/articles/10.3389/fbinf.2025.1651623/pdf",
+      "host": "www.frontiersin.org",
+      "license": "cc-by",
+      "oa_status": "gold",
+      "path": "data\\literature\\pdfs\\a2\\a2f3a405a8a579bf.pdf",
+      "bytes": 2107460
+    },
+    {
+      "key": "doi:10.1371/journal.pcbi.1004130",
+      "doi": "10.1371/journal.pcbi.1004130",
+      "title": "Neuroblastoma Tyrosine Kinase Signaling Networks Involve FYN and LYN in Endosomes and Lipid Rafts",
+      "year": 2015,
+      "authors": [
+        "Juan Palacios\u2010Moreno",
+        "Lauren Foltz",
+        "Ailan Guo",
+        "Matthew P. Stokes",
+        "Emily D. Kuehn",
+        "Lynn George",
+        "Michael J. Comb",
+        "Mark L. Grimes"
+      ],
+      "url": "https://journals.plos.org/ploscompbiol/article/file?id=10.1371/journal.pcbi.1004130&type=printable",
+      "host": "journals.plos.org",
+      "license": "cc-by",
+      "oa_status": "gold",
+      "path": "data\\literature\\pdfs\\15\\15d4b056f39268d7.pdf",
+      "bytes": 9782067
+    },
+    {
+      "key": "doi:10.48550/arxiv.2206.04119",
+      "doi": "10.48550/arxiv.2206.04119",
+      "title": "Diffusion probabilistic modeling of protein backbones in 3D for the motif-scaffolding problem",
+      "year": 2022,
+      "authors": [
+        "Brian L. Trippe",
+        "Jason Yim",
+        "Doug Tischer",
+        "David Baker",
+        "Tamara Broderick",
+        "Regina Barzilay",
+        "Tommi Jaakkola"
+      ],
+      "url": "https://arxiv.org/pdf/2206.04119",
+      "host": "arxiv.org",
+      "license": "",
+      "oa_status": "green",
+      "path": "data\\literature\\pdfs\\1c\\1ce64806f8380ada.pdf",
+      "bytes": 6658909
+    },
+    {
+      "key": "doi:10.25080/tcwv9851",
+      "doi": "10.25080/tcwv9851",
+      "title": "Exploring Network Structure, Dynamics, and Function using NetworkX",
+      "year": 2008,
+      "authors": [
+        "Aric Hagberg",
+        "Dan Schult",
+        "Pieter J. Swart"
+      ],
+      "url": "https://proceedings.scipy.org/articles/TCWV9851.pdf",
+      "host": "proceedings.scipy.org",
+      "license": "cc-by",
+      "oa_status": "hybrid",
+      "path": "data\\literature\\pdfs\\ef\\efd77d654299ba19.pdf",
+      "bytes": 307629
+    },
+    {
+      "key": "doi:10.48550/arxiv.2205.07249",
+      "doi": "10.48550/arxiv.2205.07249",
+      "title": "Pocket2Mol: Efficient Molecular Sampling Based on 3D Protein Pockets",
+      "year": 2022,
+      "authors": [
+        "Xingang Peng",
+        "Shitong Luo",
+        "Jiaqi Guan",
+        "Qi Xie",
+        "Jian Peng",
+        "Jianzhu Ma"
+      ],
+      "url": "https://arxiv.org/pdf/2205.07249",
+      "host": "arxiv.org",
+      "license": "",
+      "oa_status": "green",
+      "path": "data\\literature\\pdfs\\61\\610d9c269b768b22.pdf",
+      "bytes": 6664730
+    },
+    {
+      "key": "doi:10.48550/arxiv.2011.07457",
+      "doi": "10.48550/arxiv.2011.07457",
+      "title": "Molecular Mechanics-Driven Graph Neural Network with Multiplex Graph for Molecular Structures",
+      "year": 2020,
+      "authors": [
+        "Shuo Zhang",
+        "Yang Liu",
+        "Lei Xie"
+      ],
+      "url": "https://arxiv.org/pdf/2011.07457",
+      "host": "arxiv.org",
+      "license": "",
+      "oa_status": "green",
+      "path": "data\\literature\\pdfs\\95\\95384881e8d4b9cd.pdf",
+      "bytes": 674892
+    },
+    {
+      "key": "doi:10.1039/d1dd00007a",
+      "doi": "10.1039/d1dd00007a",
+      "title": "Rapid prediction of protein natural frequencies using graph neural networks",
+      "year": 2022,
+      "authors": [
+        "Kai Guo",
+        "Markus J. Buehler"
+      ],
+      "url": "https://pubs.rsc.org/en/content/articlepdf/2022/dd/d1dd00007a",
+      "host": "pubs.rsc.org",
+      "license": "cc-by-nc",
+      "oa_status": "diamond",
+      "path": "data\\literature\\pdfs\\bf\\bf54c8a093c5cfa0.pdf",
+      "bytes": 1060913
+    },
+    {
+      "key": "doi:10.48550/arxiv.2102.05429",
+      "doi": "10.48550/arxiv.2102.05429",
+      "title": "Node-Level Membership Inference Attacks Against Graph Neural Networks",
+      "year": 2021,
+      "authors": [
+        "Xinlei He",
+        "Rui Wen",
+        "Yixin Wu",
+        "Michael Backes",
+        "Yun Shen",
+        "Yang Zhang"
+      ],
+      "url": "https://arxiv.org/pdf/2102.05429",
+      "host": "arxiv.org",
+      "license": "",
+      "oa_status": "green",
+      "path": "data\\literature\\pdfs\\c8\\c8e5a272c8177ed3.pdf",
+      "bytes": 828341
+    },
+    {
+      "key": "doi:10.1109/tcbb.2021.3054738",
+      "doi": "10.1109/tcbb.2021.3054738",
+      "title": "EPGAT: Gene Essentiality Prediction With Graph Attention Networks",
+      "year": 2021,
+      "authors": [
+        "Jo\u00e3o Schapke",
+        "Anderson Rocha Tavares",
+        "Mariana Recamonde\u2010Mendoza"
+      ],
+      "url": "https://arxiv.org/pdf/2007.09671",
+      "host": "arxiv.org",
+      "license": "",
+      "oa_status": "green",
+      "path": "data\\literature\\pdfs\\9a\\9a1d4162744dc83b.pdf",
+      "bytes": 594985
+    },
+    {
+      "key": "doi:10.1371/journal.pcbi.1011435",
+      "doi": "10.1371/journal.pcbi.1011435",
+      "title": "E(3) equivariant graph neural networks for robust and accurate protein-protein interaction site prediction",
+      "year": 2023,
+      "authors": [
+        "Rahmatullah Roche",
+        "Bernard Moussad",
+        "Md Hossain Shuvo",
+        "Debswapna Bhattacharya"
+      ],
+      "url": "https://journals.plos.org/ploscompbiol/article/file?id=10.1371/journal.pcbi.1011435&type=printable",
+      "host": "journals.plos.org",
+      "license": "cc-by",
+      "oa_status": "gold",
+      "path": "data\\literature\\pdfs\\f6\\f650299eabe7ef36.pdf",
+      "bytes": 1733039
+    },
+    {
+      "key": "doi:10.24963/ijcai.2023/554",
+      "doi": "10.24963/ijcai.2023/554",
+      "title": "SemiGNN-PPI: Self-Ensembling Multi-Graph Neural Network for Efficient and Generalizable Protein\u2013Protein Interaction Prediction",
+      "year": 2023,
+      "authors": [
+        "Ziyuan Zhao",
+        "Peisheng Qian",
+        "Xulei Yang",
+        "Zeng Zeng",
+        "Cuntai Guan",
+        "Wai Leong Tam",
+        "Xiaoli Li"
+      ],
+      "url": "https://www.ijcai.org/proceedings/2023/0554.pdf",
+      "host": "www.ijcai.org",
+      "license": "",
+      "oa_status": "gold",
+      "path": "data\\literature\\pdfs\\2e\\2e1f84c1e9e88c31.pdf",
+      "bytes": 6910287
+    },
+    {
+      "key": "doi:10.48550/arxiv.2312.03016",
+      "doi": "10.48550/arxiv.2312.03016",
+      "title": "Protein Language Model-Powered 3D Ligand Binding Site Prediction from Protein Sequence",
+      "year": 2023,
+      "authors": [
+        "Shuo Zhang",
+        "Lei Xie"
+      ],
+      "url": "https://arxiv.org/pdf/2312.03016",
+      "host": "arxiv.org",
+      "license": "",
+      "oa_status": "green",
+      "path": "data\\literature\\pdfs\\fd\\fd87175dc788f345.pdf",
+      "bytes": 2087471
+    },
+    {
+      "key": "doi:10.3389/fbinf.2023.1120370",
+      "doi": "10.3389/fbinf.2023.1120370",
+      "title": "Before and after AlphaFold2: An overview of protein structure prediction",
+      "year": 2023,
+      "authors": [
+        "Let\u00edcia M. F. Bertoline",
+        "Ang\u00e9lica N. Lima",
+        "Jos\u00e9 Eduardo Krieger",
+        "Samantha K. Teixeira"
+      ],
+      "url": "https://www.frontiersin.org/articles/10.3389/fbinf.2023.1120370/pdf",
+      "host": "www.frontiersin.org",
+      "license": "cc-by",
+      "oa_status": "gold",
+      "path": "data\\literature\\pdfs\\00\\0033783266473cca.pdf",
+      "bytes": 1281054
+    },
+    {
+      "key": "doi:10.3389/fmicb.2026.1716930",
+      "doi": "10.3389/fmicb.2026.1716930",
+      "title": "Deep learning on protein language model embeddings unlocks accurate prediction of protein solubility",
+      "year": 2026,
+      "authors": [
+        "Jing Cui",
+        "Yong Jiang",
+        "Jing Wang",
+        "Han Jiang",
+        "Jiehong Fang",
+        "Jiankang Jiang",
+        "Qi Chen",
+        "Shihuan Zhong",
+        "Xinglong Wang"
+      ],
+      "url": "https://public-pages-files-2025.frontiersin.org/journals/microbiology/articles/10.3389/fmicb.2026.1716930/pdf",
+      "host": "public-pages-files-2025.frontiersin.org",
+      "license": "cc-by",
+      "oa_status": "gold",
+      "path": "data\\literature\\pdfs\\cc\\cc175a714bf26df2.pdf",
+      "bytes": 5532004
+    },
+    {
+      "key": "doi:10.3389/fimmu.2024.1322712",
+      "doi": "10.3389/fimmu.2024.1322712",
+      "title": "DiscoTope-3.0: improved B-cell epitope prediction using inverse folding latent representations",
+      "year": 2024,
+      "authors": [
+        "Magnus Haraldson H\u00f8ie",
+        "Frederik Steensgaard Gade",
+        "Julie Maria Johansen",
+        "Charlotte W\u00fcrtzen",
+        "Ole Winther",
+        "Morten Nielsen",
+        "Paolo Marcatili"
+      ],
+      "url": "https://www.frontiersin.org/journals/immunology/articles/10.3389/fimmu.2024.1322712/pdf",
+      "host": "www.frontiersin.org",
+      "license": "cc-by",
+      "oa_status": "gold",
+      "path": "data\\literature\\pdfs\\1e\\1eca63869937c4da.pdf",
+      "bytes": 4055019
+    },
+    {
+      "key": "doi:10.1039/d4cs00196f",
+      "doi": "10.1039/d4cs00196f",
+      "title": "Navigating the landscape of enzyme design: from molecular simulations to machine learning",
+      "year": 2024,
+      "authors": [
+        "Jiahui Zhou",
+        "Meilan Huang"
+      ],
+      "url": "https://pubs.rsc.org/en/content/articlepdf/2024/cs/d4cs00196f",
+      "host": "pubs.rsc.org",
+      "license": "cc-by",
+      "oa_status": "hybrid",
+      "path": "data\\literature\\pdfs\\02\\02f8bf6c21cd73c9.pdf",
+      "bytes": 4891681
+    },
+    {
+      "key": "doi:10.1093/bib/bbad289",
+      "doi": "10.1093/bib/bbad289",
+      "title": "Artificial intelligence-aided protein engineering: from topological data analysis to deep protein language models",
+      "year": 2023,
+      "authors": [
+        "Yuchi Qiu",
+        "Guo\u2010Wei Wei"
+      ],
+      "url": "https://arxiv.org/pdf/2307.14587",
+      "host": "arxiv.org",
+      "license": "cc-by",
+      "oa_status": "hybrid",
+      "path": "data\\literature\\pdfs\\19\\19c265604323cbe1.pdf",
+      "bytes": 2393384
+    },
+    {
+      "key": "doi:10.48550/arxiv.2205.05789",
+      "doi": "10.48550/arxiv.2205.05789",
+      "title": "RITA: a Study on Scaling Up Generative Protein Sequence Models",
+      "year": 2022,
+      "authors": [
+        "Daniel Hesslow",
+        "Niccol\u00f3 Zanichelli",
+        "Pascal Notin",
+        "Iacopo Poli",
+        "Debora S. Marks"
+      ],
+      "url": "https://arxiv.org/pdf/2205.05789",
+      "host": "arxiv.org",
+      "license": "",
+      "oa_status": "green",
+      "path": "data\\literature\\pdfs\\8e\\8ed35cebf1ce4acc.pdf",
+      "bytes": 625536
+    },
+    {
+      "key": "doi:10.1371/journal.pone.0060954",
+      "doi": "10.1371/journal.pone.0060954",
+      "title": "Approximate Subgraph Matching-Based Literature Mining for Biomedical Events and Relations",
+      "year": 2013,
+      "authors": [
+        "Haibin Liu",
+        "Lawrence Hunter",
+        "Vlado Ke\u0161elj",
+        "Karin Verspoor"
+      ],
+      "url": "https://journals.plos.org/plosone/article/file?id=10.1371/journal.pone.0060954&type=printable",
+      "host": "journals.plos.org",
+      "license": "cc-by",
+      "oa_status": "gold",
+      "path": "data\\literature\\pdfs\\33\\338c194a4d4783f3.pdf",
+      "bytes": 1473655
+    },
+    {
+      "key": "doi:10.1371/journal.pcbi.1011162",
+      "doi": "10.1371/journal.pcbi.1011162",
+      "title": "Deep self-supervised learning for biosynthetic gene cluster detection and product classification",
+      "year": 2023,
+      "authors": [
+        "Carolina Rios-Martinez",
+        "Nicholas Bhattacharya",
+        "Ava P. Amini",
+        "Lorin Crawford",
+        "Kevin Yang"
+      ],
+      "url": "https://journals.plos.org/ploscompbiol/article/file?id=10.1371/journal.pcbi.1011162&type=printable",
+      "host": "journals.plos.org",
+      "license": "cc-by",
+      "oa_status": "gold",
+      "path": "data\\literature\\pdfs\\1f\\1f0ccb209d462b4b.pdf",
+      "bytes": 1527287
+    },
+    {
+      "key": "doi:10.1016/j.str.2022.05.006",
+      "doi": "10.1016/j.str.2022.05.006",
+      "title": "Uncovering cryptic pockets in the SARS-CoV-2 spike glycoprotein",
+      "year": 2022,
+      "authors": [
+        "Lorena Zuzic",
+        "Firdaus Samsudin",
+        "Aishwary T. Shivgan",
+        "Palur Venkata Raghuvamsi",
+        "Jan K. Marzinek",
+        "Alister Boags",
+        "Conrado Pedebos",
+        "Nikhil Kumar Tulsian",
+        "Jim Warwicker",
+        "Paul A. MacAry",
+        "Max Crispin",
+        "Syma Khalid"
+      ],
+      "url": "https://eprints.soton.ac.uk/469647/1/submitted_compressed.pdf",
+      "host": "eprints.soton.ac.uk",
+      "license": "other-oa",
+      "oa_status": "green",
+      "path": "data\\literature\\pdfs\\4c\\4cd9b0e10a2dc62e.pdf",
+      "bytes": 2434375
+    },
+    {
+      "key": "doi:10.3389/fphar.2018.00923",
+      "doi": "10.3389/fphar.2018.00923",
+      "title": "Bridging Molecular Docking to Molecular Dynamics in Exploring Ligand-Protein Recognition Process: An Overview",
+      "year": 2018,
+      "authors": [
+        "Veronica Salmaso",
+        "Stefano Moro"
+      ],
+      "url": "https://www.frontiersin.org/articles/10.3389/fphar.2018.00923/pdf",
+      "host": "www.frontiersin.org",
+      "license": "cc-by",
+      "oa_status": "gold",
+      "path": "data\\literature\\pdfs\\bd\\bd9dad0e2b357d87.pdf",
+      "bytes": 2686190
+    },
+    {
+      "key": "doi:10.3389/fphar.2015.00283",
+      "doi": "10.3389/fphar.2015.00283",
+      "title": "Role of ErbB Receptors in Cancer Cell Migration and Invasion",
+      "year": 2015,
+      "authors": [
+        "Aline Appert-Collin",
+        "P. Hubert",
+        "G\u00e9rard Cr\u00e9mel",
+        "Amar Bennasroune"
+      ],
+      "url": "https://www.frontiersin.org/articles/10.3389/fphar.2015.00283/pdf",
+      "host": "www.frontiersin.org",
+      "license": "cc-by",
+      "oa_status": "gold",
+      "path": "data\\literature\\pdfs\\7e\\7efee1727000555f.pdf",
+      "bytes": 985221
+    },
+    {
+      "key": "doi:10.1039/d0cs01065k",
+      "doi": "10.1039/d0cs01065k",
+      "title": "A critical overview of computational approaches employed for COVID-19 drug discovery",
+      "year": 2021,
+      "authors": [
+        "Eugene Muratov",
+        "Rommie E. Amaro",
+        "Carolina Horta Andrade",
+        "Nathan Brown",
+        "Sean Ekins",
+        "Denis Fourches",
+        "Olexandr Isayev",
+        "Dima Kozakov",
+        "Jos\u00e9 L. Medina\u2010Franco",
+        "Kenneth M. Merz",
+        "Tudor I. Oprea",
+        "Vladimir Poroikov"
+      ],
+      "url": "https://pubs.rsc.org/en/content/articlepdf/2021/cs/d0cs01065k",
+      "host": "pubs.rsc.org",
+      "license": "cc-by-nc",
+      "oa_status": "hybrid",
+      "path": "data\\literature\\pdfs\\2c\\2c74b58d51e403f7.pdf",
+      "bytes": 7221573
+    },
+    {
+      "key": "doi:10.1371/journal.pcbi.1008790",
+      "doi": "10.1371/journal.pcbi.1008790",
+      "title": "Computational epitope map of SARS-CoV-2 spike protein",
+      "year": 2021,
+      "authors": [
+        "Mateusz Sikora",
+        "S\u00f6ren von B\u00fclow",
+        "Florian E.C. Blanc",
+        "Michael Gecht",
+        "Roberto Covino",
+        "Gerhard Hummer"
+      ],
+      "url": "https://journals.plos.org/ploscompbiol/article/file?id=10.1371/journal.pcbi.1008790&type=printable",
+      "host": "journals.plos.org",
+      "license": "cc-by",
+      "oa_status": "gold",
+      "path": "data\\literature\\pdfs\\2d\\2d4994e44eca6247.pdf",
+      "bytes": 3346658
+    },
+    {
+      "key": "doi:10.1371/journal.pcbi.1004746",
+      "doi": "10.1371/journal.pcbi.1004746",
+      "title": "Revealing Atomic-Level Mechanisms of Protein Allostery with Molecular Dynamics Simulations",
+      "year": 2016,
+      "authors": [
+        "Samuel Hertig",
+        "Naomi R. Latorraca",
+        "Ron O. Dror"
+      ],
+      "url": "https://journals.plos.org/ploscompbiol/article/file?id=10.1371/journal.pcbi.1004746&type=printable",
+      "host": "journals.plos.org",
+      "license": "cc-by",
+      "oa_status": "gold",
+      "path": "data\\literature\\pdfs\\cf\\cf95afa2ee4c0617.pdf",
+      "bytes": 2335404
+    },
+    {
+      "key": "doi:10.1039/d0sc01676d",
+      "doi": "10.1039/d0sc01676d",
+      "title": "PI3K inhibitors: review and new strategies",
+      "year": 2020,
+      "authors": [
+        "Mingzhen Zhang",
+        "Hyunbum Jang",
+        "Ruth Nussinov"
+      ],
+      "url": "https://pubs.rsc.org/en/content/articlepdf/2020/sc/d0sc01676d",
+      "host": "pubs.rsc.org",
+      "license": "cc-by-nc",
+      "oa_status": "diamond",
+      "path": "data\\literature\\pdfs\\b7\\b7dca8895b527deb.pdf",
+      "bytes": 800182
+    },
+    {
+      "key": "doi:10.3389/fmicb.2018.01058",
+      "doi": "10.3389/fmicb.2018.01058",
+      "title": "Tetracycline-Inactivating Enzymes",
+      "year": 2018,
+      "authors": [
+        "Jana L. Markley",
+        "Timothy A. Wencewicz"
+      ],
+      "url": "https://www.frontiersin.org/articles/10.3389/fmicb.2018.01058/pdf",
+      "host": "www.frontiersin.org",
+      "license": "cc-by",
+      "oa_status": "gold",
+      "path": "data\\literature\\pdfs\\e1\\e16c905e2961bb95.pdf",
+      "bytes": 9825578
+    },
+    {
+      "key": "doi:10.3389/fmolb.2020.605236",
+      "doi": "10.3389/fmolb.2020.605236",
+      "title": "Structural Characterization of SARS-CoV-2: Where We Are, and Where We Need to Be",
+      "year": 2020,
+      "authors": [
+        "Giuseppina Mariano",
+        "Rebecca J. Farthing",
+        "Shamar L. M. Lale-Farjat",
+        "Julien R. C. Bergeron"
+      ],
+      "url": "https://www.frontiersin.org/articles/10.3389/fmolb.2020.605236/pdf",
+      "host": "www.frontiersin.org",
+      "license": "cc-by",
+      "oa_status": "gold",
+      "path": "data\\literature\\pdfs\\d9\\d94c5d75e23406b1.pdf",
+      "bytes": 4641721
+    },
+    {
+      "key": "doi:10.3389/fmicb.2017.02496",
+      "doi": "10.3389/fmicb.2017.02496",
+      "title": "The DnaA Cycle in Escherichia coli: Activation, Function and Inactivation of the Initiator Protein",
+      "year": 2017,
+      "authors": [
+        "Tsutomu Katayama",
+        "Kazutoshi Kasho",
+        "Hironori Kawakami"
+      ],
+      "url": "https://www.frontiersin.org/articles/10.3389/fmicb.2017.02496/pdf",
+      "host": "www.frontiersin.org",
+      "license": "cc-by",
+      "oa_status": "gold",
+      "path": "data\\literature\\pdfs\\0b\\0bb16d7df148b5bd.pdf",
+      "bytes": 2352040
+    },
+    {
+      "key": "doi:10.1172/jci121277",
+      "doi": "10.1172/jci121277",
+      "title": "PTEN-opathies: from biological insights to evidence-based precision medicine",
+      "year": 2019,
+      "authors": [
+        "Lamis Yehia",
+        "Joanne Ngeow",
+        "Charis Eng"
+      ],
+      "url": "http://www.jci.org/articles/view/121277/files/pdf",
+      "host": "www.jci.org",
+      "license": "",
+      "oa_status": "bronze",
+      "path": "data\\literature\\pdfs\\a4\\a4323fc2a8eba171.pdf",
+      "bytes": 5204745
+    },
+    {
+      "key": "doi:10.1371/journal.pcbi.1009817",
+      "doi": "10.1371/journal.pcbi.1009817",
+      "title": "How does a small molecule bind at a cryptic binding site?",
+      "year": 2022,
+      "authors": [
+        "Yibing Shan",
+        "Venkatesh Mysore",
+        "Abba E. Leffler",
+        "Eric T. Kim",
+        "Shiori Sagawa",
+        "David E. Shaw"
+      ],
+      "url": "https://journals.plos.org/ploscompbiol/article/file?id=10.1371/journal.pcbi.1009817&type=printable",
+      "host": "journals.plos.org",
+      "license": "cc-by",
+      "oa_status": "gold",
+      "path": "data\\literature\\pdfs\\5f\\5f23783d8cd832fb.pdf",
+      "bytes": 3221905
+    },
+    {
+      "key": "doi:10.1371/journal.pcbi.1006228",
+      "doi": "10.1371/journal.pcbi.1006228",
+      "title": "Reversing allosteric communication: From detecting allosteric sites to inducing and tuning targeted allosteric response",
+      "year": 2018,
+      "authors": [
+        "Wei-Ven Tee",
+        "Enrico Guarnera",
+        "Igor N. Berezovsky"
+      ],
+      "url": "https://journals.plos.org/ploscompbiol/article/file?id=10.1371/journal.pcbi.1006228&type=printable",
+      "host": "journals.plos.org",
+      "license": "cc-by",
+      "oa_status": "gold",
+      "path": "data\\literature\\pdfs\\38\\388f8bd4e622d8e9.pdf",
+      "bytes": 52788799
+    },
+    {
+      "key": "doi:10.1371/journal.pcbi.1000484",
+      "doi": "10.1371/journal.pcbi.1000484",
+      "title": "Computation of Conformational Coupling in Allosteric Proteins",
+      "year": 2009,
+      "authors": [
+        "Brian Kidd",
+        "David Baker",
+        "Wendy E. Thomas"
+      ],
+      "url": "https://journals.plos.org/ploscompbiol/article/file?id=10.1371/journal.pcbi.1000484&type=printable",
+      "host": "journals.plos.org",
+      "license": "cc-by",
+      "oa_status": "gold",
+      "path": "data\\literature\\pdfs\\03\\0346dca602d13a44.pdf",
+      "bytes": 496555
+    },
+    {
+      "key": "doi:10.1371/journal.pbio.1001651",
+      "doi": "10.1371/journal.pbio.1001651",
+      "title": "Modulation of Global Low-Frequency Motions Underlies Allosteric Regulation: Demonstration in CRP/FNR Family Transcription Factors",
+      "year": 2013,
+      "authors": [
+        "Thomas L. Rodgers",
+        "Philip D. Townsend",
+        "David Burnell",
+        "Matthew L. Jones",
+        "Shane A. Richards",
+        "Tom McLeish",
+        "Ehmke Pohl",
+        "Mark R. Wilson",
+        "Martin J. Cann"
+      ],
+      "url": "https://journals.plos.org/plosbiology/article/file?id=10.1371/journal.pbio.1001651&type=printable",
+      "host": "journals.plos.org",
+      "license": "cc-by",
+      "oa_status": "gold",
+      "path": "data\\literature\\pdfs\\ef\\ef7e9bb9411fe664.pdf",
+      "bytes": 4836045
+    },
+    {
+      "key": "doi:10.1371/journal.pcbi.1000531",
+      "doi": "10.1371/journal.pcbi.1000531",
+      "title": "Structure-Based Predictive Models for Allosteric Hot Spots",
+      "year": 2009,
+      "authors": [
+        "Omar Demerdash",
+        "Michael D. Daily",
+        "Julie C. Mitchell"
+      ],
+      "url": "https://journals.plos.org/ploscompbiol/article/file?id=10.1371/journal.pcbi.1000531&type=printable",
+      "host": "journals.plos.org",
+      "license": "cc-by",
+      "oa_status": "gold",
+      "path": "data\\literature\\pdfs\\08\\08693d514994d01a.pdf",
+      "bytes": 1067732
+    },
+    {
+      "key": "doi:10.1002/jcc.27193",
+      "doi": "10.1002/jcc.27193",
+      "title": "PASSerRank: Prediction of allosteric sites with learning to rank",
+      "year": 2023,
+      "authors": [
+        "Hao Tian",
+        "Sian Xiao",
+        "Xi Jiang",
+        "Peng Tao"
+      ],
+      "url": "https://arxiv.org/pdf/2302.01117",
+      "host": "arxiv.org",
+      "license": "cc-by-nc-nd",
+      "oa_status": "hybrid",
+      "path": "data\\literature\\pdfs\\d3\\d34ce77606f9a227.pdf",
+      "bytes": 1424711
+    },
+    {
+      "key": "doi:10.1371/journal.pbio.0050311",
+      "doi": "10.1371/journal.pbio.0050311",
+      "title": "Resolving the Fast Kinetics of Cooperative Binding: Ca2+ Buffering by Calretinin",
+      "year": 2007,
+      "authors": [
+        "Guido C. Faas",
+        "Beat Schwaller",
+        "Julio L. Vergara",
+        "Istv\u00e1n M\u00f3dy"
+      ],
+      "url": "https://journals.plos.org/plosbiology/article/file?id=10.1371/journal.pbio.0050311&type=printable",
+      "host": "journals.plos.org",
+      "license": "cc-by",
+      "oa_status": "gold",
+      "path": "data\\literature\\pdfs\\77\\774d361422af221a.pdf",
+      "bytes": 1119829
+    },
+    {
+      "key": "doi:10.1103/physreve.100.032411",
+      "doi": "10.1103/physreve.100.032411",
+      "title": "Parsimonious evolutionary scenario for the origin of allostery and coevolution patterns in proteins",
+      "year": 2019,
+      "authors": [
+        "Olivier Rivoire"
+      ],
+      "url": "https://arxiv.org/pdf/1812.01524",
+      "host": "arxiv.org",
+      "license": "",
+      "oa_status": "green",
+      "path": "data\\literature\\pdfs\\d1\\d1facaba4df87b99.pdf",
+      "bytes": 8592548
+    },
+    {
+      "key": "doi:10.1371/journal.pcbi.1003159",
+      "doi": "10.1371/journal.pcbi.1003159",
+      "title": "Organism-Adapted Specificity of the Allosteric Regulation of Pyruvate Kinase in Lactic Acid Bacteria",
+      "year": 2013,
+      "authors": [
+        "Nadine Veith",
+        "Anna Feldman\u2010Salit",
+        "Vlad Cojocaru",
+        "Stefan Henrich",
+        "Ursula Kummer",
+        "Rebecca C. Wade"
+      ],
+      "url": "https://journals.plos.org/ploscompbiol/article/file?id=10.1371/journal.pcbi.1003159&type=printable",
+      "host": "journals.plos.org",
+      "license": "cc-by",
+      "oa_status": "gold",
+      "path": "data\\literature\\pdfs\\e8\\e822268f2de8da2c.pdf",
+      "bytes": 4320452
+    },
+    {
+      "key": "doi:10.22159/ajpcr.2018.v11i11.29189",
+      "doi": "10.22159/ajpcr.2018.v11i11.29189",
+      "title": "ANTIBACTERIAL ACTIVITY OF AKAR KUNING (ARCANGELISIA FLAVA) SECONDARY METABOLITES: MOLECULAR DOCKING APPROACH",
+      "year": 2018,
+      "authors": [
+        "Mohammad Rizki Fadhil Pratama",
+        "Suratno Suratno",
+        "Evi Mulyani"
+      ],
+      "url": "https://innovareacademics.in/journals/index.php/ajpcr/article/download/29189/16096",
+      "host": "innovareacademics.in",
+      "license": "cc-by-nc",
+      "oa_status": "diamond",
+      "path": "data\\literature\\pdfs\\1b\\1bb5c4a87d224ef9.pdf",
+      "bytes": 994060
+    },
+    {
+      "key": "doi:10.1371/journal.pcbi.1000585",
+      "doi": "10.1371/journal.pcbi.1000585",
+      "title": "Predicting Protein Ligand Binding Sites by Combining Evolutionary Sequence Conservation and 3D Structure",
+      "year": 2009,
+      "authors": [
+        "John A. Capra",
+        "Roman A. Laskowski",
+        "Janet M. Thornton",
+        "Mona Singh",
+        "Thomas Funkhouser"
+      ],
+      "url": "https://journals.plos.org/ploscompbiol/article/file?id=10.1371/journal.pcbi.1000585&type=printable",
+      "host": "journals.plos.org",
+      "license": "cc-by",
+      "oa_status": "gold",
+      "path": "data\\literature\\pdfs\\d4\\d47848d584b643e3.pdf",
+      "bytes": 3142855
+    },
+    {
+      "key": "doi:10.3389/fphar.2018.01089",
+      "doi": "10.3389/fphar.2018.01089",
+      "title": "Empirical Scoring Functions for Structure-Based Virtual Screening: Applications, Critical Aspects, and Challenges",
+      "year": 2018,
+      "authors": [
+        "Isabella Alvim Guedes",
+        "Felipe Siconha S. Pereira",
+        "Laurent E. Dardenne"
+      ],
+      "url": "https://www.frontiersin.org/articles/10.3389/fphar.2018.01089/pdf",
+      "host": "www.frontiersin.org",
+      "license": "cc-by",
+      "oa_status": "gold",
+      "path": "data\\literature\\pdfs\\dc\\dc2df6933aa8598a.pdf",
+      "bytes": 529978
+    },
+    {
+      "key": "doi:10.1371/journal.pcbi.1002054",
+      "doi": "10.1371/journal.pcbi.1002054",
+      "title": "A Role for Both Conformational Selection and Induced Fit in Ligand Binding by the LAO Protein",
+      "year": 2011,
+      "authors": [
+        "Daniel\u2010Adriano Silva",
+        "Gregory R. Bowman",
+        "Alejandro Sosa\u2010Peinado",
+        "Xuhui Huang"
+      ],
+      "url": "https://journals.plos.org/ploscompbiol/article/file?id=10.1371/journal.pcbi.1002054&type=printable",
+      "host": "journals.plos.org",
+      "license": "cc-by",
+      "oa_status": "gold",
+      "path": "data\\literature\\pdfs\\1f\\1fe21091c6066afa.pdf",
+      "bytes": 1368483
+    },
+    {
+      "key": "doi:10.1371/journal.pcbi.1005725",
+      "doi": "10.1371/journal.pcbi.1005725",
+      "title": "Deciphering HLA-I motifs across HLA peptidomes improves neo-antigen predictions and identifies allostery regulating HLA specificity",
+      "year": 2017,
+      "authors": [
+        "Michal Bassani\u2010Sternberg",
+        "Chlo\u00e9 Chong",
+        "Philippe Guillaume",
+        "Marthe Solleder",
+        "HuiSong Pak",
+        "Philippe O. Gannon",
+        "Lana E. Kandalaft",
+        "George Coukos",
+        "David Gfeller"
+      ],
+      "url": "https://journals.plos.org/ploscompbiol/article/file?id=10.1371/journal.pcbi.1005725&type=printable",
+      "host": "journals.plos.org",
+      "license": "cc-by",
+      "oa_status": "gold",
+      "path": "data\\literature\\pdfs\\38\\3825cdbef94876f2.pdf",
+      "bytes": 2817355
+    },
+    {
+      "key": "doi:10.1039/d1sc05976a",
+      "doi": "10.1039/d1sc05976a",
+      "title": "Generating 3D molecules conditional on receptor binding sites with deep generative models",
+      "year": 2022,
+      "authors": [
+        "Matthew Ragoza",
+        "Tomohide Masuda",
+        "David Ryan Koes"
+      ],
+      "url": "https://pubs.rsc.org/en/content/articlepdf/2022/sc/d1sc05976a",
+      "host": "pubs.rsc.org",
+      "license": "cc-by",
+      "oa_status": "diamond",
+      "path": "data\\literature\\pdfs\\bf\\bf1f09b40fa0cf1f.pdf",
+      "bytes": 3340075
+    },
+    {
+      "key": "doi:10.1371/journal.pone.0039252",
+      "doi": "10.1371/journal.pone.0039252",
+      "title": "Prediction of Metal Ion\u2013Binding Sites in Proteins Using the Fragment Transformation Method",
+      "year": 2012,
+      "authors": [
+        "Chih\u2010Hao Lu",
+        "Yu\u2010Feng Lin",
+        "Jau-Ji Lin",
+        "Chin\u2010Sheng Yu"
+      ],
+      "url": "https://journals.plos.org/plosone/article/file?id=10.1371/journal.pone.0039252&type=printable",
+      "host": "journals.plos.org",
+      "license": "cc-by",
+      "oa_status": "gold",
+      "path": "data\\literature\\pdfs\\9e\\9e96846d3207f4dd.pdf",
+      "bytes": 891748
+    },
+    {
+      "key": "doi:10.21276/ap.2018.7.2.23",
+      "doi": "10.21276/ap.2018.7.2.23",
+      "title": "Original article Computational structure prediction and analyze active ligand binding site of defense and lytic enzymes of Trichodermaharzianum",
+      "year": 2018,
+      "authors": [
+        "Ved Ratan",
+        "Supriya Dixit",
+        "Mukesh Srivastava",
+        "Shubha Trivedi",
+        "Abhishek Mishra",
+        "Yoshita Srivastava",
+        "D. K. Srivastava"
+      ],
+      "url": "https://doi.org/10.21276/ap.2018.7.2.23",
+      "host": "doi.org",
+      "license": "",
+      "oa_status": "diamond",
+      "path": "data\\literature\\pdfs\\e5\\e58556aff0900a11.pdf",
+      "bytes": 3331443
+    },
+    {
+      "key": "doi:10.1371/journal.pcbi.1003321",
+      "doi": "10.1371/journal.pcbi.1003321",
+      "title": "Exploring the Composition of Protein-Ligand Binding Sites on a Large Scale",
+      "year": 2013,
+      "authors": [
+        "Nickolay A. Khazanov",
+        "Heather A. Carlson"
+      ],
+      "url": "https://journals.plos.org/ploscompbiol/article/file?id=10.1371/journal.pcbi.1003321&type=printable",
+      "host": "journals.plos.org",
+      "license": "cc-by",
+      "oa_status": "gold",
+      "path": "data\\literature\\pdfs\\99\\99327c5952495131.pdf",
+      "bytes": 1786947
+    },
+    {
+      "key": "doi:10.1371/journal.pcbi.1002083",
+      "doi": "10.1371/journal.pcbi.1002083",
+      "title": "Predicting Binding to P-Glycoprotein by Flexible Receptor Docking",
+      "year": 2011,
+      "authors": [
+        "Elena Dolghih",
+        "Clifford Bryant",
+        "Adam R. Renslo",
+        "Matthew P. Jacobson"
+      ],
+      "url": "https://journals.plos.org/ploscompbiol/article/file?id=10.1371/journal.pcbi.1002083&type=printable",
+      "host": "journals.plos.org",
+      "license": "cc-by",
+      "oa_status": "gold",
+      "path": "data\\literature\\pdfs\\c3\\c32ff9887fd2d3a7.pdf",
+      "bytes": 2566255
+    },
+    {
+      "key": "doi:10.1016/j.compbiomed.2020.103936",
+      "doi": "10.1016/j.compbiomed.2020.103936",
+      "title": "In silico ADMET and molecular docking study on searching potential inhibitors from limonoids and triterpenoids for COVID-19",
+      "year": 2020,
+      "authors": [
+        "Seshu Vardhan",
+        "Suban K. Sahoo"
+      ],
+      "url": "https://arxiv.org/pdf/2005.07955",
+      "host": "arxiv.org",
+      "license": "",
+      "oa_status": "green",
+      "path": "data\\literature\\pdfs\\4d\\4d163a5f027d8741.pdf",
+      "bytes": 2105355
+    },
+    {
+      "key": "doi:10.1073/pnas.1904529116",
+      "doi": "10.1073/pnas.1904529116",
+      "title": "Drugging an undruggable pocket on KRAS",
+      "year": 2019,
+      "authors": [
+        "Dirk Kessler",
+        "Michael Gmachl",
+        "Andreas Mantoulidis",
+        "Laetitia J. Martin",
+        "Andreas Zoephel",
+        "Moriz Mayer",
+        "Andreas Gollner",
+        "David Covini",
+        "Silke Fischer",
+        "Thomas Gerstberger",
+        "Teresa Gmaschitz",
+        "Craig M. Goodwin"
+      ],
+      "url": "https://www.osti.gov/servlets/purl/1593440",
+      "host": "www.osti.gov",
+      "license": "cc-by",
+      "oa_status": "hybrid",
+      "path": "data\\literature\\pdfs\\69\\69e1eb2f0461bbba.pdf",
+      "bytes": 1357280
+    },
+    {
+      "key": "doi:10.3389/fonc.2021.762817",
+      "doi": "10.3389/fonc.2021.762817",
+      "title": "Understanding the Complex Milieu of Epithelial-Mesenchymal Transition in Cancer Metastasis: New Insight Into the Roles of Transcription Factors",
+      "year": 2021,
+      "authors": [
+        "Sikiru O. Imodoye",
+        "Kamoru A. Adedokun",
+        "Abdurrasheed Ola Muhammed",
+        "Ibrahim O. Bello",
+        "Musa Abidemi Muhibi",
+        "Taofeeq Oduola",
+        "Musiliu A. Oyenike"
+      ],
+      "url": "https://www.frontiersin.org/articles/10.3389/fonc.2021.762817/pdf",
+      "host": "www.frontiersin.org",
+      "license": "cc-by",
+      "oa_status": "gold",
+      "path": "data\\literature\\pdfs\\33\\330d3e5c1eb55fbf.pdf",
+      "bytes": 2985739
+    },
+    {
+      "key": "doi:10.3389/fmed.2023.1107128",
+      "doi": "10.3389/fmed.2023.1107128",
+      "title": "Potential biomarkers uncovered by bioinformatics analysis in sotorasib resistant-pancreatic ductal adenocarcinoma",
+      "year": 2023,
+      "authors": [
+        "Prasanna Srinivasan Ramalingam",
+        "A. Priyadharshini",
+        "Isaac Arnold Emerson",
+        "Sivakumar Arumugam"
+      ],
+      "url": "https://www.frontiersin.org/articles/10.3389/fmed.2023.1107128/pdf",
+      "host": "www.frontiersin.org",
+      "license": "cc-by",
+      "oa_status": "gold",
+      "path": "data\\literature\\pdfs\\b8\\b8f03a7244d14878.pdf",
+      "bytes": 6002168
+    },
+    {
+      "key": "doi:10.3389/fendo.2022.843770",
+      "doi": "10.3389/fendo.2022.843770",
+      "title": "Probing GPCR Dimerization Using Peptides",
+      "year": 2022,
+      "authors": [
+        "Zara Farooq",
+        "Lesley A. Howell",
+        "Peter J. McCormick"
+      ],
+      "url": "https://www.frontiersin.org/articles/10.3389/fendo.2022.843770/pdf",
+      "host": "www.frontiersin.org",
+      "license": "cc-by",
+      "oa_status": "gold",
+      "path": "data\\literature\\pdfs\\41\\41b25bbaece5f382.pdf",
+      "bytes": 1212152
+    },
+    {
+      "key": "doi:10.3389/fonc.2022.985363",
+      "doi": "10.3389/fonc.2022.985363",
+      "title": "The role of BCL-2 family proteins in regulating apoptosis and cancer therapy",
+      "year": 2022,
+      "authors": [
+        "Shanna Qian",
+        "Zhong Wei",
+        "Wanting Yang",
+        "Jinling Huang",
+        "Yinfeng Yang",
+        "Jinghui Wang"
+      ],
+      "url": "https://www.frontiersin.org/articles/10.3389/fonc.2022.985363/pdf",
+      "host": "www.frontiersin.org",
+      "license": "cc-by",
+      "oa_status": "gold",
+      "path": "data\\literature\\pdfs\\97\\97c7013152823b57.pdf",
+      "bytes": 1486945
+    },
+    {
+      "key": "doi:10.1172/jci84424",
+      "doi": "10.1172/jci84424",
+      "title": "Targeting noncoding RNAs in disease",
+      "year": 2017,
+      "authors": [
+        "Brian D. Adams",
+        "Christine Parsons",
+        "L. DeEtte Walker",
+        "Wen Cai Zhang",
+        "Frank J. Slack"
+      ],
+      "url": "http://www.jci.org/articles/view/84424/files/pdf",
+      "host": "www.jci.org",
+      "license": "cc-by",
+      "oa_status": "hybrid",
+      "path": "data\\literature\\pdfs\\82\\82da6219f942a76d.pdf",
+      "bytes": 468626
+    },
+    {
+      "key": "doi:10.3389/fgene.2023.1052383",
+      "doi": "10.3389/fgene.2023.1052383",
+      "title": "Evaluation of AlphaFold structure-based protein stability prediction on missense variations in cancer",
+      "year": 2023,
+      "authors": [
+        "Hilal Keskin Karakoyun",
+        "\u015eirin Y\u00fcksel",
+        "Ilayda Amanoglu",
+        "Lara Naserikhojasteh",
+        "Ahmet Ye\u015filyurt",
+        "Cengiz Yak\u0131c\u0131er",
+        "Emel Timu\u00e7in",
+        "Cemaliye Boylu Akyerli"
+      ],
+      "url": "https://www.frontiersin.org/articles/10.3389/fgene.2023.1052383/pdf",
+      "host": "www.frontiersin.org",
+      "license": "cc-by",
+      "oa_status": "gold",
+      "path": "data\\literature\\pdfs\\88\\88deaf90dd904205.pdf",
+      "bytes": 3079009
+    },
+    {
+      "key": "doi:10.1126/science.add2187",
+      "doi": "10.1126/science.add2187",
+      "title": "Robust deep learning\u2013based protein sequence design using ProteinMPNN",
+      "year": 2022,
+      "authors": [
+        "Justas Dauparas",
+        "Ivan Anishchenko",
+        "Nathaniel R. Bennett",
+        "Hua Bai",
+        "Robert J. Ragotte",
+        "Lukas F. Milles",
+        "Basile I. M. Wicky",
+        "Alexis Courbet",
+        "Robbert J. de Haas",
+        "Neville P. Bethel",
+        "Philip J. Y. Leung",
+        "Timothy F. Huddy"
+      ],
+      "url": "https://www.osti.gov/servlets/purl/2470608",
+      "host": "www.osti.gov",
+      "license": "",
+      "oa_status": "green",
+      "path": "data\\literature\\pdfs\\bd\\bdfbbe41f6b6feeb.pdf",
+      "bytes": 1907917
+    },
+    {
+      "key": "doi:10.1371/journal.pone.0282689",
+      "doi": "10.1371/journal.pone.0282689",
+      "title": "Using AlphaFold to predict the impact of single mutations on protein stability and function",
+      "year": 2023,
+      "authors": [
+        "Marina A. Pak",
+        "Karina A. Markhieva",
+        "Mariia S. Novikova",
+        "D. S. Petrov",
+        "Ilya S. Vorobyev",
+        "Ekaterina S. Maksimova",
+        "Fyodor A. Kondrashov",
+        "Dmitry N. Ivankov"
+      ],
+      "url": "https://journals.plos.org/plosone/article/file?id=10.1371/journal.pone.0282689&type=printable",
+      "host": "journals.plos.org",
+      "license": "cc-by",
+      "oa_status": "gold",
+      "path": "data\\literature\\pdfs\\00\\00b4b73198d68365.pdf",
+      "bytes": 856625
+    },
+    {
+      "key": "doi:10.26565/2220-637x-2024-43-01",
+      "doi": "10.26565/2220-637x-2024-43-01",
+      "title": "Benchmarking Google DeepMind\u2019s AlphaFold 3 Performance for Protein 3D-Structure Prediction",
+      "year": 2024,
+      "authors": [
+        "Yelyzaveta Duma",
+        "Alexander Kyrychenko"
+      ],
+      "url": "https://periodicals.karazin.ua/chemistry/article/download/26147/23416",
+      "host": "periodicals.karazin.ua",
+      "license": "cc-by",
+      "oa_status": "diamond",
+      "path": "data\\literature\\pdfs\\3f\\3f149603ede0762d.pdf",
+      "bytes": 3213677
+    },
+    {
+      "key": "doi:10.3389/fmolb.2022.906437",
+      "doi": "10.3389/fmolb.2022.906437",
+      "title": "AlphaFold 2 and NMR Spectroscopy: Partners to Understand Protein Structure, Dynamics and Function",
+      "year": 2022,
+      "authors": [
+        "Douglas V. Laurents"
+      ],
+      "url": "https://www.frontiersin.org/articles/10.3389/fmolb.2022.906437/pdf",
+      "host": "www.frontiersin.org",
+      "license": "cc-by",
+      "oa_status": "gold",
+      "path": "data\\literature\\pdfs\\04\\04fd141db89ab506.pdf",
+      "bytes": 2617503
+    },
+    {
+      "key": "doi:10.48550/arxiv.2410.14898",
+      "doi": "10.48550/arxiv.2410.14898",
+      "title": "Proteins with alternative folds reveal blind spots in AlphaFold-based protein structure prediction",
+      "year": 2024,
+      "authors": [
+        "Devlina Chakravarty",
+        "Myeongsang Lee",
+        "Lauren L. Porter"
+      ],
+      "url": "https://arxiv.org/pdf/2410.14898",
+      "host": "arxiv.org",
+      "license": "",
+      "oa_status": "green",
+      "path": "data\\literature\\pdfs\\9a\\9aca4121066abc0c.pdf",
+      "bytes": 2075883
+    },
+    {
+      "key": "doi:10.1371/journal.pone.0259871",
+      "doi": "10.1371/journal.pone.0259871",
+      "title": "A resource for improved predictions of Trypanosoma and Leishmania protein three-dimensional structure",
+      "year": 2021,
+      "authors": [
+        "Richard John Wheeler"
+      ],
+      "url": "https://journals.plos.org/plosone/article/file?id=10.1371/journal.pone.0259871&type=printable",
+      "host": "journals.plos.org",
+      "license": "cc-by",
+      "oa_status": "gold",
+      "path": "data\\literature\\pdfs\\5c\\5c96add10afed6c2.pdf",
+      "bytes": 1935044
+    },
+    {
+      "key": "doi:10.2142/biophys.64.5",
+      "doi": "10.2142/biophys.64.5",
+      "title": "Protein Structure Prediction to Function Prediction Using AlphaFold",
+      "year": 2024,
+      "authors": [
+        "Kentaro Tomii"
+      ],
+      "url": "https://www.jstage.jst.go.jp/article/biophys/64/1/64_5/_pdf",
+      "host": "www.jstage.jst.go.jp",
+      "license": "",
+      "oa_status": "diamond",
+      "path": "data\\literature\\pdfs\\8f\\8fe0b192934a3f32.pdf",
+      "bytes": 883062
+    },
+    {
+      "key": "doi:10.3389/fmolb.2022.877000",
+      "doi": "10.3389/fmolb.2022.877000",
+      "title": "AlphaFold Models of Small Proteins Rival the Accuracy of Solution NMR Structures",
+      "year": 2022,
+      "authors": [
+        "Roberto Tejero",
+        "Yuanpeng J. Huang",
+        "Theresa A. Ramelot",
+        "G.T. Montelione"
+      ],
+      "url": "https://www.frontiersin.org/articles/10.3389/fmolb.2022.877000/pdf",
+      "host": "www.frontiersin.org",
+      "license": "cc-by",
+      "oa_status": "gold",
+      "path": "data\\literature\\pdfs\\84\\841629c545c2f00b.pdf",
+      "bytes": 3117120
+    },
+    {
+      "key": "doi:10.1007/s10822-016-9938-8",
+      "doi": "10.1007/s10822-016-9938-8",
+      "title": "Molecular graph convolutions: moving beyond fingerprints",
+      "year": 2016,
+      "authors": [
+        "Steven Kearnes",
+        "Kevin McCloskey",
+        "Marc Berndl",
+        "Vijay S. Pande",
+        "Patrick Riley"
+      ],
+      "url": "https://arxiv.org/pdf/1603.00856",
+      "host": "arxiv.org",
+      "license": "",
+      "oa_status": "green",
+      "path": "data\\literature\\pdfs\\4a\\4a6688a8d30ceceb.pdf",
+      "bytes": 2186270
+    },
+    {
+      "key": "doi:10.1021/acs.jcim.6b00740",
+      "doi": "10.1021/acs.jcim.6b00740",
+      "title": "Protein\u2013Ligand Scoring with Convolutional Neural Networks",
+      "year": 2017,
+      "authors": [
+        "Matthew Ragoza",
+        "Joshua Hochuli",
+        "Elisa Idrobo",
+        "Jocelyn Sunseri",
+        "David Ryan Koes"
+      ],
+      "url": "https://arxiv.org/pdf/1612.02751",
+      "host": "arxiv.org",
+      "license": "",
+      "oa_status": "green",
+      "path": "data\\literature\\pdfs\\cb\\cb3a7b7edbe51a66.pdf",
+      "bytes": 9702367
+    },
+    {
+      "key": "doi:10.3389/fphar.2018.01275",
+      "doi": "10.3389/fphar.2018.01275",
+      "title": "QSAR-Based Virtual Screening: Advances and Applications in Drug Discovery",
+      "year": 2018,
+      "authors": [
+        "Bruno J. Neves",
+        "Rodolpho C. Braga",
+        "Cleber C. Melo\u2010Filho",
+        "Jos\u00e9 Te\u00f3filo Moreira\u2010Filho",
+        "Eugene Muratov",
+        "Carolina Horta Andrade"
+      ],
+      "url": "https://www.frontiersin.org/articles/10.3389/fphar.2018.01275/pdf",
+      "host": "www.frontiersin.org",
+      "license": "cc-by",
+      "oa_status": "gold",
+      "path": "data\\literature\\pdfs\\35\\35a22966353a1d8e.pdf",
+      "bytes": 1578337
+    },
+    {
+      "key": "doi:10.1371/journal.pone.0062839",
+      "doi": "10.1371/journal.pone.0062839",
+      "title": "Use of Natural Products as Chemical Library for Drug Discovery and Network Pharmacology",
+      "year": 2013,
+      "authors": [
+        "Jiangyong Gu",
+        "Yuanshen Gui",
+        "Lirong Chen",
+        "Gu Yuan",
+        "Huizhe Lu",
+        "Xiaojie Xu"
+      ],
+      "url": "https://journals.plos.org/plosone/article/file?id=10.1371/journal.pone.0062839&type=printable",
+      "host": "journals.plos.org",
+      "license": "cc-by",
+      "oa_status": "gold",
+      "path": "data\\literature\\pdfs\\5f\\5fa3b22c3c9fe2b2.pdf",
+      "bytes": 2081119
+    },
+    {
+      "key": "doi:10.1371/journal.pone.0205175",
+      "doi": "10.1371/journal.pone.0205175",
+      "title": "Discovery of novel multidrug resistance protein 4 (MRP4) inhibitors as active agents reducing resistance to anticancer drug 6-Mercaptopurine (6-MP) by structure and ligand-based virtual screening",
+      "year": 2018,
+      "authors": [
+        "Ya Chen",
+        "Xia Yuan",
+        "Zhangping Xiao",
+        "Hongwei Jin",
+        "Liangren Zhang",
+        "Zhenming Liu"
+      ],
+      "url": "https://journals.plos.org/plosone/article/file?id=10.1371/journal.pone.0205175&type=printable",
+      "host": "journals.plos.org",
+      "license": "cc-by",
+      "oa_status": "gold",
+      "path": "data\\literature\\pdfs\\b3\\b3f243e47945174f.pdf",
+      "bytes": 2306995
+    },
+    {
+      "key": "doi:10.1371/journal.pone.0261267",
+      "doi": "10.1371/journal.pone.0261267",
+      "title": "Structural systems pharmacology: A framework for integrating metabolic network and structure-based virtual screening for drug discovery against bacteria",
+      "year": 2021,
+      "authors": [
+        "Elmira Nazarshodeh",
+        "Sayed\u2010Amir Marashi",
+        "Sajjad Gharaghani"
+      ],
+      "url": "https://journals.plos.org/plosone/article/file?id=10.1371/journal.pone.0261267&type=printable",
+      "host": "journals.plos.org",
+      "license": "cc-by",
+      "oa_status": "gold",
+      "path": "data\\literature\\pdfs\\01\\0114d7f07b607375.pdf",
+      "bytes": 925012
+    },
+    {
+      "key": "doi:10.3389/fchem.2020.00093",
+      "doi": "10.3389/fchem.2020.00093",
+      "title": "In silico Strategies to Support Fragment-to-Lead Optimization in Drug Discovery",
+      "year": 2020,
+      "authors": [
+        "Lauro Ribeiro de Souza Neto",
+        "Jos\u00e9 Te\u00f3filo Moreira\u2010Filho",
+        "Bruno J. Neves",
+        "Roc\u00edo Luc\u00eda Beatriz Riveros Maidana",
+        "Ana Carolina Ramos Guimar\u00e3es",
+        "Nicholas Furnham",
+        "Carolina Horta Andrade",
+        "Floriano Paes Silva"
+      ],
+      "url": "https://www.frontiersin.org/articles/10.3389/fchem.2020.00093/pdf",
+      "host": "www.frontiersin.org",
+      "license": "cc-by",
+      "oa_status": "gold",
+      "path": "data\\literature\\pdfs\\68\\6888753f5df406aa.pdf",
+      "bytes": 1683853
+    },
+    {
+      "key": "doi:10.22270/jddt.v8i5.1894",
+      "doi": "10.22270/jddt.v8i5.1894",
+      "title": "COMPUTER AIDED DRUG DESIGN: AN OVERVIEW",
+      "year": 2018,
+      "authors": [
+        "Surabhi Surabhi",
+        "BK Singh"
+      ],
+      "url": "http://jddtonline.info/index.php/jddt/article/download/1894/1376",
+      "host": "jddtonline.info",
+      "license": "",
+      "oa_status": "diamond",
+      "path": "data\\literature\\pdfs\\5e\\5ec2242a7423d0bb.pdf",
+      "bytes": 878959
+    },
+    {
+      "key": "doi:10.1371/journal.pone.0078085",
+      "doi": "10.1371/journal.pone.0078085",
+      "title": "AfroDb: A Select Highly Potent and Diverse Natural Product Library from African Medicinal Plants",
+      "year": 2013,
+      "authors": [
+        "Fidele Ntie\u2010Kang",
+        "D\u00e9nis Zofou",
+        "Smith B. Babiaka",
+        "Rolande Meudom",
+        "Michael Scharfe",
+        "Lydia L. Lifongo",
+        "James A. Mbah",
+        "Luc Meva\u2019a Mbaze",
+        "Wolfgang Sippl",
+        "Simon M. N. Efange"
+      ],
+      "url": "https://journals.plos.org/plosone/article/file?id=10.1371/journal.pone.0078085&type=printable",
+      "host": "journals.plos.org",
+      "license": "cc-by",
+      "oa_status": "gold",
+      "path": "data\\literature\\pdfs\\79\\79dc0c09cd95a835.pdf",
+      "bytes": 4242404
+    },
+    {
+      "key": "doi:10.3389/fchem.2018.00315",
+      "doi": "10.3389/fchem.2018.00315",
+      "title": "Advances in the Development of Shape Similarity Methods and Their Application in Drug Discovery",
+      "year": 2018,
+      "authors": [
+        "Ashutosh Kumar",
+        "Kam Y. J. Zhang"
+      ],
+      "url": "https://www.frontiersin.org/articles/10.3389/fchem.2018.00315/pdf",
+      "host": "www.frontiersin.org",
+      "license": "cc-by",
+      "oa_status": "gold",
+      "path": "data\\literature\\pdfs\\25\\257f2458bbc51070.pdf",
+      "bytes": 2371035
+    },
+    {
+      "key": "doi:10.34172/ajmb.2446",
+      "doi": "10.34172/ajmb.2446",
+      "title": "Structure-Based Virtual Screening of Cinnamic Acid Analogs Against RIPK3: Implications for Anti-Inflammatory Drug Discovery",
+      "year": 2023,
+      "authors": [
+        "Elham Khoshbin",
+        "Seyed Mohamad Soroosh Rahmani-Abidar",
+        "Shadi Moradi",
+        "Amir Taherkhani",
+        "Hamed Karkehabadi"
+      ],
+      "url": "https://ajmb.umsha.ac.ir/PDF/ajmb-11-129.pdf",
+      "host": "ajmb.umsha.ac.ir",
+      "license": "cc-by",
+      "oa_status": "diamond",
+      "path": "data\\literature\\pdfs\\9a\\9a710c92ab930111.pdf",
+      "bytes": 1945635
+    },
+    {
+      "key": "doi:10.3389/fmolb.2021.712085",
+      "doi": "10.3389/fmolb.2021.712085",
+      "title": "Recent Developments in Free Energy Calculations for Drug Discovery",
+      "year": 2021,
+      "authors": [
+        "Edward J. King",
+        "Erick Aitchison",
+        "Han Li",
+        "Ray Luo"
+      ],
+      "url": "https://www.frontiersin.org/articles/10.3389/fmolb.2021.712085/pdf",
+      "host": "www.frontiersin.org",
+      "license": "cc-by",
+      "oa_status": "gold",
+      "path": "data\\literature\\pdfs\\8e\\8ef475c4c69cd31f.pdf",
+      "bytes": 1619563
+    },
+    {
+      "key": "doi:10.22270/jddt.v10i4.4218",
+      "doi": "10.22270/jddt.v10i4.4218",
+      "title": "Virtual Screening, Molecular Docking and QSAR Studies in Drug Discovery and Development Programme",
+      "year": 2020,
+      "authors": [
+        "Mithun Rudrapal",
+        "Dipak Chetia"
+      ],
+      "url": "http://jddtonline.info/index.php/jddt/article/download/4218/3224",
+      "host": "jddtonline.info",
+      "license": "cc-by-nc",
+      "oa_status": "diamond",
+      "path": "data\\literature\\pdfs\\e5\\e58aa86080bb1f1e.pdf",
+      "bytes": 841479
+    },
+    {
+      "key": "doi:10.5114/bta.2011.46542",
+      "doi": "10.5114/bta.2011.46542",
+      "title": "REVIEW PAPER&lt;BR&gt;Virtual screening strategies in drug design\u2013 methods and applications",
+      "year": 2014,
+      "authors": [
+        "Ewa Bielska",
+        "Xavier Lucas",
+        "Anna Czerwoniec",
+        "Joanna M. Kasprzak",
+        "Katarzyna H. Kaminska",
+        "Janusz M. Bujnicki"
+      ],
+      "url": "https://www.termedia.pl/Journal/-85/pdf-23874-10?filename=06.pdf",
+      "host": "www.termedia.pl",
+      "license": "cc-by",
+      "oa_status": "diamond",
+      "path": "data\\literature\\pdfs\\3d\\3dd6ed72d959a682.pdf",
+      "bytes": 803673
+    }
+  ]
+}

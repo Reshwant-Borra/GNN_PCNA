@@ -1,0 +1,121 @@
+{
+  "schema": "paper_engine.manuscript/v1",
+  "title": "Leakage-Controlled Graph Neural Networks for Residue-Level Cryptic-Pocket Prediction in PCNA",
+  "throughline": "Can a leakage-clean graph neural network highlight candidate cryptic-pocket residues in PCNA \u2014 a validated cancer target \u2014 and be evaluated honestly enough that the result survives scrutiny?",
+  "draft_notice": "AUTO-GENERATED DRAFT. Every figure and statistic is computed from the project's real validation data; the held-out test set was not evaluated. This draft requires human review, revision, and verification before any submission.",
+  "md_available": false,
+  "sections": [
+    {
+      "section_id": "abstract",
+      "heading": "Abstract",
+      "word_count": 199,
+      "used_llm": true,
+      "banned_hits": [],
+      "figures": []
+    },
+    {
+      "section_id": "introduction",
+      "heading": "1. Introduction",
+      "word_count": 207,
+      "used_llm": true,
+      "banned_hits": [],
+      "figures": []
+    },
+    {
+      "section_id": "methods",
+      "heading": "2. Methods",
+      "word_count": 418,
+      "used_llm": true,
+      "banned_hits": [],
+      "figures": [
+        "dataset_split",
+        "metric_choice"
+      ]
+    },
+    {
+      "section_id": "results",
+      "heading": "3. Results",
+      "word_count": 189,
+      "used_llm": true,
+      "banned_hits": [],
+      "figures": [
+        "baseline_comparison",
+        "per_fold_performance",
+        "ablation_edges",
+        "training_curves"
+      ]
+    },
+    {
+      "section_id": "discussion",
+      "heading": "5. Discussion",
+      "word_count": 243,
+      "used_llm": true,
+      "banned_hits": [],
+      "figures": []
+    },
+    {
+      "section_id": "conclusion",
+      "heading": "6. Conclusion and Future Work",
+      "word_count": 208,
+      "used_llm": true,
+      "banned_hits": [],
+      "figures": []
+    }
+  ],
+  "figures_used": [
+    "dataset_split",
+    "metric_choice",
+    "baseline_comparison",
+    "per_fold_performance",
+    "ablation_edges",
+    "training_curves"
+  ],
+  "references_used": [
+    {
+      "idx": 1,
+      "ref": "Serena H. Chen, Massimiliano Lupo Pasini, Cory D. Hauck (2025). Enhancing Protein Binding Site Residue Prediction with Graph Neural Networks: Impacts of Cutoff Distance and Feature Selection. doi:10.1101/2025.08.25.672254"
+    },
+    {
+      "idx": 2,
+      "ref": "M. Marfoglia, L. Guirardel, P. Barth (2024). AlloPool: An Adaptive Graph Neural Network for Dynamic Allosteric Network Prediction in Protein Systems. doi:10.1101/2024.11.01.621466"
+    },
+    {
+      "idx": 3,
+      "ref": "Hamza Gamouh, Mari\u00e1n Novotn\u00fd, David Hoksza (2025). Hybrid protein\u2013ligand binding residue prediction with protein language models: does the structure matter?. doi:10.1093/bioinformatics/btaf431"
+    },
+    {
+      "idx": 4,
+      "ref": "Sutanu Mukhopadhyay, Suman Chakrabarty (2026). Mapping Protein\u2013Protein Interaction Hotspots and Unveiling a Cryptic Allosteric Pocket in PLK1 PBD via Mixed\u2010Solvent Molecular Dynamics. doi:10.1002/cphc.202500907"
+    },
+    {
+      "idx": 5,
+      "ref": "Karen Sargsyan (2025). Protein Language Model Embeddings Distinguish Catalytic from Structural Zinc-Binding Sites with Interpretable Attention Signatures. doi:10.26434/chemrxiv-2025-sfn7n"
+    },
+    {
+      "idx": 6,
+      "ref": "Vladimiras Oleinikovas et al. (2016). Understanding Cryptic Pocket Formation in Protein Targets by Enhanced Sampling Simulations. doi:10.1021/jacs.6b05425"
+    },
+    {
+      "idx": 7,
+      "ref": "Martinez-Rosell G et al. (2020). PlayMolecule CrypticScout: Predicting Protein Cryptic Sites Using Mixed-Solvent Molecular Simulations. doi:10.1021/acs.jcim.9b01209"
+    },
+    {
+      "idx": 8,
+      "ref": "Artur Meller et al. (2023). Predicting locations of cryptic pockets from single protein structures using the PocketMiner graph neural network. doi:10.1038/s41467-023-36699-3"
+    },
+    {
+      "idx": 9,
+      "ref": "Vottero P et al. (2025). Molecular simulations of paclitaxel binding to mutant \u03b2-tubulin: insights into chemotherapy resistance. doi:10.1007/s10822-025-00716-y"
+    },
+    {
+      "idx": 10,
+      "ref": "Shray Vats et al. (2023). AlphaFold-SFA: accelerated sampling of cryptic pocket opening, protein-ligand binding and allostery by AlphaFold, slow feature analysis and metadynamics. doi:10.1101/2023.11.21.568098"
+    }
+  ],
+  "fact_sources": [
+    "C:\\Users\\advay\\GNN_PNCA\\Desktop\\GNN_PCNA\\reports\\phase3\\training_runs\\all_runs_summary.json",
+    "C:\\Users\\advay\\GNN_PNCA\\Desktop\\GNN_PCNA\\data\\labels\\label_manifest.json",
+    "C:\\Users\\advay\\GNN_PNCA\\Desktop\\GNN_PCNA\\data\\registries\\split_manifest_frozen.json",
+    "C:\\Users\\advay\\GNN_PNCA\\Desktop\\GNN_PCNA\\reports\\phase3\\training_runs\\all_runs_summary.json"
+  ]
+}

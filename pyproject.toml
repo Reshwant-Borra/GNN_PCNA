@@ -14,11 +14,24 @@ dependencies = []
 
 [project.optional-dependencies]
 test = ["pytest>=7"]
+# paper_engine: research-paper generation subsystem (figures, MD analysis,
+# manuscript assembly, literature corpus). Install with: pip install -e ".[paper]"
+paper = [
+    "python-docx>=1.1",
+    "matplotlib>=3.7",
+    "numpy>=1.24",
+    "pandas>=2.0",
+    "rank-bm25>=0.2.2",
+    "pdfplumber>=0.10",
+    "requests>=2.31",
+    "MDAnalysis>=2.6",
+    "scikit-learn>=1.3",
+]
 
 [project.scripts]
 research-os = "research_os.__main__:main"
 
 [tool.setuptools.packages.find]
 where = ["."]
-include = ["research_os*"]
+include = ["research_os*", "paper_engine*"]
 exclude = ["tests*", "research_os_memory*", "research_os_registries*", "reports*"]

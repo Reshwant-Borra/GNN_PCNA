@@ -1,0 +1,79 @@
+=== START Sat May 30 01:48:00 UTC 2026 ===
+Repo root: /workspace/GNN_PCNA
+Run root: outputs/phase5_md/time_crunch_1axc_25ns
+Log file: outputs/phase5_md/logs/one_shot_20260530_014800.log
+Budget: target=27 hard=30 hourly=6
+Production: replicates=3 production_ns=25
+Conda environment already active: /root/miniforge3/envs/phase5-md
+
+=== GIT STATE Sat May 30 01:48:00 UTC 2026 ===
+## codex/phase5-runpod-md-package...origin/codex/phase5-runpod-md-package
+
+=== GPU CHECK Sat May 30 01:48:00 UTC 2026 ===
+Sat May 30 01:48:00 2026       
++-----------------------------------------------------------------------------------------+
+| NVIDIA-SMI 570.211.01             Driver Version: 570.211.01     CUDA Version: 12.8     |
+|-----------------------------------------+------------------------+----------------------+
+| GPU  Name                 Persistence-M | Bus-Id          Disp.A | Volatile Uncorr. ECC |
+| Fan  Temp   Perf          Pwr:Usage/Cap |           Memory-Usage | GPU-Util  Compute M. |
+|                                         |                        |               MIG M. |
+|=========================================+========================+======================|
+|   0  NVIDIA B200                    On  |   00000000:BA:00.0 Off |                    0 |
+| N/A   34C    P0            193W / 1000W |       0MiB / 183359MiB |      0%      Default |
+|                                         |                        |             Disabled |
++-----------------------------------------+------------------------+----------------------+
+                                                                                         
++-----------------------------------------------------------------------------------------+
+| Processes:                                                                              |
+|  GPU   GI   CI              PID   Type   Process name                        GPU Memory |
+|        ID   ID                                                               Usage      |
+|=========================================================================================|
+|  No running processes found                                                             |
++-----------------------------------------------------------------------------------------+
+
+=== OPENMM CHECK Sat May 30 01:48:00 UTC 2026 ===
+
+OpenMM Version: 8.2
+Git Revision: 53770948682c40bd460b39830d4e0f0fd3a4b868
+
+There are 3 Platforms available:
+
+1 Reference - Successfully computed forces
+2 CPU - Successfully computed forces
+3 CUDA - Successfully computed forces
+
+Median difference in forces between platforms:
+
+Reference vs. CPU: 6.30571e-06
+Reference vs. CUDA: 6.74331e-06
+CPU vs. CUDA: 7.4502e-07
+
+All differences are within tolerance.
+
+=== SMOKE TEST Sat May 30 01:48:04 UTC 2026 ===
+Replicate 1: minimizing
+Replicate 1: NVT 100.0 ps
+Replicate 1: NPT 250.0 ps
+Replicate 1: production 0.01 ns, seed=2026052901
+Replicate 1: complete
+Run complete: outputs/phase5_md/time_crunch_1axc_25ns/smoke_test
+Run analysis next with scripts/phase5_analyze_1axc_md.py
+
+=== SMOKE ANALYSIS Sat May 30 01:52:44 UTC 2026 ===
+Loading outputs/phase5_md/time_crunch_1axc_25ns/smoke_test/replicate_01/trajectory.dcd
+/root/miniforge3/envs/phase5-md/lib/python3.11/site-packages/mdtraj/formats/pdb/pdbstructure.py:273: UserWarning: Need to guess residue number string    0 starting from residue34996, atom 286988.
+  warnings.warn(
+dcdplugin) read_dcdheader: premature end of file
+Traceback (most recent call last):
+  File "/workspace/GNN_PCNA/scripts/phase5_analyze_1axc_md.py", line 212, in <module>
+    main()
+  File "/workspace/GNN_PCNA/scripts/phase5_analyze_1axc_md.py", line 98, in main
+    traj = md.load_dcd(str(traj_path), top=str(topology_pdb))
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "mdtraj/formats/dcd/dcd.pyx", line 165, in mdtraj.formats.dcd.load_dcd
+  File "mdtraj/formats/dcd/dcd.pyx", line 252, in mdtraj.formats.dcd.DCDTrajectoryFile.__cinit__
+OSError: Could not open file: outputs/phase5_md/time_crunch_1axc_25ns/smoke_test/replicate_01/trajectory.dcd
+=== PACKAGING OUTPUTS ===
+Package: outputs/phase5_md/packages/phase5_time_crunch_1axc_25ns_20260530_014800_status1.tgz
+-rw-r--r-- 1 root root 28M May 30 01:52 outputs/phase5_md/packages/phase5_time_crunch_1axc_25ns_20260530_014800_status1.tgz
+=== END Sat May 30 01:52:49 UTC 2026 status=1 projected_spend_usd=0.48309891581535336 ===

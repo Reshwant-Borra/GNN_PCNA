@@ -1,0 +1,131 @@
+=== START Sat May 30 02:31:37 UTC 2026 ===
+Repo root: /workspace/GNN_PCNA
+Run root: outputs/phase5_md/time_crunch_1axc_25ns
+Log file: outputs/phase5_md/logs/one_shot_20260530_023137.log
+Budget: target=27 hard=30 hourly=6
+Production: replicates=3 production_ns=25
+Conda environment already active: /root/miniforge3/envs/phase5-md
+
+=== GIT STATE Sat May 30 02:31:37 UTC 2026 ===
+## codex/phase5-runpod-md-package...origin/codex/phase5-runpod-md-package
+
+=== GPU CHECK Sat May 30 02:31:37 UTC 2026 ===
+Sat May 30 02:31:37 2026       
++-----------------------------------------------------------------------------------------+
+| NVIDIA-SMI 570.211.01             Driver Version: 570.211.01     CUDA Version: 12.8     |
+|-----------------------------------------+------------------------+----------------------+
+| GPU  Name                 Persistence-M | Bus-Id          Disp.A | Volatile Uncorr. ECC |
+| Fan  Temp   Perf          Pwr:Usage/Cap |           Memory-Usage | GPU-Util  Compute M. |
+|                                         |                        |               MIG M. |
+|=========================================+========================+======================|
+|   0  NVIDIA B200                    On  |   00000000:BA:00.0 Off |                    0 |
+| N/A   34C    P0            193W / 1000W |       0MiB / 183359MiB |      0%      Default |
+|                                         |                        |             Disabled |
++-----------------------------------------+------------------------+----------------------+
+                                                                                         
++-----------------------------------------------------------------------------------------+
+| Processes:                                                                              |
+|  GPU   GI   CI              PID   Type   Process name                        GPU Memory |
+|        ID   ID                                                               Usage      |
+|=========================================================================================|
+|  No running processes found                                                             |
++-----------------------------------------------------------------------------------------+
+
+=== OPENMM CHECK Sat May 30 02:31:37 UTC 2026 ===
+
+OpenMM Version: 8.2
+Git Revision: 53770948682c40bd460b39830d4e0f0fd3a4b868
+
+There are 3 Platforms available:
+
+1 Reference - Successfully computed forces
+2 CPU - Successfully computed forces
+3 CUDA - Successfully computed forces
+
+Median difference in forces between platforms:
+
+Reference vs. CPU: 6.30234e-06
+Reference vs. CUDA: 6.75258e-06
+CPU vs. CUDA: 7.45292e-07
+
+All differences are within tolerance.
+
+=== SMOKE TEST Sat May 30 02:31:41 UTC 2026 ===
+Replicate 1: COMPLETE marker exists, skipping.
+Run complete: outputs/phase5_md/time_crunch_1axc_25ns/smoke_test
+Run analysis next with scripts/phase5_analyze_1axc_md.py
+
+=== SMOKE ANALYSIS Sat May 30 02:31:41 UTC 2026 ===
+WARNING: outputs/phase5_md/time_crunch_1axc_25ns/smoke_test/replicate_01/trajectory.dcd missing or < 1 KB (header-only / no frames written).
+         Skipping smoke analysis — not a production blocker.
+
+=== PRODUCTION BUDGET AFTER SMOKE ===
+elapsed_hours=0.0013191342353820802
+projected_spend_usd=0.007933926582336425
+production_target_cost_usd=26.99212297320366
+production_hard_cost_usd=29.992102670272192
+
+=== PRODUCTION RUN Sat May 30 02:31:41 UTC 2026 ===
+Prepared PDB: outputs/phase5_md/time_crunch_1axc_25ns/inputs/1axc_pcna_apo_from_p21_prepared.pdb
+Structure audit: outputs/phase5_md/time_crunch_1axc_25ns/inputs/1axc_pcna_apo_from_p21_structure_audit.json
+Replicate 1: minimizing
+Replicate 1: NVT 100.0 ps
+Replicate 1: NPT 250.0 ps
+Replicate 1: production 25.0 ns, seed=2026052901
+Replicate 1: complete
+Replicate 2: minimizing
+Replicate 2: NVT 100.0 ps
+Replicate 2: NPT 250.0 ps
+Replicate 2: production 25.0 ns, seed=2026052902
+Stopping at replicate 2 production: elapsed=4.00h projected_cost=$24.02; hard wall/cost guard reached.
+Production exit status: 1
+
+=== PRODUCTION ANALYSIS Sat May 30 06:32:02 UTC 2026 ===
+Readable production DCDs: 2
+Loading outputs/phase5_md/time_crunch_1axc_25ns/replicate_01/trajectory.dcd
+/root/miniforge3/envs/phase5-md/lib/python3.11/site-packages/mdtraj/formats/pdb/pdbstructure.py:273: UserWarning: Need to guess residue number string    0 starting from residue34996, atom 286988.
+  warnings.warn(
+dcdplugin) detected standard 32-bit DCD file of native endianness
+dcdplugin) CHARMM format DCD file (also NAMD 2.1 and later)
+Traceback (most recent call last):
+  File "/workspace/GNN_PCNA/scripts/phase5_analyze_1axc_md.py", line 212, in <module>
+    main()
+  File "/workspace/GNN_PCNA/scripts/phase5_analyze_1axc_md.py", line 137, in main
+    "chain": atom.residue.chain.id,
+             ^^^^^^^^^^^^^^^^^^^^^
+AttributeError: 'Chain' object has no attribute 'id'
+Production analysis exit status: 1
+
+=== OUTPUT SUMMARY ===
+outputs/phase5_md/time_crunch_1axc_25ns/MANIFEST.md
+outputs/phase5_md/time_crunch_1axc_25ns/inputs/1axc_pcna_apo_from_p21_prepared.pdb
+outputs/phase5_md/time_crunch_1axc_25ns/inputs/1axc_pcna_apo_from_p21_structure_audit.json
+outputs/phase5_md/time_crunch_1axc_25ns/replicate_01/COMPLETE.json
+outputs/phase5_md/time_crunch_1axc_25ns/replicate_01/checkpoint.chk
+outputs/phase5_md/time_crunch_1axc_25ns/replicate_01/final.pdb
+outputs/phase5_md/time_crunch_1axc_25ns/replicate_01/progress.json
+outputs/phase5_md/time_crunch_1axc_25ns/replicate_01/solvated_initial.pdb
+outputs/phase5_md/time_crunch_1axc_25ns/replicate_01/state.csv
+outputs/phase5_md/time_crunch_1axc_25ns/replicate_01/trajectory.dcd
+outputs/phase5_md/time_crunch_1axc_25ns/replicate_02/checkpoint.chk
+outputs/phase5_md/time_crunch_1axc_25ns/replicate_02/progress.json
+outputs/phase5_md/time_crunch_1axc_25ns/replicate_02/solvated_initial.pdb
+outputs/phase5_md/time_crunch_1axc_25ns/replicate_02/state.csv
+outputs/phase5_md/time_crunch_1axc_25ns/replicate_02/trajectory.dcd
+outputs/phase5_md/time_crunch_1axc_25ns/smoke_test/MANIFEST.md
+outputs/phase5_md/time_crunch_1axc_25ns/smoke_test/inputs/1axc_pcna_apo_from_p21_prepared.pdb
+outputs/phase5_md/time_crunch_1axc_25ns/smoke_test/inputs/1axc_pcna_apo_from_p21_structure_audit.json
+outputs/phase5_md/time_crunch_1axc_25ns/smoke_test/replicate_01/COMPLETE.json
+outputs/phase5_md/time_crunch_1axc_25ns/smoke_test/replicate_01/checkpoint.chk
+outputs/phase5_md/time_crunch_1axc_25ns/smoke_test/replicate_01/final.pdb
+outputs/phase5_md/time_crunch_1axc_25ns/smoke_test/replicate_01/progress.json
+outputs/phase5_md/time_crunch_1axc_25ns/smoke_test/replicate_01/solvated_initial.pdb
+outputs/phase5_md/time_crunch_1axc_25ns/smoke_test/replicate_01/state.csv
+outputs/phase5_md/time_crunch_1axc_25ns/smoke_test/replicate_01/trajectory.dcd
+816M	outputs/phase5_md/time_crunch_1axc_25ns
+36K	outputs/phase5_md/logs
+Production did not complete cleanly; outputs will still be packaged for inspection.
+=== PACKAGING OUTPUTS ===
+Package: outputs/phase5_md/packages/phase5_time_crunch_1axc_25ns_20260530_023137_status1.tgz
+-rw-r--r-- 1 root root 658M May 30 06:32 outputs/phase5_md/packages/phase5_time_crunch_1axc_25ns_20260530_023137_status1.tgz
+=== END Sat May 30 06:32:37 UTC 2026 status=1 projected_spend_usd=24.101525560617446 ===

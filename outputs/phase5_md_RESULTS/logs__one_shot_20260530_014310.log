@@ -1,0 +1,54 @@
+=== START Sat May 30 01:43:10 UTC 2026 ===
+Repo root: /workspace/GNN_PCNA
+Run root: outputs/phase5_md/time_crunch_1axc_25ns
+Log file: outputs/phase5_md/logs/one_shot_20260530_014310.log
+Budget: target=27 hard=30 hourly=6
+Production: replicates=3 production_ns=25
+Conda environment already active: /root/miniforge3/envs/phase5-md
+
+=== GIT STATE Sat May 30 01:43:10 UTC 2026 ===
+## codex/phase5-runpod-md-package...origin/codex/phase5-runpod-md-package
+
+=== GPU CHECK Sat May 30 01:43:10 UTC 2026 ===
+Sat May 30 01:43:10 2026       
++-----------------------------------------------------------------------------------------+
+| NVIDIA-SMI 570.211.01             Driver Version: 570.211.01     CUDA Version: 12.8     |
+|-----------------------------------------+------------------------+----------------------+
+| GPU  Name                 Persistence-M | Bus-Id          Disp.A | Volatile Uncorr. ECC |
+| Fan  Temp   Perf          Pwr:Usage/Cap |           Memory-Usage | GPU-Util  Compute M. |
+|                                         |                        |               MIG M. |
+|=========================================+========================+======================|
+|   0  NVIDIA B200                    On  |   00000000:BA:00.0 Off |                    0 |
+| N/A   34C    P0            193W / 1000W |       0MiB / 183359MiB |      0%      Default |
+|                                         |                        |             Disabled |
++-----------------------------------------+------------------------+----------------------+
+                                                                                         
++-----------------------------------------------------------------------------------------+
+| Processes:                                                                              |
+|  GPU   GI   CI              PID   Type   Process name                        GPU Memory |
+|        ID   ID                                                               Usage      |
+|=========================================================================================|
+|  No running processes found                                                             |
++-----------------------------------------------------------------------------------------+
+
+=== OPENMM CHECK Sat May 30 01:43:10 UTC 2026 ===
+
+OpenMM Version: 8.2
+Git Revision: 53770948682c40bd460b39830d4e0f0fd3a4b868
+
+There are 3 Platforms available:
+
+1 Reference - Successfully computed forces
+2 CPU - Successfully computed forces
+3 CUDA - Successfully computed forces
+
+Median difference in forces between platforms:
+
+Reference vs. CPU: 6.30577e-06
+Reference vs. CUDA: 6.75614e-06
+CPU vs. CUDA: 7.44778e-07
+
+All differences are within tolerance.
+
+=== SMOKE TEST Sat May 30 01:43:14 UTC 2026 ===
+Replicate 1: minimizing

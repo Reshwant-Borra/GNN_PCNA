@@ -1285,6 +1285,136 @@
         "artifacts/final_benchmark_expansion_20260815/all_candidate_structures.csv",
         "FINAL_BENCHMARK_ELIGIBILITY_REPORT.md"
       ]
+    },
+    {
+      "path": "paper/figures/baseline_comparison.png",
+      "artifact_type": "figure",
+      "status": "draft",
+      "created_by_agent": "paper_engine.figures",
+      "machine": "Advay_Laptop",
+      "command": "python -m paper_engine.figures.render --only baseline_comparison",
+      "inputs": [
+        "random_manifest.json",
+        "degree_manifest.json",
+        "sage_no_spatial_manifest.json",
+        "gcn_1l_manifest.json",
+        "gat_2l_manifest.json",
+        "sage_no_sequential_manifest.json",
+        "all_runs_summary.json"
+      ],
+      "notes": "Validation macro-AUPRC across models and baselines | answers: Were baselines compared under the same leakage-clean split? | Validation macro-AUPRC (mean of per-protein AUPRC) for the primary GraphSAGE-3L model and all baselines, evaluated on the same frozen, homology-blocked split (hash 24dd5e34). Error bars are ±1 SD over 4 folds × 3 seeds where applicable. Random and degree references indicate the prevalence floor. Test set was not evaluated; these are validation, model-selection metrics only. No scientific claims are made.",
+      "artifact_id": "ART-0033",
+      "created_at": "2026-05-30T05:17:17Z",
+      "updated_at": "2026-05-30T05:19:23Z",
+      "git_commit": "732f944a8e57268b1357b0cf1fe91175dc12fe51",
+      "git_dirty": true
+    },
+    {
+      "path": "paper/figures/per_fold_performance.png",
+      "artifact_type": "figure",
+      "status": "draft",
+      "created_by_agent": "paper_engine.figures",
+      "machine": "Advay_Laptop",
+      "command": "python -m paper_engine.figures.render --only per_fold_performance",
+      "inputs": [
+        "all_runs_summary.json",
+        "gat_2l_manifest.json",
+        "gcn_1l_manifest.json"
+      ],
+      "notes": "Per-fold validation macro-AUPRC | answers: How many independent test proteins? | Per-fold validation macro-AUPRC for the primary model and GNN baselines (mean over 3 seeds). Fold-to-fold variation is modest; fold 1 is a more favorable partition across all models, indicating partition difficulty rather than seed luck. Validation only; the test set remains frozen.",
+      "artifact_id": "ART-0034",
+      "created_at": "2026-05-30T05:17:17Z",
+      "updated_at": "2026-05-30T05:19:23Z",
+      "git_commit": "732f944a8e57268b1357b0cf1fe91175dc12fe51",
+      "git_dirty": true
+    },
+    {
+      "path": "paper/figures/ablation_edges.png",
+      "artifact_type": "figure",
+      "status": "draft",
+      "created_by_agent": "paper_engine.figures",
+      "machine": "Advay_Laptop",
+      "command": "python -m paper_engine.figures.render --only ablation_edges",
+      "inputs": [
+        "all_runs_summary.json",
+        "sage_no_sequential_manifest.json",
+        "sage_no_spatial_manifest.json"
+      ],
+      "notes": "Edge-type ablation | answers: Are claims proportional to evidence? | Ablation of graph edge types on validation macro-AUPRC. Removing spatial edges degrades performance; removing sequential edges does not, and marginally exceeds the full model (Δ +0.0021, within 1 SD). This is an honest ablation signal that the sequential-edge contribution is not established and warrants further investigation before any architecture claim. Validation only.",
+      "artifact_id": "ART-0035",
+      "created_at": "2026-05-30T05:17:17Z",
+      "updated_at": "2026-05-30T05:19:23Z",
+      "git_commit": "732f944a8e57268b1357b0cf1fe91175dc12fe51",
+      "git_dirty": true
+    },
+    {
+      "path": "paper/figures/training_curves.png",
+      "artifact_type": "figure",
+      "status": "draft",
+      "created_by_agent": "paper_engine.figures",
+      "machine": "Advay_Laptop",
+      "command": "python -m paper_engine.figures.render --only training_curves",
+      "inputs": [
+        "all_runs_summary.json"
+      ],
+      "notes": "Validation learning curves | answers: Were old checkpoints regenerated after bug fixes? | Validation macro-AUPRC versus epoch for all 12 primary-model runs (4 folds × 3 seeds; faint lines) with the across-run mean (bold). Early stopping (patience 10) halts each run near its validation peak, limiting overfitting. Curves are read directly from per-run training history manifests.",
+      "artifact_id": "ART-0036",
+      "created_at": "2026-05-30T05:17:17Z",
+      "updated_at": "2026-05-30T05:19:23Z",
+      "git_commit": "732f944a8e57268b1357b0cf1fe91175dc12fe51",
+      "git_dirty": true
+    },
+    {
+      "path": "paper/figures/metric_choice.png",
+      "artifact_type": "figure",
+      "status": "draft",
+      "created_by_agent": "paper_engine.figures",
+      "machine": "Advay_Laptop",
+      "command": "python -m paper_engine.figures.render --only metric_choice",
+      "inputs": [
+        "all_runs_summary.json",
+        "degree_manifest.json",
+        "random_manifest.json",
+        "label_manifest.json"
+      ],
+      "notes": "Why macro-AUPRC, not AUROC, under class imbalance | answers: Where is AUPRC and what is the positive-class baseline? | Macro-AUPRC versus macro-AUROC for the primary model and naive baselines. At ~4.6% positive prevalence (dashed AUPRC floor), a random scorer reaches AUROC ≈ 0.50 but AUPRC ≈ 0.05; AUROC therefore overstates skill. macro-AUPRC against the prevalence baseline is reported as the primary metric for this reason. Validation only.",
+      "artifact_id": "ART-0037",
+      "created_at": "2026-05-30T05:17:17Z",
+      "updated_at": "2026-05-30T05:19:23Z",
+      "git_commit": "732f944a8e57268b1357b0cf1fe91175dc12fe51",
+      "git_dirty": true
+    },
+    {
+      "path": "paper/figures/dataset_split.png",
+      "artifact_type": "figure",
+      "status": "draft",
+      "created_by_agent": "paper_engine.figures",
+      "machine": "Advay_Laptop",
+      "command": "python -m paper_engine.figures.render --only dataset_split",
+      "inputs": [
+        "split_manifest_frozen.json",
+        "label_manifest.json"
+      ],
+      "notes": "Dataset composition and frozen split | answers: Is the test set independent at the protein level (not residue level)? | Left: structure counts across the frozen cross-validation folds and the held-out test set (homology-blocked at 30% sequence identity; PCNA cluster held out entirely). Right: residue label composition (positive vs masked) under the positive-unlabeled policy. Split manifest hash 24dd5e34; the test set was never loaded during model selection.",
+      "artifact_id": "ART-0038",
+      "created_at": "2026-05-30T05:17:17Z",
+      "updated_at": "2026-05-30T05:19:23Z",
+      "git_commit": "732f944a8e57268b1357b0cf1fe91175dc12fe51",
+      "git_dirty": true
+    },
+    {
+      "path": "paper/manuscript.md",
+      "artifact_type": "paper_draft",
+      "status": "draft",
+      "created_by_agent": "paper_engine.manuscript",
+      "machine": "Advay_Laptop",
+      "command": "python -m research_os paper",
+      "notes": "Auto-generated competition draft (DOCX: paper/manuscript.docx). Validation-only; test set not evaluated; requires human review.",
+      "artifact_id": "ART-0039",
+      "created_at": "2026-05-30T05:17:17Z",
+      "updated_at": "2026-05-30T15:03:29Z",
+      "git_commit": "732f944a8e57268b1357b0cf1fe91175dc12fe51",
+      "git_dirty": true
     }
   ]
 }

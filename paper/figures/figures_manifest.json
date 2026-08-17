@@ -1,0 +1,126 @@
+{
+  "schema": "paper_engine.figures/v1",
+  "note": "Validation-only figures generated from real Phase-3 run manifests. Test set not evaluated; no scientific claims.",
+  "figures": [
+    {
+      "figure_id": "baseline_comparison",
+      "path": "C:\\Users\\advay\\GNN_PNCA\\paper\\figures\\baseline_comparison.png",
+      "title": "Validation macro-AUPRC across models and baselines",
+      "caption": "Validation macro-AUPRC (mean of per-protein AUPRC) for the primary GraphSAGE-3L model and all baselines, evaluated on the same frozen, homology-blocked split (hash 24dd5e34). Error bars are \u00b11 SD over 4 folds \u00d7 3 seeds where applicable. Random and degree references indicate the prevalence floor. Test set was not evaluated; these are validation, model-selection metrics only. No scientific claims are made.",
+      "reviewer_question": "Were baselines compared under the same leakage-clean split?",
+      "claim_support": "The trained GNN separates candidate pocket residues better than naive and ablated baselines on held-out validation folds.",
+      "kind": "result",
+      "data_sources": [
+        "C:\\Users\\advay\\GNN_PNCA\\Desktop\\GNN_PCNA\\reports\\phase3\\baseline_runs\\random_manifest.json",
+        "C:\\Users\\advay\\GNN_PNCA\\Desktop\\GNN_PCNA\\reports\\phase3\\baseline_runs\\degree_manifest.json",
+        "C:\\Users\\advay\\GNN_PNCA\\Desktop\\GNN_PCNA\\reports\\phase3\\baseline_runs\\sage_no_spatial_manifest.json",
+        "C:\\Users\\advay\\GNN_PNCA\\Desktop\\GNN_PCNA\\reports\\phase3\\baseline_runs\\gcn_1l_manifest.json",
+        "C:\\Users\\advay\\GNN_PNCA\\Desktop\\GNN_PCNA\\reports\\phase3\\baseline_runs\\gat_2l_manifest.json",
+        "C:\\Users\\advay\\GNN_PNCA\\Desktop\\GNN_PCNA\\reports\\phase3\\baseline_runs\\sage_no_sequential_manifest.json",
+        "C:\\Users\\advay\\GNN_PNCA\\Desktop\\GNN_PCNA\\reports\\phase3\\training_runs\\all_runs_summary.json"
+      ],
+      "command": "python -m paper_engine.figures.render --only baseline_comparison"
+    },
+    {
+      "figure_id": "per_fold_performance",
+      "path": "C:\\Users\\advay\\GNN_PNCA\\paper\\figures\\per_fold_performance.png",
+      "title": "Per-fold validation macro-AUPRC",
+      "caption": "Per-fold validation macro-AUPRC for the primary model and GNN baselines (mean over 3 seeds). Fold-to-fold variation is modest; fold 1 is a more favorable partition across all models, indicating partition difficulty rather than seed luck. Validation only; the test set remains frozen.",
+      "reviewer_question": "How many independent test proteins?",
+      "claim_support": "Performance is consistent across cross-validation folds, with fold 1 an easier validation partition.",
+      "kind": "result",
+      "data_sources": [
+        "C:\\Users\\advay\\GNN_PNCA\\Desktop\\GNN_PCNA\\reports\\phase3\\training_runs\\all_runs_summary.json",
+        "C:\\Users\\advay\\GNN_PNCA\\Desktop\\GNN_PCNA\\reports\\phase3\\baseline_runs\\gat_2l_manifest.json",
+        "C:\\Users\\advay\\GNN_PNCA\\Desktop\\GNN_PCNA\\reports\\phase3\\baseline_runs\\gcn_1l_manifest.json"
+      ],
+      "command": "python -m paper_engine.figures.render --only per_fold_performance"
+    },
+    {
+      "figure_id": "ablation_edges",
+      "path": "C:\\Users\\advay\\GNN_PNCA\\paper\\figures\\ablation_edges.png",
+      "title": "Edge-type ablation",
+      "caption": "Ablation of graph edge types on validation macro-AUPRC. Removing spatial edges degrades performance; removing sequential edges does not, and marginally exceeds the full model (\u0394 +0.0021, within 1 SD). This is an honest ablation signal that the sequential-edge contribution is not established and warrants further investigation before any architecture claim. Validation only.",
+      "reviewer_question": "Are claims proportional to evidence?",
+      "claim_support": "Spatial (Euclidean) edges carry most of the signal; sequential edges contribute little on validation folds.",
+      "kind": "result",
+      "data_sources": [
+        "C:\\Users\\advay\\GNN_PNCA\\Desktop\\GNN_PCNA\\reports\\phase3\\training_runs\\all_runs_summary.json",
+        "C:\\Users\\advay\\GNN_PNCA\\Desktop\\GNN_PCNA\\reports\\phase3\\baseline_runs\\sage_no_sequential_manifest.json",
+        "C:\\Users\\advay\\GNN_PNCA\\Desktop\\GNN_PCNA\\reports\\phase3\\baseline_runs\\sage_no_spatial_manifest.json"
+      ],
+      "command": "python -m paper_engine.figures.render --only ablation_edges"
+    },
+    {
+      "figure_id": "training_curves",
+      "path": "C:\\Users\\advay\\GNN_PNCA\\paper\\figures\\training_curves.png",
+      "title": "Validation learning curves",
+      "caption": "Validation macro-AUPRC versus epoch for all 12 primary-model runs (4 folds \u00d7 3 seeds; faint lines) with the across-run mean (bold). Early stopping (patience 10) halts each run near its validation peak, limiting overfitting. Curves are read directly from per-run training history manifests.",
+      "reviewer_question": "Were old checkpoints regenerated after bug fixes?",
+      "claim_support": "Training converges with early stopping; no validation collapse.",
+      "kind": "method",
+      "data_sources": [
+        "C:\\Users\\advay\\GNN_PNCA\\Desktop\\GNN_PCNA\\reports\\phase3\\training_runs\\all_runs_summary.json"
+      ],
+      "command": "python -m paper_engine.figures.render --only training_curves"
+    },
+    {
+      "figure_id": "metric_choice",
+      "path": "C:\\Users\\advay\\GNN_PNCA\\paper\\figures\\metric_choice.png",
+      "title": "Why macro-AUPRC, not AUROC, under class imbalance",
+      "caption": "Macro-AUPRC versus macro-AUROC for the primary model and naive baselines. At ~4.6% positive prevalence (dashed AUPRC floor), a random scorer reaches AUROC \u2248 0.50 but AUPRC \u2248 0.05; AUROC therefore overstates skill. macro-AUPRC against the prevalence baseline is reported as the primary metric for this reason. Validation only.",
+      "reviewer_question": "Where is AUPRC and what is the positive-class baseline?",
+      "claim_support": "Under ~4.6% positive prevalence AUROC is inflated; AUPRC against the prevalence floor is the honest metric.",
+      "kind": "method",
+      "data_sources": [
+        "C:\\Users\\advay\\GNN_PNCA\\Desktop\\GNN_PCNA\\reports\\phase3\\training_runs\\all_runs_summary.json",
+        "C:\\Users\\advay\\GNN_PNCA\\Desktop\\GNN_PCNA\\reports\\phase3\\baseline_runs\\degree_manifest.json",
+        "C:\\Users\\advay\\GNN_PNCA\\Desktop\\GNN_PCNA\\reports\\phase3\\baseline_runs\\random_manifest.json",
+        "C:\\Users\\advay\\GNN_PNCA\\Desktop\\GNN_PCNA\\data\\labels\\label_manifest.json"
+      ],
+      "command": "python -m paper_engine.figures.render --only metric_choice"
+    },
+    {
+      "figure_id": "dataset_split",
+      "path": "C:\\Users\\advay\\GNN_PNCA\\paper\\figures\\dataset_split.png",
+      "title": "Dataset composition and frozen split",
+      "caption": "Left: structure counts across the frozen cross-validation folds and the held-out test set (homology-blocked at 30% sequence identity; PCNA cluster held out entirely). Right: residue label composition (positive vs masked) under the positive-unlabeled policy. Split manifest hash 24dd5e34; the test set was never loaded during model selection.",
+      "reviewer_question": "Is the test set independent at the protein level (not residue level)?",
+      "claim_support": "The split is frozen, homology-blocked at 30% identity, with PCNA held out and the test set never loaded.",
+      "kind": "dataset",
+      "data_sources": [
+        "C:\\Users\\advay\\GNN_PNCA\\Desktop\\GNN_PCNA\\data\\registries\\split_manifest_frozen.json",
+        "C:\\Users\\advay\\GNN_PNCA\\Desktop\\GNN_PCNA\\data\\labels\\label_manifest.json"
+      ],
+      "command": "python -m paper_engine.figures.render --only dataset_split"
+    },
+    {
+      "figure_id": "md_rmsd",
+      "path": "C:\\Users\\advay\\GNN_PNCA\\paper\\figures\\md_rmsd.png",
+      "title": "Backbone RMSD (25 ns exploratory MD)",
+      "caption": "Backbone RMSD versus time for the apo 1AXC simulation (one complete replicate to 25 ns; a second replicate is incomplete at 4 ns and shown dashed). The first 5 ns (shaded) are discarded as equilibration. RMSD plateaus near 0.25 nm, indicating a stable fold over the sampled window. Exploratory only.",
+      "reviewer_question": "Did MD actually validate the prediction, or only simulation stability?",
+      "claim_support": "The simulation is stable, so fluctuation analysis reflects equilibrium dynamics rather than drift.",
+      "kind": "result",
+      "data_sources": [
+        "C:\\Users\\advay\\GNN_PNCA\\outputs\\phase5_md\\time_crunch_1axc_25ns\\analysis_fixed\\rmsd_timeseries.csv",
+        "C:\\Users\\advay\\GNN_PNCA\\outputs\\phase5_md\\time_crunch_1axc_25ns\\analysis_fixed\\analysis_summary.json"
+      ],
+      "command": "python -m paper_engine.figures.md_results"
+    },
+    {
+      "figure_id": "md_rmsf",
+      "path": "C:\\Users\\advay\\GNN_PNCA\\paper\\figures\\md_rmsf.png",
+      "title": "Per-window C\u03b1 RMSF (candidate vs reference)",
+      "caption": "Mean backbone RMSF over the equilibrated 25 ns window for the GNN candidate pocket residue windows (blue) versus a reference loop region (grey, dashed). Candidate residues are at or below the reference flexibility \u2014 they do NOT show enhanced mobility, so this short simulation provides no evidence of cryptic-pocket opening. Consistent with the analysis' own limitation that RMSD/RMSF alone cannot prove opening; longer timescales and a positive control are required.",
+      "reviewer_question": "Are novel residues experimentally supported?",
+      "claim_support": "Honest negative/inconclusive result: candidate residues are not more flexible on this timescale, so no opening is claimed.",
+      "kind": "result",
+      "data_sources": [
+        "C:\\Users\\advay\\GNN_PNCA\\outputs\\phase5_md\\time_crunch_1axc_25ns\\analysis_fixed\\window_rmsf.csv",
+        "C:\\Users\\advay\\GNN_PNCA\\outputs\\phase5_md\\time_crunch_1axc_25ns\\analysis_fixed\\analysis_summary.json"
+      ],
+      "command": "python -m paper_engine.figures.md_results"
+    }
+  ]
+}

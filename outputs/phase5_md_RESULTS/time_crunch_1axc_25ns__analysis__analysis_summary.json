@@ -1,0 +1,18 @@
+{
+  "status": "analysis_complete",
+  "created_utc": "2026-05-30T08:43:48.302417+00:00",
+  "run_root": "outputs/phase5_md/time_crunch_1axc_25ns",
+  "windows": [
+    "239-243",
+    "28-32",
+    "206-210",
+    "134-138"
+  ],
+  "reference_window": "118-122",
+  "n_replicates_analyzed": 2,
+  "limitations": [
+    "Short-timescale exploratory MD only.",
+    "RMSD/RMSF alone do not prove pocket opening or binding.",
+    "No druggability, therapeutic, or validated-site claims are supported."
+  ]
+}

@@ -1,0 +1,72 @@
+=== START Sat May 30 01:40:26 UTC 2026 ===
+Repo root: /workspace/GNN_PCNA
+Run root: outputs/phase5_md/time_crunch_1axc_25ns
+Log file: outputs/phase5_md/logs/one_shot_20260530_014026.log
+Budget: target=27 hard=30 hourly=6
+Production: replicates=3 production_ns=25
+Conda environment already active: /root/miniforge3/envs/phase5-md
+
+=== GIT STATE Sat May 30 01:40:26 UTC 2026 ===
+## codex/phase5-runpod-md-package...origin/codex/phase5-runpod-md-package
+
+=== GPU CHECK Sat May 30 01:40:26 UTC 2026 ===
+Sat May 30 01:40:27 2026       
++-----------------------------------------------------------------------------------------+
+| NVIDIA-SMI 570.211.01             Driver Version: 570.211.01     CUDA Version: 12.8     |
+|-----------------------------------------+------------------------+----------------------+
+| GPU  Name                 Persistence-M | Bus-Id          Disp.A | Volatile Uncorr. ECC |
+| Fan  Temp   Perf          Pwr:Usage/Cap |           Memory-Usage | GPU-Util  Compute M. |
+|                                         |                        |               MIG M. |
+|=========================================+========================+======================|
+|   0  NVIDIA B200                    On  |   00000000:BA:00.0 Off |                    0 |
+| N/A   34C    P0            193W / 1000W |       0MiB / 183359MiB |      0%      Default |
+|                                         |                        |             Disabled |
++-----------------------------------------+------------------------+----------------------+
+                                                                                         
++-----------------------------------------------------------------------------------------+
+| Processes:                                                                              |
+|  GPU   GI   CI              PID   Type   Process name                        GPU Memory |
+|        ID   ID                                                               Usage      |
+|=========================================================================================|
+|  No running processes found                                                             |
++-----------------------------------------------------------------------------------------+
+
+=== OPENMM CHECK Sat May 30 01:40:27 UTC 2026 ===
+
+OpenMM Version: 8.2
+Git Revision: 53770948682c40bd460b39830d4e0f0fd3a4b868
+
+There are 3 Platforms available:
+
+1 Reference - Successfully computed forces
+2 CPU - Successfully computed forces
+3 CUDA - Successfully computed forces
+
+Median difference in forces between platforms:
+
+Reference vs. CPU: 6.29795e-06
+Reference vs. CUDA: 6.75603e-06
+CPU vs. CUDA: 7.51684e-07
+
+All differences are within tolerance.
+
+=== SMOKE TEST Sat May 30 01:40:31 UTC 2026 ===
+Prepared PDB: outputs/phase5_md/time_crunch_1axc_25ns/smoke_test/inputs/1axc_pcna_apo_from_p21_prepared.pdb
+Structure audit: outputs/phase5_md/time_crunch_1axc_25ns/smoke_test/inputs/1axc_pcna_apo_from_p21_structure_audit.json
+Traceback (most recent call last):
+  File "/workspace/GNN_PCNA/scripts/phase5_run_1axc_openmm.py", line 415, in <module>
+    main()
+  File "/workspace/GNN_PCNA/scripts/phase5_run_1axc_openmm.py", line 408, in main
+    run_replicate(args, deps, prepared_pdb, rep_idx, args.seeds[rep_idx - 1], start)
+  File "/workspace/GNN_PCNA/scripts/phase5_run_1axc_openmm.py", line 263, in run_replicate
+    forcefield = ForceField("amber19-all.xml", "amber14/tip3p.xml")
+                 ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/root/miniforge3/envs/phase5-md/lib/python3.11/site-packages/openmm/app/forcefield.py", line 220, in __init__
+    self.loadFile(files)
+  File "/root/miniforge3/envs/phase5-md/lib/python3.11/site-packages/openmm/app/forcefield.py", line 270, in loadFile
+    raise ValueError('Could not locate file "%s"' % file)
+ValueError: Could not locate file "amber19-all.xml"
+=== PACKAGING OUTPUTS ===
+Package: outputs/phase5_md/packages/phase5_time_crunch_1axc_25ns_20260530_014026_status1.tgz
+-rw-r--r-- 1 root root 221K May 30 01:40 outputs/phase5_md/packages/phase5_time_crunch_1axc_25ns_20260530_014026_status1.tgz
+=== END Sat May 30 01:40:38 UTC 2026 status=1 projected_spend_usd=0.02060763120651245 ===

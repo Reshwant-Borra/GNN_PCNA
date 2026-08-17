@@ -1,0 +1,39 @@
+=== START Sat May 30 01:45:21 UTC 2026 ===
+Repo root: /workspace/GNN_PCNA
+Run root: outputs/phase5_md/time_crunch_1axc_25ns
+Log file: outputs/phase5_md/logs/one_shot_20260530_014521.log
+Budget: target=27 hard=30 hourly=6
+Production: replicates=3 production_ns=25
+Conda environment already active: /root/miniforge3/envs/phase5-md
+
+=== GIT STATE Sat May 30 01:45:21 UTC 2026 ===
+## codex/phase5-runpod-md-package...origin/codex/phase5-runpod-md-package
+
+=== GPU CHECK Sat May 30 01:45:21 UTC 2026 ===
+Sat May 30 01:45:21 2026       
++-----------------------------------------------------------------------------------------+
+| NVIDIA-SMI 570.211.01             Driver Version: 570.211.01     CUDA Version: 12.8     |
+|-----------------------------------------+------------------------+----------------------+
+| GPU  Name                 Persistence-M | Bus-Id          Disp.A | Volatile Uncorr. ECC |
+| Fan  Temp   Perf          Pwr:Usage/Cap |           Memory-Usage | GPU-Util  Compute M. |
+|                                         |                        |               MIG M. |
+|=========================================+========================+======================|
+|   0  NVIDIA B200                    On  |   00000000:BA:00.0 Off |                    0 |
+| N/A   35C    P0            194W / 1000W |       0MiB / 183359MiB |      0%      Default |
+|                                         |                        |             Disabled |
++-----------------------------------------+------------------------+----------------------+
+                                                                                         
++-----------------------------------------------------------------------------------------+
+| Processes:                                                                              |
+|  GPU   GI   CI              PID   Type   Process name                        GPU Memory |
+|        ID   ID                                                               Usage      |
+|=========================================================================================|
+|  No running processes found                                                             |
++-----------------------------------------------------------------------------------------+
+
+=== OPENMM CHECK Sat May 30 01:45:21 UTC 2026 ===
+/usr/local/bin/python: Error while finding module specification for 'openmm.testInstallation' (ModuleNotFoundError: No module named 'openmm')
+=== PACKAGING OUTPUTS ===
+Package: outputs/phase5_md/packages/phase5_time_crunch_1axc_25ns_20260530_014521_status1.tgz
+-rw-r--r-- 1 root root 3.4M May 30 01:45 outputs/phase5_md/packages/phase5_time_crunch_1axc_25ns_20260530_014521_status1.tgz
+=== END Sat May 30 01:45:22 UTC 2026 status=1 projected_spend_usd=0.002347042957941691 ===

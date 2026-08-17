@@ -67,3 +67,24 @@ md_validation_4070/preflight_outputs*/
 md_validation_4070/run_*.log
 md_validation_4070/.pcna_pipeline.sh
 md_validation_4070/**/__pycache__/
+
+# --- recreatable artifacts: environments, downloaded third-party data, run outputs ---
+# Environments (rebuild from pyproject.toml / md_validation_4070/environment.yml)
+.venv_mdanalysis/
+.obsidian/
+
+# Third-party datasets — re-download, do not vendor (scPDB 2.7G, CryptoBench 1.1G)
+data/phase3_labels/
+data/raw_intake/cryptobench/
+
+# Literature corpus: PDFs are re-fetchable from corpus_manifest.json (377M, 121 PDFs)
+data/literature/pdfs/
+data/literature/index/
+
+# Crawl/run logs and MD run outputs (trajectories, solvated systems)
+logs/
+outputs/**/*.pdb
+outputs/**/*.dcd
+
+# Redundant archive of a directory already tracked in this repo
+md_validation_4070.zip

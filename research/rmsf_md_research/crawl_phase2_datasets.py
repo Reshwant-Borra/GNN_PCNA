@@ -58,9 +58,12 @@ import requests
 from bs4 import BeautifulSoup
 
 # ── paths ──────────────────────────────────────────────────────────────────────
+# Output goes to D: by default (978 GB free) to avoid pressuring C:.
+# Override with env var PHASE2_OUT to point elsewhere.
 ROOT        = Path(__file__).parent
-DATA        = ROOT / "data" / "phase2"
-LOGS        = ROOT / "logs"
+OUT_ROOT    = Path(os.environ.get("PHASE2_OUT", r"D:\rishiCP"))
+DATA        = OUT_ROOT / "data" / "phase2"
+LOGS        = OUT_ROOT / "logs"
 
 DIR = {
     "rcsb":      DATA / "rcsb",
@@ -410,27 +413,29 @@ def process_structures_parallel(cif_paths: list[Path]):
              len(results), FEATURE_FILE)
 
 
+def _extract_archive(p: Path):
+    """Extract one archive. Module-level so it is picklable under Windows
+    multiprocessing 'spawn' (nested functions cannot be pickled)."""
+    try:
+        out_dir = p.parent / p.stem.replace(".tar", "")
+        out_dir.mkdir(exist_ok=True)
+        if p.name.endswith(".tar.gz") or p.name.endswith(".tar.bz2") or p.name.endswith(".tgz"):
+            with tarfile.open(p) as tf:
+                tf.extractall(out_dir)
+        elif p.name.endswith(".gz") and not p.name.endswith(".tar.gz"):
+            out = out_dir / p.stem
+            out.write_bytes(gzip.decompress(p.read_bytes()))
+        return str(p)
+    except Exception as e:
+        err_log.error("Extract %s: %s", p, e)
+        return None
+
+
 def extract_archives_parallel(archive_paths: list[Path]):
     """Extract .gz and .tar.gz files in parallel — CPU intensive."""
-
-    def _extract(p: Path):
-        try:
-            out_dir = p.parent / p.stem.replace(".tar", "")
-            out_dir.mkdir(exist_ok=True)
-            if p.name.endswith(".tar.gz") or p.name.endswith(".tar.bz2") or p.name.endswith(".tgz"):
-                with tarfile.open(p) as tf:
-                    tf.extractall(out_dir)
-            elif p.name.endswith(".gz") and not p.name.endswith(".tar.gz"):
-                out = out_dir / p.stem
-                out.write_bytes(gzip.decompress(p.read_bytes()))
-            return str(p)
-        except Exception as e:
-            err_log.error("Extract %s: %s", p, e)
-            return None
-
     log.info("Extracting %d archives on %d cores…", len(archive_paths), CPU_WORKERS)
     with mp.Pool(CPU_WORKERS) as pool:
-        done = list(pool.imap_unordered(_extract, archive_paths, chunksize=4))
+        done = list(pool.imap_unordered(_extract_archive, archive_paths, chunksize=4))
     log.info("Extracted %d archives", sum(1 for d in done if d))
 
 
@@ -662,16 +667,16 @@ def enumerate_alphafold():
     (DIR["alphafold"] / "uniprot_ids.txt").write_text("\n".join(uniprot_ids), "utf-8")
 
     # Enqueue CIF downloads directly (EBI provides predictable URLs)
-    # Format: https://alphafold.ebi.ac.uk/files/AF-{UNIPROT}-F1-model_v4.cif
+    # Format: https://alphafold.ebi.ac.uk/files/AF-{UNIPROT}-F1-model_v6.cif
+    # NOTE: AlphaFold DB is on v6 as of 2025; older v4/v3 paths now 404.
+    AF_VERSION = "v6"
     for uid in uniprot_ids:
-        for version in ("v4", "v3"):
-            cif_url = f"https://alphafold.ebi.ac.uk/files/AF-{uid}-F1-model_{version}.cif"
-            DQ.add(
-                cif_url,
-                DIR["alphafold"] / f"AF-{uid}-F1-model_{version}.cif",
-                binary=True, label=f"AlphaFold {uid}",
-            )
-            break  # try v4 first; fallback handled by retry 404
+        cif_url = f"https://alphafold.ebi.ac.uk/files/AF-{uid}-F1-model_{AF_VERSION}.cif"
+        DQ.add(
+            cif_url,
+            DIR["alphafold"] / f"AF-{uid}-F1-model_{AF_VERSION}.cif",
+            binary=True, label=f"AlphaFold {uid}",
+        )
 
 
 # ── STRING — full human/mouse/yeast protein links ────────────────────────────

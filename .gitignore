@@ -88,3 +88,6 @@ outputs/**/*.dcd
 
 # Redundant archive of a directory already tracked in this repo
 md_validation_4070.zip
+
+# Downloaded PCNA structure crawl (29 MB of .cif.gz, re-fetchable from RCSB)
+Desktop/GNN_PCNA/data/raw_intake/phase4_pcna_crawl/

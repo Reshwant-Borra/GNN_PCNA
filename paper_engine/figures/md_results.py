@@ -175,14 +175,20 @@ def fig_md_rmsf():
     out = config.FIGURES_DIR / "md_rmsf.png"
     fig.savefig(out)
     plt.close(fig)
+    # The lineage qualifier is not decoration. Without "apo 1AXC", this caption reads as a
+    # negative result for the CURRENT frozen 1W60 candidate, which is a different structure
+    # and a different experiment that has not been run. See paper/LINEAGE_AUDIT.md.
     caption = (
-        "Mean backbone RMSF over the equilibrated 25 ns window for the GNN candidate "
-        "pocket residue windows (blue) versus a reference loop region (grey, dashed). "
-        "Candidate residues are at or below the reference flexibility — they do NOT "
-        "show enhanced mobility, so this short simulation provides no evidence of "
-        "cryptic-pocket opening. Consistent with the analysis' own limitation that "
-        "RMSD/RMSF alone cannot prove opening; longer timescales and a positive "
-        "control are required."
+        "HISTORICAL, apo 1AXC only — not validation of the frozen 1W60/8GLA candidate. "
+        "Mean backbone RMSF over the equilibrated 25 ns window of the apo 1AXC "
+        "exploratory simulation (n=1 complete replicate, no valid 8GLA positive control), "
+        "for the historical GNN candidate pocket residue windows (blue) versus a "
+        "reference loop region (grey, dashed). Candidate residues are at or below the "
+        "reference flexibility — they do NOT show enhanced mobility, so this short "
+        "simulation provides no evidence of cryptic-pocket opening in 1AXC. Consistent "
+        "with the analysis' own limitation that RMSD/RMSF alone cannot prove opening; "
+        "longer timescales and a positive control are required. The frozen 1W60 apo / "
+        "8GLA control experiment is separate and has not been run."
     )
     return FigureResult(
         figure_id="md_rmsf", path=str(out), title="Per-window Cα RMSF (candidate vs reference)",

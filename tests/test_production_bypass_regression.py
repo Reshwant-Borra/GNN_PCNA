@@ -69,7 +69,9 @@ def test_direct_production_scale_run_md_fails_before_md_imports(tmp_path):
     )
     combined = proc.stdout + proc.stderr
     assert proc.returncode != 0
-    assert "requires --production-authorization" in combined
+    assert "[production-gate] FATAL" in combined
+    assert "requires canonical production authorization" in combined
+    assert "./md.sh production" in combined
 
 
 def test_smoke_scale_direct_run_is_not_classified_as_production():

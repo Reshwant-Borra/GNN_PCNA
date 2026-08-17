@@ -146,15 +146,20 @@ Opens at `http://localhost:8501`. The UI defaults to `checkpoints/pcna_reproduce
 
 ---
 
-## Step 9 — Reproduce the ANM flexibility analysis
+## Step 9 — ANM flexibility analysis — **HISTORICAL / NOT REPRODUCIBLE**
+
+> **`scripts/run_nma.py` does not exist in this repository.** The commands below are retained
+> as a record of what was run historically; they cannot be executed from a clean clone. The
+> reported values (apo fold-change 0.857, holo fold-change 1.157) are therefore
+> **UNVERIFIED** here. No replacement script was fabricated. See `PROVENANCE_GAPS.md`.
 
 ```bash
-python scripts/run_nma.py --pdb data/raw/1W60.pdb --cutoff 7.5 --n_modes 20
-python scripts/run_nma.py --pdb data/raw/8GLA.pdb --cutoff 7.5 --n_modes 20
+# HISTORICAL ONLY — scripts/run_nma.py is absent; these will fail.
+# python scripts/run_nma.py --pdb data/raw/1W60.pdb --cutoff 7.5 --n_modes 20
+# python scripts/run_nma.py --pdb data/raw/8GLA.pdb --cutoff 7.5 --n_modes 20
 ```
 
-Expected: apo fold-change = 0.857, holo fold-change = 1.157.
-Results written to `data/results/nma_1W60.json` and `data/results/nma_8GLA.json`.
+This step is not on the MD execution or analysis path and does not gate anything.
 
 ---
 

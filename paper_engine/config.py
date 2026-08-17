@@ -27,7 +27,13 @@ ARCHIVE_ROOT: Path = REPO_ROOT / "archive" / "historical_desktop_gnn_pcna_202605
 DATA_SEARCH_ROOTS: List[Path] = [SCIENCE_ROOT, REPO_ROOT, ARCHIVE_ROOT]
 
 # --- Output locations --------------------------------------------------------
-PAPER_DIR: Path = REPO_ROOT / "paper"
+# PAPER_ENGINE_PAPER_DIR redirects every generated artifact elsewhere. This exists because
+# rendering writes into the TRACKED paper/figures/ tree: running the test suite silently
+# rewrote paper/figures/baseline_comparison.png and dataset_split.png (found 2026-08-16).
+# That is bad on its own -- tests must not mutate committed scientific artifacts -- and it
+# also dirties the working tree, which the MD production authorization checks
+# ("git dirty state changed after authorization"). Tests set this to a tmp directory.
+PAPER_DIR: Path = Path(os.environ.get("PAPER_ENGINE_PAPER_DIR", REPO_ROOT / "paper"))
 FIGURES_DIR: Path = PAPER_DIR / "figures"
 CACHE_DIR: Path = PAPER_DIR / ".cache"
 DRAFT_DIR: Path = PAPER_DIR / "drafts"

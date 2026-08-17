@@ -1,0 +1,52 @@
+# Line-ending policy for provenance stability.
+#
+# Several SHA-256 digests in this repository are part of the scientific record:
+#   md_validation_4070/FROZEN_MD_ANALYSIS_PROTOCOL.sha256
+#   md_validation_4070/md_workflow.py:EXPECTED_ANALYSIS_PROTOCOL_SHA256
+#   pockets/*.json frozen_policy_sha256 / pocket_definition_sha256
+#   artifacts/provenance/* checkpoint and graph-lineage registries
+#   PROVENANCE.json / BUNDLE_MANIFEST.json input hashes written at run time
+#
+# On a Windows clone with core.autocrlf=true, git would rewrite LF to CRLF in the working
+# tree, changing every one of those digests and making a correctly reproduced artifact look
+# tampered with. Forcing LF in the working tree keeps a hash computed on any platform equal
+# to the hash recorded here.
+
+# Default: let git detect text, but never convert line endings in the working tree.
+* -text
+
+# Scientific / provenance-bearing files: LF is mandatory.
+*.json    text eol=lf
+*.sha256  text eol=lf
+*.py      text eol=lf
+*.sh      text eol=lf
+*.md      text eol=lf
+*.csv     text eol=lf
+*.yml     text eol=lf
+*.yaml    text eol=lf
+*.txt     text eol=lf
+*.cfg     text eol=lf
+*.toml    text eol=lf
+
+# Frozen historical evidence: byte-preserve EXACTLY as committed. Some of these were
+# recorded with CRLF and their digests appear in provenance registries; normalising them
+# now would alter files that are part of the completed record.
+artifacts/**   -text
+outputs/**     -text
+reports/**     -text
+
+# Binary: never touch.
+*.png     binary
+*.jpg     binary
+*.jpeg    binary
+*.pdf     binary
+*.docx    binary
+*.gz      binary
+*.zip     binary
+*.dcd     binary
+*.ckpt    binary
+*.pt      binary
+*.pth     binary
+*.npy     binary
+*.cif     binary
+*.cif.gz  binary

@@ -212,14 +212,44 @@ def analysis_regions(pocket: dict) -> dict[str, list[int]]:
     return {"pocket": sorted(set(_resseqs(pocket.get("pocket_residues_resseq"))))}
 
 
+class HullDependencyUnavailable(RuntimeError):
+    """scipy.spatial.ConvexHull could not be imported.
+
+    This is deliberately an exception rather than a NaN. Before the 2026-08-16 repair
+    ``convex_hull_volume_A3`` swallowed ImportError and returned NaN, so a machine without
+    scipy produced ``openness = {"available": true, "open_like_fraction": 0.0}`` -- a missing
+    optional dependency silently became the scientific claim "the pocket never opened".
+    A metric that cannot be computed must be UNAVAILABLE, not zero.
+    """
+
+
+def hull_backend_available() -> tuple[bool, str]:
+    """Whether the convex-hull backend can be imported at all (dependency, not geometry)."""
+    try:
+        from scipy.spatial import ConvexHull  # noqa: F401
+        return True, "scipy.spatial.ConvexHull available"
+    except Exception as exc:
+        return False, f"scipy.spatial.ConvexHull unavailable: {type(exc).__name__}: {exc}"
+
+
 def convex_hull_volume_A3(xyz_nm, np):
+    """Convex-hull volume (A^3) of a CA point cloud given coordinates in nm.
+
+    Raises HullDependencyUnavailable if the backend is missing (fail closed).
+    Returns NaN only for genuine GEOMETRIC degeneracy (<4 points, or coplanar input),
+    which is a real property of the data rather than a broken environment.
+    """
+    ok, why = hull_backend_available()
+    if not ok:
+        raise HullDependencyUnavailable(why)
+    from scipy.spatial import ConvexHull
+    from scipy.spatial import QhullError
     if len(xyz_nm) < 4:
         return float("nan")
     try:
-        from scipy.spatial import ConvexHull
         return float(ConvexHull(np.asarray(xyz_nm) * 10.0).volume)
-    except Exception:
-        return float("nan")
+    except QhullError:
+        return float("nan")          # degenerate / coplanar region: geometry, not environment
 
 
 def _dccm_matrix(prod, ca, np):
@@ -402,15 +432,24 @@ def validate_scientific_replicate(rep_dir: Path, expected_pdb: str | None = None
     else:
         issues.append("PROVENANCE.json missing or unreadable")
 
-    times = _parse_log_times(rep_dir / "production.log")
-    if times and len(times) != len(set(times)):
-        issues.append("duplicate frame/log artifacts: duplicate log times")
-    if len(times) >= 2:
-        diffs = [round(b - a, 9) for a, b in zip(times, times[1:])]
-        if len(set(diffs)) > 1:
-            issues.append("output interval inconsistent across production.log")
+    times, log_status = read_log_times(rep_dir / "production.log")
+    if log_status != "ok":
+        # Fail closed: without the log we cannot run the duplicate-time or output-interval
+        # checks, and "check not run" must never be reported as "check passed".
+        issues.append(
+            f"production.log unusable ({log_status}): duplicate-time and output-interval "
+            "validation could not be performed"
+        )
+    else:
+        if len(times) != len(set(times)):
+            issues.append("duplicate frame/log artifacts: duplicate log times")
+        if len(times) >= 2:
+            diffs = [round(b - a, 9) for a, b in zip(times, times[1:])]
+            if len(set(diffs)) > 1:
+                issues.append("output interval inconsistent across production.log")
 
     return {"ok": not issues, "issues": issues, "done": done,
+            "log_status": log_status,
             "expected_frames": expected_frames, "observed_frames": observed_frames}
 
 
@@ -497,12 +536,112 @@ def kabsch_rmsd_nm(mobile, reference):
     return float(_np.sqrt((diff * diff).sum(axis=1).mean()))
 
 
-def evaluate_control_interpretability(rows, min_replicates=CONTROL_MIN_REPLICATES):
-    """Trajectory-derived positive-control criterion.
+# --------------------------------------------------------------------------------------
+# Dynamic discriminators (trajectory_dynamic_control_gate_v2)
+#
+# WHY THIS EXISTS.  Gate v1 accepted three STATIC 8GLA structures plus ~0.10 A of independent
+# per-frame coordinate jitter as a passing positive control.  Reproduced 2026-08-16:
+#   * 8GLA's frozen static reference already sits ABOVE both midpoint openness thresholds
+#     (SASA 839.1 >= 808.6 A^2; CA hull 610.3 >= 560.7 A^3), so a static 8GLA run scores
+#     open_like_fraction = 1.0 from frame zero without moving at all; and
+#   * IID jitter of 0.10 A/axis yields RMSF 0.0174 nm, which clears the 0.015 nm floor.
+# The only dynamic discriminator was that absolute RMSF floor, and white noise clears it.
+# That contradicts the frozen protocol's own negative_diagnostic, which requires exactly this
+# case to FAIL.
+#
+# THE FIX.  Add two predeclared discriminators whose null distribution under independent
+# per-frame noise is ANALYTIC, so the thresholds are derived from the noise null and NOT from
+# any MD outcome.  Both are collective backbone observables:
+#
+#   D1  temporal structure: lag-1 autocorrelation r1 of the supported-region CA convex-hull
+#       volume series.  Under an IID null, r1 has mean ~ -1/N and SD ~ 1/sqrt(N), so a
+#       threshold of K_SIGMA/sqrt(N) is a K_SIGMA one-sided rejection of "independent frames".
+#       Real MD hull volume is a slow collective coordinate and is strongly autocorrelated at
+#       the frozen 50 ps cadence; IID jitter has r1 ~ 0.
+#
+#   D2  spatial collectivity: mean |DCCM| among supported-region CA atoms.  Under an IID null
+#       each off-diagonal correlation is ~N(0, 1/sqrt(N)), so E[|c|] = sqrt(2/pi)/sqrt(N).
+#       A threshold of K_SIGMA x that null mean requires genuinely collective displacement.
+#       Real MD gives 0.3-0.7 for a contiguous region; IID jitter sits at the null floor.
+#
+# Both thresholds scale with N automatically, so they cannot be tuned by choosing a run
+# length, and neither was selected by inspecting any control5 result -- none exists yet.
+# --------------------------------------------------------------------------------------
+DYNAMIC_NULL_K_SIGMA = 3.0          # one-sided rejection strength against the IID-noise null
+_HALF_NORMAL_MEAN = math.sqrt(2.0 / math.pi)   # E[|z|] for z ~ N(0,1)
 
-    This gate deliberately ignores frame-zero/static apo-control separation. It asks whether
-    independent ligand-stripped 8GLA control trajectories are complete, artifact-free, and
-    show non-trivial local motion while remaining open-like under the frozen thresholds.
+
+def lag1_autocorrelation(series) -> float | None:
+    """Lag-1 Pearson autocorrelation of a 1-D series; None if undefined (constant/too short)."""
+    import numpy as _np
+    x = _np.asarray(series, dtype=float)
+    x = x[_np.isfinite(x)]
+    if x.size < 3:
+        return None
+    x = x - x.mean()
+    denom = float((x * x).sum())
+    if denom <= 0.0:
+        return None
+    return float((x[:-1] * x[1:]).sum() / denom)
+
+
+def autocorrelation_null_threshold(n_frames: int, k_sigma: float = DYNAMIC_NULL_K_SIGMA) -> float | None:
+    """K-sigma one-sided rejection of the IID null for a lag-1 autocorrelation."""
+    if not n_frames or n_frames < 3:
+        return None
+    return float(k_sigma / math.sqrt(float(n_frames)))
+
+
+def dccm_null_threshold(n_frames: int, k_sigma: float = DYNAMIC_NULL_K_SIGMA) -> float | None:
+    """K x the analytic IID-null expectation of mean |DCCM| for N independent frames."""
+    if not n_frames or n_frames < 3:
+        return None
+    return float(k_sigma * _HALF_NORMAL_MEAN / math.sqrt(float(n_frames)))
+
+
+def static_noise_surrogate_stats(region_xyz_nm, rmsf_nm: float, n_frames: int, seed: int = 20260816):
+    """Matched static + IID-noise surrogate for the SAME region, as a reported null reference.
+
+    Takes the region's frame-0 CA coordinates, adds independent per-frame Gaussian noise
+    scaled to reproduce the observed RMSF, and returns the same D1/D2 statistics. This is
+    diagnostic context for the reviewer -- the gate itself uses the analytic nulls above --
+    but it makes the "is this trajectory distinguishable from a jittered crystal structure?"
+    comparison explicit in the output rather than implicit in a threshold.
+    """
+    import numpy as _np
+    ref = _np.asarray(region_xyz_nm, dtype=float)
+    if ref.ndim != 2 or ref.shape[0] < 4 or n_frames < 3:
+        return None
+    sigma = float(rmsf_nm) / math.sqrt(3.0) if rmsf_nm and rmsf_nm > 0 else 0.0
+    rng = _np.random.default_rng(seed)
+    xyz = ref[None, :, :] + rng.normal(0.0, sigma, size=(int(n_frames),) + ref.shape)
+    try:
+        hull = _np.array([convex_hull_volume_A3(frame, _np) for frame in xyz])
+        hull_r1 = lag1_autocorrelation(hull)
+    except HullDependencyUnavailable:
+        hull_r1 = None
+    disp = xyz - xyz.mean(axis=0, keepdims=True)
+    cov = _np.einsum("tix,tjx->ij", disp, disp) / max(1, int(n_frames))
+    ms = _np.einsum("tix,tix->i", disp, disp) / max(1, int(n_frames))
+    denom = _np.sqrt(ms[:, None] * ms[None, :])
+    dccm = _np.divide(cov, denom, out=_np.zeros_like(cov), where=denom > 0)
+    mask = ~_np.eye(dccm.shape[0], dtype=bool)
+    return {
+        "description": "frame-0 region CA + IID Gaussian noise matched to the observed RMSF",
+        "n_frames": int(n_frames),
+        "per_axis_sigma_nm": sigma,
+        "hull_volume_lag1_autocorrelation": hull_r1,
+        "region_internal_mean_abs_dccm": float(_np.abs(dccm[mask]).mean()) if mask.any() else None,
+    }
+
+
+def evaluate_control_interpretability(rows, min_replicates=CONTROL_MIN_REPLICATES):
+    """Trajectory-derived positive-control criterion (trajectory_dynamic_control_gate_v2).
+
+    Deliberately ignores frame-zero / static apo-control separation. A control replicate
+    qualifies only if it is complete, artifact-free, open-like under the frozen thresholds,
+    AND statistically distinguishable from a static structure with independent per-frame
+    coordinate noise on both a temporal (D1) and a collectivity (D2) discriminator.
     """
     control = [r for r in rows if r.get("role") == "control"]
     issues = []
@@ -510,61 +649,155 @@ def evaluate_control_interpretability(rows, min_replicates=CONTROL_MIN_REPLICATE
         issues.append(f"control replicates {len(control)} < {min_replicates}")
 
     qualifying = 0
+    per_replicate = []
     for r in control:
         rep = f"{r.get('pdb', 'control')}/{r.get('replicate', '?')}"
+        rep_issues = []
         ns = float(r.get("n_frames", 0)) * float(r.get("dt_ns", 0.0))
         if ns + 1e-9 < CONTROL_MIN_NS:
-            issues.append(f"{rep}: analyzed trajectory length {ns:.3f} ns < {CONTROL_MIN_NS:.1f} ns")
+            rep_issues.append(f"analyzed trajectory length {ns:.3f} ns < {CONTROL_MIN_NS:.1f} ns")
         if r.get("pbc_artifact_suspected"):
-            issues.append(f"{rep}: PBC artifact suspected")
+            rep_issues.append("PBC artifact suspected")
         if r.get("duplicate_log_times") or r.get("frame_count_status") == "too_many_frames_duplicate_risk":
-            issues.append(f"{rep}: duplicate-frame risk")
-        openness = r.get("openness", {})
+            rep_issues.append("duplicate-frame risk")
+        if r.get("completion_status") not in (None, "PASS"):
+            rep_issues.append(f"completion status {r.get('completion_status')}")
+
+        openness = r.get("openness") or {}
         if not openness.get("available"):
-            issues.append(f"{rep}: openness thresholds unavailable")
-        rmsf = float(r.get("pocket_rmsf_mean_nm") or 0.0)
+            rep_issues.append(f"openness unavailable: {openness.get('reason', 'no reason recorded')}")
         open_frac = float(openness.get("open_like_fraction") or 0.0)
-        if rmsf < CONTROL_MIN_RMSF_NM:
-            issues.append(f"{rep}: pocket RMSF {rmsf:.4f} nm below dynamic floor {CONTROL_MIN_RMSF_NM:.4f} nm")
         if open_frac < CONTROL_MIN_OPEN_LIKE_FRACTION:
-            issues.append(
-                f"{rep}: open-like fraction {open_frac:.3f} below {CONTROL_MIN_OPEN_LIKE_FRACTION:.3f}"
-            )
-        if rmsf >= CONTROL_MIN_RMSF_NM and open_frac >= CONTROL_MIN_OPEN_LIKE_FRACTION:
+            rep_issues.append(
+                f"open-like fraction {open_frac:.3f} below {CONTROL_MIN_OPEN_LIKE_FRACTION:.3f}")
+
+        rmsf = float(r.get("pocket_rmsf_mean_nm") or 0.0)
+        if rmsf < CONTROL_MIN_RMSF_NM:
+            rep_issues.append(
+                f"pocket RMSF {rmsf:.4f} nm below dynamic floor {CONTROL_MIN_RMSF_NM:.4f} nm")
+
+        # --- D1 / D2: reject the "static structure + per-frame noise" null -----------------
+        dyn = r.get("dynamics") or {}
+        n_prod = int(dyn.get("n_production_frames") or 0)
+        r1 = dyn.get("hull_volume_lag1_autocorrelation")
+        dccm_abs = dyn.get("region_internal_mean_abs_dccm")
+        r1_thr = autocorrelation_null_threshold(n_prod)
+        dccm_thr = dccm_null_threshold(n_prod)
+
+        if r1_thr is None or dccm_thr is None:
+            rep_issues.append(
+                f"dynamic discriminators unavailable: only {n_prod} production frames")
+        else:
+            if r1 is None:
+                rep_issues.append(
+                    "D1 hull-volume lag-1 autocorrelation unavailable "
+                    f"({dyn.get('hull_unavailable_reason', 'no reason recorded')})")
+            elif float(r1) < r1_thr:
+                rep_issues.append(
+                    f"D1 hull-volume lag-1 autocorrelation {float(r1):.4f} < IID-null "
+                    f"rejection threshold {r1_thr:.4f} (N={n_prod}): indistinguishable from "
+                    "independent per-frame noise")
+            if dccm_abs is None:
+                rep_issues.append("D2 region-internal mean |DCCM| unavailable")
+            elif float(dccm_abs) < dccm_thr:
+                rep_issues.append(
+                    f"D2 region-internal mean |DCCM| {float(dccm_abs):.4f} < IID-null "
+                    f"rejection threshold {dccm_thr:.4f} (N={n_prod}): displacement is not "
+                    "collective")
+
+        per_replicate.append({
+            "replicate": rep,
+            "qualifies": not rep_issues,
+            "open_like_fraction": open_frac,
+            "pocket_rmsf_mean_nm": rmsf,
+            "n_production_frames": n_prod,
+            "D1_hull_lag1_autocorrelation": r1,
+            "D1_iid_null_threshold": r1_thr,
+            "D2_region_internal_mean_abs_dccm": dccm_abs,
+            "D2_iid_null_threshold": dccm_thr,
+            "static_noise_surrogate": dyn.get("static_noise_surrogate"),
+            "issues": rep_issues,
+        })
+        if not rep_issues:
             qualifying += 1
+        issues.extend(f"{rep}: {x}" for x in rep_issues)
 
     pass_gate = len(control) >= min_replicates and qualifying >= min_replicates and not issues
     return {
-        "name": "trajectory_dynamic_control_gate_v1",
+        "name": "trajectory_dynamic_control_gate_v2",
         "status": "PASS" if pass_gate else "FAIL",
         "interpretable": bool(pass_gate),
         "criterion_frozen_before_meaningful_control_md": True,
         "uses_frame_zero_or_static_apo_control_difference": False,
+        "rejects_static_structure_plus_per_frame_noise": True,
         "minimum_control_replicates": int(min_replicates),
         "minimum_control_ns_per_replicate": CONTROL_MIN_NS,
         "minimum_pocket_rmsf_nm": CONTROL_MIN_RMSF_NM,
         "minimum_open_like_fraction": CONTROL_MIN_OPEN_LIKE_FRACTION,
+        "dynamic_discriminators": {
+            "D1": "lag-1 autocorrelation of supported-region CA convex-hull volume "
+                  f">= {DYNAMIC_NULL_K_SIGMA}/sqrt(N_production_frames)",
+            "D2": "supported-region internal mean |DCCM| >= "
+                  f"{DYNAMIC_NULL_K_SIGMA} * sqrt(2/pi)/sqrt(N_production_frames)",
+            "null_model": "independent per-frame coordinate noise about a static structure",
+            "thresholds_derived_from": "analytic IID null distribution, not from any MD outcome",
+            "k_sigma": DYNAMIC_NULL_K_SIGMA,
+        },
         "qualifying_control_replicates": int(qualifying),
+        "per_replicate": per_replicate,
         "issues": issues,
         "reason": (
-            "PASS: independent control trajectories are complete, artifact-free, open-like, and dynamic."
+            "PASS: independent control trajectories are complete, artifact-free, open-like, and "
+            "their motion is statistically distinguishable from a static structure with "
+            "per-frame coordinate noise on both the temporal and collectivity discriminators."
             if pass_gate else
-            "FAIL: static starting-state separation or tiny random noise is insufficient for control validation."
+            "FAIL: control trajectories did not demonstrate trajectory-derived dynamics beyond "
+            "static starting-state separation plus per-frame noise."
         ),
+    }
+
+
+def estimate_analysis_ram_bytes(n_atoms: int, n_frames: int, working_copies: int = 4) -> dict:
+    """Approximate peak RAM for the streaming analysis path (float32 xyz + working copies)."""
+    per_frame = int(n_atoms) * 3 * 4
+    base = per_frame * int(n_frames)
+    return {
+        "atoms_loaded": int(n_atoms),
+        "frames_loaded": int(n_frames),
+        "bytes_per_frame": per_frame,
+        "coordinate_bytes": int(base),
+        "assumed_working_copies": int(working_copies),
+        "estimated_peak_bytes": int(base * working_copies),
+        "estimated_peak_gib": round(base * working_copies / (1024 ** 3), 3),
     }
 
 
 def analyze_replicate(dcd: Path, top_pdb: Path, resseqs, interface_chain_indices,
                       ns_per_frame_hint=0.05, allow_keys=None, regions=None,
-                      thresholds=None, done_payload=None):
+                      thresholds=None, done_payload=None, stride=1,
+                      primary_region_name="supported_ge2of3"):
     md, np, pd, _ = _imports()
-    traj = md.load(str(dcd), top=str(top_pdb))
+    # --- memory safety: never load solvent -------------------------------------------------
+    # A 100 ns replicate of the solvated PCNA homotrimer is ~2000 frames x ~100k atoms. Loading
+    # the whole box costs ~2.4 GB of coordinates per replicate before any working copy, and
+    # every metric below operates on the PROTEIN slice anyway. Selecting protein atoms AT READ
+    # TIME (rather than loading everything and slicing) drops that by roughly an order of
+    # magnitude. This does not change the trajectory sampling frequency; --stride is separate,
+    # off by default, and recorded in the output when used.
+    ref = md.load(str(top_pdb))
+    protein_idx = ref.top.select("protein")
+    if protein_idx is None or len(protein_idx) == 0:
+        sys.exit(f"[analyze] FATAL: topology {top_pdb} contains no protein atoms.")
+    stride = max(1, int(stride))
+    traj = md.load(str(dcd), top=str(top_pdb), atom_indices=protein_idx, stride=stride)
+    ram_estimate = estimate_analysis_ram_bytes(len(protein_idx), traj.n_frames)
+    del ref
     # 1) PBC fix BEFORE anything else
     try:
         traj.image_molecules(inplace=True)
     except Exception:
         traj.make_molecules_whole(inplace=True)
-    protein = traj.atom_slice(traj.top.select("protein"))
+    protein = traj
     ca = protein.top.select("name CA")
     pocket_atoms = pocket_selection(protein.top, resseqs, interface_chain_indices,
                                     allow_keys=allow_keys)
@@ -621,42 +854,68 @@ def analyze_replicate(dcd: Path, top_pdb: Path, resseqs, interface_chain_indices
                 rg_list.append(md.compute_rg(prod.atom_slice(ca_this)))
         rg = (np.mean(np.array(rg_list), axis=0) if rg_list
               else (md.compute_rg(prod.atom_slice(region_ca)) if region_ca else np.array([])))
+        hull_reason = None
         if region_ca:
             region_mean = prod.xyz[:, region_ca, :].mean(axis=0)
             region_rmsf = np.sqrt(((prod.xyz[:, region_ca, :] - region_mean) ** 2).sum(axis=2).mean(axis=0))
-            hull = np.array([convex_hull_volume_A3(frame_xyz, np)
-                             for frame_xyz in prod.xyz[:, region_ca, :]])
-            local_rmsd = md.rmsd(protein, protein, 0, atom_indices=region_ca)[equil_used:]
+            try:
+                hull = np.array([convex_hull_volume_A3(frame_xyz, np)
+                                 for frame_xyz in prod.xyz[:, region_ca, :]])
+            except HullDependencyUnavailable as exc:
+                hull = np.array([])
+                hull_reason = str(exc)
+            # --- region RMSD, two DISTINCT and separately labelled quantities --------------
+            # `protein` was superposed onto frame 0 using the scaffold CA set, so the frames
+            # already carry the scaffold transformation. Measuring the region directly against
+            # frame 0 on those coordinates is region RMSD AFTER SCAFFOLD ALIGNMENT: it retains
+            # the region's displacement RELATIVE to the scaffold.
+            #
+            # md.rmsd(..., atom_indices=region_ca) does NOT do that -- it re-superposes on the
+            # region itself, which discards exactly that relative displacement. Before the
+            # 2026-08-16 repair the production path used md.rmsd here while the emitted
+            # metadata claimed "region CA after scaffold alignment", so a region rigidly
+            # displaced 0.5 nm against a fixed scaffold was reported as 0.000 nm.
+            reg_xyz = protein.xyz[:, region_ca, :]
+            d = reg_xyz - reg_xyz[0]
+            scaffold_aligned = np.sqrt((d * d).sum(axis=2).mean(axis=1))
+            local_rmsd = scaffold_aligned[equil_used:]
             if local_rmsd.size == 0:
-                local_rmsd = md.rmsd(protein, protein, 0, atom_indices=region_ca)
+                local_rmsd = scaffold_aligned
+            internal_rmsd_all = md.rmsd(protein, protein, 0, atom_indices=region_ca)
+            internal_rmsd = internal_rmsd_all[equil_used:]
+            if internal_rmsd.size == 0:
+                internal_rmsd = internal_rmsd_all
         else:
             region_rmsf = np.array([])
             hull = np.array([])
             local_rmsd = np.array([])
+            internal_rmsd = np.array([])
         convergence = {}
         if len(sasa_nm2):
             convergence["sasa_A2"] = assess_convergence(sasa_nm2 * 100.0)
         if len(hull):
             convergence["ca_convex_hull_volume_A3"] = assess_convergence(hull)
         if len(local_rmsd):
-            convergence["local_rmsd_nm"] = assess_convergence(local_rmsd)
+            convergence["region_rmsd_scaffold_aligned_nm"] = assess_convergence(local_rmsd)
         overall_status = "INSUFFICIENT_DATA"
         if convergence:
             statuses = [v.get("status") for v in convergence.values()]
             overall_status = "DRIFTING_BLOCKS" if "DRIFTING_BLOCKS" in statuses else (
                 "STABLE_BLOCKS" if "STABLE_BLOCKS" in statuses else "INSUFFICIENT_DATA"
             )
-        return res_by_chain, sasa_nm2, rg, region_rmsf, hull, local_rmsd, convergence, overall_status
+        return (res_by_chain, sasa_nm2, rg, region_rmsf, hull, local_rmsd, internal_rmsd,
+                hull_reason, convergence, overall_status)
 
     regions = regions or {"pocket": list(resseqs)}
     region_metrics = {}
+    region_ca_by_name = {}
     for region_name, region_resseqs in regions.items():
         region_atoms = pocket_selection(protein.top, region_resseqs, interface_chain_indices,
                                         allow_keys=allow_keys)
         region_ca = [i for i in region_atoms if protein.top.atom(i).name == "CA"]
-        res_by_chain, sasa_nm2, rg, region_rmsf, hull_A3, local_rmsd, convergence, overall_status = (
-            region_series(region_atoms, region_ca)
-        )
+        region_ca_by_name[region_name] = region_ca
+        (res_by_chain, sasa_nm2, rg, region_rmsf, hull_A3, local_rmsd, internal_rmsd,
+         hull_reason, convergence, overall_status) = region_series(region_atoms, region_ca)
         available = bool(len(region_atoms) and len(region_ca) and len(sasa_nm2))
         region_metrics[region_name] = {
             "available": available,
@@ -668,10 +927,19 @@ def analyze_replicate(dcd: Path, top_pdb: Path, resseqs, interface_chain_indices
             "sasa_max_A2": float(sasa_nm2.max() * 100.0) if len(sasa_nm2) else None,
             "rmsf_mean_nm": float(region_rmsf.mean()) if len(region_rmsf) else None,
             "rmsf_max_nm": float(region_rmsf.max()) if len(region_rmsf) else None,
-            "local_rmsd_mean_nm": float(local_rmsd.mean()) if len(local_rmsd) else None,
-            "local_rmsd_max_nm": float(local_rmsd.max()) if len(local_rmsd) else None,
+            # Region displacement RELATIVE to the scaffold (scaffold transform preserved).
+            "region_rmsd_scaffold_aligned_mean_nm": float(local_rmsd.mean()) if len(local_rmsd) else None,
+            "region_rmsd_scaffold_aligned_max_nm": float(local_rmsd.max()) if len(local_rmsd) else None,
+            # Region-internal deformation only (region re-superposed on itself).
+            "region_internal_rmsd_mean_nm": float(internal_rmsd.mean()) if len(internal_rmsd) else None,
+            "region_internal_rmsd_max_nm": float(internal_rmsd.max()) if len(internal_rmsd) else None,
             "rg_mean_nm": float(rg.mean()) if len(rg) else None,
             "rg_max_nm": float(rg.max()) if len(rg) else None,
+            "ca_convex_hull_volume_available": bool(len(hull_A3) and not np.isnan(hull_A3).all()),
+            "ca_convex_hull_unavailable_reason": hull_reason or (
+                "all frames geometrically degenerate"
+                if len(hull_A3) and np.isnan(hull_A3).all() else None
+            ),
             "ca_convex_hull_volume_mean_A3": (
                 float(np.nanmean(hull_A3)) if len(hull_A3) and not np.isnan(hull_A3).all() else None
             ),
@@ -686,29 +954,85 @@ def analyze_replicate(dcd: Path, top_pdb: Path, resseqs, interface_chain_indices
         if len(hull_A3):
             region_metrics[region_name]["_hull_series_A3"] = hull_A3.tolist()
 
-    pocket_res_by_chain, pocket_sasa, rg_pocket, _, _, _, _, _ = region_series(pocket_atoms, pocket_ca)
+    pocket_res_by_chain, pocket_sasa, rg_pocket, *_ = region_series(pocket_atoms, pocket_ca)
     thresholds = thresholds or {}
-    openness = {"available": False, "reason": "supported_ge2of3 region or thresholds unavailable"}
-    supported = region_metrics.get("supported_ge2of3")
-    if supported and "_sasa_series_A2" in supported and "_hull_series_A3" in supported:
+    primary = region_metrics.get(primary_region_name)
+
+    # ---- openness: every input must be genuinely present, or the metric is UNAVAILABLE ----
+    # Fail closed. A NaN hull series (missing scipy) previously produced available=True with
+    # open_like_fraction=0.0, i.e. an environment defect masquerading as the scientific result
+    # "the pocket never opened".
+    hull_ok, hull_why = hull_backend_available()
+    if primary is None:
+        openness = {"available": False,
+                    "reason": f"primary region {primary_region_name!r} not present in this topology"}
+    elif not hull_ok:
+        openness = {"available": False, "reason": f"convex-hull backend unavailable: {hull_why}"}
+    elif "_sasa_series_A2" not in primary:
+        openness = {"available": False, "reason": "region SASA series unavailable"}
+    elif "_hull_series_A3" not in primary or not primary.get("ca_convex_hull_volume_available"):
+        openness = {"available": False,
+                    "reason": "region CA convex-hull volume series unavailable: "
+                              f"{primary.get('ca_convex_hull_unavailable_reason') or 'unknown'}"}
+    else:
         sasa_thr = thresholds.get("supported_sasa_A2")
         hull_thr = thresholds.get("supported_ca_convex_hull_volume_A3")
-        if sasa_thr is not None and hull_thr is not None:
-            s = np.asarray(supported["_sasa_series_A2"], dtype=float)
-            h = np.asarray(supported["_hull_series_A3"], dtype=float)
-            mask = (s >= float(sasa_thr)) & (h >= float(hull_thr))
-            openness = {
-                "available": True,
-                "thresholds": {
-                    "supported_sasa_A2": float(sasa_thr),
-                    "supported_ca_convex_hull_volume_A3": float(hull_thr),
-                },
-                **_event_summary(mask, dt_ns),
-            }
+        if sasa_thr is None or hull_thr is None:
+            openness = {"available": False,
+                        "reason": "frozen openness thresholds missing from "
+                                  "FROZEN_MD_ANALYSIS_PROTOCOL.json"}
+        else:
+            s = np.asarray(primary["_sasa_series_A2"], dtype=float)
+            h = np.asarray(primary["_hull_series_A3"], dtype=float)
+            if not np.isfinite(s).all() or not np.isfinite(h).all():
+                openness = {"available": False,
+                            "reason": "non-finite values in the region SASA or hull series"}
+            else:
+                mask = (s >= float(sasa_thr)) & (h >= float(hull_thr))
+                openness = {
+                    "available": True,
+                    "thresholds": {
+                        "supported_sasa_A2": float(sasa_thr),
+                        "supported_ca_convex_hull_volume_A3": float(hull_thr),
+                    },
+                    **_event_summary(mask, dt_ns),
+                }
+
+    # ---- D1/D2 dynamic discriminators on the primary region (see gate v2 rationale) -------
+    primary_ca = region_ca_by_name.get(primary_region_name) or []
+    dynamics = {
+        "primary_region": primary_region_name,
+        "n_production_frames": int(prod.n_frames),
+        "hull_volume_lag1_autocorrelation": None,
+        "hull_unavailable_reason": None,
+        "region_internal_mean_abs_dccm": None,
+        "static_noise_surrogate": None,
+    }
+    if primary is not None and "_hull_series_A3" in primary and primary.get("ca_convex_hull_volume_available"):
+        dynamics["hull_volume_lag1_autocorrelation"] = lag1_autocorrelation(primary["_hull_series_A3"])
+    else:
+        dynamics["hull_unavailable_reason"] = (
+            hull_why if not hull_ok
+            else ((primary or {}).get("ca_convex_hull_unavailable_reason") or "region unavailable")
+        )
+    if primary is not None:
+        dynamics["region_internal_mean_abs_dccm"] = (
+            (primary.get("dccm") or {}).get("internal_mean_abs")
+        )
+    if primary_ca and prod.n_frames >= 3:
+        try:
+            dynamics["static_noise_surrogate"] = static_noise_surrogate_stats(
+                prod.xyz[0, primary_ca, :],
+                float((primary or {}).get("rmsf_mean_nm") or 0.0),
+                int(prod.n_frames),
+            )
+        except Exception as exc:            # a diagnostic must never break the analysis
+            dynamics["static_noise_surrogate"] = {"error": f"{type(exc).__name__}: {exc}"}
+
     for metric in region_metrics.values():
         metric.pop("_sasa_series_A2", None)
         metric.pop("_hull_series_A3", None)
-    times = _parse_log_times(dcd.parent / "production.log")
+    times, log_status = read_log_times(dcd.parent / "production.log")
     duplicate_log_times = bool(times and len(times) != len(set(times)))
     expected_frames = None
     frame_count_status = "unchecked"
@@ -738,24 +1062,38 @@ def analyze_replicate(dcd: Path, top_pdb: Path, resseqs, interface_chain_indices
         "pocket_rg_mean_nm": float(rg_pocket.mean()), "pocket_rg_max_nm": float(rg_pocket.max()),
         "regions": region_metrics,
         "openness": openness,
+        "dynamics": dynamics,
         "expected_frames_from_done": expected_frames,
         "frame_count_status": frame_count_status,
         "duplicate_log_times": duplicate_log_times,
+        "production_log_status": log_status,
+        "analysis_stride": int(stride),
+        "ram_estimate": ram_estimate,
         "_sasa_series": pocket_sasa.tolist(),
     }
 
 
-def _parse_log_times(log_path: Path):
+def read_log_times(log_path: Path) -> tuple[list[float], str]:
+    """Parse the StateDataReporter time column, reporting WHY it failed when it does.
+
+    Returns ``(times, status)`` where status is one of ``ok``, ``missing``, ``unreadable``,
+    ``empty``, ``no_time_column``, ``no_time_rows``. Duplicate-time and output-interval
+    validation depend on this; before the 2026-08-16 repair every failure mode collapsed to
+    ``[]``, which silently DISABLED both checks instead of failing closed.
+    """
+    if not log_path.exists():
+        return [], "missing"
     try:
-        lines = [ln for ln in log_path.read_text().splitlines() if ln.strip()]
+        raw = log_path.read_text()
     except Exception:
-        return []
+        return [], "unreadable"
+    lines = [ln for ln in raw.splitlines() if ln.strip()]
     if not lines:
-        return []
+        return [], "empty"
     header = lines[0].lstrip("#").split("\t")
     tcol = next((i for i, h in enumerate(header) if "Time (ps)" in h), None)
     if tcol is None:
-        return []
+        return [], "no_time_column"
     times = []
     for ln in lines[1:]:
         parts = ln.split("\t")
@@ -764,7 +1102,12 @@ def _parse_log_times(log_path: Path):
                 times.append(float(parts[tcol]))
             except ValueError:
                 pass
-    return times
+    return times, ("ok" if times else "no_time_rows")
+
+
+def _parse_log_times(log_path: Path):
+    """Backwards-compatible times-only accessor. Prefer read_log_times for validation."""
+    return read_log_times(log_path)[0]
 
 
 def _frame_interval_ns(rep_dir: Path, np, hint: float):
@@ -810,6 +1153,76 @@ def _protocol_thresholds():
         return {}
 
 
+def sha256_file(path: Path) -> str | None:
+    """SHA-256 of a file, streamed. None when the file is absent."""
+    import hashlib
+    if not path.exists() or not path.is_file():
+        return None
+    h = hashlib.sha256()
+    with path.open("rb") as fh:
+        for chunk in iter(lambda: fh.read(1 << 20), b""):
+            h.update(chunk)
+    return h.hexdigest()
+
+
+def _git(*a) -> str | None:
+    import subprocess
+    try:
+        return subprocess.check_output(["git", "-C", str(HERE.parent), *a], text=True,
+                                       stderr=subprocess.DEVNULL, timeout=10).strip() or None
+    except Exception:
+        return None
+
+
+def analysis_provenance(out: Path, args, rows: list[dict]) -> dict:
+    """Everything needed to trace these derived results back to cloud-resident raw inputs.
+
+    The DCD files stay on the cloud instance. This block records their SHA-256 so a compact
+    bundle of JSON/CSV/PNG remains verifiably tied to the exact trajectories it came from.
+    """
+    import platform as _plat
+    import sys as _sys
+    inputs = []
+    for r in rows:
+        rep_dir = out / str(r.get("pdb")) / str(r.get("replicate"))
+        inputs.append({
+            "role": r.get("role"),
+            "pdb": r.get("pdb"),
+            "replicate": r.get("replicate"),
+            "production_dcd": str(rep_dir / "production.dcd"),
+            "production_dcd_sha256": sha256_file(rep_dir / "production.dcd"),
+            "production_dcd_bytes": (rep_dir / "production.dcd").stat().st_size
+            if (rep_dir / "production.dcd").exists() else None,
+            "system_solvated_pdb_sha256": sha256_file(rep_dir.parent / "system_solvated.pdb"),
+            "done_json_sha256": sha256_file(rep_dir / "DONE.json"),
+            "provenance_json_sha256": sha256_file(rep_dir / "PROVENANCE.json"),
+            "production_log_sha256": sha256_file(rep_dir / "production.log"),
+            "equilibration_log_sha256": sha256_file(rep_dir / "equilibration.log"),
+        })
+    try:
+        import mdtraj as _mdt
+        mdtraj_version = _mdt.version.version
+    except Exception:
+        mdtraj_version = None
+    return {
+        "generated_utc": __import__("datetime").datetime.now(
+            __import__("datetime").timezone.utc).isoformat(),
+        "analysis_code_sha256": sha256_file(Path(__file__).resolve()),
+        "analysis_protocol_sha256": sha256_file(HERE / "FROZEN_MD_ANALYSIS_PROTOCOL.json"),
+        "pocket_definition_sha256": sha256_file(HERE / "pockets" / f"{args.pocket}.json"),
+        "static_reference_sha256": sha256_file(HERE / "static_reference_analysis.json"),
+        "git_commit": _git("rev-parse", "HEAD"),
+        "git_branch": _git("rev-parse", "--abbrev-ref", "HEAD"),
+        "git_dirty": bool(_git("status", "--short")),
+        "command": " ".join(_sys.argv),
+        "stride": int(args.stride),
+        "host": {"platform": _plat.platform(), "python": _sys.version.split()[0],
+                 "mdtraj": mdtraj_version},
+        "raw_inputs_remain_on_this_filesystem": True,
+        "raw_inputs": inputs,
+    }
+
+
 def _prep_caveat(out: Path, pdb: str):
     """Surface resolution / rebuilt-residue caveats from prep_audit.json (audit medium finding)."""
     ap = out / pdb / "prep" / "prep_audit.json"
@@ -840,8 +1253,20 @@ def main():
                     dest="min_pocket_coverage",
                     help="Hard-fail if apo and control share less than this fraction of the "
                          "pocket's resolved residues (default 0.80).")
+    ap.add_argument("--stride", type=int, default=1,
+                    help="read every Nth saved frame (memory relief for very long runs). "
+                         "Default 1 = every saved frame. This does NOT change the simulation's "
+                         "output cadence; any value > 1 is recorded in summary.json and makes "
+                         "the run DIAGNOSTIC_ONLY, because the frozen protocol analyses every "
+                         "saved frame.")
     args = ap.parse_args()
     args.allow_incomplete_diagnostic = bool(args.allow_incomplete_diagnostic or args.allow_incomplete)
+    # Striding does not relax completion enforcement -- it only marks the OUTPUT as diagnostic,
+    # because the frozen protocol analyses every saved frame.
+    diagnostic_only = bool(args.allow_incomplete_diagnostic or args.stride > 1)
+    if args.stride > 1:
+        print(f"[analyze] WARNING: --stride {args.stride} subsamples the frozen trajectory "
+              "cadence; results are marked DIAGNOSTIC_ONLY / NOT_FOR_SCIENTIFIC_INTERPRETATION.")
 
     md, np, pd, plt = _imports()
     pocket = load_pocket(args.pocket)
@@ -893,7 +1318,10 @@ def main():
             print(f"[analyze] {role} {pdb}/{rep_dir.name} ...")
             r = analyze_replicate(dcd, top, primary_resseqs, iface, allow_keys=allow_keys,
                                   regions=regions, thresholds=thresholds,
-                                  done_payload=done_payload)
+                                  done_payload=done_payload, stride=args.stride,
+                                  primary_region_name=(
+                                      "supported_ge2of3" if "supported_ge2of3" in regions
+                                      else next(iter(regions))))
             if done_ok:
                 sasa_pool[role].extend(r.pop("_sasa_series"))
             else:
@@ -984,8 +1412,9 @@ def main():
         "pocket_sasa_mean_nm2": aggregate_replicates(rows, ("pocket_sasa_mean_nm2",)),
     }
     summary = {"pocket": pocket["pocket_name"], "per_replicate": rows,
-               "diagnostic_only": bool(args.allow_incomplete_diagnostic),
-               "diagnostic_mark": DIAGNOSTIC_MARK if args.allow_incomplete_diagnostic else None,
+               "diagnostic_only": bool(diagnostic_only),
+               "diagnostic_mark": DIAGNOSTIC_MARK if diagnostic_only else None,
+               "analysis_provenance": analysis_provenance(out, args, rows),
                "positive_control": verdict,
                "control_interpretability_gate": trajectory_control,
                "replica_aggregation": replica_aggregation,
@@ -993,18 +1422,39 @@ def main():
                "analysis_regions": regions,
                "rmsd_protocol": {
                    "global_rmsd": {
-                       "alignment_selection": "protein CA excluding primary pocket CA",
-                       "measurement_selection": "same scaffold CA alignment set",
+                       "field": "rmsd_mean_nm / rmsd_max_nm",
+                       "alignment_selection": "protein CA excluding primary pocket CA (scaffold)",
+                       "measurement_selection": "same scaffold CA set",
+                       "superposition": "optimal (Kabsch/QCP) on the scaffold set",
                        "reference": "frame 0 after PBC imaging",
                        "units": "nm",
                        "pbc_preprocessing": "image_molecules or make_molecules_whole before alignment",
                    },
-                   "local_region_rmsd": {
-                       "alignment_selection": "protein CA excluding primary pocket CA",
-                       "measurement_selection": "region CA after scaffold alignment",
+                   "region_rmsd_scaffold_aligned": {
+                       "field": "regions.<name>.region_rmsd_scaffold_aligned_mean_nm",
+                       "alignment_selection": "protein CA excluding primary pocket CA (scaffold)",
+                       "measurement_selection": "region CA measured on the SCAFFOLD-ALIGNED frames",
+                       "superposition": "scaffold transform PRESERVED; the region is NOT re-superposed",
+                       "retains": "region displacement relative to the scaffold, plus internal deformation",
+                       "reference": "frame 0 after PBC imaging and scaffold alignment",
+                       "units": "nm",
+                   },
+                   "region_internal_rmsd": {
+                       "field": "regions.<name>.region_internal_rmsd_mean_nm",
+                       "alignment_selection": "the region CA set itself",
+                       "measurement_selection": "region CA after re-superposing on the region",
+                       "superposition": "optimal (Kabsch/QCP) on the region set",
+                       "retains": "internal deformation ONLY; relative displacement is removed by construction",
                        "reference": "frame 0 after PBC imaging",
                        "units": "nm",
                    },
+                   "repair_note_2026_08_16": (
+                       "Before this repair a single field named local_rmsd was computed with "
+                       "mdtraj rmsd(atom_indices=region), which re-superposes on the region, "
+                       "while the emitted metadata claimed 'region CA after scaffold alignment'. "
+                       "A region rigidly displaced 0.5 nm against a fixed scaffold read 0.000 nm. "
+                       "The two quantities are now computed and named separately."
+                   ),
                },
                "sasa_protocol": {
                    "scope": "frozen experiment uses interface_chain_indices from pocket JSON; current frozen pocket is chain index 0",

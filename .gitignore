@@ -91,3 +91,18 @@ md_validation_4070.zip
 
 # Downloaded PCNA structure crawl (29 MB of .cif.gz, re-fetchable from RCSB)
 Desktop/GNN_PCNA/data/raw_intake/phase4_pcna_crawl/
+
+# Local secrets — never commit (see start_gateway.sh security note)
+.env.local
+.env
+
+# Microsoft Office lock/owner files
+~$*
+
+# Compact MD result bundles (regenerate with ./md.sh bundle)
+md_validation_4070/pcna_md_results_*.tar.gz
+md_validation_4070/benchmark_outputs/
+md_validation_4070/logs/
+
+# Gate-6 decision is created on the cloud instance by a human, never committed
+md_validation_4070/GATE6_DECISION.json

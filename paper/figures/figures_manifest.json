@@ -6,7 +6,7 @@
       "figure_id": "baseline_comparison",
       "path": "C:\\Users\\advay\\OneDrive\\Desktop\\GNN\\paper\\figures\\baseline_comparison.png",
       "title": "Validation macro-AUPRC across models and baselines",
-      "caption": "Validation macro-AUPRC (mean of per-protein AUPRC) for the primary GraphSAGE-3L model and all baselines, evaluated on the same frozen, homology-blocked split (hash 24dd5e34). Error bars are \u00b11 SD over 4 folds \u00d7 3 seeds where applicable. Random and degree references indicate the prevalence floor. Test set was not evaluated; these are validation, model-selection metrics only. No scientific claims are made.",
+      "caption": "Validation macro-AUPRC (mean of per-protein AUPRC) for the primary GraphSAGE-3L model and all baselines, evaluated on the same frozen, homology-blocked split (hash 24dd5e34). Error bars are ±1 SD over 4 folds × 3 seeds where applicable. Random and degree references indicate the prevalence floor. Test set was not evaluated; these are validation, model-selection metrics only. No scientific claims are made.",
       "reviewer_question": "Were baselines compared under the same leakage-clean split?",
       "claim_support": "The trained GNN separates candidate pocket residues better than naive and ablated baselines on held-out validation folds.",
       "kind": "result",
@@ -40,7 +40,7 @@
       "figure_id": "ablation_edges",
       "path": "C:\\Users\\advay\\GNN_PNCA\\paper\\figures\\ablation_edges.png",
       "title": "Edge-type ablation",
-      "caption": "Ablation of graph edge types on validation macro-AUPRC. Removing spatial edges degrades performance; removing sequential edges does not, and marginally exceeds the full model (\u0394 +0.0021, within 1 SD). This is an honest ablation signal that the sequential-edge contribution is not established and warrants further investigation before any architecture claim. Validation only.",
+      "caption": "Ablation of graph edge types on validation macro-AUPRC. Removing spatial edges degrades performance; removing sequential edges does not, and marginally exceeds the full model (Δ +0.0021, within 1 SD). This is an honest ablation signal that the sequential-edge contribution is not established and warrants further investigation before any architecture claim. Validation only.",
       "reviewer_question": "Are claims proportional to evidence?",
       "claim_support": "Spatial (Euclidean) edges carry most of the signal; sequential edges contribute little on validation folds.",
       "kind": "result",
@@ -55,7 +55,7 @@
       "figure_id": "training_curves",
       "path": "C:\\Users\\advay\\GNN_PNCA\\paper\\figures\\training_curves.png",
       "title": "Validation learning curves",
-      "caption": "Validation macro-AUPRC versus epoch for all 12 primary-model runs (4 folds \u00d7 3 seeds; faint lines) with the across-run mean (bold). Early stopping (patience 10) halts each run near its validation peak, limiting overfitting. Curves are read directly from per-run training history manifests.",
+      "caption": "Validation macro-AUPRC versus epoch for all 12 primary-model runs (4 folds × 3 seeds; faint lines) with the across-run mean (bold). Early stopping (patience 10) halts each run near its validation peak, limiting overfitting. Curves are read directly from per-run training history manifests.",
       "reviewer_question": "Were old checkpoints regenerated after bug fixes?",
       "claim_support": "Training converges with early stopping; no validation collapse.",
       "kind": "method",
@@ -68,7 +68,7 @@
       "figure_id": "metric_choice",
       "path": "C:\\Users\\advay\\GNN_PNCA\\paper\\figures\\metric_choice.png",
       "title": "Why macro-AUPRC, not AUROC, under class imbalance",
-      "caption": "Macro-AUPRC versus macro-AUROC for the primary model and naive baselines. At ~4.6% positive prevalence (dashed AUPRC floor), a random scorer reaches AUROC \u2248 0.50 but AUPRC \u2248 0.05; AUROC therefore overstates skill. macro-AUPRC against the prevalence baseline is reported as the primary metric for this reason. Validation only.",
+      "caption": "Macro-AUPRC versus macro-AUROC for the primary model and naive baselines. At ~4.6% positive prevalence (dashed AUPRC floor), a random scorer reaches AUROC ≈ 0.50 but AUPRC ≈ 0.05; AUROC therefore overstates skill. macro-AUPRC against the prevalence baseline is reported as the primary metric for this reason. Validation only.",
       "reviewer_question": "Where is AUPRC and what is the positive-class baseline?",
       "claim_support": "Under ~4.6% positive prevalence AUROC is inflated; AUPRC against the prevalence floor is the honest metric.",
       "kind": "method",
@@ -106,13 +106,14 @@
         "C:\\Users\\advay\\GNN_PNCA\\outputs\\phase5_md\\time_crunch_1axc_25ns\\analysis_fixed\\rmsd_timeseries.csv",
         "C:\\Users\\advay\\GNN_PNCA\\outputs\\phase5_md\\time_crunch_1axc_25ns\\analysis_fixed\\analysis_summary.json"
       ],
-      "command": "python -m paper_engine.figures.md_results"
+      "command": "python -m paper_engine.figures.md_results",
+      "lineage": "HISTORICAL_1AXC_25NS_EXPLORATORY"
     },
     {
       "figure_id": "md_rmsf",
       "path": "C:\\Users\\advay\\GNN_PNCA\\paper\\figures\\md_rmsf.png",
-      "title": "Per-window C\u03b1 RMSF (candidate vs reference)",
-      "caption": "Mean backbone RMSF over the equilibrated 25 ns window for the GNN candidate pocket residue windows (blue) versus a reference loop region (grey, dashed). Candidate residues are at or below the reference flexibility \u2014 they do NOT show enhanced mobility, so this short simulation provides no evidence of cryptic-pocket opening. Consistent with the analysis' own limitation that RMSD/RMSF alone cannot prove opening; longer timescales and a positive control are required.",
+      "title": "Per-window Cα RMSF, apo 1AXC (HISTORICAL, candidate vs reference)",
+      "caption": "HISTORICAL, apo 1AXC only — not validation of the frozen 1W60/8GLA candidate. Mean backbone RMSF over the equilibrated 25 ns window of the apo 1AXC exploratory simulation (n=1 complete replicate, no valid 8GLA positive control), for the historical GNN candidate pocket residue windows (blue) versus a reference loop region (grey, dashed). Candidate residues are at or below the reference flexibility — they do NOT show enhanced mobility, so this short simulation provides no evidence of cryptic-pocket opening in 1AXC. Consistent with the analysis' own limitation that RMSD/RMSF alone cannot prove opening; longer timescales and a positive control are required. The frozen 1W60 apo / 8GLA control experiment is separate and has not been run.",
       "reviewer_question": "Are novel residues experimentally supported?",
       "claim_support": "Honest negative/inconclusive result: candidate residues are not more flexible on this timescale, so no opening is claimed.",
       "kind": "result",
@@ -120,7 +121,8 @@
         "C:\\Users\\advay\\GNN_PNCA\\outputs\\phase5_md\\time_crunch_1axc_25ns\\analysis_fixed\\window_rmsf.csv",
         "C:\\Users\\advay\\GNN_PNCA\\outputs\\phase5_md\\time_crunch_1axc_25ns\\analysis_fixed\\analysis_summary.json"
       ],
-      "command": "python -m paper_engine.figures.md_results"
+      "command": "python -m paper_engine.figures.md_results",
+      "lineage": "HISTORICAL_1AXC_25NS_EXPLORATORY"
     }
   ]
 }

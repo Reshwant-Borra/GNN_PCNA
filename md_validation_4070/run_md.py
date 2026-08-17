@@ -264,25 +264,109 @@ def enforce_storage_margin(outdir: Path, estimate: dict) -> None:
           f"free {usage.free / (1024 ** 3):.1f} GiB")
 
 
+# --------------------------------------------------------------------------------------
+# Explicit safe-stage contract.
+#
+# The previous defense-in-depth check was:
+#     is_production_scale = classify_md_stage(args) == "production" or
+#                           (args.replicates >= 3 and args.ns >= 100.0)
+# It therefore protected essentially one shape of run, 3 x 100 ns. Reproduced 2026-08-16,
+# every one of these ran with NO authorization at all:
+#     1 x 500 ns    (500 ns budget)      2 x 100 ns     (200 ns)
+#     2 x 1000 ns   (2000 ns budget)     6 x 99 ns      (594 ns)
+# and, worse, simply declaring a small stage was enough to disable the check entirely:
+#     --md-stage diagnostic --replicates 1 --ns 500      -> unrestricted
+#     --md-stage smoke      --replicates 2 --ns 1000     -> unrestricted
+# because classify_md_stage returned the DECLARED stage without ever checking that the
+# request fits inside it.
+#
+# The contract is now inverted and stated positively: each non-production stage declares
+# hard ceilings on replicate count, per-replicate duration and TOTAL integration budget.
+# A run is unauthenticated-safe only if it fits entirely inside one of those envelopes.
+# Anything else -- including anything mislabelled to look small -- requires the canonical
+# production authorization, which ./md.sh production only ever issues for the exact
+# 3 x 100 ns contract.
+# --------------------------------------------------------------------------------------
+STAGE_LIMITS = {
+    # stage:              max_replicates, max_ns_per_replicate, max_total_ns
+    "smoke": {"max_replicates": 1, "max_ns_per_replicate": 0.25, "max_total_ns": 0.25},
+    "benchmark": {"max_replicates": 1, "max_ns_per_replicate": 1.0, "max_total_ns": 1.0},
+    "control_validation": {"max_replicates": 3, "max_ns_per_replicate": 5.0, "max_total_ns": 15.0},
+    "diagnostic": {"max_replicates": 2, "max_ns_per_replicate": 2.0, "max_total_ns": 4.0},
+}
+PRODUCTION_LIMITS = {"max_replicates": 3, "max_ns_per_replicate": 100.0, "max_total_ns": 300.0}
+_NS_EPS = 1e-9
+
+
+def total_integration_ns(args) -> float:
+    """Total requested integration budget: replicates x production ns (equilibration extra)."""
+    return float(args.replicates) * float(args.ns)
+
+
+def fits_stage(args, stage: str) -> tuple[bool, list[str]]:
+    """Whether the request fits entirely inside a declared non-production stage envelope."""
+    limits = STAGE_LIMITS.get(stage)
+    if limits is None:
+        return False, [f"unknown stage {stage!r}"]
+    breaches = []
+    if int(args.replicates) > int(limits["max_replicates"]):
+        breaches.append(
+            f"{args.replicates} replicates > {stage} ceiling {limits['max_replicates']}")
+    if float(args.ns) > float(limits["max_ns_per_replicate"]) + _NS_EPS:
+        breaches.append(
+            f"{args.ns} ns per replicate > {stage} ceiling "
+            f"{limits['max_ns_per_replicate']} ns")
+    if total_integration_ns(args) > float(limits["max_total_ns"]) + _NS_EPS:
+        breaches.append(
+            f"total integration budget {total_integration_ns(args):g} ns > {stage} ceiling "
+            f"{limits['max_total_ns']} ns")
+    return not breaches, breaches
+
+
 def classify_md_stage(args) -> str:
-    """Classify the requested run by operational gate level."""
-    if getattr(args, "md_stage", None):
-        return args.md_stage
-    if args.ns <= 0.25 and args.replicates <= 1:
+    """Classify the requested run by operational gate level.
+
+    A DECLARED stage is honoured only for reporting. Whether it is respected is decided by
+    requires_production_authorization(), which independently checks the stage envelope.
+    """
+    declared = getattr(args, "md_stage", None)
+    if declared:
+        return declared
+    if fits_stage(args, "smoke")[0]:
         return "smoke"
-    if args.ns <= 1.0 and args.equil_ns == 0:
+    if float(args.equil_ns) == 0.0 and fits_stage(args, "benchmark")[0]:
         return "benchmark"
-    if args.run == "control" and args.replicates >= 3 and 4.9 <= args.ns <= 5.1:
+    if args.run == "control" and int(args.replicates) == 3 and abs(float(args.ns) - 5.0) <= 0.1:
         return "control_validation"
-    if args.replicates >= 3 and args.ns >= 100.0:
-        return "production"
-    return "diagnostic"
+    if fits_stage(args, "diagnostic")[0]:
+        return "diagnostic"
+    return "production"          # anything larger than every safe envelope is production-scale
+
+
+def production_scale_reasons(args) -> list[str]:
+    """Why this request needs canonical production authorization; empty means it does not."""
+    declared = getattr(args, "md_stage", None)
+    stage = classify_md_stage(args)
+    if stage == "production":
+        if declared == "production":
+            return ["declared md_stage=production"]
+        return [
+            f"request does not fit any non-production stage envelope "
+            f"({args.replicates} x {args.ns} ns = {total_integration_ns(args):g} ns total)"
+        ]
+    ok, breaches = fits_stage(args, stage)
+    if not ok:
+        return [f"declared md_stage={stage!r} but the request exceeds that stage: "
+                + "; ".join(breaches)]
+    if total_integration_ns(args) > PRODUCTION_LIMITS["max_total_ns"] + _NS_EPS:
+        return [f"total integration budget {total_integration_ns(args):g} ns exceeds the "
+                f"production ceiling {PRODUCTION_LIMITS['max_total_ns']} ns"]
+    return []
 
 
 def is_production_scale(args) -> bool:
-    return classify_md_stage(args) == "production" or (
-        args.replicates >= 3 and args.ns >= 100.0
-    )
+    """True when the request must present canonical production authorization."""
+    return bool(production_scale_reasons(args))
 
 
 def _parse_utc(value: str) -> datetime:
@@ -291,20 +375,27 @@ def _parse_utc(value: str) -> datetime:
 
 def validate_production_authorization(args) -> dict | None:
     """Require canonical production-gate evidence for production-scale runs."""
-    if not is_production_scale(args):
+    reasons = production_scale_reasons(args)
+    if not reasons:
         return None
-    if not args.production_authorization:
+    why = "; ".join(reasons)
+    auth_path = Path(args.production_authorization) if args.production_authorization else None
+    if auth_path is None or not auth_path.exists():
         sys.exit(
-            "[production-gate] FATAL: production-scale run_md.py execution requires "
-            "--production-authorization created by './md.sh production'. Direct "
-            "3 x 100 ns invocation is not a supported entry point."
-        )
-    auth_path = Path(args.production_authorization)
-    if not auth_path.exists():
-        sys.exit(
-            "[production-gate] FATAL: production-scale run_md.py execution requires "
-            "--production-authorization created by './md.sh production'. Direct "
-            "3 x 100 ns invocation is not a supported entry point."
+            "[production-gate] FATAL: this run requires canonical production authorization "
+            f"({why}).\n"
+            f"    requested : {args.replicates} replicate(s) x {args.ns} ns = "
+            f"{total_integration_ns(args):g} ns total integration\n"
+            f"    stage      : {classify_md_stage(args)}\n"
+            "    Safe stage envelopes (no authorization needed):\n"
+            + "\n".join(
+                f"      {s:<20} <= {v['max_replicates']} rep, <= {v['max_ns_per_replicate']} ns/rep, "
+                f"<= {v['max_total_ns']} ns total"
+                for s, v in STAGE_LIMITS.items()
+            )
+            + "\n    Use './md.sh production', which issues authorization only for the frozen "
+            "3 x 100 ns contract after Gate-6 approval. Direct large-scale run_md.py "
+            "invocation is not a supported entry point."
         )
     try:
         auth = json.loads(auth_path.read_text(encoding="utf-8"))
@@ -351,6 +442,245 @@ def validate_production_authorization(args) -> dict | None:
                  + "; ".join(failures))
     args._production_authorization = auth
     return auth
+
+
+# --------------------------------------------------------------------------------------
+# Equilibration observability.
+#
+# Before the 2026-08-16 repair the equilibration was integrated with
+#     if equil_steps > 0: sim.step(equil_steps)
+# and every reporter was attached AFTERWARDS. Two consequences:
+#   * EQUILIBRATION_ACCEPTANCE_CRITERIA.json documents acceptance thresholds on temperature,
+#     density, potential energy and box volume during equilibration -- and not one of those
+#     quantities was ever recorded, so the criteria could not be evaluated even in principle;
+#   * a failure during those 2 ns raised an uncaught traceback with no FAILED.json/STATUS.json,
+#     so the run looked NOT_STARTED rather than failed.
+# Equilibration now writes its own equilibration.log (and optionally equilibration.dcd),
+# separate from the production trajectory, and is evaluated against the frozen criteria.
+# --------------------------------------------------------------------------------------
+def parse_state_log(path: Path) -> tuple[dict[str, list[float]], str]:
+    """Parse a tab-separated StateDataReporter log into {column: [values]}."""
+    if not path.exists():
+        return {}, "missing"
+    try:
+        raw = path.read_text(errors="replace")
+    except Exception:
+        return {}, "unreadable"
+    lines = [ln for ln in raw.splitlines() if ln.strip()]
+    if len(lines) < 2:
+        return {}, "empty"
+    header = [h.strip().strip('"') for h in lines[0].lstrip("#").split("\t")]
+    cols: dict[str, list[float]] = {h: [] for h in header}
+    for ln in lines[1:]:
+        parts = ln.split("\t")
+        if len(parts) != len(header):
+            continue
+        for h, p in zip(header, parts):
+            try:
+                cols[h].append(float(p))
+            except ValueError:
+                pass
+    return cols, ("ok" if any(cols.values()) else "no_rows")
+
+
+def _col(cols: dict, *needles):
+    for key in cols:
+        low = key.lower()
+        if all(n.lower() in low for n in needles):
+            return cols[key]
+    return None
+
+
+def evaluate_equilibration(log_path: Path, criteria: dict, backbone_rmsd_nm: float | None,
+                           equil_ns: float) -> dict:
+    """Evaluate the frozen equilibration acceptance criteria against equilibration.log."""
+    import numpy as np
+
+    cols, status = parse_state_log(log_path)
+    checks: dict[str, dict] = {}
+    failures: list[str] = []
+    warnings: list[str] = []
+
+    def record(name, ok, detail, *, evaluable=True, warn=False):
+        checks[name] = {"evaluated": evaluable, "pass": bool(ok) if evaluable else None,
+                        "detail": detail}
+        if evaluable and not ok:
+            (warnings if warn else failures).append(f"{name}: {detail}")
+
+    if status != "ok":
+        record("equilibration_log_readable", False,
+               f"equilibration.log status={status}; acceptance criteria cannot be evaluated")
+        return {"log_status": status, "accepted": False, "checks": checks,
+                "failures": failures, "warnings": warnings,
+                "equilibration_ns": equil_ns}
+    record("equilibration_log_readable", True, f"parsed {len(cols)} columns")
+
+    temp = _col(cols, "temperature")
+    tcrit = criteria.get("temperature_K", {})
+    if temp:
+        arr = np.asarray(temp, dtype=float)
+        lo, hi = tcrit.get("accept_mean_range", [None, None])
+        mean = float(arr.mean())
+        ok = (lo is None or mean >= lo) and (hi is None or mean <= hi)
+        record("temperature_mean_in_range", ok,
+               f"mean {mean:.2f} K, accept {lo}-{hi} K")
+        target = float(tcrit.get("target", 310.0))
+        tail = arr[int(0.2 * arr.size):] if arr.size >= 5 else arr
+        if tail.size:
+            max_dev = float(np.abs(tail - target).max())
+            record("temperature_no_runaway", max_dev <= 15.0,
+                   f"max |T - {target:g}| after first 20% = {max_dev:.2f} K, limit 15 K")
+        record("temperature_finite", bool(np.isfinite(arr).all()), "all temperature samples finite")
+    else:
+        record("temperature_mean_in_range", False,
+               "no Temperature column in equilibration.log")
+
+    dens = _col(cols, "density")
+    dcrit = criteria.get("density_g_ml", {})
+    if dens:
+        arr = np.asarray(dens, dtype=float)
+        lo, hi = dcrit.get("accept_final_range", [None, None])
+        final = float(arr[-1])
+        ok = (lo is None or final >= lo) and (hi is None or final <= hi)
+        record("density_final_in_range", ok, f"final {final:.4f} g/mL, accept {lo}-{hi}")
+    else:
+        record("density_final_in_range", False, "no Density column in equilibration.log")
+
+    pe = _col(cols, "potential", "energy")
+    if pe:
+        arr = np.asarray(pe, dtype=float)
+        record("potential_energy_finite", bool(np.isfinite(arr).all()),
+               "all potential-energy samples finite")
+        half = arr[arr.size // 2:]
+        if half.size >= 4:
+            # Runaway is judged as drift RELATIVE TO THE ENERGY SCALE, not relative to the
+            # sample standard deviation. For a purely linear ramp |shift|/sd is a constant
+            # (~3.46) whatever the slope, so an sd-referenced rule cannot detect steady drift
+            # at all -- which is exactly the runaway shape that matters. An equilibrated
+            # condensed-phase system's potential energy fluctuates by well under 1% of its
+            # magnitude, so a final-half drift above 1% of |mean PE| is a genuine runaway.
+            monotonic = bool(np.all(np.diff(half) > 0) or np.all(np.diff(half) < 0))
+            scale = float(abs(half.mean())) or 1.0
+            shift = float(abs(half[-1] - half[0]))
+            relative = shift / scale
+            record("potential_energy_no_runaway", relative <= 0.01,
+                   f"final-half |shift| {shift:.4g} kJ/mol = {relative:.4%} of |mean PE| "
+                   f"{scale:.4g} kJ/mol (limit 1%); monotonic={monotonic}")
+    else:
+        record("potential_energy_finite", False,
+               "no Potential Energy column in equilibration.log")
+
+    vol = _col(cols, "box", "volume") or _col(cols, "volume")
+    if vol:
+        arr = np.asarray(vol, dtype=float)
+        finite_pos = bool(np.isfinite(arr).all() and (arr > 0).all())
+        record("box_volume_finite_positive", finite_pos,
+               f"min {float(arr.min()):.2f} nm^3, max {float(arr.max()):.2f} nm^3")
+        if arr.size >= 3:
+            rel = np.abs(np.diff(arr)) / np.maximum(np.abs(arr[:-1]), 1e-12)
+            record("box_volume_no_discontinuity", float(rel.max()) <= 0.10,
+                   f"max frame-to-frame relative change {float(rel.max()):.4f}, limit 0.10")
+    else:
+        record("box_volume_finite_positive", False,
+               "no Box Volume column in equilibration.log")
+
+    # Pressure: OpenMM's StateDataReporter cannot report instantaneous virial pressure, and the
+    # MonteCarloBarostat controls it by construction. Recorded as NOT EVALUABLE rather than
+    # silently reported as passing.
+    record("pressure_mean_in_range", None,
+           "OpenMM StateDataReporter exposes no instantaneous pressure observable; the "
+           "MonteCarloBarostat maintains the target pressure by construction. Not evaluable "
+           "from the log, and deliberately not reported as a pass.",
+           evaluable=False)
+
+    rcrit = criteria.get("protein_backbone_rmsd_nm", {})
+    if backbone_rmsd_nm is None:
+        record("backbone_rmsd_within_limits", None,
+               "no post-minimization backbone reference available", evaluable=False)
+    else:
+        fail_at = float(rcrit.get("fail", 1.0))
+        warn_at = float(rcrit.get("warning", 0.5))
+        record("backbone_rmsd_within_limits", backbone_rmsd_nm < fail_at,
+               f"post-equilibration backbone RMSD {backbone_rmsd_nm:.3f} nm "
+               f"(warn {warn_at} nm, fail {fail_at} nm)")
+        if warn_at <= backbone_rmsd_nm < fail_at:
+            warnings.append(f"backbone RMSD {backbone_rmsd_nm:.3f} nm exceeds warning {warn_at} nm")
+
+    return {
+        "log": log_path.name,
+        "log_status": status,
+        "equilibration_ns": equil_ns,
+        "samples": max((len(v) for v in cols.values()), default=0),
+        "accepted": not failures,
+        "checks": checks,
+        "failures": failures,
+        "warnings": warnings,
+        "criteria_source": "EQUILIBRATION_ACCEPTANCE_CRITERIA.json",
+    }
+
+
+def check_long_bonds(system, positions, max_len_nm=0.25) -> dict:
+    """Measure covalent bond lengths and REPORT the result (no exit). Used post-run.
+
+    ``smoke_safety_checks.catastrophic_bond_or_geometry_failure`` was previously the literal
+    ``False`` -- a field named after a safety check that was never performed at that point.
+    """
+    mm, unit, _, _, _, _, _, _, *_ = _imports()
+    import numpy as np
+    try:
+        xyz = np.array(positions.value_in_unit(unit.nanometer))
+    except AttributeError:
+        xyz = np.array([[v.x, v.y, v.z] for v in positions])
+    offenders, worst = [], 0.0
+    for force in system.getForces():
+        if not isinstance(force, mm.HarmonicBondForce):
+            continue
+        for i in range(force.getNumBonds()):
+            a, b, r0, _k = force.getBondParameters(i)
+            d = float(np.linalg.norm(xyz[a] - xyz[b]))
+            worst = max(worst, d)
+            if d > max_len_nm:
+                offenders.append({"atoms": [int(a), int(b)], "length_nm": d})
+    return {
+        "measured": True,
+        "max_bond_length_nm": worst,
+        "threshold_nm": float(max_len_nm),
+        "offending_bond_count": len(offenders),
+        "offending_bonds_sample": offenders[:10],
+        "failed": bool(offenders),
+    }
+
+
+def check_region_mapping(topology, pocket_resseq, interface_chain_indices) -> dict:
+    """Verify the candidate residues actually resolve in the simulated topology.
+
+    ``smoke_safety_checks.candidate_region_mapping_integrity`` was previously the constant
+    string "pocket_definition.json written before run", which describes a file write rather
+    than any property of the system being simulated.
+    """
+    want_chains = set(interface_chain_indices or [0])
+    want = set(int(r) for r in pocket_resseq or [])
+    chains = list(topology.chains())
+    found: set[int] = set()
+    atoms_per_residue: dict[int, int] = {}
+    for ci in sorted(want_chains):
+        if ci >= len(chains):
+            continue
+        for res in chains[ci].residues():
+            rid = int(getattr(res, "id", -1)) if str(getattr(res, "id", "")).lstrip("-").isdigit() else -1
+            if rid in want:
+                found.add(rid)
+                atoms_per_residue[rid] = sum(1 for _ in res.atoms())
+    missing = sorted(want - found)
+    return {
+        "measured": True,
+        "interface_chain_indices": sorted(want_chains),
+        "requested_residues": sorted(want),
+        "resolved_residues": sorted(found),
+        "missing_residues": missing,
+        "atoms_per_resolved_residue": atoms_per_residue,
+        "all_candidate_residues_present": not missing,
+    }
 
 
 class GracefulInterrupt(Exception):
@@ -766,6 +1096,9 @@ def run_replicate(ff, topology, positions, solvated_pdb, run_dir: Path, rep: int
     resume_audit = run_dir / "RESUME_AUDIT.json"
     ref_npy = run_dir / "equil_backbone_ref.npy"
     min_json = run_dir / "MINIMIZATION.json"
+    equil_log = run_dir / "equilibration.log"
+    equil_dcd = run_dir / "equilibration.dcd"
+    equil_json = run_dir / "EQUILIBRATION.json"
 
     seed = 20260000 + rep
     dt_fs = 4.0 if args.hmr else 2.0
@@ -969,8 +1302,80 @@ def run_replicate(ff, topology, positions, solvated_pdb, run_dir: Path, rep: int
         }
         write_json(min_json, minimization_report)
         sim.context.setVelocitiesToTemperature(args.temp * unit.kelvin, seed)
+
+        # --- equilibration WITH observability (see evaluate_equilibration rationale) ------
+        min_xyz = None
+        if backbone:
+            min_xyz = np.asarray(
+                sim.context.getState(getPositions=True, enforcePeriodicBox=False)
+                .getPositions(asNumpy=True).value_in_unit(unit.nanometer))[backbone]
         if equil_steps > 0:
-            sim.step(equil_steps)
+            equil_report_every = max(1, min(equil_steps,
+                                            int(round(args.equil_report_ps / dt_ps))))
+            sim.reporters.append(StateDataReporter(
+                str(equil_log), equil_report_every, step=True, time=True,
+                potentialEnergy=True, kineticEnergy=True, totalEnergy=True,
+                temperature=True, volume=True, density=True,
+                progress=True, remainingTime=True, speed=True,
+                totalSteps=equil_steps, separator="\t", append=False))
+            if args.equil_dcd_ps > 0:
+                equil_dcd_every = max(1, min(equil_steps,
+                                             int(round(args.equil_dcd_ps / dt_ps))))
+                # deliberately a SEPARATE file: equilibration frames must never enter
+                # production.dcd, which the frozen protocol treats as production sampling.
+                sim.reporters.append(DCDReporter(str(equil_dcd), equil_dcd_every, append=False))
+            print(f"[rep{rep}] equilibration: {args.equil_ns} ns ({equil_steps} steps), "
+                  f"log every {args.equil_report_ps} ps -> {equil_log.name}"
+                  + (f", frames every {args.equil_dcd_ps} ps -> {equil_dcd.name}"
+                     if args.equil_dcd_ps > 0 else ""))
+            try:
+                sim.step(equil_steps)
+            except BaseException as exc:
+                # A failure here previously escaped as a bare traceback with no artifacts.
+                reason = f"exception during equilibration: {type(exc).__name__}: {exc}"
+                write_json(failed_flag, {
+                    "replicate": rep, "pdb": args._pdb_id, "seed": seed,
+                    "phase": "equilibration",
+                    "steps": int(sim.context.getStepCount()),
+                    "reason": reason, "failed_utc": utc_now(),
+                })
+                update_status("FAILED", phase="equilibration", reason=reason)
+                print(f"[rep{rep}] FAILED during equilibration: {exc}")
+                return "failed"
+            finally:
+                sim.reporters.clear()
+
+        equil_backbone_rmsd = None
+        if backbone and min_xyz is not None:
+            eq_now = np.asarray(
+                sim.context.getState(getPositions=True, enforcePeriodicBox=False)
+                .getPositions(asNumpy=True).value_in_unit(unit.nanometer))[backbone]
+            equil_backbone_rmsd = _kabsch_rmsd_nm(eq_now, min_xyz)
+
+        equil_report = evaluate_equilibration(
+            equil_log, load_json(HERE / "EQUILIBRATION_ACCEPTANCE_CRITERIA.json", {}),
+            equil_backbone_rmsd, float(args.equil_ns),
+        ) if equil_steps > 0 else {
+            "log_status": "skipped", "equilibration_ns": 0.0, "accepted": True,
+            "checks": {}, "failures": [], "warnings": ["equilibration length is 0 ns"],
+        }
+        equil_report["post_equilibration_backbone_rmsd_nm"] = equil_backbone_rmsd
+        write_json(equil_json, equil_report)
+        if not equil_report["accepted"]:
+            reason = ("equilibration did not meet the frozen acceptance criteria: "
+                      + "; ".join(equil_report["failures"]))
+            write_json(failed_flag, {
+                "replicate": rep, "pdb": args._pdb_id, "seed": seed,
+                "phase": "equilibration", "reason": reason,
+                "equilibration_report": str(equil_json.name), "failed_utc": utc_now(),
+            })
+            update_status("FAILED", phase="equilibration", reason=reason)
+            print(f"[rep{rep}] FAILED equilibration acceptance: {reason}")
+            return "failed"
+        if equil_report.get("warnings"):
+            for w in equil_report["warnings"]:
+                print(f"[rep{rep}] equilibration WARNING: {w}")
+
         save_checkpoint_atomic(sim, chk, chk_meta, dt_ns, equil_steps, "post_equilibration")
         if backbone:
             eq_xyz = sim.context.getState(getPositions=True, enforcePeriodicBox=False
@@ -1074,6 +1479,45 @@ def run_replicate(ff, topology, positions, solvated_pdb, run_dir: Path, rep: int
         return "failed"
 
     save_checkpoint_atomic(sim, chk, chk_meta, dt_ns, equil_steps, "complete")
+
+    # ---- actually PERFORM the checks that smoke_safety_checks reports ---------------------
+    try:
+        final_bond_check = check_long_bonds(sim.system, state.getPositions(), max_len_nm=0.25)
+    except Exception as exc:
+        final_bond_check = {"measured": False, "failed": None,
+                            "error": f"{type(exc).__name__}: {exc}"}
+    try:
+        region_mapping_check = check_region_mapping(
+            topology, getattr(args, "_pocket_resseq", []), getattr(args, "_iface", [0]))
+    except Exception as exc:
+        region_mapping_check = {"measured": False, "all_candidate_residues_present": None,
+                                "error": f"{type(exc).__name__}: {exc}"}
+    equil_report_summary = load_json(equil_json, {"log_status": "missing", "accepted": None})
+    if final_bond_check.get("failed"):
+        reason = (f"post-run geometry check: {final_bond_check['offending_bond_count']} covalent "
+                  f"bond(s) longer than {final_bond_check['threshold_nm']} nm "
+                  f"(worst {final_bond_check['max_bond_length_nm']:.3f} nm)")
+        write_json(failed_flag, {
+            "replicate": rep, "pdb": args._pdb_id, "seed": seed,
+            "steps": int(sim.context.getStepCount()),
+            "reason": reason, "bond_geometry_check": final_bond_check,
+            "failed_utc": utc_now(),
+        })
+        update_status("FAILED", reason=reason)
+        print(f"[rep{rep}] FAILED geometry check: {reason}")
+        return "failed"
+    if region_mapping_check.get("all_candidate_residues_present") is False:
+        reason = ("candidate region mapping integrity: residues missing from the simulated "
+                  f"topology: {region_mapping_check['missing_residues']}")
+        write_json(failed_flag, {
+            "replicate": rep, "pdb": args._pdb_id, "seed": seed,
+            "reason": reason, "candidate_region_mapping": region_mapping_check,
+            "failed_utc": utc_now(),
+        })
+        update_status("FAILED", reason=reason)
+        print(f"[rep{rep}] FAILED candidate region mapping: {reason}")
+        return "failed"
+
     final_step = int(sim.context.getStepCount())
     production_ns = production_step_to_ns(final_step, equil_steps, dt_ns)
     wall_seconds = time.time() - run_start_wall
@@ -1083,6 +1527,11 @@ def run_replicate(ff, topology, positions, solvated_pdb, run_dir: Path, rep: int
         "replicate": rep, "pdb": args._pdb_id, "role": args.run, "ns": args.ns,
         "md_stage": getattr(args, "_md_stage", classify_md_stage(args)),
         "production_ns": production_ns, "equil_ns": args.equil_ns,
+        # Exact integer step accounting. production_ns is a float accumulation and a COMPLETE
+        # 0.1 ns run lands on 0.09999999999999999; readers should compare these instead.
+        "production_steps": int(final_step - equil_steps),
+        "target_production_steps": int(prod_steps),
+        "equilibration_steps": int(equil_steps),
         "report_ps": args.report_ps, "checkpoint_ps": args.checkpoint_ps,
         "seed": seed,
         "steps": final_step, "target_total_steps": total_steps,
@@ -1090,6 +1539,10 @@ def run_replicate(ff, topology, positions, solvated_pdb, run_dir: Path, rep: int
         "hmr": args.hmr, "hmr_amu": (args.hmr_amu if args.hmr else 1.0),
         "final_potential_kj_mol": pe, "backbone_rmsd_nm": rmsd_nm,
         "minimization": minimization_report,
+        # Every field below is the RESULT of a check performed on this run's final state.
+        # Before the 2026-08-16 repair catastrophic_bond_or_geometry_failure was the literal
+        # False and candidate_region_mapping_integrity was a fixed string describing a file
+        # write -- fields named after safety checks that were never executed.
         "smoke_safety_checks": {
             "minimization_success": minimization_report is not None,
             "initial_potential_kj_mol": (
@@ -1098,11 +1551,18 @@ def run_replicate(ff, topology, positions, solvated_pdb, run_dir: Path, rep: int
             "final_minimized_potential_kj_mol": (
                 minimization_report or {}
             ).get("minimized_potential_kj_mol"),
+            "minimization_reduced_potential_energy": bool(
+                minimization_report is not None
+                and minimization_report.get("delta_potential_kj_mol") is not None
+                and minimization_report["delta_potential_kj_mol"] < 0.0
+            ),
             "final_potential_energy_finite": math.isfinite(pe),
             "coordinates_finite": bool(np.isfinite(final_xyz).all()),
-            "catastrophic_bond_or_geometry_failure": False,
-            "temperature_density_logged": bool(log.exists()),
-            "candidate_region_mapping_integrity": "pocket_definition.json written before run",
+            "catastrophic_bond_or_geometry_failure": bool(final_bond_check["failed"]),
+            "bond_geometry_check": final_bond_check,
+            "temperature_density_logged": bool(equil_report_summary.get("log_status") == "ok"),
+            "equilibration_acceptance": equil_report_summary,
+            "candidate_region_mapping_integrity": region_mapping_check,
         },
         "sanity_gate": ("passed: finite energy+coords" +
                         (f", backbone RMSD {rmsd_nm:.2f} nm < {args.rmsd_fail_nm} nm"
@@ -1153,6 +1613,13 @@ def main():
     p.add_argument("--ionic", type=float, default=0.15)
     p.add_argument("--min-steps", type=int, default=5000)
     p.add_argument("--report-ps", type=float, default=50.0, help="DCD/log interval")
+    p.add_argument("--equil-report-ps", type=float, default=10.0,
+                   help="equilibration StateData log interval; equilibration.log is what the "
+                        "frozen EQUILIBRATION_ACCEPTANCE_CRITERIA.json is evaluated against")
+    p.add_argument("--equil-dcd-ps", type=float, default=0.0,
+                   help="if > 0, also save equilibration frames to a SEPARATE "
+                        "equilibration.dcd at this interval; equilibration frames are never "
+                        "written into production.dcd (0 = off)")
     p.add_argument("--checkpoint-ps", type=float, default=10.0,
                    help="checkpoint interval; default 10 ps limits crash loss without changing "
                         "the frozen 50 ps trajectory cadence")
@@ -1194,6 +1661,8 @@ def main():
     expected_chains = int(pocket.get("expected_protein_chains", 3))
     min_chain_res = int(pocket.get("min_chain_residues", 200))
     pocket_resseq = list(pocket.get("pocket_residues_resseq", []))
+    args._pocket_resseq = pocket_resseq
+    args._iface = list(pocket.get("interface_chain_indices", [0]))
 
     print(f"[main] pocket={pocket['pocket_name']} run={args.run} stage={args._md_stage} "
           f"-> PDB {pdb_id} (expect {expected_chains} chains)")

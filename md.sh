@@ -10,13 +10,21 @@ ENV_NAME="${PCNA_MD_CONDA_ENV:-pcna-md-4070}"
 usage() {
   cat <<'EOF'
 Usage:
+  ./md.sh precheck    # environment + GPU + protocol + gate checks; runs NO simulation
   ./md.sh smoke       # 0.1 ns 8GLA control smoke in tmux
   ./md.sh control5    # 3 x 5 ns 8GLA control-first validation in tmux
-  ./md.sh benchmark   # short real-system CUDA benchmark in tmux
+  ./md.sh benchmark   # short real-system CUDA benchmark in tmux (PERFORMANCE_ONLY)
   ./md.sh production  # gated 3 x 100 ns control + 3 x 100 ns apo/candidate
-  ./md.sh analyze     # run frozen analyzer in tmux
+  ./md.sh analyze     # run frozen analyzer ON THIS MACHINE, over local trajectories
+  ./md.sh bundle      # package ONLY compact derived results (no DCD) as .tar.gz
+  ./md.sh estimates   # storage + analysis-RAM estimates for every stage
   ./md.sh status      # summarize tmux sessions, runs, and gates
+  ./md.sh gate6       # show the Gate-6 decision state; never creates an approval
   ./md.sh attach      # attach latest pcna_* tmux session
+
+All analysis runs locally against the trajectories on this filesystem. Raw DCD files
+never need to leave this machine; ./md.sh bundle produces the only artifact intended
+for transfer.
 EOF
 }
 
@@ -149,7 +157,7 @@ run_smoke() {
   local cmd
   cmd="$(cmd_join "$PYTHON_BIN" "$MD/run_md.py" --pocket "$POCKET" --run control \
       --replicates 1 --ns 0.1 --outdir "$OUTDIR" --platform CUDA --require-platform \
-      --md-stage smoke) && "
+      --md-stage smoke --equil-report-ps 2 --equil-dcd-ps 20) && "
   cmd+="$(cmd_join "$PYTHON_BIN" "$MD/analyze_md.py" --pocket "$POCKET" --outdir "$OUTDIR")"
   launch_tmux "pcna_smoke" "smoke" "$cmd" "Next after completion: ./md.sh status, then ./md.sh control5"
 }
@@ -182,12 +190,23 @@ run_benchmark() {
   launch_tmux "pcna_benchmark" "benchmark" "$cmd" "Next after completion: ./md.sh status"
 }
 
+require_analysis_deps() {
+  # scipy is REQUIRED, not optional: the convex-hull openness metric fails closed without
+  # it, so a missing scipy would make every openness result unavailable rather than wrong.
+  "$PYTHON_BIN" - <<'PY'
+import mdtraj, numpy, pandas, matplotlib  # noqa: F401
+from scipy.spatial import ConvexHull      # noqa: F401
+PY
+}
+
 run_analyze() {
   require_tmux
   require_deps
+  require_analysis_deps
   local cmd
   cmd="$(cmd_join "$PYTHON_BIN" "$MD/analyze_md.py" --pocket "$POCKET" --outdir "$OUTDIR")"
-  launch_tmux "pcna_analyze" "analyze" "$cmd" "Next after completion: ./md.sh status"
+  launch_tmux "pcna_analyze" "analyze" "$cmd" \
+    "Next after completion: ./md.sh status, then ./md.sh bundle"
 }
 
 run_production() {
@@ -206,8 +225,51 @@ run_production() {
   launch_tmux "pcna_production" "production" "$cmd" "Next after completion: ./md.sh analyze"
 }
 
+run_precheck() {
+  echo "=== PRECHECK: no simulation is run by this command ==="
+  echo "--- python ---"
+  echo "$PYTHON_BIN"
+  "$PYTHON_BIN" -c 'import sys; print(sys.version)'
+  echo "--- scientific dependencies ---"
+  require_deps && echo "gemmi/mdtraj/openmm/pdbfixer: OK"
+  "$PYTHON_BIN" -c 'import scipy, numpy, pandas, matplotlib; print("scipy/numpy/pandas/matplotlib: OK")'
+  echo "--- OpenMM platforms ---"
+  "$PYTHON_BIN" - <<'PY'
+import openmm as mm
+names = [mm.Platform.getPlatform(i).getName() for i in range(mm.Platform.getNumPlatforms())]
+print("platforms:", names)
+print("CUDA available:", "CUDA" in names)
+print("openmm version:", mm.version.version)
+PY
+  echo "--- GPU ---"
+  if command -v nvidia-smi >/dev/null 2>&1; then
+    nvidia-smi --query-gpu=name,driver_version,memory.total --format=csv
+  else
+    echo "nvidia-smi not found"
+  fi
+  echo "--- frozen analysis protocol ---"
+  "$PYTHON_BIN" - <<PY
+import hashlib, pathlib, sys
+sys.path.insert(0, "$MD")
+import md_workflow as wf
+ok, why = wf.protocol_ok()
+print(("OK: " if ok else "MISMATCH: ") + why)
+PY
+  echo "--- gates ---"
+  "$PYTHON_BIN" "$MD/md_workflow.py" status --outdir "$OUTDIR" || true
+  echo "--- gate 6 ---"
+  "$PYTHON_BIN" "$MD/md_workflow.py" gate6-status || true
+  echo "--- repository tests (fast) ---"
+  "$PYTHON_BIN" -m pytest "$ROOT/tests" -q -p no:cacheprovider || true
+  echo "=== PRECHECK COMPLETE. Nothing was simulated. Next: ./md.sh smoke ==="
+}
+
 case "${1:-}" in
+  precheck) run_precheck ;;
   smoke) run_smoke ;;
+  bundle) shift || true; "$PYTHON_BIN" "$MD/md_workflow.py" bundle --outdir "$OUTDIR" "$@" ;;
+  gate6) "$PYTHON_BIN" "$MD/md_workflow.py" gate6-status ;;
+  estimates) shift || true; "$PYTHON_BIN" "$MD/md_workflow.py" estimates --outdir "$OUTDIR" "$@" ;;
   control5) run_control5 ;;
   benchmark) run_benchmark ;;
   production) run_production ;;

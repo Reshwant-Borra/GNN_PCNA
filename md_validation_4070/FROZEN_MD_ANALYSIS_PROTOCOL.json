@@ -225,14 +225,41 @@
     }
   },
   "control_interpretability_gate": {
-    "name": "trajectory_dynamic_control_gate_v1",
+    "name": "trajectory_dynamic_control_gate_v2",
     "frozen_before_meaningful_control_md": true,
+    "frozen_utc": "2026-08-16T00:00:00+00:00",
+    "supersedes": "trajectory_dynamic_control_gate_v1",
+    "supersede_reason": "v1 accepted three STATIC 8GLA structures plus ~0.10 A independent per-frame coordinate jitter as a PASS. 8GLA's frozen static reference already exceeds both midpoint openness thresholds (SASA 839.109 >= 808.568 A^2; CA hull 610.253 >= 560.687 A^3), so a motionless 8GLA run scores open_like_fraction = 1.0 from frame zero; and IID jitter of 0.10 A/axis produces RMSF 0.0174 nm, clearing the 0.015 nm floor. The RMSF floor was the only dynamic discriminator and white noise cleared it, contradicting this protocol's own negative_diagnostic.",
     "uses_frame_zero_or_static_apo_control_difference": false,
+    "rejects_static_structure_plus_per_frame_noise": true,
     "minimum_control_replicates": 3,
     "minimum_control_ns_per_replicate": 5.0,
     "minimum_pocket_rmsf_nm": 0.015,
     "minimum_open_like_fraction": 0.2,
-    "negative_diagnostic": "starting structures differ plus tiny random coordinate noise must fail because static separation alone is not dynamic validation"
+    "dynamic_discriminators": {
+      "null_model": "a static structure observed with independent per-frame Gaussian coordinate noise",
+      "k_sigma": 3.0,
+      "threshold_derivation": "Both thresholds are computed from the ANALYTIC null distribution of the statistic under independent per-frame noise, as a function of the number of production frames N. They are not derived from, and were frozen before, any control-5 or production MD outcome. Because they scale as 1/sqrt(N) they also cannot be relaxed by choosing a run length.",
+      "D1_temporal_structure": {
+        "statistic": "lag-1 Pearson autocorrelation of the supported_ge2of3 region CA convex-hull volume time series",
+        "null": "for IID frames r1 has mean ~ -1/N and standard deviation ~ 1/sqrt(N)",
+        "threshold": "r1 >= 3.0 / sqrt(N_production_frames)",
+        "rationale": "the CA convex-hull volume is a slow collective backbone coordinate and is strongly autocorrelated at the frozen 50 ps output cadence, whereas per-frame coordinate noise has r1 ~ 0"
+      },
+      "D2_spatial_collectivity": {
+        "statistic": "mean absolute dynamic cross-correlation among supported_ge2of3 region CA atoms",
+        "null": "for IID frames each off-diagonal correlation is ~N(0, 1/sqrt(N)), so E[|c|] = sqrt(2/pi)/sqrt(N)",
+        "threshold": "mean|DCCM| >= 3.0 * sqrt(2/pi) / sqrt(N_production_frames)",
+        "rationale": "genuine molecular motion displaces spatially adjacent residues collectively; independent per-atom noise does not"
+      },
+      "reported_but_not_gating": "a matched static-structure-plus-noise surrogate built from each replicate's own frame-0 region coordinates and its own observed RMSF is computed and reported alongside D1/D2 so the null comparison is explicit in the output"
+    },
+    "negative_diagnostic": "starting structures differ plus tiny random coordinate noise must fail because static separation alone is not dynamic validation",
+    "negative_diagnostic_enforced_by_tests": [
+      "tests/test_control_gate_static_noise.py::test_static_8gla_plus_noise_fails_gate_v2",
+      "tests/test_control_gate_static_noise.py::test_static_1w60_plus_noise_fails_gate_v2",
+      "tests/test_control_gate_static_noise.py::test_genuinely_dynamic_trajectory_passes_gate_v2"
+    ]
   },
   "replicate_aggregation": {
     "independent_unit": "trajectory replicate, not frame",
@@ -255,9 +282,14 @@
     "contradictory": "evidence conflicts with a specific prospective prediction"
   },
   "source_hashes": {
-    "previous_claimed_protocol_sha256": "2497def9e4675538dd08051ae6e5a448a41fbd32a1d7dc59cfb528d74d64ce3c",
-    "reconciliation_change_reason": "positive-control gate repaired to reject static starting-state differences alone",
-    "pocket_definition_sha256": "81281e852785fa51165fd3d0a0c7486a2a232cab2611a071607050368d8019c3",
+    "previous_claimed_protocol_sha256": "587f27cf2e402fe50b264d98d3d60fbbdcc8f9095025b2a89d12c7aebd633e56",
+    "protocol_sha256_before_2026_08_15_reconciliation": "2497def9e4675538dd08051ae6e5a448a41fbd32a1d7dc59cfb528d74d64ce3c",
+    "reconciliation_change_reason": "positive-control gate repaired to reject static starting-state differences alone; 2026-08-16 revision replaces the v1 gate, whose only dynamic discriminator (an absolute RMSF floor) was cleared by independent per-frame coordinate noise, with predeclared temporal-structure and spatial-collectivity discriminators referenced to the analytic IID-noise null. No MD outcome informed either threshold: no control-5 or production trajectory existed when this revision was frozen.",
+    "revision_utc": "2026-08-16T00:00:00+00:00",
+    "revision_permitted_because": "the frozen candidate residue sets, reference structures, atom selections, openness thresholds and event definitions are UNCHANGED. Only the control-interpretability gate is revised, and it is revised BEFORE any meaningful control MD exists.",
+    "pocket_definition_sha256": "e88a53b0e36b44cbf7029b5145640f2f932e6e209a094a9b384aa308f8bbc329",
+    "pocket_definition_sha256_stale_value_before_2026_08_16": "81281e852785fa51165fd3d0a0c7486a2a232cab2611a071607050368d8019c3",
+    "pocket_definition_hash_correction_note": "The recorded pocket_definition_sha256 did not match the tracked md_validation_4070/pockets/final_consensus_1w60_20260815.json, and had not matched since at least commit b4d9d7c. Nothing verified the field, so the drift was invisible. The pocket CONTENT was checked against the frozen August three-seed consensus and is correct and unchanged: core_3of3 = A25 A26 A38 A39 A40 A41 A42 A44 A45 A46 A47 (11); supported_ge2of3 = those plus A27 A43 A232 A233 A234 (16); seed-specific 1-of-3 fringe = A231 A250 A251 A252; union 20. Only the bookkeeping pointer was stale, so it is corrected to the actual digest and the previous value is preserved above. tests/test_frozen_provenance_bindings.py now enforces both the digest and the residue sets.",
     "static_reference_metrics_sha256": "34de1c510a7188c38fd5c058ca2107bae2baae6186e5f29dd3bf6e191a5d24a1"
   }
 }

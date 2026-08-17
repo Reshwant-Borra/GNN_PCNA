@@ -19,7 +19,12 @@ REPO_ROOT: Path = Path(__file__).resolve().parents[1]
 # lives in a nested directory. Large artifacts (the MD trajectory) live under the
 # orchestration repo's own data/ dir. We search both, science-root first.
 SCIENCE_ROOT: Path = REPO_ROOT / "Desktop" / "GNN_PCNA"
-DATA_SEARCH_ROOTS: List[Path] = [SCIENCE_ROOT, REPO_ROOT]
+# The repository consolidation moved the Phase-2/Phase-3 experimental tree
+# (reports/phase3, data/labels, data/registries) under archive/. It is still the
+# authoritative source for those artifacts, so it is searched last: if the data
+# is ever restored to SCIENCE_ROOT or REPO_ROOT, those take precedence.
+ARCHIVE_ROOT: Path = REPO_ROOT / "archive" / "historical_desktop_gnn_pcna_202605_phase2_phase4"
+DATA_SEARCH_ROOTS: List[Path] = [SCIENCE_ROOT, REPO_ROOT, ARCHIVE_ROOT]
 
 # --- Output locations --------------------------------------------------------
 PAPER_DIR: Path = REPO_ROOT / "paper"
@@ -109,6 +114,8 @@ def describe() -> dict:
         "repo_root": str(REPO_ROOT),
         "science_root": str(SCIENCE_ROOT),
         "science_root_exists": SCIENCE_ROOT.exists(),
+        "archive_root": str(ARCHIVE_ROOT),
+        "archive_root_exists": ARCHIVE_ROOT.exists(),
         "paper_dir": str(PAPER_DIR),
         "writer_model": WRITER_MODEL,
         "embed_model": EMBED_MODEL,

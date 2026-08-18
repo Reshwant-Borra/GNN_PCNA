@@ -204,3 +204,119 @@ def test_a_fully_valid_replicate_passes(tmp_path):
     rep = syn.write_replicate(tmp_path, "8GLA", "rep01", traj)
     result = an.validate_scientific_replicate(rep, expected_pdb="8GLA", expected_role="control")
     assert result["ok"] is True, result["issues"]
+
+
+# --------------------------------------------------------------------------------------
+# L3: cadence tolerance (2026-08-18 repair)
+#
+# OpenMM's StateDataReporter "Time (ps)" column is an accumulated float. Two adjacent
+# intervals that are the SAME nominal cadence can land on different floats purely from
+# floating-point accumulation -- e.g. a real Control-20 resume produced adjacent intervals
+# of 49.99999999881766 ps and 50.00000001018634 ps for a declared 50.0 ps cadence. The old
+# check compared diffs to EACH OTHER via round(diff, 9) + len(set(diffs)) > 1, so any such
+# pair was rejected as "output interval inconsistent" even though both are the same cadence
+# to 9 decimal places. The repaired check compares each diff against the authoritative
+# DONE.json report_ps with a tolerance instead.
+# --------------------------------------------------------------------------------------
+def _write_log_with_times(rep_dir: Path, times: list[float], start_step: int = 12500,
+                          step_spacing: int = 12500) -> None:
+    lines = ['#"Progress (%)"\t"Step"\t"Time (ps)"\t"Potential Energy (kJ/mole)"'
+             '\t"Temperature (K)"\t"Density (g/mL)"']
+    for i, t in enumerate(times):
+        step = start_step + i * step_spacing
+        lines.append(f"{100.0 * (i + 1) / len(times):.1f}\t{step}\t{t:.10f}\t-1.5e6\t310.1\t1.010")
+    (rep_dir / "production.log").write_text("\n".join(lines) + "\n", encoding="utf-8")
+
+
+def test_exact_cadence_passes_validation(tmp_path):
+    traj, _ = syn.make_trajectory("dynamic", seed=1)
+    rep = syn.write_replicate(tmp_path, "8GLA", "rep01", traj)          # report_ps=50.0
+    _write_log_with_times(rep, [50.0 * i for i in range(1, 21)])
+    result = an.validate_scientific_replicate(rep, expected_pdb="8GLA", expected_role="control")
+    assert result["ok"] is True, result["issues"]
+
+
+def test_tiny_floating_point_cadence_drift_passes_validation(tmp_path):
+    """The exact real-world Control-20 boundary values that exposed the bug must pass."""
+    traj, _ = syn.make_trajectory("dynamic", seed=1)
+    rep = syn.write_replicate(tmp_path, "8GLA", "rep01", traj)          # report_ps=50.0
+    times = [0.0, 49.99999999881766, 49.99999999881766 + 50.00000001018634, ]
+    _write_log_with_times(rep, times)
+    result = an.validate_scientific_replicate(rep, expected_pdb="8GLA", expected_role="control")
+    assert result["ok"] is True, result["issues"]
+    assert not any("output interval" in i for i in result["issues"])
+
+
+def test_resumed_style_log_with_400_rows_and_fp_drift_passes_validation(tmp_path):
+    """Reproduces the real Control-20 evidence: 400 rows, 12,500-step spacing, 50 ps nominal
+    cadence with float64-accumulation-scale drift on every adjacent interval."""
+    import numpy as np
+    traj, _ = syn.make_trajectory("dynamic", seed=1)
+    rep = syn.write_replicate(tmp_path, "8GLA", "rep01", traj)          # report_ps=50.0
+    rng = np.random.default_rng(20260817)
+    dt_ps_exact = 0.004                        # 4 fs timestep -> ps/step
+    base_step = 512500
+    n_rows = 400
+    step_spacing = 12500
+    times = []
+    for i in range(n_rows):
+        step = base_step + i * step_spacing
+        jitter = float(rng.uniform(-1.2e-8, 1.2e-8))
+        times.append(step * dt_ps_exact + jitter)
+    _write_log_with_times(rep, times, start_step=base_step, step_spacing=step_spacing)
+    result = an.validate_scientific_replicate(rep, expected_pdb="8GLA", expected_role="control")
+    assert result["ok"] is True, result["issues"]
+
+
+def test_real_100ps_discontinuity_fails_validation(tmp_path):
+    traj, _ = syn.make_trajectory("dynamic", seed=1)
+    rep = syn.write_replicate(tmp_path, "8GLA", "rep01", traj)          # report_ps=50.0
+    times = [50.0, 100.0, 200.0, 250.0]        # one 100 ps gap
+    _write_log_with_times(rep, times)
+    result = an.validate_scientific_replicate(rep, expected_pdb="8GLA", expected_role="control")
+    assert result["ok"] is False
+    assert any("output interval inconsistent" in i for i in result["issues"])
+
+
+def test_real_25ps_discontinuity_fails_validation(tmp_path):
+    traj, _ = syn.make_trajectory("dynamic", seed=1)
+    rep = syn.write_replicate(tmp_path, "8GLA", "rep01", traj)          # report_ps=50.0
+    times = [50.0, 100.0, 125.0, 175.0]        # one 25 ps gap
+    _write_log_with_times(rep, times)
+    result = an.validate_scientific_replicate(rep, expected_pdb="8GLA", expected_role="control")
+    assert result["ok"] is False
+    assert any("output interval inconsistent" in i for i in result["issues"])
+
+
+def test_non_monotonic_log_times_fail_validation(tmp_path):
+    traj, _ = syn.make_trajectory("dynamic", seed=1)
+    rep = syn.write_replicate(tmp_path, "8GLA", "rep01", traj)          # report_ps=50.0
+    times = [50.0, 100.0, 80.0, 130.0]         # time goes backwards
+    _write_log_with_times(rep, times)
+    result = an.validate_scientific_replicate(rep, expected_pdb="8GLA", expected_role="control")
+    assert result["ok"] is False
+    assert any("output interval inconsistent" in i for i in result["issues"])
+
+
+def test_missing_report_ps_fails_closed(tmp_path):
+    traj, _ = syn.make_trajectory("dynamic", seed=1)
+    rep = syn.write_replicate(tmp_path, "8GLA", "rep01", traj)
+    done_path = rep / "DONE.json"
+    done = json.loads(done_path.read_text())
+    del done["report_ps"]
+    done_path.write_text(json.dumps(done), encoding="utf-8")
+    result = an.validate_scientific_replicate(rep, expected_pdb="8GLA", expected_role="control")
+    assert result["ok"] is False
+    assert any("report_ps is missing or invalid" in i for i in result["issues"])
+
+
+def test_invalid_report_ps_fails_closed(tmp_path):
+    traj, _ = syn.make_trajectory("dynamic", seed=1)
+    rep = syn.write_replicate(tmp_path, "8GLA", "rep01", traj)
+    done_path = rep / "DONE.json"
+    done = json.loads(done_path.read_text())
+    done["report_ps"] = 0.0
+    done_path.write_text(json.dumps(done), encoding="utf-8")
+    result = an.validate_scientific_replicate(rep, expected_pdb="8GLA", expected_role="control")
+    assert result["ok"] is False
+    assert any("report_ps is missing or invalid" in i for i in result["issues"])

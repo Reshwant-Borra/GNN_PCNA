@@ -444,9 +444,35 @@ def validate_scientific_replicate(rep_dir: Path, expected_pdb: str | None = None
         if len(times) != len(set(times)):
             issues.append("duplicate frame/log artifacts: duplicate log times")
         if len(times) >= 2:
-            diffs = [round(b - a, 9) for a, b in zip(times, times[1:])]
-            if len(set(diffs)) > 1:
-                issues.append("output interval inconsistent across production.log")
+            # Compare each adjacent interval against the AUTHORITATIVE cadence recorded in
+            # DONE.json (report_ps), with a numerical tolerance -- not against each other via
+            # round()+set(). OpenMM's StateDataReporter time column is an accumulated float
+            # (dt_fs * step / 1000), so two intervals that are the SAME 50 ps cadence can land
+            # on different floats (e.g. 49.99999999881766 vs 50.00000001018634) purely from
+            # floating-point accumulation. round(diff, 9) + set() treated those as distinct
+            # cadences and rejected scientifically valid (including resumed) trajectories.
+            # A real cadence discontinuity (wrong interval, dropped frame, non-monotonic time)
+            # is orders of magnitude larger than this drift and still fails.
+            try:
+                expected_report_ps = float(done.get("report_ps"))
+            except (TypeError, ValueError):
+                expected_report_ps = None
+            if expected_report_ps is None or expected_report_ps <= 0.0:
+                issues.append(
+                    "output interval could not be validated: DONE.json report_ps is "
+                    "missing or invalid"
+                )
+            else:
+                tolerance_ps = max(1e-6, abs(expected_report_ps) * 1e-9)
+                diffs = [b - a for a, b in zip(times, times[1:])]
+                bad = [d for d in diffs if abs(d - expected_report_ps) > tolerance_ps]
+                if bad:
+                    issues.append(
+                        "output interval inconsistent across production.log: "
+                        f"{len(bad)}/{len(diffs)} adjacent interval(s) deviate from the "
+                        f"expected {expected_report_ps:g} ps cadence (DONE.json report_ps) "
+                        f"by more than {tolerance_ps:g} ps, e.g. {bad[0]:.9f} ps"
+                    )
 
     return {"ok": not issues, "issues": issues, "done": done,
             "log_status": log_status,

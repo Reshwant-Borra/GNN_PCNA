@@ -1,0 +1,272 @@
+{
+  "kind": "PCNA_MD_COMPACT_RESULT_BUNDLE",
+  "schema_version": 1,
+  "created_utc": "2026-08-19T02:29:10.471509+00:00",
+  "outdir": "C:\\Users\\reshw\\Desktop\\GNN_PCNA_FINAL\\md_validation_4070\\outputs_control5",
+  "git": {
+    "commit": "f1b4838f699cc664a4bf2d7b2282f7d240e902fb",
+    "branch": "audit/control20-forensic-methodology",
+    "dirty": true
+  },
+  "analysis_protocol_sha256": "c6ddd0fd4f2c9c05c1cf651358a7f59957c9cf077a5dea4c8331f4d4261f2df6",
+  "analysis_code_sha256": "f76cd44b1a7ff3676f8d7571a3eb5ede55c27e17e8e3030b86b6c6c08a1bbf28",
+  "run_md_sha256": "9ab317713d6536c6d7134b7dda065d732032acd5c242885d18a668b681460b28",
+  "md_workflow_sha256": "0757f7e66e0860be6ba6d8b9ae264362d885e41033ccd194a317ec4a93d35c31",
+  "diagnostic_only": false,
+  "control_interpretability_gate": "FAIL",
+  "excluded_by_policy": {
+    "suffixes": [
+      ".dcd",
+      ".chk",
+      ".npy",
+      ".xtc",
+      ".trr",
+      ".h5",
+      ".dat"
+    ],
+    "names": [
+      "system_solvated.pdb",
+      "prepared_protein.pdb",
+      "assembly_protein_raw.pdb",
+      "state.chk",
+      "state.prev.chk"
+    ],
+    "reason": "raw trajectories, checkpoints and solvated topologies remain on the cloud instance; they are referenced by SHA-256 below instead"
+  },
+  "large_cloud_resident_sources": [
+    {
+      "path": "8GLA\\rep01\\production.dcd",
+      "absolute_path_on_cloud_instance": "C:\\Users\\reshw\\Desktop\\GNN_PCNA_FINAL\\md_validation_4070\\outputs_control5\\8GLA\\rep01\\production.dcd",
+      "bytes": 753728276,
+      "sha256": "342c2c012b0c7b2a32a145766c5c9f9b22ebd0ab206b113e19a5c1327d7df450",
+      "included_in_bundle": false
+    },
+    {
+      "path": "8GLA\\rep02\\production.dcd",
+      "absolute_path_on_cloud_instance": "C:\\Users\\reshw\\Desktop\\GNN_PCNA_FINAL\\md_validation_4070\\outputs_control5\\8GLA\\rep02\\production.dcd",
+      "bytes": 753728276,
+      "sha256": "49be28a2ca3bbf5494dd1ce161c81a99a8ffb73868ec9229e93e1b17a3d154bf",
+      "included_in_bundle": false
+    },
+    {
+      "path": "8GLA\\rep03\\production.dcd",
+      "absolute_path_on_cloud_instance": "C:\\Users\\reshw\\Desktop\\GNN_PCNA_FINAL\\md_validation_4070\\outputs_control5\\8GLA\\rep03\\production.dcd",
+      "bytes": 753728276,
+      "sha256": "6ee06f78c15a91b07bbb703e5a0e5118947ef24ca445ad15bdcdf0cccd438b7f",
+      "included_in_bundle": false
+    },
+    {
+      "path": "8GLA\\system_solvated.pdb",
+      "absolute_path_on_cloud_instance": "C:\\Users\\reshw\\Desktop\\GNN_PCNA_FINAL\\md_validation_4070\\outputs_control5\\8GLA\\system_solvated.pdb",
+      "bytes": 12876014,
+      "sha256": "92f45fc9f630fdd5a7e62883483381afa0e58303699b795ee0c206d7ea5b22c4",
+      "included_in_bundle": false
+    },
+    {
+      "path": "8GLA\\rep01\\state.chk",
+      "absolute_path_on_cloud_instance": "C:\\Users\\reshw\\Desktop\\GNN_PCNA_FINAL\\md_validation_4070\\outputs_control5\\8GLA\\rep01\\state.chk",
+      "bytes": 23524899,
+      "sha256": "aca7a3fc45f18c4459ce3a72c84f6e37e0739dfe5fe9137cf8b2a5366122170e",
+      "included_in_bundle": false
+    },
+    {
+      "path": "8GLA\\rep02\\state.chk",
+      "absolute_path_on_cloud_instance": "C:\\Users\\reshw\\Desktop\\GNN_PCNA_FINAL\\md_validation_4070\\outputs_control5\\8GLA\\rep02\\state.chk",
+      "bytes": 23524899,
+      "sha256": "28d62a8c76c61c72531a4e39536675efbb2d39232c6ad3afdde22cbbf1d1347c",
+      "included_in_bundle": false
+    },
+    {
+      "path": "8GLA\\rep03\\state.chk",
+      "absolute_path_on_cloud_instance": "C:\\Users\\reshw\\Desktop\\GNN_PCNA_FINAL\\md_validation_4070\\outputs_control5\\8GLA\\rep03\\state.chk",
+      "bytes": 23524899,
+      "sha256": "e8713b9f57469b635d9e96530938d443b9a949619666ae3ccfe485290b1a7ff1",
+      "included_in_bundle": false
+    },
+    {
+      "path": "8GLA\\prep\\prepared_protein.pdb",
+      "absolute_path_on_cloud_instance": "C:\\Users\\reshw\\Desktop\\GNN_PCNA_FINAL\\md_validation_4070\\outputs_control5\\8GLA\\prep\\prepared_protein.pdb",
+      "bytes": 960620,
+      "sha256": "4897c6717739de5e54d7a5fbb8c4e8f1d2d55ed0ce7820b181bc6bc00aed74b2",
+      "included_in_bundle": false
+    }
+  ],
+  "large_cloud_resident_total_bytes": 2345596159,
+  "included_files": [
+    {
+      "path": "analysis\\per_replicate.csv",
+      "bytes": 36171,
+      "sha256": "546398cc9e36624e3ad9f5cb827d83cfcb05d8fd2f7b476a61db6fbda9204e59"
+    },
+    {
+      "path": "analysis\\pocket_parity.json",
+      "bytes": 42,
+      "sha256": "8859a247f73fbe204408e876d8fce28aa40990f89b96e80de13da305b6f7346e"
+    },
+    {
+      "path": "analysis\\REPORT.md",
+      "bytes": 1830,
+      "sha256": "ca5a40e293e6637b860de20de31658b162923629b87fb1b8c45f58855a1a923b"
+    },
+    {
+      "path": "analysis\\skipped_replicates.json",
+      "bytes": 21092,
+      "sha256": "695070bdf9c84e9d6ff4395d46136f9339ad288b5a1efc759614e93361dd50f0"
+    },
+    {
+      "path": "analysis\\summary.json",
+      "bytes": 72299,
+      "sha256": "1e215c4f46292efe9993c56ba590d7ff05b6314b36cb68cf488020cd6526ff37"
+    },
+    {
+      "path": "8GLA\\rep01\\DONE.json",
+      "bytes": 5509,
+      "sha256": "93c078e02de4dc2e95ac3f29ee1676563fba68adc5a576fdebfc33b4dcdc5801"
+    },
+    {
+      "path": "8GLA\\rep01\\STATUS.json",
+      "bytes": 847,
+      "sha256": "95467900d48e46b4e780d06b0cc749667a38c01efadbe4173ff25162311fd7b4"
+    },
+    {
+      "path": "8GLA\\rep01\\PROVENANCE.json",
+      "bytes": 4938,
+      "sha256": "ab19821fd1336b767827511bef2619f0765f0ee08264e5ea7cc21ab2d17944b7"
+    },
+    {
+      "path": "8GLA\\rep01\\MINIMIZATION.json",
+      "bytes": 295,
+      "sha256": "b3c4a11913f1b348c7287badb1bb3492d6c0bcc1409657b2cfd7a1cf32aad3ce"
+    },
+    {
+      "path": "8GLA\\rep01\\EQUILIBRATION.json",
+      "bytes": 2187,
+      "sha256": "1e6898b5507c91a70d060c15f65b3241484ca3c49d1c1d08cfe6d3024dd144f6"
+    },
+    {
+      "path": "8GLA\\rep01\\RESUME_AUDIT.json",
+      "bytes": 504,
+      "sha256": "85daaca5f5ed6f5e13e5c3b2d7928e5d70fa8a4b77b3de4927fa3f5a9a3c0043"
+    },
+    {
+      "path": "8GLA\\rep01\\checkpoint_meta.json",
+      "bytes": 5067,
+      "sha256": "3918badc5e978c654793604af81ad0fee464de88f4dc5c7e41e4758592a4f010"
+    },
+    {
+      "path": "8GLA\\rep01\\production.log",
+      "bytes": 40404,
+      "sha256": "981fea33ccf5d182e73526d01fb2fcf312bf647e8c250a9045121e530063c8c5"
+    },
+    {
+      "path": "8GLA\\rep01\\equilibration.log",
+      "bytes": 31195,
+      "sha256": "9d74ec541954ca94e79379e9051b8fb6753f58598632e5e161c3535cc85c1d0c"
+    },
+    {
+      "path": "8GLA\\rep02\\DONE.json",
+      "bytes": 5512,
+      "sha256": "1b4729acce816f6a094e76c6b9735a1cad1841e392812133db86e6b1c19b79ea"
+    },
+    {
+      "path": "8GLA\\rep02\\STATUS.json",
+      "bytes": 847,
+      "sha256": "b138ef68b97b073690413e5000e38d02acf39099546916b2ce8049ea675fe0d6"
+    },
+    {
+      "path": "8GLA\\rep02\\PROVENANCE.json",
+      "bytes": 4938,
+      "sha256": "2a12f647323f7ebc1f78bab99d54cb302768023500654a1ad2e25f976822df04"
+    },
+    {
+      "path": "8GLA\\rep02\\MINIMIZATION.json",
+      "bytes": 296,
+      "sha256": "51aefce4ca3b2c9345024a87039f3c2d1a75b64dbc7dd449e5e101f33c763074"
+    },
+    {
+      "path": "8GLA\\rep02\\EQUILIBRATION.json",
+      "bytes": 2187,
+      "sha256": "188dbfed58335969afce1e1616c8b9a68fe2f8cf5e8c2cce967b7df321aed1a6"
+    },
+    {
+      "path": "8GLA\\rep02\\RESUME_AUDIT.json",
+      "bytes": 504,
+      "sha256": "7dcea984ecd0101f371f8e966bf7b0d7a819ebf9b1e6d896d3d912804ef2ec2b"
+    },
+    {
+      "path": "8GLA\\rep02\\checkpoint_meta.json",
+      "bytes": 5067,
+      "sha256": "62a1d7e5aee5cd0ee44f10230c741717d1f53368ed8f72dae8251aa6bb05a4cf"
+    },
+    {
+      "path": "8GLA\\rep02\\production.log",
+      "bytes": 40397,
+      "sha256": "79c95152b87fc421e68ca73e5e3d6e78068ec2b04b87900d5df980c72bd4f349"
+    },
+    {
+      "path": "8GLA\\rep02\\equilibration.log",
+      "bytes": 31194,
+      "sha256": "b00cfccfea96cf70b67c37b4b1348ee154be377ca32932238cc62d739f41bf1d"
+    },
+    {
+      "path": "8GLA\\rep03\\DONE.json",
+      "bytes": 5505,
+      "sha256": "b7331c83d269be74eb4e914d2855e585cc2c8ed40794ea03d6c143e385954fee"
+    },
+    {
+      "path": "8GLA\\rep03\\STATUS.json",
+      "bytes": 847,
+      "sha256": "07f0758a0db066e2e6ee0d7c22b3fecb274e04e3b4a70eabcf690ffa85549fd9"
+    },
+    {
+      "path": "8GLA\\rep03\\PROVENANCE.json",
+      "bytes": 4938,
+      "sha256": "ae079683fd7ce91cac1eb03c296af85cfb7eedda47b8590743d1fc2fb7337463"
+    },
+    {
+      "path": "8GLA\\rep03\\MINIMIZATION.json",
+      "bytes": 293,
+      "sha256": "d280734b5f92b881f8a1a7ced53b31a4ff5bdbfdd4c7d72a204450cf893e0d57"
+    },
+    {
+      "path": "8GLA\\rep03\\EQUILIBRATION.json",
+      "bytes": 2187,
+      "sha256": "5ba051d5a08b1c60267a14a6c7e63bb252adc893cdff39840f73dc812e0e13ef"
+    },
+    {
+      "path": "8GLA\\rep03\\RESUME_AUDIT.json",
+      "bytes": 504,
+      "sha256": "fcd9d6930e46f726c09d5b88ab19b43d3333d9301101e72d254fd322ccad6bcd"
+    },
+    {
+      "path": "8GLA\\rep03\\checkpoint_meta.json",
+      "bytes": 5067,
+      "sha256": "8e2f9a854ec15cb342b2dc912ca91281f79a59eb07468713943e7491aa767fc6"
+    },
+    {
+      "path": "8GLA\\rep03\\production.log",
+      "bytes": 40388,
+      "sha256": "1241639cda7c4b9e6f20359bf976864225b2c960cf4b959127ff94b0f81c68f3"
+    },
+    {
+      "path": "8GLA\\rep03\\equilibration.log",
+      "bytes": 31179,
+      "sha256": "a172f8de2f099654e0ba7b8637af5647a8e27d279b2a26db50a1c57e8ffb7df1"
+    },
+    {
+      "path": "8GLA\\pocket_definition.json",
+      "bytes": 2099,
+      "sha256": "97ed4527dd08615291d560c69745cdf07de3a67939a6bd03ee668b38c76ef7e4"
+    },
+    {
+      "path": "8GLA\\storage_preflight.json",
+      "bytes": 613,
+      "sha256": "732e85429a75a81ce5a8c0b32b3d3998766b60e6d15039abd79e2567037fdc17"
+    },
+    {
+      "path": "8GLA\\prep\\prep_audit.json",
+      "bytes": 1200,
+      "sha256": "1e321cebb64fc166f4d94cda3bb6b4971b0119b1bd150b142f80d95179a3be11"
+    }
+  ]
+}

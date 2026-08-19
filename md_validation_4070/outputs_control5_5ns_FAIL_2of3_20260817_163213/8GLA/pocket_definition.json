@@ -1,0 +1,133 @@
+{
+  "pocket": "final_consensus_1w60_20260815",
+  "run": "control",
+  "pdb_id": "8GLA",
+  "pocket_residues_resseq": [
+    25,
+    26,
+    27,
+    38,
+    39,
+    40,
+    41,
+    42,
+    43,
+    44,
+    45,
+    46,
+    47,
+    232,
+    233,
+    234
+  ],
+  "core_3of3": [
+    {
+      "chain": "A",
+      "resid": 25,
+      "resname": "GLU"
+    },
+    {
+      "chain": "A",
+      "resid": 26,
+      "resname": "ALA"
+    },
+    {
+      "chain": "A",
+      "resid": 38,
+      "resname": "GLN"
+    },
+    {
+      "chain": "A",
+      "resid": 39,
+      "resname": "SER"
+    },
+    {
+      "chain": "A",
+      "resid": 40,
+      "resname": "MET"
+    },
+    {
+      "chain": "A",
+      "resid": 41,
+      "resname": "ASP"
+    },
+    {
+      "chain": "A",
+      "resid": 42,
+      "resname": "SER"
+    },
+    {
+      "chain": "A",
+      "resid": 44,
+      "resname": "HIS"
+    },
+    {
+      "chain": "A",
+      "resid": 45,
+      "resname": "VAL"
+    },
+    {
+      "chain": "A",
+      "resid": 46,
+      "resname": "SER"
+    },
+    {
+      "chain": "A",
+      "resid": 47,
+      "resname": "LEU"
+    }
+  ],
+  "fringe_2of3": [
+    {
+      "chain": "A",
+      "resid": 27,
+      "resname": "CYS"
+    },
+    {
+      "chain": "A",
+      "resid": 43,
+      "resname": "SER"
+    },
+    {
+      "chain": "A",
+      "resid": 232,
+      "resname": "ASP"
+    },
+    {
+      "chain": "A",
+      "resid": 233,
+      "resname": "VAL"
+    },
+    {
+      "chain": "A",
+      "resid": 234,
+      "resname": "PRO"
+    }
+  ],
+  "uncertain_fringe_1of3": [
+    {
+      "chain": "A",
+      "resid": 231,
+      "resname": "ALA"
+    },
+    {
+      "chain": "A",
+      "resid": 250,
+      "resname": "TYR"
+    },
+    {
+      "chain": "A",
+      "resid": 251,
+      "resname": "LEU"
+    },
+    {
+      "chain": "A",
+      "resid": 252,
+      "resname": "ALA"
+    }
+  ],
+  "interface_chain_indices": [
+    0
+  ],
+  "note": "Analysis (analyze_md.py) targets these residues on the biological assembly."
+}

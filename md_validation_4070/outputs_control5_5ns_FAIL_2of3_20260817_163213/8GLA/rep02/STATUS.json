@@ -1,0 +1,29 @@
+{
+  "status": "COMPLETE",
+  "updated_utc": "2026-08-17T18:30:19.712693+00:00",
+  "pid": 58280,
+  "hostname": "RishiPC",
+  "config": {
+    "pocket": "final_consensus_1w60_20260815",
+    "role": "control",
+    "pdb": "8GLA",
+    "replicate": 2,
+    "target_ns": 5.0,
+    "equil_ns": 2.0,
+    "target_total_steps": 1750000,
+    "target_production_steps": 1250000,
+    "timestep_fs": 4.0,
+    "report_ps": 50.0,
+    "checkpoint_ps": 10.0,
+    "report_every_steps": 12500,
+    "checkpoint_every_steps": 2500,
+    "seed": 20260002
+  },
+  "started_utc": "2026-08-17T17:26:16.107289+00:00",
+  "current_step": 1750000,
+  "current_production_ns": 5.0,
+  "current_time_ns": 7.0,
+  "dcd_frames": null,
+  "done_json": "md_validation_4070\\outputs_control5\\8GLA\\rep02\\DONE.json",
+  "ns_per_day_observed": 112.3947351516763
+}

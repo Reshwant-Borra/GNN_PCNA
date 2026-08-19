@@ -1,0 +1,61 @@
+{
+  "pdb_id": "8GLA",
+  "assembly": "1",
+  "chains_seen": [
+    {
+      "chain": "A1",
+      "n_poly_res": 240,
+      "protein": true
+    },
+    {
+      "chain": "B1",
+      "n_poly_res": 242,
+      "protein": true
+    },
+    {
+      "chain": "C1",
+      "n_poly_res": 239,
+      "protein": true
+    }
+  ],
+  "kept_protein_chains": [
+    "A1",
+    "B1",
+    "C1"
+  ],
+  "expected_protein_chains": 3,
+  "final_chains": [
+    {
+      "id": "A",
+      "n_res": 253
+    },
+    {
+      "id": "B",
+      "n_res": 253
+    },
+    {
+      "id": "C",
+      "n_res": 254
+    }
+  ],
+  "internal_missing_residues_rebuilt": 50,
+  "note": "Biological assembly reconstructed (gemmi). Protein-only, peptides/ligands/waters dropped by >= 200 aa filter. Terminal missing residues NOT fabricated. 50 internal residues rebuilt by PDBFixer - if this is large and the structure is low-resolution (e.g. 8GLA 3.77 A), treat pocket side-chain geometry as modeled, not observed (report as a caveat).",
+  "pocket_residues_resseq": [
+    25,
+    26,
+    27,
+    38,
+    39,
+    40,
+    41,
+    42,
+    43,
+    44,
+    45,
+    46,
+    47,
+    232,
+    233,
+    234
+  ]
+}

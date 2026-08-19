@@ -1,0 +1,189 @@
+{
+  "replicate": 1,
+  "pdb": "8GLA",
+  "role": "control",
+  "ns": 20.0,
+  "md_stage": "control_extension",
+  "production_ns": 20.0,
+  "equil_ns": 2.0,
+  "production_steps": 5000000,
+  "target_production_steps": 5000000,
+  "equilibration_steps": 500000,
+  "report_ps": 50.0,
+  "checkpoint_ps": 10.0,
+  "seed": 20260001,
+  "steps": 5500000,
+  "target_total_steps": 5500000,
+  "timestep_fs": 4.0,
+  "hmr": true,
+  "hmr_amu": 4.0,
+  "final_potential_kj_mol": -2111964.376623595,
+  "backbone_rmsd_nm": 0.19403140917605108,
+  "minimization": {
+    "initial_potential_kj_mol": 2732841310.793889,
+    "minimized_potential_kj_mol": -2621648.8580656685,
+    "delta_potential_kj_mol": -2735462959.6519547,
+    "max_force_initial_kj_mol_nm": 3719550228.189512,
+    "max_force_minimized_kj_mol_nm": 2607.4675415837833,
+    "max_iterations": 5000
+  },
+  "smoke_safety_checks": {
+    "minimization_success": true,
+    "initial_potential_kj_mol": 2732841310.793889,
+    "final_minimized_potential_kj_mol": -2621648.8580656685,
+    "minimization_reduced_potential_energy": true,
+    "final_potential_energy_finite": true,
+    "coordinates_finite": true,
+    "catastrophic_bond_or_geometry_failure": false,
+    "bond_geometry_check": {
+      "measured": true,
+      "max_bond_length_nm": 0.20003904174558082,
+      "threshold_nm": 0.25,
+      "offending_bond_count": 0,
+      "offending_bonds_sample": [],
+      "failed": false
+    },
+    "temperature_density_logged": true,
+    "equilibration_acceptance": {
+      "log": "equilibration.log",
+      "log_status": "ok",
+      "equilibration_ns": 2.0,
+      "samples": 200,
+      "accepted": true,
+      "checks": {
+        "equilibration_log_readable": {
+          "evaluated": true,
+          "pass": true,
+          "detail": "parsed 11 columns"
+        },
+        "temperature_mean_in_range": {
+          "evaluated": true,
+          "pass": true,
+          "detail": "mean 311.18 K, accept 300.0-320.0 K"
+        },
+        "temperature_no_runaway": {
+          "evaluated": true,
+          "pass": true,
+          "detail": "max |T - 310| after first 20% = 3.37 K, limit 15 K"
+        },
+        "temperature_finite": {
+          "evaluated": true,
+          "pass": true,
+          "detail": "all temperature samples finite"
+        },
+        "density_final_in_range": {
+          "evaluated": true,
+          "pass": true,
+          "detail": "final 1.0096 g/mL, accept 0.95-1.1"
+        },
+        "potential_energy_finite": {
+          "evaluated": true,
+          "pass": true,
+          "detail": "all potential-energy samples finite"
+        },
+        "potential_energy_no_runaway": {
+          "evaluated": true,
+          "pass": true,
+          "detail": "final-half |shift| 2258 kJ/mol = 0.1068% of |mean PE| 2.114e+06 kJ/mol (limit 1%); monotonic=False"
+        },
+        "box_volume_finite_positive": {
+          "evaluated": true,
+          "pass": true,
+          "detail": "min 1580.57 nm^3, max 1599.74 nm^3"
+        },
+        "box_volume_no_discontinuity": {
+          "evaluated": true,
+          "pass": true,
+          "detail": "max frame-to-frame relative change 0.0075, limit 0.10"
+        },
+        "pressure_mean_in_range": {
+          "evaluated": false,
+          "pass": null,
+          "detail": "OpenMM StateDataReporter exposes no instantaneous pressure observable; the MonteCarloBarostat maintains the target pressure by construction. Not evaluable from the log, and deliberately not reported as a pass."
+        },
+        "backbone_rmsd_within_limits": {
+          "evaluated": true,
+          "pass": true,
+          "detail": "post-equilibration backbone RMSD 0.190 nm (warn 0.5 nm, fail 1.0 nm)"
+        }
+      },
+      "failures": [],
+      "warnings": [],
+      "criteria_source": "EQUILIBRATION_ACCEPTANCE_CRITERIA.json",
+      "post_equilibration_backbone_rmsd_nm": 0.19038324574091167
+    },
+    "candidate_region_mapping_integrity": {
+      "measured": true,
+      "interface_chain_indices": [
+        0
+      ],
+      "requested_residues": [
+        25,
+        26,
+        27,
+        38,
+        39,
+        40,
+        41,
+        42,
+        43,
+        44,
+        45,
+        46,
+        47,
+        232,
+        233,
+        234
+      ],
+      "resolved_residues": [
+        25,
+        26,
+        27,
+        38,
+        39,
+        40,
+        41,
+        42,
+        43,
+        44,
+        45,
+        46,
+        47,
+        232,
+        233,
+        234
+      ],
+      "missing_residues": [],
+      "atoms_per_resolved_residue": {
+        "25": 15,
+        "26": 10,
+        "27": 11,
+        "38": 17,
+        "39": 11,
+        "40": 17,
+        "41": 12,
+        "42": 11,
+        "43": 11,
+        "44": 17,
+        "45": 16,
+        "46": 11,
+        "47": 19,
+        "232": 12,
+        "233": 16,
+        "234": 14
+      },
+      "all_candidate_residues_present": true
+    }
+  },
+  "sanity_gate": "passed: finite energy+coords, backbone RMSD 0.19 nm < 1.0 nm",
+  "topology": "system_solvated.pdb",
+  "trajectory": "production.dcd",
+  "dcd_frames": null,
+  "checkpoint": "state.chk",
+  "resumed": true,
+  "resume_count": 1,
+  "wall_seconds": 7953.825808048248,
+  "ns_per_day_observed": 217.25394064470035,
+  "started_utc": "2026-08-17T16:22:21.949369+00:00",
+  "finished_utc": "2026-08-17T23:19:04.079739+00:00"
+}

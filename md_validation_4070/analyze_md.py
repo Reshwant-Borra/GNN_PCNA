@@ -507,6 +507,25 @@ def assess_convergence(series, n_blocks=3, max_final_shift_sd=0.5):
     }
 
 
+# Two-sided 95% Student's t critical values by degrees of freedom (df = n_replicates - 1).
+# With n as small as 2-3 replicates, the normal-approximation z=1.96 badly understates the
+# true interval (e.g. df=2 needs t=4.303, not 1.96) -- it silently reports a ~68% interval
+# as if it were 95%. Falls back to the z=1.96 large-sample limit beyond the tabulated range.
+_T95_BY_DF = {
+    1: 12.706, 2: 4.303, 3: 3.182, 4: 2.776, 5: 2.571, 6: 2.447, 7: 2.365, 8: 2.306, 9: 2.262,
+    10: 2.228, 11: 2.201, 12: 2.179, 13: 2.160, 14: 2.145, 15: 2.131, 16: 2.120, 17: 2.110,
+    18: 2.101, 19: 2.093, 20: 2.086, 21: 2.080, 22: 2.074, 23: 2.069, 24: 2.064, 25: 2.060,
+    26: 2.056, 27: 2.052, 28: 2.048, 29: 2.045, 30: 2.042,
+}
+
+
+def t95_critical_value(df: int) -> float:
+    """Two-sided 95% t critical value for the given degrees of freedom (n_replicates - 1)."""
+    if df < 1:
+        return float("nan")
+    return _T95_BY_DF.get(int(df), 1.96)
+
+
 def aggregate_replicates(rows: list[dict], metric_path: tuple[str, ...] = ("openness", "open_like_fraction")) -> dict:
     """Aggregate per-replicate metrics without concatenating independent replicas."""
     import statistics
@@ -528,9 +547,12 @@ def aggregate_replicates(rows: list[dict], metric_path: tuple[str, ...] = ("open
         mean = statistics.mean(vals) if vals else None
         sd = statistics.stdev(vals) if len(vals) > 1 else 0.0 if len(vals) == 1 else None
         ci = None
+        ci_method = None
         if len(vals) >= 2:
-            half = 1.96 * sd / math.sqrt(len(vals))
+            t_crit = t95_critical_value(len(vals) - 1)
+            half = t_crit * sd / math.sqrt(len(vals))
             ci = [mean - half, mean + half]
+            ci_method = f"t95(df={len(vals) - 1})={t_crit:.3f}"
         convergence = [r.get("convergence", {}).get("overall_status") for r in reps]
         out[role] = {
             "independent_unit": "replicate",
@@ -542,6 +564,7 @@ def aggregate_replicates(rows: list[dict], metric_path: tuple[str, ...] = ("open
             "mean": mean,
             "sd": sd,
             "approx_95ci_across_replicates": ci,
+            "approx_95ci_method": ci_method,
             "range": [min(vals), max(vals)] if vals else None,
             "convergence_statuses": convergence,
         }
@@ -731,9 +754,15 @@ def evaluate_control_interpretability(rows, min_replicates=CONTROL_MIN_REPLICATE
                     f"rejection threshold {dccm_thr:.4f} (N={n_prod}): displacement is not "
                     "collective")
 
+        dynamics_detected = (
+            r1_thr is not None and dccm_thr is not None
+            and r1 is not None and dccm_abs is not None
+            and float(r1) >= r1_thr and float(dccm_abs) >= dccm_thr
+        )
         per_replicate.append({
             "replicate": rep,
             "qualifies": not rep_issues,
+            "dynamics_detected": dynamics_detected,
             "open_like_fraction": open_frac,
             "pocket_rmsf_mean_nm": rmsf,
             "n_production_frames": n_prod,
@@ -749,6 +778,34 @@ def evaluate_control_interpretability(rows, min_replicates=CONTROL_MIN_REPLICATE
         issues.extend(f"{rep}: {x}" for x in rep_issues)
 
     pass_gate = len(control) >= min_replicates and qualifying >= min_replicates and not issues
+    n_dynamic = sum(1 for pr in per_replicate if pr["dynamics_detected"])
+    if pass_gate:
+        reason = (
+            "PASS: independent control trajectories are complete, artifact-free, open-like, and "
+            "their motion is statistically distinguishable from a static structure with "
+            "per-frame coordinate noise on both the temporal and collectivity discriminators."
+        )
+    elif n_dynamic == 0:
+        # No replicate rejected the static-structure-plus-noise null: this really is a "the
+        # trajectories look like jittered crystal structures" failure.
+        reason = (
+            "FAIL: control trajectories did not demonstrate trajectory-derived dynamics beyond "
+            "static starting-state separation plus per-frame noise."
+        )
+    else:
+        # At least one replicate rejected the IID-noise null (D1 and D2 both cleared their
+        # analytic thresholds), so the blanket "no dynamics" message would misstate the result.
+        # The gate still failed for some other, separately-named reason (most commonly the
+        # frozen open-like-fraction reproducibility floor) -- name that reason instead of
+        # implying the trajectories were indistinguishable from noise.
+        reason = (
+            f"FAIL: {n_dynamic}/{len(control)} control replicate(s) demonstrated trajectory-"
+            "derived dynamics distinguishable from a static structure plus per-frame noise "
+            f"(D1 and D2 both cleared their analytic IID-null thresholds), but only "
+            f"{qualifying}/{len(control)} replicate(s) met every frozen qualification criterion. "
+            f"The gate requires {int(min_replicates)}/{int(min_replicates)}. "
+            f"Per-replicate detail: {'; '.join(issues) if issues else 'see per_replicate'}."
+        )
     return {
         "name": "trajectory_dynamic_control_gate_v2",
         "status": "PASS" if pass_gate else "FAIL",
@@ -770,16 +827,10 @@ def evaluate_control_interpretability(rows, min_replicates=CONTROL_MIN_REPLICATE
             "k_sigma": DYNAMIC_NULL_K_SIGMA,
         },
         "qualifying_control_replicates": int(qualifying),
+        "replicates_with_detected_dynamics": int(n_dynamic),
         "per_replicate": per_replicate,
         "issues": issues,
-        "reason": (
-            "PASS: independent control trajectories are complete, artifact-free, open-like, and "
-            "their motion is statistically distinguishable from a static structure with "
-            "per-frame coordinate noise on both the temporal and collectivity discriminators."
-            if pass_gate else
-            "FAIL: control trajectories did not demonstrate trajectory-derived dynamics beyond "
-            "static starting-state separation plus per-frame noise."
-        ),
+        "reason": reason,
     }
 
 

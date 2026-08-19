@@ -1,0 +1,81 @@
+{
+  "schema_version": 1,
+  "md_stage": "control_validation",
+  "production_authorization_sha256": null,
+  "structure_pdb_id": "8GLA",
+  "role": "control",
+  "replicate": 1,
+  "random_seed": 20260001,
+  "start_utc": "2026-08-17T16:22:21.949369+00:00",
+  "end_utc": "2026-08-17T17:26:16.019744+00:00",
+  "resumed": false,
+  "system_atom_count": 157020,
+  "environment": {
+    "hostname": "RishiPC",
+    "os": "Windows-10-10.0.26200-SP0",
+    "python": "3.11.15 | packaged by conda-forge | (main, Mar  5 2026, 16:36:00) [MSC v.1944 64 bit (AMD64)]",
+    "cpu_model": "Intel64 Family 6 Model 183 Stepping 1, GenuineIntel",
+    "nvidia": {
+      "available": true,
+      "gpus": [
+        {
+          "name": "NVIDIA GeForce RTX 4070",
+          "driver_version": "595.95",
+          "cuda_version": "13.2"
+        }
+      ]
+    },
+    "openmm_version": "8.2.0.dev-5377094",
+    "openmm_platforms": [
+      "Reference",
+      "CPU",
+      "CUDA",
+      "OpenCL"
+    ],
+    "platform_used": "CUDA",
+    "precision": "mixed"
+  },
+  "git": {
+    "commit": "4de7a5d78cce7b2e6bf1d049c599b6e458e8cdc3",
+    "branch": "HEAD",
+    "dirty": true,
+    "dirty_file_count": 2,
+    "dirty_status_sample": [
+      "?? md_validation_4070/outputs_control5/",
+      "?? md_validation_4070/outputs_repaired_smoke/"
+    ]
+  },
+  "scientific_parameters": {
+    "force_field": [
+      "amber14-all.xml",
+      "amber14/tip3p.xml"
+    ],
+    "water_model": "TIP3P",
+    "salt_concentration_molar": 0.15,
+    "temperature_kelvin": 310.0,
+    "pressure_bar": 1.0,
+    "timestep_fs": 4.0,
+    "hmr_enabled": true,
+    "hmr_hydrogen_mass_amu": 4.0,
+    "pme_cutoff_nm": 1.0,
+    "constraints": "HBonds",
+    "rigid_water": true,
+    "equilibration_ns": 2.0,
+    "production_ns": 5.0,
+    "output_interval_ps": 50.0,
+    "checkpoint_interval_ps": 10.0,
+    "minimization_max_iterations": 5000
+  },
+  "input_hashes": {
+    "prepared_protein_pdb_sha256": "4897c6717739de5e54d7a5fbb8c4e8f1d2d55ed0ce7820b181bc6bc00aed74b2",
+    "system_solvated_pdb_sha256": "92f45fc9f630fdd5a7e62883483381afa0e58303699b795ee0c206d7ea5b22c4",
+    "pocket_definition_sha256": "e88a53b0e36b44cbf7029b5145640f2f932e6e209a094a9b384aa308f8bbc329",
+    "frozen_analysis_protocol_sha256": "c6ddd0fd4f2c9c05c1cf651358a7f59957c9cf077a5dea4c8331f4d4261f2df6"
+  },
+  "command": "'md_validation_4070\\run_md.py' --pocket final_consensus_1w60_20260815 --run control --replicates 3 --ns 5 --outdir 'md_validation_4070\\outputs_control5' --platform CUDA --require-platform --md-stage control_validation",
+  "resume_count": 0,
+  "final_simulation_time_ns": 7.0,
+  "final_production_time_ns": 5.0,
+  "observed_ns_per_day": 112.55132998174749,
+  "status": "COMPLETE"
+}

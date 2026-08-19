@@ -1,0 +1,17 @@
+{
+  "resume_count": 1,
+  "resume_events": [
+    {
+      "timestamp_utc": "2026-08-18T01:32:11.017317+00:00",
+      "checkpoint_used": "state.chk",
+      "checkpoint_mtime_utc": "2026-08-17T19:33:28.893163+00:00",
+      "previous_step_from_checkpoint": 1750000,
+      "previous_time_ns_from_checkpoint": 7.0,
+      "resumed_step": 1750000,
+      "resumed_time_ns": 7.0,
+      "resumed_production_time_ns": 5.0,
+      "existing_dcd_frames": 100,
+      "invalid_candidates": []
+    }
+  ]
+}

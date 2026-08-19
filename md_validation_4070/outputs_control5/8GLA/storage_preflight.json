@@ -1,0 +1,19 @@
+{
+  "atom_count": 157020,
+  "trajectory_format": "DCD single precision coordinates",
+  "frames_per_replicate": 400,
+  "dcd_bytes_per_replicate": 753700096,
+  "log_bytes_per_replicate_estimate": 204800,
+  "checkpoint_bytes_per_replicate_estimate": 33554432,
+  "replicates": 3,
+  "raw_estimated_bytes": 2362377984,
+  "safety_factor": 1.5,
+  "required_free_bytes": 3543566976,
+  "pocket": "final_consensus_1w60_20260815",
+  "role": "control",
+  "pdb_id": "8GLA",
+  "production_ns_per_replicate": 20.0,
+  "output_interval_ps": 50.0,
+  "checkpoint_interval_ps": 10.0,
+  "free_bytes": 329599852544
+}

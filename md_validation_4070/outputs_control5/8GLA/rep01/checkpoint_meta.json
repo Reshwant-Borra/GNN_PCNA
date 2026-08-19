@@ -1,0 +1,173 @@
+{
+  "writes_count": 2003,
+  "recent_checkpoints": [
+    {
+      "timestamp_utc": "2026-08-17T23:17:27.324310+00:00",
+      "step": 5455000,
+      "simulation_time_ns": 21.82,
+      "production_time_ns": 19.82,
+      "checkpoint": "state.chk",
+      "reason": "periodic"
+    },
+    {
+      "timestamp_utc": "2026-08-17T23:17:32.531347+00:00",
+      "step": 5457500,
+      "simulation_time_ns": 21.83,
+      "production_time_ns": 19.83,
+      "checkpoint": "state.chk",
+      "reason": "periodic"
+    },
+    {
+      "timestamp_utc": "2026-08-17T23:17:37.892712+00:00",
+      "step": 5460000,
+      "simulation_time_ns": 21.84,
+      "production_time_ns": 19.84,
+      "checkpoint": "state.chk",
+      "reason": "periodic"
+    },
+    {
+      "timestamp_utc": "2026-08-17T23:17:43.354133+00:00",
+      "step": 5462500,
+      "simulation_time_ns": 21.849999999999998,
+      "production_time_ns": 19.849999999999998,
+      "checkpoint": "state.chk",
+      "reason": "periodic"
+    },
+    {
+      "timestamp_utc": "2026-08-17T23:17:48.624577+00:00",
+      "step": 5465000,
+      "simulation_time_ns": 21.86,
+      "production_time_ns": 19.86,
+      "checkpoint": "state.chk",
+      "reason": "periodic"
+    },
+    {
+      "timestamp_utc": "2026-08-17T23:17:53.980199+00:00",
+      "step": 5467500,
+      "simulation_time_ns": 21.869999999999997,
+      "production_time_ns": 19.869999999999997,
+      "checkpoint": "state.chk",
+      "reason": "periodic"
+    },
+    {
+      "timestamp_utc": "2026-08-17T23:17:59.194154+00:00",
+      "step": 5470000,
+      "simulation_time_ns": 21.88,
+      "production_time_ns": 19.88,
+      "checkpoint": "state.chk",
+      "reason": "periodic"
+    },
+    {
+      "timestamp_utc": "2026-08-17T23:18:04.604525+00:00",
+      "step": 5472500,
+      "simulation_time_ns": 21.89,
+      "production_time_ns": 19.89,
+      "checkpoint": "state.chk",
+      "reason": "periodic"
+    },
+    {
+      "timestamp_utc": "2026-08-17T23:18:10.049148+00:00",
+      "step": 5475000,
+      "simulation_time_ns": 21.9,
+      "production_time_ns": 19.9,
+      "checkpoint": "state.chk",
+      "reason": "periodic"
+    },
+    {
+      "timestamp_utc": "2026-08-17T23:18:15.438320+00:00",
+      "step": 5477500,
+      "simulation_time_ns": 21.91,
+      "production_time_ns": 19.91,
+      "checkpoint": "state.chk",
+      "reason": "periodic"
+    },
+    {
+      "timestamp_utc": "2026-08-17T23:18:20.728471+00:00",
+      "step": 5480000,
+      "simulation_time_ns": 21.919999999999998,
+      "production_time_ns": 19.919999999999998,
+      "checkpoint": "state.chk",
+      "reason": "periodic"
+    },
+    {
+      "timestamp_utc": "2026-08-17T23:18:26.039661+00:00",
+      "step": 5482500,
+      "simulation_time_ns": 21.93,
+      "production_time_ns": 19.93,
+      "checkpoint": "state.chk",
+      "reason": "periodic"
+    },
+    {
+      "timestamp_utc": "2026-08-17T23:18:31.412829+00:00",
+      "step": 5485000,
+      "simulation_time_ns": 21.939999999999998,
+      "production_time_ns": 19.939999999999998,
+      "checkpoint": "state.chk",
+      "reason": "periodic"
+    },
+    {
+      "timestamp_utc": "2026-08-17T23:18:36.817215+00:00",
+      "step": 5487500,
+      "simulation_time_ns": 21.95,
+      "production_time_ns": 19.95,
+      "checkpoint": "state.chk",
+      "reason": "periodic"
+    },
+    {
+      "timestamp_utc": "2026-08-17T23:18:42.182147+00:00",
+      "step": 5490000,
+      "simulation_time_ns": 21.959999999999997,
+      "production_time_ns": 19.96,
+      "checkpoint": "state.chk",
+      "reason": "periodic"
+    },
+    {
+      "timestamp_utc": "2026-08-17T23:18:47.380398+00:00",
+      "step": 5492500,
+      "simulation_time_ns": 21.97,
+      "production_time_ns": 19.97,
+      "checkpoint": "state.chk",
+      "reason": "periodic"
+    },
+    {
+      "timestamp_utc": "2026-08-17T23:18:52.732377+00:00",
+      "step": 5495000,
+      "simulation_time_ns": 21.98,
+      "production_time_ns": 19.98,
+      "checkpoint": "state.chk",
+      "reason": "periodic"
+    },
+    {
+      "timestamp_utc": "2026-08-17T23:18:57.941150+00:00",
+      "step": 5497500,
+      "simulation_time_ns": 21.99,
+      "production_time_ns": 19.99,
+      "checkpoint": "state.chk",
+      "reason": "periodic"
+    },
+    {
+      "timestamp_utc": "2026-08-17T23:19:03.449324+00:00",
+      "step": 5500000,
+      "simulation_time_ns": 22.0,
+      "production_time_ns": 20.0,
+      "checkpoint": "state.chk",
+      "reason": "periodic"
+    },
+    {
+      "timestamp_utc": "2026-08-17T23:19:03.541219+00:00",
+      "step": 5500000,
+      "simulation_time_ns": 22.0,
+      "production_time_ns": 20.0,
+      "checkpoint": "state.chk",
+      "reason": "complete"
+    }
+  ],
+  "last_checkpoint": {
+    "timestamp_utc": "2026-08-17T23:19:03.541219+00:00",
+    "step": 5500000,
+    "simulation_time_ns": 22.0,
+    "production_time_ns": 20.0,
+    "checkpoint": "state.chk",
+    "reason": "complete"
+  }
+}

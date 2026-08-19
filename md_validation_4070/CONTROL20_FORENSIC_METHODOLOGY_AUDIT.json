@@ -1,0 +1,154 @@
+{
+  "audit_date_utc": "2026-08-19",
+  "audited_repo": "C:\\Users\\reshw\\Desktop\\GNN_PCNA_FINAL",
+  "audited_branch": "audit/control20-forensic-methodology",
+  "branched_from": "control20-extension",
+  "branched_from_commits": ["cb65934", "03b6eb2", "f1b4838"],
+  "cross_referenced_repo": "C:\\Users\\reshw\\Desktop\\GNN_PCNA",
+  "primary_verdict": "MIXED_FINDINGS_REQUIRE_NEW_PROSPECTIVE_PROTOCOL",
+  "control5_status": {
+    "result": "FAIL",
+    "qualifying_replicates": "2/3",
+    "preserved_at": "md_validation_4070/outputs_control5_5ns_FAIL_2of3_20260817_163213/",
+    "modified_by_this_audit": false
+  },
+  "control20_status": {
+    "result": "FAIL",
+    "qualifying_replicates": "2/3",
+    "outdir": "md_validation_4070/outputs_control5/",
+    "modified_by_this_audit": false,
+    "per_replicate": [
+      {"replicate": "8GLA/rep01", "qualifies": true, "open_like_fraction": 0.4066666667,
+       "D1": 0.6226448349, "D1_threshold": 0.1732050808,
+       "D2": 0.5128346682, "D2_threshold": 0.1381976598, "only_failure": null},
+      {"replicate": "8GLA/rep02", "qualifies": false, "open_like_fraction": 0.13,
+       "D1": 0.3949652845, "D1_threshold": 0.1732050808,
+       "D2": 0.5383971930, "D2_threshold": 0.1381976598,
+       "only_failure": "open-like fraction 0.130 below 0.200"},
+      {"replicate": "8GLA/rep03", "qualifies": true, "open_like_fraction": 0.2766666667,
+       "D1": 0.5204973224, "D1_threshold": 0.1732050808,
+       "D2": 0.4838913381, "D2_threshold": 0.1381976598, "only_failure": null}
+    ]
+  },
+  "all_three_trajectories_show_real_dynamics": {
+    "answer": "YES",
+    "evidence": "D1 and D2 both exceed the analytic IID-null rejection threshold for all three replicates, by 2.9x-4.5x on D1 and 3.5x-3.9x on D2."
+  },
+  "exact_reason_rep02_failed": "open-like fraction 0.130 is below the frozen 0.200 minimum; D1, D2, RMSF floor, artifact checks, and trajectory length were all satisfied.",
+  "threshold_0.20_justification": {
+    "prospectively_defined": true,
+    "frozen_commit": "0fedaa3",
+    "frozen_utc": "2026-08-16T03:31:59Z",
+    "control5_data_completed_utc_range": ["2026-08-17T21:06:30Z", "2026-08-18T01:32:07Z"],
+    "scientifically_justified": "PARTIALLY",
+    "notes": "No analytic derivation, citation, or literature basis found in the codebase or docs for 0.20 specifically (unlike D1/D2, which have an explicit analytic derivation). Round-number heuristic, prospectively frozen but not independently justified."
+  },
+  "absolute_openness_thresholds_justification": {
+    "values": {"core_sasa_A2": 501.317, "supported_sasa_A2": 808.568, "supported_ca_convex_hull_volume_A3": 560.687},
+    "source": "midpoint between two single static reference structures (1W60 apo, ligand-stripped 8GLA), fixed before any Control MD ran",
+    "scientifically_justified": "PARTIALLY",
+    "notes": "No MD-outcome leakage/circularity found (values predate Control-5/20 data). Statistically thin: n=1 structure per anchor class, self-disclosed in FROZEN_MD_ANALYSIS_PROTOCOL.json as 'validated only as static reference discriminator before production'."
+  },
+  "d1_mathematically_valid": {"answer": "YES", "basis": "Approximate large-N Gaussian rejection of IID null using Bartlett's-formula SE ~ 1/sqrt(N) for lag-1 autocorrelation of white noise; N = true analyzed frame count is the correct quantity for testing exactly that null, not pseudoreplication."},
+  "d2_mathematically_valid": {"answer": "YES", "basis": "Half-normal expectation sqrt(2/pi)/sqrt(N) for |correlation| of IID per-atom noise; threshold = k_sigma times that expectation. Minor simplification (uses k*mean rather than mean+k*SD) does not affect any of the three replicates' conclusions given 3.5-3.9x margins."},
+  "trajectories_converged": {
+    "answer": "UNCERTAIN / EVIDENCE LEANS NO",
+    "evidence": "All three replicates report convergence.overall_status = DRIFTING_BLOCKS for essentially every region and metric (RMSD, SASA, CA-hull volume) across the full 15 ns analyzed window, frequently with monotonic block means, including in the two replicates that qualified the gate.",
+    "gate_impact": "None -- convergence is informational only and does not gate PASS/FAIL, correctly."
+  },
+  "8gla_valid_positive_control": {
+    "answer": "PARTIALLY",
+    "notes": [
+      "Legitimate, published, real structure (RCSB 8GLA, PCNA:AOH1996-1LE co-crystal, 3.77 A, Cell Chem Biol 2023 / PMC10592352).",
+      "Ligand (AOH1996-1LE) is stripped before MD; this is an apo-from-holo-start design, a distinct hypothesis from 'does the ligand keep it open'.",
+      "50 internal residues rebuilt by PDBFixer at 3.77 A resolution, BUT confirmed (via MD_STRUCTURE_VALIDATION.json candidate_missing/candidate_residue_names) that none of the analyzed pocket residues (25-27,38-47,231-234,250-252) fall inside a rebuilt/missing region in any chain.",
+      "Conflates three distinct hypotheses (GNN positive control / MD pipeline positive control / pocket-opening reproducibility positive control) that a future protocol should separate."
+    ]
+  },
+  "failure_message_accurate": {
+    "pre_patch": "NO -- fixed blanket 'no dynamics' message was used even when 2 or 3 replicates positively rejected the static-noise null on D1 and D2.",
+    "post_patch": "YES -- reason now names how many replicates showed detected dynamics and why the gate still failed."
+  },
+  "software_bugs_found": [
+    {
+      "id": "SEQRES_MISSING_RESIDUE_BUG",
+      "classification": "SOFTWARE BUG, RESOLVED, PRE-DATES CURRENT DATA",
+      "summary": "Pre-2026-08-12, gemmi-rebuilt structures lost SEQRES, so PDBFixer could not detect internal gaps in 8GLA; OpenMM then bonded flanking residues across unresolved loops (13 bonds up to 10.79 A, one at 183,222 kJ/mol strain), asymmetrically affecting only the control system.",
+      "fixed_in_commit": "47f954b",
+      "fixed_utc": "2026-08-12",
+      "confirmed_absent_from_audited_data": true,
+      "evidence": "outputs_control5/8GLA/prep/prep_audit.json shows internal_missing_residues_rebuilt=50 (correct); a hard fail-closed assert_no_impossible_bonds() now runs before every simulation build."
+    },
+    {
+      "id": "FAIL_REASON_OVERGENERALIZATION",
+      "classification": "DOCUMENTATION/REPORTING BUG",
+      "summary": "evaluate_control_interpretability() FAIL reason was a single fixed string implying no replicate showed dynamics, even when D1/D2 were satisfied and only open-like-fraction reproducibility failed.",
+      "status": "PATCHED_BY_THIS_AUDIT"
+    },
+    {
+      "id": "AGGREGATE_CI_Z_INSTEAD_OF_T",
+      "classification": "STATISTICAL BUG",
+      "summary": "aggregate_replicates() used the z=1.96 large-sample approximation for the replicate-level 95% CI even at n=2-3 replicates, understating the true interval (t=4.303 needed at n=3, not 1.96). Does not affect gate PASS/FAIL (aggregate CI is descriptive only, never gates).",
+      "status": "PATCHED_BY_THIS_AUDIT"
+    },
+    {
+      "id": "CONTROL_REPORT_FIXED_PATH_NO_STAGE_IDENTITY",
+      "classification": "PROVENANCE FAILURE",
+      "summary": "write_control_report() wrote to a fixed path with no stage/outdir identity recorded in the file; the only reason the Control-5 FAIL result survived Control-20 overwriting it was a manual human file copy, not an enforced mechanism.",
+      "status": "PATCHED_BY_THIS_AUDIT"
+    }
+  ],
+  "scientific_design_problems_found": [
+    {"id": "OPEN_FRACTION_AND_RMSF_FLOOR_UNDERJUSTIFIED", "classification": "SCIENTIFIC DESIGN WEAKNESS", "summary": "0.20 open-like-fraction floor and 0.015 nm RMSF floor are prospectively frozen but lack an analytic/literature derivation, unlike D1/D2."},
+    {"id": "ABSOLUTE_THRESHOLDS_SINGLE_STRUCTURE_BASIS", "classification": "SCIENTIFIC DESIGN WEAKNESS", "summary": "SASA/hull openness thresholds derived from exactly one static structure per class (n=1), not an ensemble or distribution."},
+    {"id": "PERSISTENT_CONVERGENCE_DRIFT", "classification": "SAMPLING LIMITATION", "summary": "All three replicates show DRIFTING_BLOCKS through the full 15 ns analyzed window, including qualifying replicates -- 20 ns total may be an insufficient sampling horizon for this system."},
+    {"id": "POSITIVE_CONTROL_HYPOTHESIS_CONFLATION", "classification": "SCIENTIFIC DESIGN WEAKNESS", "summary": "GNN positive control, MD pipeline positive control, and pocket-opening reproducibility positive control are not separately named/gated hypotheses."}
+  ],
+  "files_modified": [
+    "md_validation_4070/analyze_md.py",
+    "md_validation_4070/md_workflow.py",
+    "tests/test_control_gate_reason_semantics.py",
+    "tests/test_control_report_stage_provenance.py",
+    "md_validation_4070/CONTROL20_FORENSIC_METHODOLOGY_AUDIT.md",
+    "md_validation_4070/CONTROL20_FORENSIC_METHODOLOGY_AUDIT.json",
+    "md_validation_4070/PROPOSED_FUTURE_MD_VALIDATION_PROTOCOL.md"
+  ],
+  "files_explicitly_not_modified": [
+    "md_validation_4070/FROZEN_MD_ANALYSIS_PROTOCOL.json",
+    "md_validation_4070/outputs_control5/** (all trajectories, DONE.json, PROVENANCE.json)",
+    "md_validation_4070/outputs_control5_5ns_FAIL_2of3_20260817_163213/** (Control-5 historical backup)",
+    "md_validation_4070/CONTROL20_PROSPECTIVE_AMENDMENT_20260817.md",
+    "any gate threshold, residue definition, or replicate-requirement constant"
+  ],
+  "test_results": {
+    "new_tests_added": 16,
+    "new_tests_passing": 16,
+    "broader_suite_run": "tests/ (full)",
+    "broader_suite_passed": 379,
+    "broader_suite_skipped": 6,
+    "broader_suite_failed": 4,
+    "failures": [
+      {"test": "test_cloud_result_bundle.py::test_manifest_hashes_every_large_cloud_resident_source", "classification": "PRE_EXISTING", "cause": "Windows path separator (\\\\) vs POSIX-style path assertion; reproduces identically with this audit's patches stashed out."},
+      {"test": "test_md_launcher_and_control_gate.py::test_production_gate_fails_closed_without_gate6", "classification": "ENVIRONMENTAL", "cause": "Test shells out to `bash md.sh production` via WSL; WSL/bash not available in this execution environment."},
+      {"test": "test_paper_lineage_separation.py::test_no_current_result_is_claimed_for_the_frozen_experiment", "classification": "PRE_EXISTING", "cause": "Pre-existing stale outputs/analysis/summary.json left over from an earlier smoke run; reproduces identically with this audit's patches stashed out."},
+      {"test": "test_scientific_guardrails.py::test_documented_choice_is_not_bug_but_remains_challengeable", "classification": "PRE_EXISTING", "cause": "Unrelated ContradictionHunterAgent classification test; reproduces identically with this audit's patches stashed out."}
+    ],
+    "verification_method": "All 4 non-new failures re-run with `git stash push -- md_validation_4070/analyze_md.py md_validation_4070/md_workflow.py` applied, confirming identical failures without this audit's changes."
+  },
+  "gate6_status": {"approved": false, "decision_file_exists": false, "verified": true},
+  "production_authorized": false,
+  "recommended_next_action": "NEW_PROSPECTIVE_CONTROL_PROTOCOL",
+  "outcome_dependence_certification": {
+    "would_recommend_same_new_protocol_if_rep02_scored_0.25": true,
+    "reasoning": "The convergence/sampling-horizon finding is drawn from rep01 and rep03 (both qualifying) as well as rep02, and the threshold-justification gap is a documentation-completeness observation independent of any specific numeric outcome."
+  },
+  "claim_hierarchy_support": {
+    "level_1_technically_valid_trajectories": "SUPPORTED",
+    "level_2_genuine_correlated_dynamics": "SUPPORTED (all 3 replicates)",
+    "level_3_predefined_opening_behavior_occurs": "SUPPORTED (all 3 replicates, non-zero)",
+    "level_4_reproducible_across_replicates": "NOT_SUPPORTED (2/3, requires 3/3)",
+    "level_5_dynamically_meaningful_pocket": "NOT_ESTABLISHED",
+    "level_6_biologically_relevant": "NOT_ESTABLISHED",
+    "level_7_therapeutically_useful": "NOT_ESTABLISHED"
+  }
+}

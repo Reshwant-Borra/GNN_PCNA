@@ -1,0 +1,8 @@
+{
+  "initial_potential_kj_mol": 2732841310.7925367,
+  "minimized_potential_kj_mol": -2627165.4990066197,
+  "delta_potential_kj_mol": -2735468476.2915435,
+  "max_force_initial_kj_mol_nm": 3719550228.189688,
+  "max_force_minimized_kj_mol_nm": 2610.9985438986505,
+  "max_iterations": 5000
+}

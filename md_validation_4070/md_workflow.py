@@ -452,12 +452,45 @@ def write_control_report(args) -> int:
     outdir = Path(args.outdir)
     ok, issues = control5_pass(outdir)
     report = HERE / "CONTROL_INTERPRETABILITY_REPORT.md"
+    verdict = "PASS" if ok else "FAIL"
+
+    # Stage identity: which outdir (and therefore which MD stage -- control5, control20, ...)
+    # produced this verdict. The report path is fixed, so without this a later stage silently
+    # overwrites an earlier stage's DISTINCT verdict with nothing in the file recording that a
+    # different run produced it. Archive the outgoing report first whenever the outdir or the
+    # verdict is about to change, mirroring the manual backup convention already used for the
+    # Control-5 FAIL result (CONTROL_INTERPRETABILITY_REPORT_5ns_FAIL_2of3_20260817_163213.md).
+    try:
+        stage_outdir = str(outdir.resolve().relative_to(ROOT.resolve()))
+    except ValueError:
+        stage_outdir = str(outdir)
+    if report.exists():
+        prev_text = report.read_text(encoding="utf-8")
+        prev_outdir = prev_verdict = None
+        for line in prev_text.splitlines():
+            if line.startswith("Source outdir:"):
+                prev_outdir = line.split(":", 1)[1].strip()
+            elif line.startswith("CONTROL INTERPRETABLE:"):
+                prev_verdict = line.split(":", 1)[1].strip()
+        if prev_outdir is not None and (prev_outdir != stage_outdir or prev_verdict != verdict):
+            ts = datetime.now(timezone.utc).strftime("%Y%m%dT%H%M%SZ")
+            # Use only the outdir's basename (sanitized) in the filename -- prev_outdir may be
+            # an arbitrary absolute path (e.g. a custom --outdir outside ROOT) and Windows caps
+            # total path length, so the full path belongs in the file's "Source outdir:" line,
+            # not in the filename.
+            base = "".join(c if (c.isalnum() or c in "-_.") else "_"
+                           for c in Path(prev_outdir).name)[:60] or "outdir"
+            archive = HERE / f"CONTROL_INTERPRETABILITY_REPORT_ARCHIVED_{base}_{prev_verdict}_{ts}.md"
+            archive.write_text(prev_text, encoding="utf-8")
+            print(f"Archived prior report ({prev_outdir}: {prev_verdict}) -> {archive}")
+
     lines = [
         "# Control-First Interpretability Report",
         "",
         f"Generated: {datetime.now(timezone.utc).isoformat()}",
+        f"Source outdir: {stage_outdir}",
         "",
-        "CONTROL INTERPRETABLE: " + ("PASS" if ok else "FAIL"),
+        "CONTROL INTERPRETABLE: " + verdict,
         "",
     ]
     if issues:

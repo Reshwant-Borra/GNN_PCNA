@@ -1,0 +1,127 @@
+{
+  "schema_version": 1,
+  "md_stage": "control_extension",
+  "production_authorization_sha256": null,
+  "structure_pdb_id": "8GLA",
+  "role": "control",
+  "replicate": 1,
+  "random_seed": 20260001,
+  "start_utc": "2026-08-17T16:22:21.949369+00:00",
+  "end_utc": "2026-08-17T23:19:04.079739+00:00",
+  "resumed": true,
+  "system_atom_count": 157020,
+  "environment": {
+    "hostname": "RishiPC",
+    "os": "Windows-10-10.0.26200-SP0",
+    "python": "3.11.15 | packaged by conda-forge | (main, Mar  5 2026, 16:36:00) [MSC v.1944 64 bit (AMD64)]",
+    "cpu_model": "Intel64 Family 6 Model 183 Stepping 1, GenuineIntel",
+    "nvidia": {
+      "available": true,
+      "gpus": [
+        {
+          "name": "NVIDIA GeForce RTX 4070",
+          "driver_version": "595.95",
+          "cuda_version": "13.2"
+        }
+      ]
+    },
+    "openmm_version": "8.2.0.dev-5377094",
+    "openmm_platforms": [
+      "Reference",
+      "CPU",
+      "CUDA",
+      "OpenCL"
+    ],
+    "platform_used": "CUDA",
+    "precision": "mixed"
+  },
+  "git": {
+    "commit": "03b6eb2111ef91b35c7b091bf5e4d0299df589b4",
+    "branch": "control20-extension",
+    "dirty": true,
+    "dirty_file_count": 7,
+    "dirty_status_sample": [
+      "?? md.pre_control20.sh",
+      "?? md_validation_4070/CONTROL_INTERPRETABILITY_REPORT.md",
+      "?? md_validation_4070/CONTROL_INTERPRETABILITY_REPORT_5ns_FAIL_2of3_20260817_163213.md",
+      "?? md_validation_4070/outputs_control5/",
+      "?? md_validation_4070/outputs_control5_5ns_FAIL_2of3_20260817_163213/",
+      "?? md_validation_4070/outputs_repaired_smoke/",
+      "?? md_validation_4070/run_md.pre_control20.py"
+    ]
+  },
+  "scientific_parameters": {
+    "force_field": [
+      "amber14-all.xml",
+      "amber14/tip3p.xml"
+    ],
+    "water_model": "TIP3P",
+    "salt_concentration_molar": 0.15,
+    "temperature_kelvin": 310.0,
+    "pressure_bar": 1.0,
+    "timestep_fs": 4.0,
+    "hmr_enabled": true,
+    "hmr_hydrogen_mass_amu": 4.0,
+    "pme_cutoff_nm": 1.0,
+    "constraints": "HBonds",
+    "rigid_water": true,
+    "equilibration_ns": 2.0,
+    "production_ns": 20.0,
+    "output_interval_ps": 50.0,
+    "checkpoint_interval_ps": 10.0,
+    "minimization_max_iterations": 5000
+  },
+  "input_hashes": {
+    "prepared_protein_pdb_sha256": "4897c6717739de5e54d7a5fbb8c4e8f1d2d55ed0ce7820b181bc6bc00aed74b2",
+    "system_solvated_pdb_sha256": "92f45fc9f630fdd5a7e62883483381afa0e58303699b795ee0c206d7ea5b22c4",
+    "pocket_definition_sha256": "e88a53b0e36b44cbf7029b5145640f2f932e6e209a094a9b384aa308f8bbc329",
+    "frozen_analysis_protocol_sha256": "c6ddd0fd4f2c9c05c1cf651358a7f59957c9cf077a5dea4c8331f4d4261f2df6"
+  },
+  "command": "'md_validation_4070\\run_md.py' --pocket final_consensus_1w60_20260815 --run control --replicates 3 --ns 20 --outdir 'md_validation_4070\\outputs_control5' --platform CUDA --require-platform --md-stage control_extension",
+  "resume_count": 1,
+  "final_simulation_time_ns": 22.0,
+  "final_production_time_ns": 20.0,
+  "observed_ns_per_day": 217.25394064470035,
+  "status": "COMPLETE",
+  "protocol_amendment": {
+    "kind": "PROSPECTIVE_PROTOCOL_AMENDMENT",
+    "recorded_before_any_extended_data": true,
+    "stage": "control_extension",
+    "amendment_path": "C:\\Users\\reshw\\Desktop\\GNN_PCNA_FINAL\\md_validation_4070\\CONTROL20_PROSPECTIVE_AMENDMENT_20260817.md",
+    "amendment_sha256": "55944d8780e652d7a7cb57180b3a06a51dc63b6d42dc550abd59d13d0283eb2e",
+    "target_production_ns_total": 20.0,
+    "continued_from": {
+      "rep_dir": "md_validation_4070\\outputs_control5\\8GLA\\rep01",
+      "done_json": "md_validation_4070\\outputs_control5\\8GLA\\rep01\\DONE.json",
+      "done_json_sha256": "d99388ac5fff190fde6f1be51003707e6aa89833d2247e9709f4c99155f74bc5",
+      "checkpoint_exists": true,
+      "checkpoint_bytes": 23524899,
+      "production_dcd_exists": true,
+      "production_dcd_bytes": 188432276,
+      "expected_seed": 20260001,
+      "prior_production_ns": 5.0,
+      "prior_production_steps": 1250000,
+      "prior_total_steps": 1750000,
+      "prior_equil_ns": 2.0,
+      "prior_timestep_fs": 4.0,
+      "prior_seed": 20260001,
+      "prior_md_stage": "control_validation",
+      "prior_role": "control",
+      "prior_pdb": "8GLA",
+      "prior_report_ps": 50.0,
+      "prior_checkpoint_ps": 10.0
+    },
+    "prior_control_gate": {
+      "summary_json": "md_validation_4070\\outputs_control5\\analysis\\summary.json",
+      "summary_exists": true,
+      "name": "trajectory_dynamic_control_gate_v2",
+      "status": "FAIL",
+      "qualifying_control_replicates": 2,
+      "minimum_control_replicates": 3,
+      "summary_sha256": "2915ad00d8d08562ffed51b5f1896add1984b1aede0ce6631a97b3ae0cd38bc2"
+    },
+    "authorizes_production": false,
+    "authorizes_gate6": false
+  },
+  "checkpoint_used_for_latest_resume": "state.chk"
+}
